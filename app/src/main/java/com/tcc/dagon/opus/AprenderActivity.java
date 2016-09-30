@@ -29,6 +29,7 @@ import static java.lang.String.valueOf;
 
 
 public class AprenderActivity extends AppCompatActivity {
+    // comentário de teste
     // BANCO DE DADOS
     GerenciadorBanco DB_PROGRESSO;
 
@@ -158,6 +159,7 @@ public class AprenderActivity extends AppCompatActivity {
         listenersBtnModulos();
 
         // CLICK LISTENERS DO MENU PUXÁVEL
+        // sim
         listenersMenuPrincipal();
 
         // Bloqueando módulos ao iniciar o app
