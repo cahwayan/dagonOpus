@@ -30,6 +30,7 @@ import static java.lang.String.valueOf;
 
 public class AprenderActivity extends AppCompatActivity {
     // comentário de teste
+    // teste
     // BANCO DE DADOS
     GerenciadorBanco DB_PROGRESSO;
 
