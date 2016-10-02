@@ -122,11 +122,12 @@ public class CadastroActivity extends AppCompatActivity {
                             return parameters;
                         }
                     };
-                    progresso.dismiss();
-                    // Abre a tela de login após cadastro
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    requestQueue.add(request);
 
+                    // Abre a tela de login após cadastro
+
+                    requestQueue.add(request);
+                    progresso.dismiss();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             }
         });

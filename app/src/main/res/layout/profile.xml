@@ -77,7 +77,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#ddd" />
-
+    <Button
+        android:id="@+id/bt_AprenderActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tela aprender" />
     <Button
         android:id="@+id/btSignOut"
         android:layout_width="match_parent"
@@ -89,4 +93,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Revogar acesso" />
+
 </LinearLayout>

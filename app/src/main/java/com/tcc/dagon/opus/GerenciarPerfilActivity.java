@@ -16,11 +16,19 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.tcc.dagon.opus.R;
 
+
 public class GerenciarPerfilActivity extends AppCompatActivity {
+    EditText edtTeste1;
+    public String emailGGT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
+        edtTeste1 = (EditText)findViewById(R.id.edtNomeTeste);
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

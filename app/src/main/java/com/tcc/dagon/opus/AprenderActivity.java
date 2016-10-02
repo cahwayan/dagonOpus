@@ -34,6 +34,8 @@ public class AprenderActivity extends AppCompatActivity {
     // BANCO DE DADOS
     GerenciadorBanco DB_PROGRESSO;
 
+    String mostraTexto;
+
     // BOTÕES DOS MÓDULOS
     public ImageView btnModulo1, btnModulo2, btnModulo3, btnModulo4, btnModulo5, btnModulo6,
                       btnModulo7, btnModulo8;
@@ -342,11 +344,10 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
-                    Intent gerenciarPerfil = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
-                    startActivity(gerenciarPerfil);
+
                 }
                 else if(position==1){
-
+                finish();
 
                 }
             }
@@ -355,7 +356,12 @@ public class AprenderActivity extends AppCompatActivity {
 
     // Método que adiciona os itens no menu puxável, adapta e os coloca no componente
     private void adicionarItensMenu() {
-        String[] itensMenu = {"Perfil", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
+        /*Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+        String txt = bundle.getString("txt");
+*/
+        String[] itensMenu = {"item1", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }

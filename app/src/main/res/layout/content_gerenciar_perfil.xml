@@ -12,4 +12,11 @@
     tools:context="com.tcc.dagon.opus.GerenciarPerfilActivity"
     tools:showIn="@layout/activity_gerenciar_perfil">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtNomeTeste"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp" />
 </RelativeLayout>

@@ -58,6 +58,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private LinearLayout llLoginForm;
     private Button btSignIn;
     private Button btSignInCustom;
+    private Button btAprender;
     private SignInButton btSignInDefault;
 
     private LinearLayout llConnected;
@@ -74,6 +75,12 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private TextView txtLogin;
 
 
+
+    //variaveis google
+    public String name;
+    public String emailG;
+    public String emailGG;
+
     // String dos componentes email e senha
     private String sEmail, sPassword;
     // Botão de login
@@ -83,7 +90,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private RequestQueue requestQueue;
     private StringRequest request;
     StringsBanco StringsBanco = new StringsBanco();
-
+    GerenciarPerfilActivity gerenc = new GerenciarPerfilActivity();
 
 
     @Override
@@ -212,6 +219,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         btSignIn = (Button) findViewById(R.id.btSignIn);
         btSignInCustom = (Button) findViewById(R.id.btSignInCustom);
         btSignInDefault = (SignInButton) findViewById(R.id.btSignInDefault);
+        btAprender = (Button)findViewById(R.id.bt_AprenderActivity);
 
         // CONECTADO
         llConnected = (LinearLayout) findViewById(R.id.llConnected);
@@ -233,6 +241,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         btSignInCustom.setOnClickListener(MainActivity.this);
         btSignOut.setOnClickListener(MainActivity.this);
         btRevokeAccess.setOnClickListener(MainActivity.this);
+        btAprender.setOnClickListener(MainActivity.this);
     }
 
     public void showUi(boolean status, boolean statusProgressBar){
@@ -283,28 +292,53 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         if(p != null){
             String id = p.getId();
-            String name = p.getDisplayName();
+            name = p.getDisplayName();
             String language = p.getLanguage();
             String profileUrl = p.getUrl();
             String imageUrl = p.getImage().getUrl();
-            String email = Plus.AccountApi.getAccountName(googleApiClient);
+            emailG = Plus.AccountApi.getAccountName(googleApiClient);
 
             tvId.setText(id);
             tvLanguage.setText(language);
             tvName.setText(name);
-            tvEmail.setText(email);
+            tvEmail.setText(emailG);
 
             tvUrlProfile.setText(profileUrl);
             Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
+
+            StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                }
+            }, new Response.ErrorListener() {
+
+
+                public void onErrorResponse(VolleyError error) {
+                }
+            }) {
+                @Override
+                //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> parameters = new HashMap<String, String>();
+                    parameters.put("EMAIL_GOOGLE", emailG);
+                    parameters.put("NOME_GOOGLE", name);
+
+                    return parameters;
+                }
+            };
+
+            // Abre a tela de login após cadastro
+
+
+            requestQueue.add(request);
+
 
             Log.i("Script", "IMG before: "+imageUrl);
             imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
             Log.i("Script", "IMG after: "+imageUrl);
             loadImage(ivProfile, pbProfile, imageUrl);
         }
-        else{
-            Toast.makeText(MainActivity.this, "Dados não liberados", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
 
@@ -341,6 +375,18 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                     }
                 });
             }
+        }
+        else if(v.getId() == R.id.bt_AprenderActivity){
+            Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
+            String txt = emailG.toString();
+            txt = txt.toString();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("txt", txt);
+            intent.putExtras(bundle);
+
+            startActivity(intent);
+
         }
     }
 
