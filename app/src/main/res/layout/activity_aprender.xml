@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:id="@+id/layoutModulos"
+            android:baselineAligned="false">
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo1"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                   />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo1"
+                    android:id="@+id/txtTitulo1"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo1"
+                    android:id="@+id/txtProgresso1"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+
+            </FrameLayout>
+
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="10"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#9966ff"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo1" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo2"
+                    android:layout_margin="0dp"
+                    android:clickable="false"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo2"
+                    android:id="@+id/txtTitulo2"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo2"
+                    android:id="@+id/txtProgresso2"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="70"
+                app:rcSecondaryProgress="20"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#66ff99"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo2" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo3"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo3"
+                    android:id="@+id/txtTitulo3"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo3"
+                    android:id="@+id/txtProgresso3"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="20"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#6699ff"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo3" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo4"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo4"
+                    android:id="@+id/txtTitulo4"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo4"
+                    android:id="@+id/txtProgresso4"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="40"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#ffcc66"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo4" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo5"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo5"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo5"
+                    android:id="@+id/txtTitulo5"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo5"
+                    android:id="@+id/txtProgresso5"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="50"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#9966ff"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo5" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo6"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo6"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo6"
+                    android:id="@+id/txtTitulo6"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo6"
+                    android:id="@+id/txtProgresso6"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="60"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#6699ff"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo6" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo7"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo7"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo7"
+                    android:id="@+id/txtTitulo7"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo7"
+                    android:id="@+id/txtProgresso7"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="70"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#66ff99"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo7" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnModulo8"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo8"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo8"
+                    android:id="@+id/txtTitulo8"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo8"
+                    android:id="@+id/txtProgresso8"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+            </FrameLayout>
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcProgress="80"
+                app:rcSecondaryProgress="10"
+                app:rcMax="100"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#ffcc66"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraModulo8" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/listMenuPrincipal"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="#ffeeeeee">
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>

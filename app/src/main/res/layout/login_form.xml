@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llLoginForm"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:hint="@string/hintEmail"
+        android:textColorHighlight="#d6d4d4"
+        android:textColorHint="#d6d4d4"
+        android:textColorLink="#d6d4d4"
+        android:textIsSelectable="false"
+        android:textColor="#d6d4d4"
+        android:drawableLeft="@drawable/login_icon"
+        android:typeface="monospace"
+        android:fontFamily="sans-serif-light"
+        android:textSize="17sp"  />
+
+    <EditText
+        android:id="@+id/edt_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:textColorHighlight="#d6d4d4"
+        android:textColorHint="#d6d4d4"
+        android:textColorLink="#d6d4d4"
+        android:textColor="#d6d4d4"
+        android:drawableLeft="@drawable/password_icon"
+        android:hint="@string/hintSenha"
+        android:fontFamily="sans-serif-light"
+        android:textSize="17sp" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal" >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/btSignIn"
+            android:text="@string/Entrar"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/tamanhoTextoBotao"
+            android:layout_gravity="center_horizontal"
+            android:typeface="sans"
+            android:fontFamily="sans-serif"
+            android:background="#37cc6c"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ou"
+            android:id="@+id/txtOu"
+            android:textColor="#ffffff"
+            android:typeface="monospace"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:id="@+id/btSignInDefault"
+            android:text="Login"
+            android:layout_weight="0.49"
+            android:clickable="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp" />
+
+
+       <!-- <Button
+            android:id="@+id/btSignInCustom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Entrar G+" /> -->
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/esqueceuSenha"
+            android:id="@+id/btSignInCustom"
+            android:textAllCaps="false"
+            android:background="#00ffffff"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp" />
+    </LinearLayout>
+</LinearLayout>
+

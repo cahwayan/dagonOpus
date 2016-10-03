@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/telaloginbackground"
+    android:padding="0dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/nomeAppLogin"
+            android:id="@+id/txtInicial"
+            android:focusableInTouchMode="false"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:textColor="#ffffff"
+            android:textSize="36sp"
+            android:layout_marginTop="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBemVindo"
+            android:id="@+id/txtBemVindo"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btn_Login"
+                android:text="LOGIN"
+                android:background="#37cc6c"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tamanhoTextoBotao"
+                android:typeface="sans"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_cadastra"
+                android:text="@string/btnCadastrar"
+                android:background="#37cc6c"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tamanhoTextoBotao"
+                android:typeface="sans"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MODULOS"
+                android:background="#37cc6c"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tamanhoTextoBotao"
+                android:typeface="sans"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_modulos" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:text="XXXXXXXXXXXX"
+                android:background="#37cc6c"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tamanhoTextoBotao"
+                android:typeface="sans"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button3"
+                android:text="XXXXXXXXXXXXX"
+                android:background="#37cc6c"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tamanhoTextoBotao"
+                android:typeface="sans"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
