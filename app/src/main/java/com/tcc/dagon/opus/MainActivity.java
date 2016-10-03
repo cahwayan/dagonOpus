@@ -85,7 +85,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     StringsBanco StringsBanco = new StringsBanco();
 
 
-
+    // método construtor
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
