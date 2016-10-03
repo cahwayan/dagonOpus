@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private boolean mInfoPopulated;
     private EditText edtTeste;
     public String nomeGoogle;
+    private TextView txtCriarConta;
 
     // Variáveis de conexão
     private RequestQueue requestQueue;
@@ -69,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         email = (EditText) findViewById(R.id.edt_email);
         password = (EditText) findViewById(R.id.edt_senha);
         btn_login = (Button) findViewById(R.id.btn_Login);
+        txtCriarConta = (TextView) findViewById(R.id.txtCriarConta);
         mGoogleSignIn = (SignInButton) findViewById(R.id.btSignInDefault);
         requestQueue = Volley.newRequestQueue(this);
 

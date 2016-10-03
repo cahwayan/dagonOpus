@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private Button btSignOut;
     private Button btRevokeAccess;
     private EditText email,password;
-    private TextView txtLogin;
+    private TextView txtLogin, txtCriarConta;
 
 
     // String dos componentes email e senha
@@ -140,6 +140,12 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     }
 
     public void listenersLogin() {
+
+        txtCriarConta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CadastroActivity.class));
+            }
+        });
 
         btSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +232,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         btRevokeAccess = (Button) findViewById(R.id.btRevokeAccess);
         email         = (EditText) findViewById(R.id.edt_email);
         password      = (EditText) findViewById(R.id.edt_senha);
+        txtCriarConta = (TextView) findViewById(R.id.txtCriarConta);
 
         // LISTENERS
         btSignIn.setOnClickListener(MainActivity.this);

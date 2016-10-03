@@ -40,6 +40,15 @@
         <include layout="@layout/login_form" />
 
         <!-- PROFILE -->
+        <TextView
+            android:text="@string/BotaoCriarConta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCriarConta"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:clickable="true" />
+
         <include layout="@layout/profile" />
 
     </LinearLayout>
