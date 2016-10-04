@@ -178,15 +178,17 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     public int verificaProgressoEtapa(int progressoEtapa) {
         String tabela = Progresso.TABELA_PROGRESSO;
         String limit = "1";
+        String colunasEtapa[];
+        Cursor cursor;
         switch (progressoEtapa) {
             case 1:
-                String colunas[] = {
+                colunasEtapa = new String[] {
                         Progresso.COLUNA_ETAPA1
                 };
                 abrirBanco();
-                Cursor cursor = DB_PROGRESSO.query(
+                cursor = DB_PROGRESSO.query(
                         tabela,
-                        colunas,
+                        colunasEtapa,
                         null,
                         null,
                         null,
@@ -201,7 +203,50 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 fecharBanco();
                 cursor.close();
                 break;
-
+            case 2:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA2
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA2)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+            case 3:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA3
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA3)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
         }
 
         return progressoEtapa;

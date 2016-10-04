@@ -197,6 +197,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo2() {
+        desbloquearModulo1();
         btnModulo2.setImageResource(R.drawable.btnmodulo2);
         btnModulo2.setClickable(true);
         txtTitulo2.setVisibility(View.VISIBLE);
@@ -205,6 +206,8 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo3() {
+        desbloquearModulo1();
+        desbloquearModulo2();
         btnModulo3.setImageResource(R.drawable.btnmodulo3);
         btnModulo3.setClickable(true);
         txtTitulo3.setVisibility(View.VISIBLE);
@@ -213,6 +216,9 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo4() {
+        desbloquearModulo1();
+        desbloquearModulo2();
+        desbloquearModulo3();
         btnModulo4.setImageResource(R.drawable.btnmodulo4);
         btnModulo4.setClickable(true);
         txtTitulo4.setVisibility(View.VISIBLE);
@@ -221,6 +227,10 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo5() {
+        desbloquearModulo1();
+        desbloquearModulo2();
+        desbloquearModulo3();
+        desbloquearModulo4();
         btnModulo5.setImageResource(R.drawable.btnmodulo5);
         btnModulo5.setClickable(true);
         txtTitulo5.setVisibility(View.VISIBLE);
@@ -229,6 +239,11 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo6() {
+        desbloquearModulo1();
+        desbloquearModulo2();
+        desbloquearModulo3();
+        desbloquearModulo4();
+        desbloquearModulo5();
         btnModulo6.setImageResource(R.drawable.btnmodulo6);
         btnModulo6.setClickable(true);
         txtTitulo6.setVisibility(View.VISIBLE);
@@ -237,6 +252,12 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo7() {
+        desbloquearModulo1();
+        desbloquearModulo2();
+        desbloquearModulo3();
+        desbloquearModulo4();
+        desbloquearModulo5();
+        desbloquearModulo6();
         btnModulo7.setImageResource(R.drawable.btnmodulo7);
         btnModulo7.setClickable(true);
         txtTitulo7.setVisibility(View.VISIBLE);
@@ -245,6 +266,13 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo8() {
+        desbloquearModulo1();
+        desbloquearModulo2();
+        desbloquearModulo3();
+        desbloquearModulo4();
+        desbloquearModulo5();
+        desbloquearModulo6();
+        desbloquearModulo7();
         btnModulo8.setImageResource(R.drawable.btnmodulo8);
         btnModulo8.setClickable(true);
         txtTitulo8.setVisibility(View.VISIBLE);
@@ -309,7 +337,21 @@ public class AprenderActivity extends AppCompatActivity {
         //  isso permite que o aplicativo não rode código desnecessário, alterando valores para
         //  módulos bloqueados
         switch(DB_PROGRESSO.verificaProgressoModulo()) {
-            case 1: txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/10");
+            case 1: txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/9");
+                break;
+            case 2 : txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/10");
+                break;
+            case 3 : txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/7");
+                break;
+            case 4 : txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/5");
+                break;
+            case 5 : txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/6");
+                break;
+            case 6 : txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
+                break;
+            case 7 : txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
+                break;
+            case 8 : txtProgresso8.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) + "/X");
                 break;
         }
 
