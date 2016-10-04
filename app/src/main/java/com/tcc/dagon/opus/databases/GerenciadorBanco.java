@@ -28,7 +28,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERSÃO DO BANCO QUE ESTÁ NO APLICATIVO. A CADA NOVA BUILD QUE LANÇARMOS, TEMOS QUE
     // ATUALIZAR ESSE NÚMERO
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
     // declarando o nome e o caminho do banco
     private static final String DB_NAME = "DB_PROGRESSO";
     private final String DB_PATH;
@@ -173,6 +173,38 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         cursor.close();
 
         return progressoModulo;
+    }
+
+    public int verificaProgressoEtapa(int progressoEtapa) {
+        String tabela = Progresso.TABELA_PROGRESSO;
+        String limit = "1";
+        switch (progressoEtapa) {
+            case 1:
+                String colunas[] = {
+                        Progresso.COLUNA_ETAPA1
+                };
+                abrirBanco();
+                Cursor cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunas,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA1)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+
+        }
+
+        return progressoEtapa;
     }
 
 

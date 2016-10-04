@@ -5,4 +5,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="textoBotoes">25sp</dimen>
     <dimen name="tamanhoTextoBotao">17sp</dimen>
+    <dimen name="tamanhoFonteModulo">25sp</dimen>
 </resources>
