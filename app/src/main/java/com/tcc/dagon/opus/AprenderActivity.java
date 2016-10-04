@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import static java.lang.String.valueOf;
 
+//TESTE OTÁVIO
+//SEERA QUE FUNCIONA?
 
 public class AprenderActivity extends AppCompatActivity {
     // BANCO DE DADOS
