@@ -39,4 +39,12 @@
     <string name="txtTitulo8">DESAFIOS 2</string>
     <string name="fonteBotao">sans-serif</string>
     <string name="BotaoCriarConta">CRIAR CONTA</string>
+    <string name="descricaoBotaoModulo1">Botão do primeiro módulo do curso</string>
+    <string name="descricaoBotaoModulo2">Botão do segundo módulo do curso</string>
+    <string name="descricaoBotaoModulo3">Botão do terceiro módulo do curso</string>
+    <string name="descricaoBotaoModulo4">Botão do quarto módulo do curso</string>
+    <string name="descricaoBotaoModulo5">Botão do quinto módulo do curso</string>
+    <string name="descricaoBotaoModulo6">Botão do sexto módulo do curso</string>
+    <string name="descricaoBotaoModulo7">Botão do sétimo módulo do curso</string>
+    <string name="descricaoBotaoModulo8">Botão do oitavo módulo do curso</string>
 </resources>

@@ -14,7 +14,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:layout_gravity="center" >
+        android:layout_gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,20 +28,25 @@
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:textColor="#ffffff"
-            android:textSize="70sp"
-            android:layout_marginTop="50dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#ddd" />
+            android:textSize="65sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
 
         <!-- LOGIN -->
         <include layout="@layout/login_form" />
 
         <!-- PROFILE -->
+        <TextView
+            android:text="@string/BotaoCriarConta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/botaoCriarConta"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
         <include layout="@layout/profile" />
 
     </LinearLayout>

@@ -1,17 +1,12 @@
 package com.tcc.dagon.opus;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.multidex.MultiDex;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,7 +37,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,45 +45,46 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private GoogleApiClient googleApiClient;
     private ConnectionResult connectionResult;
 
-    private boolean isConsentScreenOpened;
-    private boolean isSignInButtonClicked;
+    private boolean isConsentScreenOpened,
+                    isSignInButtonClicked;
 
     // VIEWS
-    private LinearLayout llContainerAll;
-    private ProgressBar pbContainer;
+    private LinearLayout llLoginForm,
+                         llContainerAll,
+                         llConnected;
 
-    private LinearLayout llLoginForm;
-    private Button btSignIn;
-    private Button btSignInCustom;
-    private Button btAprender;
+    private Button btSignIn,
+                   btSignInCustom,
+                   btAprender;
+
     private SignInButton btSignInDefault;
 
-    private LinearLayout llConnected;
     private ImageView ivProfile;
-    private ProgressBar pbProfile;
-    private TextView tvId;
-    private TextView tvLanguage;
-    private TextView tvName;
-    private TextView tvUrlProfile;
-    private TextView tvEmail;
-    private Button btSignOut;
-    private Button btRevokeAccess;
-    private EditText email,password;
-    private TextView txtLogin;
 
+    private ProgressBar pbProfile,
+                        pbContainer;
 
+    private TextView tvId,
+                     tvLanguage,
+                     tvName,
+                     tvUrlProfile,
+                     tvEmail,
+                     btSignOut,
+                     btRevokeAccess,
+                     email,password,
+                     txtLogin,
+                     botaoCriarConta;
 
-    //variaveis google
-    public String name;
-    public String emailG;
-    public String emailGG;
+    // VARIÁVEIS GOOGLE
+    public String name,
+                  emailG,
+                  emailGG;
 
-    // String dos componentes email e senha
-    private String sEmail, sPassword;
-    // Botão de login
+    // STRINGS DO EMAIL E SENHA
+    private String sEmail,
+                   sPassword;
 
-
-    // Variáveis de conexão
+    // VARIÁVEIS DE CONEXÃO
     private RequestQueue requestQueue;
     private StringRequest request;
     StringsBanco StringsBanco = new StringsBanco();
@@ -101,10 +95,140 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // VOLLEY
         requestQueue  = Volley.newRequestQueue(this);
+
+        // ADICIONANDO OS COMPONENTES DA TELA
         accessViews();
+
+        // ADICIONANDO OS LISTENERS DOS BOTÕES
         listenersLogin();
 
+        // CONSTRUINDO O OBJETO DE CONEXÃO GOOGLE
+        googleBuilder();
+    }
+
+    // COMPONENTES DA INTERFACE
+    public void accessViews(){
+        txtLogin        = (TextView)findViewById(R.id.txtLogin);
+        botaoCriarConta = (TextView)findViewById(R.id.botaoCriarConta);
+        llContainerAll  = (LinearLayout) findViewById(R.id.llContainerAll);
+        pbContainer     = (ProgressBar) findViewById(R.id.pbContainer);
+
+        // sem conexão
+        llLoginForm     = (LinearLayout) findViewById(R.id.llLoginForm);
+        btSignIn        = (Button) findViewById(R.id.btSignIn);
+        btSignInCustom  = (Button) findViewById(R.id.btSignInCustom);
+        btSignInDefault = (SignInButton) findViewById(R.id.btSignInDefault);
+        btAprender      = (Button)findViewById(R.id.bt_AprenderActivity);
+
+        Typeface adam   =  Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
+        txtLogin.setTypeface(adam);
+        botaoCriarConta.setTypeface(adam);
+        // CONECTADO
+        llConnected     = (LinearLayout) findViewById(R.id.llConnected);
+        ivProfile       = (ImageView) findViewById(R.id.ivProfile);
+        pbProfile       = (ProgressBar) findViewById(R.id.pbProfile);
+        tvId            = (TextView) findViewById(R.id.tvId);
+        tvLanguage      = (TextView) findViewById(R.id.tvLanguage);
+        tvName          = (TextView) findViewById(R.id.tvName);
+        tvUrlProfile    = (TextView) findViewById(R.id.tvUrlProfile);
+        tvEmail         = (TextView) findViewById(R.id.tvEmail);
+        btSignOut       = (Button) findViewById(R.id.btSignOut);
+        btRevokeAccess  = (Button) findViewById(R.id.btRevokeAccess);
+        email           = (EditText) findViewById(R.id.edt_email);
+        password        = (EditText) findViewById(R.id.edt_senha);
+
+        // LISTENERS
+        btSignIn.setOnClickListener(MainActivity.this);
+        btSignInDefault.setOnClickListener(MainActivity.this);
+        btSignInCustom.setOnClickListener(MainActivity.this);
+        btSignOut.setOnClickListener(MainActivity.this);
+        btRevokeAccess.setOnClickListener(MainActivity.this);
+        btAprender.setOnClickListener(MainActivity.this);
+    }
+
+    public void listenersLogin() {
+        btSignIn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                sEmail    = email.getText().toString().trim();
+                sPassword = password.getText().toString().trim();
+
+                // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
+                if( sEmail.matches("") ) {
+                    // MENSAGEM DE ERRO
+                    Toast.makeText(getApplicationContext(),
+                                   "Campo email vazio!",
+                                   Toast.LENGTH_SHORT).show();
+                    // FOCA NA TEXTVIEW APÓS ERRO
+                    email.requestFocus();
+                    // CÓDIGO QUE INVOCA O TECLADO APÓS O ERRO
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,
+                                        InputMethodManager.HIDE_IMPLICIT_ONLY);
+                } else if ( sPassword.matches("") ) {
+                    Toast.makeText(getApplicationContext(), // PARÂMETRO PADRÃO TOAST
+                                   "Campo senha vazio!" ,  // MENSAGEM TOAST
+                                   Toast.LENGTH_SHORT).show(); // TAMANHO DO TOAST E MÉTODO PARA MOSTRAR
+                    password.requestFocus();
+
+                    // CÓDIGO QUE INVOCA O TECLADO APÓS O ERRO
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                } else { // FAZ TENTATIVA DE CONEXÃO
+                    request = new StringRequest(Request.Method.POST,
+                                                StringsBanco.loginUrl,
+                                                new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            if(response.trim().equals("certo")){
+                                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                            }else{
+                                Toast.makeText(getApplicationContext(),
+                                               "Ocorreu um erro ao logar. Verifique suas credenciais!",
+                                               Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            HashMap<String,String> hashMap = new HashMap<String, String>();
+                            hashMap.put("EMAIL_USUARIO", sEmail);
+                            hashMap.put("SENHA_USUARIO", sPassword);
+                            return hashMap;
+                        }
+
+                    };
+                    requestQueue.add(request);
+                }
+
+            }
+        });
+
+        txtLogin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                txtLogin.setText("<OPUS/>");
+                Toast.makeText(getApplicationContext(), "Bem observado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        botaoCriarConta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v ){
+                startActivity(new Intent(getApplicationContext(), CadastroActivity.class));
+            }
+
+        });
+
+    }
+
+    private void googleBuilder() {
         googleApiClient = new GoogleApiClient.Builder(MainActivity.this)
                 .addConnectionCallbacks(MainActivity.this)
                 .addOnConnectionFailedListener(MainActivity.this)
@@ -148,98 +272,9 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
     }
 
-    public void listenersLogin() {
-
-        btSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
 
-                sEmail    = email.getText().toString().trim();
-                sPassword = password.getText().toString().trim();
 
-                // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
-                if(sEmail.matches("")) {
-                    // mensagem
-                    Toast.makeText(getApplicationContext(), "Campo email vazio!" , Toast.LENGTH_SHORT).show();
-                    // comando que foca na textview
-                    email.requestFocus();
-                    // código que invoca o teclado
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-                } else if (sPassword.matches("")) {
-                    Toast.makeText(getApplicationContext(), "Campo senha vazio!" , Toast.LENGTH_SHORT).show();
-                    password.requestFocus();
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-                } else {
-                    request = new StringRequest(Request.Method.POST, StringsBanco.loginUrl, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            if(response.trim().equals("certo")){
-                                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
-                            }else{
-                                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao logar. Verifique suas credenciais!" , Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                        }
-                    }){
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            HashMap<String,String> hashMap = new HashMap<String, String>();
-                            hashMap.put("EMAIL_USUARIO", sEmail);
-                            hashMap.put("SENHA_USUARIO", sPassword);
-                            return hashMap;
-                        }
-
-                    };
-                    requestQueue.add(request);
-                }
-
-            }
-        });
-
-    }
-
-    // UTIL
-    public void accessViews(){
-        txtLogin      = (TextView)findViewById(R.id.txtLogin);
-        llContainerAll = (LinearLayout) findViewById(R.id.llContainerAll);
-        pbContainer = (ProgressBar) findViewById(R.id.pbContainer);
-
-        // sem conexão
-        llLoginForm = (LinearLayout) findViewById(R.id.llLoginForm);
-        btSignIn = (Button) findViewById(R.id.btSignIn);
-        btSignInCustom = (Button) findViewById(R.id.btSignInCustom);
-        btSignInDefault = (SignInButton) findViewById(R.id.btSignInDefault);
-        btAprender = (Button)findViewById(R.id.bt_AprenderActivity);
-
-        // CONECTADO
-        llConnected = (LinearLayout) findViewById(R.id.llConnected);
-        ivProfile = (ImageView) findViewById(R.id.ivProfile);
-        pbProfile = (ProgressBar) findViewById(R.id.pbProfile);
-        tvId = (TextView) findViewById(R.id.tvId);
-        tvLanguage = (TextView) findViewById(R.id.tvLanguage);
-        tvName = (TextView) findViewById(R.id.tvName);
-        tvUrlProfile = (TextView) findViewById(R.id.tvUrlProfile);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
-        btSignOut = (Button) findViewById(R.id.btSignOut);
-        btRevokeAccess = (Button) findViewById(R.id.btRevokeAccess);
-        email         = (EditText) findViewById(R.id.edt_email);
-        password      = (EditText) findViewById(R.id.edt_senha);
-
-        // LISTENERS
-        btSignIn.setOnClickListener(MainActivity.this);
-        btSignInDefault.setOnClickListener(MainActivity.this);
-        btSignInCustom.setOnClickListener(MainActivity.this);
-        btSignOut.setOnClickListener(MainActivity.this);
-        btRevokeAccess.setOnClickListener(MainActivity.this);
-        btAprender.setOnClickListener(MainActivity.this);
-    }
 
     public void showUi(boolean status, boolean statusProgressBar){
         if(!statusProgressBar){

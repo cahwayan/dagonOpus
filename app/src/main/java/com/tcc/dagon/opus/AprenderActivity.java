@@ -35,20 +35,46 @@ public class AprenderActivity extends AppCompatActivity {
     GerenciadorBanco DB_PROGRESSO;
 
     // BOTÕES DOS MÓDULOS
-    public ImageView btnModulo1, btnModulo2, btnModulo3, btnModulo4, btnModulo5, btnModulo6,
-                      btnModulo7, btnModulo8;
-    // TEXTVIEWS TITULO MODULOS
-    protected TextView txtTitulo1, txtTitulo2, txtTitulo3, txtTitulo4, txtTitulo5, txtTitulo6,
-                     txtTitulo7, txtTitulo8;
+    public ImageView btnModulo1,
+                     btnModulo2,
+                     btnModulo3,
+                     btnModulo4,
+                     btnModulo5,
+                     btnModulo6,
+                     btnModulo7,
+                     btnModulo8;
 
-    protected TextView txtProgresso1, txtProgresso2, txtProgresso3, txtProgresso4, txtProgresso5,
-                     txtProgresso6, txtProgresso7, txtProgresso8;
+    // TEXTVIEWS QUE MOSTRA O TITULO DOS MÓDULOS
+    protected TextView  txtTitulo1,
+                        txtTitulo2,
+                        txtTitulo3,
+                        txtTitulo4,
+                        txtTitulo5,
+                        txtTitulo6,
+                        txtTitulo7,
+                        txtTitulo8;
+
+    // TEXT VIEW QUE MOSTRA O PROGRESSO DO USUÁRIO
+    protected TextView  txtProgresso1,
+                        txtProgresso2,
+                        txtProgresso3,
+                        txtProgresso4,
+                        txtProgresso5,
+                        txtProgresso6,
+                        txtProgresso7,
+                        txtProgresso8;
 
     // BARRA DE PROGRESSO DOS MÓDULOS
-    private RoundCornerProgressBar barraModulo1, barraModulo2, barraModulo3, barraModulo4, barraModulo5,
-                                   barraModulo6, barraModulo7, barraModulo8;
-
-    private Context     context = this;
+    private RoundCornerProgressBar  barraModulo1,
+                                    barraModulo2,
+                                    barraModulo3,
+                                    barraModulo4,
+                                    barraModulo5,
+                                    barraModulo6,
+                                    barraModulo7,
+                                    barraModulo8;
+    // SUPER VARIÁVEL CONTEXT
+    private Context context = this;
 
     // Variáveis do menu puxável
     private ListView              mListView;
@@ -64,18 +90,42 @@ public class AprenderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
 
-        // INSTANCIANDO E CRIANDO O BANCO
-        DB_PROGRESSO = new GerenciadorBanco(this);
-        File banco = context.getApplicationContext().getDatabasePath(DB_PROGRESSO.getDbName());
-        if(!banco.exists()) {
-            try {
-                DB_PROGRESSO.criarBanco();
-            } catch (IOException ioe) {
-                throw new Error("Erro de cópia");
-            }
-        }
+        // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
+        instanciaBanco();
 
+        // INVOCANDO OS COMPONENTES
+        accessViews();
 
+        // MÉTODO QUE INVOCA OS ITENS DO MENU PUXÁVEL
+        adicionarItensMenu();
+
+        // MÉTODO DE CONFIGURAÇÃO DO MENU PUXÁVEL
+        configurarMenu();
+
+        // BOTÃO SUPERIOR MENU PUXÁVEL
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        // CHAMANDO OS CLICK LISTENERS DOS BOTÕES
+        listenersBtnModulos();
+
+        // CLICK LISTENERS DO MENU PUXÁVEL
+        listenersMenuPrincipal();
+
+        // BLOQUEANDO OS MÓDULOS AO INICIAR O APP
+        bloquearModulos();
+
+        // VERIFICAÇÕES E DESBLOQUEIO DE PROGRESSO DOS MÓDULOS
+        progressoModulos();
+
+        // SETANDO O PROGRESSO DAS TEXT VIEWS
+        progressoTextView();
+
+        // SETANDO O PROGRESSO DAS PROGRESS BARS
+        progressBars();
+    }
+
+    private void accessViews() {
         // LAYOUTS
         drawer_layout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
@@ -146,146 +196,30 @@ public class AprenderActivity extends AppCompatActivity {
         // MENU PUXÁVEL
         mListView = (ListView)findViewById(R.id.listMenuPrincipal);
         mTitulo   = getTitle().toString();
+    }
 
-        // MÉTODO QUE INVOCA OS ITENS DO MENU PUXÁVEL
-        adicionarItensMenu();
-        // MÉTODO DE CONFIGURAÇÃO DO MENU PUXÁVEL
-        configurarMenu();
-
-        // BOTÃO SUPERIOR MENU PUXÁVEL
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        // CHAMANDO OS CLICK LISTENERS DOS BOTÕES AO EXECUTAR A CLASSE
-        listenersBtnModulos();
-
-        // CLICK LISTENERS DO MENU PUXÁVEL
-        listenersMenuPrincipal();
-
-        // Bloqueando módulos ao iniciar o app
-        bloquearModulos();
-        // VERIFICAÇÕES DE PROGRESSO DOS MÓDULOS
-        switch(DB_PROGRESSO.verificaProgressoModulo()) {
-            case 1: desbloquearModulo1();
-                progressoTextView();
-                break;
-            case 2: desbloquearModulo2();
-                break;
-            case 3: desbloquearModulo3();
-                break;
-            case 4: desbloquearModulo4();
-                break;
-            case 5: desbloquearModulo5();
-                break;
-            case 6: desbloquearModulo6();
-                break;
-            case 7: desbloquearModulo7();
-                break;
-            case 8: desbloquearModulo8();
-                break;
+    private void instanciaBanco() {
+        DB_PROGRESSO = new GerenciadorBanco(this);
+        File banco = context.getApplicationContext().getDatabasePath(DB_PROGRESSO.getDbName());
+        if(!banco.exists()) {
+            try {
+                DB_PROGRESSO.criarBanco();
+            } catch (IOException ioe) {
+                throw new Error("Erro de cópia");
+            }
         }
     }
 
-    // métodos de desbloquear os módulos
-    public void desbloquearModulo1() {
-        btnModulo1.setImageResource(R.drawable.btnmodulo1);
-        btnModulo1.setClickable(true);
-        txtTitulo1.setVisibility(View.VISIBLE);
-        txtProgresso1.setVisibility(View.VISIBLE);
-        barraModulo1.setVisibility(View.VISIBLE);
-
-    }
-
-    public void desbloquearModulo2() {
-        desbloquearModulo1();
-        btnModulo2.setImageResource(R.drawable.btnmodulo2);
-        btnModulo2.setClickable(true);
-        txtTitulo2.setVisibility(View.VISIBLE);
-        txtProgresso2.setVisibility(View.VISIBLE);
-        barraModulo2.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo3() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        btnModulo3.setImageResource(R.drawable.btnmodulo3);
-        btnModulo3.setClickable(true);
-        txtTitulo3.setVisibility(View.VISIBLE);
-        txtProgresso3.setVisibility(View.VISIBLE);
-        barraModulo3.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo4() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        desbloquearModulo3();
-        btnModulo4.setImageResource(R.drawable.btnmodulo4);
-        btnModulo4.setClickable(true);
-        txtTitulo4.setVisibility(View.VISIBLE);
-        txtProgresso4.setVisibility(View.VISIBLE);
-        barraModulo4.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo5() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        desbloquearModulo3();
-        desbloquearModulo4();
-        btnModulo5.setImageResource(R.drawable.btnmodulo5);
-        btnModulo5.setClickable(true);
-        txtTitulo5.setVisibility(View.VISIBLE);
-        txtProgresso5.setVisibility(View.VISIBLE);
-        barraModulo5.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo6() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        desbloquearModulo3();
-        desbloquearModulo4();
-        desbloquearModulo5();
-        btnModulo6.setImageResource(R.drawable.btnmodulo6);
-        btnModulo6.setClickable(true);
-        txtTitulo6.setVisibility(View.VISIBLE);
-        txtProgresso6.setVisibility(View.VISIBLE);
-        barraModulo6.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo7() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        desbloquearModulo3();
-        desbloquearModulo4();
-        desbloquearModulo5();
-        desbloquearModulo6();
-        btnModulo7.setImageResource(R.drawable.btnmodulo7);
-        btnModulo7.setClickable(true);
-        txtTitulo7.setVisibility(View.VISIBLE);
-        txtProgresso7.setVisibility(View.VISIBLE);
-        barraModulo7.setVisibility(View.VISIBLE);
-    }
-
-    public void desbloquearModulo8() {
-        desbloquearModulo1();
-        desbloquearModulo2();
-        desbloquearModulo3();
-        desbloquearModulo4();
-        desbloquearModulo5();
-        desbloquearModulo6();
-        desbloquearModulo7();
-        btnModulo8.setImageResource(R.drawable.btnmodulo8);
-        btnModulo8.setClickable(true);
-        txtTitulo8.setVisibility(View.VISIBLE);
-        txtProgresso8.setVisibility(View.VISIBLE);
-        barraModulo8.setVisibility(View.VISIBLE);
-    }
-
-    // método que bloqueia os módulos
-    public void bloquearModulos() {
+    // BLOQUEIA OS MÓDULOS
+    private void bloquearModulos() {
+        // MUDANDO IMAGEM PARA A BLOQUEADA
         btnModulo1.setImageResource(R.drawable.modulo_bloqueado);
+        // BLOQUEANDO O CLICK
         btnModulo1.setClickable(false);
+        // SUMINDO COM AS TEXTVIEWS
         txtTitulo1.setVisibility(View.GONE);
         txtProgresso1.setVisibility(View.GONE);
+        // SUMINDO COM A BARRA DE PROGRESSO
         barraModulo1.setVisibility(View.GONE);
 
         btnModulo2.setImageResource(R.drawable.modulo_bloqueado);
@@ -331,36 +265,168 @@ public class AprenderActivity extends AppCompatActivity {
         barraModulo8.setVisibility(View.GONE);
     }
 
-    // método que muda o progresso das text views
-    private void progressoTextView() {
-        //  switch para verificar o progresso do usuário antes de alterar o valor das text views
-        //  isso permite que o aplicativo não rode código desnecessário, alterando valores para
-        //  módulos bloqueados
+
+    // DESBLOQUEIA OS MÓDULOS
+    private void desbloquearModulo1() {
+        // MUDANDO A IMAGEM PARA A ORIGINAL DO MÓDULO
+        btnModulo1.setImageResource(R.drawable.btnmodulo1);
+        // RELIGANDO O CLICK
+        btnModulo1.setClickable(true);
+        // TRAZENDO DE VOLTA O TÍTULO DO MÓDULO
+        txtTitulo1.setVisibility(View.VISIBLE);
+        // TRAZENDO DE VOLTA A TEXTVIEW DO PROGRESSO DO MÓDULO
+        txtProgresso1.setVisibility(View.VISIBLE);
+        // TRAZENDO DE VOLTA A BARRA DE PROGRESSO DO MÓDULO
+        barraModulo1.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo2() {
+        desbloquearModulo1();
+        btnModulo2.setImageResource(R.drawable.btnmodulo2);
+        btnModulo2.setClickable(true);
+        txtTitulo2.setVisibility(View.VISIBLE);
+        txtProgresso2.setVisibility(View.VISIBLE);
+        barraModulo2.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo3() {
+        btnModulo3.setImageResource(R.drawable.btnmodulo3);
+        btnModulo3.setClickable(true);
+        txtTitulo3.setVisibility(View.VISIBLE);
+        txtProgresso3.setVisibility(View.VISIBLE);
+        barraModulo3.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo4() {
+        btnModulo4.setImageResource(R.drawable.btnmodulo4);
+        btnModulo4.setClickable(true);
+        txtTitulo4.setVisibility(View.VISIBLE);
+        txtProgresso4.setVisibility(View.VISIBLE);
+        barraModulo4.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo5() {
+        btnModulo5.setImageResource(R.drawable.btnmodulo5);
+        btnModulo5.setClickable(true);
+        txtTitulo5.setVisibility(View.VISIBLE);
+        txtProgresso5.setVisibility(View.VISIBLE);
+        barraModulo5.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo6() {
+        btnModulo6.setImageResource(R.drawable.btnmodulo6);
+        btnModulo6.setClickable(true);
+        txtTitulo6.setVisibility(View.VISIBLE);
+        txtProgresso6.setVisibility(View.VISIBLE);
+        barraModulo6.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo7() {
+        btnModulo7.setImageResource(R.drawable.btnmodulo7);
+        btnModulo7.setClickable(true);
+        txtTitulo7.setVisibility(View.VISIBLE);
+        txtProgresso7.setVisibility(View.VISIBLE);
+        barraModulo7.setVisibility(View.VISIBLE);
+    }
+
+    private void desbloquearModulo8() {
+        btnModulo8.setImageResource(R.drawable.btnmodulo8);
+        btnModulo8.setClickable(true);
+        txtTitulo8.setVisibility(View.VISIBLE);
+        txtProgresso8.setVisibility(View.VISIBLE);
+        barraModulo8.setVisibility(View.VISIBLE);
+    }
+
+
+    // VERIFICANDO E MUDANDO O PROGRESSO DAS TEXTVIEWS
+    private void progressoModulos() {
+        // SWITCH VAI ATÉ O BANCO E VERIFICA EM QUAL MÓDULO O USUÁRIO ESTÁ
         switch(DB_PROGRESSO.verificaProgressoModulo()) {
-            case 1: txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/9");
+            // DE ACORDO COM O PROGRESSO (1 A 8), OS MÓDULOS SÃO LIBERADOS
+            case 1:
+                desbloquearModulo1();
                 break;
-            case 2 : txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/10");
+            case 2:
+                desbloquearModulo1();
+                desbloquearModulo2();
                 break;
-            case 3 : txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/7");
+            case 3:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
                 break;
-            case 4 : txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/5");
+            case 4:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
                 break;
-            case 5 : txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/6");
+            case 5:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
+                desbloquearModulo5();
                 break;
-            case 6 : txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
+            case 6:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
+                desbloquearModulo5();
+                desbloquearModulo6();
                 break;
-            case 7 : txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
+            case 7:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
+                desbloquearModulo5();
+                desbloquearModulo6();
+                desbloquearModulo7();
                 break;
-            case 8 : txtProgresso8.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) + "/X");
+            case 8:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
+                desbloquearModulo5();
+                desbloquearModulo6();
+                desbloquearModulo7();
+                desbloquearModulo8();
                 break;
         }
+    }
 
+    // VERIFICA O PROGRESSO DO USUÁRIO REFERENTE AS ETAPAS DE CADA MÓDULO E ATRIBUI A TEXTVIEW
+    private void progressoTextView() {
+        txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/9");
+        txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/10");
+        txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/7");
+        txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/5");
+        txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/6");
+        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
+        txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
+        txtProgresso8.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) + "/X");
+    }
+
+    // CONFIGURA O PROGRESSO DAS PROGRESS BARS
+    private void progressBars() {
+        barraModulo1.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) ) );
+        barraModulo2.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) ) );
+        barraModulo3.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) ) );
+        barraModulo4.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) ) );
+        barraModulo5.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) ) );
+        barraModulo6.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) ) );
+        barraModulo7.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) ) );
+        barraModulo8.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) ) );
     }
 
     // Método que invoca os listeners dos botões
     private void listenersBtnModulos() {
         btnModulo1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
+                // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                 v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             }
         });
@@ -408,8 +474,10 @@ public class AprenderActivity extends AppCompatActivity {
         });
     }
 
+    // LISTENERS DO MENU PUXÁVEL
     private void listenersMenuPrincipal() {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            // CLICK LISTENERS PARA CADA POSIÇÃO DO MENU
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
@@ -418,36 +486,36 @@ public class AprenderActivity extends AppCompatActivity {
                 }
                 else if(position==1){
 
-
                 }
             }
         });
     }
 
-    // Método que adiciona os itens no menu puxável, adapta e os coloca no componente
+    // MÉTODO QUE RECEBE OS ITENS QUE VÃO PRO MENU PUXÁVEL, ADAPTA, E OS COLOCA LÁ
     private void adicionarItensMenu() {
+        // ITENS DO MENU
         String[] itensMenu = {"Perfil", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }
 
-    // Método de configuração do menu puxável (MÉTODOS A SEGUIR SAO NATIVOS)
+    // MÉTODO DE CONFIGURAÇÃO DO MENU (ALGUNS MÉTODOS SÃO NATIVOS, NÃO RENOMEAR)
     private void configurarMenu() {
-        // Configurando o objeto que abre o menu através do ícone superior
+        // CONFIGURANDO O OBJETO QUE ABRE O MENU QUANDO O BOTÃO SUPERIOR É APERTADO
         mAlterna = new ActionBarDrawerToggle(this, drawer_layout, R.string.mAbrir,
                                              R.string.mFechar){
             // Método chamado quando o menu abre
             public void aoAbrirMenu(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 getSupportActionBar().setTitle("Menu");
-                invalidateOptionsMenu(); // Cria chamada para o método onPrepareOptionsMenu()
+                invalidateOptionsMenu(); // CRIA CHAMADA PARA O MÉTODO onPrepareOptionsMenu()
 
             }
             // Método chamado quando o menu fecha
             public void aoFecharMenu(View view) {
                 super.onDrawerClosed(view);
                 getSupportActionBar().setTitle(mTitulo);
-                invalidateOptionsMenu(); // Cria chamada para o método onPrepareOptionsMenu()
+                invalidateOptionsMenu(); // CRIA CHAMADA PARA O MÉTODO onPrepareOptionsMenu()
             }
         };
 

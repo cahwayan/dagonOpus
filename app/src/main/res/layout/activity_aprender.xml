@@ -33,7 +33,7 @@
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                   />
+                    android:contentDescription="@+id/descricaoBotaoModulo1"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -63,7 +63,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="9"
                 app:rcRadius="0dp"
@@ -86,7 +85,8 @@
                     android:clickable="false"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo2"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,7 +114,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="10"
                 app:rcRadius="0dp"
@@ -137,7 +136,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo3"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -165,7 +165,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="7"
                 app:rcRadius="0dp"
@@ -188,7 +187,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo4"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -214,7 +214,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="5"
                 app:rcRadius="0dp"
@@ -237,7 +236,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo5"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,7 +265,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="6"
                 app:rcRadius="0dp"
@@ -288,7 +287,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo6"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -314,7 +314,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="7"
                 app:rcRadius="0dp"
@@ -337,7 +336,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo7"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -364,7 +364,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="10"
                 app:rcRadius="0dp"
@@ -387,7 +386,8 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo8"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -414,7 +414,6 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="1"
                 app:rcSecondaryProgress="0"
                 app:rcMax="10"
                 app:rcRadius="0dp"
