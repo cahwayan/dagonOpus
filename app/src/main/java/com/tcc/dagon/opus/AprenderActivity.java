@@ -27,14 +27,12 @@ import java.io.IOException;
 
 import static java.lang.String.valueOf;
 
+//TESTE OTÁVIO
+//SEERA QUE FUNCIONA?
 
 public class AprenderActivity extends AppCompatActivity {
-    // comentário de teste
-    // teste
     // BANCO DE DADOS
     GerenciadorBanco DB_PROGRESSO;
-
-    String mostraTexto;
 
     // BOTÕES DOS MÓDULOS
     public ImageView btnModulo1, btnModulo2, btnModulo3, btnModulo4, btnModulo5, btnModulo6,
@@ -114,7 +112,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso8 = (TextView)findViewById(R.id.txtProgresso8);
 
         // SETANDO A FONTE DOS TITULOS
-        Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.otf");
+        Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
         txtTitulo1.setTypeface(harabara);
         txtTitulo2.setTypeface(harabara);
         txtTitulo3.setTypeface(harabara);
@@ -162,7 +160,6 @@ public class AprenderActivity extends AppCompatActivity {
         listenersBtnModulos();
 
         // CLICK LISTENERS DO MENU PUXÁVEL
-        // sim
         listenersMenuPrincipal();
 
         // Bloqueando módulos ao iniciar o app
@@ -170,6 +167,7 @@ public class AprenderActivity extends AppCompatActivity {
         // VERIFICAÇÕES DE PROGRESSO DOS MÓDULOS
         switch(DB_PROGRESSO.verificaProgressoModulo()) {
             case 1: desbloquearModulo1();
+                progressoTextView();
                 break;
             case 2: desbloquearModulo2();
                 break;
@@ -190,13 +188,16 @@ public class AprenderActivity extends AppCompatActivity {
 
     // métodos de desbloquear os módulos
     public void desbloquearModulo1() {
+        btnModulo1.setImageResource(R.drawable.btnmodulo1);
         btnModulo1.setClickable(true);
         txtTitulo1.setVisibility(View.VISIBLE);
         txtProgresso1.setVisibility(View.VISIBLE);
         barraModulo1.setVisibility(View.VISIBLE);
+
     }
 
     public void desbloquearModulo2() {
+        btnModulo2.setImageResource(R.drawable.btnmodulo2);
         btnModulo2.setClickable(true);
         txtTitulo2.setVisibility(View.VISIBLE);
         txtProgresso2.setVisibility(View.VISIBLE);
@@ -204,6 +205,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo3() {
+        btnModulo3.setImageResource(R.drawable.btnmodulo3);
         btnModulo3.setClickable(true);
         txtTitulo3.setVisibility(View.VISIBLE);
         txtProgresso3.setVisibility(View.VISIBLE);
@@ -211,6 +213,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo4() {
+        btnModulo4.setImageResource(R.drawable.btnmodulo4);
         btnModulo4.setClickable(true);
         txtTitulo4.setVisibility(View.VISIBLE);
         txtProgresso4.setVisibility(View.VISIBLE);
@@ -218,6 +221,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo5() {
+        btnModulo5.setImageResource(R.drawable.btnmodulo5);
         btnModulo5.setClickable(true);
         txtTitulo5.setVisibility(View.VISIBLE);
         txtProgresso5.setVisibility(View.VISIBLE);
@@ -225,6 +229,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo6() {
+        btnModulo6.setImageResource(R.drawable.btnmodulo6);
         btnModulo6.setClickable(true);
         txtTitulo6.setVisibility(View.VISIBLE);
         txtProgresso6.setVisibility(View.VISIBLE);
@@ -232,6 +237,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo7() {
+        btnModulo7.setImageResource(R.drawable.btnmodulo7);
         btnModulo7.setClickable(true);
         txtTitulo7.setVisibility(View.VISIBLE);
         txtProgresso7.setVisibility(View.VISIBLE);
@@ -239,6 +245,7 @@ public class AprenderActivity extends AppCompatActivity {
     }
 
     public void desbloquearModulo8() {
+        btnModulo8.setImageResource(R.drawable.btnmodulo8);
         btnModulo8.setClickable(true);
         txtTitulo8.setVisibility(View.VISIBLE);
         txtProgresso8.setVisibility(View.VISIBLE);
@@ -247,45 +254,65 @@ public class AprenderActivity extends AppCompatActivity {
 
     // método que bloqueia os módulos
     public void bloquearModulos() {
+        btnModulo1.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo1.setClickable(false);
         txtTitulo1.setVisibility(View.GONE);
         txtProgresso1.setVisibility(View.GONE);
         barraModulo1.setVisibility(View.GONE);
 
+        btnModulo2.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo2.setClickable(false);
         txtTitulo2.setVisibility(View.GONE);
         txtProgresso2.setVisibility(View.GONE);
         barraModulo2.setVisibility(View.GONE);
 
+        btnModulo3.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo3.setClickable(false);
         txtTitulo3.setVisibility(View.GONE);
         txtProgresso3.setVisibility(View.GONE);
         barraModulo3.setVisibility(View.GONE);
 
+        btnModulo4.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo4.setClickable(false);
         txtTitulo4.setVisibility(View.GONE);
         txtProgresso4.setVisibility(View.GONE);
         barraModulo4.setVisibility(View.GONE);
 
+        btnModulo5.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo5.setClickable(false);
         txtTitulo5.setVisibility(View.GONE);
         txtProgresso5.setVisibility(View.GONE);
         barraModulo5.setVisibility(View.GONE);
 
+        btnModulo6.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo6.setClickable(false);
         txtTitulo6.setVisibility(View.GONE);
         txtProgresso6.setVisibility(View.GONE);
         barraModulo6.setVisibility(View.GONE);
 
+        btnModulo7.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo7.setClickable(false);
         txtTitulo7.setVisibility(View.GONE);
         txtProgresso7.setVisibility(View.GONE);
         barraModulo7.setVisibility(View.GONE);
 
+        btnModulo8.setImageResource(R.drawable.modulo_bloqueado);
         btnModulo8.setClickable(false);
         txtTitulo8.setVisibility(View.GONE);
         txtProgresso8.setVisibility(View.GONE);
         barraModulo8.setVisibility(View.GONE);
+    }
+
+    // método que muda o progresso das text views
+    private void progressoTextView() {
+        //  switch para verificar o progresso do usuário antes de alterar o valor das text views
+        //  isso permite que o aplicativo não rode código desnecessário, alterando valores para
+        //  módulos bloqueados
+        switch(DB_PROGRESSO.verificaProgressoModulo()) {
+            case 1: txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/10");
+                break;
+        }
+
     }
 
     // Método que invoca os listeners dos botões
@@ -344,10 +371,11 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
-
+                    Intent gerenciarPerfil = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
+                    startActivity(gerenciarPerfil);
                 }
                 else if(position==1){
-                finish();
+
 
                 }
             }
@@ -356,12 +384,7 @@ public class AprenderActivity extends AppCompatActivity {
 
     // Método que adiciona os itens no menu puxável, adapta e os coloca no componente
     private void adicionarItensMenu() {
-        /*Intent intent = getIntent();
-
-        Bundle bundle = intent.getExtras();
-        String txt = bundle.getString("txt");
-*/
-        String[] itensMenu = {"item1", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
+        String[] itensMenu = {"Perfil", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }

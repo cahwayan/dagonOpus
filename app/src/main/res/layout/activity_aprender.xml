@@ -42,7 +42,7 @@
                     android:id="@+id/txtTitulo1"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -53,9 +53,9 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
                     android:fontFamily="sans-serif"
-                    android:typeface="normal" />
+                    android:typeface="normal"
+                    android:textSize="@dimen/tamanhoFonteModulo" />
 
             </FrameLayout>
 
@@ -63,9 +63,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="10"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="9"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -95,7 +95,7 @@
                     android:id="@+id/txtTitulo2"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -106,7 +106,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -114,9 +114,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="70"
-                app:rcSecondaryProgress="20"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="10"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -146,7 +146,7 @@
                     android:id="@+id/txtTitulo3"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -157,7 +157,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -165,9 +165,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="20"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="7"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -196,7 +196,7 @@
                     android:id="@+id/txtTitulo4"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -214,9 +214,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="40"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="5"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -246,7 +246,7 @@
                     android:id="@+id/txtTitulo5"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -257,7 +257,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -265,9 +265,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="50"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="6"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -296,7 +296,7 @@
                     android:id="@+id/txtTitulo6"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -306,7 +306,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -314,9 +314,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="60"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="7"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -345,7 +345,7 @@
                     android:id="@+id/txtTitulo7"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -356,7 +356,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -364,9 +364,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="70"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="10"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -395,7 +395,7 @@
                     android:id="@+id/txtTitulo8"
                     android:layout_gravity="center"
                     android:layout_marginTop="22dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
                 <TextView
@@ -406,7 +406,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
                     android:layout_marginBottom="5dp"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
             </FrameLayout>
@@ -414,9 +414,9 @@
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
-                app:rcProgress="80"
-                app:rcSecondaryProgress="10"
-                app:rcMax="100"
+                app:rcProgress="1"
+                app:rcSecondaryProgress="0"
+                app:rcMax="10"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
@@ -432,11 +432,10 @@
 
     <ListView
         android:id="@+id/listMenuPrincipal"
-        android:layout_width="270dp"
+        android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:background="#ffeeeeee"
-        android:layout_gravity="left|start">
-
+        android:layout_gravity="left|start"
+        android:background="#ffeeeeee">
     </ListView>
 
 </android.support.v4.widget.DrawerLayout>
