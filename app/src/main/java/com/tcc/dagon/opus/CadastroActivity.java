@@ -42,7 +42,7 @@ public class CadastroActivity extends AppCompatActivity {
     private StringRequest request;
     private ProgressDialog progresso;
 
-    // metodo construtor
+    // metodo construtor do cadastro
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
