@@ -195,186 +195,53 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     public int verificaProgressoEtapa(int progressoEtapa) {
         String tabela = Progresso.TABELA_PROGRESSO;
         String limit = "1";
-        String colunasEtapa[];
+        String colunasEtapa[] = {""};
         Cursor cursor;
+
         switch (progressoEtapa) {
             case 1:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA1
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA1)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA1;
                 break;
             case 2:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA2
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA2)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA2;
                 break;
             case 3:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA3
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA3)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA3;
                 break;
             case 4:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA4
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA4)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA4;
                 break;
             case 5:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA5
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA5)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA5;
                 break;
             case 6:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA6
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA6)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA6;
                 break;
             case 7:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA7
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA7)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA7;
                 break;
             case 8:
-                colunasEtapa = new String[] {
-                        Progresso.COLUNA_ETAPA8
-                };
-                abrirBanco();
-                cursor = DB_PROGRESSO.query(
-                        tabela,
-                        colunasEtapa,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        limit
-                );
-                cursor.moveToFirst();
-                progressoEtapa = cursor.getInt(
-                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA8)
-                );
-                fecharBanco();
-                cursor.close();
+                colunasEtapa[0] = Progresso.COLUNA_ETAPA8;
                 break;
         }
+
+        abrirBanco();
+        cursor = DB_PROGRESSO.query(
+                tabela,
+                colunasEtapa,
+                null,
+                null,
+                null,
+                null,
+                null,
+                limit
+        );
+        cursor.moveToFirst();
+        progressoEtapa = cursor.getInt(
+                cursor.getColumnIndexOrThrow(colunasEtapa[0])
+        );
+        fecharBanco();
+        cursor.close();
 
         // RETORNA O VALOR REQUERIDO
         return progressoEtapa;

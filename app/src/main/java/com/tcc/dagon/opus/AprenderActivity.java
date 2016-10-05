@@ -203,11 +203,16 @@ public class AprenderActivity extends AppCompatActivity {
         mTitulo   = getTitle().toString();
     }
 
+    // MÉTODO QUE INSTANCIA O BANCO CASO ELE NÃO EXISTA
     private void instanciaBanco() {
+        // CRIANDO O OBJETO DO GERENCIADOR DO BANCO
         DB_PROGRESSO = new GerenciadorBanco(this);
+        // TENTANDO PEGAR O ARQUIVO DO BANCO PARA VER SE ELE EXISTE
         File banco = context.getApplicationContext().getDatabasePath(DB_PROGRESSO.getDbName());
+        // CASO NÃO EXISTA
         if(!banco.exists()) {
             try {
+                // CRIE O BANCO
                 DB_PROGRESSO.criarBanco();
             } catch (IOException ioe) {
                 throw new Error("Erro de cópia");
