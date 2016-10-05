@@ -29,8 +29,6 @@ public class InicialActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inicial);
 
         txtInicial = (TextView)findViewById(R.id.txtInicial);
-        Typeface font_adam = Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
-        txtInicial.setTypeface(font_adam);
         login = (Button) findViewById(R.id.btn_Login);
         cadastra = (Button) findViewById(R.id.btn_cadastra);
         modulos = (Button) findViewById(R.id.btn_modulos);

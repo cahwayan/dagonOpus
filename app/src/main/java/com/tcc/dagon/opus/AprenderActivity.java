@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,14 +35,17 @@ public class AprenderActivity extends AppCompatActivity {
     GerenciadorBanco DB_PROGRESSO;
 
     // BOTÕES DOS MÓDULOS
-    public ImageView btnModulo1,
-                     btnModulo2,
-                     btnModulo3,
-                     btnModulo4,
-                     btnModulo5,
-                     btnModulo6,
-                     btnModulo7,
-                     btnModulo8;
+    private ImageView btnModulo1,
+                      btnModulo2,
+                      btnModulo3,
+                      btnModulo4,
+                      btnModulo5,
+                      btnModulo6,
+                      btnModulo7,
+                      btnModulo8;
+
+    // BOTÕES PULAR
+    private ImageView btnPular1;
 
     // TEXTVIEWS QUE MOSTRA O TITULO DOS MÓDULOS
     protected TextView  txtTitulo1,
@@ -158,6 +162,9 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso6 = (TextView)findViewById(R.id.txtProgresso6);
         txtProgresso7 = (TextView)findViewById(R.id.txtProgresso7);
         txtProgresso8 = (TextView)findViewById(R.id.txtProgresso8);
+
+        // BOTÕES PULAR
+        btnPular1 = (ImageView) findViewById(R.id.btnPular1);
 
         // SETANDO A FONTE DOS TITULOS
         Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
@@ -293,6 +300,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo3.setVisibility(View.VISIBLE);
         txtProgresso3.setVisibility(View.VISIBLE);
         barraModulo3.setVisibility(View.VISIBLE);
+        btnPular1.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo4() {
@@ -468,6 +476,12 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo8.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            }
+        });
+
+        btnPular1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
             }
         });
     }
