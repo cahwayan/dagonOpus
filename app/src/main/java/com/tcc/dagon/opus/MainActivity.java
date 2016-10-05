@@ -223,9 +223,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             public void onClick(View v ){
                 startActivity(new Intent(getApplicationContext(), CadastroActivity.class));
             }
-
         });
-
     }
 
     private void googleBuilder() {
@@ -271,10 +269,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         }
     }
-
-
-
-
 
     public void showUi(boolean status, boolean statusProgressBar){
         if(!statusProgressBar){
@@ -363,7 +357,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
 
             requestQueue.add(request);
-
 
             Log.i("Script", "IMG before: "+imageUrl);
             imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";

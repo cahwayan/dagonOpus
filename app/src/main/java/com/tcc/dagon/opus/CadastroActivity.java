@@ -6,11 +6,9 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,11 +29,17 @@ public class CadastroActivity extends AppCompatActivity {
 
     //Declarando botões e elementos da tela
     private Button btn_cadastra;
-    private TextView nome, senha, csenha, email;
-    private TextView txtCadastro;
+    private TextView nome,
+                     senha,
+                     csenha,
+                     email,
+                     txtCadastro;
 
     // String dos componentes
-    private String sNome, sSenha, sCsenha, sEmail;
+    private String  sNome,
+                    sSenha,
+                    sCsenha,
+                    sEmail;
 
     //Declarando variavel de conexao
     RequestQueue requestQueue;
@@ -47,21 +51,12 @@ public class CadastroActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-        //BOTÕES
-        btn_cadastra = (Button) findViewById(R.id.btn_cadastra);
-        //TEXT VIEWS
-        txtCadastro = (TextView)findViewById(R.id.txtCadastro);
-        Typeface font_adam = Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
-        txtCadastro.setTypeface(font_adam);
-
-        nome   = (TextView) findViewById(R.id.textNome);
-        senha  = (TextView) findViewById(R.id.textSenha);
-        csenha = (TextView) findViewById(R.id.textCSenha);
-        email  = (TextView) findViewById(R.id.textEmail);
-
 
         //VARIAVEIS DE CONEXAO
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        // INVOCANDO OS COMPONENTES
+        accessViews();
 
         // CHAMANDO OS LISTENERS
         listenersOnClick();
@@ -131,8 +126,20 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public void accessViews() {
+        //BOTÕES
+        btn_cadastra = (Button) findViewById(R.id.btn_cadastra);
+        //TEXT VIEWS
+        txtCadastro = (TextView)findViewById(R.id.txtCadastro);
+        Typeface font_adam = Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
+        txtCadastro.setTypeface(font_adam);
 
+        nome   = (TextView) findViewById(R.id.textNome);
+        senha  = (TextView) findViewById(R.id.textSenha);
+        csenha = (TextView) findViewById(R.id.textCSenha);
+        email  = (TextView) findViewById(R.id.textEmail);
     }
 
 }

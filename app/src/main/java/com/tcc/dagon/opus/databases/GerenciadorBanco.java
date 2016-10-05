@@ -1,50 +1,49 @@
 package com.tcc.dagon.opus.databases;
-
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
-
 import com.tcc.dagon.opus.databases.ProgressoUsuario.Progresso;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import static com.tcc.dagon.opus.databases.ProgressoUsuario.Progresso.COLUNA_MODULO;
-
-
 /**
  * Created by Andrade on 23/09/2016.
  * ESSA CLASSE ABRIGA O GERENCIADOR DO BANCO SQLITE
+ * TODAS AS OPERAÇÕES REALIZADAS COM O BANCO DE DADOS PRECISA SER FEITA NESSA CLASSE
  */
 
 
 public class GerenciadorBanco extends SQLiteOpenHelper {
 
-
     // VERSÃO DO BANCO QUE ESTÁ NO APLICATIVO. A CADA NOVA BUILD QUE LANÇARMOS, TEMOS QUE
     // ATUALIZAR ESSE NÚMERO
     private static final int VERSAO_BANCO = 2;
-    // declarando o nome e o caminho do banco
+
+    // DECLARANDO O NOME DO BANCO
     private static final String DB_NAME = "DB_PROGRESSO";
+
+    // DECLARANDO A VARIÁVEL QUE GUARDARÁ O CAMINHO DO BANCO
     private final String DB_PATH;
-    ProgressoUsuario progresso = new ProgressoUsuario();
+
+    // SUPER VARIÁVEL CONTEXT
     private Context context;
-    // objeto banco
+
+    // OBJETO BANCO
     private SQLiteDatabase DB_PROGRESSO;
 
-
+    // MÉTODO CONSTRUTOR DO BANCO
     public GerenciadorBanco(Context context) {
         super(context, DB_NAME, null, VERSAO_BANCO);
         this.context = context;
         DB_PATH = context.getDatabasePath(DB_NAME).getPath();
-
     }
 
+    // MÉTODO QUE PEGA O NOME DO BANCO
     public String getDbName() {
         return DB_NAME;
     }
@@ -68,18 +67,19 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     }
 
-    public void abrirBanco() throws SQLException {
+    private void abrirBanco() throws SQLException {
         String caminho = DB_PATH;
 
         if (DB_PROGRESSO != null && DB_PROGRESSO.isOpen()) {
-            // nothing
-        } else {
+            // SE O BANCO ESTIVER ABERTO, NÃO REABRIR
+        } else { // SE NÃO ESTIVER ABERTO, ABRIR
             DB_PROGRESSO = SQLiteDatabase.openDatabase(caminho, null, SQLiteDatabase.OPEN_READWRITE);
         }
 
     }
 
-    public void fecharBanco() {
+    // FECHA A CONEXÃO COM O BANCO
+    private void fecharBanco() {
         if (DB_PROGRESSO != null) {
             DB_PROGRESSO.close();
         }
@@ -87,12 +87,18 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         super.close();
     }
 
+    // MÉTODO QUE CRIA O BANCO CASO NÃO EXISTA
     public void criarBanco() throws IOException {
+        // VARIÁVEL QUE GUARDA O RETORNO DO MÉTODO QUE CHECA SE O BANCO EXISTE
+        // SE RETORNAR TRUE, O BANCO EXISTE, E ELE NÃO FAZ NADA.
+        // SE RETORNAR FALSE, O BANCO NÃO EXISTE, E É EXECUTADO O MÉTODO DE COPIAR O BANCO
         boolean bancoExiste = checarBanco();
         if (bancoExiste) {
-            // banco existe
+            // BANCO EXISTE
         } else {
+            // CRIANDO O BANCO VAZIO QUE RECEBERÁ AS COLUNAS DO BANCO PRINCIPAL
             this.getReadableDatabase();
+            // COPIANDO O BANCO DA PASTA ASSETS PARA O DISPOSITIVO
             try {
                 copiarBanco();
             } catch (IOException e) {
@@ -101,7 +107,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         }
     }
 
-    // checa se o banco existe ou não
+    // CHECA SE O BANCO EXISTE. CASO NÃO EXISTA, ELE CRIA UM NOVO (GERA UMA EXCEÇÃO QUE É TRATADA NA PRIMEIRA VEZ)
 
     private boolean checarBanco() {
         SQLiteDatabase checarBanco = null;
@@ -119,62 +125,73 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return checarBanco != null;
     }
 
-    // Copia o banco via bytestream (?)
-    public void copiarBanco() throws IOException {
+    // TRANSFERE O BANCO DA PASTA ASSETS PARA O DIRETÓRIO NO CELULAR
+    private void copiarBanco() throws IOException {
 
-        //Open your local db as the input stream
+        // ABRE O BANCO COMO INPUT STREAM
         InputStream myInput = context.getAssets().open(DB_NAME + ".sqlite");
 
-        // Path to the just created empty db
+        // CAMINHO PARA O BANCO RECÉM CRIADO
         String outFileName = DB_PATH;
 
-        //Open the empty db as the output stream
+        // ABRE O BANCO VAZIO QUE VAI RECEBER OS DADOS DO BANCO
         OutputStream myOutput = new FileOutputStream(outFileName);
 
-        //transfer bytes from the inputfile to the outputfile
+        // TRANSFERE OS DADOS DO BANCO DO APLICATIVO PARA O BANCO VAZIO
         byte[] buffer = new byte[1024];
         int length;
         while ((length = myInput.read(buffer)) > 0) {
             myOutput.write(buffer, 0, length);
         }
 
-        //Close the streams
+        // FECHA AS VIAS DE TRANSFERÊNCIA DE DADOS
         myOutput.flush();
         myOutput.close();
         myInput.close();
     }
 
-    // método que verifica o progresso do usuário
+    // MÉTODO QUE VERIFICA O PROGRESSO DOS MÓDULOS
     public int verificaProgressoModulo() throws SQLException {
-        // a coluna que o metodo vai verificar
+        // A COLUNA QUE O MÉTODO VAI VERIFICAR
         String tabela = Progresso.TABELA_PROGRESSO;
+        // VETOR COM O NOME DA COLUNA (PRECISA SER UM VETOR ATÉ PARA PESQUIZAR UMA ÚNICA COLUNA)
         String colunas[] = {
                 Progresso.COLUNA_MODULO
         };
+        // LIMITE DE LINHAS QUE O BANCO VAI TRAZER
         String limit = "1";
+        // ABRE A CONEXÃO COM O BANCO
         abrirBanco();
+        // OBJETO CURSOR QUE VAI EFETIVAMENTE GUARDAR A QUERY
         Cursor cursor = DB_PROGRESSO.query(
                 tabela,
                 colunas,        // Coluna a retornar
-                null,      // coluna para a clausula WHERE
-                null,  // valores para a clausula WHERE
+                null,           // coluna para a clausula WHERE
+                null,           // valores para a clausula WHERE
                 null,           // não agrupar as tabelas
                 null,           // não filtrar as tabelas
                 null,           // não ordenar as tabelas
                 limit           // limitar os resultados para 1
 
         );
-
+        // MOVENDO O CURSOR PARA O PRIMEIRO RESULTADO ENCONTRADO
         cursor.moveToFirst();
+        // TRANSFERINDO O RESULTADO DO CURSOR PARA UMA VARIÁVEL
         int progressoModulo = cursor.getInt(
                 cursor.getColumnIndexOrThrow(Progresso.COLUNA_MODULO)
         );
+        // FECHANDO A CONEXÃO COM O BANCO
         fecharBanco();
+        // FECHANDO O CURSOR
         cursor.close();
-
+        // RETORNANDO O DADO BUSCADO NO BANCO
         return progressoModulo;
     }
 
+    // MÉTODO QUE VERIFICA O PROGRESSO DA ETAPA
+    // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
+    // DAS ETAPAS DO USUÁRIO PARA AQUELE MÓDULO
+    // EX: verificaProgressoEtapa(3) busca o progresso das etapas do módulo 3
     public int verificaProgressoEtapa(int progressoEtapa) {
         String tabela = Progresso.TABELA_PROGRESSO;
         String limit = "1";
@@ -247,8 +264,119 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 fecharBanco();
                 cursor.close();
                 break;
+            case 4:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA4
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA4)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+            case 5:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA5
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA5)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+            case 6:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA6
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA6)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+            case 7:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA7
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA7)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
+            case 8:
+                colunasEtapa = new String[] {
+                        Progresso.COLUNA_ETAPA8
+                };
+                abrirBanco();
+                cursor = DB_PROGRESSO.query(
+                        tabela,
+                        colunasEtapa,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        limit
+                );
+                cursor.moveToFirst();
+                progressoEtapa = cursor.getInt(
+                        cursor.getColumnIndexOrThrow(Progresso.COLUNA_ETAPA8)
+                );
+                fecharBanco();
+                cursor.close();
+                break;
         }
 
+        // RETORNA O VALOR REQUERIDO
         return progressoEtapa;
     }
 

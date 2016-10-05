@@ -48,21 +48,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_e080c4d614bf8f2cc432b10de637ac58ede463f5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_658c39ae38439fe4a74b2f42b39b82a2e75d5984\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_e080c4d614bf8f2cc432b10de637ac58ede463f5\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -99,6 +99,15 @@
         revision="23.0.3"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_961f4d3eb0f939123a950a681159d68616cdb111\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-1.3.0_8af55eaa9279cc106280e43dc0111c723cc75d34\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,21 +156,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.0_5654185ebea2ba9b69c9eada4e273739212c426c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="d93480da1d303122ee67dc3bc23e6297bdef9951">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-8.1.0_6d27acda064c5ff697e6abcec6a4aa7d97ce279a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.0_5654185ebea2ba9b69c9eada4e273739212c426c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -214,7 +223,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="6e5b697f041e952bf7d8cf029a0ccf126bfebc93">
+        sha1="bdf7130c36a9401ddf485b2e2360f4d58221ca49">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_32a167076dd8b98e4d9e44a3de37ffd9c44d8bfb\classes.dex" />
     </item>
     <item
@@ -304,7 +313,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="44bfd86a0a6c6ec62883e9214c7a2935e3d12bcd">
+        sha1="785489141316c3e05e11a9c88c5e78b452c35f90">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_6b31ff8756dabb6814604237c661a51230a88218\classes.dex" />
     </item>
     <item

@@ -17,18 +17,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-
 import java.io.File;
 import java.io.IOException;
-
 import static java.lang.String.valueOf;
 
-//TESTE OTÁVIO
-//SEERA QUE FUNCIONA?
+/**
+ * Created by Andrade on 23/09/2016.
+ * ESSA CLASSE ABRIGA AS FUNÇÕES DA TELA DE MÓDULOS
+ *
+ */
 
 public class AprenderActivity extends AppCompatActivity {
     // BANCO DE DADOS
@@ -82,8 +81,7 @@ public class AprenderActivity extends AppCompatActivity {
     private DrawerLayout          drawer_layout;
     private String                mTitulo;
 
-    // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
-    private ArrayAdapter<String> mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -493,6 +491,8 @@ public class AprenderActivity extends AppCompatActivity {
 
     // MÉTODO QUE RECEBE OS ITENS QUE VÃO PRO MENU PUXÁVEL, ADAPTA, E OS COLOCA LÁ
     private void adicionarItensMenu() {
+        // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
+        ArrayAdapter<String> mAdapter;
         // ITENS DO MENU
         String[] itensMenu = {"Perfil", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
