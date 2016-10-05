@@ -1,4 +1,5 @@
 package com.tcc.dagon.opus.databases;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -245,6 +246,55 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         // RETORNA O VALOR REQUERIDO
         return progressoEtapa;
+    }
+
+    public void atualizaProgressoModulo(int progresso) {
+
+        String tabela = Progresso.TABELA_PROGRESSO;
+
+        switch(progresso) {
+            case 1:
+                progresso = 1;
+                break;
+            case 2:
+                progresso = 2;
+                break;
+            case 3:
+                progresso = 3;
+                break;
+            case 4:
+                progresso = 4;
+                break;
+            case 5:
+                progresso = 5;
+                break;
+            case 6:
+                progresso = 6;
+                break;
+            case 7:
+                progresso = 7;
+                break;
+            case 8:
+                progresso = 8;
+                break;
+        }
+        // Qual coluna da tabela fazer o update
+        ContentValues valor = new ContentValues();
+        // Coluna da tabela e o valor
+        valor.put(Progresso.COLUNA_MODULO, progresso);
+
+        // Qual coluna fazer o update baseado no id
+        String select       = Progresso.COLUNA_ID + " LIKE ?";
+        // qual linha atualizar baseado no ID
+        String[] selectArgs = {String.valueOf(1)};
+        abrirBanco();
+        DB_PROGRESSO.update(
+                tabela,
+                valor,
+                select,
+                selectArgs
+        );
+        fecharBanco();
     }
 
 

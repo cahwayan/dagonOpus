@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +44,9 @@ public class AprenderActivity extends AppCompatActivity {
                       btnModulo8;
 
     // BOTÕES PULAR
-    private ImageView btnPular1;
+    private ImageView btnPular1,
+                      btnPular2,
+                      btnPular3;
 
     // TEXTVIEWS QUE MOSTRA O TITULO DOS MÓDULOS
     protected TextView  txtTitulo1,
@@ -108,11 +109,14 @@ public class AprenderActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        // CHAMANDO OS CLICK LISTENERS DOS BOTÕES
+        // CLICK LISTENERS DOS BOTÕES
         listenersBtnModulos();
 
         // CLICK LISTENERS DO MENU PUXÁVEL
         listenersMenuPrincipal();
+
+        // CLICK LISTENERS DOS BOTÕES DE PULAR
+        listenersBtnPular();
 
         // BLOQUEANDO OS MÓDULOS AO INICIAR O APP
         bloquearModulos();
@@ -165,6 +169,8 @@ public class AprenderActivity extends AppCompatActivity {
 
         // BOTÕES PULAR
         btnPular1 = (ImageView) findViewById(R.id.btnPular1);
+        btnPular2 = (ImageView) findViewById(R.id.btnPular2);
+        btnPular3 = (ImageView) findViewById(R.id.btnPular3);
 
         // SETANDO A FONTE DOS TITULOS
         Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
@@ -297,6 +303,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo2.setVisibility(View.VISIBLE);
         txtProgresso2.setVisibility(View.VISIBLE);
         barraModulo2.setVisibility(View.VISIBLE);
+        btnPular1.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo3() {
@@ -305,7 +312,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo3.setVisibility(View.VISIBLE);
         txtProgresso3.setVisibility(View.VISIBLE);
         barraModulo3.setVisibility(View.VISIBLE);
-        btnPular1.setVisibility(View.GONE);
+
     }
 
     private void desbloquearModulo4() {
@@ -322,6 +329,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo5.setVisibility(View.VISIBLE);
         txtProgresso5.setVisibility(View.VISIBLE);
         barraModulo5.setVisibility(View.VISIBLE);
+        btnPular2.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo6() {
@@ -338,6 +346,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo7.setVisibility(View.VISIBLE);
         txtProgresso7.setVisibility(View.VISIBLE);
         barraModulo7.setVisibility(View.VISIBLE);
+        btnPular3.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo8() {
@@ -484,9 +493,25 @@ public class AprenderActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void listenersBtnPular() {
         btnPular1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
+            }
+        });
+
+        btnPular2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            }
+        });
+
+        btnPular3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             }
         });
     }

@@ -87,21 +87,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button"
-                android:text="XXXXXXXXXXXX"
-                android:background="#37cc6c"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/tamanhoTextoBotao"
-                android:typeface="sans"
-                android:fontFamily="sans-serif"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button3"
-                android:text="XXXXXXXXXXXXX"
+                android:id="@+id/botaoBloquear"
+                android:text="Bloquear Módulos"
                 android:background="#37cc6c"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/tamanhoTextoBotao"
@@ -113,5 +100,18 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desbloquear Módulos"
+        android:background="#37cc6c"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tamanhoTextoBotao"
+        android:typeface="sans"
+        android:fontFamily="sans-serif"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:id="@+id/botaoDesbloquear" />
 
 </LinearLayout>

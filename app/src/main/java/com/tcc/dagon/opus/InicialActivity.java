@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
 
 /**
@@ -18,20 +19,23 @@ import com.android.volley.toolbox.Volley;
  */
 public class InicialActivity extends AppCompatActivity {
 
-    private Button login, cadastra, modulos;
+    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear;
     private TextView txtInicial;
     RequestQueue requesQueue;
-
+    GerenciadorBanco DB_PROGRESSO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
 
+        DB_PROGRESSO = new GerenciadorBanco(this);
         txtInicial = (TextView)findViewById(R.id.txtInicial);
         login = (Button) findViewById(R.id.btn_Login);
         cadastra = (Button) findViewById(R.id.btn_cadastra);
         modulos = (Button) findViewById(R.id.btn_modulos);
+        botaoBloquear = (Button) findViewById(R.id.botaoBloquear);
+        botaoDesbloquear = (Button) findViewById(R.id.botaoDesbloquear);
         requesQueue = Volley.newRequestQueue(getApplicationContext());
 
 
@@ -57,6 +61,18 @@ public class InicialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent modulos = new Intent(InicialActivity.this, AprenderActivity.class);
                 startActivity(modulos);
+            }
+        });
+
+        botaoBloquear.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoModulo(1);
+            }
+        });
+
+        botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoModulo(8);
             }
         });
 

@@ -89,6 +89,14 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo2"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/botaopularpequeno"
+                    android:layout_gravity="bottom|right"
+                    android:clickable="true"
+                    android:id="@+id/btnPular1" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,14 +171,6 @@
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/botaopularpequeno"
-                    android:layout_gravity="bottom|right"
-                    android:clickable="true"
-                    android:id="@+id/btnPular1" />
-
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -200,6 +200,15 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo4"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/botaopularpequeno"
+                    android:layout_gravity="bottom|right"
+                    android:clickable="true"
+                    android:id="@+id/btnPular2" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -349,6 +358,15 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo7"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/botaopularpequeno"
+                    android:layout_gravity="bottom|right"
+                    android:clickable="true"
+                    android:id="@+id/btnPular3" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
