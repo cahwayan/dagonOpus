@@ -21,7 +21,7 @@
         android:textColor="#d6d4d4"
         android:drawableLeft="@drawable/login_icon"
         android:typeface="monospace"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="fonts/GothamRounded-Light.otf"
         android:textSize="17sp"  />
 
     <EditText
@@ -36,7 +36,7 @@
         android:textColor="#d6d4d4"
         android:drawableLeft="@drawable/password_icon"
         android:hint="@string/hintSenha"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="fonts/GothamRounded-Light.otf"
         android:textSize="17sp" />
 
 
@@ -56,10 +56,10 @@
             android:id="@+id/btSignIn"
             android:text="@string/Entrar"
             android:textColor="#ffffff"
-            android:textSize="@dimen/tamanhoTextoBotao"
+            android:textSize="13.5sp"
             android:layout_gravity="center_horizontal"
             android:typeface="sans"
-            android:fontFamily="sans-serif"
+            android:fontFamily="fonts/GothamRounded-Light.otf"
             android:background="#37cc6c"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp" />
@@ -70,7 +70,7 @@
             android:id="@+id/txtOu"
             android:textColor="#ffffff"
             android:typeface="monospace"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="fonts/GothamRounded-Light.otf"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp" />
