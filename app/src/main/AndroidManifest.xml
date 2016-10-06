@@ -24,22 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-
-        <activity
-            android:name=".CadastroActivity" />
-
+        <activity android:name=".CadastroActivity" />
         <activity android:name=".AprenderActivity" />
         <activity android:name=".MainActivity" />
-
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".etapas.EtapasModulo1Activity"></activity>
     </application>
 
 </manifest>

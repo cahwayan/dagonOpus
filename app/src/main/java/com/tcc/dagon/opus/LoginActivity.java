@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     @Override
     protected void onStop() {
+
         if(mGoogleApiClient != null && mGoogleApiClient.isConnected()){
             mGoogleApiClient.disconnect();
         }

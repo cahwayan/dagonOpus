@@ -6,4 +6,7 @@
     <dimen name="textoBotoes">25sp</dimen>
     <dimen name="tamanhoTextoBotao">17sp</dimen>
     <dimen name="tamanhoFonteModulo">25sp</dimen>
+    <dimen name="tamanhoTextoEtapa">25sp</dimen>
+    <dimen name="paddingProgressoEtapa">5sp</dimen>
+    <dimen name="paddingProgressoEtapas">5dp</dimen>
 </resources>

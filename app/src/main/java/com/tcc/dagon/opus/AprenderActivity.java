@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.etapas.EtapasModulo1Activity;
+
 import java.io.File;
 import java.io.IOException;
 import static java.lang.String.valueOf;
@@ -129,6 +131,11 @@ public class AprenderActivity extends AppCompatActivity {
 
         // SETANDO O PROGRESSO DAS PROGRESS BARS
         progressBars();
+    }
+
+    @Override
+    protected void onStop() {
+
     }
 
     private void accessViews() {
@@ -448,6 +455,8 @@ public class AprenderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                 v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+
             }
         });
 

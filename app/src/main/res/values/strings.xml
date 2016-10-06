@@ -47,4 +47,9 @@
     <string name="descricaoBotaoModulo6">Botão do sexto módulo do curso</string>
     <string name="descricaoBotaoModulo7">Botão do sétimo módulo do curso</string>
     <string name="descricaoBotaoModulo8">Botão do oitavo módulo do curso</string>
+    <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
+    <string name="txtTituloEtapa1Modulo1">Introdução à lógica de programação</string>
+    <string name="txtTituloEtapa2Modulo1">Portugol</string>
+    <string name="txtTituloEtapa3Modulo1">Olá, mundo!</string>
+    <string name="txtTituloEtapa4Modulo1">Comentários em códigos</string>
 </resources>

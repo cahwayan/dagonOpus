@@ -19,7 +19,7 @@ import com.tcc.dagon.opus.databases.GerenciadorBanco;
  */
 public class InicialActivity extends AppCompatActivity {
 
-    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear;
+    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas;
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
@@ -29,20 +29,22 @@ public class InicialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
 
-        DB_PROGRESSO = new GerenciadorBanco(this);
-        txtInicial = (TextView)findViewById(R.id.txtInicial);
-        login = (Button) findViewById(R.id.btn_Login);
-        cadastra = (Button) findViewById(R.id.btn_cadastra);
-        modulos = (Button) findViewById(R.id.btn_modulos);
-        botaoBloquear = (Button) findViewById(R.id.botaoBloquear);
-        botaoDesbloquear = (Button) findViewById(R.id.botaoDesbloquear);
-        requesQueue = Volley.newRequestQueue(getApplicationContext());
+        DB_PROGRESSO            = new GerenciadorBanco(this);
+        txtInicial              = (TextView)findViewById(R.id.txtInicial);
+        login                   = (Button) findViewById(R.id.btn_Login);
+        cadastra                = (Button) findViewById(R.id.btn_cadastra);
+        modulos                 = (Button) findViewById(R.id.btn_modulos);
+        botaoBloquear           = (Button) findViewById(R.id.botaoBloquear);
+        botaoDesbloquear        = (Button) findViewById(R.id.botaoDesbloquear);
+        botaoDesbloquearEtapas  = (Button) findViewById(R.id.botaoDesbloquearEtapas);
+        botaoBloquearEtapas     = (Button) findViewById(R.id.botaoBloquearEtapas);
+        requesQueue             = Volley.newRequestQueue(getApplicationContext());
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent login = new Intent(InicialActivity.this, MainActivity.class);
+                Intent login = new Intent(InicialActivity.this, com.tcc.dagon.opus.MainActivity.class);
                 startActivity(login);
             }
         });
@@ -51,7 +53,7 @@ public class InicialActivity extends AppCompatActivity {
         cadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastra = new Intent(InicialActivity.this, CadastroActivity.class);
+                Intent cadastra = new Intent(InicialActivity.this, com.tcc.dagon.opus.CadastroActivity.class);
                 startActivity(cadastra);
             }
         });
@@ -59,7 +61,7 @@ public class InicialActivity extends AppCompatActivity {
         modulos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent modulos = new Intent(InicialActivity.this, AprenderActivity.class);
+                Intent modulos = new Intent(InicialActivity.this, com.tcc.dagon.opus.AprenderActivity.class);
                 startActivity(modulos);
             }
         });
@@ -73,6 +75,32 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(8);
+            }
+        });
+
+        botaoDesbloquearEtapas.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoEtapa(1,9);
+                DB_PROGRESSO.atualizaProgressoEtapa(2,10);
+                DB_PROGRESSO.atualizaProgressoEtapa(3,7);
+                DB_PROGRESSO.atualizaProgressoEtapa(4,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(5,6);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,7);
+                DB_PROGRESSO.atualizaProgressoEtapa(7,10);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,10);
+            }
+        });
+
+        botaoBloquearEtapas.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoEtapa(1,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(2,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(3,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(4,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(5,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(7,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,1);
             }
         });
 
