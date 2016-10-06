@@ -15,7 +15,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
                          etapa3,
                          etapa4;
 
-    private Context context;
+    private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
 
         ClickListenersEtapas();
     }
+
 
     private void accessViews() {
         etapa1 = (LinearLayout) findViewById(R.id.Etapa1);
