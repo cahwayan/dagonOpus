@@ -252,33 +252,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         String tabela = Progresso.TABELA_PROGRESSO;
 
-        switch(progresso) {
-            case 1:
-                progresso = 1;
-                break;
-            case 2:
-                progresso = 2;
-                break;
-            case 3:
-                progresso = 3;
-                break;
-            case 4:
-                progresso = 4;
-                break;
-            case 5:
-                progresso = 5;
-                break;
-            case 6:
-                progresso = 6;
-                break;
-            case 7:
-                progresso = 7;
-                break;
-            case 8:
-                progresso = 8;
-                break;
-        }
-        // Qual coluna da tabela fazer o update
+        // OBJETO QUE GUARDARÁ OS VALORES
         ContentValues valor = new ContentValues();
         // Coluna da tabela e o valor
         valor.put(Progresso.COLUNA_MODULO, progresso);
@@ -293,6 +267,47 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 valor,
                 select,
                 selectArgs
+        );
+        fecharBanco();
+    }
+
+    public void atualizaProgressoEtapa(int moduloPertencente, int progressoEtapa) {
+        // TABELA QUE IRÁ SER PESQUISADA
+        String tabela = Progresso.TABELA_PROGRESSO;
+        String coluna[] = {""};
+        // SELECIONANDO O MÓDULO DA ETAPA A ATUALIZAR
+        switch(moduloPertencente) {
+            case 1: coluna[0] = Progresso.COLUNA_ETAPA1;
+                break;
+            case 2: coluna[0] = Progresso.COLUNA_ETAPA2;
+                break;
+            case 3: coluna[0] = Progresso.COLUNA_ETAPA3;
+                break;
+            case 4: coluna[0] = Progresso.COLUNA_ETAPA4;
+                break;
+            case 5: coluna[0] = Progresso.COLUNA_ETAPA5;
+                break;
+            case 6: coluna[0] = Progresso.COLUNA_ETAPA6;
+                break;
+            case 7: coluna[0] = Progresso.COLUNA_ETAPA7;
+                break;
+            case 8: coluna[0] = Progresso.COLUNA_ETAPA8;
+                break;
+        }
+        // OBJETO QUE GUARDARÁ OS DADOS A SEREM COLOCADOS
+        ContentValues valor = new ContentValues();
+        // NOME DA TABELA E OS VALORES QUE SERÃO COLOCADOS
+        valor.put(coluna[0], progressoEtapa);
+        // SELECIONAR A COLUNA BASEADO NO ID
+        String select = Progresso.COLUNA_ID + " LIKE ?";
+        // QUAL LINHA QUE POSSUUI O ID FAZER O UPDATE
+        String selectArgs[] = {String.valueOf(1)};
+        abrirBanco();
+        DB_PROGRESSO.update(
+            tabela,
+            valor,
+            select,
+            selectArgs
         );
         fecharBanco();
     }
