@@ -182,6 +182,5 @@
     <orderEntry type="library" exported="" name="play-services-wearable-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="Android-RoundCornerProgressBar-v2.0.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-8.1.0" level="project" />
-    <orderEntry type="library" exported="" name="android-android-23" level="project" />
   </component>
 </module>

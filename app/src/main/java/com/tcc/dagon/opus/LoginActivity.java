@@ -122,6 +122,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
                                 startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                                //onTrimMemory(TRIM_MEMORY_UI_HIDDEN);
                             }else{
                                 Toast.makeText(getApplicationContext(), "Ocorreu um erro ao logar. Verifique suas credenciais!" , Toast.LENGTH_SHORT).show();
                             }
@@ -129,7 +130,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
                         }
                     }){
                         @Override
