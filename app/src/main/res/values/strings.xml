@@ -37,6 +37,7 @@
     <string name="txtTitulo6">DESAFIOS 1</string>
     <string name="txtTitulo7">CLASSES E OBJETOS 2</string>
     <string name="txtTitulo8">DESAFIOS 2</string>
+    <string name="txtTituloModulo9">CERTIFICADO</string>
     <string name="fonteBotao">sans-serif</string>
     <string name="BotaoCriarConta">CRIAR CONTA</string>
     <string name="descricaoBotaoModulo1">Botão do primeiro módulo do curso</string>
@@ -47,9 +48,13 @@
     <string name="descricaoBotaoModulo6">Botão do sexto módulo do curso</string>
     <string name="descricaoBotaoModulo7">Botão do sétimo módulo do curso</string>
     <string name="descricaoBotaoModulo8">Botão do oitavo módulo do curso</string>
+    <string name="descricaoBotaoModulo9">Botão de certificado do curso</string>
+    <string name="moduloBloqueado">MÓDULO BLOQUEADO</string>
     <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
     <string name="txtTituloEtapa1Modulo1">Introdução à lógica de programação</string>
     <string name="txtTituloEtapa2Modulo1">Portugol</string>
     <string name="txtTituloEtapa3Modulo1">Olá, mundo!</string>
     <string name="txtTituloEtapa4Modulo1">Comentários em códigos</string>
+    <string name="yes">OK</string>
+
 </resources>
