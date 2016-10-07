@@ -93,14 +93,14 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoBloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoEtapa(1,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(2,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(3,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(4,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(5,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(7,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,1);
+                DB_PROGRESSO.atualizaProgressoEtapa(1,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(2,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(3,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(4,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(5,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(7,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,0);
             }
         });
 

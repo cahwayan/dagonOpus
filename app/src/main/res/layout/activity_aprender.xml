@@ -42,7 +42,7 @@
                     android:text="@string/txtTitulo1"
                     android:id="@+id/txtTitulo1"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
@@ -53,7 +53,6 @@
                     android:id="@+id/txtProgresso1"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:fontFamily="sans-serif"
                     android:typeface="normal"
                     android:textSize="@dimen/tamanhoFonteModulo" />
@@ -69,7 +68,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#9966ff"
+                app:rcProgressColor="#0a2cfd"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo1" />
@@ -103,7 +102,7 @@
                     android:text="@string/txtTitulo2"
                     android:id="@+id/txtTitulo2"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
@@ -114,7 +113,6 @@
                     android:id="@+id/txtProgresso2"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
@@ -129,7 +127,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#66ff99"
+                app:rcProgressColor="#265afe"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo2" />
@@ -152,24 +150,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo3"
-                    android:id="@+id/txtTitulo3"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:textColor="#ffffff" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/txtProgressoModulo3"
                     android:id="@+id/txtProgresso3"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo3"
+                    android:id="@+id/txtTitulo3"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:textColor="#ffffff" />
 
             </FrameLayout>
 
@@ -181,7 +178,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#6699ff"
+                app:rcProgressColor="#2d64fd"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo3" />
@@ -212,23 +209,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo4"
-                    android:id="@+id/txtTitulo4"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:textColor="#ffffff" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/txtProgressoModulo4"
                     android:id="@+id/txtProgresso4"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo4"
+                    android:id="@+id/txtTitulo4"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:textColor="#ffffff" />
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -239,7 +236,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#ffcc66"
+                app:rcProgressColor="#3f80fe"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo4" />
@@ -265,7 +262,7 @@
                     android:text="@string/txtTitulo5"
                     android:id="@+id/txtTitulo5"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
@@ -276,7 +273,6 @@
                     android:id="@+id/txtProgresso5"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
@@ -290,7 +286,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#9966ff"
+                app:rcProgressColor="#5194fd"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo5" />
@@ -315,7 +311,7 @@
                     android:text="@string/txtTitulo6"
                     android:id="@+id/txtTitulo6"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
                 <TextView
@@ -325,7 +321,6 @@
                     android:id="@+id/txtProgresso6"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
@@ -339,7 +334,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#6699ff"
+                app:rcProgressColor="#5aa8fd"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo6" />
@@ -373,7 +368,7 @@
                     android:text="@string/txtTitulo7"
                     android:id="@+id/txtTitulo7"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
@@ -384,7 +379,6 @@
                     android:id="@+id/txtProgresso7"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
@@ -398,7 +392,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#66ff99"
+                app:rcProgressColor="#6ac3ff"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo7" />
@@ -417,15 +411,6 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo8"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo8"
-                    android:id="@+id/txtTitulo8"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:textColor="#ffffff" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -434,10 +419,19 @@
                     android:id="@+id/txtProgresso8"
                     android:layout_gravity="center_horizontal|bottom"
                     android:textColor="#ffffff"
-                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTitulo8"
+                    android:id="@+id/txtTitulo8"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:textColor="#ffffff" />
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -448,10 +442,39 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#ffcc66"
+                app:rcProgressColor="#7adcff"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
-                android:id="@+id/barraModulo8" />
+                android:id="@+id/barraModulo8" >
+            </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnModulo9"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/btnmodulo9"
+                    android:layout_margin="0dp"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@+id/descricaoBotaoModulo9" />
+
+                <TextView
+                    android:text="@string/txtTituloModulo9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtTitulo9"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white" />
+            </FrameLayout>
 
         </LinearLayout>
 

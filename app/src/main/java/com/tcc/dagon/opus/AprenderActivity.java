@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
@@ -16,10 +17,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.app.AlertDialog.Builder;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.etapas.EtapasModulo1Activity;
+import android.app.AlertDialog;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +47,8 @@ public class AprenderActivity extends AppCompatActivity {
                       btnModulo5,
                       btnModulo6,
                       btnModulo7,
-                      btnModulo8;
+                      btnModulo8,
+                      btnModulo9;
 
     // BOTÕES PULAR
     private ImageView btnPular1,
@@ -58,7 +63,8 @@ public class AprenderActivity extends AppCompatActivity {
                         txtTitulo5,
                         txtTitulo6,
                         txtTitulo7,
-                        txtTitulo8;
+                        txtTitulo8,
+                        txtTitulo9;
 
     // TEXT VIEW QUE MOSTRA O PROGRESSO DO USUÁRIO
     protected TextView  txtProgresso1,
@@ -82,6 +88,9 @@ public class AprenderActivity extends AppCompatActivity {
     // SUPER VARIÁVEL CONTEXT
     private Context context = this;
 
+    //AlertDialog
+    private AlertDialog alerta;
+
     // Variáveis do menu puxável
     private ListView              mListView;
     private ActionBarDrawerToggle mAlterna;
@@ -94,6 +103,8 @@ public class AprenderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
+
+
 
         // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
         instanciaBanco();
@@ -146,6 +157,7 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo6 = (ImageView)findViewById(R.id.btnModulo6);
         btnModulo7 = (ImageView)findViewById(R.id.btnModulo7);
         btnModulo8 = (ImageView)findViewById(R.id.btnModulo8);
+        btnModulo9 = (ImageView)findViewById(R.id.btnModulo9);
 
         // TEXT VIEWS DOS TITULOS DOS MODULOS
 
@@ -157,6 +169,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo6 = (TextView)findViewById(R.id.txtTitulo6);
         txtTitulo7 = (TextView)findViewById(R.id.txtTitulo7);
         txtTitulo8 = (TextView)findViewById(R.id.txtTitulo8);
+        txtTitulo9 = (TextView)findViewById(R.id.txtTitulo9);
 
         // TEXT VIEWS DOS PROGRESSOS DOS MÓDULOS
 
@@ -184,6 +197,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo6.setTypeface(harabara);
         txtTitulo7.setTypeface(harabara);
         txtTitulo8.setTypeface(harabara);
+        txtTitulo9.setTypeface(harabara);
 
         // SETANDO A FONTE DO PROGRESSO
         txtProgresso1.setTypeface(harabara);
@@ -231,56 +245,38 @@ public class AprenderActivity extends AppCompatActivity {
     // BLOQUEIA OS MÓDULOS
     private void bloquearModulos() {
         // MUDANDO IMAGEM PARA A BLOQUEADA
-        btnModulo1.setImageResource(R.drawable.modulo_bloqueado);
-        // BLOQUEANDO O CLICK
-        btnModulo1.setClickable(false);
+        btnModulo1.setImageResource(R.drawable.modulo_bloqueado1);
         // SUMINDO COM AS TEXTVIEWS
-        txtTitulo1.setVisibility(View.GONE);
+        txtTitulo1.setText(R.string.moduloBloqueado);
         txtProgresso1.setVisibility(View.GONE);
-        // SUMINDO COM A BARRA DE PROGRESSO
-        barraModulo1.setVisibility(View.GONE);
 
-        btnModulo2.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo2.setClickable(false);
-        txtTitulo2.setVisibility(View.GONE);
+        btnModulo2.setImageResource(R.drawable.modulo_bloqueado2);
+        txtTitulo2.setText(R.string.moduloBloqueado);
         txtProgresso2.setVisibility(View.GONE);
-        barraModulo2.setVisibility(View.GONE);
 
-        btnModulo3.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo3.setClickable(false);
-        txtTitulo3.setVisibility(View.GONE);
+        btnModulo3.setImageResource(R.drawable.modulo_bloqueado3);
+        txtTitulo3.setText(R.string.moduloBloqueado);
         txtProgresso3.setVisibility(View.GONE);
-        barraModulo3.setVisibility(View.GONE);
 
-        btnModulo4.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo4.setClickable(false);
-        txtTitulo4.setVisibility(View.GONE);
+        btnModulo4.setImageResource(R.drawable.modulo_bloqueado4);
+        txtTitulo4.setText(R.string.moduloBloqueado);
         txtProgresso4.setVisibility(View.GONE);
-        barraModulo4.setVisibility(View.GONE);
 
-        btnModulo5.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo5.setClickable(false);
-        txtTitulo5.setVisibility(View.GONE);
+        btnModulo5.setImageResource(R.drawable.modulo_bloqueado5);
+        txtTitulo5.setText(R.string.moduloBloqueado);
         txtProgresso5.setVisibility(View.GONE);
-        barraModulo5.setVisibility(View.GONE);
 
-        btnModulo6.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo6.setClickable(false);
-        txtTitulo6.setVisibility(View.GONE);
+        btnModulo6.setImageResource(R.drawable.modulo_bloqueado6);
+        txtTitulo6.setText(R.string.moduloBloqueado);
         txtProgresso6.setVisibility(View.GONE);
-        barraModulo6.setVisibility(View.GONE);
 
-        btnModulo7.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo7.setClickable(false);
-        txtTitulo7.setVisibility(View.GONE);
+        btnModulo7.setImageResource(R.drawable.modulo_bloqueado7);
+        txtTitulo7.setText(R.string.moduloBloqueado);
         txtProgresso7.setVisibility(View.GONE);
-        barraModulo7.setVisibility(View.GONE);
 
-        btnModulo8.setImageResource(R.drawable.modulo_bloqueado);
-        btnModulo8.setClickable(false);
-        txtTitulo8.setVisibility(View.GONE);
+        btnModulo8.setImageResource(R.drawable.modulo_bloqueado8);
+        txtTitulo8.setText(R.string.moduloBloqueado);
         txtProgresso8.setVisibility(View.GONE);
-        barraModulo8.setVisibility(View.GONE);
     }
 
 
@@ -289,74 +285,56 @@ public class AprenderActivity extends AppCompatActivity {
         // MUDANDO A IMAGEM PARA A ORIGINAL DO MÓDULO
         btnModulo1.setImageResource(R.drawable.btnmodulo1);
         // RELIGANDO O CLICK
-        btnModulo1.setClickable(true);
         // TRAZENDO DE VOLTA O TÍTULO DO MÓDULO
-        txtTitulo1.setVisibility(View.VISIBLE);
+        txtTitulo1.setText(R.string.txtTitulo1);
         // TRAZENDO DE VOLTA A TEXTVIEW DO PROGRESSO DO MÓDULO
         txtProgresso1.setVisibility(View.VISIBLE);
-        // TRAZENDO DE VOLTA A BARRA DE PROGRESSO DO MÓDULO
-        barraModulo1.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo2() {
         desbloquearModulo1();
         btnModulo2.setImageResource(R.drawable.btnmodulo2);
-        btnModulo2.setClickable(true);
-        txtTitulo2.setVisibility(View.VISIBLE);
+        txtTitulo2.setText(R.string.txtTitulo2);
         txtProgresso2.setVisibility(View.VISIBLE);
-        barraModulo2.setVisibility(View.VISIBLE);
         btnPular1.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo3() {
         btnModulo3.setImageResource(R.drawable.btnmodulo3);
-        btnModulo3.setClickable(true);
-        txtTitulo3.setVisibility(View.VISIBLE);
+        txtTitulo3.setText(R.string.txtTitulo3);
         txtProgresso3.setVisibility(View.VISIBLE);
-        barraModulo3.setVisibility(View.VISIBLE);
-
     }
 
     private void desbloquearModulo4() {
         btnModulo4.setImageResource(R.drawable.btnmodulo4);
-        btnModulo4.setClickable(true);
-        txtTitulo4.setVisibility(View.VISIBLE);
+        txtTitulo4.setText(R.string.txtTitulo4);
         txtProgresso4.setVisibility(View.VISIBLE);
-        barraModulo4.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo5() {
         btnModulo5.setImageResource(R.drawable.btnmodulo5);
-        btnModulo5.setClickable(true);
-        txtTitulo5.setVisibility(View.VISIBLE);
+        txtTitulo5.setText(R.string.txtTitulo5);
         txtProgresso5.setVisibility(View.VISIBLE);
-        barraModulo5.setVisibility(View.VISIBLE);
         btnPular2.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo6() {
         btnModulo6.setImageResource(R.drawable.btnmodulo6);
-        btnModulo6.setClickable(true);
-        txtTitulo6.setVisibility(View.VISIBLE);
+        txtTitulo6.setText(R.string.txtTitulo6);
         txtProgresso6.setVisibility(View.VISIBLE);
-        barraModulo6.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo7() {
         btnModulo7.setImageResource(R.drawable.btnmodulo7);
-        btnModulo7.setClickable(true);
-        txtTitulo7.setVisibility(View.VISIBLE);
+        txtTitulo7.setText(R.string.txtTitulo7);
         txtProgresso7.setVisibility(View.VISIBLE);
-        barraModulo7.setVisibility(View.VISIBLE);
         btnPular3.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo8() {
         btnModulo8.setImageResource(R.drawable.btnmodulo8);
-        btnModulo8.setClickable(true);
-        txtTitulo8.setVisibility(View.VISIBLE);
+        txtTitulo8.setText(R.string.txtTitulo8);
         txtProgresso8.setVisibility(View.VISIBLE);
-        barraModulo8.setVisibility(View.VISIBLE);
     }
 
 
@@ -448,56 +426,106 @@ public class AprenderActivity extends AppCompatActivity {
     private void listenersBtnModulos() {
         btnModulo1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-
+                // SE O MÓDULO ESTIVER DESBLOQUEADO, INICIAR A ACTIVITY
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 1) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else { // SENÃO EXIBIR ALERTDIALOG
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 2) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 3) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 4) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo5.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 5) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo6.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 6) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo7.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 7) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
         btnModulo8.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 8) {
+                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertDialogModuloBloqueado();
+                }
             }
         });
 
-
+        btnModulo9.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            }
+        });
     }
 
     private void listenersBtnPular() {
@@ -614,8 +642,15 @@ public class AprenderActivity extends AppCompatActivity {
 
     // FIM MÉTODOS NATIVOS DO MENU
 
+    public void alertDialogModuloBloqueado() {
 
-
-
+        Builder alerta = new AlertDialog.Builder(this);
+        alerta.setTitle("Módulo Bloqueado");
+        alerta.setMessage("Complete o módulo anterior para desbloquear os próximos");
+        alerta.setPositiveButton("OK", null);
+        // Icone
+        alerta.setIcon(R.drawable.icon_lock);
+        alerta.create().show();
+    }
 }
 

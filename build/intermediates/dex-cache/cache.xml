@@ -286,7 +286,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="0d8c2c7850ace8f7f5986bb571f6b93ac34dd181">
+        sha1="932445892a698e229b1d669b918260b7fca12447">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_32a167076dd8b98e4d9e44a3de37ffd9c44d8bfb\classes.dex" />
     </item>
     <item
@@ -331,7 +331,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="4c183374547924c4b07f453b8b9597ea0f65f698">
+        sha1="0032d2a61d57edcdadf0674004fc107caacaca68">
         <dex dex="C:\Users\Usuario\AndroidStudioProjects\dagonOpus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_6b31ff8756dabb6814604237c661a51230a88218\classes.dex" />
     </item>
     <item
