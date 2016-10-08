@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.utils;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +16,13 @@ import com.tcc.dagon.opus.R;
 
 public class NovaJanelaAlerta extends AppCompatActivity {
     private Context context;
-    public NovaJanelaAlerta() {
-
+    Activity activity;
+    public NovaJanelaAlerta(Activity activity) {
+        this.activity = activity;
     }
     /*JANELA DE ALERTA*/
     public void alertDialogBloqueado(String titulo, String mensagem) {
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        AlertDialog.Builder alerta = new AlertDialog.Builder(activity);
         alerta.setTitle(titulo);
         alerta.setMessage(mensagem);
         alerta.setPositiveButton("OK", null);

@@ -96,7 +96,7 @@ public class AprenderActivity extends AppCompatActivity {
     private DrawerLayout          drawer_layout;
     private String                mTitulo;
 
-    NovaJanelaAlerta alerta = new NovaJanelaAlerta();
+    NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
 
 
 
@@ -430,7 +430,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else { // SENÃO EXIBIR ALERTDIALOG
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -442,7 +442,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -454,7 +454,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -466,7 +466,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -478,7 +478,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -490,7 +490,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -502,7 +502,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
@@ -514,7 +514,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
                 }
             }
         });
