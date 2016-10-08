@@ -1,26 +1,14 @@
 <resources>
+    <!--NOME APP-->
     <string name="app_name">Opus</string>
-    <string name="hintNome">Nome completo</string>
-    <string name="hintEmail">Email</string>
-    <string name="hintSenha">Senha</string>
-    <string name="hintConfirmarSenha">Confirmar senha</string>
-    <string name="btnCadastrar">Cadastrar</string>
-    <string name="btnCancelar">Cancelar</string>
-    <string name="mAbrir">Abrir navegação</string>
-    <string name="mFechar">Fechar Navegação</string>
-    <string name="acao_opcoes">Configurações</string>
+
+    <!--STRINGS MANIFEST-->
     <string name="title_activity_gerenciar_perfil">GerenciarPerfilActivity</string>
-    <string name="nomeAppLogin"><![CDATA[</OPUS>]]></string>
-    <string name="ou">ou</string>
-    <string name="Entrar">Entrar</string>
-    <string name="nomeAppLogin2"><![CDATA[<OPUS/>]]></string>
-    <string name="esqueceuSenha">Esqueceu sua senha?</string>
-    <string name="btn_cancela">cancelar</string>
-    <string name="confirmSenha">Confirme sua senha</string>
-    <string name="nomeCompleto">Nome completo</string>
-    <string name="inicial">inicial</string>
-    <string name="txtCadastr">Criar conta</string>
-    <string name="txtBemVindo">Bem-vindo!</string>
+    <!--FIM STRINGS MANIFEST-->
+
+    <!--STRINGS TELA APRENDER-->
+
+    <!--STRINGS MODULOS-->
     <string name="txtProgressoModulo1">0/9</string>
     <string name="txtProgressoModulo2">0/10</string>
     <string name="txtProgressoModulo3">0/7</string>
@@ -29,17 +17,18 @@
     <string name="txtProgressoModulo6">0/7</string>
     <string name="txtProgressoModulo7">0/X</string>
     <string name="txtProgressoModulo8">0/X</string>
-    <string name="txtTitulo1">CONCEITOS BÁSICOS</string>
-    <string name="txtTitulo2">TIPOS DE DADOS E VETORES</string>
-    <string name="txtTitulo3">CONDIÇÕES E LOOPS</string>
-    <string name="txtTitulo4">FUNÇÕES</string>
-    <string name="txtTitulo5">CLASSES E OBJETOS</string>
-    <string name="txtTitulo6">DESAFIOS 1</string>
-    <string name="txtTitulo7">CLASSES E OBJETOS 2</string>
-    <string name="txtTitulo8">DESAFIOS 2</string>
+    <string name="txtTituloModulo1">CONCEITOS BÁSICOS</string>
+    <string name="txtTituloModulo2">TIPOS DE DADOS E VETORES</string>
+    <string name="txtTituloModulo3">CONDIÇÕES E LOOPS</string>
+    <string name="txtTituloModulo4">FUNÇÕES</string>
+    <string name="txtTituloModulo5">CLASSES E OBJETOS</string>
+    <string name="txtTituloModulo6">DESAFIOS 1</string>
+    <string name="txtTituloModulo7">CLASSES E OBJETOS 2</string>
+    <string name="txtTituloModulo8">DESAFIOS 2</string>
     <string name="txtTituloModulo9">CERTIFICADO</string>
-    <string name="fonteBotao">sans-serif</string>
-    <string name="BotaoCriarConta">CRIAR CONTA</string>
+    <string name="moduloBloqueado">MÓDULO BLOQUEADO</string>
+
+    <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
     <string name="descricaoBotaoModulo1">Botão do primeiro módulo do curso</string>
     <string name="descricaoBotaoModulo2">Botão do segundo módulo do curso</string>
     <string name="descricaoBotaoModulo3">Botão do terceiro módulo do curso</string>
@@ -49,12 +38,47 @@
     <string name="descricaoBotaoModulo7">Botão do sétimo módulo do curso</string>
     <string name="descricaoBotaoModulo8">Botão do oitavo módulo do curso</string>
     <string name="descricaoBotaoModulo9">Botão de certificado do curso</string>
-    <string name="moduloBloqueado">MÓDULO BLOQUEADO</string>
+    <!--FIM STRINGS MODULOS-->
+
+    <!--MENU PUXAVEL-->
+    <string name="mAbrir">Abrir navegação</string>
+    <string name="mFechar">Fechar Navegação</string>
+    <!--FIM MENU PUXAVEL-->
+
+    <!--STRINGS TELA CADASTRO-->
+    <string name="hintEmail">Email</string>
+    <string name="hintSenha">Senha</string>
+    <string name="hintConfirmarSenha">Confirmar senha</string>
+    <string name="nomeCompleto">Nome</string>
+    <string name="txtCadastro">Criar conta</string>
+    <string name="txtBemVindo">Bem-vindo!</string>
+    <string name="btnCadastrar">Cadastrar</string>
+    <string name="fonteBotao">sans-serif</string>
+    <!--FIM STRINGS CADASTRO-->
+
+    <!--STRINGS MENU NATIVO ANDROID-->
+    <string name="acao_opcoes">Configurações</string>
+
+
+
+    <!--STRINGS TELA TESTE-->
+    <string name="nomeAppLogin"><![CDATA[</OPUS>]]></string>
+    <!--FIM TELA TESTE-->
+
+    <!-- STRINGS TELA LOGIN-->
+    <string name="ou">ou</string>
+    <string name="Entrar">Entrar</string>
+    <string name="nomeAppLogin2"><![CDATA[<OPUS/>]]></string>
+    <string name="esqueceuSenha">Esqueceu sua senha?</string>
+    <string name="BotaoCriarConta">CRIAR CONTA</string>
+    <!--FIM TELA LOGIN-->
+
+    <!--STRINGS ETAPAS MÓDULO 1-->
     <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
     <string name="txtTituloEtapa1Modulo1">Introdução à lógica de programação</string>
     <string name="txtTituloEtapa2Modulo1">Portugol</string>
     <string name="txtTituloEtapa3Modulo1">Olá, mundo!</string>
     <string name="txtTituloEtapa4Modulo1">Comentários em códigos</string>
-    <string name="yes">OK</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 1-->
 
 </resources>

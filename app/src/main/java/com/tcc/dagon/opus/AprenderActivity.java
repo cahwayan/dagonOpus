@@ -22,6 +22,8 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+
 import android.app.AlertDialog;
 import android.widget.Toast;
 
@@ -88,14 +90,13 @@ public class AprenderActivity extends AppCompatActivity {
     // SUPER VARIÁVEL CONTEXT
     private Context context = this;
 
-    //AlertDialog
-    private AlertDialog alerta;
-
     // Variáveis do menu puxável
     private ListView              mListView;
     private ActionBarDrawerToggle mAlterna;
     private DrawerLayout          drawer_layout;
     private String                mTitulo;
+
+    NovaJanelaAlerta alerta = new NovaJanelaAlerta();
 
 
 
@@ -103,8 +104,6 @@ public class AprenderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
-
-
 
         // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
         instanciaBanco();
@@ -284,9 +283,8 @@ public class AprenderActivity extends AppCompatActivity {
     private void desbloquearModulo1() {
         // MUDANDO A IMAGEM PARA A ORIGINAL DO MÓDULO
         btnModulo1.setImageResource(R.drawable.btnmodulo1);
-        // RELIGANDO O CLICK
         // TRAZENDO DE VOLTA O TÍTULO DO MÓDULO
-        txtTitulo1.setText(R.string.txtTitulo1);
+        txtTitulo1.setText(R.string.txtTituloModulo1);
         // TRAZENDO DE VOLTA A TEXTVIEW DO PROGRESSO DO MÓDULO
         txtProgresso1.setVisibility(View.VISIBLE);
     }
@@ -294,46 +292,46 @@ public class AprenderActivity extends AppCompatActivity {
     private void desbloquearModulo2() {
         desbloquearModulo1();
         btnModulo2.setImageResource(R.drawable.btnmodulo2);
-        txtTitulo2.setText(R.string.txtTitulo2);
+        txtTitulo2.setText(R.string.txtTituloModulo2);
         txtProgresso2.setVisibility(View.VISIBLE);
         btnPular1.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo3() {
         btnModulo3.setImageResource(R.drawable.btnmodulo3);
-        txtTitulo3.setText(R.string.txtTitulo3);
+        txtTitulo3.setText(R.string.txtTituloModulo3);
         txtProgresso3.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo4() {
         btnModulo4.setImageResource(R.drawable.btnmodulo4);
-        txtTitulo4.setText(R.string.txtTitulo4);
+        txtTitulo4.setText(R.string.txtTituloModulo4);
         txtProgresso4.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo5() {
         btnModulo5.setImageResource(R.drawable.btnmodulo5);
-        txtTitulo5.setText(R.string.txtTitulo5);
+        txtTitulo5.setText(R.string.txtTituloModulo5);
         txtProgresso5.setVisibility(View.VISIBLE);
         btnPular2.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo6() {
         btnModulo6.setImageResource(R.drawable.btnmodulo6);
-        txtTitulo6.setText(R.string.txtTitulo6);
+        txtTitulo6.setText(R.string.txtTituloModulo6);
         txtProgresso6.setVisibility(View.VISIBLE);
     }
 
     private void desbloquearModulo7() {
         btnModulo7.setImageResource(R.drawable.btnmodulo7);
-        txtTitulo7.setText(R.string.txtTitulo7);
+        txtTitulo7.setText(R.string.txtTituloModulo7);
         txtProgresso7.setVisibility(View.VISIBLE);
         btnPular3.setVisibility(View.GONE);
     }
 
     private void desbloquearModulo8() {
         btnModulo8.setImageResource(R.drawable.btnmodulo8);
-        txtTitulo8.setText(R.string.txtTitulo8);
+        txtTitulo8.setText(R.string.txtTituloModulo8);
         txtProgresso8.setVisibility(View.VISIBLE);
     }
 
@@ -432,7 +430,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else { // SENÃO EXIBIR ALERTDIALOG
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -444,7 +442,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -456,7 +454,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -468,7 +466,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -480,7 +478,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -492,7 +490,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -504,7 +502,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -516,7 +514,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alertDialogModuloBloqueado();
+                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear os próximos");
                 }
             }
         });
@@ -642,15 +640,6 @@ public class AprenderActivity extends AppCompatActivity {
 
     // FIM MÉTODOS NATIVOS DO MENU
 
-    public void alertDialogModuloBloqueado() {
 
-        Builder alerta = new AlertDialog.Builder(this);
-        alerta.setTitle("Módulo Bloqueado");
-        alerta.setMessage("Complete o módulo anterior para desbloquear os próximos");
-        alerta.setPositiveButton("OK", null);
-        // Icone
-        alerta.setIcon(R.drawable.icon_lock);
-        alerta.create().show();
-    }
 }
 

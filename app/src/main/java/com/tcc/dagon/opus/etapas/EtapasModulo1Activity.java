@@ -10,24 +10,29 @@ import android.widget.LinearLayout;
 import com.tcc.dagon.opus.R;
 
 public class EtapasModulo1Activity extends AppCompatActivity {
+    /*LAYOUTS*/
     private LinearLayout etapa1,
                          etapa2,
                          etapa3,
                          etapa4;
 
+    /*SUPER VARIÁVEL CONTEXT*/
     private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_etapas_modulo_1);
 
+        /*ACESSANDO AS VIEWS*/
         accessViews();
 
+        /*ADICIONANDO OS CLICK LISTENERS*/
         ClickListenersEtapas();
     }
 
 
     private void accessViews() {
+        /*RECUPEERANDO ITENS LAYOUT*/
         etapa1 = (LinearLayout) findViewById(R.id.Etapa1);
         etapa2 = (LinearLayout) findViewById(R.id.Etapa2);
         etapa3 = (LinearLayout) findViewById(R.id.Etapa3);

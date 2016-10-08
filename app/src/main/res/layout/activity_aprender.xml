@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo1"
+                    android:text="@string/txtTituloModulo1"
                     android:id="@+id/txtTitulo1"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo2"
+                    android:text="@string/txtTituloModulo2"
                     android:id="@+id/txtTitulo2"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo3"
+                    android:text="@string/txtTituloModulo3"
                     android:id="@+id/txtTitulo3"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -220,7 +220,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo4"
+                    android:text="@string/txtTituloModulo4"
                     android:id="@+id/txtTitulo4"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -259,7 +259,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo5"
+                    android:text="@string/txtTituloModulo5"
                     android:id="@+id/txtTitulo5"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -308,7 +308,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo6"
+                    android:text="@string/txtTituloModulo6"
                     android:id="@+id/txtTitulo6"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -365,7 +365,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo7"
+                    android:text="@string/txtTituloModulo7"
                     android:id="@+id/txtTitulo7"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
@@ -426,7 +426,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTitulo8"
+                    android:text="@string/txtTituloModulo8"
                     android:id="@+id/txtTitulo8"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
