@@ -15,5 +15,5 @@ public class StringsBanco {
         loginUrl = "http://dagonopus.esy.es/phpAndroid/login.php";
     }
 
-//teste
+
 }
