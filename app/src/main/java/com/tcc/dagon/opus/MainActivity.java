@@ -37,6 +37,8 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
+import com.tcc.dagon.opus.Modulos.Modulo_1;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,7 +80,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     // VARIÁVEIS GOOGLE
     public String name,
                   emailG,
-                  emailGG;
+                  imageUrl;
 
     // STRINGS DO EMAIL E SENHA
     private String sEmail,
@@ -283,7 +285,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             pbContainer.setVisibility(View.VISIBLE);
         }
     }
-
+//FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
     public void loadImage(final ImageView ivImg, final ProgressBar pbImg, final String urlImg){
         RequestQueue rq = Volley.newRequestQueue(MainActivity.this);
         ImageLoader il = new ImageLoader(rq, new ImageLoader.ImageCache() {
@@ -312,7 +314,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         }
     }
-
+//FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
         Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
 
@@ -321,7 +323,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             name = p.getDisplayName();
             String language = p.getLanguage();
             String profileUrl = p.getUrl();
-            String imageUrl = p.getImage().getUrl();
+            imageUrl = p.getImage().getUrl();
             emailG = Plus.AccountApi.getAccountName(googleApiClient);
 
             tvId.setText(id);
@@ -357,7 +359,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
 
             requestQueue.add(request);
-
+//carrega icone de imagem do perfil do google
             Log.i("Script", "IMG before: "+imageUrl);
             imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
             Log.i("Script", "IMG after: "+imageUrl);
@@ -402,15 +404,15 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         }
         else if(v.getId() == R.id.bt_AprenderActivity){
-            Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
-            String txt = emailG.toString();
-            txt = txt.toString();
-            Bundle bundle = new Bundle();
+            Intent intent = new Intent(MainActivity.this, Modulo_1.class);
+            String perfilEmail = emailG.toString();
+            String perfilNome = name.toString();
+            String perfilImagem = imageUrl.toString();
+            intent.putExtra("emailBundle", perfilEmail);
+            intent.putExtra("nomeBundle", perfilNome);
+            this.startActivity(intent);
 
-            bundle.putString("txt", txt);
-            intent.putExtras(bundle);
 
-            startActivity(intent);
 
         }
     }

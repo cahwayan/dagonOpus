@@ -12,14 +12,14 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-
+import com.tcc.dagon.opus.Modulos.Modulo_1;
 
 /**
  * Created by Otávio Paulino on 21/09/2016.
  */
 public class InicialActivity extends AppCompatActivity {
 
-    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas;
+    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1;
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
@@ -38,9 +38,17 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquear        = (Button) findViewById(R.id.botaoDesbloquear);
         botaoDesbloquearEtapas  = (Button) findViewById(R.id.botaoDesbloquearEtapas);
         botaoBloquearEtapas     = (Button) findViewById(R.id.botaoBloquearEtapas);
+        Modulo1              = (Button) findViewById(R.id.botaoModulo1);
         requesQueue             = Volley.newRequestQueue(getApplicationContext());
 
 
+        Modulo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mdl1 = new Intent(InicialActivity.this,Modulo_1.class);
+                startActivity(mdl1);
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -60,7 +60,6 @@
     <string name="acao_opcoes">Configurações</string>
 
 
-
     <!--STRINGS TELA TESTE-->
     <string name="nomeAppLogin"><![CDATA[</OPUS>]]></string>
     <!--FIM TELA TESTE-->
@@ -79,6 +78,35 @@
     <string name="txtTituloEtapa2Modulo1">Portugol</string>
     <string name="txtTituloEtapa3Modulo1">Olá, mundo!</string>
     <string name="txtTituloEtapa4Modulo1">Comentários em códigos</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_modulo1">Modulo1</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_modulo_1">Modulo_1</string>
     <!--FIM STRINGS ETAPAS MÓDULO 1-->
+
+    <!--STRINGS TEXT VIEWS DOS MODULOS,QUESTÃO DEVE SER INSERIDA AQUI-->
+    <string name="text_fragment_1">Modulo 1</string>
+    <string name="text_fragment_2">Modulo 2</string>
+    <string name="text_fragment_3">Modulo 3</string>
+    <string name="text_fragment_4">Modulo 4</string>
+    <string name="text_fragment_5">Modulo 5</string>
+    <string name="text_fragment_6">Modulo 6</string>
+    <string name="text_fragment_7">Modulo 7</string>
+    <!--TITULOS TABS-->
+    <string-array name="titles_tab">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+
+    </string-array>
 
 </resources>
