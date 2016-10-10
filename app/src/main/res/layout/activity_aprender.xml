@@ -22,19 +22,23 @@
             android:layout_width="fill_parent"
             android:id="@+id/layoutModulos"
             android:baselineAligned="false">
+
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo1"
+                android:id="@+id/btnModulo1">
                 <ImageView
-                    android:id="@+id/btnModulo1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo1"
-                    android:layout_margin="0dp"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo1"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo1"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,25 +72,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#0a2cfd"
+                app:rcProgressColor="#d41243"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo1" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo2"
+                android:id="@+id/btnModulo2">
                 <ImageView
-                    android:id="@+id/btnModulo2"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo2"
-                    android:layout_margin="0dp"
                     android:clickable="false"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo2"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo2"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="10dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -127,25 +134,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#265afe"
+                app:rcProgressColor="#8ec127"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo2" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo3"
+                android:id="@+id/btnModulo3">
                 <ImageView
-                    android:id="@+id/btnModulo3"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo3"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo3"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo3"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo3"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -178,25 +188,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#2d64fd"
+                app:rcProgressColor="#00aedb"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo3" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo4"
+                android:id="@+id/btnModulo4">
                 <ImageView
-                    android:id="@+id/btnModulo4"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo4"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo4"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo4"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo4"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -236,25 +249,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#3f80fe"
+                app:rcProgressColor="#f47835"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo4" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo5"
+                android:id="@+id/btnModulo5">
                 <ImageView
-                    android:id="@+id/btnModulo5"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo5"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo5"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo5"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo5"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -286,25 +302,30 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#5194fd"
+                app:rcProgressColor="#ffc425"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo5" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo6"
+                android:id="@+id/btnModulo6">
+
                 <ImageView
-                    android:id="@+id/btnModulo6"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo6"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo6"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo6"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo6"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -324,6 +345,7 @@
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
+
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -334,25 +356,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#5aa8fd"
+                app:rcProgressColor="#d11141"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo6" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo7"
+                android:id="@+id/btnModulo7">
                 <ImageView
-                    android:id="@+id/btnModulo7"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo7"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo7"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo7"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -392,25 +417,28 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#6ac3ff"
+                app:rcProgressColor="#8ec127"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo7" />
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo8"
+                android:id="@+id/btnModulo8">
                 <ImageView
-                    android:id="@+id/btnModulo8"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo8"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo8"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo8"/>
+                    android:contentDescription="@+id/descricaoBotaoModulo8"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -442,27 +470,31 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#7adcff"
+                app:rcProgressColor="#00aedb"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo8" >
             </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
 
             <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="fill_parent"
+                android:layout_height="160dp"
+                android:background="@color/corBtnModulo9"
+                android:id="@+id/btnModulo9">
 
                 <ImageView
-                    android:id="@+id/btnModulo9"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:id="@+id/imgModulo9"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo9"
-                    android:layout_margin="0dp"
                     android:clickable="true"
                     android:padding="0dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo9" />
+                    android:contentDescription="@+id/descricaoBotaoModulo9"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginBottom="10dp" />
 
                 <TextView
                     android:text="@string/txtTituloModulo9"

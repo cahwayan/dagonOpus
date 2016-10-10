@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".Multidex"
@@ -32,18 +34,11 @@
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".etapas.EtapasModulo1Activity" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Modulos.Modulo1"
-            android:label="@string/title_activity_modulo1"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Modulos.Modulo_1"
             android:label="@string/title_activity_modulo_1"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

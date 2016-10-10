@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.app.AlertDialog.Builder;
@@ -42,15 +44,26 @@ public class AprenderActivity extends AppCompatActivity {
     GerenciadorBanco DB_PROGRESSO;
 
     // BOTÕES DOS MÓDULOS
-    private ImageView btnModulo1,
-                      btnModulo2,
-                      btnModulo3,
-                      btnModulo4,
-                      btnModulo5,
-                      btnModulo6,
-                      btnModulo7,
-                      btnModulo8,
-                      btnModulo9;
+    private FrameLayout btnModulo1,
+                        btnModulo2,
+                        btnModulo3,
+                        btnModulo4,
+                        btnModulo5,
+                        btnModulo6,
+                        btnModulo7,
+                        btnModulo8,
+                        btnModulo9;
+
+    // IMAGENS DOS MÓDULOS
+    private ImageView   imgModulo1,
+                        imgModulo2,
+                        imgModulo3,
+                        imgModulo4,
+                        imgModulo5,
+                        imgModulo6,
+                        imgModulo7,
+                        imgModulo8,
+                        imgModulo9;
 
     // BOTÕES PULAR
     private ImageView btnPular1,
@@ -102,11 +115,12 @@ public class AprenderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
+        instanciaBanco();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
 
-        // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
-        instanciaBanco();
 
         // INVOCANDO OS COMPONENTES
         accessViews();
@@ -148,15 +162,27 @@ public class AprenderActivity extends AppCompatActivity {
         drawer_layout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
         // BOTÕES DOS MÓDULOS
-        btnModulo1 = (ImageView)findViewById(R.id.btnModulo1);
-        btnModulo2 = (ImageView)findViewById(R.id.btnModulo2);
-        btnModulo3 = (ImageView)findViewById(R.id.btnModulo3);
-        btnModulo4 = (ImageView)findViewById(R.id.btnModulo4);
-        btnModulo5 = (ImageView)findViewById(R.id.btnModulo5);
-        btnModulo6 = (ImageView)findViewById(R.id.btnModulo6);
-        btnModulo7 = (ImageView)findViewById(R.id.btnModulo7);
-        btnModulo8 = (ImageView)findViewById(R.id.btnModulo8);
-        btnModulo9 = (ImageView)findViewById(R.id.btnModulo9);
+        btnModulo1 = (FrameLayout)findViewById(R.id.btnModulo1);
+        btnModulo2 = (FrameLayout)findViewById(R.id.btnModulo2);
+        btnModulo3 = (FrameLayout)findViewById(R.id.btnModulo3);
+        btnModulo4 = (FrameLayout)findViewById(R.id.btnModulo4);
+        btnModulo5 = (FrameLayout)findViewById(R.id.btnModulo5);
+        btnModulo6 = (FrameLayout)findViewById(R.id.btnModulo6);
+        btnModulo7 = (FrameLayout)findViewById(R.id.btnModulo7);
+        btnModulo8 = (FrameLayout)findViewById(R.id.btnModulo8);
+        btnModulo9 = (FrameLayout)findViewById(R.id.btnModulo9);
+
+        // IMAGENS DOS MÓDULOS
+
+        imgModulo1 = (ImageView)findViewById(R.id.imgModulo1);
+        imgModulo2 = (ImageView)findViewById(R.id.imgModulo2);
+        imgModulo3 = (ImageView)findViewById(R.id.imgModulo3);
+        imgModulo4 = (ImageView)findViewById(R.id.imgModulo4);
+        imgModulo5 = (ImageView)findViewById(R.id.imgModulo5);
+        imgModulo6 = (ImageView)findViewById(R.id.imgModulo6);
+        imgModulo7 = (ImageView)findViewById(R.id.imgModulo7);
+        imgModulo8 = (ImageView)findViewById(R.id.imgModulo8);
+        imgModulo9 = (ImageView)findViewById(R.id.imgModulo9);
 
         // TEXT VIEWS DOS TITULOS DOS MODULOS
 
@@ -243,96 +269,117 @@ public class AprenderActivity extends AppCompatActivity {
 
     // BLOQUEIA OS MÓDULOS
     private void bloquearModulos() {
-        // MUDANDO IMAGEM PARA A BLOQUEADA
-        btnModulo1.setImageResource(R.drawable.modulo_bloqueado1);
-        // SUMINDO COM AS TEXTVIEWS
+        // MUDANDO COR DO FUNDO PARA AS BLOQUEADAS
+        btnModulo1.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo2.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo3.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo4.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        btnModulo9.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+
+
+        // TROCANDO AS TEXTVIEWS
         txtTitulo1.setText(R.string.moduloBloqueado);
-        txtProgresso1.setVisibility(View.GONE);
-
-        btnModulo2.setImageResource(R.drawable.modulo_bloqueado2);
         txtTitulo2.setText(R.string.moduloBloqueado);
-        txtProgresso2.setVisibility(View.GONE);
-
-        btnModulo3.setImageResource(R.drawable.modulo_bloqueado3);
         txtTitulo3.setText(R.string.moduloBloqueado);
-        txtProgresso3.setVisibility(View.GONE);
-
-        btnModulo4.setImageResource(R.drawable.modulo_bloqueado4);
         txtTitulo4.setText(R.string.moduloBloqueado);
-        txtProgresso4.setVisibility(View.GONE);
-
-        btnModulo5.setImageResource(R.drawable.modulo_bloqueado5);
         txtTitulo5.setText(R.string.moduloBloqueado);
-        txtProgresso5.setVisibility(View.GONE);
-
-        btnModulo6.setImageResource(R.drawable.modulo_bloqueado6);
         txtTitulo6.setText(R.string.moduloBloqueado);
-        txtProgresso6.setVisibility(View.GONE);
-
-        btnModulo7.setImageResource(R.drawable.modulo_bloqueado7);
         txtTitulo7.setText(R.string.moduloBloqueado);
-        txtProgresso7.setVisibility(View.GONE);
-
-        btnModulo8.setImageResource(R.drawable.modulo_bloqueado8);
         txtTitulo8.setText(R.string.moduloBloqueado);
+
+        // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
+        txtProgresso1.setVisibility(View.GONE);
+        txtProgresso2.setVisibility(View.GONE);
+        txtProgresso3.setVisibility(View.GONE);
+        txtProgresso4.setVisibility(View.GONE);
+        txtProgresso5.setVisibility(View.GONE);
+        txtProgresso6.setVisibility(View.GONE);
+        txtProgresso7.setVisibility(View.GONE);
         txtProgresso8.setVisibility(View.GONE);
+
+        // TROCANDO A IMAGEM DO MÓDULO PARA BLOQUEADO
+        imgModulo1.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo2.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo3.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo4.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo5.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo6.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo7.setImageResource(R.drawable.modulo_bloqueado);
+        imgModulo8.setImageResource(R.drawable.modulo_bloqueado);
     }
 
 
     // DESBLOQUEIA OS MÓDULOS
     private void desbloquearModulo1() {
         // MUDANDO A IMAGEM PARA A ORIGINAL DO MÓDULO
-        btnModulo1.setImageResource(R.drawable.btnmodulo1);
+        imgModulo1.setImageResource(R.drawable.btnmodulo1);
         // TRAZENDO DE VOLTA O TÍTULO DO MÓDULO
         txtTitulo1.setText(R.string.txtTituloModulo1);
         // TRAZENDO DE VOLTA A TEXTVIEW DO PROGRESSO DO MÓDULO
         txtProgresso1.setVisibility(View.VISIBLE);
+        // TROCANDO A COR DO BACKGROUND PARA A ORIGINAL DESBLOQUEADA
+        btnModulo1.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo1));
     }
 
     private void desbloquearModulo2() {
-        desbloquearModulo1();
-        btnModulo2.setImageResource(R.drawable.btnmodulo2);
+        imgModulo2.setImageResource(R.drawable.btnmodulo2);
         txtTitulo2.setText(R.string.txtTituloModulo2);
         txtProgresso2.setVisibility(View.VISIBLE);
         btnPular1.setVisibility(View.GONE);
+        btnModulo2.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo2));
+
     }
 
     private void desbloquearModulo3() {
-        btnModulo3.setImageResource(R.drawable.btnmodulo3);
+        imgModulo3.setImageResource(R.drawable.btnmodulo3);
         txtTitulo3.setText(R.string.txtTituloModulo3);
         txtProgresso3.setVisibility(View.VISIBLE);
+        btnModulo3.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo3));
     }
 
     private void desbloquearModulo4() {
-        btnModulo4.setImageResource(R.drawable.btnmodulo4);
+        imgModulo4.setImageResource(R.drawable.btnmodulo4);
         txtTitulo4.setText(R.string.txtTituloModulo4);
         txtProgresso4.setVisibility(View.VISIBLE);
+        btnModulo4.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo4));
     }
 
     private void desbloquearModulo5() {
-        btnModulo5.setImageResource(R.drawable.btnmodulo5);
+        imgModulo5.setImageResource(R.drawable.btnmodulo5);
         txtTitulo5.setText(R.string.txtTituloModulo5);
         txtProgresso5.setVisibility(View.VISIBLE);
         btnPular2.setVisibility(View.GONE);
+        btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo5));
     }
 
     private void desbloquearModulo6() {
-        btnModulo6.setImageResource(R.drawable.btnmodulo6);
+        imgModulo6.setImageResource(R.drawable.btnmodulo6);
         txtTitulo6.setText(R.string.txtTituloModulo6);
         txtProgresso6.setVisibility(View.VISIBLE);
+        btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo6));
     }
 
     private void desbloquearModulo7() {
-        btnModulo7.setImageResource(R.drawable.btnmodulo7);
+        imgModulo7.setImageResource(R.drawable.btnmodulo7);
         txtTitulo7.setText(R.string.txtTituloModulo7);
         txtProgresso7.setVisibility(View.VISIBLE);
         btnPular3.setVisibility(View.GONE);
+        btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo7));
     }
 
     private void desbloquearModulo8() {
-        btnModulo8.setImageResource(R.drawable.btnmodulo8);
+        imgModulo8.setImageResource(R.drawable.btnmodulo8);
         txtTitulo8.setText(R.string.txtTituloModulo8);
         txtProgresso8.setVisibility(View.VISIBLE);
+        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo8));
+    }
+
+    private void desbloquearCertificado() {
+        btnModulo9.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo9));
     }
 
 
@@ -393,6 +440,16 @@ public class AprenderActivity extends AppCompatActivity {
                 desbloquearModulo7();
                 desbloquearModulo8();
                 break;
+            case 9:
+                desbloquearModulo1();
+                desbloquearModulo2();
+                desbloquearModulo3();
+                desbloquearModulo4();
+                desbloquearModulo5();
+                desbloquearModulo6();
+                desbloquearModulo7();
+                desbloquearModulo8();
+                desbloquearCertificado();
         }
     }
 

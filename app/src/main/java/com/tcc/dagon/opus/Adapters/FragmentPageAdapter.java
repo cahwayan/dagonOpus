@@ -8,8 +8,8 @@ import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_1;
 import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_2;
 import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_3;
 import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_4;
-import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_5;
-import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_6;
+//import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_5;
+//import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_6;
 import com.tcc.dagon.opus.ModulosFragments.Modulo1_Fragment_7;
 
 /**
@@ -35,9 +35,9 @@ private String[] tabTitulos;
             case 3:
                 return new Modulo1_Fragment_4();
             case 4:
-                return new Modulo1_Fragment_5();
+                //return new Modulo1_Fragment_5();
             case 5:
-                return new Modulo1_Fragment_6();
+               // return new Modulo1_Fragment_6();
             case 6:
                 return new Modulo1_Fragment_7();
 

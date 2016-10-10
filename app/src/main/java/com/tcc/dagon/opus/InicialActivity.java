@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.Modulos.Modulo_1;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by Otávio Paulino on 21/09/2016.
  */
@@ -23,13 +27,13 @@ public class InicialActivity extends AppCompatActivity {
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
-
-        DB_PROGRESSO            = new GerenciadorBanco(this);
+        DB_PROGRESSO = new GerenciadorBanco(this);
         txtInicial              = (TextView)findViewById(R.id.txtInicial);
         login                   = (Button) findViewById(R.id.btn_Login);
         cadastra                = (Button) findViewById(R.id.btn_cadastra);
@@ -82,7 +86,7 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoModulo(8);
+                DB_PROGRESSO.atualizaProgressoModulo(9);
             }
         });
 

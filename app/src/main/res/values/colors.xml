@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0d2b80</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#0a2cfd</color>
+
+    <!-- CORES REFERENTE AO TEMA ANDROID-->
+    <color name="colorPrimary">#504f38</color>
+    <color name="colorPrimaryDark">#302f22</color>
+    <color name="colorAccent">#504f38</color>
+
+    <!--CORES DOS MÓDULOS DESBLOQUEADOS-->
+    <color name="corBtnModulo1">#d41243</color>
+    <color name="corBtnModulo2">#8ec127</color>
+    <color name="corBtnModulo3">#00aedb</color>
+    <color name="corBtnModulo4">#f47835</color>
+    <color name="corBtnModulo5">#ffc425</color>
+    <color name="corBtnModulo6">#d11141</color>
+    <color name="corBtnModulo7">#8ec127</color>
+    <color name="corBtnModulo8">#00aedb</color>
+    <color name="corBtnModulo9">#f47835</color>
+
+    <!--CORES DOS MÓDULOS BLOQUEADOS-->
+    <color name="corBtnModuloBloqueado">#de232323</color>
+
 </resources>

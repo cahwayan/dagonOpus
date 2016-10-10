@@ -23,7 +23,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERSÃO DO BANCO QUE ESTÁ NO APLICATIVO. A CADA NOVA BUILD QUE LANÇARMOS, TEMOS QUE
     // ATUALIZAR ESSE NÚMERO
-    private static final int VERSAO_BANCO = 2;
+    private static final int VERSAO_BANCO = 1;
 
     // DECLARANDO O NOME DO BANCO
     private static final String DB_NAME = "DB_PROGRESSO";
@@ -149,6 +149,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         myOutput.flush();
         myOutput.close();
         myInput.close();
+        System.out.println("Banco Criado!");
     }
 
     // MÉTODO QUE VERIFICA O PROGRESSO DOS MÓDULOS
@@ -173,7 +174,6 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 null,           // não filtrar as tabelas
                 null,           // não ordenar as tabelas
                 limit           // limitar os resultados para 1
-
         );
         // MOVENDO O CURSOR PARA O PRIMEIRO RESULTADO ENCONTRADO
         cursor.moveToFirst();
@@ -195,10 +195,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     // EX: verificaProgressoEtapa(3) busca o progresso das etapas do módulo 3
     public int verificaProgressoEtapa(int progressoEtapa) {
         String tabela = Progresso.TABELA_PROGRESSO;
-        String limit = "1";
         String colunasEtapa[] = {""};
-        Cursor cursor;
-
+        String limit = "1";
         switch (progressoEtapa) {
             case 1:
                 colunasEtapa[0] = Progresso.COLUNA_ETAPA1;
@@ -227,7 +225,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         }
 
         abrirBanco();
-        cursor = DB_PROGRESSO.query(
+
+        Cursor cursor = DB_PROGRESSO.query(
                 tabela,
                 colunasEtapa,
                 null,
@@ -299,15 +298,15 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         // NOME DA TABELA E OS VALORES QUE SERÃO COLOCADOS
         valor.put(coluna[0], progressoEtapa);
         // SELECIONAR A COLUNA BASEADO NO ID
-        String select = Progresso.COLUNA_ID + " LIKE ?";
+        String select       = Progresso.COLUNA_ID + " LIKE ? ";
         // QUAL LINHA QUE POSSUUI O ID FAZER O UPDATE
         String selectArgs[] = {String.valueOf(1)};
         abrirBanco();
         DB_PROGRESSO.update(
-            tabela,
-            valor,
-            select,
-            selectArgs
+                tabela,
+                valor,
+                select,
+                selectArgs
         );
         fecharBanco();
     }
