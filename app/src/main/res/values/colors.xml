@@ -19,5 +19,6 @@
 
     <!--CORES DOS MÓDULOS BLOQUEADOS-->
     <color name="corBtnModuloBloqueado">#de232323</color>
+    <color name="corBtnCadastro">#5879f4</color>
 
 </resources>

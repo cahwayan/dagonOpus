@@ -15,14 +15,16 @@
         android:ems="10"
         android:hint="@string/hintEmail"
         android:textColorHighlight="#d6d4d4"
-        android:textColorHint="#d6d4d4"
+        android:textColorHint="@color/colorPrimary"
         android:textColorLink="#d6d4d4"
         android:textIsSelectable="false"
-        android:textColor="#d6d4d4"
-        android:drawableLeft="@drawable/login_icon"
+        android:textColor="@color/colorPrimary"
         android:typeface="monospace"
         android:fontFamily="fonts/GothamRounded-Light.otf"
-        android:textSize="17sp"  />
+        android:textSize="17sp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:letterSpacing="0.1" />
 
     <EditText
         android:id="@+id/edt_senha"
@@ -30,14 +32,16 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:textColorHighlight="#d6d4d4"
-        android:textColorHint="#d6d4d4"
-        android:textColorLink="#d6d4d4"
-        android:textColor="#d6d4d4"
-        android:drawableLeft="@drawable/password_icon"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
         android:hint="@string/hintSenha"
         android:fontFamily="fonts/GothamRounded-Light.otf"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:letterSpacing="0.1" />
 
 
 
@@ -45,33 +49,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:orientation="vertical"
         android:weightSum="1"
         android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
         <Button
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:id="@+id/btSignIn"
             android:text="@string/Entrar"
             android:textColor="#ffffff"
-            android:textSize="13.5sp"
+            android:textSize="15sp"
             android:layout_gravity="center_horizontal"
             android:typeface="sans"
             android:fontFamily="fonts/GothamRounded-Light.otf"
-            android:background="#37cc6c"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp" />
+            android:background="@color/corBtnCadastro"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ou"
             android:id="@+id/txtOu"
-            android:textColor="#ffffff"
+            android:textColor="@color/colorPrimary"
             android:typeface="monospace"
             android:fontFamily="fonts/GothamRounded-Light.otf"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp" />
 
@@ -82,9 +87,8 @@
             android:text="Login"
             android:layout_weight="0.49"
             android:clickable="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp" />
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp" />
 
 
        <!-- <Button
@@ -101,11 +105,9 @@
             android:id="@+id/btSignInCustom"
             android:textAllCaps="false"
             android:background="#00ffffff"
-            android:layout_marginTop="15dp"
             android:textSize="16sp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="#ffffff"
-            android:layout_marginBottom="20dp" />
+            android:fontFamily="sans-serif"
+            android:textColor="#ffffff" />
     </LinearLayout>
 </LinearLayout>
 

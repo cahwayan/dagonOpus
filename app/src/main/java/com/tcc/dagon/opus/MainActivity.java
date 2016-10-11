@@ -11,6 +11,7 @@ import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -86,6 +87,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     private String sEmail,
                    sPassword;
 
+    Context context = this;
+
     // VARIÁVEIS DE CONEXÃO
     private RequestQueue requestQueue;
     private StringRequest request;
@@ -148,6 +151,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         btSignOut.setOnClickListener(MainActivity.this);
         btRevokeAccess.setOnClickListener(MainActivity.this);
         btAprender.setOnClickListener(MainActivity.this);
+
+
     }
 
     public void listenersLogin() {
@@ -223,6 +228,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         botaoCriarConta.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ){
+                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                 startActivity(new Intent(getApplicationContext(), CadastroActivity.class));
             }
         });
@@ -367,13 +373,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
 
     }
-
-
-
-
-
-
-
     // LISTENERS
     @Override
     public void onClick(View v) {
@@ -405,9 +404,9 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
         else if(v.getId() == R.id.bt_AprenderActivity){
             Intent intent = new Intent(MainActivity.this, Modulo_1.class);
-            String perfilEmail = emailG.toString();
-            String perfilNome = name.toString();
-            String perfilImagem = imageUrl.toString();
+            String perfilEmail = emailG;
+            String perfilNome = name;
+            String perfilImagem = imageUrl;
             intent.putExtra("emailBundle", perfilEmail);
             intent.putExtra("nomeBundle", perfilNome);
             this.startActivity(intent);

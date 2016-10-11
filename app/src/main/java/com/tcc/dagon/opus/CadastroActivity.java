@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,6 +52,8 @@ public class CadastroActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         //VARIAVEIS DE CONEXAO
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -61,6 +64,21 @@ public class CadastroActivity extends AppCompatActivity {
         // CHAMANDO OS LISTENERS
         listenersOnClick();
     }
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     // MÉTODO QUE CONFIGURA OS LISTENERS DOS COMPONENTES
     public void listenersOnClick() {

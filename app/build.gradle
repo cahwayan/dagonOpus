@@ -20,6 +20,7 @@ android {
         signingConfig signingConfigs.config
         multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false

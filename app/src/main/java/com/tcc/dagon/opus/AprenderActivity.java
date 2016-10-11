@@ -157,6 +157,7 @@ public class AprenderActivity extends AppCompatActivity {
         progressBars();
     }
 
+
     private void accessViews() {
         // LAYOUTS
         drawer_layout = (DrawerLayout)findViewById(R.id.drawer_layout);

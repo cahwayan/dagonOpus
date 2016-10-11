@@ -37,26 +37,30 @@
             android:focusableInTouchMode="false"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
-            android:textColor="#ffffff"
-            android:textSize="65sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="73sp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp" />
 
         <!-- LOGIN -->
-        <include layout="@layout/login_form" />
+
+        <include layout="@layout/login_form"
+             />
 
         <!-- PROFILE -->
+
         <TextView
             android:text="@string/BotaoCriarConta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/botaoCriarConta"
             android:gravity="center_horizontal"
             android:fontFamily="fonts/GothamRounded-Light.otf"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="center_horizontal" />
 
         <include layout="@layout/profile" />
 
