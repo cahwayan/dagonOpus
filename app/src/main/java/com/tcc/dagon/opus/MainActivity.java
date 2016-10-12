@@ -204,14 +204,14 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                                 finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),
-                                               "Ocorreu um erro ao logar. Verifique suas credenciais!",
+                                               "Login ou senha inválidos",
                                                Toast.LENGTH_SHORT).show();
                             }
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
+                            Toast.makeText(getApplicationContext(), "Erro ao conectar. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override
@@ -355,9 +355,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 public void onResponse(String response) {
                 }
             }, new Response.ErrorListener() {
-
-
                 public void onErrorResponse(VolleyError error) {
+
                 }
             }) {
                 @Override
@@ -374,7 +373,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
 
             requestQueue.add(request);
-//carrega icone de imagem do perfil do google
+            //carrega icone de imagem do perfil do google
             Log.i("Script", "IMG before: "+imageUrl);
             imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
             Log.i("Script", "IMG after: "+imageUrl);

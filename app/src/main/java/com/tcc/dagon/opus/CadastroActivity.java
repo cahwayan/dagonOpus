@@ -119,11 +119,14 @@ public class CadastroActivity extends AppCompatActivity {
                     StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Toast.makeText(getApplicationContext(), "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }, new Response.ErrorListener() {
-
-
                         public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Ocorreu um erro ao cadastrar. Por favor verifique sua conexão.", Toast.LENGTH_SHORT).show();
                         }
                     }) {
                         @Override
@@ -138,10 +141,8 @@ public class CadastroActivity extends AppCompatActivity {
                     };
 
                     // Abre a tela de login após cadastro
-
                     requestQueue.add(request);
                     progresso.dismiss();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             }
         });
