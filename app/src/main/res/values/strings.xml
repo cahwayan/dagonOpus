@@ -74,10 +74,10 @@
 
     <!--STRINGS ETAPAS MÓDULO 1-->
     <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
-    <string name="TituloEtapa1Modulo1">Introdução à lógica de programação</string>
-    <string name="TituloEtapa2Modulo1">Portugol</string>
-    <string name="TituloEtapa3Modulo1">Olá, mundo!</string>
-    <string name="TituloEtapa4Modulo1">Comentários em códigos</string>
+    <string name="TituloEtapa1Modulo1">1. Introdução</string>
+    <string name="TituloEtapa2Modulo1">2. Portugol</string>
+    <string name="TituloEtapa3Modulo1">3. Olá, mundo!</string>
+    <string name="TituloEtapa4Modulo1">4. Comentários em códigos</string>
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -104,7 +104,7 @@
     <string name="txt1_modulo1_etapa1_licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
           \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você!
           \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos.
-          \nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
+          \n\nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
           \n\n <b>Com carinho, equipe Dagon.</b>
     </string>
 
