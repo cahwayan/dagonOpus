@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.Etapa1;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
 /**
@@ -44,7 +44,7 @@ public class InicialActivity extends AppCompatActivity {
         Modulo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mdl1 = new Intent(InicialActivity.this,Etapa1.class);
+                Intent mdl1 = new Intent(InicialActivity.this,ContainerModulo1Etapa1.class);
                 startActivity(mdl1);
             }
         });

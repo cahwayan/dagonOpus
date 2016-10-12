@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingContainerLicao"
+        android:layout_margin="8dp"
+        android:background="@drawable/borda_container_licao">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/tituloModulo1Etapa1Licao1"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="24sp"
+            android:id="@+id/txtTitulo1Modulo1Etapa1Licao1" />
+
+        <TextView
+            android:text="@string/txt1_modulo1_etapa1_licao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTexto1Modulo1Etapa1Licao1"
+            android:padding="@dimen/paddingTextoLicao"
+            android:textSize="16sp"
+            android:gravity="left|right|center_vertical" />
+    </LinearLayout>
+
+
+</ScrollView>

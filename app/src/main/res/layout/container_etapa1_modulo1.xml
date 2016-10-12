@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.tcc.dagon.opus.Modulos.Modulo_1"
+    tools:context="com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarModulo1Etapa1"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -22,18 +22,10 @@
 <android.support.design.widget.TabLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/tab_layout"
+    android:id="@+id/tab_layout_modulo1_etapa1"
     android:background="@android:color/holo_blue_dark" />
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_modulo_1" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+    <include layout="@layout/content_etapa1_modulo_1" />
 
 </android.support.design.widget.CoordinatorLayout>

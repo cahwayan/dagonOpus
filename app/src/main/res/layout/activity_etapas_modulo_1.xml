@@ -4,7 +4,7 @@
     android:id="@+id/ScrollEtapas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tcc.dagon.opus.etapas.EtapasModulo1Activity"
+    tools:context="com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity"
     android:padding="5dp">
 
     <LinearLayout
@@ -28,11 +28,11 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Etapa1"
-                android:background="@drawable/borda_layout"
+                android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/txtTituloEtapa1Modulo1"
+                    android:text="@string/TituloEtapa1Modulo1"
                     android:layout_width="wrap_content"
                     android:layout_height="110dp"
                     android:id="@+id/txtTituloEtapa1"
@@ -61,11 +61,11 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Etapa2"
-                android:background="@drawable/borda_layout"
+                android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/txtTituloEtapa2Modulo1"
+                    android:text="@string/TituloEtapa2Modulo1"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/txtTituloEtapa2"
@@ -106,11 +106,11 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Etapa3"
-                android:background="@drawable/borda_layout"
+                android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/txtTituloEtapa3Modulo1"
+                    android:text="@string/TituloEtapa3Modulo1"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/txtTituloEtapa3"
@@ -139,11 +139,11 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Etapa4"
-                android:background="@drawable/borda_layout"
+                android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/txtTituloEtapa4Modulo1"
+                    android:text="@string/TituloEtapa4Modulo1"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/txtTituloEtapa4"

@@ -74,10 +74,10 @@
 
     <!--STRINGS ETAPAS MÓDULO 1-->
     <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
-    <string name="txtTituloEtapa1Modulo1">Introdução à lógica de programação</string>
-    <string name="txtTituloEtapa2Modulo1">Portugol</string>
-    <string name="txtTituloEtapa3Modulo1">Olá, mundo!</string>
-    <string name="txtTituloEtapa4Modulo1">Comentários em códigos</string>
+    <string name="TituloEtapa1Modulo1">Introdução à lógica de programação</string>
+    <string name="TituloEtapa2Modulo1">Portugol</string>
+    <string name="TituloEtapa3Modulo1">Olá, mundo!</string>
+    <string name="TituloEtapa4Modulo1">Comentários em códigos</string>
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -97,8 +97,14 @@
     <string name="text_fragment_5">Modulo 5</string>
     <string name="text_fragment_6">Modulo 6</string>
     <string name="text_fragment_7">Modulo 7</string>
+    <string name="tituloModulo1Etapa1Licao1">Bem-Vindo!</string>
+
+    <!--TITULOS ETAPAS -->
+    <!--STRINGS LICAO 1 ETAPA 1 MODULO 1-->
+    <string name="txt1_modulo1_etapa1_licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo. \n\nEste curso foi criado com muito carinho por outros estudantes como você, pensando em você! \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos. E lembre-se: não pule etapas! Cada passo é importante na construção do seu conhecimento! \n\n <b>Com carinho, equipe Dagon.</b></string>
+
     <!--TITULOS TABS-->
-    <string-array name="titles_tab">
+    <string-array name="tab_modulo1_etapa1">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -106,7 +112,6 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
-
     </string-array>
 
 </resources>
