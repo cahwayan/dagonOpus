@@ -366,7 +366,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                     Map<String, String> parameters = new HashMap<String, String>();
                     parameters.put("EMAIL_GOOGLE", emailG);
                     parameters.put("NOME_GOOGLE", name);
-
                     return parameters;
                 }
             };
