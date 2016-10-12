@@ -5,7 +5,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="@dimen/paddingContainerLicao"
         android:layout_margin="8dp"
         android:background="@drawable/borda_container_licao">
@@ -24,9 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto1Modulo1Etapa1Licao1"
-            android:padding="@dimen/paddingTextoLicao"
             android:textSize="16sp"
-            android:gravity="left|right|center_vertical" />
+            android:gravity="left|right"
+            android:layout_gravity="right|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
     </LinearLayout>
 
 

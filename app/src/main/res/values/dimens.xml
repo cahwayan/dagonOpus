@@ -17,4 +17,6 @@
     <dimen name="margemTituloLicao">20dp</dimen>
     <dimen name="paddingContainerLicao">20dp</dimen>
     <dimen name="paddingTextoLicao">10dp</dimen>
+    <dimen name="paddingBaixoTextoLicao">9dp</dimen>
+    <dimen name="paddingTopoTextoLicao">9dp</dimen>
 </resources>

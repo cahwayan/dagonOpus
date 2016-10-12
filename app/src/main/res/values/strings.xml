@@ -101,7 +101,12 @@
 
     <!--TITULOS ETAPAS -->
     <!--STRINGS LICAO 1 ETAPA 1 MODULO 1-->
-    <string name="txt1_modulo1_etapa1_licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo. \n\nEste curso foi criado com muito carinho por outros estudantes como você, pensando em você! \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos. E lembre-se: não pule etapas! Cada passo é importante na construção do seu conhecimento! \n\n <b>Com carinho, equipe Dagon.</b></string>
+    <string name="txt1_modulo1_etapa1_licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
+          \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você!
+          \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos.
+          \nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
+          \n\n <b>Com carinho, equipe Dagon.</b>
+    </string>
 
     <!--TITULOS TABS-->
     <string-array name="tab_modulo1_etapa1">
