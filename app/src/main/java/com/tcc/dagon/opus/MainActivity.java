@@ -1,5 +1,4 @@
 package com.tcc.dagon.opus;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +37,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
-import com.tcc.dagon.opus.Modulos.Modulo_1;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.Etapa1;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -403,16 +402,13 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         }
         else if(v.getId() == R.id.bt_AprenderActivity){
-            Intent intent = new Intent(MainActivity.this, Modulo_1.class);
+            Intent intent = new Intent(MainActivity.this, Etapa1.class);
             String perfilEmail = emailG;
             String perfilNome = name;
             String perfilImagem = imageUrl;
             intent.putExtra("emailBundle", perfilEmail);
             intent.putExtra("nomeBundle", perfilNome);
             this.startActivity(intent);
-
-
-
         }
     }
 
