@@ -1,7 +1,6 @@
 package com.tcc.dagon.opus;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
@@ -19,19 +18,14 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.app.AlertDialog.Builder;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
-
-import android.app.AlertDialog;
-import android.widget.Toast;
-
 import java.io.File;
 import java.io.IOException;
 import static java.lang.String.valueOf;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 
 /**
  * Created by Andrade on 23/09/2016.

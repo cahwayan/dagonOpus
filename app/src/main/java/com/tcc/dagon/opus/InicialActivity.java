@@ -2,21 +2,16 @@ package com.tcc.dagon.opus;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.Etapa1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.Modulos.Modulo_1;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Otávio Paulino on 21/09/2016.
@@ -49,7 +44,7 @@ public class InicialActivity extends AppCompatActivity {
         Modulo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mdl1 = new Intent(InicialActivity.this,Modulo_1.class);
+                Intent mdl1 = new Intent(InicialActivity.this,Etapa1.class);
                 startActivity(mdl1);
             }
         });

@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name=".Multidex"
+        android:name=".utils.Multidex"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -36,10 +36,10 @@
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".etapas.EtapasModulo1Activity" />
+        <activity android:name=".telasEtapas.EtapasModulo1Activity" />
 
         <activity
-            android:name=".Modulos.Modulo_1"
+            android:name=".ContainerLicoes.Modulos.Modulo1.Etapa1"
             android:label="@string/title_activity_modulo_1"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
