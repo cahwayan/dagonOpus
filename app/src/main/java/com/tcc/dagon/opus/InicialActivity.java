@@ -2,7 +2,9 @@ package com.tcc.dagon.opus;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +30,17 @@ public class InicialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
+
         DB_PROGRESSO = new GerenciadorBanco(this);
+
+        if(readFlag()) {
+            Intent intent = new Intent(this, AprenderActivity.class);
+            startActivityForResult(intent, 1);
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivityForResult(intent, 0);
+        }
+
         txtInicial              = (TextView)findViewById(R.id.txtInicial);
         login                   = (Button) findViewById(R.id.btn_Login);
         cadastra                = (Button) findViewById(R.id.btn_cadastra);
@@ -111,6 +123,13 @@ public class InicialActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
+    public boolean readFlag() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getBoolean("isLogin", false);
     }
 
 }

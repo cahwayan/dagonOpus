@@ -2,8 +2,10 @@ package com.tcc.dagon.opus;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -103,6 +105,9 @@ public class AprenderActivity extends AppCompatActivity {
     private DrawerLayout          drawer_layout;
     private String                mTitulo;
 
+    // VARIÁVEL DE LOGOUT
+    boolean isLogin;
+    // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
 
 
@@ -482,7 +487,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else { // SENÃO EXIBIR ALERTDIALOG
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -494,7 +499,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -506,7 +511,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -518,7 +523,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -530,7 +535,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -542,7 +547,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -554,7 +559,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -566,7 +571,7 @@ public class AprenderActivity extends AppCompatActivity {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
-                    alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este");
+                    alertaModuloBloqueado();
                 }
             }
         });
@@ -609,7 +614,9 @@ public class AprenderActivity extends AppCompatActivity {
                     startActivity(gerenciarPerfil);
                 }
                 else if(position==1){
-
+                    writeFlag(false);
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
                 }
             }
         });
@@ -691,6 +698,18 @@ public class AprenderActivity extends AppCompatActivity {
 
     // FIM MÉTODOS NATIVOS DO MENU
 
+    // MÉTODO DE CONFIGURAÇÃO DA JANELA DE ALERTA PARA OS MODULOS
+    private void alertaModuloBloqueado() {
+        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este. Não tenha pressa. :-)");
+    }
 
+    // MODIFICAR FLAG PARA LOGOUT
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLogin", flag);
+        editor.apply();
+    }
 }
 

@@ -3,9 +3,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
@@ -88,6 +91,10 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     Context context = this;
 
+    // Variavel que verifica se o usuario está logado
+    private boolean isLogin;
+
+
     // VARIÁVEIS DE CONEXÃO
     private RequestQueue requestQueue;
     private StringRequest request;
@@ -99,6 +106,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         // VOLLEY
         requestQueue  = Volley.newRequestQueue(this);
 
@@ -190,7 +199,9 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         @Override
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
+                                writeFlag(true);
                                 startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                                finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),
                                                "Ocorreu um erro ao logar. Verifique suas credenciais!",
@@ -442,5 +453,14 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 resolveSignIn();
             }
         }
+    }
+
+    // FLAG PARA MARCAR O USUARIO LOGaDO
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLogin", flag);
+        editor.apply();
     }
 }
