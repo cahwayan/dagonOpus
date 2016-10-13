@@ -49,10 +49,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity {
         perfilNome = (TextView) findViewById(R.id.perfilNome);
         pbProfile = (ProgressBar)findViewById(R.id.pbProfile1);
 
-
-
-
-
         Bundle extras = getIntent().getExtras();
         perfilEmail.setText(extras.getString("emailBundle"));
         perfilNome.setText(extras.getString("nomeBundle"));

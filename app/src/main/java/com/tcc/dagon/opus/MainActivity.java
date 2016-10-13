@@ -1,14 +1,20 @@
 package com.tcc.dagon.opus;
+import android.Manifest;
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +50,8 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity implements OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
     private static final int SIGN_IN_CODE = 56465;
@@ -165,12 +173,10 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     public void listenersLogin() {
         btSignIn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 sEmail    = email.getText().toString().trim();
                 sPassword = password.getText().toString().trim();
-
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
                 if( sEmail.matches("") ) {
                     // MENSAGEM DE ERRO
@@ -256,7 +262,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onStart(){
         super.onStart();
-
         if(googleApiClient != null){
             googleApiClient.connect();
         }
@@ -266,7 +271,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onStop(){
         super.onStop();
-
         if(googleApiClient != null && googleApiClient.isConnected()){
             googleApiClient.disconnect();
         }
@@ -301,7 +305,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             pbContainer.setVisibility(View.VISIBLE);
         }
     }
-//FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
+
+    //FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
     public void loadImage(final ImageView ivImg, final ProgressBar pbImg, final String urlImg){
         RequestQueue rq = Volley.newRequestQueue(MainActivity.this);
         ImageLoader il = new ImageLoader(rq, new ImageLoader.ImageCache() {
@@ -330,26 +335,14 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         }
     }
-//FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
+
+    //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
         Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
 
+
+
         if(p != null){
-            String id = p.getId();
-            name = p.getDisplayName();
-            String language = p.getLanguage();
-            String profileUrl = p.getUrl();
-            imageUrl = p.getImage().getUrl();
-            emailG = Plus.AccountApi.getAccountName(googleApiClient);
-
-            tvId.setText(id);
-            tvLanguage.setText(language);
-            tvName.setText(name);
-            tvEmail.setText(emailG);
-
-            tvUrlProfile.setText(profileUrl);
-            Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
-
             StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -369,10 +362,27 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 }
             };
 
-            // Abre a tela de login após cadastro
-
-
             requestQueue.add(request);
+            //Intent intent = new Intent(this, AprenderActivity.class);
+           // startActivity(intent);
+            //finish();
+
+            String id = p.getId();
+            name = p.getDisplayName();
+            String language = p.getLanguage();
+            String profileUrl = p.getUrl();
+            imageUrl = p.getImage().getUrl();
+            emailG = Plus.AccountApi.getAccountName(googleApiClient);
+
+            tvId.setText(id);
+            tvLanguage.setText(language);
+            tvName.setText(name);
+            tvEmail.setText(emailG);
+
+            tvUrlProfile.setText(profileUrl);
+            Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
+
+            // Abre a tela de login após cadastro
             //carrega icone de imagem do perfil do google
             Log.i("Script", "IMG before: "+imageUrl);
             imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
@@ -381,14 +391,60 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
 
     }
+
+    // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO
+    private void getPermissions() {
+        int permissaoConta = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.GET_ACCOUNTS);
+        int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 0;
+        // Should we show an explanation?
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.GET_ACCOUNTS)) {
+            // Show an explanation to the user *asynchronously* -- don't block
+            // this thread waiting for the user's response! After the user
+            // sees the explanation, try again to request the permission.
+        } else {
+
+            // No explanation needed, we can request the permission.
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.GET_ACCOUNTS},
+                    MY_PERMISSIONS_REQUEST_GET_ACCOUNTS);
+            // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        }
+    }
+
+    // MÉTODO QUE PEGA A PERMISSÃO DO USUÁRIO
+    private void getAccounts() {
+
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.GET_ACCOUNTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            getPermissions();
+        }
+
+        AccountManager accountManager = AccountManager.get(this);
+
+        Account[] accounts = accountManager.getAccountsByType("com.google");
+
+        for (Account a : accounts){
+            String accountName = a.name;
+            String domain = accountName.substring(accountName.indexOf("@") + 1, accountName.length());
+            Log.d(TAG, "account domain: " + domain);
+        }
+
+    }
     // LISTENERS
     @Override
     public void onClick(View v) {
+        getAccounts();
         if(v.getId() == R.id.btSignInDefault || v.getId() == R.id.btSignInCustom){
             if(!googleApiClient.isConnecting()){
                 isSignInButtonClicked = true;
                 showUi(false, true);
                 resolveSignIn();
+                writeFlag(true);
             }
         }
         else if(v.getId() == R.id.btSignOut){

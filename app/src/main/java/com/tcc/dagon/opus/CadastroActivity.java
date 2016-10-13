@@ -26,7 +26,6 @@ import java.util.Map;
 public class CadastroActivity extends AppCompatActivity {
 
     //Instanciando objetos
-
     private StringsBanco StringsBanco = new StringsBanco();
 
     //Declarando botões e elementos da tela
@@ -153,8 +152,7 @@ public class CadastroActivity extends AppCompatActivity {
         btn_cadastra = (Button) findViewById(R.id.btn_cadastra);
         //TEXT VIEWS
         txtCadastro = (TextView)findViewById(R.id.txtCadastro);
-        Typeface font_adam = Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
-        txtCadastro.setTypeface(font_adam);
+
 
         nome   = (TextView) findViewById(R.id.textNome);
         senha  = (TextView) findViewById(R.id.textSenha);
