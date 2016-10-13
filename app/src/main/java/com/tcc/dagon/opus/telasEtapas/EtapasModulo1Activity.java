@@ -2,6 +2,7 @@ package com.tcc.dagon.opus.telasEtapas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
+import org.w3c.dom.Text;
+
 public class EtapasModulo1Activity extends AppCompatActivity {
     /*LAYOUTS*/
     private LinearLayout etapa1,
@@ -24,7 +27,10 @@ public class EtapasModulo1Activity extends AppCompatActivity {
                          etapa3,
                          etapa4;
 
-    private TextView txtEtapa1;
+    private TextView txtEtapa1,
+                     txtEtapa2,
+                     txtEtapa3,
+                     txtEtapa4;
 
     // OBJETO QUE FARÁ CONSULTA NO BANCO
     GerenciadorBanco DB_PROGRESSO;
@@ -39,17 +45,22 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_etapas_modulo_1);
 
+        //ACESSANDO AS VIEWS
+        accessViews();
+
+        //ADICIONANDO OS CLICK LISTENERS
+        ClickListenersEtapas();
+
         // SETA VOLTAR NA BARRA DE MENU
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Instanciando o objeto banco
         DB_PROGRESSO = new GerenciadorBanco(this);
 
-        //ACESSANDO AS VIEWS
-        accessViews();
+        // DESBLOQUEANDO ETAPAS
+        desbloquearEtapas();
 
-        //ADICIONANDO OS CLICK LISTENERS
-        ClickListenersEtapas();
+
     }
 
 
@@ -61,7 +72,75 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         etapa4 = (LinearLayout) findViewById(R.id.Etapa4);
 
         txtEtapa1 = (TextView)findViewById(R.id.txtQuestoesModulo1Etapa1);
+        txtEtapa2 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa2);
+        txtEtapa3 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa3);
+        txtEtapa4 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa4);
+    }
 
+    private void desbloquearEtapas() {
+        switch(DB_PROGRESSO.verificaProgressoEtapa(1)) {
+            case 1:
+                desbloquearEtapa1();
+                break;
+            case 2:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                break;
+            case 3:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                break;
+            case 4:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                break;
+
+            case 9:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                break;
+        }
+    }
+
+    private void desbloquearEtapa1() {
+        // SUMINDO COM O CADEADO
+        txtEtapa1.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa1.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa1.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa2() {
+        // SUMINDO COM O CADEADO
+        txtEtapa2.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa2.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa2.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa3() {
+        // SUMINDO COM O CADEADO
+        txtEtapa3.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa3.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa3.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa4() {
+        // SUMINDO COM O CADEADO
+        txtEtapa4.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa4.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa4.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
     }
 
     private void ClickListenersEtapas() {
@@ -85,7 +164,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 2) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
                     alertaEtapaBloqueada();
                 }
@@ -96,7 +175,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 3) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
                     alertaEtapaBloqueada();
                 }
@@ -107,7 +186,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 4) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {
                     alertaEtapaBloqueada();
                 }

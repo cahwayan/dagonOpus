@@ -147,7 +147,7 @@ public class AprenderActivity extends AppCompatActivity {
         bloquearModulos();
 
         // VERIFICAÇÕES E DESBLOQUEIO DE PROGRESSO DOS MÓDULOS
-        progressoModulos();
+        desbloquearModulos();
 
         // SETANDO O PROGRESSO DAS TEXT VIEWS
         progressoTextView();
@@ -331,7 +331,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso2.setVisibility(View.VISIBLE);
         btnPular1.setVisibility(View.GONE);
         btnModulo2.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo2));
-
     }
 
     private void desbloquearModulo3() {
@@ -384,7 +383,7 @@ public class AprenderActivity extends AppCompatActivity {
 
 
     // VERIFICANDO E MUDANDO O PROGRESSO DAS TEXTVIEWS
-    private void progressoModulos() {
+    private void desbloquearModulos() {
         // SWITCH VAI ATÉ O BANCO E VERIFICA EM QUAL MÓDULO O USUÁRIO ESTÁ
         switch(DB_PROGRESSO.verificaProgressoModulo()) {
             // DE ACORDO COM O PROGRESSO (1 A 8), OS MÓDULOS SÃO LIBERADOS

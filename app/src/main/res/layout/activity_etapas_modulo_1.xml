@@ -52,7 +52,7 @@
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableLeft="@drawable/icon_lock"/>
+                    android:drawableLeft="@drawable/icon_lock_etapa"/>
             </LinearLayout>
 
             <LinearLayout
@@ -86,7 +86,7 @@
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableLeft="@drawable/icon_lock"/>
+                    android:drawableLeft="@drawable/icon_lock_etapa"/>
             </LinearLayout>
 
 
@@ -127,12 +127,12 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|right"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtProgressoModulo1Etapa3"
+                    android:id="@+id/txtQuestoesModulo1Etapa3"
                     android:background="@color/colorPrimaryDark"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableLeft="@drawable/icon_lock"
+                    android:drawableLeft="@drawable/icon_lock_etapa"
                     tools:text="@string/qtdQuestoesModulo1Etapa3" />
             </LinearLayout>
 
@@ -163,12 +163,12 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|right"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtProgressoModulo1Etapa4"
+                    android:id="@+id/txtQuestoesModulo1Etapa4"
                     android:background="@color/colorPrimaryDark"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableLeft="@drawable/icon_lock"/>
+                    android:drawableLeft="@drawable/icon_lock_etapa"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
