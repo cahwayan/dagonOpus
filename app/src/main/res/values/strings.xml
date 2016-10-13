@@ -107,6 +107,10 @@
           \n\nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
           \n\n <b>Com carinho, equipe Dagon.</b>
     </string>
+    <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa3">4 Questões</string>
 
     <!--TITULOS TABS-->
     <string-array name="tab_modulo1_etapa1">

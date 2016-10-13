@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
@@ -22,6 +23,8 @@ public class EtapasModulo1Activity extends AppCompatActivity {
                          etapa2,
                          etapa3,
                          etapa4;
+
+    private TextView txtEtapa1;
 
     // OBJETO QUE FARÁ CONSULTA NO BANCO
     GerenciadorBanco DB_PROGRESSO;
@@ -56,6 +59,9 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         etapa2 = (LinearLayout) findViewById(R.id.Etapa2);
         etapa3 = (LinearLayout) findViewById(R.id.Etapa3);
         etapa4 = (LinearLayout) findViewById(R.id.Etapa4);
+
+        txtEtapa1 = (TextView)findViewById(R.id.txtQuestoesModulo1Etapa1);
+
     }
 
     private void ClickListenersEtapas() {
