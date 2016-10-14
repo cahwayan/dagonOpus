@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
-    tools:showIn="@layout/container_etapa1_modulo1">
+    tools:showIn="@layout/container_modulo1_etapa1">
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_pager"
+        android:id="@+id/pager_modulo1_etapa1"
         />
 
 </RelativeLayout>

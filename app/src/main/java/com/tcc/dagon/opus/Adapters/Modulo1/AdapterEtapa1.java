@@ -57,4 +57,6 @@ private String[] tabTitulos;
     public CharSequence getPageTitle(int position) {
         return this.tabTitulos[position];
     }
+
+
 }
