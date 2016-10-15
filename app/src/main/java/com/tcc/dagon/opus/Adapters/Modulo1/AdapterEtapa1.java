@@ -8,8 +8,8 @@ import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao2;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao3;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao4;
-//import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao5;
-//import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao6;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao5;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao6;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao7;
 
 /**
@@ -36,15 +36,13 @@ private String[] tabTitulos;
             case 3:
                 return new Licao4();
             case 4:
-                //return new Licao5();
+                return new Licao5();
             case 5:
-               // return new Licao6();
+                return new Licao6();
             case 6:
                 return new Licao7();
-
             default:
                 return null;
-
         }
     }
 

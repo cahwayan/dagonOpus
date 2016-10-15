@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.tcc.dagon.opus.R;
@@ -19,5 +20,6 @@ public class Licao1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_modulo1_etapa1_licao1,container,false);
+
     }
 }

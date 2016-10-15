@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tab_layout_modulo1_etapa1"
-            android:background="@android:color/holo_blue_dark" />
+            android:background="@color/corEtapaDesbloqueada" />
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_etapa1_modulo_1" />

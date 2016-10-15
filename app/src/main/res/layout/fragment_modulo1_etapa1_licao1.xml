@@ -31,10 +31,13 @@
             android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
 
         <Button
-            android:text="Button"
-            android:layout_width="match_parent"
+            android:text="@string/txtAvancar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button" />
+            android:id="@+id/btnAvancarModulo1Etapa1Licao1"
+            android:layout_gravity="right"
+            android:background="@color/corBtnModulo2"
+            android:textColor="@color/common_signin_btn_dark_text_focused" />
     </LinearLayout>
 
 
