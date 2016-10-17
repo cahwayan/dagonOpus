@@ -97,17 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Entrar G+" /> -->
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/esqueceuSenha"
-            android:id="@+id/btSignInCustom"
-            android:textAllCaps="false"
-            android:background="#00ffffff"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif"
-            android:textColor="#ffffff" />
+
     </LinearLayout>
 </LinearLayout>
 

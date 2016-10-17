@@ -439,13 +439,16 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onClick(View v) {
         getAccounts();
-        if(v.getId() == R.id.btSignInDefault || v.getId() == R.id.btSignInCustom){
+        if(v.getId() == R.id.btSignInDefault){
             if(!googleApiClient.isConnecting()){
                 isSignInButtonClicked = true;
                 showUi(false, true);
                 resolveSignIn();
                 writeFlag(true);
             }
+        }else if(v.getId() == R.id.btSignInCustom){
+            Intent intent = new Intent(MainActivity.this, RecuperarSenhaActivity.class);
+            startActivity(intent);
         }
         else if(v.getId() == R.id.btSignOut){
             if(googleApiClient.isConnected()){
@@ -466,11 +469,11 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 });
             }
         }
+
         else if(v.getId() == R.id.bt_AprenderActivity){
             Intent intent = new Intent(MainActivity.this, ContainerModulo1Etapa1.class);
             String perfilEmail = emailG;
             String perfilNome = name;
-            String perfilImagem = imageUrl;
             intent.putExtra("emailBundle", perfilEmail);
             intent.putExtra("nomeBundle", perfilNome);
             this.startActivity(intent);

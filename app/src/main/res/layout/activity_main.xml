@@ -38,7 +38,7 @@
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="73sp"
+            android:textSize="40sp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp" />
 
@@ -46,7 +46,17 @@
 
         <include layout="@layout/login_form"
              />
-
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:text="@string/esqueceuSenha"
+            android:id="@+id/btSignInCustom"
+            android:textAllCaps="false"
+            android:background="#00ffffff"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:textColor="#ffffff" />
         <!-- PROFILE -->
 
         <TextView

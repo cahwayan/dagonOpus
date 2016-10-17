@@ -23,24 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroActivity"
-
-            />
-
-        <activity android:name=".AprenderActivity"
-            />
-        <activity android:name=".MainActivity"
-            />
+        <activity android:name=".CadastroActivity" />
+        <activity android:name=".AprenderActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".telasEtapas.EtapasModulo1Activity" />
-
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
             android:label="@string/TituloEtapa1Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RecuperarSenhaActivity"></activity>
     </application>
 
 </manifest>
