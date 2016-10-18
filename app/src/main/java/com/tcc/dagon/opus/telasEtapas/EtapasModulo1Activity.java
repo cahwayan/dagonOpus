@@ -25,12 +25,22 @@ public class EtapasModulo1Activity extends AppCompatActivity {
     private LinearLayout etapa1,
                          etapa2,
                          etapa3,
-                         etapa4;
+                         etapa4,
+                         etapa5,
+                         etapa6,
+                         etapa7,
+                         etapa8,
+                         etapa9;
 
     private TextView txtEtapa1,
                      txtEtapa2,
                      txtEtapa3,
-                     txtEtapa4;
+                     txtEtapa4,
+                     txtEtapa5,
+                     txtEtapa6,
+                     txtEtapa7,
+                     txtEtapa8,
+                     txtEtapa9;
 
     // OBJETO QUE FARÁ CONSULTA NO BANCO
     GerenciadorBanco DB_PROGRESSO;
@@ -70,11 +80,22 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         etapa2 = (LinearLayout) findViewById(R.id.Etapa2);
         etapa3 = (LinearLayout) findViewById(R.id.Etapa3);
         etapa4 = (LinearLayout) findViewById(R.id.Etapa4);
+        etapa5 = (LinearLayout) findViewById(R.id.Etapa5);
+        etapa6 = (LinearLayout) findViewById(R.id.Etapa6);
+        etapa7 = (LinearLayout) findViewById(R.id.Etapa7);
+        etapa8 = (LinearLayout) findViewById(R.id.Etapa8);
+        etapa9 = (LinearLayout) findViewById(R.id.Etapa9);
+
 
         txtEtapa1 = (TextView)findViewById(R.id.txtQuestoesModulo1Etapa1);
         txtEtapa2 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa2);
         txtEtapa3 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa3);
         txtEtapa4 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa4);
+        txtEtapa5 = (TextView)findViewById(R.id.txtQuestoesModulo1Etapa5);
+        txtEtapa6 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa6);
+        txtEtapa7 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa7);
+        txtEtapa8 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa8);
+        txtEtapa9 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa9);
     }
 
     private void desbloquearEtapas() {
@@ -97,12 +118,50 @@ public class EtapasModulo1Activity extends AppCompatActivity {
                 desbloquearEtapa3();
                 desbloquearEtapa4();
                 break;
-
+            case 5:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                desbloquearEtapa5();
+                break;
+            case 6:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                desbloquearEtapa5();
+                desbloquearEtapa6();
+                break;
+            case 7:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                desbloquearEtapa5();
+                desbloquearEtapa6();
+                desbloquearEtapa7();
+                break;
+            case 8:
+                desbloquearEtapa1();
+                desbloquearEtapa2();
+                desbloquearEtapa3();
+                desbloquearEtapa4();
+                desbloquearEtapa5();
+                desbloquearEtapa6();
+                desbloquearEtapa7();
+                desbloquearEtapa8();
+                break;
             case 9:
                 desbloquearEtapa1();
                 desbloquearEtapa2();
                 desbloquearEtapa3();
                 desbloquearEtapa4();
+                desbloquearEtapa5();
+                desbloquearEtapa6();
+                desbloquearEtapa7();
+                desbloquearEtapa8();
+                desbloquearEtapa9();
                 break;
         }
     }
@@ -143,6 +202,51 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         etapa4.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
     }
 
+    private void desbloquearEtapa5() {
+        // SUMINDO COM O CADEADO
+        txtEtapa5.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa5.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa5.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa6() {
+        // SUMINDO COM O CADEADO
+        txtEtapa6.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa6.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa6.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa7() {
+        // SUMINDO COM O CADEADO
+        txtEtapa7.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa7.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa7.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa8() {
+        // SUMINDO COM O CADEADO
+        txtEtapa8.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa8.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa8.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
+    private void desbloquearEtapa9() {
+        // SUMINDO COM O CADEADO
+        txtEtapa9.setCompoundDrawables(null, null, null, null);
+        // TRAZENDO DE VOLTA A COR DA ETAPA DESBLOQUEADA
+        txtEtapa9.setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+        // TROCANDO A BORDA
+        etapa9.setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
+    }
+
     private void ClickListenersEtapas() {
         etapa1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -156,7 +260,6 @@ public class EtapasModulo1Activity extends AppCompatActivity {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
                 }
-
             }
         });
 
@@ -185,6 +288,61 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         etapa4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 4) {
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        etapa5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 5) {
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        etapa6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 6) {
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        etapa7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 7) {
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        etapa8.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 8) {
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else {
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        etapa9.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 9) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
                 } else {

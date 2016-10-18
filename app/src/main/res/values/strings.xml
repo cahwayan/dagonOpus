@@ -75,9 +75,16 @@
     <!--STRINGS ETAPAS MÓDULO 1-->
     <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
     <string name="TituloEtapa1Modulo1">1. Introdução</string>
-    <string name="TituloEtapa2Modulo1">2. Portugol</string>
-    <string name="TituloEtapa3Modulo1">3. Olá, mundo!</string>
-    <string name="TituloEtapa4Modulo1">4. Comentários em códigos</string>
+    <string name="TituloEtapa2Modulo1">2. Algoritmos</string>
+    <string name="TituloEtapa3Modulo1">3. Portugol</string>
+    <string name="TituloEtapa4Modulo1">4. Olá, mundo!</string>
+
+    <string name="TituloEtapa5Modulo1">5. Variáveis e constantes</string>
+    <string name="TituloEtapa6Modulo1">6. Tipos de variáveis</string>
+    <string name="TituloEtapa7Modulo1">7. Valoração e operadores de incremento</string>
+    <string name="TituloEtapa8Modulo1">8. Comentários em códigos</string>
+    <string name="TituloEtapa9Modulo1">9. Prova 1</string>
+
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -109,8 +116,16 @@
     </string>
     <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
     <string name="qtdQuestoesModulo1Etapa3">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
+
+    <string name="qtdQuestoesModulo1Etapa5">5 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa6">7 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa7">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa8">8 Questões</string>
+
+    <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
+
     <string name="txtAvancar">Avançar</string>
 
     <!--TITULOS TABS-->

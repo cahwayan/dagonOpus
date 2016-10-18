@@ -20,7 +20,9 @@ import com.tcc.dagon.opus.databases.GerenciadorBanco;
  */
 public class InicialActivity extends AppCompatActivity {
 
-    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1;
+    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1,
+                    botaoDesbloqLicoes, botaoBloqLicoes;
+
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
@@ -49,17 +51,12 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquear        = (Button) findViewById(R.id.botaoDesbloquear);
         botaoDesbloquearEtapas  = (Button) findViewById(R.id.botaoDesbloquearEtapas);
         botaoBloquearEtapas     = (Button) findViewById(R.id.botaoBloquearEtapas);
-        Modulo1              = (Button) findViewById(R.id.botaoModulo1);
+        botaoBloqLicoes         = (Button)findViewById(R.id.botaoBloqLicoes);
+        botaoDesbloqLicoes      = (Button)findViewById(R.id.botaoDesbloqLicoes);
         requesQueue             = Volley.newRequestQueue(getApplicationContext());
 
 
-        Modulo1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mdl1 = new Intent(InicialActivity.this,ContainerModulo1Etapa1.class);
-                startActivity(mdl1);
-            }
-        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,6 +117,34 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(6,0);
                 DB_PROGRESSO.atualizaProgressoEtapa(7,0);
                 DB_PROGRESSO.atualizaProgressoEtapa(8,0);
+            }
+        });
+
+        botaoBloqLicoes.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,2,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,3,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,4,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,5,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,6,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,7,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,8,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,9,0);
+            }
+        });
+
+        botaoDesbloqLicoes.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,7);
+                DB_PROGRESSO.atualizaProgressoLicao(1,2,10);
+                DB_PROGRESSO.atualizaProgressoLicao(1,3,8);
+                DB_PROGRESSO.atualizaProgressoLicao(1,4,15);
+                DB_PROGRESSO.atualizaProgressoLicao(1,5,5);
+                DB_PROGRESSO.atualizaProgressoLicao(1,6,10);
+                DB_PROGRESSO.atualizaProgressoLicao(1,7,7);
+                DB_PROGRESSO.atualizaProgressoLicao(1,8,10);
+                DB_PROGRESSO.atualizaProgressoLicao(1,9,10);
             }
         });
 
