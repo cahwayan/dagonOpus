@@ -16,7 +16,7 @@ final class ProgressoUsuario {
     static abstract class Progresso implements BaseColumns {
         // TABELAS DO BANCO DE DADOS
         static final String TABELA_PROGRESSO = "TD_PROG_USUARIO";
-        static final String TABELA_PROGRESSO_LICOES = "TD_PROG_LICOES_MODULOS";
+        static final String TABELA_PROGRESSO_LICOES = "TD_PROG_LICOES_MODULO";
 
         // COLUNA DO ID
         static final String COLUNA_ID = "_id";
