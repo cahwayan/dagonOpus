@@ -44,7 +44,6 @@ public class CadastroActivity extends AppCompatActivity {
 
     //Declarando variavel de conexao
     RequestQueue requestQueue;
-    private StringRequest request;
     private ProgressDialog progresso;
 
 

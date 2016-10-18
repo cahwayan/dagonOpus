@@ -8,12 +8,14 @@ public class StringsBanco {
     private final String mostrarUrl;
     final String loginUrl;
     final String insereGoogle;
+    final String recuperarSenha;
 
     StringsBanco(){
         mostrarUrl = "http://dagonopus.esy.es/phpAndroid/mostrarEstudante.php";
         insereUrl = "http://dagonopus.esy.es/phpAndroid/insere.php";
         insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
         loginUrl = "http://dagonopus.esy.es/phpAndroid/login.php";
+        recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera.php";
     }
 
 
