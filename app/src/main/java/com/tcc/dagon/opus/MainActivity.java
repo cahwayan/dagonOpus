@@ -113,8 +113,18 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        // CONSTRUINDO O OBJETO DE CONEXÃO GOOGLE
+        googleBuilder();
+
+        // VERIFICANDO SE O USUÁRIO ESTÁ LOGADO
+        if(readFlag()) {
+            Intent intent = new Intent(this, AprenderActivity.class);
+            startActivityForResult(intent, 1);
+            finish();
+        }
+
+        setContentView(R.layout.activity_main);
 
         // VOLLEY
         requestQueue  = Volley.newRequestQueue(this);
@@ -125,8 +135,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         // ADICIONANDO OS LISTENERS DOS BOTÕES
         listenersLogin();
 
-        // CONSTRUINDO O OBJETO DE CONEXÃO GOOGLE
-        googleBuilder();
+
     }
 
     // COMPONENTES DA INTERFACE
@@ -339,11 +348,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
-        if(googleApiClient.isConnected()) {
             Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
-
-
-
             if(p != null){
                 StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
                     @Override
@@ -363,13 +368,13 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         return parameters;
                     }
                 };
-
+                /*
                 requestQueue.add(request);
-                //Intent intent = new Intent(this, AprenderActivity.class);
-                // startActivity(intent);
-                //finish();
+                Intent intent = new Intent(this, AprenderActivity.class);
+                startActivity(intent);
+                finish();*/
 
-                String id = p.getId();
+                /* String id = p.getId();
                 name = p.getDisplayName();
                 String language = p.getLanguage();
                 String profileUrl = p.getUrl();
@@ -389,11 +394,9 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 Log.i("Script", "IMG before: "+imageUrl);
                 imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
                 Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(ivProfile, pbProfile, imageUrl);
+                loadImage(ivProfile, pbProfile, imageUrl);*/
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "Deslogado", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO
@@ -523,5 +526,12 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLogin", flag);
         editor.apply();
+    }
+
+    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
+    public boolean readFlag() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getBoolean("isLogin", false);
     }
 }

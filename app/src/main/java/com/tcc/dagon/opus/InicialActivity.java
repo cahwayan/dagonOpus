@@ -31,17 +31,14 @@ public class InicialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent2 = new Intent(this, MainActivity.class);
+        startActivityForResult(intent2, 1);
         setContentView(R.layout.activity_inicial);
 
         DB_PROGRESSO = new GerenciadorBanco(this);
 
-        if(readFlag()) {
-            Intent intent = new Intent(this, AprenderActivity.class);
-            startActivityForResult(intent, 1);
-        } else {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivityForResult(intent, 0);
-        }
+
+
 
         txtInicial              = (TextView)findViewById(R.id.txtInicial);
         login                   = (Button) findViewById(R.id.btn_Login);

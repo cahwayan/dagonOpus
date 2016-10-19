@@ -167,7 +167,10 @@ public class AprenderActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        googleApiClient.connect();
+        if(!googleApiClient.isConnected()) {
+            googleApiClient.connect();
+        }
+
         super.onStart();
     }
 
@@ -725,7 +728,7 @@ public class AprenderActivity extends AppCompatActivity {
 
     // MÉTODO DE CONFIGURAÇÃO DA JANELA DE ALERTA PARA OS MODULOS
     private void alertaModuloBloqueado() {
-        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este. Não tenha pressa. :-)");
+        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
     }
 
     // MODIFICAR FLAG PARA LOGOUT
