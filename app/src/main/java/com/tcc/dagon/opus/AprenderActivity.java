@@ -640,8 +640,8 @@ public class AprenderActivity extends AppCompatActivity {
 
                 } else if(position ==5) {
                     writeFlag(false);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     signOut();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 } else if(position ==6) {
 

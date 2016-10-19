@@ -338,6 +338,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             try {
                 isConsentScreenOpened = true;
                 connectionResult.startResolutionForResult(MainActivity.this, SIGN_IN_CODE);
+
             }
             catch(SendIntentException e) {
                 isConsentScreenOpened = false;
@@ -368,13 +369,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         return parameters;
                     }
                 };
-                /*
-                requestQueue.add(request);
-                Intent intent = new Intent(this, AprenderActivity.class);
-                startActivity(intent);
-                finish();*/
 
-                /* String id = p.getId();
+                String id = p.getId();
                 name = p.getDisplayName();
                 String language = p.getLanguage();
                 String profileUrl = p.getUrl();
@@ -394,7 +390,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 Log.i("Script", "IMG before: "+imageUrl);
                 imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
                 Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(ivProfile, pbProfile, imageUrl);*/
+                loadImage(ivProfile, pbProfile, imageUrl);
             }
 
     }
@@ -445,9 +441,9 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     // LISTENERS
     @Override
     public void onClick(View v) {
-        getAccounts();
         if(v.getId() == R.id.btSignInDefault){
             if(!googleApiClient.isConnecting()){
+                getAccounts();
                 isSignInButtonClicked = true;
                 showUi(false, true);
                 resolveSignIn();
@@ -463,6 +459,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 googleApiClient.disconnect();
                 googleApiClient.connect();
                 showUi(false, false);
+                writeFlag(false);
             }
         }
         else if(v.getId() == R.id.btRevokeAccess){
@@ -471,6 +468,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 Plus.AccountApi.revokeAccessAndDisconnect(googleApiClient).setResultCallback(new ResultCallback<Status>(){
                     @Override
                     public void onResult(Status result) {
+                        writeFlag(false);
                         finish();
                     }
                 });
@@ -478,7 +476,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
 
         else if(v.getId() == R.id.bt_AprenderActivity){
-            Intent intent = new Intent(MainActivity.this, ContainerModulo1Etapa1.class);
+            Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
             String perfilEmail = emailG;
             String perfilNome = name;
             intent.putExtra("emailBundle", perfilEmail);

@@ -112,7 +112,8 @@
           \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você!
           \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos.
           \n\nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
-          \n\n <b>Com carinho, equipe Dagon.</b>
+          \n\n<b>Um abraço, e bons estudos!
+          \nEquipe Dagon.</b>
     </string>
     <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
@@ -130,13 +131,13 @@
 
     <!--TITULOS TABS-->
     <string-array name="tab_modulo1_etapa1">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
     </string-array>
 
 </resources>

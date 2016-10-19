@@ -19,6 +19,7 @@ import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao7;
 public class AdapterEtapa1 extends FragmentPagerAdapter {
 
 private String[] tabTitulos;
+
     public AdapterEtapa1(FragmentManager fm, String[] tabTitulos) {
         super(fm);
         this.tabTitulos = tabTitulos;
@@ -55,6 +56,8 @@ private String[] tabTitulos;
     public CharSequence getPageTitle(int position) {
         return this.tabTitulos[position];
     }
+
+
 
 
 }
