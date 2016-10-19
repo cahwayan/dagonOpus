@@ -55,7 +55,7 @@ import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity implements OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
     private static final int SIGN_IN_CODE = 56465;
-    private GoogleApiClient googleApiClient;
+    static GoogleApiClient googleApiClient;
     private ConnectionResult connectionResult;
 
     private boolean isConsentScreenOpened,
@@ -72,7 +72,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     private SignInButton btSignInDefault;
 
-    private ImageView ivProfile;
+    private ImageView ivProfile,
+                      txtLogin;
 
     private ProgressBar pbProfile,
                         pbContainer;
@@ -85,7 +86,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                      btSignOut,
                      btRevokeAccess,
                      email,password,
-                     txtLogin,
                      botaoCriarConta;
 
     // VARIÁVEIS GOOGLE
@@ -131,7 +131,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     // COMPONENTES DA INTERFACE
     public void accessViews(){
-        txtLogin        = (TextView)findViewById(R.id.txtLogin);
+        txtLogin        = (ImageView)findViewById(R.id.txtLogin);
         botaoCriarConta = (TextView)findViewById(R.id.botaoCriarConta);
         llContainerAll  = (LinearLayout) findViewById(R.id.llContainerAll);
         pbContainer     = (ProgressBar) findViewById(R.id.pbContainer);
@@ -144,8 +144,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         btAprender      = (Button)findViewById(R.id.bt_AprenderActivity);
 
         Typeface adam   =  Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
-        txtLogin.setTypeface(adam);
         botaoCriarConta.setTypeface(adam);
+
         // CONECTADO
         llConnected     = (LinearLayout) findViewById(R.id.llConnected);
         ivProfile       = (ImageView) findViewById(R.id.ivProfile);
@@ -235,12 +235,13 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         });
 
-        txtLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                txtLogin.setText("<OPUS/>");
-                Toast.makeText(getApplicationContext(), "Bem observado", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // EASTER EGG TEMPORARIAMENTE DESABILITADO
+        //txtLogin.setOnClickListener(new View.OnClickListener() {
+        //    public void onClick(View v) {
+        //        txtLogin.setText("<OPUS/>");
+        //        Toast.makeText(getApplicationContext(), "Bem observado", Toast.LENGTH_SHORT).show();
+        //    }
+        //});
 
         botaoCriarConta.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ){
@@ -338,58 +339,61 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
-        Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
+        if(googleApiClient.isConnected()) {
+            Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
 
 
 
-        if(p != null){
-            StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                }
-            }, new Response.ErrorListener() {
-                public void onErrorResponse(VolleyError error) {
+            if(p != null){
+                StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                }, new Response.ErrorListener() {
+                    public void onErrorResponse(VolleyError error) {
 
-                }
-            }) {
-                @Override
-                //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> parameters = new HashMap<String, String>();
-                    parameters.put("EMAIL_GOOGLE", emailG);
-                    parameters.put("NOME_GOOGLE", name);
-                    return parameters;
-                }
-            };
+                    }
+                }) {
+                    @Override
+                    //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parameters = new HashMap<String, String>();
+                        parameters.put("EMAIL_GOOGLE", emailG);
+                        parameters.put("NOME_GOOGLE", name);
+                        return parameters;
+                    }
+                };
 
-            requestQueue.add(request);
-            //Intent intent = new Intent(this, AprenderActivity.class);
-           // startActivity(intent);
-            //finish();
+                requestQueue.add(request);
+                //Intent intent = new Intent(this, AprenderActivity.class);
+                // startActivity(intent);
+                //finish();
 
-            String id = p.getId();
-            name = p.getDisplayName();
-            String language = p.getLanguage();
-            String profileUrl = p.getUrl();
-            imageUrl = p.getImage().getUrl();
-            emailG = Plus.AccountApi.getAccountName(googleApiClient);
+                String id = p.getId();
+                name = p.getDisplayName();
+                String language = p.getLanguage();
+                String profileUrl = p.getUrl();
+                imageUrl = p.getImage().getUrl();
+                emailG = Plus.AccountApi.getAccountName(googleApiClient);
 
-            tvId.setText(id);
-            tvLanguage.setText(language);
-            tvName.setText(name);
-            tvEmail.setText(emailG);
+                tvId.setText(id);
+                tvLanguage.setText(language);
+                tvName.setText(name);
+                tvEmail.setText(emailG);
 
-            tvUrlProfile.setText(profileUrl);
-            Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
+                tvUrlProfile.setText(profileUrl);
+                Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
 
-            // Abre a tela de login após cadastro
-            //carrega icone de imagem do perfil do google
-            Log.i("Script", "IMG before: "+imageUrl);
-            imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
-            Log.i("Script", "IMG after: "+imageUrl);
-            loadImage(ivProfile, pbProfile, imageUrl);
+                // Abre a tela de login após cadastro
+                //carrega icone de imagem do perfil do google
+                Log.i("Script", "IMG before: "+imageUrl);
+                imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
+                Log.i("Script", "IMG after: "+imageUrl);
+                loadImage(ivProfile, pbProfile, imageUrl);
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Deslogado", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO

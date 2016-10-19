@@ -37,7 +37,7 @@
             android:id="@+id/btnAvancarModulo1Etapa1Licao1"
             android:layout_gravity="right"
             android:background="@color/corBtnModulo2"
-            android:textColor="@color/common_signin_btn_dark_text_focused" />
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 

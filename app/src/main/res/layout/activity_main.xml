@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     android:background="@drawable/telaloginbackground"
-    android:gravity="center" >
+    android:gravity="center"
+    android:orientation="vertical">
 
     <!-- WRAP CONTENT -->
 
 
     <!-- LOADING -->
+
     <ProgressBar
         android:id="@+id/pbContainer"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/llContainerAll"
@@ -28,35 +31,36 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/nomeAppLogin"
-            android:id="@+id/txtLogin"
-            android:focusableInTouchMode="false"
-            android:layout_gravity="center_horizontal"
-            android:clickable="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="40sp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
-
         <!-- LOGIN -->
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLogin"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/opuslogo"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="8dp" />
+
         <include layout="@layout/login_form"
-             />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/esqueceuSenha"
             android:id="@+id/btSignInCustom"
             android:textAllCaps="false"
             android:background="#00ffffff"
             android:textSize="16sp"
             android:fontFamily="sans-serif"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="2dp" />
         <!-- PROFILE -->
 
         <TextView
@@ -69,11 +73,11 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
             android:padding="5dp" />
 
         <include layout="@layout/profile" />
 
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

@@ -22,10 +22,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.plus.Plus;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
+
+import static com.tcc.dagon.opus.MainActivity.googleApiClient;
 import static java.lang.String.valueOf;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 
@@ -107,6 +114,8 @@ public class AprenderActivity extends AppCompatActivity {
 
     // VARIÁVEL DE LOGOUT
     boolean isLogin;
+
+
     // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
 
@@ -154,6 +163,12 @@ public class AprenderActivity extends AppCompatActivity {
 
         // SETANDO O PROGRESSO DAS PROGRESS BARS
         progressBars();
+    }
+
+    @Override
+    protected void onStart() {
+        googleApiClient.connect();
+        super.onStart();
     }
 
 
@@ -282,14 +297,14 @@ public class AprenderActivity extends AppCompatActivity {
 
 
         // TROCANDO AS TEXTVIEWS
-        txtTitulo1.setText(R.string.moduloBloqueado);
-        txtTitulo2.setText(R.string.moduloBloqueado);
-        txtTitulo3.setText(R.string.moduloBloqueado);
-        txtTitulo4.setText(R.string.moduloBloqueado);
-        txtTitulo5.setText(R.string.moduloBloqueado);
-        txtTitulo6.setText(R.string.moduloBloqueado);
-        txtTitulo7.setText(R.string.moduloBloqueado);
-        txtTitulo8.setText(R.string.moduloBloqueado);
+        //txtTitulo1.setText(R.string.moduloBloqueado);
+        //txtTitulo2.setText(R.string.moduloBloqueado);
+       // txtTitulo3.setText(R.string.moduloBloqueado);
+        //txtTitulo4.setText(R.string.moduloBloqueado);
+       // txtTitulo5.setText(R.string.moduloBloqueado);
+        //txtTitulo6.setText(R.string.moduloBloqueado);
+        //txtTitulo7.setText(R.string.moduloBloqueado);
+       // txtTitulo8.setText(R.string.moduloBloqueado);
 
         // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
         txtProgresso1.setVisibility(View.GONE);
@@ -609,13 +624,24 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
-                    Intent gerenciarPerfil = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
-                    startActivity(gerenciarPerfil);
+
                 }
                 else if(position==1){
+                    Intent gerenciarPerfil = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
+                    startActivity(gerenciarPerfil);
+                } else if (position ==2) {
+
+                } else if(position ==3) {
+
+                } else if(position ==4) {
+
+                } else if(position ==5) {
                     writeFlag(false);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    signOut();
                     finish();
+                } else if(position ==6) {
+
                 }
             }
         });
@@ -626,7 +652,7 @@ public class AprenderActivity extends AppCompatActivity {
         // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
         ArrayAdapter<String> mAdapter;
         // ITENS DO MENU
-        String[] itensMenu = {"Perfil", "Logout", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"};
+        String[] itensMenu = {"Módulos", "Perfil", "Conquistas", "Glossário", "Configurações", "Logout", "Avalie-nos!"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }
@@ -710,5 +736,16 @@ public class AprenderActivity extends AppCompatActivity {
         editor.putBoolean("isLogin", flag);
         editor.apply();
     }
+
+    // SIGN OUT GOOGLE
+    private void signOut() {
+        if(googleApiClient.isConnected()) {
+            Plus.AccountApi.clearDefaultAccount(googleApiClient);
+            googleApiClient.disconnect();
+            googleApiClient.connect();
+        }
+
+    }
+
 }
 
