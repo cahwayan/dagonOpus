@@ -133,7 +133,7 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoDesbloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,7);
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,6);
                 DB_PROGRESSO.atualizaProgressoLicao(1,2,10);
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,8);
                 DB_PROGRESSO.atualizaProgressoLicao(1,4,15);

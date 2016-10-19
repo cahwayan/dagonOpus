@@ -258,7 +258,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         String select       = Progresso.COLUNA_PROG_LICOES_MODULO + " LIKE ? ";
 
         // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
-        String selectArgs = String.valueOf(moduloPertencente);
+        String selectArgs[] = {String.valueOf(moduloPertencente)};
 
         switch (etapaPertencente) {
             case 1:
@@ -298,12 +298,11 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         Cursor cursor = DB_PROGRESSO.query(
                 tabela,
                 colunaEtapa,
-                null,
-                null,
-                null,
                 select,
                 selectArgs,
-                limit
+                null,
+                null,
+                null
         );
 
         cursor.moveToFirst();
