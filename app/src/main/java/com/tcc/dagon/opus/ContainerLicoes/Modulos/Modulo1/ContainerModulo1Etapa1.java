@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -31,6 +32,8 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         bloquearScroll();
         bloquearLicoes();
         desbloquearLicoes();
+        String TAG = "FUNCIONO";
+        Log.i(TAG , String.valueOf(DB_PROGRESSO.verificaPergunta(1, 1, 1, 3)));
     }
 
 

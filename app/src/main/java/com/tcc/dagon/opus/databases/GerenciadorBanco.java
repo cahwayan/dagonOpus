@@ -385,7 +385,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         cursor.moveToFirst();
         respostaPergunta = cursor.getInt(
-                cursor.getColumnIndexOrThrow(colunaEtapa[0])
+                cursor.getColumnIndexOrThrow(colunaAlternativa[0])
         );
         fecharBanco();
         cursor.close();
