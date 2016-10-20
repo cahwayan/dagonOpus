@@ -59,11 +59,16 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         int progresso = DB_PROGRESSO.verificaProgressoLicao(1,1);
         switch(DB_PROGRESSO.verificaProgressoLicao(1,1)) {
             default:
-                int contador = 1;
-                for(int i = 0; i <= progresso; i++) {
-                    mTabLayout.getTabAt(i).setIcon(null);
-                    mTabLayout.getTabAt(i).setText(String.valueOf(contador));
-                    contador++;
+                for(int i = 0; i <= progresso; i += 2) {
+                    mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                    tabStrip.getChildAt(i).setClickable(true);
+                    tabStrip.getChildAt(i).setEnabled(true);
+                    //tabStrip.getChildAt(i).setBackgroundResource(R.drawable.borda_licao);
+                }
+
+                for (int i=1; i <= progresso; i += 2) {
+                    //tabStrip.getChildAt(i).setBackgroundResource(R.drawable.borda_licao);
+                    mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }

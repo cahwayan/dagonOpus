@@ -130,6 +130,7 @@ public class AprenderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aprender);
 
 
+
         // INVOCANDO OS COMPONENTES
         accessViews();
 
@@ -169,6 +170,10 @@ public class AprenderActivity extends AppCompatActivity {
     protected void onStart() {
         if(!googleApiClient.isConnected()) {
             googleApiClient.connect();
+        }
+
+        if(!readFlag()) {
+            writeFlag(true);
         }
 
         super.onStart();
@@ -738,6 +743,13 @@ public class AprenderActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLogin", flag);
         editor.apply();
+    }
+
+    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
+    public boolean readFlag() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getBoolean("isLogin", false);
     }
 
     // SIGN OUT GOOGLE

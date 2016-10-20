@@ -214,7 +214,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         @Override
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
-                                writeFlag(true);
                                 startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
                                 finish();
                             }else{
@@ -447,7 +446,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 isSignInButtonClicked = true;
                 showUi(false, true);
                 resolveSignIn();
-                writeFlag(true);
             }
         }else if(v.getId() == R.id.btSignInCustom){
             Intent intent = new Intent(MainActivity.this, RecuperarSenhaActivity.class);

@@ -131,7 +131,8 @@
 
     <!--TITULOS TABS-->
     <string-array name="tab_modulo1_etapa1">
-        <item>1</item>
+        <item></item>
+        <item></item>
         <item></item>
         <item></item>
         <item></item>
