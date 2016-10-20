@@ -63,11 +63,9 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
-                    //tabStrip.getChildAt(i).setBackgroundResource(R.drawable.borda_licao);
                 }
 
                 for (int i=1; i <= progresso; i += 2) {
-                    //tabStrip.getChildAt(i).setBackgroundResource(R.drawable.borda_licao);
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);

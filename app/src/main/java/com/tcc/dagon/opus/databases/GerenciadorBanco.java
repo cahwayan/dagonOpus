@@ -316,6 +316,84 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return progressoLicao;
     }
 
+    // VERIFICA SE A PERGUNTA ESTÁ CERTA
+    public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numPergunta, int alternativa) {
+        String tabela = "";
+        String colunaAlternativa[] = {""};
+
+        switch (moduloPertencente) {
+            case 1:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO1;
+                break;
+            case 2:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO2;
+                break;
+            case 3:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO3;
+                break;
+            case 4:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO4;
+                break;
+            case 5:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO5;
+                break;
+            case 6:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO6;
+                break;
+            case 7:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO7;
+                break;
+            case 8:
+                tabela = Progresso.TABELA_PERGUNTAS_MODULO8;
+                break;
+        }
+        String colunaEtapa[] = {""};
+        String limit = "1";
+        int respostaPergunta = 0;
+
+        // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
+        String select       = Progresso.ETAPA_PERGUNTA + " LIKE ? AND " + Progresso.NUM_PERGUNTA + " LIKE ? " ;
+
+        // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
+        String selectArgs[] = {String.valueOf(etapaPertencente), String.valueOf(numPergunta)};
+
+        switch (alternativa) {
+            case 1:
+                colunaAlternativa[0] = Progresso.ALTERNATIVA1;
+                break;
+            case 2:
+                colunaAlternativa[0] = Progresso.ALTERNATIVA2;
+                break;
+            case 3:
+                colunaAlternativa[0] = Progresso.ALTERNATIVA3;
+                break;
+            case 4:
+                colunaAlternativa[0] = Progresso.ALTERNATIVA4;
+                break;
+        }
+
+        abrirBanco();
+        Cursor cursor = DB_PROGRESSO.query(
+                tabela,
+                colunaAlternativa,
+                select,
+                selectArgs,
+                null,
+                null,
+                limit
+        );
+
+        cursor.moveToFirst();
+        respostaPergunta = cursor.getInt(
+                cursor.getColumnIndexOrThrow(colunaEtapa[0])
+        );
+        fecharBanco();
+        cursor.close();
+
+        // RETORNA O VALOR REQUERIDO
+        return respostaPergunta;
+    }
+
     // ATUALIZA PROGRESSO MÓDULO
     public void atualizaProgressoModulo(int progresso) {
 

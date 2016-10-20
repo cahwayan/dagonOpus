@@ -17,6 +17,14 @@ final class ProgressoUsuario {
         // TABELAS DO BANCO DE DADOS
         static final String TABELA_PROGRESSO = "TD_PROG_USUARIO";
         static final String TABELA_PROGRESSO_LICOES = "TD_PROG_LICOES_MODULO";
+        static final String TABELA_PERGUNTAS_MODULO1 = "TD_QUESTOES_MODULO1";
+        static final String TABELA_PERGUNTAS_MODULO2 = "TD_QUESTOES_MODULO2";
+        static final String TABELA_PERGUNTAS_MODULO3 = "TD_QUESTOES_MODULO3";
+        static final String TABELA_PERGUNTAS_MODULO4 = "TD_QUESTOES_MODULO4";
+        static final String TABELA_PERGUNTAS_MODULO5 = "TD_QUESTOES_MODULO5";
+        static final String TABELA_PERGUNTAS_MODULO6 = "TD_QUESTOES_MODULO6";
+        static final String TABELA_PERGUNTAS_MODULO7 = "TD_QUESTOES_MODULO7";
+        static final String TABELA_PERGUNTAS_MODULO8 = "TD_QUESTOES_MODULO8";
 
         // COLUNA DO ID
         static final String COLUNA_ID = "_id";
@@ -45,6 +53,14 @@ final class ProgressoUsuario {
         static final String COLUNA_PROG_LICOES_ETAPA8 = "PROG_LICOES_ETAPA8";
         static final String COLUNA_PROG_LICOES_ETAPA9 = "PROG_LICOES_ETAPA9";
         static final String COLUNA_PROG_LICOES_ETAPA10 = "PROG_LICOES_ETAPA10";
+
+        // COLUNAS DA TABELA DE PERGUNTAS
+        static final String ETAPA_PERGUNTA = "ETAPA";
+        static final String NUM_PERGUNTA   = "NUM_PERGUNTA";
+        static final String ALTERNATIVA1   = "ALTERNATIVA1";
+        static final String ALTERNATIVA2   = "ALTERNATIVA2";
+        static final String ALTERNATIVA3   = "ALTERNATIVA3";
+        static final String ALTERNATIVA4   = "ALTERNATIVA4";
 
 
     }
