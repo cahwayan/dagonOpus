@@ -30,4 +30,14 @@ public class NovaJanelaAlerta extends AppCompatActivity {
         alerta.setIcon(R.drawable.icon_lock);
         alerta.create().show();
     }
+
+    public void alertDialogBloqueadoLicao(String titulo, String mensagem) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(activity);
+        alerta.setTitle(titulo);
+        alerta.setMessage(mensagem);
+        alerta.setPositiveButton("OK", null);
+        // Icone
+        alerta.create().show();
+    }
+
 }

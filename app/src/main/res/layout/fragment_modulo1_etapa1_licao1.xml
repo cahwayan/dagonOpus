@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/tituloModulo1Etapa1Licao1"
+            android:text="@string/titulo1Modulo1Etapa1Licao1"
             android:textColor="@color/corTituloLicao"
             android:textSize="24sp"
             android:id="@+id/txtTitulo1Modulo1Etapa1Licao1" />
@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto1Modulo1Etapa1Licao1"
             android:textSize="16sp"
-            android:gravity="left|right"
-            android:layout_gravity="right|center_vertical"
+            android:gravity="start|end"
+            android:layout_gravity="end"
             android:paddingTop="@dimen/paddingTopoTextoLicao"
             android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
 
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnAvancarModulo1Etapa1Licao1"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:background="@color/corBtnModulo2"
             android:textColor="#ffffff"
             android:padding="10dp"/>

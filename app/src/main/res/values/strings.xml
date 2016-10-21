@@ -104,17 +104,41 @@
     <string name="text_fragment_5">Modulo 5</string>
     <string name="text_fragment_6">Modulo 6</string>
     <string name="text_fragment_7">Modulo 7</string>
-    <string name="tituloModulo1Etapa1Licao1">Bem-Vindo!</string>
 
-    <!--TITULOS ETAPAS -->
+    <!-- TITULOS LIÇÕES-->
+    <!-- LICAO 1 MODULO 1 ETAPA 1-->
+    <string name="titulo1Modulo1Etapa1Licao1">Bem-Vindo!</string>
+    <!-- LICAO 2 MODULO 1 ETAPA 1-->
+    <string name="titulo1Modulo1Etapa1Licao2">Lógica</string>
+    <string name="titulo2Modulo1Etapa1Licao2">Então, o que é lógica?</string>
+    <string name="titulo3Modulo1Etapa1Licao2">E enfim, o que é sequencia lógica?</string>
+
+
     <!--STRINGS LICAO 1 ETAPA 1 MODULO 1-->
-    <string name="txt1_modulo1_etapa1_licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
+    <string name="txt1_modulo1_etapa1_licao1">
+          Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
           \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você!
           \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos.
           \n\nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
           \n\n<b>Um abraço, e bons estudos!
           \nEquipe Dagon.</b>
     </string>
+
+    <!--STRINGS LICAO 2 ETAPA 1 MODULO 1-->
+    <string name="txt1_modulo1_etapa1_licao2">
+        A  lógica  de  programação é  necessária  para  pessoas  que  desejam
+        trabalhar com desenvolvimento de sistemas e programas, ela permite definir a sequencia lógica para o desenvolvimento.
+    </string>
+
+    <string name="txt2_modulo1_etapa1_licao2" >
+        Lógica  de  programação é  a  técnica  utilizada  para  colocar  as instruções em  uma
+        sequência  lógica  para  atingir  determinado  objetivo,  elaborado  numa linguagem de programação.
+    </string>
+
+    <string name="txt3_modulo1_etapa1_licao2" >
+        Sequência   lógica   é   um   encadeamento   de   passos   conhecidos   e determinados que quando executados, buscam atingir o objetivo proposto.
+    </string>
+
     <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
     <string name="qtdQuestoesModulo1Etapa3">4 Questões</string>

@@ -1,5 +1,7 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -108,5 +110,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
     public TabLayout getmTabLayout() {
         return mTabLayout;
     }
+
+
 
 }

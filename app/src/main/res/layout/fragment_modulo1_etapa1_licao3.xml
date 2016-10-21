@@ -25,13 +25,13 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:background="@drawable/borda_container_licao"
             android:layout_marginTop="80dp">
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="3dp">
+                android:padding="3dp"
+                android:id="@+id/radioGroupModulo1Etapa1Licao3">
                 <RadioButton
                     android:text="@string/Modulo1Etapa1Pergunta1Alternativa1"
                     android:layout_width="match_parent"

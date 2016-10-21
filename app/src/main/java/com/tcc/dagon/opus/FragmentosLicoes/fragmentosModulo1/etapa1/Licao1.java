@@ -21,10 +21,11 @@ import com.tcc.dagon.opus.R;
 public class Licao1 extends Fragment {
     Button btnAvancar;
     ViewPager mViewPager;
+    View viewRoot;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao1,container,false);
+        viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao1,container,false);
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarModulo1Etapa1Licao1);
         mViewPager = ((ContainerModulo1Etapa1)getActivity()).getPager();
         listeners();
