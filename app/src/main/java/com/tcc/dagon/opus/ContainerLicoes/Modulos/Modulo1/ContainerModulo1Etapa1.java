@@ -30,6 +30,28 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         desbloquearLicoes();
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (mViewPager.getCurrentItem() == 0) {
+            super.onBackPressed();
+        } else if (mViewPager.getCurrentItem() == 1){
+            super.onBackPressed();
+        } else if (mViewPager.getCurrentItem() == 2) {
+            mViewPager.setCurrentItem(1);
+        } else if (mViewPager.getCurrentItem() == 3) {
+            super.onBackPressed();
+        } else if (mViewPager.getCurrentItem() == 4) {
+            mViewPager.setCurrentItem(3);
+        } else if (mViewPager.getCurrentItem() == 5) {
+            super.onBackPressed();
+        } else if (mViewPager.getCurrentItem() == 6) {
+            mViewPager.setCurrentItem(5);
+        } else if (mViewPager.getCurrentItem() == 7) {
+            super.onBackPressed();
+        }
+    }
+
 
     private void accessViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo1Etapa1);

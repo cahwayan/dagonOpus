@@ -106,7 +106,7 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoBloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoEtapa(1,0);
+                DB_PROGRESSO.atualizaProgressoEtapa(1,1);
                 DB_PROGRESSO.atualizaProgressoEtapa(2,0);
                 DB_PROGRESSO.atualizaProgressoEtapa(3,0);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,0);

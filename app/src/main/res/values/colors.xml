@@ -6,6 +6,8 @@
     <color name="colorPrimaryDark">#302f22</color>
     <color name="colorAccent">#504f38</color>
 
+    <color name="corBotaoVerde">#8ec127</color>
+
     <!--CORES DOS MÓDULOS DESBLOQUEADOS-->
     <color name="corBtnModulo1">#d41243</color>
     <color name="corBtnModulo2">#8ec127</color>
