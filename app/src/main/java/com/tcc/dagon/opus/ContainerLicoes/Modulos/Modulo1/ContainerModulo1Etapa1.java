@@ -14,8 +14,8 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    GerenciadorBanco DB_PROGRESSO;
-    LinearLayout tabStrip;
+    private GerenciadorBanco DB_PROGRESSO;
+    private LinearLayout tabStrip;
 
     public ContainerModulo1Etapa1() {
     }
@@ -73,6 +73,18 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
                 }
             break;
         }
+    }
+
+    public ViewPager getPager(){
+        return mViewPager;
+    }
+
+    public LinearLayout getTabStrip() {
+        return tabStrip;
+    }
+
+    public TabLayout getmTabLayout() {
+        return mTabLayout;
     }
 
 }

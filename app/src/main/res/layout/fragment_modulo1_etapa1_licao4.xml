@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/modulo1_etapa1_licao4">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:id="@+id/modulo1_etapa1_licao4"
-        android:text="@string/text_fragment_4"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/container_modulo1_etapa1_licao4">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/text_fragment_4"/>
+    </LinearLayout>
+
 </ScrollView>

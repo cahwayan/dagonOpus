@@ -1,19 +1,25 @@
 package com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1;
 
 import android.content.Context;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import android.view.View.OnClickListener;
+
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -28,12 +34,17 @@ public class Licao3 extends Fragment {
          alternativa4;
     GerenciadorBanco DB_PROGRESSO;
     Button btnChecar;
-
+    ViewPager mViewPager;
+    LinearLayout tabStrip;
+    TabLayout mTabLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DB_PROGRESSO = new GerenciadorBanco(getActivity());
         View rootView = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao3, container, false);
+        mViewPager = ((ContainerModulo1Etapa1)getActivity()).getPager();
+        tabStrip   = ((ContainerModulo1Etapa1)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerModulo1Etapa1)getActivity()).getmTabLayout();
         alternativa1 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa1);
         alternativa2 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa2);
         alternativa3 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa3);
@@ -86,30 +97,22 @@ public class Licao3 extends Fragment {
     }
 
     private void desabilitarRadioButtons() {
-        alternativa1.setEnabled(false);
         alternativa1.setClickable(false);
 
-        alternativa2.setEnabled(false);
         alternativa2.setClickable(false);
 
-        alternativa3.setEnabled(false);
         alternativa3.setClickable(false);
 
-        alternativa4.setEnabled(false);
         alternativa4.setClickable(false);
     }
 
     private void habilitarRadioButtons() {
-        alternativa1.setEnabled(true);
         alternativa1.setClickable(true);
 
-        alternativa2.setEnabled(true);
         alternativa2.setClickable(true);
 
-        alternativa3.setEnabled(true);
         alternativa3.setClickable(true);
 
-        alternativa4.setEnabled(true);
         alternativa4.setClickable(true);
     }
 
@@ -120,11 +123,10 @@ public class Licao3 extends Fragment {
         btnChecar.setText(R.string.txtAvancar);
         // ATUALIZAR PROGRESSO
         DB_PROGRESSO.atualizaProgressoLicao(1,1,3);
-        Fragment mFragment = new Licao4();
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.modulo1_etapa1_licao4, mFragment)
-                .commit();
+        mViewPager.setCurrentItem(3);
+        mTabLayout.getTabAt(3).setIcon(R.drawable.icon_licao);
+        tabStrip.getChildAt(3).setClickable(true);
+        tabStrip.getChildAt(3).setEnabled(true);
     }
 
     private void respostaErrada() {
