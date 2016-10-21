@@ -28,44 +28,49 @@
 
             android:background="@drawable/borda_container_licao"
             android:layout_marginTop="80dp">
-            <RadioButton
-                android:text="@string/Modulo1Etapa1Pergunta1Alternativa1"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Modulo1Etapa1Pergunta1Alternativa1"
-                android:background="@drawable/borda_alternativa"
-                android:padding="3dp"
-                android:textSize="@dimen/textSizeAltenativa" />
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:text="@string/Modulo1Etapa1Pergunta1Alternativa1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/Modulo1Etapa1Pergunta1Alternativa1"
+                    android:background="@drawable/borda_alternativa"
+                    android:padding="3dp"
+                    android:textSize="@dimen/textSizeAltenativa" />
 
-            <RadioButton
-                android:text="@string/Modulo1Etapa1Pergunta1Alternativa2"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Modulo1Etapa1Pergunta1Alternativa2"
-                android:background="@drawable/borda_alternativa"
-                android:padding="3dp"
-                android:textSize="@dimen/textSizeAltenativa"
-                />
+                <RadioButton
+                    android:text="@string/Modulo1Etapa1Pergunta1Alternativa2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/Modulo1Etapa1Pergunta1Alternativa2"
+                    android:background="@drawable/borda_alternativa"
+                    android:padding="3dp"
+                    android:textSize="@dimen/textSizeAltenativa"
+                    />
 
-            <RadioButton
-                android:text="@string/Modulo1Etapa1Pergunta1Alternativa3"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Modulo1Etapa1Pergunta1Alternativa3"
-                android:background="@drawable/borda_alternativa"
-                android:padding="5dp"
-                android:textSize="@dimen/textSizeAltenativa"
-                />
+                <RadioButton
+                    android:text="@string/Modulo1Etapa1Pergunta1Alternativa3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/Modulo1Etapa1Pergunta1Alternativa3"
+                    android:background="@drawable/borda_alternativa"
+                    android:padding="5dp"
+                    android:textSize="@dimen/textSizeAltenativa"
+                    />
 
-            <RadioButton
-                android:text="@string/Modulo1Etapa1Pergunta1Alternativa4"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Modulo1Etapa1Pergunta1Alternativa4"
-                android:background="@drawable/borda_alternativa"
-                android:padding="5dp"
-                android:textSize="@dimen/textSizeAltenativa"
-                />
+                <RadioButton
+                    android:text="@string/Modulo1Etapa1Pergunta1Alternativa4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/Modulo1Etapa1Pergunta1Alternativa4"
+                    android:background="@drawable/borda_alternativa"
+                    android:padding="5dp"
+                    android:textSize="@dimen/textSizeAltenativa"
+                    />
+            </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout

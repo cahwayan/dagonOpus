@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao3;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -23,12 +25,6 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
     GerenciadorBanco DB_PROGRESSO;
     LinearLayout tabStrip;
 
-    RadioButton alternativa1,
-            alternativa2,
-            alternativa3,
-            alternativa4;
-    Button btnChecar;
-
     public ContainerModulo1Etapa1() {
     }
 
@@ -38,7 +34,6 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         setContentView(R.layout.container_modulo1_etapa1);
         DB_PROGRESSO = new GerenciadorBanco(this);
         accessViews();
-        bloquearScroll();
         bloquearLicoes();
         desbloquearLicoes();
     }
@@ -55,12 +50,6 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
 
         tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
-
-        alternativa1 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa1);
-        alternativa2 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa2);
-        alternativa3 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa3);
-        alternativa4 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa4);
-        btnChecar = (Button) findViewById(R.id.btnChecarResposta);
     }
 
     private void bloquearLicoes() {
@@ -76,6 +65,9 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         switch(DB_PROGRESSO.verificaProgressoLicao(1,1)) {
             default:
                 mTabLayout.getTabAt(0).setIcon(R.drawable.icon_licao);
+                tabStrip.getChildAt(0).setClickable(true);
+                tabStrip.getChildAt(0).setEnabled(true);
+
                 for(int i = 1; i <= progresso; i += 2) {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
                     tabStrip.getChildAt(i).setClickable(true);
@@ -89,17 +81,6 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
                 }
             break;
         }
-    }
-
-    private void bloquearScroll() {
-        mViewPager.setOnTouchListener(new View.OnTouchListener()
-        {
-            @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
-                return true;
-            }
-        });
     }
 
 }
