@@ -29,6 +29,7 @@ public class Licao3 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        DB_PROGRESSO = new GerenciadorBanco(getActivity());
         View rootView = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao3, container, false);
         alternativa1 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa1);
         alternativa2 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa2);
@@ -49,7 +50,7 @@ public class Licao3 extends Fragment {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anim_botaoimageview));
                 // SE A ALTERNATIVA 1 ESTIVER SELECIONADA AO CLICAR
-                if(alternativa1.isSelected()) {
+                if(alternativa1.isChecked()) {
                     // VERIFICAR CORRESPONDENCIA DA ALTERNATIVA 1 NO BANCO
                     // SE ESTIVER CERTA .................
                     if(DB_PROGRESSO.verificaPergunta(1,1,1,1) == 1) {
@@ -58,20 +59,20 @@ public class Licao3 extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "ERRADO", Toast.LENGTH_SHORT).show();
                     }
-                } else if(alternativa2.isSelected()) {
+                } else if(alternativa2.isChecked()) {
                     if(DB_PROGRESSO.verificaPergunta(1,1,1,2) == 1) {
                         Toast.makeText(getContext(), "CERTO", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "ERRADO", Toast.LENGTH_SHORT).show();
                     }
-                } else if (alternativa3.isSelected()){
+                } else if (alternativa3.isChecked()){
                     if(DB_PROGRESSO.verificaPergunta(1,1,1,3) == 1) {
                         Toast.makeText(getContext(), "CERTO", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "ERRADO", Toast.LENGTH_SHORT).show();
                     }
 
-                } else if (alternativa4.isSelected()) {
+                } else if (alternativa4.isChecked()) {
                     if(DB_PROGRESSO.verificaPergunta(1,1,1,4) == 1) {
                         Toast.makeText(getContext(), "CERTO", Toast.LENGTH_SHORT).show();
                     } else {
