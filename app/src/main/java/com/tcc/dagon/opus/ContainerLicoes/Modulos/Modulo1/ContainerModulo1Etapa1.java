@@ -8,7 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+
 import com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa1;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -19,6 +22,12 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
     private ViewPager mViewPager;
     GerenciadorBanco DB_PROGRESSO;
     LinearLayout tabStrip;
+
+    RadioButton alternativa1,
+            alternativa2,
+            alternativa3,
+            alternativa4;
+    Button btnChecar;
 
     public ContainerModulo1Etapa1() {
     }
@@ -32,8 +41,6 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         bloquearScroll();
         bloquearLicoes();
         desbloquearLicoes();
-        String TAG = "FUNCIONO";
-        Log.i(TAG , String.valueOf(DB_PROGRESSO.verificaPergunta(1, 1, 1, 3)));
     }
 
 
@@ -48,6 +55,12 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
 
         tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
+
+        alternativa1 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa1);
+        alternativa2 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa2);
+        alternativa3 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa3);
+        alternativa4 = (RadioButton) findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa4);
+        btnChecar = (Button) findViewById(R.id.btnChecarResposta);
     }
 
     private void bloquearLicoes() {
@@ -62,13 +75,14 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         int progresso = DB_PROGRESSO.verificaProgressoLicao(1,1);
         switch(DB_PROGRESSO.verificaProgressoLicao(1,1)) {
             default:
-                for(int i = 0; i <= progresso; i += 2) {
+                mTabLayout.getTabAt(0).setIcon(R.drawable.icon_licao);
+                for(int i = 1; i <= progresso; i += 2) {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }
 
-                for (int i=1; i <= progresso; i += 2) {
+                for (int i=2; i <= progresso; i += 2) {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);

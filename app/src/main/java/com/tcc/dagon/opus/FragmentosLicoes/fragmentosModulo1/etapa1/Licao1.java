@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 import com.tcc.dagon.opus.R;
 
@@ -15,7 +16,7 @@ import com.tcc.dagon.opus.R;
  * Created by charlinho on 09/10/2016.
  */
 public class Licao1 extends Fragment {
-    WebView view;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

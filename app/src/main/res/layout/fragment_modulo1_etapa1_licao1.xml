@@ -37,7 +37,8 @@
             android:id="@+id/btnAvancarModulo1Etapa1Licao1"
             android:layout_gravity="right"
             android:background="@color/corBtnModulo2"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:padding="10dp"/>
     </LinearLayout>
 
 

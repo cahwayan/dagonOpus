@@ -21,4 +21,5 @@
     <dimen name="paddingBaixoTextoLicao">9dp</dimen>
     <dimen name="paddingTopoTextoLicao">9dp</dimen>
     <dimen name="textoQuestoesEtapa">18sp</dimen>
+    <dimen name="textSizeAltenativa">13sp</dimen>
 </resources>

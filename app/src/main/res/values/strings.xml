@@ -127,7 +127,20 @@
 
     <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
 
-    <string name="txtAvancar">Avançar</string>
+    <string name="txtAvancar">AVANÇAR</string>
+    <string name="txtChecar">CONFIRMAR</string>
+
+    <!--PERGUNTAS MÓDULOS-->
+    <!--MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo1Etapa1Pergunta1">O que é lógica de programação?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa1Pergunta1Alternativa1">Apenas uma maneira de como se pensar em programar</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa2">Instruções de raciocínio lógico na programação</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa3">Instruções em uma sequência lógica para atingir determinado objetivo</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa4">Passos para executar uma aplicação </string>
+    <string name="fonteQuestao">sans-serif-light</string>
 
     <!--TITULOS TABS-->
     <string-array name="tab_modulo1_etapa1">
@@ -140,5 +153,6 @@
         <item></item>
         <item></item>
     </string-array>
+
 
 </resources>

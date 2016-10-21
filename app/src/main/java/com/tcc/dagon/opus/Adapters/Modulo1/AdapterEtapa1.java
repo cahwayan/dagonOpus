@@ -32,18 +32,20 @@ private String[] tabTitulos;
             case 0:
                 return new Licao1();
             case 1:
-                return new Licao2();
+                return new Licao1();
             case 2:
-                return new Licao3();
+                return new Licao2();
             case 3:
-                return new Licao4();
+                return new Licao3();
             case 4:
-                return new Licao5();
+                return new Licao4();
             case 5:
-                return new Licao6();
+                return new Licao5();
             case 6:
-                return new Licao7();
+                return new Licao6();
             case 7:
+                return new Licao7();
+            case 8:
                 return new Licao8();
             default:
                 return null;
