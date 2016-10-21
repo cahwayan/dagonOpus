@@ -119,21 +119,21 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoBloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,2,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,3,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,4,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,5,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,6,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,7,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,8,0);
-                DB_PROGRESSO.atualizaProgressoLicao(1,9,0);
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
+                DB_PROGRESSO.atualizaProgressoLicao(1,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,3,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,4,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,5,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,6,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,7,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
+                DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
             }
         });
 
         botaoDesbloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,6);
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,7);
                 DB_PROGRESSO.atualizaProgressoLicao(1,2,10);
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,8);
                 DB_PROGRESSO.atualizaProgressoLicao(1,4,15);

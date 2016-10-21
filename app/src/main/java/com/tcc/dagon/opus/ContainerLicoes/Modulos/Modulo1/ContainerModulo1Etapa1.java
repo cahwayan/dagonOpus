@@ -5,16 +5,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-
 import com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao3;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 

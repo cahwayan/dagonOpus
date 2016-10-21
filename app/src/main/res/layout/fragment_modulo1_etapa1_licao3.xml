@@ -84,9 +84,11 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnChecarResposta"
                 android:layout_gravity="right"
-                android:background="@color/corBtnModulo2"
+                android:background="@drawable/borda_botao_verde"
                 android:textColor="#ffffff"
-                android:padding="10dp"/>
+                android:padding="7dp"
+                android:textSize="16sp"
+                />
         </LinearLayout>
     </LinearLayout>
 
