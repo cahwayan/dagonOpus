@@ -15,7 +15,7 @@ public class StringsBanco {
         insereUrl = "http://dagonopus.esy.es/phpAndroid/insere.php";
         insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
         loginUrl = "http://dagonopus.esy.es/phpAndroid/login.php";
-        recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera.php";
+        recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
     }
 
 

@@ -42,7 +42,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                 StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.recuperarSenha, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(getApplicationContext(), "Senha temporaria enviada ao email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Um link foi gerado e enviado ao seu email !", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -55,7 +55,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> parameters = new HashMap<String, String>();
-                        parameters.put("EMAILESQ", sEmailRec);
+                        parameters.put("EMAIL_USUARIO", sEmailRec);
                         return parameters;
                     }
                 };

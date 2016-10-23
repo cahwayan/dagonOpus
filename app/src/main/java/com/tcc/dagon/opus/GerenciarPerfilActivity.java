@@ -45,17 +45,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
-        perfilEmail = (TextView) findViewById(R.id.perfilEmail);
-        perfilNome = (TextView) findViewById(R.id.perfilNome);
-        pbProfile = (ProgressBar)findViewById(R.id.pbProfile1);
 
-        Bundle extras = getIntent().getExtras();
-        perfilEmail.setText(extras.getString("emailBundle"));
-        perfilNome.setText(extras.getString("nomeBundle"));
-        imagemUrl = (extras.getString("imagemBundle"));
-
-        imagemUrl = imagemUrl.substring(0, imagemUrl.length() - 2)+"200";
-        loadImage(ivProfile, pbProfile, imagemUrl);
 
 
 
