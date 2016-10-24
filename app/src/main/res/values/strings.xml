@@ -26,18 +26,8 @@
     <string name="txtTituloModulo7">CLASSES E OBJETOS 2</string>
     <string name="txtTituloModulo8">DESAFIOS 2</string>
     <string name="txtTituloModulo9">CERTIFICADO</string>
-    <string name="moduloBloqueado">MÓDULO BLOQUEADO</string>
 
     <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
-    <string name="descricaoBotaoModulo1">Botão do primeiro módulo do curso</string>
-    <string name="descricaoBotaoModulo2">Botão do segundo módulo do curso</string>
-    <string name="descricaoBotaoModulo3">Botão do terceiro módulo do curso</string>
-    <string name="descricaoBotaoModulo4">Botão do quarto módulo do curso</string>
-    <string name="descricaoBotaoModulo5">Botão do quinto módulo do curso</string>
-    <string name="descricaoBotaoModulo6">Botão do sexto módulo do curso</string>
-    <string name="descricaoBotaoModulo7">Botão do sétimo módulo do curso</string>
-    <string name="descricaoBotaoModulo8">Botão do oitavo módulo do curso</string>
-    <string name="descricaoBotaoModulo9">Botão de certificado do curso</string>
     <!--FIM STRINGS MODULOS-->
 
     <!--MENU PUXAVEL-->
@@ -54,6 +44,8 @@
     <string name="txtBemVindo">Bem-vindo!</string>
     <string name="btnCadastrar">Cadastrar</string>
     <string name="fonteBotao">sans-serif</string>
+    <string name="Enviar">Enviar</string>
+    <string name="digiteEmail">Digite seu email</string>
     <!--FIM STRINGS CADASTRO-->
 
     <!--STRINGS MENU NATIVO ANDROID-->
@@ -67,13 +59,11 @@
     <!-- STRINGS TELA LOGIN-->
     <string name="ou">ou</string>
     <string name="Entrar">Entrar</string>
-    <string name="nomeAppLogin2"><![CDATA[<OPUS/>]]></string>
     <string name="esqueceuSenha">Esqueceu sua senha?</string>
     <string name="BotaoCriarConta">CRIAR CONTA</string>
     <!--FIM TELA LOGIN-->
 
     <!--STRINGS ETAPAS MÓDULO 1-->
-    <string name="title_activity_etapas_modulo1">EtapasModulo1Activity</string>
     <string name="TituloEtapa1Modulo1">1. Introdução</string>
     <string name="TituloEtapa2Modulo1">2. Algoritmos</string>
     <string name="TituloEtapa3Modulo1">3. Portugol</string>
@@ -85,21 +75,9 @@
     <string name="TituloEtapa8Modulo1">8. Comentários em códigos</string>
     <string name="TituloEtapa9Modulo1">9. Prova 1</string>
 
-    <string name="title_activity_main2">Main2Activity</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_modulo1">Modulo1</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_modulo_1">Modulo_1</string>
     <!--FIM STRINGS ETAPAS MÓDULO 1-->
 
     <!--STRINGS TEXT VIEWS DOS MODULOS,QUESTÃO DEVE SER INSERIDA AQUI-->
-    <string name="text_fragment_1">Modulo 1</string>
-    <string name="text_fragment_2">Modulo 2</string>
-    <string name="text_fragment_3">Modulo 3</string>
     <string name="text_fragment_4">Modulo 4</string>
     <string name="text_fragment_5">Modulo 5</string>
     <string name="text_fragment_6">Modulo 6</string>

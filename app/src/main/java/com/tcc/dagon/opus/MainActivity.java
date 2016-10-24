@@ -243,14 +243,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             }
         });
 
-        // EASTER EGG TEMPORARIAMENTE DESABILITADO
-        //txtLogin.setOnClickListener(new View.OnClickListener() {
-        //    public void onClick(View v) {
-        //        txtLogin.setText("<OPUS/>");
-        //        Toast.makeText(getApplicationContext(), "Bem observado", Toast.LENGTH_SHORT).show();
-        //    }
-        //});
-
         botaoCriarConta.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ){
                 v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));

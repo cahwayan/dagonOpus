@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".RecuperarSenhaActivity">
+    tools:context=".RecuperarSenhaActivity"
+    android:orientation="vertical"
+    android:background="@drawable/telaloginbackground">
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtRecuperar"
-        android:layout_alignParentTop="true" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:layout_marginTop="80dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/digiteEmail"
+            android:id="@+id/txtDigiteEmail"
+            android:focusableInTouchMode="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="10dp" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enviar"
-        android:id="@+id/btRecuperar"
-        android:layout_below="@+id/edtRecuperar"
-        android:layout_alignRight="@+id/edtRecuperar"
-        android:layout_alignEnd="@+id/edtRecuperar"
-        android:layout_marginRight="112dp"
-        android:layout_marginEnd="112dp" />
-</RelativeLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtRecuperar"
+            android:hint="@string/hintEmail"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="@string/Enviar"
+            android:id="@+id/btRecuperar"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical"
+            android:typeface="sans"
+            android:fontFamily="fonts/GothamRounded-Light.otf"
+            android:background="@color/corBtnCadastro"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+</LinearLayout>

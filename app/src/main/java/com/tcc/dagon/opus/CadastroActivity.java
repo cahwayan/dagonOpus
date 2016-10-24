@@ -33,8 +33,7 @@ public class CadastroActivity extends AppCompatActivity {
     private TextView nome,
                      senha,
                      csenha,
-                     email,
-                     txtCadastro;
+                     email;
 
     // String dos componentes
     private String  sNome,
@@ -149,9 +148,6 @@ public class CadastroActivity extends AppCompatActivity {
     public void accessViews() {
         //BOTÕES
         btn_cadastra = (Button) findViewById(R.id.btn_cadastra);
-        //TEXT VIEWS
-        txtCadastro = (TextView)findViewById(R.id.txtCadastro);
-
 
         nome   = (TextView) findViewById(R.id.textNome);
         senha  = (TextView) findViewById(R.id.textSenha);
