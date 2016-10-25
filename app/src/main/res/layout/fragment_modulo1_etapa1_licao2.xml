@@ -110,7 +110,7 @@
             android:text="@string/txtAvancar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAvancarModulo1Etapa1Licao1"
+            android:id="@+id/btnAvancar"
             android:layout_gravity="end"
             android:background="@color/corBtnModulo2"
             android:textColor="#ffffff"

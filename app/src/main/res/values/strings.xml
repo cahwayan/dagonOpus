@@ -89,6 +89,9 @@
     <string name="titulo1Modulo1Etapa1Licao2">Lógica de programação</string>
     <string name="titulo2Modulo1Etapa1Licao2">E o que é exatamente?</string>
     <string name="titulo3Modulo1Etapa1Licao2">Sequência lógica?</string>
+    <!--LIÇÃO 4 MODULO 1 ETAPA 1-->
+    <string name="titulo1Modulo1Etapa1Licao4">Algoritmos!</string>
+    <string name="titulo2Modulo1Etapa1Licao4">Outro exemplo</string>
 
     <!--STRINGS LICOES-->
 
@@ -115,8 +118,36 @@
         \n\nE é isso! Basicamente, a lógica de programação é usada para que possamos construir algoritmos funcionais e eficientes para executar tarefas dentro de um software.
     </string>
 
+    <!--STRINGS LICAO 4 ETAPA 1 MODULO 1-->
+    <string name="texto1Modulo1Etapa1Licao4">Os algoritmos estão presentes em nossa vida mais do que você imagina.
+        Algoritmos são passos dados para executar qualquer tarefa. Vamos ver aqui como exemplo, um algoritmo para atravessar a rua,
+        que é uma tarefa básica que você com certeza já fez.
+        Se tivéssemos que imaginar um algoritmo para atravessar a rua, ele ficaria mais ou menos assim:</string>
+
+    <string name="texto2Modulo1Etapa1Licao4"><b>Primero passo:</b> Olhar para esquerda
+    \n<b>Segundo passo:</b> Olhar para direita
+    \n<b>Terceiro passo:</b> Se estiver vindo carro, não atravesse.
+    \n<b>Quarto passo:</b> Se não estiver vindo carro, atravesse.  </string>
+
+    <string name="texto3Modulo1Etapa1Licao4">Agora vamos ao próximo exemplo mais detalhado:
+    Vamos realizar a soma de dois números, em forma de algoritmo.
+    \n\nSoma   Nome do algoritmo
+    \n    Escreva o primeiro número
+    \n    Escreva o segundo número
+    \n    Some o primeiro número com o segundo número
+    \n    Apresente o resultado
+    \nFim   Fim do algoritmo
+
+    \n\nEstes foram passos dados para realizar a soma de dois números, e apresentar o resultado.
+            Mas o que esses algoritmos têm a ver com a programação? Calma!
+            Vamos por partes, todos esses algoritmos serão passados para uma linguagem de programação,
+            mas antes temos que seguir alguns passos ideais para você desenvolver seu conhecimento inicial.
+    </string>
+
     <!--STRINGS CAIXAS DICAS-->
     <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Ele lê cada instrução que escrevemos linha por linha, e executa o que lhe é pedido.</string>
+    <string name="dica1Modulo1Etapa1Licao4">Você percebeu que o terceiro e quarto passo não são ações como os dois primeiros passos? São condições!
+        Condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
 
     <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
