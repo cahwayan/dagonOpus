@@ -63,12 +63,11 @@
     <string name="BotaoCriarConta">CRIAR CONTA</string>
     <!--FIM TELA LOGIN-->
 
-    <!--STRINGS ETAPAS MÓDULO 1-->
+    <!--STRINGS TITULOS ETAPAS MÓDULO 1-->
     <string name="TituloEtapa1Modulo1">1. Introdução</string>
     <string name="TituloEtapa2Modulo1">2. Algoritmos</string>
     <string name="TituloEtapa3Modulo1">3. Portugol</string>
     <string name="TituloEtapa4Modulo1">4. Olá, mundo!</string>
-
     <string name="TituloEtapa5Modulo1">5. Variáveis e constantes</string>
     <string name="TituloEtapa6Modulo1">6. Tipos de variáveis</string>
     <string name="TituloEtapa7Modulo1">7. Valoração e operadores de incremento</string>
@@ -85,37 +84,39 @@
 
     <!-- TITULOS LIÇÕES-->
     <!-- LICAO 1 MODULO 1 ETAPA 1-->
-    <string name="titulo1Modulo1Etapa1Licao1">Bem-Vindo!</string>
+    <string name="titulo1Modulo1Etapa1Licao1">Bem-vindo!</string>
     <!-- LICAO 2 MODULO 1 ETAPA 1-->
-    <string name="titulo1Modulo1Etapa1Licao2">Lógica</string>
-    <string name="titulo2Modulo1Etapa1Licao2">Então, o que é lógica?</string>
-    <string name="titulo3Modulo1Etapa1Licao2">E enfim, o que é sequencia lógica?</string>
+    <string name="titulo1Modulo1Etapa1Licao2">Lógica de programação</string>
+    <string name="titulo2Modulo1Etapa1Licao2">E o que é exatamente?</string>
+    <string name="titulo3Modulo1Etapa1Licao2">Sequência lógica?</string>
 
+    <!--STRINGS LICOES-->
 
     <!--STRINGS LICAO 1 ETAPA 1 MODULO 1-->
-    <string name="txt1_modulo1_etapa1_licao1">
-          Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
-          \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você!
-          \n\nEsperamos que você tenha uma boa experiência. Programar fica muito mais fácil quando estudamos.
-          \n\nE lembre-se: <b>não pule etapas!</b> Cada passo é importante na construção do seu conhecimento!
+    <string name="texto1Modulo1Etapa1Licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
+          \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você! Esperamos que você tenha uma boa experiência aqui conosco.
+          Você verá que programar não é difícil, basta apenas que você se dedique aos estudos.
+          \n\nE lembre-se: <b>seja paciente, e evite pular etapas.</b> Cada passo é muito importante na construção do seu conhecimento!
           \n\n<b>Um abraço, e bons estudos!
           \nEquipe Dagon.</b>
     </string>
 
     <!--STRINGS LICAO 2 ETAPA 1 MODULO 1-->
-    <string name="txt1_modulo1_etapa1_licao2">
-        A  lógica  de  programação é  necessária  para  pessoas  que  desejam
-        trabalhar com desenvolvimento de sistemas e programas, ela permite definir a sequencia lógica para o desenvolvimento.
+    <string name="texto1Modulo1Etapa1Licao2">A lógica no desenvolvimento de sistemas é o coração de todo software construído na história da computação! Por este motivo, é <b>muito importante
+        que você reconheça o valor da lógica</b>, e a aprimore máximo que puder, para que sua jornada como desenvolvedor seja facilitada.
     </string>
 
-    <string name="txt2_modulo1_etapa1_licao2" >
-        Lógica  de  programação é  a  técnica  utilizada  para  colocar  as instruções em  uma
-        sequência  lógica  para  atingir  determinado  objetivo,  elaborado  numa linguagem de programação.
+    <string name="texto2Modulo1Etapa1Licao2" >Por definição, lógica de programação é a técnica de desenvolver instruções para o computador em uma
+        <b>sequência lógica</b>, para atingir um determinado objetivo. Essas instruções são passadas para o computador através de uma <b>linguagem de programação</b>.
     </string>
 
-    <string name="txt3_modulo1_etapa1_licao2" >
-        Sequência   lógica   é   um   encadeamento   de   passos   conhecidos   e determinados que quando executados, buscam atingir o objetivo proposto.
+    <string name="texto3Modulo1Etapa1Licao2" >Uma sequência lógica é chamada de <b>algoritmo</b> no mundo da programação. Um algoritmo nada mais é que um conjunto de passos que precisam ser dados
+        para atingir determinado objetivo. Vamos estudar e explorar melhor isso nas próximas etapas.
+        \n\nE é isso! Basicamente, a lógica de programação é usada para que possamos construir algoritmos funcionais e eficientes para executar tarefas dentro de um software.
     </string>
+
+    <!--STRINGS CAIXAS DICAS-->
+    <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Ele lê cada instrução que escrevemos linha por linha, e executa o que lhe é pedido.</string>
 
     <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
@@ -137,12 +138,12 @@
     <!--MÓDULO 1-->
     <!--ETAPA 1-->
     <!--PERGUNTA 1-->
-    <string name="Modulo1Etapa1Pergunta1">O que é lógica de programação?</string>
+    <string name="Modulo1Etapa1Pergunta1">Qual alternativa melhor descreve a lógica de programação?</string>
     <!--ALTERNATIVAS PERGUNTA 1-->
     <string name="Modulo1Etapa1Pergunta1Alternativa1">Apenas uma maneira de como se pensar em programar</string>
-    <string name="Modulo1Etapa1Pergunta1Alternativa2">Instruções de raciocínio lógico na programação</string>
-    <string name="Modulo1Etapa1Pergunta1Alternativa3">Instruções em uma sequência lógica para atingir determinado objetivo</string>
-    <string name="Modulo1Etapa1Pergunta1Alternativa4">Passos para executar uma aplicação </string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa2">Uma série de instruções aleatórias para o computador ler e se virar para saber o que ele deve fazer</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa3">A técnica de desenvolver instruções para o computador em uma sequência lógica, para atingir um determinado objetivo</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa4">Somente passos para executar uma tarefa com o computador</string>
     <string name="fonteQuestao">sans-serif-light</string>
 
     <!--TITULOS TABS-->

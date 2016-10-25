@@ -20,7 +20,7 @@
             android:id="@+id/txtTitulo1Modulo1Etapa1Licao1" />
 
         <TextView
-            android:text="@string/txt1_modulo1_etapa1_licao1"
+            android:text="@string/texto1Modulo1Etapa1Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto1Modulo1Etapa1Licao1"

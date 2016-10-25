@@ -26,4 +26,7 @@
     <color name="corBtnCadastro">#5879f4</color>
     <color name="corTituloLicao">#333232</color>
 
+    <!--CORES DICAS-->
+    <color name="corDicaVermelha">#d41243</color>
+
 </resources>

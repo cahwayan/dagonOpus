@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#e7e7e7">
@@ -20,7 +21,7 @@
             android:id="@+id/txtTitulo1Modulo1Etapa1Licao2" />
 
         <TextView
-            android:text="@string/txt1_modulo1_etapa1_licao2"
+            android:text="@string/texto1Modulo1Etapa1Licao2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto1Modulo1Etapa1Licao2"
@@ -28,7 +29,8 @@
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"
             android:paddingTop="@dimen/paddingTopoTextoLicao"
-            android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +42,7 @@
             android:id="@+id/txtTitulo2Modulo1Etapa1Licao2" />
 
         <TextView
-            android:text="@string/txt2_modulo1_etapa1_licao2"
+            android:text="@string/texto2Modulo1Etapa1Licao2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto2Modulo1Etapa1Licao2"
@@ -48,7 +50,38 @@
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"
             android:paddingTop="@dimen/paddingTopoTextoLicao"
-            android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/dica1Modulo1Etapa1Licao2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/dica1Modulo1Etapa1Licao2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_vermelha"
+                android:textColor="#ffffff"
+
+                android:paddingLeft="80dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/icon_lapis"
+                android:id="@+id/imgDica"
+                android:layout_gravity="start|center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,7 +93,7 @@
             android:id="@+id/txtTitulo3Modulo1Etapa1Licao2" />
 
         <TextView
-            android:text="@string/txt3_modulo1_etapa1_licao2"
+            android:text="@string/texto3Modulo1Etapa1Licao2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTexto3Modulo1Etapa1Licao2"
@@ -68,7 +101,10 @@
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"
             android:paddingTop="@dimen/paddingTopoTextoLicao"
-            android:paddingBottom="@dimen/paddingBaixoTextoLicao" />
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+
 
         <Button
             android:text="@string/txtAvancar"
