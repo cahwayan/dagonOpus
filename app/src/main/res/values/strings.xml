@@ -133,27 +133,37 @@
         que é uma tarefa básica que você com certeza já fez.
         Se tivéssemos que imaginar um algoritmo para atravessar a rua, ele ficaria mais ou menos assim:</string>
 
-    <string name="texto2Modulo1Etapa2Licao1"><b>Primero passo:</b> Olhar para esquerda
+    <string name="texto2Modulo1Etapa2Licao1"><b>Primeiro passo:</b> Olhar para esquerda
     \n<b>Segundo passo:</b> Olhar para direita
     \n<b>Terceiro passo:</b> Se estiver vindo carro, não atravesse.
     \n<b>Quarto passo:</b> Se não estiver vindo carro, atravesse.  </string>
 
     <!--LIÇÃO 3-->
-    <string name="texto1Modulo1Etapa2Licao3">Agora vamos ao próximo exemplo mais detalhado:
-    Vamos realizar a soma de dois números, em forma de algoritmo.
+    <string name="texto1Modulo1Etapa2Licao3">Agora que você já entendeu como os algoritmos funcionam, vamos ver um exemplo mais detalhado:
+    Vamos realizar a soma de dois números, em forma de algoritmo. Porém dessa vez, seguindo a lógica e a estrutura de uma pseudo-linguagem de programação chamada
+    <b>Portugol</b>.
     </string>
 
     <string name="texto2Modulo1Etapa2Licao3">
-    \n\nEstes foram passos dados para realizar a soma de dois números, e apresentar o resultado.
+    Estes foram passos dados para realizar a soma de dois números, e apresentar o resultado.
             Mas o que esses algoritmos têm a ver com a programação? Calma!
             Vamos por partes, todos esses algoritmos serão passados para uma linguagem de programação,
             mas antes temos que seguir alguns passos ideais para você desenvolver seu conhecimento inicial.
     </string>
 
     <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 2-->
     <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Ele lê cada instrução que escrevemos linha por linha, e executa o que lhe é pedido.</string>
+
+    <!--ETAPA 2-->
+    <!-- LIÇÃO 1-->
     <string name="dica1Modulo1Etapa2Licao1">Você percebeu que o terceiro e quarto passo não são ações como os dois primeiros passos? São condições!
         Condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
+    <!--LIÇÃO 3-->
+    <string name="dica1Modulo1Etapa2Licao3">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
+    \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele ajuda muito no ensino de lógica de programação, por ter comandos em português. Vamos ver mais sobre o portugol adiante.</string>
 
 
     <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
