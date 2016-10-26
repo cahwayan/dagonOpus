@@ -38,6 +38,11 @@
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
             android:label="@string/TituloEtapa1Modulo1"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2"
+            android:label="@string/TituloEtapa2Modulo1"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

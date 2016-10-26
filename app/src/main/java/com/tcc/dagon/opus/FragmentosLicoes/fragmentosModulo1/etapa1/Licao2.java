@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1;
 
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
+
 import com.tcc.dagon.opus.R;
 
 /**

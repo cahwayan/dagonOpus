@@ -67,7 +67,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/borda_pontilhada_vermelha"
                 android:textColor="#ffffff"
-
+                android:paddingStart="80dp"
                 android:paddingLeft="80dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp" />
@@ -75,9 +75,10 @@
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icon_lapis"
+                app:srcCompat="@drawable/icon_dica_vermelha"
                 android:id="@+id/imgDica"
                 android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
                 android:paddingLeft="5dp"
                 android:layout_margin="5dp" />
 

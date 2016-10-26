@@ -169,7 +169,7 @@ public class Licao3 extends Fragment {
         btnAvancar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                avancarLicao();
+                concluirLicao();
             }
         });
 
@@ -258,41 +258,16 @@ public class Licao3 extends Fragment {
     }
 
     // MÉTODO DE AVANÇAR LIÇÃO CASO A RESPOSTA ESTEJA CERTA E TALS
-    private void avancarLicao() {
-        // SUMINDO COM O BOTÃO AVANÇAR
-        btnAvancar.setVisibility(View.GONE);
-
-        // TRAZENDO O BOTÃO CHECAR NOVAMENTE
-        btnChecar.setVisibility(View.VISIBLE);
-
-        // REABILITANDO OS RADIO BUTTONS
-        habilitarRadioButtons();
-
-        // TROCANDO O ICONE DO CADEADO
-        mTabLayout.getTabAt(3).setIcon(R.drawable.icon_licao);
-        mTabLayout.getTabAt(4).setIcon(R.drawable.icon_pergunta);
-
-
-
-        // TORNANDO CLICAVEL A TAB QUE SERÁ DESBLOQUEADA
-        tabStrip.getChildAt(3).setClickable(true);
-        tabStrip.getChildAt(3).setEnabled(true);
-
-        tabStrip.getChildAt(4).setClickable(true);
-        tabStrip.getChildAt(4).setEnabled(true);
-
-        //DESMARCANDO RADIO BUTTON
-        desmarcarRadioButtons();
-
-        // TROCANDO O FRAGMENTO
-        mViewPager.setCurrentItem(3);
+    private void concluirLicao() {
 
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        if(DB_PROGRESSO.verificaProgressoLicao(1,1) <= 3) {
+        if(DB_PROGRESSO.verificaProgressoEtapa(1) <= 1) {
             // AVANÇAR O PROGRESSO EM DOIS
-            DB_PROGRESSO.atualizaProgressoLicao(1,1,4);
+            DB_PROGRESSO.atualizaProgressoEtapa(1,2);
         }
+
+        getActivity().finish();
 
     }
 

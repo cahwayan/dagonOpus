@@ -41,15 +41,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
             super.onBackPressed();
         } else if (mViewPager.getCurrentItem() == 2) {
             mViewPager.setCurrentItem(1);
-        } else if (mViewPager.getCurrentItem() == 3) {
-            super.onBackPressed();
-        } else if (mViewPager.getCurrentItem() == 4) {
-            mViewPager.setCurrentItem(3);
-        } else if (mViewPager.getCurrentItem() == 5) {
-            super.onBackPressed();
-        } else if (mViewPager.getCurrentItem() == 6) {
-            mViewPager.setCurrentItem(5);
-        } else if (mViewPager.getCurrentItem() == 7) {
+        } else {
             super.onBackPressed();
         }
     }
@@ -78,7 +70,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
 
     private void desbloquearLicoes() {
         int progresso = DB_PROGRESSO.verificaProgressoLicao(1,1);
-        switch(DB_PROGRESSO.verificaProgressoLicao(1,1)) {
+        switch(progresso) {
             default:
                 mTabLayout.getTabAt(0).setIcon(R.drawable.icon_licao);
                 tabStrip.getChildAt(0).setClickable(true);
@@ -93,7 +85,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
                 for (int i=2; i <= progresso; i += 2) {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     tabStrip.getChildAt(i).setClickable(true);
-                    tabStrip.getChildAt(i).setEnabled(true);
+                    tabStrip.getChildAt(i).setEnabled(true); // t
                 }
             break;
         }

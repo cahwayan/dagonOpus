@@ -15,16 +15,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/titulo1Modulo1Etapa1Licao4"
+            android:text="@string/titulo1Modulo1Etapa2Licao1"
             android:textColor="@color/corTituloLicao"
             android:textSize="20sp"
-            android:id="@+id/txtTitulo4Modulo1Etapa1Licao2" />
+            android:id="@+id/txtTitulo4Modulo1Etapa1Licao1" />
 
         <TextView
-            android:text="@string/texto1Modulo1Etapa1Licao4"
+            android:text="@string/texto1Modulo1Etapa2Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTexto1Modulo1Etapa1Licao2"
+            android:id="@+id/txtTexto1Modulo1Etapa1Licao1"
             android:textSize="15sp"
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"
@@ -33,10 +33,10 @@
             android:lineSpacingExtra="2sp" />
 
         <TextView
-            android:text="@string/texto2Modulo1Etapa1Licao4"
+            android:text="@string/texto2Modulo1Etapa2Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTexto2Modulo1Etapa1Licao2"
+            android:id="@+id/txtTexto2Modulo1Etapa1Licao1"
             android:textSize="15sp"
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"
@@ -50,13 +50,13 @@
             android:padding="5dp">
 
             <TextView
-                android:text="@string/dica1Modulo1Etapa1Licao4"
+                android:text="@string/dica1Modulo1Etapa2Licao1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/dica1Modulo1Etapa1Licao4"
+                android:id="@+id/dica1Modulo1Etapa2Licao1"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/borda_pontilhada_vermelha"
+                android:background="@drawable/borda_pontilhada_azul"
                 android:textColor="#ffffff"
 
                 android:paddingLeft="80dp"
@@ -66,35 +66,13 @@
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icon_lapis"
+                app:srcCompat="@drawable/icon_dica_azul"
                 android:id="@+id/imgDica"
                 android:layout_gravity="start|center_vertical"
                 android:paddingLeft="5dp"
                 android:layout_margin="5dp" />
 
         </FrameLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="start|center_vertical"
-            android:text="@string/titulo2Modulo1Etapa1Licao4"
-            android:textColor="@color/corTituloLicao"
-            android:textSize="20sp"
-            android:id="@+id/txtTitulo3Modulo1Etapa1Licao4" />
-
-        <TextView
-            android:text="@string/texto3Modulo1Etapa1Licao4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtTexto3Modulo1Etapa1Licao2"
-            android:textSize="15sp"
-            android:gravity="start|end"
-            android:layout_gravity="end|center_vertical"
-            android:paddingTop="@dimen/paddingTopoTextoLicao"
-            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
-            android:lineSpacingExtra="2sp" />
-
 
 
         <Button

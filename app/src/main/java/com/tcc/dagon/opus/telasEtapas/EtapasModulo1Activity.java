@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
 import com.tcc.dagon.opus.MainActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -69,8 +70,13 @@ public class EtapasModulo1Activity extends AppCompatActivity {
 
         // DESBLOQUEANDO ETAPAS
         desbloquearEtapas();
+    }
 
 
+    @Override
+    protected void onRestart() {
+        this.recreate();
+        super.onRestart();
     }
 
 
@@ -267,7 +273,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 2) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa2.class));
                 } else {
                     alertaEtapaBloqueada();
                 }

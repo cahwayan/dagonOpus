@@ -28,5 +28,7 @@
 
     <!--CORES DICAS-->
     <color name="corDicaVermelha">#d41243</color>
-
+    <color name="corDicaAzul">#00aedb</color>
+    <color name="corDicaVerde">#8ec127</color>
+    <color name="corDicaAmarela">#ffc425</color>
 </resources>

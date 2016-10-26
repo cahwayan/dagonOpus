@@ -83,19 +83,27 @@
     <string name="text_fragment_7">Modulo 7</string>
 
     <!-- TITULOS LIÇÕES-->
-    <!-- LICAO 1 MODULO 1 ETAPA 1-->
+    <!-- MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!-- LICAO 1 -->
     <string name="titulo1Modulo1Etapa1Licao1">Bem-vindo!</string>
-    <!-- LICAO 2 MODULO 1 ETAPA 1-->
+    <!-- LICAO 2 -->
     <string name="titulo1Modulo1Etapa1Licao2">Lógica de programação</string>
     <string name="titulo2Modulo1Etapa1Licao2">E o que é exatamente?</string>
     <string name="titulo3Modulo1Etapa1Licao2">Sequência lógica?</string>
-    <!--LIÇÃO 4 MODULO 1 ETAPA 1-->
-    <string name="titulo1Modulo1Etapa1Licao4">Algoritmos!</string>
-    <string name="titulo2Modulo1Etapa1Licao4">Outro exemplo</string>
+
+    <!--ETAPA 2-->
+
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo1Etapa2Licao1">Algoritmos!</string>
+
+    <!--LIÇÃO 3-->
+    <string name="titulo1Modulo1Etapa2Licao3">Outro exemplo</string>
 
     <!--STRINGS LICOES-->
-
-    <!--STRINGS LICAO 1 ETAPA 1 MODULO 1-->
+    <!--MÒDULO 1-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
     <string name="texto1Modulo1Etapa1Licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
           \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você! Esperamos que você tenha uma boa experiência aqui conosco.
           Você verá que programar não é difícil, basta apenas que você se dedique aos estudos.
@@ -104,7 +112,7 @@
           \nEquipe Dagon.</b>
     </string>
 
-    <!--STRINGS LICAO 2 ETAPA 1 MODULO 1-->
+    <!--LICAO 2 -->
     <string name="texto1Modulo1Etapa1Licao2">A lógica no desenvolvimento de sistemas é o coração de todo software construído na história da computação! Por este motivo, é <b>muito importante
         que você reconheça o valor da lógica</b>, e a aprimore máximo que puder, para que sua jornada como desenvolvedor seja facilitada.
     </string>
@@ -118,26 +126,24 @@
         \n\nE é isso! Basicamente, a lógica de programação é usada para que possamos construir algoritmos funcionais e eficientes para executar tarefas dentro de um software.
     </string>
 
-    <!--STRINGS LICAO 4 ETAPA 1 MODULO 1-->
-    <string name="texto1Modulo1Etapa1Licao4">Os algoritmos estão presentes em nossa vida mais do que você imagina.
+    <!--ETAPA 2-->
+    <!--LICAO 1 -->
+    <string name="texto1Modulo1Etapa2Licao1">Os algoritmos estão presentes em nossa vida mais do que você imagina.
         Algoritmos são passos dados para executar qualquer tarefa. Vamos ver aqui como exemplo, um algoritmo para atravessar a rua,
         que é uma tarefa básica que você com certeza já fez.
         Se tivéssemos que imaginar um algoritmo para atravessar a rua, ele ficaria mais ou menos assim:</string>
 
-    <string name="texto2Modulo1Etapa1Licao4"><b>Primero passo:</b> Olhar para esquerda
+    <string name="texto2Modulo1Etapa2Licao1"><b>Primero passo:</b> Olhar para esquerda
     \n<b>Segundo passo:</b> Olhar para direita
     \n<b>Terceiro passo:</b> Se estiver vindo carro, não atravesse.
     \n<b>Quarto passo:</b> Se não estiver vindo carro, atravesse.  </string>
 
-    <string name="texto3Modulo1Etapa1Licao4">Agora vamos ao próximo exemplo mais detalhado:
+    <!--LIÇÃO 3-->
+    <string name="texto1Modulo1Etapa2Licao3">Agora vamos ao próximo exemplo mais detalhado:
     Vamos realizar a soma de dois números, em forma de algoritmo.
-    \n\nSoma   Nome do algoritmo
-    \n    Escreva o primeiro número
-    \n    Escreva o segundo número
-    \n    Some o primeiro número com o segundo número
-    \n    Apresente o resultado
-    \nFim   Fim do algoritmo
+    </string>
 
+    <string name="texto2Modulo1Etapa2Licao3">
     \n\nEstes foram passos dados para realizar a soma de dois números, e apresentar o resultado.
             Mas o que esses algoritmos têm a ver com a programação? Calma!
             Vamos por partes, todos esses algoritmos serão passados para uma linguagem de programação,
@@ -146,11 +152,12 @@
 
     <!--STRINGS CAIXAS DICAS-->
     <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Ele lê cada instrução que escrevemos linha por linha, e executa o que lhe é pedido.</string>
-    <string name="dica1Modulo1Etapa1Licao4">Você percebeu que o terceiro e quarto passo não são ações como os dois primeiros passos? São condições!
+    <string name="dica1Modulo1Etapa2Licao1">Você percebeu que o terceiro e quarto passo não são ações como os dois primeiros passos? São condições!
         Condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
 
-    <string name="qtdQuestoesModulo1Etapa1">5 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa2">7 Questões</string>
+
+    <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
+    <string name="qtdQuestoesModulo1Etapa2">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa3">4 Questões</string>
     <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
 
@@ -175,14 +182,25 @@
     <string name="Modulo1Etapa1Pergunta1Alternativa2">Uma série de instruções aleatórias para o computador ler e se virar para saber o que ele deve fazer</string>
     <string name="Modulo1Etapa1Pergunta1Alternativa3">A técnica de desenvolver instruções para o computador em uma sequência lógica, para atingir um determinado objetivo</string>
     <string name="Modulo1Etapa1Pergunta1Alternativa4">Somente passos para executar uma tarefa com o computador</string>
+
+    <!--ETAPA 2-->
+    <string name="Modulo1Etapa2Pergunta1">O que é um algoritmo?</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa1">Dados que são armazenados na memória do computador</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa2">Passos ou instruções dadas para realizar uma tarefa</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa3">Blocos de comandos</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa4">Todas alternativas anteriores</string>
+
     <string name="fonteQuestao">sans-serif-light</string>
 
     <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
     <string-array name="tab_modulo1_etapa1">
         <item></item>
         <item></item>
         <item></item>
-        <item></item>
+    </string-array>
+    <!--ETAPA 2 MODULO 1-->
+    <string-array name="tab_modulo1_etapa2">
         <item></item>
         <item></item>
         <item></item>
