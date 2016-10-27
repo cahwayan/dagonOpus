@@ -69,13 +69,13 @@ public class Licao4 extends Fragment {
                     sLinha4Palavra1,
                     sLinha4Palavra2;
 
-    private static final String respostaLinha2Palavra1 = "olhe",
-                                respostaLinha2Palavra2 = "para",
-                                respostaLinha2Palavra3 = "direita",
-                                respostaLinha3Palavra1 = "atravesse",
-                                respostaLinha4Palavra1 = "nao",
-                                respostaLinha4Palavra1Acentuada = "não",
-                                respostaLinha4Palavra2 = "atravesse";
+    private static final String respostaLinha2Palavra1           = "olhar",
+                                respostaLinha2Palavra2           = "para",
+                                respostaLinha2Palavra3           = "direita",
+                                respostaLinha3Palavra1           = "atravesse",
+                                respostaLinha4Palavra1           = "nao",
+                                respostaLinha4Palavra1Acentuada  = "não",
+                                respostaLinha4Palavra2           = "atravesse";
 
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -241,7 +241,7 @@ public class Licao4 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(linha2Palavra1.getText().length() == 4) {
+                if(linha2Palavra1.getText().length() == 5) {
                     linha2Palavra2.requestFocus();
                 }
             }

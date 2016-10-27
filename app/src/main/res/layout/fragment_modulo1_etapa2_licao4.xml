@@ -59,9 +59,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:textSize="13sp"
-                android:maxLength="4"
+                android:maxLength="5"
                 android:maxLines="1"
-                android:width="45dp" />
+                android:width="55dp" />
 
             <EditText
                 android:id="@+id/Modulo1Etapa2Pergunta2Linha2Palavra2"
