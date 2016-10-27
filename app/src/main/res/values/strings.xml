@@ -207,12 +207,23 @@
     <string name="Modulo1Etapa1Pergunta1Alternativa4">Somente passos para executar uma tarefa com o computador</string>
 
     <!--ETAPA 2-->
+    <!--PERGUNTA 1-->
     <string name="Modulo1Etapa2Pergunta1">O que é um algoritmo?</string>
     <string name="Modulo1Etapa2Pergunta1Alternativa1">Dados que são armazenados na memória do computador</string>
     <string name="Modulo1Etapa2Pergunta1Alternativa2">Passos ou instruções dadas para realizar uma tarefa</string>
     <string name="Modulo1Etapa2Pergunta1Alternativa3">Blocos de comandos</string>
     <string name="Modulo1Etapa2Pergunta1Alternativa4">Todas alternativas anteriores</string>
 
+    <!--PERGUNTA 2 DE AUTO COMPLETAR-->
+    <string name="Modulo1Etapa2Pergunta2">Sabendo que um algoritmo são passos detalhados que levam a execução de uma tarefa, ajude-nos a montar um algoritmo para atravessar a rua:</string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa2Pergunta2Linha1">1. Olhe para esquerda</string>
+    <string name="Modulo1Etapa2Pergunta2Linha2">2. </string>
+    <string name="Modulo1Etapa2Pergunta2Linha3">3. Se não estiver vindo carro, então </string>
+    <string name="Modulo1Etapa2Pergunta2Linha4">4. Se estiver vindo carro, então</string>
+
+
+    <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
 
     <!--TITULOS TABS-->

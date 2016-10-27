@@ -1,12 +1,10 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1;
-
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa1;
 import com.tcc.dagon.opus.R;
@@ -40,7 +38,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
         } else if (mViewPager.getCurrentItem() == 1){
             super.onBackPressed();
         } else if (mViewPager.getCurrentItem() == 2) {
-            mViewPager.setCurrentItem(1);
+            movePrevious(mViewPager);
         } else {
             super.onBackPressed();
         }
@@ -85,7 +83,7 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
                 for (int i=2; i <= progresso; i += 2) {
                     mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     tabStrip.getChildAt(i).setClickable(true);
-                    tabStrip.getChildAt(i).setEnabled(true); // t
+                    tabStrip.getChildAt(i).setEnabled(true);
                 }
             break;
         }
@@ -101,6 +99,14 @@ public class ContainerModulo1Etapa1 extends AppCompatActivity {
 
     public TabLayout getmTabLayout() {
         return mTabLayout;
+    }
+
+    private void moveNext(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
+    private void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 
 

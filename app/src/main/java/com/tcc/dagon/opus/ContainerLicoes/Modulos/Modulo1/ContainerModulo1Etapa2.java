@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa2;
 import com.tcc.dagon.opus.R;
@@ -38,11 +39,11 @@ public class ContainerModulo1Etapa2 extends AppCompatActivity {
         if (mViewPager.getCurrentItem() == 0) {
             super.onBackPressed();
         } else if (mViewPager.getCurrentItem() == 1){
-            mViewPager.setCurrentItem(0);
+           movePrevious(mViewPager);
         } else if (mViewPager.getCurrentItem() == 2) {
             super.onBackPressed();
         } else if (mViewPager.getCurrentItem() == 3) {
-            mViewPager.setCurrentItem(2);
+            movePrevious(mViewPager);
         } else {
             super.onBackPressed();
         }
@@ -99,6 +100,10 @@ public class ContainerModulo1Etapa2 extends AppCompatActivity {
 
     public TabLayout getmTabLayout() {
         return mTabLayout;
+    }
+
+    private void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 
 

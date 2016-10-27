@@ -13,7 +13,7 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2
 import com.tcc.dagon.opus.R;
 
 /**
- * Created by charlinho on 09/10/2016.
+ * Created by cahwayan on 09/10/2016.
  */
 public class Licao3 extends Fragment {
     Button btnAvancar;
@@ -32,8 +32,17 @@ public class Licao3 extends Fragment {
     private void listeners() {
         btnAvancar.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mViewPager.setCurrentItem(3);
+                moveNext(mViewPager);
             }
         });
     }
+
+    public void moveNext(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
+    public void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+    }
+
 }

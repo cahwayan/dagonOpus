@@ -34,8 +34,16 @@ public class Licao2 extends Fragment {
     private void listeners() {
         btnAvancar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mViewPager.setCurrentItem(2);
+                moveNext(mViewPager);
             }
         });
+    }
+
+    private void moveNext(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
+    private void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 }

@@ -34,9 +34,9 @@
 
         <TextView
             android:text="@string/texto2Modulo1Etapa2Licao1"
+            android:id="@+id/txtTexto2Modulo1Etapa1Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTexto2Modulo1Etapa1Licao1"
             android:textSize="15sp"
             android:gravity="start|end"
             android:layout_gravity="end|center_vertical"

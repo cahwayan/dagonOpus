@@ -302,4 +302,12 @@ public class Licao3 extends Fragment {
         return 0;
     }
 
+    private void moveNext(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
+    private void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+    }
+
 }

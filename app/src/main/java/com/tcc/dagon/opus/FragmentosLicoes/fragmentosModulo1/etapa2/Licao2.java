@@ -277,7 +277,7 @@ public class Licao2 extends Fragment {
         desmarcarRadioButtons();
 
         // TROCANDO O FRAGMENTO
-        mViewPager.setCurrentItem(2);
+        moveNext(mViewPager);
 
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
@@ -317,6 +317,14 @@ public class Licao2 extends Fragment {
             case 4: return DB_PROGRESSO.verificaPergunta(1,2,1,4);
         }
         return 0;
+    }
+
+    public void moveNext(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
+    public void movePrevious(View view) {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 
 }
