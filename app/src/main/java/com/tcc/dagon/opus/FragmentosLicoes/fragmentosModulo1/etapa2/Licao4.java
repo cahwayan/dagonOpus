@@ -199,12 +199,13 @@ public class Licao4 extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
+                limparEditTexts();
                 habilitarEditTexts();
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                limparEditTexts();
+
                 btnAvancar.setVisibility(View.GONE);
                 btnTentarNovamente.setVisibility(View.GONE);
                 btnChecar.setVisibility(View.VISIBLE);
@@ -216,6 +217,7 @@ public class Licao4 extends Fragment {
                 linha3Palavra1.setTextColor(Color.BLACK);
                 linha4Palavra1.setTextColor(Color.BLACK);
                 linha4Palavra2.setTextColor(Color.BLACK);
+                limparEditTexts();
             }
 
             @Override

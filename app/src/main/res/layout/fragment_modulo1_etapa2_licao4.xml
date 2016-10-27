@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#e7e7e7">
     <LinearLayout
@@ -190,9 +192,39 @@
                 android:padding="7dp"
                 android:textSize="14sp"
                 />
+<!--
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
 
+                <TextView
+                    android:text="@string/dica1Modulo1Etapa2Licao4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/dica1Modulo1Etapa2Licao1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/borda_pontilhada_azul"
+                    android:textColor="#ffffff"
+
+                    android:paddingLeft="80dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/icon_dica_azul"
+                    android:id="@+id/imgDica"
+                    android:layout_gravity="start|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="5dp" />
+
+            </FrameLayout>
+-->
             <Button
-                android:text="@string/txtAvancar"
+                android:text="@string/txtConcluir"
                 android:layout_width="120dp"
                 android:layout_height="54dp"
                 android:id="@+id/btnAvancar"

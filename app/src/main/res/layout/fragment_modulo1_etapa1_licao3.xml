@@ -106,7 +106,7 @@
                 />
 
             <Button
-                android:text="@string/txtAvancar"
+                android:text="@string/txtConcluir"
                 android:layout_width="120dp"
                 android:layout_height="54dp"
                 android:id="@+id/btnAvancar"

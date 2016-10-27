@@ -177,6 +177,8 @@
     <!--LIÇÃO 3-->
     <string name="dica1Modulo1Etapa2Licao3">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
     \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>. Vamos ver mais sobre o portugol adiante.</string>
+    <!--LIÇÃO 4-->
+    <string name="dica1Modulo1Etapa2Licao4">Preencha os campos em branco com as palavras corretas</string>
 
 
     <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
@@ -194,6 +196,7 @@
     <string name="txtAvancar">AVANÇAR</string>
     <string name="txtChecar">CONFIRMAR</string>
     <string name="txtTentarNovamente">TENTAR NOVAMENTE</string>
+    <string name="txtConcluir">CONCLUIR</string>
 
     <!--PERGUNTAS MÓDULOS-->
     <!--MÓDULO 1-->
