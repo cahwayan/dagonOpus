@@ -9,7 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.view.View.OnClickListener;
@@ -18,6 +21,7 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.PulseAnimation;
 
 
 /**
@@ -60,6 +64,8 @@ public class Licao2 extends Fragment {
     // OBJETO DE JANELA DE ALERTA
     private NovaJanelaAlerta alertaOpcaoVazia;
 
+    // IMAGENS DE CERTO E ERRADO
+    private ImageView imgRespostaCerta, imgRespostaErrada;
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
@@ -107,10 +113,18 @@ public class Licao2 extends Fragment {
         // PEGANDO O RADIOGROUP DO LAYOUT
         containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupModulo1Etapa2Licao2);
 
+        // IMAGENS CERTO E ERRADO
+        imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
+        imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
+
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
         btnAvancar = (Button) rootView.findViewById(R.id.btnAvancar);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
 
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
         btnAvancar.setVisibility(View.GONE);
@@ -189,6 +203,10 @@ public class Licao2 extends Fragment {
                 btnAvancar.setVisibility(View.GONE);
                 btnTentarNovamente.setVisibility(View.GONE);
                 btnChecar.setVisibility(View.VISIBLE);
+                // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+                imgRespostaCerta.setVisibility(View.GONE);
+                imgRespostaErrada.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -226,6 +244,13 @@ public class Licao2 extends Fragment {
     private void respostaCerta() {
         // TOCAR SOM DE RESPOSTA CERTA
         somRespostaCerta.start();
+        // ANIMAÇÃO RESPOSTA CERTA
+        imgRespostaCerta.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaCerta)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
 
         // DESABILITAR RADIO BUTTONS
         desabilitarRadioButtons();
@@ -238,6 +263,14 @@ public class Licao2 extends Fragment {
     private void respostaErrada() {
         // TOCAR SOM DE RESPOSTA ERRADA
         somRespostaErrada.start();
+
+        // ANIMAÇÃO RESPOSTA ERRADA
+        imgRespostaErrada.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaErrada)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
 
         // SUMINDO COM O BOTAO CHECAR
         btnChecar.setVisibility(View.GONE);
@@ -276,6 +309,10 @@ public class Licao2 extends Fragment {
         //DESMARCANDO RADIO BUTTON
         desmarcarRadioButtons();
 
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
+
         // TROCANDO O FRAGMENTO
         moveNext(mViewPager);
 
@@ -295,6 +332,10 @@ public class Licao2 extends Fragment {
 
         // TRAZENDO O BOTAO CHECAR
         btnChecar.setVisibility(View.VISIBLE);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
 
         // DESMARCANDO OS RADIO BUTTONS
         desmarcarRadioButtons();

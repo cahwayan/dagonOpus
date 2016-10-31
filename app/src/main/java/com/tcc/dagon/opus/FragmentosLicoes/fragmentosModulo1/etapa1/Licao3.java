@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
@@ -26,6 +27,7 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.PulseAnimation;
 
 
 /**
@@ -68,6 +70,8 @@ public class Licao3 extends Fragment {
     // OBJETO DE JANELA DE ALERTA
     private NovaJanelaAlerta alertaOpcaoVazia;
 
+    // IMAGENS CERTO E ERRADO
+    private ImageView imgRespostaCerta, imgRespostaErrada;
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
@@ -114,6 +118,10 @@ public class Licao3 extends Fragment {
         alternativa4 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa1Pergunta1Alternativa4);
         // PEGANDO O RADIOGROUP DO LAYOUT
         containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupModulo1Etapa1Licao3);
+
+        // IMAGENS CERTO E ERRADO
+        imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
+        imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
@@ -197,6 +205,10 @@ public class Licao3 extends Fragment {
                 btnAvancar.setVisibility(View.GONE);
                 btnTentarNovamente.setVisibility(View.GONE);
                 btnChecar.setVisibility(View.VISIBLE);
+
+                // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+                imgRespostaCerta.setVisibility(View.GONE);
+                imgRespostaErrada.setVisibility(View.GONE);
             }
 
             @Override
@@ -235,6 +247,14 @@ public class Licao3 extends Fragment {
         // TOCAR SOM DE RESPOSTA CERTA
         somRespostaCerta.start();
 
+        // ANIMAÇÃO RESPOSTA CERTA
+        imgRespostaCerta.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaCerta)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
+
         // DESABILITAR RADIO BUTTONS
         desabilitarRadioButtons();
 
@@ -246,6 +266,15 @@ public class Licao3 extends Fragment {
     private void respostaErrada() {
         // TOCAR SOM DE RESPOSTA ERRADA
         somRespostaErrada.start();
+
+        // ANIMAÇÃO RESPOSTA ERRADA
+        imgRespostaErrada.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaErrada)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
+
 
         // SUMINDO COM O BOTAO CHECAR
         btnChecar.setVisibility(View.GONE);
@@ -279,11 +308,16 @@ public class Licao3 extends Fragment {
         // TRAZENDO O BOTAO CHECAR
         btnChecar.setVisibility(View.VISIBLE);
 
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
+
         // DESMARCANDO OS RADIO BUTTONS
         desmarcarRadioButtons();
 
         // HABILITANDO RADIO BUTTONS DE NOVO
         habilitarRadioButtons();
+
     }
 
     // JANELA DE ALERTA CASO AS OPÇÕES ESTEJAM VAZIAS

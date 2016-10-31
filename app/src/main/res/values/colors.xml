@@ -19,11 +19,11 @@
     <color name="corBtnModulo8">#00aedb</color>
     <color name="corBtnModulo9">#f47835</color>
 
-    <color name="corEtapaDesbloqueada">#5879f4</color>
+    <color name="corEtapaDesbloqueada">#00aedb</color>
 
     <!--CORES DOS MÓDULOS BLOQUEADOS-->
     <color name="corBtnModuloBloqueado">#de232323</color>
-    <color name="corBtnCadastro">#5879f4</color>
+    <color name="corBtnCadastro">#00aedb</color>
     <color name="corTituloLicao">#333232</color>
 
     <!--CORES DICAS-->

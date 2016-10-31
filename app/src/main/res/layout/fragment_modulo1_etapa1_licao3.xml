@@ -21,6 +21,7 @@
             android:textStyle="normal|bold"
             android:typeface="normal"
             android:fontFamily="@string/fonteQuestao" />
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -74,51 +75,9 @@
 
         </LinearLayout>
 
-        <FrameLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
-            <Button
-                android:text="@string/txtChecar"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnChecarResposta"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
+        <include layout="@layout/botoes_responder_questao"/>
 
-            <Button
-                android:text="@string/txtTentarNovamente"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnTentarNovamente"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
 
-            <Button
-                android:text="@string/txtConcluir"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnAvancar"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
-
-        </FrameLayout>
     </LinearLayout>
 
 </ScrollView>

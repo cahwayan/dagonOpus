@@ -161,15 +161,7 @@
             android:lineSpacingExtra="2sp" />
 
 
-        <Button
-            android:text="@string/txtAvancar"
-            android:id="@+id/btnAvancar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@color/corBtnModulo2"
-            android:textColor="#ffffff"
-            android:padding="10dp"/>
+        <include layout="@layout/botao_avancar"/>
     </LinearLayout>
 
 

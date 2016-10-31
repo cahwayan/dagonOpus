@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.utils.PulseAnimation;
 
 /**
  * Created by charlinho on 09/10/2016.
@@ -77,6 +82,9 @@ public class Licao4 extends Fragment {
                                 respostaLinha4Palavra1Acentuada  = "não",
                                 respostaLinha4Palavra2           = "atravesse";
 
+    // IMAGENS DE CERTO E ERRADO
+    private ImageView imgRespostaCerta, imgRespostaErrada;
+
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
@@ -127,9 +135,18 @@ public class Licao4 extends Fragment {
         linha4Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra1);
         linha4Palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra2);
 
+        // IMAGENS CERTO E ERRADO
+        imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
+        imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
+
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
         btnAvancar.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
+
     }
 
 
@@ -166,7 +183,6 @@ public class Licao4 extends Fragment {
                         respostaCerta();
 
                 } else {
-
                     respostaErrada();
 
                 }
@@ -209,6 +225,10 @@ public class Licao4 extends Fragment {
                 btnAvancar.setVisibility(View.GONE);
                 btnTentarNovamente.setVisibility(View.GONE);
                 btnChecar.setVisibility(View.VISIBLE);
+
+                // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+                imgRespostaCerta.setVisibility(View.GONE);
+                imgRespostaErrada.setVisibility(View.GONE);
 
                 // VOLTANDO O TEXTO PARA PRETO AO SAIR DA TAB PARA NÃO FICAR VERMELHO CASO O USUÁRIO SAIA ANTES DE CLICAR EM TENTAR NOVAMENTE
                 linha2Palavra1.setTextColor(Color.BLACK);
@@ -354,21 +374,52 @@ public class Licao4 extends Fragment {
     // MÉTODO QUE DESABILITA OS RADIO BUTTONS
     // PARA QUE O USUÁRIO NÃO POSSA TROCAR DE RESPOSTA DEPOIS DE CLICAR EM CHECAR
     private void desabilitarEditTexts() {
+        linha2Palavra1.setInputType(InputType.TYPE_NULL);
+        linha2Palavra2.setInputType(InputType.TYPE_NULL);
+        linha2Palavra3.setInputType(InputType.TYPE_NULL);
+        linha3Palavra1.setInputType(InputType.TYPE_NULL);
+        linha4Palavra1.setInputType(InputType.TYPE_NULL);
+        linha4Palavra2.setInputType(InputType.TYPE_NULL);
 
+        linha2Palavra1.setFocusable(false);
+        linha2Palavra2.setFocusable(false);
+        linha2Palavra3.setFocusable(false);
+        linha3Palavra1.setFocusable(false);
+        linha4Palavra1.setFocusable(false);
+        linha4Palavra2.setFocusable(false);
+
+        linha2Palavra1.setFocusableInTouchMode(false);
+        linha2Palavra2.setFocusableInTouchMode(false);
+        linha2Palavra3.setFocusableInTouchMode(false);
+        linha3Palavra1.setFocusableInTouchMode(false);
+        linha4Palavra1.setFocusableInTouchMode(false);
+        linha4Palavra2.setFocusableInTouchMode(false);
 
     }
 
     //MÉTODO QUE HABILITA NOVAMENTE OS RADIO BUTTONS
     //PARA TRAZER DE VOLTA OS BOTÔES DEPOIS DE CLICAR EM TENTAR NOVAMENTE OU RETORNAR A ATIVIDADE
     private void habilitarEditTexts() {
-        linha2Palavra1.setEnabled(true);
-        linha2Palavra2.setEnabled(true);
-        linha2Palavra3.setEnabled(true);
+        linha2Palavra1.setInputType(InputType.TYPE_CLASS_TEXT);
+        linha2Palavra2.setInputType(InputType.TYPE_CLASS_TEXT);
+        linha2Palavra3.setInputType(InputType.TYPE_CLASS_TEXT);
+        linha3Palavra1.setInputType(InputType.TYPE_CLASS_TEXT);
+        linha4Palavra1.setInputType(InputType.TYPE_CLASS_TEXT);
+        linha4Palavra2.setInputType(InputType.TYPE_CLASS_TEXT);
 
-        linha3Palavra1.setEnabled(true);
+        linha2Palavra1.setFocusable(true);
+        linha2Palavra2.setFocusable(true);
+        linha2Palavra3.setFocusable(true);
+        linha3Palavra1.setFocusable(true);
+        linha4Palavra1.setFocusable(true);
+        linha4Palavra2.setFocusable(true);
 
-        linha4Palavra1.setEnabled(true);
-        linha4Palavra2.setEnabled(true);
+        linha2Palavra1.setFocusableInTouchMode(true);
+        linha2Palavra2.setFocusableInTouchMode(true);
+        linha2Palavra3.setFocusableInTouchMode(true);
+        linha3Palavra1.setFocusableInTouchMode(true);
+        linha4Palavra1.setFocusableInTouchMode(true);
+        linha4Palavra2.setFocusableInTouchMode(true);
 
     }
 
@@ -390,6 +441,14 @@ public class Licao4 extends Fragment {
         // TOCAR SOM DE RESPOSTA CERTA
         somRespostaCerta.start();
 
+        // ANIMAÇÃO RESPOSTA CERTA
+        imgRespostaCerta.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaCerta)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
+
         // DESABILITAR RADIO BUTTONS
         desabilitarEditTexts();
 
@@ -401,6 +460,14 @@ public class Licao4 extends Fragment {
     private void respostaErrada() {
         // TOCAR SOM DE RESPOSTA ERRADA
         somRespostaErrada.start();
+
+        // ANIMAÇÃO RESPOSTA ERRADA
+        imgRespostaErrada.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaErrada)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
 
         if(!sLinha2Palavra1.equalsIgnoreCase(respostaLinha2Palavra1)) {
             linha2Palavra1.setTextColor(Color.RED);
@@ -434,8 +501,6 @@ public class Licao4 extends Fragment {
 
         // TRAZENDO BOTÃO TENTAR NOVAMENTE
         btnTentarNovamente.setVisibility(View.VISIBLE);
-
-
     }
 
     // MÉTODO DE AVANÇAR LIÇÃO CASO A RESPOSTA ESTEJA CERTA E TALS
@@ -458,6 +523,10 @@ public class Licao4 extends Fragment {
 
         // TRAZENDO O BOTAO CHECAR
         btnChecar.setVisibility(View.VISIBLE);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
 
         // DESMARCANDO OS RADIO BUTTONS
         limparEditTexts();

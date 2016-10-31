@@ -140,14 +140,16 @@
     <!--ETAPA 2-->
     <!--LICAO 1 -->
     <string name="texto1Modulo1Etapa2Licao1">Os algoritmos estão presentes em nossa vida mais do que você imagina.
-        Algoritmos são passos dados para executar qualquer tarefa. Vamos ver aqui como exemplo, um algoritmo para atravessar a rua,
-        que é uma tarefa básica que você com certeza já fez.
+        Algoritmos são passos dados para executar qualquer tarefa, e isso inclui qualquer uma do nosso dia a dia também.
+        Vamos ver aqui como exemplo, um algoritmo para atravessar a rua,
+        que é uma tarefa básica que você com certeza já fez várias vezes.
         Se tivéssemos que imaginar um algoritmo para atravessar a rua, ele ficaria mais ou menos assim:</string>
 
     <string name="texto2Modulo1Etapa2Licao1"><b>Primeiro passo:</b> Olhar para esquerda
     \n<b>Segundo passo:</b> Olhar para direita
-    \n<b>Terceiro passo:</b> Se estiver vindo carro, não atravesse.
-    \n<b>Quarto passo:</b> Se não estiver vindo carro, atravesse.  </string>
+    \n<b>Terceiro passo:</b> <b>Se</b> não estiver vindo carro, <b>então</b> atravesse
+    \n<b>Quarto passo:</b> <b>Se</b> estiver vindo carro, <b>então</b> não atravesse
+     </string>
 
     <!--LIÇÃO 3-->
     <string name="texto1Modulo1Etapa2Licao3">Agora que você já entendeu como os algoritmos funcionam, vamos ver um exemplo mais detalhado:
@@ -156,10 +158,9 @@
     </string>
 
     <string name="texto2Modulo1Etapa2Licao3">
-    Estes foram passos dados para realizar a soma de dois números, e apresentar o resultado.
-            Mas o que esses algoritmos têm a ver com a programação? Calma!
-            Vamos por partes, todos esses algoritmos serão passados para uma linguagem de programação,
-            mas antes temos que seguir alguns passos ideais para você desenvolver seu conhecimento inicial.
+            Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado, usando a estrutura do portugol.
+            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b>
+            A coluna de números à esquerda apenas conta o número de linhas do algoritmo
     </string>
 
     <!--STRINGS CAIXAS DICAS-->
@@ -172,9 +173,11 @@
 
     <!--ETAPA 2-->
     <!-- LIÇÃO 1-->
-    <string name="dica1Modulo1Etapa2Licao1">Você percebeu que o terceiro e quarto passo não são ações como os dois primeiros passos? São condições!
-        Condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
+    <string name="dica1Modulo1Etapa2Licao1">Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
+        escritas em negrito.
+        \nCondições também fazem parte da lógica de programação, mas não se preocupe com isto agora. Ao decorrer do curso iremos estudar isso melhor.</string>
     <!--LIÇÃO 3-->
+    <string name="dica0Modulo1Etapa2Licao3">Clique na imagem para ampliá-la</string>
     <string name="dica1Modulo1Etapa2Licao3">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
     \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>. Vamos ver mais sobre o portugol adiante.</string>
     <!--LIÇÃO 4-->
@@ -211,10 +214,10 @@
 
     <!--ETAPA 2-->
     <!--PERGUNTA 1-->
-    <string name="Modulo1Etapa2Pergunta1">O que é um algoritmo?</string>
-    <string name="Modulo1Etapa2Pergunta1Alternativa1">Dados que são armazenados na memória do computador</string>
-    <string name="Modulo1Etapa2Pergunta1Alternativa2">Passos ou instruções dadas para realizar uma tarefa</string>
-    <string name="Modulo1Etapa2Pergunta1Alternativa3">Blocos de comandos</string>
+    <string name="Modulo1Etapa2Pergunta1">Qual alternativa engloba melhor o que é um algoritmo?</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa1">Algoritmos são passos dados para executar uma tarefa</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa2">Algoritmos, além de conter ações, podem também conter condições dentro de seu conjunto de instruções</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa3">Algoritmos visam organizar uma série de passos em uma ordem lógica para solucionar um problema</string>
     <string name="Modulo1Etapa2Pergunta1Alternativa4">Todas alternativas anteriores</string>
 
     <!--PERGUNTA 2 DE AUTO COMPLETAR-->

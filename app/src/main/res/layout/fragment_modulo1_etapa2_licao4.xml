@@ -159,84 +159,9 @@
                 android:maxLength="9"
                 android:maxLines="1"
                 android:width="75dp" />
-
         </LinearLayout>
 
-        <FrameLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
-            <Button
-                android:text="@string/txtChecar"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnChecarResposta"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
-
-            <Button
-                android:text="@string/txtTentarNovamente"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnTentarNovamente"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
-<!--
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="5dp">
-
-                <TextView
-                    android:text="@string/dica1Modulo1Etapa2Licao4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/dica1Modulo1Etapa2Licao1"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/borda_pontilhada_azul"
-                    android:textColor="#ffffff"
-
-                    android:paddingLeft="80dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp" />
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/icon_dica_azul"
-                    android:id="@+id/imgDica"
-                    android:layout_gravity="start|center_vertical"
-                    android:paddingLeft="5dp"
-                    android:layout_margin="5dp" />
-
-            </FrameLayout>
--->
-            <Button
-                android:text="@string/txtConcluir"
-                android:layout_width="120dp"
-                android:layout_height="54dp"
-                android:id="@+id/btnAvancar"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|center_vertical"
-                android:background="@color/corBotaoVerde"
-                android:textColor="#ffffff"
-                android:padding="7dp"
-                android:textSize="14sp"
-                />
-
-        </FrameLayout>
+        <include layout="@layout/botoes_responder_questao"/>
     </LinearLayout>
 
 </ScrollView>
