@@ -175,8 +175,8 @@ public class Licao4 extends Fragment {
                           sLinha2Palavra2.equalsIgnoreCase(respostaLinha2Palavra2) &&
                           sLinha2Palavra3.equalsIgnoreCase(respostaLinha2Palavra3) &&
                           sLinha3Palavra1.equalsIgnoreCase(respostaLinha3Palavra1) &&
-                          sLinha4Palavra1.equalsIgnoreCase(respostaLinha4Palavra1) ||
-                          sLinha4Palavra1.equalsIgnoreCase(respostaLinha4Palavra1Acentuada) &&
+                          (sLinha4Palavra1.equalsIgnoreCase(respostaLinha4Palavra1) ||
+                          sLinha4Palavra1.equalsIgnoreCase(respostaLinha4Palavra1Acentuada)) &&
                           sLinha4Palavra2.equalsIgnoreCase(respostaLinha4Palavra2))
                 {
 
@@ -184,7 +184,6 @@ public class Licao4 extends Fragment {
 
                 } else {
                     respostaErrada();
-
                 }
             }
         });
@@ -460,7 +459,6 @@ public class Licao4 extends Fragment {
     private void respostaErrada() {
         // TOCAR SOM DE RESPOSTA ERRADA
         somRespostaErrada.start();
-
         // ANIMAÇÃO RESPOSTA ERRADA
         imgRespostaErrada.setVisibility(View.VISIBLE);
         PulseAnimation.create().with(imgRespostaErrada)

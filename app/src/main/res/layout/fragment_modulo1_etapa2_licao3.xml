@@ -33,11 +33,13 @@
             android:paddingBottom="@dimen/paddingBaixoTextoLicao"
             android:lineSpacingExtra="2sp" />
 
-        <ImageView
+        <ImageButton
+            android:src="@drawable/imagem1modulo1etapa2licao3"
+            android:id="@+id/imagem1Modulo1Etapa2Licao3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/imagem1modulo1etapa2licao3"
-            android:id="@+id/imagem1Modulo1Etapa2Licao3" />
+            android:layout_height="230dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="false" />
 
         <FrameLayout
             android:layout_width="match_parent"

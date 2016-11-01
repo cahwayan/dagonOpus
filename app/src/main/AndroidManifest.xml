@@ -16,33 +16,38 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".InicialActivity">
+        <activity android:name=".InicialActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".CadastroActivity" />
-        <activity android:name=".RecuperarSenhaActivity" />
-        <activity android:name=".AprenderActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".CadastroActivity" android:screenOrientation="portrait" />
+        <activity android:name=".RecuperarSenhaActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".AprenderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
 
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".telasEtapas.EtapasModulo1Activity" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".telasEtapas.EtapasModulo1Activity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
             android:label="@string/TituloEtapa1Modulo1"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2"
             android:label="@string/TituloEtapa2Modulo1"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

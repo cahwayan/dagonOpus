@@ -99,7 +99,7 @@
     <string name="titulo1Modulo1Etapa2Licao1">1. Algoritmos!</string>
 
     <!--LIÇÃO 3-->
-    <string name="titulo1Modulo1Etapa2Licao3">1. Outro exemplo</string>
+    <string name="titulo1Modulo1Etapa2Licao3">2. Outro exemplo</string>
 
     <!--STRINGS LICOES-->
     <!--MÒDULO 1-->
@@ -157,10 +157,11 @@
     <b>Portugol</b>.
     </string>
 
-    <string name="texto2Modulo1Etapa2Licao3">
-            Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado, usando a estrutura do portugol.
-            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b>
-            A coluna de números à esquerda apenas conta o número de linhas do algoritmo
+    <string name="texto2Modulo1Etapa2Licao3">Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado na tela, usando a estrutura do portugol.
+            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador ler o
+        primeiro número que o usuário irá digitar, depois o mesmo para o segundo número.
+        Com os números <b>armazenados na memória</b>, dizemos para ele então somar os números e guardar em <b>outro espaço na memória</b>.
+        Depois, basta escrever o resultado na tela para o usuário!
     </string>
 
     <!--STRINGS CAIXAS DICAS-->
@@ -174,10 +175,9 @@
     <!--ETAPA 2-->
     <!-- LIÇÃO 1-->
     <string name="dica1Modulo1Etapa2Licao1">Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
-        escritas em negrito.
-        \nCondições também fazem parte da lógica de programação, mas não se preocupe com isto agora. Ao decorrer do curso iremos estudar isso melhor.</string>
+        escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
     <!--LIÇÃO 3-->
-    <string name="dica0Modulo1Etapa2Licao3">Clique na imagem para ampliá-la</string>
+    <string name="dica0Modulo1Etapa2Licao3">Clique duas vezes ou arraste os dedos na imagem para ampliá-la</string>
     <string name="dica1Modulo1Etapa2Licao3">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
     \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>. Vamos ver mais sobre o portugol adiante.</string>
     <!--LIÇÃO 4-->

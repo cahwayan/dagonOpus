@@ -131,6 +131,11 @@ public class Licao3 extends Fragment {
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
         btnAvancar.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
+
     }
 
 
