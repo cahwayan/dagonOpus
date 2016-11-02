@@ -101,6 +101,11 @@
     <!--LIÇÃO 3-->
     <string name="titulo1Modulo1Etapa2Licao3">2. Outro exemplo</string>
 
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo1Etapa3Licao1">1. Portugol</string>
+    <string name="titulo1Modulo1Etapa3Licao3">2. Algoritmo de soma em portugol</string>
+
     <!--STRINGS LICOES-->
     <!--MÒDULO 1-->
     <!--ETAPA 1-->
@@ -152,15 +157,39 @@
      </string>
 
     <!--LIÇÃO 3-->
-    <string name="texto1Modulo1Etapa2Licao3">Agora que você já entendeu como os algoritmos funcionam, vamos ver um exemplo mais detalhado:
-    Vamos realizar a soma de dois números, em forma de algoritmo. Porém dessa vez, seguindo a lógica e a estrutura de uma pseudo-linguagem de programação chamada
-    <b>Portugol</b>.
+    <string name="texto1Modulo1Etapa2Licao3">Agora que você já entendeu como os algoritmos funcionam, vamos ver um outro exemplo para exercitarmos mais:
+    Vamos realizar a soma de dois números em forma de algoritmo.
     </string>
 
-    <string name="texto2Modulo1Etapa2Licao3">Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado na tela, usando a estrutura do portugol.
-            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador ler o
-        primeiro número que o usuário irá digitar, depois o mesmo para o segundo número.
-        Com os números <b>armazenados na memória</b>, dizemos para ele então somar os números e guardar em <b>outro espaço na memória</b>.
+    <string name="texto2Modulo1Etapa2Licao3">Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado. Bastante simples, não?
+            Como você pode ver, seguimos uma ordem lógica, da mesma forma como fizemos no exemplo anterior, de <b>atravessar uma rua.</b>
+        Primeiro pensamos em um número, depois escrevemos esse número. Em seguida pensamos no segundo, e então escrevemos ele também. Daí somamos eles e escrevemos o resultado.
+        Você verá nos próximos passos que um computador pensa de forma semelhante, seguindo a mesma lógica que nós seguimos quando queremos somar dois números!
+    </string>
+
+
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="texto1Modulo1Etapa3Licao1">O portugol, ou português estruturado, é uma pseudo-linguagem de programação capaz de executar funções básicas
+        de programação. Nessa etapa, você irá aprender um pouco sobre como escrever em portugol, para futuramente aplicar em uma linguagem de programação de verdade todo o
+        seu raciocínio lógico adquirido com o portugol.
+        \nTodo algoritmo escrito em Portugol segue uma estrutura padrão:
+    </string>
+
+    <string name="texto2Modulo1Etapa3Licao1">Começamos dando o nome do algoritmo, ou do programa, na primeira área da estrutura. A segunda área é onde declaramos as variáveis
+        (em breve veremos o que são, não esquente com isso por enquanto). A terceira área é onde iniciamos o bloco de comandos. Nessa parte, iremos efetivamente programar as ações
+        necessárias para o programa completar sua função. Essa terceira área precisa ter uma declaração de início e fim.
+    </string>
+
+
+    <!--LIÇÃO 3-->
+    <string name="texto1Modulo1Etapa3Licao3">Você se lembra dos passos que realizamos para somar dois números? Vamos agora passa-los para o Portugol.</string>
+
+    <string name="texto2Modulo1Etapa3Licao3">Esse é o mesmo algoritmo para realizar a soma de dois números e escrever o resultado, porém dessa vez usando a estrutura do portugol.
+            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador escrever
+        na tela um pedido para o usuário digitar o primeiro número, e em seguida damos o comando para o computador ler o
+        primeiro número que o usuário digitou, depois fazemos o mesmo para o segundo número.
+        Com os números <b>armazenados na memória</b>, dizemos para o computador somar os números e guardar em <b>outro espaço na memória</b>.
         Depois, basta escrever o resultado na tela para o usuário!
     </string>
 
@@ -178,15 +207,26 @@
         escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
     <!--LIÇÃO 3-->
     <string name="dica0Modulo1Etapa2Licao3">Clique duas vezes ou arraste os dedos na imagem para ampliá-la</string>
-    <string name="dica1Modulo1Etapa2Licao3">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
-    \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>. Vamos ver mais sobre o portugol adiante.</string>
+
     <!--LIÇÃO 4-->
     <string name="dica1Modulo1Etapa2Licao4">Preencha os campos em branco com as palavras corretas</string>
+
+    <!--ETAPA 3-->
+    <!--LIÇÃo 1-->
+    <string name="dica1Modulo1Etapa3Licao1">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
+    \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele é capaz de executar comandos básicos de programação, e
+        ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>.</string>
+
+    <!--LIÇÃO 3-->
+    <string name="dica1Modulo1Etapa3Licao3">Está curioso para testar esses códigos? Existe um programa que interpreta esses comandos e te mostra na prática como eles funcionam.
+        O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforce.net</b>. É uma ótima ferramenta
+    para por em prática seus conhecimentos em lógica. Nós incentivamos você a usar sua criatividade e pensar em outros exemplos do seu dia a dia, e criar novos algoritmos no VisuAlg.</string>
+
 
 
     <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
     <string name="qtdQuestoesModulo1Etapa2">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa3">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
 
     <string name="qtdQuestoesModulo1Etapa5">5 Questões</string>
@@ -228,6 +268,23 @@
     <string name="Modulo1Etapa2Pergunta2Linha3">3. Se não estiver vindo carro, então </string>
     <string name="Modulo1Etapa2Pergunta2Linha4">4. Se estiver vindo carro, então</string>
 
+    <!--ETAPA 3-->
+    <!-- PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta1">O que é portugol?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta1Alternativa1">Uma pseudo-linguagem de programação que ajuda estudantes a aprenderem lógica de programação por ser em português.</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa2">Uma forma de desenvolver softwares em português</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa3">É uma linguagem de programação usada em grandes projetos ao redor do mundo</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa4">A tradução de uma linguagem de programação</string>
+
+    <!--PERGUNTA 2-->
+    <string name="Modulo1Etapa3Pergunta2">Qual dos seguintes comandos está escrito corretamente de acordo com o portugol?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta2Alternativa1">Escreva "Olá, mundo!"</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa2">resultado <![CDATA[<-]]> numero1 + numero2</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa3">Leia o número 1 e o número 2</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa4">Escrever a soma dos números que o usuário digitou</string>
+
 
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
@@ -241,6 +298,14 @@
     </string-array>
     <!--ETAPA 2 MODULO 1-->
     <string-array name="tab_modulo1_etapa2">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo1_etapa3">
         <item></item>
         <item></item>
         <item></item>

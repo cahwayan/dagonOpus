@@ -48,6 +48,12 @@
             android:label="@string/TituloEtapa2Modulo1"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3"
+            android:label="@string/TituloEtapa3Modulo1"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

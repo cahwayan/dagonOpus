@@ -37,7 +37,7 @@
             android:src="@drawable/imagem1modulo1etapa2licao3"
             android:id="@+id/imagem1Modulo1Etapa2Licao3"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="95dp"
             android:scaleType="centerCrop"
             android:adjustViewBounds="false" />
 
@@ -86,36 +86,6 @@
             android:lineSpacingExtra="2sp"
             android:layout_weight="0.48" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp">
-
-            <TextView
-                android:text="@string/dica1Modulo1Etapa2Licao3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/dica1Modulo1Etapa1Licao2"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/borda_pontilhada_amarela"
-                android:textColor="#ffffff"
-                android:paddingStart="80dp"
-                android:paddingLeft="80dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp" />
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icon_dica_amarela"
-                android:id="@+id/imgDica"
-                android:layout_gravity="start|center_vertical"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:layout_margin="5dp" />
-
-        </FrameLayout>
 
 
 

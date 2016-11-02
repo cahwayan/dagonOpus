@@ -2,6 +2,8 @@ package com.tcc.dagon.opus.telasEtapas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3;
 import com.tcc.dagon.opus.MainActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -75,7 +78,20 @@ public class EtapasModulo1Activity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        this.recreate();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
+                {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                } else recreate();
+            }
+        }, 1);
+
         super.onRestart();
     }
 
@@ -284,7 +300,7 @@ public class EtapasModulo1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(1) >= 3) {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa3.class));
                 } else {
                     alertaEtapaBloqueada();
                 }
