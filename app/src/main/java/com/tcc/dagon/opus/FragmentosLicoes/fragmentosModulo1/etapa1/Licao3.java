@@ -41,6 +41,7 @@ public class Licao3 extends Fragment {
                          alternativa3,
                          alternativa4;
 
+
     // OBJETO BANCO PARA VERIFICAR AS RESPOSTAS
     private GerenciadorBanco DB_PROGRESSO;
 
@@ -125,7 +126,7 @@ public class Licao3 extends Fragment {
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE

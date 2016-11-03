@@ -80,9 +80,11 @@ public class Licao4 extends Fragment {
         //TRAZENDO AS VIEWS
         accessViews();
 
+        // Carregando os sons das respostas
         somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
         somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
 
+        // Carregando os listeners
         listeners();
 
         return rootView;
@@ -118,16 +120,16 @@ public class Licao4 extends Fragment {
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
-
-        // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
-        btnAvancar.setVisibility(View.GONE);
-        btnTentarNovamente.setVisibility(View.GONE);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
+
+        // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
+        btnAvancar.setVisibility(View.GONE);
+        btnTentarNovamente.setVisibility(View.GONE);
 
     }
 
@@ -289,9 +291,9 @@ public class Licao4 extends Fragment {
 
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        if(DB_PROGRESSO.verificaProgressoEtapa(1) <= 1) {
+        if(DB_PROGRESSO.verificaProgressoEtapa(1) <= 3) {
             // AVANÇAR O PROGRESSO EM DOIS
-            DB_PROGRESSO.atualizaProgressoEtapa(1,2);
+            DB_PROGRESSO.atualizaProgressoEtapa(1,4);
         }
 
         getActivity().finish();

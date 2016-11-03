@@ -32,9 +32,9 @@ public class Licao2 extends Fragment {
 
     // RADIO BUTTONS DAS ALTERNATIVAS
     private RadioButton  alternativa1,
-            alternativa2,
-            alternativa3,
-            alternativa4;
+                         alternativa2,
+                         alternativa3,
+                         alternativa4;
 
     // OBJETO BANCO PARA VERIFICAR AS RESPOSTAS
     private GerenciadorBanco DB_PROGRESSO;
@@ -66,7 +66,8 @@ public class Licao2 extends Fragment {
     private NovaJanelaAlerta alertaOpcaoVazia;
 
     // IMAGENS CERTO E ERRADO
-    private ImageView imgRespostaCerta, imgRespostaErrada;
+    private ImageView imgRespostaCerta,
+                      imgRespostaErrada;
 
     private ImageView thumbImagem1;
 
@@ -74,23 +75,24 @@ public class Licao2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        rootView = inflater.inflate(R.layout.fragment_modulo1_etapa3_licao2, container, false);
 
         // INSTANCIA DO OBJETO BANCO
         DB_PROGRESSO = new GerenciadorBanco(getActivity());
 
-
-
         // INSTANCIA DO OBJETO JANELA ALERTA
         alertaOpcaoVazia = new NovaJanelaAlerta(getActivity());
+
+        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
+        rootView = inflater.inflate(R.layout.fragment_modulo1_etapa3_licao2, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();
 
+        // Carregando os sons das respostas
         somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
         somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
 
+        // Carregando os listeners
         listeners();
 
         return rootView;
@@ -125,16 +127,16 @@ public class Licao2 extends Fragment {
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
-
-        // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
-        btnAvancar.setVisibility(View.GONE);
-        btnTentarNovamente.setVisibility(View.GONE);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
+
+        // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
+        btnAvancar.setVisibility(View.GONE);
+        btnTentarNovamente.setVisibility(View.GONE);
 
     }
 

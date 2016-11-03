@@ -9,8 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,9 +21,8 @@ import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
-
 /**
- * Created by charlinho on 09/10/2016.
+ * Created by cahwayan on 09/10/2016.
  */
 public class Licao2 extends Fragment {
 
@@ -40,8 +37,8 @@ public class Licao2 extends Fragment {
 
     // BOTÕES DE CHECAR RESPOSTA, AVANÇAR E TENTAR DE NOVO
     private Button  btnChecar,
-            btnAvancar,
-            btnTentarNovamente;
+                    btnAvancar,
+                    btnTentarNovamente;
 
     // REFERENCIA DO VIEWPAGER DO CONTAINER
     private ViewPager mViewPager;
@@ -65,7 +62,8 @@ public class Licao2 extends Fragment {
     private NovaJanelaAlerta alertaOpcaoVazia;
 
     // IMAGENS DE CERTO E ERRADO
-    private ImageView imgRespostaCerta, imgRespostaErrada;
+    private ImageView imgRespostaCerta,
+                      imgRespostaErrada;
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
@@ -82,9 +80,11 @@ public class Licao2 extends Fragment {
         //TRAZENDO AS VIEWS
         accessViews();
 
+        // Carregando os sons das respostas
         somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
         somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
 
+        // Carregando os listeners
         listeners();
 
         return rootView;
@@ -119,7 +119,7 @@ public class Licao2 extends Fragment {
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO

@@ -120,7 +120,7 @@ public class Licao4 extends Fragment {
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar          = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancar);
+        btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         /* LINHA 2 AUTO COMPLETAR*/

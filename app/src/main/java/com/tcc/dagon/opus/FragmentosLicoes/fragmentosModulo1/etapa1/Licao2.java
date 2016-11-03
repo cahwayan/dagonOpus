@@ -24,7 +24,7 @@ public class Licao2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao2,container,false);
-        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
         mViewPager = ((ContainerModulo1Etapa1)getActivity()).getPager();
         listeners();
         return viewRoot;

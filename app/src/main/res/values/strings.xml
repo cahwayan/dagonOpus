@@ -199,14 +199,18 @@
     <!--LIÇÃO 2-->
     <string name="dica0Modulo1Etapa1Licao2">No decorrer deste curso vamos lhe guiar pelos conceitos de lógica de programação,
     porém a lógica é um assunto vasto, e que está presente em quase todas as áreas da nossa vida! Aprender a programar também ajuda a construir um cérebro mais <b>inteligente e racional</b>.</string>
-    <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Através de uma linguagem, ele pode ler cada instrução que escrevemos, e executar o que lhe é pedido.</string>
+    <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Os computadores entendem tudo em <b>linguagem binária. 0 e 1.</b> Porém, como nós
+        humanos temos uma estrutura de linguagem diferente de uma máquina, adaptamos nossos idiomas para intermediarem nossa comunicação com os computadores. Já pensou que complicado
+        seria ter que escrever programas em zeros e uns?
+        Através da linguagem de programação, um computador pode receber as instruções que escrevemos em uma linguagem amigável, converter para sequências binárias e executá-las. Existem várias linguagens de programação, e elas são diferentes entre si.
+        Porém, todas obedecem um padrâo lógico básico.</string>
 
     <!--ETAPA 2-->
     <!-- LIÇÃO 1-->
     <string name="dica1Modulo1Etapa2Licao1">Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
         escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
     <!--LIÇÃO 3-->
-    <string name="dica0Modulo1Etapa2Licao3">Clique duas vezes ou arraste os dedos na imagem para ampliá-la</string>
+    <string name="dica0Modulo1Etapa2Licao3">Se sentir necessidade, você pode ampliar a imagem clicando duas vezes nela ou arrastando os dedos em pinça na imagem para ampliá-la</string>
 
     <!--LIÇÃO 4-->
     <string name="dica1Modulo1Etapa2Licao4">Preencha os campos em branco com as palavras corretas</string>
@@ -218,9 +222,9 @@
         ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>.</string>
 
     <!--LIÇÃO 3-->
-    <string name="dica1Modulo1Etapa3Licao3">Está curioso para testar esses códigos? Existe um programa que interpreta esses comandos e te mostra na prática como eles funcionam.
-        O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforce.net</b>. É uma ótima ferramenta
-    para por em prática seus conhecimentos em lógica. Nós incentivamos você a usar sua criatividade e pensar em outros exemplos do seu dia a dia, e criar novos algoritmos no VisuAlg.</string>
+    <string name="dica1Modulo1Etapa3Licao3">Está curioso para testar esses códigos? Existe um programa para desktop que interpreta esses comandos e te mostra na prática como eles funcionam.
+        O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforge.net</b> com uma breve pesquisa no Google. É uma ótima ferramenta
+    para por em prática seus estudos e aprimorar sua lógica. Nós incentivamos você a pensar em outros exemplos, usar sua criatividade e criar novos algoritmos utilizando o VisuAlg.</string>
 
 
 
@@ -280,10 +284,10 @@
     <!--PERGUNTA 2-->
     <string name="Modulo1Etapa3Pergunta2">Qual dos seguintes comandos está escrito corretamente de acordo com o portugol?</string>
     <!--ALTERNATIVAS PERGUNTA 1-->
-    <string name="Modulo1Etapa3Pergunta2Alternativa1">Escreva "Olá, mundo!"</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa1">escreva resultado</string>
     <string name="Modulo1Etapa3Pergunta2Alternativa2">resultado <![CDATA[<-]]> numero1 + numero2</string>
-    <string name="Modulo1Etapa3Pergunta2Alternativa3">Leia o número 1 e o número 2</string>
-    <string name="Modulo1Etapa3Pergunta2Alternativa4">Escrever a soma dos números que o usuário digitou</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa3">leia o número 1 e o número 2</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa4">escrever a soma dos números que o usuário digitou</string>
 
 
     <!--FONTE-->

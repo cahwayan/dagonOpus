@@ -7,7 +7,7 @@
         android:text="@string/txtAvancar"
         android:layout_width="120dp"
         android:layout_height="54dp"
-        android:id="@+id/btnAvancar"
+        android:id="@+id/btnAvancarLicao"
         android:layout_gravity="end"
         android:background="@color/corBtnModulo2"
         android:textColor="#ffffff"

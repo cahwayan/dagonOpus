@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3;
 import com.tcc.dagon.opus.R;
-
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
@@ -32,7 +30,7 @@ public class Licao3 extends Fragment {
         PhotoViewAttacher photoView = new PhotoViewAttacher(thumbImagem1);
         photoView.update();
 
-        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
         mViewPager = ((ContainerModulo1Etapa3)getActivity()).getPager();
         listeners();
         return viewRoot;

@@ -28,7 +28,7 @@ public class Licao1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa3_licao1,container,false);
-        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancar);
+        btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
         mViewPager = ((ContainerModulo1Etapa3)getActivity()).getPager();
         thumbImagem1 = (ImageView) viewRoot.findViewById(R.id.imagem1Modulo1Etapa3Licao1);
         PhotoViewAttacher photoView = new PhotoViewAttacher(thumbImagem1);

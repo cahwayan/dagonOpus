@@ -33,13 +33,46 @@
             android:paddingBottom="@dimen/paddingBaixoTextoLicao"
             android:lineSpacingExtra="2sp" />
 
-        <ImageButton
+        <ImageView
             android:src="@drawable/imagem1modulo1etapa3licao1"
             android:id="@+id/imagem1Modulo1Etapa3Licao1"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="false"
+            android:layout_gravity="center_vertical|center_horizontal" />
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="false" />
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/dica0Modulo1Etapa2Licao3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/dica0Modulo1Etapa1Licao2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_vermelha"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_vermelha"
+                android:id="@+id/imgDica0"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
 
         <TextView
             android:text="@string/texto2Modulo1Etapa3Licao1"
