@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao2;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao3;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Questao1;
 
 /**
  * Created by charlinho on 09/10/2016.
@@ -29,7 +29,7 @@ private String[] tabTitulos;
             case 1:
                 return new Licao2();
             case 2:
-                return new Licao3();
+                return new Questao1();
             default:
                 return null;
         }
