@@ -20,7 +20,6 @@ public class Questao1 extends Questao {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         // INSTANCIA DE OBJETOS / BANCO / JANELA ALERTA / SONS
         super.instanciaObjetos();
         // MÓDULO A QUAL A PERGUNTA PERTENCE
@@ -59,6 +58,6 @@ public class Questao1 extends Questao {
 
         super.accessViews();
 
-
     }
+
 }

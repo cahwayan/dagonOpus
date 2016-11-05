@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import com.tcc.dagon.opus.ClassesPai.Completar;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
@@ -51,13 +51,13 @@ public class Completar1 extends Completar {
 
     protected void accessViews() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        mViewPager = ((ContainerModulo1Etapa2)getActivity()).getPager();
-        tabStrip   = ((ContainerModulo1Etapa2)getActivity()).getTabStrip();
-        mTabLayout = ((ContainerModulo1Etapa2)getActivity()).getmTabLayout();
+        mViewPager = ((ContainerModulo1Etapa4)getActivity()).getPager();
+        tabStrip   = ((ContainerModulo1Etapa4)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerModulo1Etapa4)getActivity()).getmTabLayout();
 
         /* LINHA 2 AUTO COMPLETAR*/
-        linha2Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra2);
+        linha1Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra1);
+        linha1Palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra2);
 
         super.accessViews();
 
@@ -71,17 +71,17 @@ public class Completar1 extends Completar {
         btnChecar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                sLinha2Palavra1 = linha2Palavra1.getText().toString();
-                sLinha2Palavra2 = linha2Palavra2.getText().toString();
+                sLinha1Palavra1 = linha1Palavra1.getText().toString();
+                sLinha1Palavra2 = linha1Palavra2.getText().toString();
 
-                if(sLinha2Palavra1.isEmpty() ||
-                        sLinha2Palavra2.isEmpty())
+                if(sLinha1Palavra1.isEmpty() ||
+                   sLinha1Palavra2.isEmpty())
                 {
 
                     Toast.makeText(getActivity(), "Há campos em branco!", Toast.LENGTH_SHORT).show();
 
                 } else if( (sLinha1Palavra1.equalsIgnoreCase(respostaLinha1Palavra1Acentuada) ||
-                        sLinha4Palavra2.equalsIgnoreCase(respostaLinha1Palavra1) ) &&
+                        sLinha1Palavra1.equalsIgnoreCase(respostaLinha1Palavra1) ) &&
                         sLinha1Palavra2.equalsIgnoreCase(respostaLinha1Palavra2))
                 {
 
@@ -110,8 +110,8 @@ public class Completar1 extends Completar {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(linha2Palavra1.getText().length() == 5) {
-                    linha2Palavra2.requestFocus();
+                if(linha1Palavra1.getText().length() == 3) {
+                    linha1Palavra2.requestFocus();
                 }
             }
         });
@@ -129,8 +129,8 @@ public class Completar1 extends Completar {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(linha2Palavra2.getText().length() == 4) {
-                    linha2Palavra3.requestFocus();
+                if(linha1Palavra2.getText().length() ==  5) {
+                    escondeTeclado();
                 }
             }
         });

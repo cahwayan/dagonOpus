@@ -383,12 +383,16 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 limit
         );
 
-        cursor.moveToFirst();
-        respostaPergunta = cursor.getInt(
-                cursor.getColumnIndexOrThrow(colunaAlternativa[0])
-        );
+        if( cursor != null && cursor.moveToFirst() ){
+            respostaPergunta = cursor.getInt(
+                    cursor.getColumnIndexOrThrow(colunaAlternativa[0])
+            );
+            cursor.close();
+        }
+
+
         fecharBanco();
-        cursor.close();
+
 
         // RETORNA O VALOR REQUERIDO
         return respostaPergunta;
