@@ -18,7 +18,7 @@ public class Licao3 extends Licao {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa3_licao3,container,false);
-        accessViews();
+        this.accessViews();
         super.adicionarZoomImagem(imagem1);
         super.listeners();
 
@@ -27,7 +27,7 @@ public class Licao3 extends Licao {
 
     protected void accessViews() {
         mViewPager = ((ContainerModulo1Etapa3)getActivity()).getPager();
-        imagem1 = (ImageView) getActivity().findViewById(R.id.imagem1Modulo1Etapa3Licao3);
+        imagem1 = (ImageView) viewRoot.findViewById(R.id.imagem1Modulo1Etapa3Licao3);
         super.accessViews();
     }
 }

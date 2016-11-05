@@ -24,7 +24,7 @@ public class Licao extends Fragment {
     protected Button btnAvancar;
     protected ViewPager mViewPager;
     protected View viewRoot;
-    protected ImageView thumbImagem1;
+    protected PhotoViewAttacher photoView;
 
     @Nullable
     @Override
@@ -38,18 +38,15 @@ public class Licao extends Fragment {
                 moveNext(mViewPager);
             }
         });
-
     }
 
     protected void adicionarZoomImagem(ImageView imagem) {
-        PhotoViewAttacher photoView = new PhotoViewAttacher(imagem);
+        photoView = new PhotoViewAttacher(imagem);
         photoView.update();
     }
 
     protected void accessViews() {
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
-        mViewPager = ((ContainerModulo1Etapa2)getActivity()).getPager();
-
     }
 
     protected void moveNext(View view) {

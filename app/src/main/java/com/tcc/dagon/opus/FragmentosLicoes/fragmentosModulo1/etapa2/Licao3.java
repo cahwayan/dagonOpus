@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.tcc.dagon.opus.ClassesPai.Licao;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
 import com.tcc.dagon.opus.R;
+
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 
 /**
@@ -17,11 +19,12 @@ import com.tcc.dagon.opus.R;
  */
 public class Licao3 extends Licao {
     ImageView imagem1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao2,container,false);
-        accessViews();
+        super.viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa2_licao3,container,false);
+        this.accessViews();
         super.adicionarZoomImagem(imagem1);
         super.listeners();
 
@@ -29,8 +32,9 @@ public class Licao3 extends Licao {
     }
 
     protected void accessViews() {
-        mViewPager = ((ContainerModulo1Etapa1)getActivity()).getPager();
-        imagem1 = (ImageView) getActivity().findViewById(R.id.imagem1Modulo1Etapa2Licao3);
+        mViewPager = ((ContainerModulo1Etapa2)getActivity()).getPager();
+        imagem1 = (ImageView) viewRoot.findViewById(R.id.imagem1Modulo1Etapa2Licao3);
+
         super.accessViews();
     }
 

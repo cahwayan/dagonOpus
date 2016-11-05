@@ -20,7 +20,7 @@ public class Licao2 extends Licao {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.viewRoot = inflater.inflate(R.layout.fragment_modulo1_etapa1_licao2,container,false);
-        accessViews();
+        this.accessViews();
         super.listeners();
 
         return this.viewRoot;
