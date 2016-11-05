@@ -94,17 +94,23 @@
     <string name="titulo3Modulo1Etapa1Licao2">4. Sequência lógica?</string>
 
     <!--ETAPA 2-->
-
     <!--LIÇÃO 1-->
     <string name="titulo1Modulo1Etapa2Licao1">1. Algoritmos!</string>
 
-    <!--LIÇÃO 3-->
+    <!--LIÇÃO 2-->
     <string name="titulo1Modulo1Etapa2Licao3">2. Outro exemplo</string>
 
     <!--ETAPA 3-->
     <!--LIÇÃO 1-->
     <string name="titulo1Modulo1Etapa3Licao1">1. Portugol</string>
-    <string name="titulo1Modulo1Etapa3Licao3">2. Algoritmo de soma em portugol</string>
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo1Etapa3Licao3">1. Algoritmo de soma em portugol</string>
+
+    <!-- ETAPA 4-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo1Etapa4Licao1">1. Fluxo do processo de dados</string>
+    <!-- LIÇÃO 2 -->
+    <string name="titulo1Modulo1Etapa4Licao2">1. Analisando por outra perspectiva</string>
 
     <!--STRINGS LICOES-->
     <!--MÒDULO 1-->
@@ -193,6 +199,29 @@
         Depois, basta escrever o resultado na tela para o usuário!
     </string>
 
+
+    <!--ETAPA 4-->
+    <!-- LIÇÃo 1-->
+    <string name="texto1Modulo1Etapa4Licao1">Agora vamos estudar a entrada, processamento e saída de dados de um bloco de comandos.
+    \nO processamento básico de uma informação possui essa estrutura:</string>
+    <!--IMAGEM-->
+    <string name="texto2Modulo1Etapa4Licao1">
+        <b>Entrada:</b> Quando precisamos entrar com algum dado do usuário para ser processado por um algoritmo, utilizamos comandos específicos que permitem a entrada desses dados. (No portugol temos o comando Leia).
+        \n<b>Processamento:</b> Com os dados dentro do programa, os comandos são devidamente executados e tratam as informações de acordo com o desejado.
+        \n<b>Saída:</b> Com os dados já processados, o computador devolve eles ao usuário (no portugol temos o comando Escreva).
+    </string>
+
+    <!--LIÇÃO 2-->
+    <string name="texto1Modulo1Etapa4Licao2">Agora, vamos analisar esse algoritmo do ponto de vista da entrada, processamento e saída de dados: </string>
+    <!--IMAGEM-->
+    <string name="texto2Modulo1Etapa4Licao2">\n1° Passo:  O comando <b>Escreva</b> imprime uma mensagem na tela, instruindo o usuário a digitar o primeiro número (Saída de dados).
+    \n2° Passo: O computador lê o número digitado com o comando leia, e armazena em um espaço na memória que reservamos e chamamos de <b>numero1</b> (Entrada de dados).
+    \n3° Passo: É impressa outra mensagem na tela pedindo para o usuário digitar o segundo número (Saída de dados).
+    \n4° Passo: O computador lê o segundo número da mesma forma como o primeiro, porém armazena em um espaço diferente na memória, com o nome de <b>numero2</b> (Entrada de dados).
+    \n5° Passo: Com os números guardados na memória, o computador então faz a soma dos números e guarda o resultado em um outro espaço na memoria chamado <b>resultado</b>. Note que neste passo, os dados não saem e nem entram no programa. Os dados são somente processados (Processamento).
+    \n6° Passo: O computador devolve os dados processados ao usuário. Nesse caso, o resultado da soma (Saída de dados).
+    </string>
+
     <!--STRINGS CAIXAS DICAS-->
     <!--MÓDULO 1-->
     <!--ETAPA 1-->
@@ -226,12 +255,16 @@
         O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforge.net</b> com uma breve pesquisa no Google. É uma ótima ferramenta
     para por em prática seus estudos e aprimorar sua lógica. Nós incentivamos você a pensar em outros exemplos, usar sua criatividade e criar novos algoritmos utilizando o VisuAlg.</string>
 
-
-
+    <!--ETAPA 4-->
+    <!--LICAO 2-->
+    <string name="dica1Modulo1Etapa4Licao2">Nós como programadores, temos sempre que imaginar como o usuário que estará utilizando o programa irá interpreta-lo.
+        Por isso, é muito importante deixar bem claro o que ele deve fazer para cumprir as tarefas.
+        No caso desse algoritmo, o que aconteceria se esquecêssemos do comando <b>escreva</b> para informar o usuário que ele deveria digitar um número?
+        Ele não saberia o que fazer e nem para que o programa serve, e portanto, o programa se torna <b>inútil</b>.</string>
     <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
     <string name="qtdQuestoesModulo1Etapa2">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa4">8 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa4">2 Questões</string>
 
     <string name="qtdQuestoesModulo1Etapa5">5 Questões</string>
     <string name="qtdQuestoesModulo1Etapa6">7 Questões</string>
@@ -289,6 +322,27 @@
     <string name="Modulo1Etapa3Pergunta2Alternativa3">leia o número 1 e o número 2</string>
     <string name="Modulo1Etapa3Pergunta2Alternativa4">escrever a soma dos números que o usuário digitou</string>
 
+    <!--ETAPA 4-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo1Etapa4Pergunta1">Qual o fluxo básico de processamento de um dado?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa4Pergunta1Alternativa1">saída -> processamento -> entrada</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa2">processamento -> entrada -> saída</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa3">entrada -> saída -> processamento</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa4">entrada -> processamento -> saída</string>
+
+    <!--PERGUNTA 2 AUTO COMPLETAR-->
+    <string name="Modulo1Etapa4Pergunta2">É de costume de todos os programadores ao redor do mundo fazer o computador escrever "Hello, World!" ou "Olá, Mundo!" na tela.
+        Reza a lenda, que se você não fizer isso, não conseguirá entender a tecnologia que está estudando, e não será um bom programador.
+        É só uma lenda, mas você vai duvidar? Então, para acabar com essa maldição, vamos escrever um algoritmo que escreva “Olá, mundo!" na tela.</string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa4Pergunta2Linha1">
+        <u>Algoritmo</u> "mensagem"
+        \n<u>Var</u>
+        \n<u>Inicio</u>
+    </string>
+    <string name="Modulo1Etapa4Pergunta2Linha2">Escreva  (<![CDATA[“]]></string>
+    <string name="Modulo1Etapa4Pergunta2ContinuacaoLinha3">!<![CDATA[“]]>) \n<u>Fimalgoritmo</u></string>
 
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
@@ -315,6 +369,15 @@
         <item></item>
         <item></item>
     </string-array>
+
+    <string-array name="tab_modulo1_etapa4">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
 
 
 </resources>
