@@ -12,18 +12,14 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4;
-import com.tcc.dagon.opus.MainActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
-
-import org.w3c.dom.Text;
 
 public class EtapasModulo1Activity extends AppCompatActivity {
     /*LAYOUTS*/
@@ -99,15 +95,15 @@ public class EtapasModulo1Activity extends AppCompatActivity {
 
     private void accessViews() {
         /*RECUPEERANDO ITENS LAYOUT*/
-        etapa1 = (LinearLayout) findViewById(R.id.Etapa1);
-        etapa2 = (LinearLayout) findViewById(R.id.Etapa2);
-        etapa3 = (LinearLayout) findViewById(R.id.Etapa3);
-        etapa4 = (LinearLayout) findViewById(R.id.Etapa4);
-        etapa5 = (LinearLayout) findViewById(R.id.Etapa5);
-        etapa6 = (LinearLayout) findViewById(R.id.Etapa6);
-        etapa7 = (LinearLayout) findViewById(R.id.Etapa7);
-        etapa8 = (LinearLayout) findViewById(R.id.Etapa8);
-        etapa9 = (LinearLayout) findViewById(R.id.Etapa9);
+        etapa1 = (LinearLayout) findViewById(R.id.Modulo1Etapa1);
+        etapa2 = (LinearLayout) findViewById(R.id.Modulo1Etapa2);
+        etapa3 = (LinearLayout) findViewById(R.id.Modulo1Etapa3);
+        etapa4 = (LinearLayout) findViewById(R.id.Modulo1Etapa4);
+        etapa5 = (LinearLayout) findViewById(R.id.Modulo1Etapa5);
+        etapa6 = (LinearLayout) findViewById(R.id.Modulo1Etapa6);
+        etapa7 = (LinearLayout) findViewById(R.id.Modulo1Etapa7);
+        etapa8 = (LinearLayout) findViewById(R.id.Modulo1Etapa8);
+        etapa9 = (LinearLayout) findViewById(R.id.Modulo1Etapa9);
 
 
         txtEtapa1 = (TextView)findViewById(R.id.txtQuestoesModulo1Etapa1);

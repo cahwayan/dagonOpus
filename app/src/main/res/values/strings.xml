@@ -9,14 +9,17 @@
     <!--STRINGS TELA APRENDER-->
 
     <!--STRINGS MODULOS-->
+    <!-- PROGRESSO DOS MÓDULOS -->
     <string name="txtProgressoModulo1">0/9</string>
-    <string name="txtProgressoModulo2">0/10</string>
-    <string name="txtProgressoModulo3">0/7</string>
+    <string name="txtProgressoModulo2">0/5</string>
+    <string name="txtProgressoModulo3">0/5</string>
     <string name="txtProgressoModulo4">0/5</string>
-    <string name="txtProgressoModulo5">0/6</string>
-    <string name="txtProgressoModulo6">0/7</string>
-    <string name="txtProgressoModulo7">0/X</string>
-    <string name="txtProgressoModulo8">0/X</string>
+    <string name="txtProgressoModulo5">0/7</string>
+    <string name="txtProgressoModulo6">0/3</string>
+    <string name="txtProgressoModulo7">0/6</string>
+    <string name="txtProgressoModulo8">0/3</string>
+
+    <!-- TITULOS DOS MÓDULOS -->
     <string name="txtTituloModulo1">CONCEITOS BÁSICOS</string>
     <string name="txtTituloModulo2">TIPOS DE DADOS E VETORES</string>
     <string name="txtTituloModulo3">CONDIÇÕES E LOOPS</string>
@@ -26,7 +29,6 @@
     <string name="txtTituloModulo7">CLASSES E OBJETOS 2</string>
     <string name="txtTituloModulo8">DESAFIOS 2</string>
     <string name="txtTituloModulo9">CERTIFICADO</string>
-
     <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
     <!--FIM STRINGS MODULOS-->
 
@@ -63,7 +65,9 @@
     <string name="BotaoCriarConta">CRIAR CONTA</string>
     <!--FIM TELA LOGIN-->
 
-    <!--STRINGS TITULOS ETAPAS MÓDULO 1-->
+    <!-- TITULOS DAS ETAPAS -->
+
+    <!--MÓDULO 1-->
     <string name="TituloEtapa1Modulo1">1. Introdução</string>
     <string name="TituloEtapa2Modulo1">2. Algoritmos</string>
     <string name="TituloEtapa3Modulo1">3. Portugol</string>
@@ -74,13 +78,120 @@
     <string name="TituloEtapa8Modulo1">8. Comentários em códigos</string>
     <string name="TituloEtapa9Modulo1">9. Prova 1</string>
 
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
+    <string name="qtdQuestoesModulo1Etapa2">2 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa4">2 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa5">2 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa6">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa7">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa8">1 Questão</string>
+    <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
     <!--FIM STRINGS ETAPAS MÓDULO 1-->
 
-    <!--STRINGS TEXT VIEWS DOS MODULOS,QUESTÃO DEVE SER INSERIDA AQUI-->
-    <string name="text_fragment_4">Modulo 4</string>
-    <string name="text_fragment_5">Modulo 5</string>
-    <string name="text_fragment_6">Modulo 6</string>
-    <string name="text_fragment_7">Modulo 7</string>
+    <!-- MÓDULO 2 -->
+    <string name="TituloEtapa1Modulo2">1. Estrutura de decisão simples</string>
+    <string name="TituloEtapa2Modulo2">2. Estrutura de decisão composta</string>
+    <string name="TituloEtapa3Modulo2">3. Estrutura de repetição enquanto (while)</string>
+    <string name="TituloEtapa4Modulo2">4. Estrutura de repetição para (for)</string>
+    <string name="TituloEtapa5Modulo2">5. Prova 2</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo2Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa5">4 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 2-->
+
+    <!-- MÓDULO 3 -->
+    <string name="TituloEtapa1Modulo3">1. Introdução a vetores (arrays)</string>
+    <string name="TituloEtapa2Modulo3">2. Usando vetores em loops</string>
+    <string name="TituloEtapa3Modulo3">3. Vetores em cálculos</string>
+    <string name="TituloEtapa4Modulo3">4. Matrizes</string>
+    <string name="TituloEtapa5Modulo3">5. Prova 3</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo3Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo3Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo3Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo3Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo3Etapa5">4 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 3-->
+
+    <!-- MÓDULO 4 -->
+    <string name="TituloEtapa1Modulo4">1. Introdução à funções</string>
+    <string name="TituloEtapa2Modulo4">2. Função com parâmetros</string>
+    <string name="TituloEtapa3Modulo4">3. Função com múltiplos parâmetros</string>
+    <string name="TituloEtapa4Modulo4">4. Retornos</string>
+    <string name="TituloEtapa5Modulo4">5. Prova 4</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo4Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo4Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo4Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo4Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo4Etapa5">4 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 4-->
+
+    <!-- MÓDULO 5 -->
+    <string name="TituloEtapa1Modulo5">1. Objetos</string>
+    <string name="TituloEtapa2Modulo5">2. Classes</string>
+    <string name="TituloEtapa3Modulo5">3. Abstração</string>
+    <string name="TituloEtapa4Modulo5">4. Métodos</string>
+    <string name="TituloEtapa5Modulo5">5. Métodos construtores</string>
+    <string name="TituloEtapa6Modulo5">6. Encapsulamento</string>
+    <string name="TituloEtapa7Modulo5">7. Prova 5</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo5Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa5">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa6">X Questões</string>
+    <string name="qtdQuestoesModulo5Etapa7">6 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 5 -->
+
+    <!-- MÓDULO 6 -->
+    <string name="TituloEtapa1Modulo6">1. Desafio 1</string>
+    <string name="TituloEtapa2Modulo6">2. Desafio 2</string>
+    <string name="TituloEtapa3Modulo6">3. Desafio 3</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo6Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo6Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo6Etapa3">X Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 6 -->
+
+    <!-- MÓDULO 7 -->
+    <string name="TituloEtapa1Modulo7">1. Estrutura de classes e objetos</string>
+    <string name="TituloEtapa2Modulo7">2. Construtores 2</string>
+    <string name="TituloEtapa3Modulo7">3. Associações</string>
+    <string name="TituloEtapa4Modulo7">4. Herança</string>
+    <string name="TituloEtapa5Modulo7">5. Polimorfismo</string>
+    <string name="TituloEtapa6Modulo7">6. Prova 7</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo7Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo7Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo7Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo7Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo7Etapa5">X Questões</string>
+    <string name="qtdQuestoesModulo7Etapa6">5 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 7 -->
+
+    <!-- MÓDULO 8 -->
+    <string name="TituloEtapa1Modulo8">1. Desafio 1</string>
+    <string name="TituloEtapa2Modulo8">2. Desafio 2</string>
+    <string name="TituloEtapa3Modulo8">3. Desafio 3</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo8Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo8Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo8Etapa3">X Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 8 -->
 
     <!-- TITULOS LIÇÕES-->
     <!-- MÓDULO 1-->
@@ -112,37 +223,71 @@
     <!-- LIÇÃO 2 -->
     <string name="titulo1Modulo1Etapa4Licao2">1. Analisando por outra perspectiva</string>
 
-    <!--STRINGS LICOES-->
+    <!-- ETAPA 5 -->
+    <!-- LIÇÃO 1 -->
+    <string name="titulo1Modulo1Etapa5Licao1">1. Variáveis e constantes</string>
+    <!-- LIÇÃO 2 -->
+    <string name="titulo1Modulo1Etapa5Licao2">1. Regras de nomenclatura e declaração</string>
+    <!-- ETAPA 6 -->
+    <!-- LIÇÃO 1 -->
+    <string name="titulo1Modulo1Etapa6Licao1">1 Tipos de variáveis primitivas</string>
+    <string name="titulo2Modulo1Etapa6Licao1">1.1 Variáveis inteiras</string>
+    <string name="titulo3Modulo1Etapa6Licao1">1.2 Variáveis reais</string>
+    <string name="titulo4Modulo1Etapa6Licao1">1.3 Variáveis de caracteres (strings) </string>
+    <string name="titulo5Modulo1Etapa6Licao1">1.4 Variáveis lógicas (booleanas) </string>
+    
+    <!-- ETAPA 7 -->
+    <!-- LIÇÃO 1 -->
+    <string name="titulo1Modulo1Etapa7Licao1">1. Operadores</string>
+    <!-- LIÇÃO 2 -->
+    <string name="titulo1Modulo1Etapa7Licao2">1. Operadores Aritméticos</string>
+    <!-- LIÇÃO 3 -->
+    <string name="titulo1Modulo1Etapa7Licao3">1. Operadores Relacionais</string>
+    <!-- LIÇÃO 4 -->
+    <string name="titulo1Modulo1Etapa7Licao4">1. Operadores Lógicos</string>
+    <!-- ETAPA 8 -->
+    <!-- LIÇÃO 1 -->
+    <string name="titulo1Modulo1Etapa8Licao1">1. Comentários</string>
+    
+    <!-- ETAPAS MÓDULO 2 --> 
+
+    <!-- TEXTOS LICOES -->
     <!--MÒDULO 1-->
     <!--ETAPA 1-->
     <!--LICAO 1-->
-    <string name="texto1Modulo1Etapa1Licao1">Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
-          \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você! Esperamos que você tenha uma boa experiência aqui conosco.
-          Você verá que programar não é difícil, basta apenas que você se dedique aos estudos.
-          \n\nE lembre-se: <b>seja paciente, e evite pular etapas.</b> Cada passo é muito importante na construção do seu conhecimento!
-          \n\n<b>Um abraço, e bons estudos!
-          \nEquipe Dagon.</b>
+    <string name="texto1Modulo1Etapa1Licao1">
+        Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
+        \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você! Esperamos que você tenha uma boa experiência aqui conosco.
+        Você verá que programar não é difícil, basta apenas que você se dedique aos estudos.
+        \n\nE lembre-se: <b>seja paciente, e evite pular etapas.</b> Cada passo é muito importante na construção do seu conhecimento!
+        \n\n<b>Um abraço, e bons estudos!
+        \nEquipe Dagon.</b>
     </string>
 
     <!--LICAO 2 -->
-    <string name="texto0Modulo1Etapa1Licao2">Todos os programas de computador, desde sistemas empresariais, aplicativos e até jogos, são constituídos de uma coleção de <b>linhas de código</b>,
-        ou <b>comandos</b>.
-    \n\nOs computadores são extremamente eficientes para executar tarefas lógicas, muito mais eficientes que nós humanos. Porém, há um problema: Os computadores
-        são <b> extremamente burros!</b> Calma lá, sabemos que eles são capazes de executar uma quantidade absurda de cálculos em frações de segundos&#8230; então por quê eles são burros?
-    A razão é que os computadores <b>sabem apenas aquilo que são programados para fazer</b>. Qualquer função que não seja ensinada detalhadamente, passo a passo em uma ordem lógica
-    para o computador, não funcionará corretamente e o programa provavelmente irá travar.
-    \n\nPara construir um software que funcione de acordo com o esperado e que não trave, é necessário que ensinemos linha por linha para o computador como ele deve executar determinada tarefa
-        seguindo uma ordem lógica. E é aí que entra o assunto desse curso, pequeno gafanhoto: a <b>lógica de programação.</b></string>
+    <string name="texto0Modulo1Etapa1Licao2">
+        Todos os programas de computador, desde sistemas empresariais, aplicativos e até jogos, são constituídos de uma coleção de <b>linhas de código</b>, ou <b>comandos</b>.
+        \n\nOs computadores são extremamente eficientes para executar tarefas lógicas, muito mais eficientes que nós humanos. 
+        Porém, há um problema: Os computadoressão <b> extremamente burros!</b> Calma lá, sabemos que eles são capazes de executar uma quantidade absurda de cálculos em frações
+         de segundos&#8230; então por quê eles são burros?
+        A razão é que os computadores <b>sabem apenas aquilo que são programados para fazer</b>. Qualquer função que não seja ensinada detalhadamente, passo a passo em uma ordem lógica
+        para o computador, não funcionará corretamente e o programa provavelmente irá travar.
+        \n\nPara construir um software que funcione de acordo com o esperado e que não trave, é necessário que ensinemos linha por linha para o computador como ele deve executar determinada tarefa
+        seguindo uma ordem lógica. E é aí que entra o assunto desse curso, pequeno gafanhoto: a <b>lógica de programação.</b>
+    </string>
 
-    <string name="texto1Modulo1Etapa1Licao2">A lógica no desenvolvimento de sistemas é o coração de todo software construído na história da computação. Por este motivo, é <b>muito importante
+    <string name="texto1Modulo1Etapa1Licao2">
+        A lógica no desenvolvimento de sistemas é o coração de todo software construído na história da computação. Por este motivo, é <b>muito importante
         que você reconheça o valor da lógica</b>, e a aprimore máximo que puder, para que sua jornada como desenvolvedor seja facilitada.
     </string>
 
-    <string name="texto2Modulo1Etapa1Licao2" >Por definição, lógica de programação é a técnica de desenvolver instruções para o computador em uma
+    <string name="texto2Modulo1Etapa1Licao2" >
+        Por definição, lógica de programação é a técnica de desenvolver instruções para o computador em uma
         <b>sequência lógica</b>, para atingir um determinado objetivo. Essas instruções são passadas para o computador através de uma <b>linguagem de programação</b>.
     </string>
 
-    <string name="texto3Modulo1Etapa1Licao2" >Um conjunto de instruções organizadas em uma sequência lógica é chamada de <b>algoritmo</b> no mundo da programação.
+    <string name="texto3Modulo1Etapa1Licao2" >
+        Um conjunto de instruções organizadas em uma sequência lógica é chamada de <b>algoritmo</b> no mundo da programação.
         Um algoritmo nada mais é que um conjunto de passos que precisam ser dados
         para atingir determinado objetivo. Vamos estudar e explorar melhor isso nas próximas etapas.
         \n\nE é isso! Basicamente, a lógica de programação é usada para que possamos construir algoritmos com instruções para o computador executar tarefas dentro de um software.
@@ -150,25 +295,29 @@
 
     <!--ETAPA 2-->
     <!--LICAO 1 -->
-    <string name="texto1Modulo1Etapa2Licao1">Os algoritmos estão presentes em nossa vida mais do que você imagina.
+    <string name="texto1Modulo1Etapa2Licao1">
+        Os algoritmos estão presentes em nossa vida mais do que você imagina.
         Algoritmos são passos dados para executar qualquer tarefa, e isso inclui qualquer uma do nosso dia a dia também.
         Vamos ver aqui como exemplo, um algoritmo para atravessar a rua,
         que é uma tarefa básica que você com certeza já fez várias vezes.
         Se tivéssemos que imaginar um algoritmo para atravessar a rua, ele ficaria mais ou menos assim:</string>
 
-    <string name="texto2Modulo1Etapa2Licao1"><b>Primeiro passo:</b> Olhar para esquerda
-    \n<b>Segundo passo:</b> Olhar para direita
-    \n<b>Terceiro passo:</b> <b>Se</b> não estiver vindo carro, <b>então</b> atravesse
-    \n<b>Quarto passo:</b> <b>Se</b> estiver vindo carro, <b>então</b> não atravesse
+    <string name="texto2Modulo1Etapa2Licao1">
+        <b>Primeiro passo:</b> Olhar para esquerda
+        \n<b>Segundo passo:</b> Olhar para direita
+        \n<b>Terceiro passo:</b> <b>Se</b> não estiver vindo carro, <b>então</b> atravesse
+        \n<b>Quarto passo:</b> <b>Se</b> estiver vindo carro, <b>então</b> não atravesse
      </string>
 
     <!--LIÇÃO 3-->
-    <string name="texto1Modulo1Etapa2Licao3">Agora que você já entendeu como os algoritmos funcionam, vamos ver um outro exemplo para exercitarmos mais:
-    Vamos realizar a soma de dois números em forma de algoritmo.
+    <string name="texto1Modulo1Etapa2Licao3">
+        Agora que você já entendeu como os algoritmos funcionam, vamos ver um outro exemplo para exercitarmos mais:
+        Vamos realizar a soma de dois números em forma de algoritmo.
     </string>
 
-    <string name="texto2Modulo1Etapa2Licao3">Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado. Bastante simples, não?
-            Como você pode ver, seguimos uma ordem lógica, da mesma forma como fizemos no exemplo anterior, de <b>atravessar uma rua.</b>
+    <string name="texto2Modulo1Etapa2Licao3">
+        Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado. Bastante simples, não?
+        Como você pode ver, seguimos uma ordem lógica, da mesma forma como fizemos no exemplo anterior, de <b>atravessar uma rua.</b>
         Primeiro pensamos em um número, depois escrevemos esse número. Em seguida pensamos no segundo, e então escrevemos ele também. Daí somamos eles e escrevemos o resultado.
         Você verá nos próximos passos que um computador pensa de forma semelhante, seguindo a mesma lógica que nós seguimos quando queremos somar dois números!
     </string>
@@ -176,25 +325,29 @@
 
     <!--ETAPA 3-->
     <!--LIÇÃO 1-->
-    <string name="texto1Modulo1Etapa3Licao1">O portugol, ou português estruturado, é uma pseudo-linguagem de programação capaz de executar funções básicas
+    <string name="texto1Modulo1Etapa3Licao1">
+        O portugol, ou português estruturado, é uma pseudo-linguagem de programação capaz de executar funções básicas
         de programação. Nessa etapa, você irá aprender um pouco sobre como escrever em portugol, para futuramente aplicar em uma linguagem de programação de verdade todo o
         seu raciocínio lógico adquirido com o portugol.
         \nTodo algoritmo escrito em Portugol segue uma estrutura padrão:
     </string>
 
-    <string name="texto2Modulo1Etapa3Licao1">Começamos dando o nome do algoritmo, ou do programa, na primeira área da estrutura. A segunda área é onde declaramos as variáveis
+    <string name="texto2Modulo1Etapa3Licao1">
+        Começamos dando o nome do algoritmo, ou do programa, na primeira área da estrutura. A segunda área é onde declaramos as variáveis
         (em breve veremos o que são, não esquente com isso por enquanto). A terceira área é onde iniciamos o bloco de comandos. Nessa parte, iremos efetivamente programar as ações
         necessárias para o programa completar sua função. Essa terceira área precisa ter uma declaração de início e fim.
     </string>
 
 
     <!--LIÇÃO 3-->
-    <string name="texto1Modulo1Etapa3Licao3">Você se lembra dos passos que realizamos para somar dois números? Vamos agora passa-los para o Portugol.</string>
+    <string name="texto1Modulo1Etapa3Licao3">
+        Você se lembra dos passos que realizamos para somar dois números? Vamos agora passa-los para o Portugol.
+    </string>
 
-    <string name="texto2Modulo1Etapa3Licao3">Esse é o mesmo algoritmo para realizar a soma de dois números e escrever o resultado, porém dessa vez usando a estrutura do portugol.
-            Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador escrever
-        na tela um pedido para o usuário digitar o primeiro número, e em seguida damos o comando para o computador ler o
-        primeiro número que o usuário digitou, depois fazemos o mesmo para o segundo número.
+    <string name="texto2Modulo1Etapa3Licao3">
+        Esse é o mesmo algoritmo para realizar a soma de dois números e escrever o resultado, porém dessa vez usando a estrutura do portugol.
+        Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador escrever na tela um pedido para o usuário digitar o primeiro número,
+         e em seguida damos o comando para o computador ler o primeiro número que o usuário digitou, depois fazemos o mesmo para o segundo número.
         Com os números <b>armazenados na memória</b>, dizemos para o computador somar os números e guardar em <b>outro espaço na memória</b>.
         Depois, basta escrever o resultado na tela para o usuário!
     </string>
@@ -202,8 +355,10 @@
 
     <!--ETAPA 4-->
     <!-- LIÇÃo 1-->
-    <string name="texto1Modulo1Etapa4Licao1">Agora vamos estudar a entrada, processamento e saída de dados de um bloco de comandos.
-    \nO processamento básico de uma informação possui essa estrutura:</string>
+    <string name="texto1Modulo1Etapa4Licao1">
+        Agora vamos estudar a entrada, processamento e saída de dados de um bloco de comandos.
+        \nO processamento básico de uma informação possui essa estrutura:
+    </string>
     <!--IMAGEM-->
     <string name="texto2Modulo1Etapa4Licao1">
         <b>Entrada:</b> Quando precisamos entrar com algum dado do usuário para ser processado por um algoritmo, utilizamos comandos específicos que permitem a entrada desses dados. (No portugol temos o comando Leia).
@@ -212,76 +367,155 @@
     </string>
 
     <!--LIÇÃO 2-->
-    <string name="texto1Modulo1Etapa4Licao2">Agora, vamos analisar esse algoritmo do ponto de vista da entrada, processamento e saída de dados: </string>
+    <string name="texto1Modulo1Etapa4Licao2">
+        Agora, vamos analisar esse algoritmo do ponto de vista da entrada, processamento e saída de dados: 
+    </string>
     <!--IMAGEM-->
-    <string name="texto2Modulo1Etapa4Licao2">\n1° Passo:  O comando <b>Escreva</b> imprime uma mensagem na tela, instruindo o usuário a digitar o primeiro número (Saída de dados).
-    \n2° Passo: O computador lê o número digitado com o comando leia, e armazena em um espaço na memória que reservamos e chamamos de <b>numero1</b> (Entrada de dados).
-    \n3° Passo: É impressa outra mensagem na tela pedindo para o usuário digitar o segundo número (Saída de dados).
-    \n4° Passo: O computador lê o segundo número da mesma forma como o primeiro, porém armazena em um espaço diferente na memória, com o nome de <b>numero2</b> (Entrada de dados).
-    \n5° Passo: Com os números guardados na memória, o computador então faz a soma dos números e guarda o resultado em um outro espaço na memoria chamado <b>resultado</b>. Note que neste passo, os dados não saem e nem entram no programa. Os dados são somente processados (Processamento).
-    \n6° Passo: O computador devolve os dados processados ao usuário. Nesse caso, o resultado da soma (Saída de dados).
+    <string name="texto2Modulo1Etapa4Licao2">
+        \n1° Passo:  O comando <b>Escreva</b> imprime uma mensagem na tela, instruindo o usuário a digitar o primeiro número (Saída de dados).
+        \n2° Passo: O computador lê o número digitado com o comando leia, e armazena em um espaço na memória que reservamos e chamamos de <b>numero1</b> (Entrada de dados).
+        \n3° Passo: É impressa outra mensagem na tela pedindo para o usuário digitar o segundo número (Saída de dados).
+        \n4° Passo: O computador lê o segundo número da mesma forma como o primeiro, porém armazena em um espaço diferente na memória, com o nome de <b>numero2</b> (Entrada de dados).
+        \n5° Passo: Com os números guardados na memória, o computador então faz a soma dos números e guarda o resultado em um outro espaço na memoria chamado <b>resultado</b>. Note que neste passo, os dados não saem e nem entram no programa. Os dados são somente processados (Processamento).
+        \n6° Passo: O computador devolve os dados processados ao usuário. Nesse caso, o resultado da soma (Saída de dados).
+    </string>
+
+    <!--  ETAPA 5-->
+    <!--  LIÇÃO 1 -->
+    <string name="texto1Modulo1Etapa5Licao1">
+        Você percebeu que deixamos em negrito e repetimos durante várias vezes até aqui o termo <b>espaço na memória</b>? Pois bem, na computação, temos um nome para isso: <b>variáveis e constantes</b>.
+        \nVariáveis e constantes são espaços reservados na memória do computador para guardar um tipo de dado determinado. Só que há uma diferença entre elas: Variáveis, como o próprio nome diz, são valores que <b>podem ser alterados</b> ao decorrer do código, e constantes, também como o próprio nome diz, armazenam <b>valores fixos</b> na memória, que não podem ser alterados. <b>No portugol, as variáveis devem sempre ser declaradas antes de iniciar o programa</b>, mas quando estiver estudando <b>outras </b> linguagens de programação, verá que isso não é obrigatório. 
+        \nAgora, imagine que cada quadrado desse armário é uma <b>posição</b> na <b>memória</b> do computador.
+    </string>
+
+    <!-- IMAGEM 1-->
+    <string name="texto2Modulo1Etapa5Licao1">
+        Este armário sendo a memória do computador, cada variável armazenada na memória corresponderia a uma prateleira no armário. Vamos preencher um pouco essa memória com algumas variáveis  para você entender melhor: 
+        \nAo declararmos as variáveis no início do programa dessa forma:
+        \n<u>Var</u>
+        \n<b>bola</b>: brinquedo
+        \n<b>celular</b>: eletronico  
+        \n<b>boneca</b>: brinquedo 
+        \n<b>tenis</b>: calcado
+        \nEstamos dizendo para o computador <b>reservar espaços</b> para esses dados que iremos utilizar durante a execução do programa. Olhe como a memória ficou preenchida:
+    </string>
+
+    <!-- IMAGEM 2-->
+
+    <string name="texto3Modulo1Etapa5Licao1">
+        Ao decorrer do código, quando estivermos trabalhando com entrada, processamento e saída de dados, precisamos <b>referenciar a variável pelo nome</b> quando queremos alterar ou ler seu valor. Assim como te chamam pelo seu nome quando querem se referenciar a você. E então o computador vai até a memória e grava ou lê aquele espaço na memória. 
+    </string>
+    <!-- LIÇÃO 2 -->
+
+    <string name="texto1Modulo1Etapa5Licao2">
+         Em portugol, esta é a sintaxe para declaração de variáveis: 
+        \n<u>Var</u>
+        \n<b>(nome_da_variavel1) : (tipo_da_variavel1)</b>
+        \n<b>(nome_da_variavel2) : (tipo_da_variavel2)</b> 
+        \nA palavra <b>var</b> é utilizada apenas uma vez na definição de uma ou mais variáveis. Elas possuem duas partes: <b>o nome e seu tipo de dado</b>. O nome de uma variável deve seguir três regras básicas:
+        \n\nUm nome de variável deve começar com uma letra;
+        \nNão pode conter espaços em branco, nem letras com acento;
+        \nNão deve conter nenhum símbolo especial exceto underline “_”.  
+        \n<b>Exemplos:</b> 
+        \nnota1 - Correto, começa com uma letra, não há caracteres especiais nem espaços em branco.
+         \nnota 2 - Errado, contém um espaço em branco.
+        \n9idade - Errado, começa com número.
+        \nnota_3 - Correto, começa com uma letra e há um caractere especial permitido “_” .
+        \nsal/hora - errado (contém o caractere “/”) 
+        \n_desconto - errado (não começou com uma letra) 
+    </string>
+
+    <!--  ETAPA 6-->
+    <!--  LIÇÃO 1-->
+    <string name="texto1Modulo1Etapa6Licao1">
+        As variáveis e as constantes podem ser basicamente de quatro tipos: inteiro, real, lógico ou caractere. 
+        \n<b>1.1 Inteiro:</b> Variáveis <b>inteiras</b> armazenam valores numéricos que não possuem casas decimais. <b>Ex:</b> valorInt <![CDATA[<-]]> 1. (Variável valorInt, do tipo inteiro, recebe 1 como valor).
+        \n<b>1.2 Real:</b> Variáveis <b>reais</b> também armazenam valores numéricos. Porém, com a diferença de que esses valores numéricos podem conter casas decimais. <b>Ex:</b> valorReal <![CDATA[<-]]> 2,9 (variável valorReal, do tipo real, recebe 2,9 como valor).
+        \n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores de texto como letras, dígitos e símbolos. Valores do tipo caractere precisam <b>sempre</b>, <b>sempre</b> estar entre aspas. <b>Ex:</b> valorString <![CDATA[<-]]><b>"Hoje eu fui até o mercado e comprei 3 pacotes de bolacha"</b> (variável valorString, do tipo caractere, recebe uma frase como valor).
+    </string>
+    <!--  DICA-->
+    <string name="texto2Modulo1Etapa6Licao1" >
+        <b>1.4 Lógico (booleana):</b> As variáveis booleanas armazenam <b>estados</b>. Para um computador, há apenas dois estados possíveis: <b>verdadeiro ou falso</b>. 
+        \nPense nesse estado de verdadeiro ou falso como uma porta. Uma porta possui basicamente dois estados possíveis: <b>aberta ou fechada</b>. Se tivéssemos que controlar o <b>estado</b> de uma porta para monitorar se ela está aberta ou fechada, poderíamos declarar uma variável para guardar essas condições. Ela ficaria mais ou menos assim: 
+        \nportaAberta <![CDATA[<-]]> verdadeiro. Isto é, declaramos uma variável portaAberta do tipo lógico recebendo inicialmente o valor verdadeiro, isto é: a porta está aberta.
+
     </string>
 
     <!--STRINGS CAIXAS DICAS-->
     <!--MÓDULO 1-->
     <!--ETAPA 1-->
     <!--LIÇÃO 2-->
-    <string name="dica0Modulo1Etapa1Licao2">No decorrer deste curso vamos lhe guiar pelos conceitos de lógica de programação,
-    porém a lógica é um assunto vasto, e que está presente em quase todas as áreas da nossa vida! Aprender a programar também ajuda a construir um cérebro mais <b>inteligente e racional</b>.</string>
-    <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Os computadores entendem tudo em <b>linguagem binária. 0 e 1.</b> Porém, como nós
-        humanos temos uma estrutura de linguagem diferente de uma máquina, adaptamos nossos idiomas para intermediarem nossa comunicação com os computadores. Já pensou que complicado
-        seria ter que escrever programas em zeros e uns?
+    <string name="dica0Modulo1Etapa1Licao2">
+        No decorrer deste curso vamos lhe guiar pelos conceitos de lógica de programação,
+        porém a lógica é um assunto vasto, e que está presente em quase todas as áreas da nossa vida! 
+        Aprender a programar também ajuda a construir um cérebro mais <b>inteligente e racional</b>.
+    </string>
+
+    <string name="dica1Modulo1Etapa1Licao2">
+        As linguagens de programação são como idiomas para o computador. Os computadores entendem tudo em <b>linguagem binária. 0 e 1.</b> Porém, como nós humanos temos uma estrutura de linguagem diferente de uma máquina, adaptamos nossos idiomas para intermediarem nossa comunicação com os computadores. Já pensou que complicado seria ter que escrever programas em zeros e uns?
         Através da linguagem de programação, um computador pode receber as instruções que escrevemos em uma linguagem amigável, converter para sequências binárias e executá-las. Existem várias linguagens de programação, e elas são diferentes entre si.
-        Porém, todas obedecem um padrâo lógico básico.</string>
+        Porém, todas obedecem um padrâo lógico básico.
+    </string>
 
     <!--ETAPA 2-->
     <!-- LIÇÃO 1-->
-    <string name="dica1Modulo1Etapa2Licao1">Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
-        escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.</string>
+    <string name="dica1Modulo1Etapa2Licao1">
+        Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
+        escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.
+    </string>
     <!--LIÇÃO 3-->
-    <string name="dica0Modulo1Etapa2Licao3">Se sentir necessidade, você pode ampliar a imagem clicando duas vezes nela ou arrastando os dedos em pinça na imagem para ampliá-la</string>
+    <string name="dica0Modulo1Etapa2Licao3">
+        Se sentir necessidade, você pode ampliar a imagem clicando duas vezes nela ou arrastando os dedos em pinça na imagem para ampliá-la
+    </string>
 
     <!--LIÇÃO 4-->
     <string name="dica1Modulo1Etapa2Licao4">Preencha os campos em branco com as palavras corretas</string>
 
     <!--ETAPA 3-->
     <!--LIÇÃo 1-->
-    <string name="dica1Modulo1Etapa3Licao1">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
-    \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele é capaz de executar comandos básicos de programação, e
-        ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>.</string>
+    <string name="dica1Modulo1Etapa3Licao1">
+        O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
+        \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele é capaz de executar comandos básicos de programação, e
+        ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>.
+    </string>
 
     <!--LIÇÃO 3-->
-    <string name="dica1Modulo1Etapa3Licao3">Está curioso para testar esses códigos? Existe um programa para desktop que interpreta esses comandos e te mostra na prática como eles funcionam.
+    <string name="dica1Modulo1Etapa3Licao3">
+        Está curioso para testar esses códigos? Existe um programa para desktop que interpreta esses comandos e te mostra na prática como eles funcionam.
         O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforge.net</b> com uma breve pesquisa no Google. É uma ótima ferramenta
-    para por em prática seus estudos e aprimorar sua lógica. Nós incentivamos você a pensar em outros exemplos, usar sua criatividade e criar novos algoritmos utilizando o VisuAlg.</string>
+        para por em prática seus estudos e aprimorar sua lógica. Nós incentivamos você a pensar em outros exemplos, usar sua criatividade e criar novos algoritmos utilizando o VisuAlg.
+    </string>
 
     <!--ETAPA 4-->
     <!--LICAO 1-->
-    <string name="dica1Modulo1Etapa4Licao1">Você percebeu que podemos aplicar muito bem exemplos de informática no nosso dia a dia?
+    <string name="dica1Modulo1Etapa4Licao1">
+        Você percebeu que podemos aplicar muito bem exemplos de informática no nosso dia a dia?
         Que é possível exemplificar conceitos usando tarefas básicas da nossa vida? Isso é porque a informática está muito ligada com a nossa realidade.
         Alguns dizem até que é uma coisa natural. Você concorda?
     </string>
     <!--LICAO 2-->
-    <string name="dica1Modulo1Etapa4Licao2">Nós como programadores, temos sempre que imaginar como o usuário que estará utilizando o programa irá interpreta-lo.
+    <string name="dica1Modulo1Etapa4Licao2">
+        Nós como programadores, temos sempre que imaginar como o usuário que estará utilizando o programa irá interpreta-lo.
         Por isso, é muito importante deixar bem claro o que ele deve fazer para cumprir as tarefas.
         No caso desse algoritmo, o que aconteceria se esquecêssemos do comando <b>escreva</b> para informar o usuário que ele deveria digitar um número?
-        Ele não saberia o que fazer e nem para que o programa serve, e portanto, o programa se torna <b>inútil</b>.</string>
-    <string name="qtdQuestoesModulo1Etapa1">1 Questão</string>
-    <string name="qtdQuestoesModulo1Etapa2">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa4">2 Questões</string>
+        Ele não saberia o que fazer e nem para que o programa serve, e portanto, o programa se torna <b>inútil</b>.
+    </string>
 
-    <string name="qtdQuestoesModulo1Etapa5">5 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa6">7 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa7">4 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa8">8 Questões</string>
+    <!-- ETAPA 5 -->
+    <!-- LIÇÃO 2-->
+    <string name="dica1Modulo1Etapa5Licao2">Boa pratica: aconselhamos você sempre iniciar suas variáveis com letras minúsculas.</string>
 
-    <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
-
-    <string name="txtAvancar">AVANÇAR</string>
-    <string name="txtChecar">CONFIRMAR</string>
-    <string name="txtTentarNovamente">TENTAR NOVAMENTE</string>
-    <string name="txtConcluir">CONCLUIR</string>
+    <!-- ETAPA 6 -->
+    <!-- LIÇÃO 1 -->
+    <string name="dica1Modulo1Etapa6Licao1">
+        Você percebeu que na variável string há um número? Isso porque o programa entende qualquer valor entre aspas como texto. 
+        Você pode escrever qualquer valor dentro de uma variável do tipo caractere, desde que esteja entre aspas. 
+    </string>
+    <!-- LIÇÃO 2 -->
+    <string name="dica2Modulo1Etapa6Licao1">
+        Estes são os quatro tipos primitivos de variáveis, eles dão origem a todos os outros tipos, que veremos mais para frente. 
+        É <b>muito importante</b> que você compreenda para que cada uma delas é usada. 
+    </string>
 
     <!--PERGUNTAS MÓDULOS-->
     <!--MÓDULO 1-->
@@ -331,10 +565,10 @@
     <!--PERGUNTA 1-->
     <string name="Modulo1Etapa4Pergunta1">Qual o fluxo básico de processamento de um dado?</string>
     <!--ALTERNATIVAS PERGUNTA 1-->
-    <string name="Modulo1Etapa4Pergunta1Alternativa1">saída -> processamento -> entrada</string>
-    <string name="Modulo1Etapa4Pergunta1Alternativa2">processamento -> entrada -> saída</string>
-    <string name="Modulo1Etapa4Pergunta1Alternativa3">entrada -> saída -> processamento</string>
-    <string name="Modulo1Etapa4Pergunta1Alternativa4">entrada -> processamento -> saída</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa1">saída <![CDATA[->]]> processamento <![CDATA[->]]> entrada</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa2">processamento<![CDATA[->]]> entrada <![CDATA[->]]> saída</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa3">entrada <![CDATA[->]]> saída <![CDATA[->]]> processamento</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa4">entrada <![CDATA[->]]> processamento <![CDATA[->]]> saída</string>
 
     <!--PERGUNTA 2 AUTO COMPLETAR-->
     <string name="Modulo1Etapa4Pergunta2">É de costume de todos os programadores ao redor do mundo fazer o computador escrever <![CDATA[“]]>Hello World!<![CDATA[“]]>
@@ -343,7 +577,7 @@
         É só uma lenda, mas você vai duvidar? Então, para acabar com essa maldição, vamos escrever um algoritmo que escreva <![CDATA[“]]>Olá mundo!<![CDATA[“]]> na tela.</string>
     <!--LINHAS AUTO COMPLETAR-->
     <string name="Modulo1Etapa4Pergunta2Linha1">
-        <u>Algoritmo</u> "mensagem"
+        <u>Algoritmo</u> <![CDATA[“]]>mensagem<![CDATA[“]]>
         \n<u>Var</u>
         \n\n\n<u>Inicio</u>
     </string>
@@ -351,8 +585,30 @@
     <string name="Modulo1Etapa4Pergunta2ContinuacaoLinha2">!<![CDATA[“]]>)</string>
     <string name="Modulo1Etapa4Pergunta2Linha3"><u>Fimalgoritmo</u></string>
 
+    <!-- ETAPA 5 -->
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta1">Qual alternativa melhor descreve uma variável?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta1Alternativa1">Variáveis e constantes são espaços reservados na memória do computador para guardar um tipo de dado determinado</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa2">As variáveis são valores que podem ser alteradas conforme a necessidade durante o código</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa3">Todas as alternativas</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa4">As variáveis possuem nomes que servem de referência para que elas sejam acessadas</string>
+    <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa5Pergunta2">Qual variável está declarada corretamente?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta2Alternativa1">variavel-numero-1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa2">variavel_numero_1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa3">variavel numero_1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa4">variavel_número_1</string>
+
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
+
+    <!-- STRINGS DOS BOTÕES DE AVANÇAR, CHECAR RESPOSTA, TENTAR NOVAMENTE E CONCLUIR QUESTÃO -->
+    <string name="txtAvancar">AVANÇAR</string>
+    <string name="txtChecar">CONFIRMAR</string>
+    <string name="txtTentarNovamente">TENTAR NOVAMENTE</string>
+    <string name="txtConcluir">CONCLUIR</string>
 
     <!--TITULOS TABS-->
     <!--ETAPA 1 MODULO 1-->
@@ -377,7 +633,56 @@
         <item></item>
     </string-array>
 
+    <!--ETAPA 4 MODULO 1-->
     <string-array name="tab_modulo1_etapa4">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 5 MODULO 1-->
+    <string-array name="tab_modulo1_etapa5">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 6 MODULO 1-->
+    <string-array name="tab_modulo1_etapa6">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 7 MODULO 1-->
+    <string-array name="tab_modulo1_etapa7">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 8 MODULO 1-->
+    <string-array name="tab_modulo1_etapa8">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 9 MODULO 1-->
+    <string-array name="tab_modulo1_etapa9">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
         <item></item>
         <item></item>
         <item></item>

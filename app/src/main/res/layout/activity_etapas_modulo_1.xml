@@ -27,7 +27,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa1"
+                android:id="@+id/Modulo1Etapa1"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -62,7 +62,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa2"
+                android:id="@+id/Modulo1Etapa2"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -105,7 +105,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa3"
+                android:id="@+id/Modulo1Etapa3"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -141,7 +141,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa4"
+                android:id="@+id/Modulo1Etapa4"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -185,7 +185,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa5"
+                android:id="@+id/Modulo1Etapa5"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -221,7 +221,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa6"
+                android:id="@+id/Modulo1Etapa6"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -265,7 +265,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa7"
+                android:id="@+id/Modulo1Etapa7"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -301,7 +301,7 @@
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa8"
+                android:id="@+id/Modulo1Etapa8"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
@@ -344,7 +344,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:id="@+id/Etapa9"
+                android:id="@+id/Modulo1Etapa9"
                 android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp"
                 android:layout_weight="50">

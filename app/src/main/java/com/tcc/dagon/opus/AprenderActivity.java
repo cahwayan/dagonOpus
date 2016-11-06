@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -174,6 +176,24 @@ public class AprenderActivity extends AppCompatActivity {
         super.onStart();
     }
 
+    @Override
+    protected void onRestart() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
+                {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                } else recreate();
+            }
+        }, 1);
+        super.onRestart();
+    }
+
 
     private void accessViews() {
         // LAYOUTS
@@ -297,17 +317,6 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo9.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
-
-
-        // TROCANDO AS TEXTVIEWS
-        //txtTitulo1.setText(R.string.moduloBloqueado);
-        //txtTitulo2.setText(R.string.moduloBloqueado);
-       // txtTitulo3.setText(R.string.moduloBloqueado);
-        //txtTitulo4.setText(R.string.moduloBloqueado);
-       // txtTitulo5.setText(R.string.moduloBloqueado);
-        //txtTitulo6.setText(R.string.moduloBloqueado);
-        //txtTitulo7.setText(R.string.moduloBloqueado);
-       // txtTitulo8.setText(R.string.moduloBloqueado);
 
         // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
         txtProgresso1.setVisibility(View.GONE);

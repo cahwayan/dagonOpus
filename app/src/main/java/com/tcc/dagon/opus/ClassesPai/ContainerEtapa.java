@@ -69,13 +69,18 @@ public class ContainerEtapa extends AppCompatActivity {
         switch(progresso) {
             default:
                 for(int i = 0; i <= progresso; i += 2) {
-                    mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                    if(mTabLayout.getTabAt(i) != null) {
+                        mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                    }
+
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }
 
                 for (int i=1; i <= progresso; i += 2) {
-                    mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
+                    if(mTabLayout.getTabAt(i) != null) {
+                        mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                    }
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }
