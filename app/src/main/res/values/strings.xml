@@ -241,6 +241,7 @@
     <string name="titulo1Modulo1Etapa7Licao1">1. Operadores</string>
     <!-- LIÇÃO 2 -->
     <string name="titulo1Modulo1Etapa7Licao2">1. Operadores Aritméticos</string>
+    <string name="titulo2Modulo1Etapa7Licao2">2. Ordem de prioridade nos cálculos e expressões</string>
     <!-- LIÇÃO 3 -->
     <string name="titulo1Modulo1Etapa7Licao3">1. Operadores Relacionais</string>
     <!-- LIÇÃO 4 -->
@@ -436,7 +437,7 @@
     <!--  DICA-->
     <string name="texto2Modulo1Etapa6Licao1" >
         <b>1.4 Lógico (booleana):</b> As variáveis booleanas armazenam <b>estados</b>. Para um computador, há apenas dois estados possíveis: <b>verdadeiro ou falso</b>. 
-        \nPense nesse estado de verdadeiro ou falso como uma porta. Uma porta possui basicamente dois estados possíveis: <b>aberta ou fechada</b>. Se tivéssemos que controlar o <b>estado</b> de uma porta para monitorar se ela está aberta ou fechada, poderíamos declarar uma variável para guardar essas condições. Ela ficaria mais ou menos assim: 
+        \nPense nesse estado de verdadeiro ou falso como uma porta. Uma porta possui basicamente dois estados possíveis: <b>aberta ou fechada</b>. Se tivéssemos que controlar o estado de uma porta para monitorar se ela está aberta ou fechada, poderíamos declarar uma variável para guardar essas condições. Ela ficaria mais ou menos assim: 
         \nportaAberta <![CDATA[<-]]> verdadeiro. Isto é, declaramos uma variável portaAberta do tipo lógico recebendo inicialmente o valor verdadeiro, isto é: a porta está aberta.
 
     </string>
