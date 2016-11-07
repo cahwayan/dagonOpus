@@ -214,7 +214,12 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         @Override
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
-                                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                                Intent i = new Intent(MainActivity.this, GerenciarPerfilActivity.class);
+                                i.putExtra("id",sEmail);
+                                startActivity(i);
+
+                                //startActivity(new Intent(getApplicationContext(), GerenciarPerfilActivity.class));
+
                                 finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),

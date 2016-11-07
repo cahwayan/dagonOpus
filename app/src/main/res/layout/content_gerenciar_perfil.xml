@@ -15,49 +15,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayoutG"
+        android:weightSum="1">
 
-        <FrameLayout
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center" >
+        <ImageView
+            android:layout_width="131dp"
+            android:layout_height="50dp"
+            android:id="@+id/iconPerfil"
+            android:layout_alignTop="@+id/linearLayoutG"
 
-            <ImageView
-                android:id="@+id/ivProfile2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@null"
-                android:layout_gravity="center" />
+            android:layout_toLeftOf="@+id/linearLayoutG"
+            android:layout_weight="0.28"
+            android:src="@drawable/icon_foto" />
 
-            <ProgressBar
-                android:id="@+id/pbProfile1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+            android:text="New Text"
+            android:id="@+id/textViewca"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.28" />
 
-            <TextView
-                android:id="@+id/perfilEmail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="teste"
-                android:textColor="#ff0000" />
-
-            <TextView
-                android:id="@+id/perfilNome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#ff0000" />
-
-        </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>
