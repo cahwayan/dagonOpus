@@ -113,7 +113,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity {
 
         }
     }
-//teste
+//testeteste
     private class Encode_image extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {

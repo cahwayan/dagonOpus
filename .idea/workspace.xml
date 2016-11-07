@@ -24,10 +24,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9b60aed-77cf-4986-a936-1ea47c2db049" name="Default" comment="Adicionado recursos de herança, mudanças drásticas no código, jesus AGORA VAI">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="c9b60aed-77cf-4986-a936-1ea47c2db049" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/GerenciarPerfilActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/GerenciarPerfilActivity.java" />
     </list>
     <ignored path="dagonOpus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +72,8 @@
       <file leaf-file-name="GerenciarPerfilActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/GerenciarPerfilActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08006279">
-              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.16012558">
+              <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -3952,7 +3951,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478368290859</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Adicionado recursos de herança, mudanças drásticas no código, jesus AGORA VAI">
+      <created>1478482460043</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1478482460043</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView">
@@ -4407,8 +4412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/GerenciarPerfilActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08006279">
-          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.16012558">
+          <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
           <folding />
         </state>
       </provider>
