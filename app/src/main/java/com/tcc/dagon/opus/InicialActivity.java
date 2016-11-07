@@ -136,12 +136,12 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
                 DB_PROGRESSO.atualizaProgressoLicao(1,2,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,4,15);
-                DB_PROGRESSO.atualizaProgressoLicao(1,5,5);
-                DB_PROGRESSO.atualizaProgressoLicao(1,6,10);
-                DB_PROGRESSO.atualizaProgressoLicao(1,7,7);
-                DB_PROGRESSO.atualizaProgressoLicao(1,8,10);
-                DB_PROGRESSO.atualizaProgressoLicao(1,9,10);
+                DB_PROGRESSO.atualizaProgressoLicao(1,4,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,5,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,6,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,7,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,8,2);
+                DB_PROGRESSO.atualizaProgressoLicao(1,9,3);
             }
         });
 
