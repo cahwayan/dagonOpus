@@ -68,19 +68,16 @@ public class ContainerEtapa extends AppCompatActivity {
         int progresso = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
         switch(progresso) {
             default:
-                for(int i = 0; i <= progresso; i += 2) {
+                for(int i = 0; i <= progresso; i += 1) {
                     if(mTabLayout.getTabAt(i) != null) {
-                        mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                        if( i % 2 == 0) {
+                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                        } else {
+                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
+                        }
+
                     }
 
-                    tabStrip.getChildAt(i).setClickable(true);
-                    tabStrip.getChildAt(i).setEnabled(true);
-                }
-
-                for (int i=1; i <= progresso; i += 2) {
-                    if(mTabLayout.getTabAt(i) != null) {
-                        mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
-                    }
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }

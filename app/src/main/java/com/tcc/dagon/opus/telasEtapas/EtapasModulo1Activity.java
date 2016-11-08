@@ -63,7 +63,9 @@ public class EtapasModulo1Activity extends AppCompatActivity {
         ClickListenersEtapas();
 
         // SETA VOLTAR NA BARRA DE MENU
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // Instanciando o objeto banco
         DB_PROGRESSO = new GerenciadorBanco(this);

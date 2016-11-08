@@ -84,7 +84,7 @@
     <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa4">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa5">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa6">4 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa6">3 Questões</string>
     <string name="qtdQuestoesModulo1Etapa7">4 Questões</string>
     <string name="qtdQuestoesModulo1Etapa8">1 Questão</string>
     <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
@@ -239,16 +239,19 @@
     <!-- ETAPA 7 -->
     <!-- LIÇÃO 1 -->
     <string name="titulo1Modulo1Etapa7Licao1">1. Operadores</string>
+    <string name="titulo2Modulo1Etapa7Licao1">2. Operadores Aritméticos</string>
     <!-- LIÇÃO 2 -->
-    <string name="titulo1Modulo1Etapa7Licao2">1. Operadores Aritméticos</string>
-    <string name="titulo2Modulo1Etapa7Licao2">2. Ordem de prioridade nos cálculos e expressões</string>
+    <string name="titulo1Modulo1Etapa7Licao2">1. Ordem de prioridade nos cálculos e expressões</string>
     <!-- LIÇÃO 3 -->
     <string name="titulo1Modulo1Etapa7Licao3">1. Operadores Relacionais</string>
     <!-- LIÇÃO 4 -->
     <string name="titulo1Modulo1Etapa7Licao4">1. Operadores Lógicos</string>
+    <string name="titulo2Modulo1Etapa7Licao4">2. O operador lógico E, ou, operador AND:</string>
+    <string name="titulo3Modulo1Etapa7Licao4">3. Operador OU, ou operador OR</string>
+    <string name="titulo4Modulo1Etapa7Licao4">4. Operador NÃO ou NOT</string>
     <!-- ETAPA 8 -->
     <!-- LIÇÃO 1 -->
-    <string name="titulo1Modulo1Etapa8Licao1">1. Comentários</string>
+    <string name="titulo1Modulo1Etapa8Licao1">1. Comentários em código</string>
     
     <!-- ETAPAS MÓDULO 2 --> 
 
@@ -260,7 +263,7 @@
         Neste curso você vai aprender lógica de programação de um jeito simples e intuitivo.
         \n\nEste curso foi criado com muito carinho por estudantes como você, pensando em você! Esperamos que você tenha uma boa experiência aqui conosco.
         Você verá que programar não é difícil, basta apenas que você se dedique aos estudos.
-        \n\nE lembre-se: <b>seja paciente, e evite pular etapas.</b> Cada passo é muito importante na construção do seu conhecimento!
+        \n\nE lembre\-se: <b>seja paciente, e evite pular etapas.</b> Cada passo é muito importante na construção do seu conhecimento!
         \n\n<b>Um abraço, e bons estudos!
         \nEquipe Dagon.</b>
     </string>
@@ -320,7 +323,7 @@
         Esse é um algoritmo básico para realizar a soma de dois números e escrever o resultado. Bastante simples, não?
         Como você pode ver, seguimos uma ordem lógica, da mesma forma como fizemos no exemplo anterior, de <b>atravessar uma rua.</b>
         Primeiro pensamos em um número, depois escrevemos esse número. Em seguida pensamos no segundo, e então escrevemos ele também. Daí somamos eles e escrevemos o resultado.
-        Você verá nos próximos passos que um computador pensa de forma semelhante, seguindo a mesma lógica que nós seguimos quando queremos somar dois números!
+        Você verá nos próximos passos que um computador pensa de forma semelhante, seguindo a mesma lógica que nós seguimos quando queremos somar dois números.
     </string>
 
 
@@ -430,17 +433,192 @@
     <!--  LIÇÃO 1-->
     <string name="texto1Modulo1Etapa6Licao1">
         As variáveis e as constantes podem ser basicamente de quatro tipos: inteiro, real, lógico ou caractere. 
-        \n<b>1.1 Inteiro:</b> Variáveis <b>inteiras</b> armazenam valores numéricos que não possuem casas decimais. <b>Ex:</b> valorInt <![CDATA[<-]]> 1. (Variável valorInt, do tipo inteiro, recebe 1 como valor).
-        \n<b>1.2 Real:</b> Variáveis <b>reais</b> também armazenam valores numéricos. Porém, com a diferença de que esses valores numéricos podem conter casas decimais. <b>Ex:</b> valorReal <![CDATA[<-]]> 2,9 (variável valorReal, do tipo real, recebe 2,9 como valor).
-        \n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores de texto como letras, dígitos e símbolos. Valores do tipo caractere precisam <b>sempre</b>, <b>sempre</b> estar entre aspas. <b>Ex:</b> valorString <![CDATA[<-]]><b>"Hoje eu fui até o mercado e comprei 3 pacotes de bolacha"</b> (variável valorString, do tipo caractere, recebe uma frase como valor).
-    </string>
+        \n<b>1.1 Inteiro:</b> Variáveis <b>inteiras</b> armazenam valores numéricos que não possuem casas decimais. 
+        \n<b>Ex:</b> valorInt <![CDATA[<-]]> 1. (Variável valorInt, do tipo inteiro, recebe 1 como valor).
+
+        \n\n<b>1.2 Real:</b> Variáveis <b>reais</b> também armazenam valores numéricos. Porém, com a diferença de que esses valores numéricos podem conter casas decimais. 
+        <b>Ex:</b> valorReal <![CDATA[<-]]> 2,9 (variável valorReal, do tipo real, recebe 2,9 como valor).
+     </string>
+
+      <string name="texto2Modulo1Etapa6Licao1">
+          \n\n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores literais de texto como letras, dígitos e símbolos. 
+          Valores do tipo caractere precisam sempre estar entre aspas, salvo quando o valor a ser atribuído for o de uma outra variável. 
+           <b>Ex1:</b> valorString <![CDATA[<-]]><b>"Hoje eu fui até o mercado e comprei 3 pacotes de bolacha"</b> (variável valorString, do tipo caractere, recebe uma frase como valor).
+      </string>
     <!--  DICA-->
-    <string name="texto2Modulo1Etapa6Licao1" >
+    <string name="texto3Modulo1Etapa6Licao1">
+           <b>Ex2:</b> Na imagem a seguir temos três variáveis: texto1, texto2 e texto3. Note como quando precisamos escrever o valor de uma variável, <b>não utilizamos aspas</b>.
+           \n<b>Algoritmo: </b>
+      </string>
+      <!-- IMAGEM -->
+      <string name="texto4Modulo1Etapa6Licao1">
+           <b>Resultado:</b>
+      </string>
+      <!-- IMAGEM -->
+
+      <!-- DICA 2 -->
+
+      <!-- IMAGEM -->
+      <string name="texto5Modulo1Etapa6Licao1">
+          Nesse algoritmo, o programa escreve na tela uma mensagem informando o usuário para ele escrever seu nome. O computador lê a informação, e guarda em uma 
+          variável com o nome <b>nomeUsuario</b>. Depois, ele escreve na tela uma saudação personalizada com o nome do usuário.
+          Note que o uso das aspas diz para o computador o que ele deve escrever literalmente, e o que é uma variável. E lembre-se sempre de usar o operador de <b>soma</b> para concatenar!
+          \nResultado do código: 
+      </string>
+
+      <!-- IMAGEM -->
+
+    <string name="texto6Modulo1Etapa6Licao1" >
         <b>1.4 Lógico (booleana):</b> As variáveis booleanas armazenam <b>estados</b>. Para um computador, há apenas dois estados possíveis: <b>verdadeiro ou falso</b>. 
         \nPense nesse estado de verdadeiro ou falso como uma porta. Uma porta possui basicamente dois estados possíveis: <b>aberta ou fechada</b>. Se tivéssemos que controlar o estado de uma porta para monitorar se ela está aberta ou fechada, poderíamos declarar uma variável para guardar essas condições. Ela ficaria mais ou menos assim: 
         \nportaAberta <![CDATA[<-]]> verdadeiro. Isto é, declaramos uma variável portaAberta do tipo lógico recebendo inicialmente o valor verdadeiro, isto é: a porta está aberta.
-
     </string>
+
+    <!--  ETAPA 7 -->
+
+    <!-- LIÇÃO 1 -->
+    <string name="texto1Modulo1Etapa7Licao1">
+        Os operadores são meios pelos quais <b>incrementamos, decrementamos, comparamos e avaliamos dados</b> dentro do computador. 
+        Você com certeza usa direta ou indiretamente os operadores no seu dia a dia para tomar decisões e fazer cálculos. Vamos à teoria para que você possa entender melhor o que operadores tem a ver com programação.
+        \nExistem três tipos de operadores: 
+        \n- Operadores Aritméticos 
+        \n- Operadores Relacionais 
+        \n- Operadores Lógicos
+    </string>
+
+    <string name="texto2Modulo1Etapa7Licao1">
+        Os operadores aritméticos são utilizados para obter resultados numéricos, e você com certeza os conhece muito bem: são os sinais das operações matemáticas que aprendemos desde criança a utilizar. 
+        Na programação, temos além da adição, subtração, multiplicação e divisão, o operador para exponenciação e de resto de divisão (módulo). Temos também alguns outros, que veremos mais para frente. 
+        Os principais símbolos para os operadores aritméticos são:
+    </string>
+
+    <!-- IMAGEM 1-->
+
+    <string name="texto3Modulo1Etapa7Licao1">
+        Vamos imaginar que temos duas variáveis: <b>a e b</b>.
+        \n<b>a  <![CDATA[<-]]> 10</b>
+        \n<b>b  <![CDATA[<-]]> 3</b>
+        \nEntão, veja como nossas variáveis seriam interpretadas em cada caso e o resultado delas:
+    </string>
+
+    <!-- IMAGEM 2-->
+
+    <!-- LIÇÃO 2 -->
+
+    <string name="texto1Modulo1Etapa7Licao2">
+        Sempre que tivermos uma expressão aritmética em nosso programa temos que obedecer a <b>ordem de precedência, veja</b>:
+        \n\n<b>resultado  (a + b ^ 2) -  5 * 4 / 10</b>
+        \n\nNesta expressão, o computador primeiramente resolve o que está entre parênteses, logo após o que indica potência, depois a multiplicação ou divisão e por fim a soma ou subtração. A ordem de prioridade é a seguinte:
+        \n1º - <b>( )</b> Parênteses
+        \n2º - <b>^</b> Exponenciação
+        \n3º - <b>* e /</b> Multiplicação e divisão (o que aparecer primeiro) 
+        \n4º - <b>+ ou -</b> Soma e subtração (o que aparecer primeiro)
+        \n\nEntão, a conta seria processada dessa forma:
+        \nPrimeira ordem: <b>(a + b ^ 2) = 19 </b>
+        \nSegunda ordem: <b>5 * 4 =  20</b>
+        \nTerceira ordem:  <b>20/ 10 = 2</b>
+        \nQuarta ordem: <b>19 – 2 = 17</b>
+        <b>\n\nResultado: 17</b>
+    </string>
+
+    <!-- LIÇÃO 3 -->
+
+    <string name="texto1Modulo1Etapa7Licao3">
+        Os operadores relacionais são utilizados para comparar valores em uma expressão ou condição. 
+        O resultado de uma expressão relacional é sempre um valor lógico, ou booleano (verdadeiro ou falso). 
+        Os operadores são: <b>igual, diferente, maior, menor, maior ou igual, menor ou igual</b>. 
+        Eles são auto explicativos, e você irá entendê-los naturalmente ao ver os exemplos a seguir.
+        
+    </string>
+
+    <string name="texto2Modulo1Etapa7Licao3">
+        No Visualg, os operadores são representados utilizando os seguintes símbolos: 
+    </string>
+    <!-- IMAGEM 1-->
+
+    <string name="texto3Modulo1Etapa7Licao3">
+        Vamos fazer um exemplo usando duas variáveis que chamaremos de a e b:
+        \nNossos valores iniciais serão: <b>a = 10 e b = 3</b>.
+        \n\na <![CDATA[>]]> b? (<b>a</b> é maior que <b>b</b>? <b>10</b> é maior que <b>3</b>!) verdadeiro, a é maior que b. 
+        \n\na<![CDATA[<]]> b? (<b>a</b> é menor que <b>b</b>? <b>10</b> não é menor que 3!) falso, <b>a</b> não é menor que <b>b</b>.
+        \n\na <![CDATA[>=]]> b? (<b>a</b> é maior ou igual a <b>b</b>? 10 é maior que 3!) verdadeiro, <b>a</b> é maior ou igual a <b>b</b>.
+        \n\na <![CDATA[<=]]> b? (<b>a</b> é menor ou igual a <b>b</b>? 10 não é menor nem igual a três!) falso, <b>a</b> não é menor ou igual a <b>b</b>.
+        \n\na = b? (<b>a</b> é igual a <b>b</b>? 10 não é igual a 3!) falso, <b>a</b> não é igual a <b>b</b>.
+        \n\na <![CDATA[<>]]> b? (<b>a</b> é diferente de <b>b</b>? 10 é diferente de 3!) verdadeiro, <b>a</b> é diferente de <b>b</b>.
+        \n\na = 1? (<b>a</b> é igual a um? 10 não é igual a 1!) falso, <b>a</b> não é igual a 1.
+        \n\nb <![CDATA[<>]]> 3? (<b>b</b> é diferente de três? 3 é igual a 3!) falso, <b>b</b> é igual a três.
+        \n\na = 5+5? (<b>a</b> é igual a soma de cinco e cinco? 10 é igual a 5+5!) verdadeiro, <b>a</b> é igual a 5+5.
+    </string>
+
+    <!-- LIÇÃO 4 -->
+
+    <string name="texto1Modulo1Etapa7Licao4">
+        \nComo você já sabe, o tipo de dado <b>lógico, ou booleano</b>, pode assumir apenas dois estados: verdadeiro ou falso. 
+        Em eletrônica, alunos costumam aprender esse conceito com o exemplo de uma lâmpada, que pode estar acesa (verdadeiro) ou apagada (falso). 
+        Esses valores booleanos são usados para controlar <b>condições</b> dentro de um programa. 
+        É bastante simples, e pode ser aplicado no nosso dia a dia. Nós temos certeza que você os usa para tomar decisões na sua vida frequentemente. 
+        Vamos relacionar os operadores com situações cotidianas a seguir.
+    </string>
+
+    <string name="texto2Modulo1Etapa7Licao4">
+        O operador <b>E</b> verifica se os dois dados de entrada são verdadeiros. Se um deles for falso, a saída é falso. Veja a tabela:
+    </string>
+
+    <!-- IMAGEM 1--> 
+
+    <string name="texto3Modulo1Etapa7Licao4">
+        Exemplo:
+        \nPara ilustrar a lógica desse operador, imagine que você quer ir ao parque com duas amigas bem próximas, a Ana, e a Clara. 
+        Você faz tanta questão da presença das <b>duas</b>, que apenas irá ao parque se as <b>duas</b> estiverem presentes. Nessa situação, a pergunta que nos fazemos é a seguinte:
+        \nAna <b>E</b> Clara irão ao parque comigo?
+        \nLembrando que a condição é que as duas precisam ir, ou, que as duas condições precisam ser verdadeiras, a interpretação ficaria assim:
+    </string>
+
+    <!-- IMAGEM 2-->
+
+    <string name="texto4Modulo1Etapa7Licao4">
+        \nO operador <b>OU</b>, ou <b>OR</b>, resulta em um valor <b>verdadeiro</b> se ao menos <b><u>um</u></b> dos valores for <b>verdadeiro</b>.
+    Caso contrário, é falso. Veja a tabela:
+</string>
+
+    <!-- IMAGEM3-->
+    <string name="texto5Modulo1Etapa7Licao4">
+        Exemplo:
+        \nVamos continuar com o exemplo da Ana e da Clara. Porém, dessa vez, você está menos exigente, e aceita ir ao parque se <b>qualquer uma das duas forem</b>. 
+        Nesse caso, a pergunta que nos fazemos é a seguinte:
+        \nAna <b>OU</b> Clara irão ao parque?
+        \nLembrando que você aceita ir ao parque se qualquer uma das duas estiverem presentes, a interpretação ficaria assim:
+    </string>
+
+    <!-- IMAGEM 4 --> 
+
+    <string name="texto6Modulo1Etapa7Licao4">
+        O operador NÃO, ou NOT apenas inverte a ordem lógica de uma condição. 
+        Quando o utilizamos, é porque buscamos o valor contrário de uma condição. 
+        Portanto, se um for <b>falso</b>, seu retorno é <b>verdadeiro</b>. 
+        Já se um for <b>verdadeiro</b>, seu retorno é <b>falso</b>. Veja a tabela: 
+    </string>
+
+    <!-- IMAGEM 5 -->
+
+    <!-- ETAPA 8-->
+    <!-- LIÇÃO 1 -->
+    <string name="texto1Modulo1Etapa8Licao1">
+        Quando somos iniciantes, geralmente desenvolvemos algoritmos de complexidade simples. Somos guiados pelos professores, pelos tutoriais, ou por livros, e tudo parece muito simples e legível. Porém, conforme incrementamos as funcionalidades do nosso sistema, e aumentamos o volume de código que ele possui, precisamos utilizar algumas regras de <b>boas práticas</b> para manter o código <b>organizado e legível para todos os colaboradores do projeto que precisarão entender aquele código</b>. Não escreva códigos apenas para que <b>você</b> entenda! Faça o possível para deixar ele legível para <b>todos</b>. 
+        \nPense nas regras de boas práticas no código em como manter a sua mesa de trabalho organizada. Não é muito mais tranquilo trabalhar em um ambiente organizado do que em um bagunçado? Esse é o espírito.
+    </string>
+
+    <!-- DICA -->
+
+    <string name="texto2Modulo1Etapa8Licao1">
+        Um dos recursos que temos para melhorar a legibilidade do código, são os <b>comentários</b>.
+        \nOs comentários são linhas que serão <b>ignoradas pelo programa</b>, e estão lá apenas para guiar os programadores sobre o que aquele pedaço de código faz. Cada linguagem de programação possui sua maneira de escrever comentários, mas todas se parecem. Para deixarmos um comentário no Visualg, utilizamos “//” antes da linha. Veja o exemplo:
+    </string>
+
+    <string name="textoXXModuloXXEtapaXXLicaoXX">
+        
+    </string>
+
 
     <!--STRINGS CAIXAS DICAS-->
     <!--MÓDULO 1-->
@@ -512,11 +690,35 @@
         Você percebeu que na variável string há um número? Isso porque o programa entende qualquer valor entre aspas como texto. 
         Você pode escrever qualquer valor dentro de uma variável do tipo caractere, desde que esteja entre aspas. 
     </string>
+
+    <string name="dica2Modulo1Etapa1Licao1">
+        Se colocássemos o valor das variáveis entre aspas, na hora de imprimir na tela, o computador escreveria o <b>nome</b> das variáveis na tela ao invés de escrever seu valor. Preste bastante atenção nisso, pois é um engano que cometemos no início, e que pode gerar uma dorzinha de cabeça! Note também que podemos concatenar conjuntos de caracteres utilizando o símbolo de soma. Isso é muito útil quando queremos imprimir mensagens personalizadas na tela. Veja a imagem abaixo: 
+    </string>
+
     <!-- LIÇÃO 2 -->
-    <string name="dica2Modulo1Etapa6Licao1">
+    <string name="dica3Modulo1Etapa6Licao1">
         Estes são os quatro tipos primitivos de variáveis, eles dão origem a todos os outros tipos, que veremos mais para frente. 
         É <b>muito importante</b> que você compreenda para que cada uma delas é usada. 
     </string>
+
+    <!-- ETAPA 7 -->
+    <!-- LIÇÃO 3 -->
+    <string name="dica1Modulo1Etapa7Licao3">
+        Os operadores relacionais são diferentes dependendo da linguagem de programação. Porém, aprendê-los em uma linguagem ajuda no aprendizado das outras, pois todas seguem um padrão parecido. 
+    </string>
+
+    <!-- ETAPA 8 -->
+     <string name="dica1Modulo1Etapa8Licao1">
+        É uma boa prática dar nomes às variáveis de acordo com o contexto. Por exemplo, se vamos armazenar o nome do usuário em uma variável string, será muito mais fácil de saber que ela guarda o nome do usuário se o nome dela for algo como ‘nomeUsuario’.
+        \n Imagine se uma variável que guarda o nome de uma cidade tivesse o nome de ‘variavel1’? Ninguém além de quem escreveu saberia o que ela guarda!
+    </string>
+
+
+    <string name="dicaXModuloXEtapaXLicaoX">
+        
+    </string>
+    
+
 
     <!--PERGUNTAS MÓDULOS-->
     <!--MÓDULO 1-->
@@ -587,6 +789,7 @@
     <string name="Modulo1Etapa4Pergunta2Linha3"><u>Fimalgoritmo</u></string>
 
     <!-- ETAPA 5 -->
+
     <!-- PERGUNTA 1 -->
     <string name="Modulo1Etapa5Pergunta1">Qual alternativa melhor descreve uma variável?</string>
     <!-- ALTERNATIVAS PERGUNTA 1 -->
@@ -601,6 +804,96 @@
     <string name="Modulo1Etapa5Pergunta2Alternativa2">variavel_numero_1</string>
     <string name="Modulo1Etapa5Pergunta2Alternativa3">variavel numero_1</string>
     <string name="Modulo1Etapa5Pergunta2Alternativa4">variavel_número_1</string>
+
+    <!-- ETAPA 6 -->
+
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa6Pergunta1">Qual tipo de dado uma variável inteira armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa6Pergunta1Alternativa1">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa2">Conjuntos de caracteres</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa3">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa4">Valores lógicos</string>
+
+    <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa6Pergunta2">Qual tipo de dado uma variável real armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2 -->
+    <string name="Modulo1Etapa6Pergunta2Alternativa1">Valores lógicos</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa2">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa3">Conjuntos de caracteres</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa4">Valores numéricos sem casas decimais</string>
+
+    <!-- PERGUNTA 3 -->
+    <string name="Modulo1Etapa6Pergunta3">Qual tipo de dado uma variável caractere, ou <b>string</b> armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 3 -->
+    <string name="Modulo1Etapa6Pergunta3Alternativa1">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa2">Valores lógicos</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa3">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa4">Um conjunto de caracteres que pode incluir letras, números e símbolos, desde que esteja entre aspas (salvo em caso de variáveis, nesse caso não utilizamos aspas, senão o programa irá escrever o nome da variável ao invés de escrever seu valor)</string>
+
+    <!-- PERGUNTA 4 -->
+    <string name="Modulo1Etapa6Pergunta4">Qual tipo de dado uma variável booleana, ou lógica armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 4 -->
+    <string name="Modulo1Etapa6Pergunta4Alternativa1">Um conjunto de caracteres que pode incluir letras, números e símbolos, desde que esteja devidamente entre aspas</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa2">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa3">Valores lógicos. Variáveis lógicas armazenam dois estados: verdadeiro ou falso.</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa4">Valores numéricos com casas decimais</string>
+
+    <!-- ETAPA 7 -->
+
+     <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa7Pergunta1">Para que servem os operadores aritméticos?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa7Pergunta1Alternativa1">Os operadores aritméticos são utilizados para processar e obter resultados numéricos</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa2">Os operadores aritméticos são utilizados para relacionar variáveis com expressões ou valores, comparando – as e gerando um resultado lógico.</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa3">Os operadores aritméticos comparam um valor lógico com outro valor lógico</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa4">Os operadores aritméticos são usados para monitorar o estado de uma variável</string>
+
+     <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa7Pergunta2">Qual a ordem de prioridade no cálculo de expressões matemáticas na programação?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo1Etapa7Pergunta2Alternativa1">Parênteses, ponto e vírgula, multiplicação e soma</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa2">Parênteses, exponenciação, multiplicação e divisão, soma e subtração</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa3">Chaves, parênteses, multiplicação, subtração e divisão</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa4">Divisão e soma, subtração e multiplicação, parênteses </string>
+
+    <!-- AUTO COMPLETAR, PERGUNTA 3 -->
+    <string name="Modulo1Etapa7Pergunta3">
+        Considere o valor das variáveis a seguir e escreva se o resultado da expressão é verdadeiro ou falso:
+        \nVariáveis:
+        <b>\na = 4
+            \nb = 8
+            \nc = 9</b>
+    </string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa7Pergunta3Linha1">a = b ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha2">b <![CDATA[<>]]> c ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha3">b = 4 + 4 ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha4">c <![CDATA[<=]]> b ?</string>
+    <string name="Modulo1Etapa7Pergunta3Linha5">a <![CDATA[>=]]> 4 ?</string>
+    <string name="Modulo1Etapa7Pergunta3Linha6">b <![CDATA[<]]> a ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha7">c <![CDATA[>]]> b ?</string>
+
+    <!-- AUTO COMPLETAR, PERGUNTA 4 -->
+    <string name="Modulo1Etapa7Pergunta4">
+        Qual é o resultado lógico das expressões relacionais a seguir?
+    </string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa7Pergunta4Linha1">Verdadeiro <b>E</b> Verdadeiro = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha2">Verdadeiro <b>E</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha3">Falso <b>E</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha4">\n\nVerdadeiro <b>OU</b> Verdadeiro = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha5">Verdadeiro <b>OU</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha6">Falso <b>OU</b> Falso = </string>
+
+    <!-- ETAPA 8 -->
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa8Pergunta1">Para que servem comentários em códigos?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo1Etapa8Pergunta1Alternativa1">Para escrever piadas no meio do código e seus amigos possam ler e se descontrair durante o trabalho</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa2">Comentários são usados por programadores relaxados para explicar códigos mal escritos</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa3">Para escrever instruções para o computador executar tarefas</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa4">Comentários são linhas ignoradas pelo programa, e que servem apenas para guiar os programadores sobre as funcionalidades do código e aumentar a legibilidade.</string>
 
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
@@ -664,16 +957,14 @@
         <item></item>
         <item></item>
         <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
     </string-array>
 
     <!--ETAPA 8 MODULO 1-->
     <string-array name="tab_modulo1_etapa8">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
         <item></item>
         <item></item>
     </string-array>

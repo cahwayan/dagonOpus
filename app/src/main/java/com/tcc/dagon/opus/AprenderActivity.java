@@ -184,13 +184,13 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
-                {
-                    finish();
-                    startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
-                } else recreate();
+                desbloquearModulos();
+                progressBars();
+                progressoTextView();
             }
         }, 1);
+
+
         super.onRestart();
     }
 
@@ -410,7 +410,7 @@ public class AprenderActivity extends AppCompatActivity {
 
 
     // VERIFICANDO E MUDANDO O PROGRESSO DAS TEXTVIEWS
-    private void desbloquearModulos() {
+    public void desbloquearModulos() {
         // SWITCH VAI ATÉ O BANCO E VERIFICA EM QUAL MÓDULO O USUÁRIO ESTÁ
         switch(DB_PROGRESSO.verificaProgressoModulo()) {
             // DE ACORDO COM O PROGRESSO (1 A 8), OS MÓDULOS SÃO LIBERADOS
