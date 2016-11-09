@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -168,6 +170,38 @@ public class Completar extends Fragment {
                 tentarNovamente();
             }
         });
+
+        /*
+        EM TESTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+        for(int i = 0; i == linhasCompletar.length; i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].addTextChangedListener(new TextWatcher() {
+                int x;
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if(linhasCompletar[x].getText().length() == respostasCertas[x].length()) {
+                        if(linhasCompletar[x++ ] != null) {
+                            linhasCompletar[x ++].requestFocus();
+                            x++;
+                        }
+
+                    }
+                }
+
+            });
+        }
+
+        */
     }
 
     // MÉTODO QUE CHECA RESPOSTAS DO COMPLETAR
