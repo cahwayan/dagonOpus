@@ -17,9 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.PulseAnimation;
+import java.util.List;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -53,26 +55,14 @@ public class Completar extends Fragment {
     // VARIÁVEL QUE VÊ SE O LIMITE DA EDIT TEXT FOI ATINGIDO
     protected boolean isReached = false;
 
-    // EDIT TEXTS DO COMPLETAR
-    protected EditText linha1Palavra1, linha1Palavra2, linha1Palavra3, linha1Palavra4,
-                       linha2Palavra1, linha2Palavra2, linha2Palavra3, linha2Palavra4,
-                       linha3Palavra1, linha3Palavra2, linha3Palavra3, linha3Palavra4,
-                       linha4Palavra1, linha4Palavra2, linha4Palavra3, linha4Palavra4;
+    protected List<EditText> listaEditTexts;
+    protected EditText linhasCompletar[] ;
 
-    protected String  sLinha1Palavra1, sLinha1Palavra2, sLinha1Palavra3, sLinha1Palavra4,
-                      sLinha2Palavra1, sLinha2Palavra2, sLinha2Palavra3, sLinha2Palavra4,
-                      sLinha3Palavra1, sLinha3Palavra2, sLinha3Palavra3, sLinha3Palavra4,
-                      sLinha4Palavra1, sLinha4Palavra2, sLinha4Palavra3, sLinha4Palavra4;
 
-    protected String respostaLinha1Palavra1Acentuada, respostaLinha1Palavra2Acentuada, respostaLinha1Palavra3Acentuada, respostaLinha1Palavra4Acentuada,
-                     respostaLinha2Palavra1Acentuada, respostaLinha2Palavra2Acentuada, respostaLinha2Palavra3Acentuada, respostaLinha2Palavra4Acentuada,
-                     respostaLinha3Palavra1Acentuada, respostaLinha3Palavra2Acentuada, respostaLinha3Palavra3Acentuada, respostaLinha3Palavra4Acentuada,
-                     respostaLinha4Palavra1Acentuada, respostaLinha4Palavra2Acentuada, respostaLinha4Palavra3Acentuada, respostaLinha4Palavra4Acentuada;
 
-    protected String    respostaLinha1Palavra1, respostaLinha1Palavra2, respostaLinha1Palavra3, respostaLinha1Palavra4,
-                        respostaLinha2Palavra1, respostaLinha2Palavra2, respostaLinha2Palavra3, respostaLinha2Palavra4,
-                        respostaLinha3Palavra1, respostaLinha3Palavra2, respostaLinha3Palavra3, respostaLinha3Palavra4,
-                        respostaLinha4Palavra1, respostaLinha4Palavra2, respostaLinha4Palavra3, respostaLinha4Palavra4;
+    protected String respostasUsuario[];
+    protected String[] respostasCertas, respostasCertasAcentuadas;
+
     
     // IMAGENS DE CERTO E ERRADO
     protected ImageView imgRespostaCerta, imgRespostaErrada;
@@ -122,10 +112,24 @@ public class Completar extends Fragment {
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
         btnAvancar.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
+
+        linhasCompletar = new EditText[listaEditTexts.size()];
+        respostasUsuario = new String[listaEditTexts.size()];
+
+
+
     }
 
 
     protected void listeners() {
+
+        // LISTENER BOTÃO CHECAR RESPOSTA
+        btnChecar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
 
         // BOTAO AVANÇAR LICAO
         btnAvancar.setOnClickListener(new View.OnClickListener() {
@@ -141,33 +145,152 @@ public class Completar extends Fragment {
                 tentarNovamente();
             }
         });
+
+
+        // LISTENER QUE VERIFICA QUANDO A ABA SELECIONADA É MUDADA, SELECIONADA ou RE-SELECIONADA
+        // ELE É IMPORTANTE PARA ESVAZIAR AS EDIT TEXTS AO SAIR DA ATIVIDADE ENQUANTO ESTÃO PREENCHIDAS
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+
+                tentarNovamente();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tentarNovamente();
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                tentarNovamente();
+            }
+        });
+    }
+
+    // MÉTODO QUE CHECA RESPOSTAS DO COMPLETAR
+    protected void checarRespostasCompletar(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        int i;
+        int qtdRespostasCorretas = 0;
+        // ESSE LOOP ENCHE OS VETORES COM OS DADOS A SEREM CHECADOS
+        for(i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            // ENCHENDO O VETOR DE EDIT TEXTS COM A LISTA DE OBJETOS
+            linhasCompletar[i] = listaEditTexts.get(i);
+
+            // PASSANDO AS STRINGS QUE ESTÃO NAS EDIT TEXTS PARA UM VETOR PARA PODER COMPARAR
+            respostasUsuario[i] = linhasCompletar[i].getText().toString();
+        }
+
+        // DE 0 ATÉ O TAMANHO DA LISTA QUE SERÁ DEFINIDA NA CLASSE FILHA, INCREMENTE
+        for(i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            // SE TIVER CAMPO EM BRANCO, EMITA UM AVISO
+            if(respostasUsuario[i].isEmpty() )
+            {
+                    Toast.makeText(getActivity(), "Há campos em branco!", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+
+        // ESSE LOOP VERIFICA A QUANTIDADE DE RESPOSTAS CORRETAS
+        for (i = 0; i <= (listaEditTexts.size()) - 1; i++) {
+            // SE A RESPOSTA DO USUARIO FORNECIDA NA POSIÇÃO I FOR IGUAL A RESPOSTA CERTA DEFINIDA NA CLASSE FILHA, OU IGUAL À VERSÃO ACENTUADA,
+            // INCREMENTAR 1 NA QUANTIDADE DE RESPOSTAS CORRETAS
+            if(respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) || respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i])) {
+                qtdRespostasCorretas++;
+            }
+        }
+
+        // SE A QUANTIDADE DE RESPOSTAS CORRETAS FOR IGUAL AO TAMANHO DO VETOR DE EDIT TEXTS, SIGNIFICA QUE O USUÁRIO ACERTOU TODAS AS PALAVRAS
+        if(qtdRespostasCorretas == linhasCompletar.length) {
+            respostaCerta();
+        } else {
+            // SE NÃO FOR IGUAL, ELE ERROU, CHAMAR MÉTODO DE RESPOSTA ERRADA COM OS PARÂMETROS
+            respostaErrada(respostasCertas, respostasCertasAcentuadas);
+        }
+
     }
 
     // MÉTODO QUE DESABILITA OS RADIO BUTTONS
     // PARA QUE O USUÁRIO NÃO POSSA TROCAR DE RESPOSTA DEPOIS DE CLICAR EM CHECAR
-    protected void desabilitarEditTexts() {
-
+    protected void desabilitarEditTexts(List<EditText> listaEditTexts) {
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].setInputType(InputType.TYPE_NULL);
+            linhasCompletar[i].setFocusable(false);
+            linhasCompletar[i].setFocusableInTouchMode(false);
+        }
     }
 
     //MÉTODO QUE HABILITA NOVAMENTE OS RADIO BUTTONS
     //PARA TRAZER DE VOLTA OS BOTÔES DEPOIS DE CLICAR EM TENTAR NOVAMENTE OU RETORNAR A ATIVIDADE
-    protected void habilitarEditTexts() {
-
+    protected void habilitarEditTexts(List<EditText> listaEditTexts) {
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].setInputType(InputType.TYPE_CLASS_TEXT);
+            linhasCompletar[i].setFocusable(true);
+            linhasCompletar[i].setFocusableInTouchMode(true);
+        }
     }
 
     // MÉTODO DE LIMPAR AS EDIT TEXTS
-    protected void limparEditTexts() {
-
+    protected void limparEditTexts(List<EditText> listaEditTexts) {
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].setText("");
+        }
     }
 
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
+        // TOCAR SOM DE RESPOSTA CERTA
+        somRespostaCerta.start();
 
+        // ANIMAÇÃO RESPOSTA CERTA
+        imgRespostaCerta.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaCerta)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
+
+        // DESABILITAR RADIO BUTTONS
+        desabilitarEditTexts(listaEditTexts);
+
+        //TRAZENDO O BOTÃO AVANÇAR
+        btnAvancar.setVisibility(View.VISIBLE);
     }
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
-    protected void respostaErrada() {
+    protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        // TOCAR SOM DE RESPOSTA ERRADA
+        somRespostaErrada.start();
+        // ANIMAÇÃO RESPOSTA ERRADA
+        imgRespostaErrada.setVisibility(View.VISIBLE);
+        PulseAnimation.create().with(imgRespostaErrada)
+                .setDuration(310)
+                .setRepeatCount(PulseAnimation.INFINITE)
+                .setRepeatMode(PulseAnimation.REVERSE)
+                .start();
 
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) && !respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
+
+                linhasCompletar[i] = listaEditTexts.get(i);
+                linhasCompletar[i].setTextColor(Color.RED);
+
+            }
+        }
+
+        // DESABILITAR RADIO BUTTONS
+        desabilitarEditTexts(listaEditTexts);
+
+        // SUMINDO COM O BOTAO CHECAR
+        btnChecar.setVisibility(View.GONE);
+
+        // TRAZENDO BOTÃO TENTAR NOVAMENTE
+        btnTentarNovamente.setVisibility(View.VISIBLE);
     }
 
     protected void concluirCompletar() {
@@ -189,8 +312,10 @@ public class Completar extends Fragment {
     }
 
     protected void avancarCompletar() {
-        limparEditTexts();
-        habilitarEditTexts();
+
+        limparEditTexts(listaEditTexts);
+        habilitarEditTexts(listaEditTexts);
+
         // SUMINDO COM O BOTAO TENTAR NOVAMENTE
         btnAvancar.setVisibility(View.GONE);
 
@@ -225,6 +350,27 @@ public class Completar extends Fragment {
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
     protected void tentarNovamente() {
 
+        // SUMINDO COM O BOTAO TENTAR NOVAMENTE
+        btnTentarNovamente.setVisibility(View.GONE);
+
+        // TRAZENDO O BOTAO CHECAR
+        btnChecar.setVisibility(View.VISIBLE);
+
+        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
+        imgRespostaCerta.setVisibility(View.GONE);
+        imgRespostaErrada.setVisibility(View.GONE);
+
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].setTextColor(Color.BLACK);
+        }
+
+        // DESMARCANDO OS RADIO BUTTONS
+        limparEditTexts(listaEditTexts);
+
+        // HABILITANDO RADIO BUTTONS DE NOVO
+        habilitarEditTexts(listaEditTexts);
+
     }
 
     protected void moveNext(View view) {
@@ -241,7 +387,7 @@ public class Completar extends Fragment {
     }
 
     protected void invocaTeclado() {
-        linha2Palavra1.requestFocus();
+        //linha2Palavra1.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }

@@ -187,24 +187,17 @@ public class Questao extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
-                habilitarRadioButtons();
+                tentarNovamente();
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                desmarcarRadioButtons();
-                btnAvancar.setVisibility(View.GONE);
-                btnTentarNovamente.setVisibility(View.GONE);
-                btnChecar.setVisibility(View.VISIBLE);
-
-                // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-                imgRespostaCerta.setVisibility(View.GONE);
-                imgRespostaErrada.setVisibility(View.GONE);
+                tentarNovamente();
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                tentarNovamente();
             }
         });
 
