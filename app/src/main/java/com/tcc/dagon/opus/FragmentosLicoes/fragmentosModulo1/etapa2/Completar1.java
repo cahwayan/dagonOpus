@@ -95,7 +95,24 @@ public class Completar1 extends Completar {
         /*LISTENERS DAS EDIT TEXTS PARA AVANÇAREM QUANDO FOR PREENCHIDA A PALAVRA*/
         // LINHA 2
 
+        linha2Palavra1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(linha2Palavra1.getText().length() == 5) {
+                    linha2Palavra2.requestFocus();
+                }
+            }
+        });
 
         linha2Palavra2.addTextChangedListener(new TextWatcher() {
             @Override

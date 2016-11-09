@@ -1,21 +1,14 @@
 package com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.view.View.OnClickListener;
-import android.widget.Toast;
 import com.tcc.dagon.opus.ClassesPai.Completar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.utils.PulseAnimation;
 
 import java.util.ArrayList;
 
