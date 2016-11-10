@@ -441,9 +441,9 @@
      </string>
      <!-- DICA -->
       <string name="texto2Modulo1Etapa6Licao1">
-          \n\n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores literais de texto como letras, dígitos e símbolos. 
+          \n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores literais de texto como letras, dígitos e símbolos. 
           Valores do tipo caractere precisam sempre estar entre aspas, salvo quando o valor a ser atribuído for o de uma outra variável. 
-           <b>Ex1:</b> valorString <![CDATA[<-]]><b>"Hoje eu fui até o mercado e comprei 3 pacotes de bolacha"</b> (variável valorString, do tipo caractere, recebe uma frase como valor).
+           <b>Ex1:</b> \nvalorString <![CDATA[<-]]><b> <![CDATA[“]]> Hoje eu fui até o mercado e comprei 3 pacotes de bolacha<![CDATA[“]]></b> (variável valorString, do tipo caractere, recebe uma frase como valor).
       </string>
     <!--  DICA-->
     <string name="texto3Modulo1Etapa6Licao1">
