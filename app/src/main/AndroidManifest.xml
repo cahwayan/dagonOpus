@@ -62,6 +62,18 @@
             android:label="@string/TituloEtapa4Modulo1"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa5"
+            android:label="@string/TituloEtapa5Modulo1"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa6"
+            android:label="@string/TituloEtapa6Modulo1"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

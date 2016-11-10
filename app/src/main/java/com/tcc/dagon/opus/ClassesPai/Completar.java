@@ -58,12 +58,10 @@ public class Completar extends Fragment {
     protected boolean isReached = false;
 
     protected List<EditText> listaEditTexts;
-    protected EditText linhasCompletar[] ;
-
-
+    protected EditText linhasCompletar[];
 
     protected String respostasUsuario[];
-    protected String[] respostasCertas, respostasCertasAcentuadas;
+
 
     
     // IMAGENS DE CERTO E ERRADO
@@ -117,34 +115,16 @@ public class Completar extends Fragment {
 
         linhasCompletar = new EditText[listaEditTexts.size()];
         respostasUsuario = new String[listaEditTexts.size()];
-
-
-
     }
 
 
     protected void listeners() {
-
-        // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
 
         // BOTAO AVANÇAR LICAO
         btnAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 concluirCompletar();
-            }
-        });
-
-        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tentarNovamente();
             }
         });
 
@@ -157,17 +137,17 @@ public class Completar extends Fragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
 
-                tentarNovamente();
+                resetarEditTexts();
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                tentarNovamente();
+                resetarEditTexts();
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                tentarNovamente();
+                resetarEditTexts();
             }
         });
 
@@ -210,10 +190,8 @@ public class Completar extends Fragment {
         int qtdRespostasCorretas = 0;
         // ESSE LOOP ENCHE OS VETORES COM OS DADOS A SEREM CHECADOS
         for(i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            // ENCHENDO O VETOR DE EDIT TEXTS COM A LISTA DE OBJETOS
-            linhasCompletar[i] = listaEditTexts.get(i);
-
             // PASSANDO AS STRINGS QUE ESTÃO NAS EDIT TEXTS PARA UM VETOR PARA PODER COMPARAR
+            linhasCompletar[i] = listaEditTexts.get(i);
             respostasUsuario[i] = linhasCompletar[i].getText().toString();
         }
 
@@ -276,6 +254,29 @@ public class Completar extends Fragment {
         }
     }
 
+    protected void resetarEditTexts() {
+        limparEditTexts(listaEditTexts);
+        habilitarEditTexts(listaEditTexts);
+
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            linhasCompletar[i] = listaEditTexts.get(i);
+            linhasCompletar[i].setTextColor(Color.BLACK);
+        }
+
+
+    }
+
+    protected void limparEditTextsVermelhas(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            respostasUsuario[i] = linhasCompletar[i].getText().toString();
+            if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) && !respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
+                linhasCompletar[i] = listaEditTexts.get(i);
+                linhasCompletar[i].setText("");
+            }
+        }
+    }
+
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
         // TOCAR SOM DE RESPOSTA CERTA
@@ -310,10 +311,8 @@ public class Completar extends Fragment {
 
         for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
             if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) && !respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
-
                 linhasCompletar[i] = listaEditTexts.get(i);
                 linhasCompletar[i].setTextColor(Color.RED);
-
             }
         }
 
@@ -382,7 +381,7 @@ public class Completar extends Fragment {
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
-    protected void tentarNovamente() {
+    protected void tentarNovamente(String[] respostasCertas, String[] respostasCertasAcentuadas) {
 
         // SUMINDO COM O BOTAO TENTAR NOVAMENTE
         btnTentarNovamente.setVisibility(View.GONE);
@@ -399,8 +398,8 @@ public class Completar extends Fragment {
             linhasCompletar[i].setTextColor(Color.BLACK);
         }
 
-        // DESMARCANDO OS RADIO BUTTONS
-        limparEditTexts(listaEditTexts);
+        // LIMPANDO AS EDIT TEXTS VERMELHAS
+        limparEditTextsVermelhas(respostasCertas, respostasCertasAcentuadas);
 
         // HABILITANDO RADIO BUTTONS DE NOVO
         habilitarEditTexts(listaEditTexts);

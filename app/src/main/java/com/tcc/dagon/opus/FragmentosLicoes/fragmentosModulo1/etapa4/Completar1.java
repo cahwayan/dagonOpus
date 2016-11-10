@@ -2,6 +2,8 @@ package com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +81,51 @@ public class Completar1 extends Completar {
             @Override
             public void onClick(View v) {
                 checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
+
+        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
+
+        linha2Palavra1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(linha2Palavra1.getText().length() == 3) {
+                    linha2Palavra2.requestFocus();
+                }
+            }
+        });
+
+        linha2Palavra2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(linha2Palavra2.getText().length() == 5) {
+                    escondeTeclado();
+                }
             }
         });
 

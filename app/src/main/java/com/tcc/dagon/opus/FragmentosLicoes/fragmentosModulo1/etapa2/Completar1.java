@@ -13,6 +13,7 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2
 import com.tcc.dagon.opus.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -26,7 +27,7 @@ public class Completar1 extends Completar {
                      linha4Palavra1,
                      linha4Palavra2;
 
-    private String[] respostasCertas ;
+    private String[] respostasCertas;
     private String[] respostasCertasAcentuadas;
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -61,23 +62,22 @@ public class Completar1 extends Completar {
         linha4Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra1);
         linha4Palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra2);
 
+        // INSTANCIANDO A LISTA
         listaEditTexts = new ArrayList<>();
 
-        listaEditTexts.add( linha2Palavra1 );
-        listaEditTexts.add( linha2Palavra2 );
-        listaEditTexts.add( linha2Palavra3 );
+        // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
+        linhasCompletar = new EditText[] {linha2Palavra1, linha2Palavra2, linha2Palavra3,
+                                          linha3Palavra1,
+                                          linha4Palavra1, linha4Palavra2};
 
-        listaEditTexts.add( linha3Palavra1 );
-
-        listaEditTexts.add( linha4Palavra1 );
-        listaEditTexts.add( linha4Palavra2 );
+        // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
+        listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
         super.accessViews();
 
+        // CRIANDO OS VETORES DE RESPOSTAS
         respostasCertas = new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"};
         respostasCertasAcentuadas = new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"};
-
-
     }
 
 
@@ -89,6 +89,13 @@ public class Completar1 extends Completar {
             @Override
             public void onClick(View v) {
                 checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
+
+        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
             }
         });
 

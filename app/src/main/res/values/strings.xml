@@ -84,7 +84,7 @@
     <string name="qtdQuestoesModulo1Etapa3">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa4">2 Questões</string>
     <string name="qtdQuestoesModulo1Etapa5">2 Questões</string>
-    <string name="qtdQuestoesModulo1Etapa6">3 Questões</string>
+    <string name="qtdQuestoesModulo1Etapa6">4 Questões</string>
     <string name="qtdQuestoesModulo1Etapa7">4 Questões</string>
     <string name="qtdQuestoesModulo1Etapa8">1 Questão</string>
     <string name="qtdQuestoesModulo1Etapa9">8 Questões</string>
@@ -412,21 +412,21 @@
     <!-- LIÇÃO 2 -->
 
     <string name="texto1Modulo1Etapa5Licao2">
-         Em portugol, esta é a sintaxe para declaração de variáveis: 
-        \n<u>Var</u>
-        \n<b>(nome_da_variavel1) : (tipo_da_variavel1)</b>
-        \n<b>(nome_da_variavel2) : (tipo_da_variavel2)</b> 
-        \nA palavra <b>var</b> é utilizada apenas uma vez na definição de uma ou mais variáveis. Elas possuem duas partes: <b>o nome e seu tipo de dado</b>. O nome de uma variável deve seguir três regras básicas:
-        \n\nUm nome de variável deve começar com uma letra;
-        \nNão pode conter espaços em branco, nem letras com acento;
-        \nNão deve conter nenhum símbolo especial exceto underline “_”.  
-        \n<b>Exemplos:</b> 
-        \nnota1 - Correto, começa com uma letra, não há caracteres especiais nem espaços em branco.
-         \nnota 2 - Errado, contém um espaço em branco.
-        \n9idade - Errado, começa com número.
-        \nnota_3 - Correto, começa com uma letra e há um caractere especial permitido “_” .
-        \nsal/hora - errado (contém o caractere “/”) 
-        \n_desconto - errado (não começou com uma letra) 
+        Em portugol, esta é a sintaxe para declaração de variáveis: 
+        \n\n<u><b>Var</b></u>
+        \n\n<b>(nome_variavel1):(tipo_variavel1)</b>
+        \n<b>(nome_variavel2):(tipo_variavel2)</b> 
+        \n\nA palavra <b>var</b> é utilizada apenas uma vez na definição de uma ou mais variáveis. Elas possuem duas partes: <b>o nome e seu tipo de dado</b>. O nome de uma variável deve seguir três regras básicas:
+        \n\n1 - Um nome de variável deve começar com uma letra;
+        \n2 - Não pode conter espaços em branco, nem letras com acento;
+        \n3 - Não deve conter nenhum símbolo especial exceto underline “_”.  
+        \n\n<b>Exemplos:</b> 
+        \n\n<b>nota1</b> - Correto, começa com uma letra, não há caracteres especiais nem espaços em branco.
+        \n<b>nota 2</b> - Errado, contém um espaço em branco.
+        \n<b>9idade</b> - Errado, começa com número.
+        \n<b>nota_3</b> - Correto, começa com uma letra e há um caractere especial permitido “_” .
+        \n<b>sal/hora</b> - errado (contém o caractere “/”) 
+        \n<b>_desconto</b> - errado (não começou com uma letra) 
     </string>
 
     <!--  ETAPA 6-->
@@ -439,7 +439,7 @@
         \n\n<b>1.2 Real:</b> Variáveis <b>reais</b> também armazenam valores numéricos. Porém, com a diferença de que esses valores numéricos podem conter casas decimais. 
         <b>Ex:</b> valorReal <![CDATA[<-]]> 2,9 (variável valorReal, do tipo real, recebe 2,9 como valor).
      </string>
-
+     <!-- DICA -->
       <string name="texto2Modulo1Etapa6Licao1">
           \n\n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores literais de texto como letras, dígitos e símbolos. 
           Valores do tipo caractere precisam sempre estar entre aspas, salvo quando o valor a ser atribuído for o de uma outra variável. 
@@ -682,7 +682,7 @@
 
     <!-- ETAPA 5 -->
     <!-- LIÇÃO 2-->
-    <string name="dica1Modulo1Etapa5Licao2">Boa pratica: aconselhamos você sempre iniciar suas variáveis com letras minúsculas.</string>
+    <string name="dica1Modulo1Etapa5Licao2">\nBoa pratica: aconselhamos você sempre iniciar suas variáveis com letras minúsculas.\n</string>
 
     <!-- ETAPA 6 -->
     <!-- LIÇÃO 1 -->
@@ -691,7 +691,7 @@
         Você pode escrever qualquer valor dentro de uma variável do tipo caractere, desde que esteja entre aspas. 
     </string>
 
-    <string name="dica2Modulo1Etapa1Licao1">
+    <string name="dica2Modulo1Etapa6Licao1">
         Se colocássemos o valor das variáveis entre aspas, na hora de imprimir na tela, o computador escreveria o <b>nome</b> das variáveis na tela ao invés de escrever seu valor. Preste bastante atenção nisso, pois é um engano que cometemos no início, e que pode gerar uma dorzinha de cabeça! Note também que podemos concatenar conjuntos de caracteres utilizando o símbolo de soma. Isso é muito útil quando queremos imprimir mensagens personalizadas na tela. Veja a imagem abaixo: 
     </string>
 
@@ -945,6 +945,7 @@
 
     <!--ETAPA 6 MODULO 1-->
     <string-array name="tab_modulo1_etapa6">
+        <item></item>
         <item></item>
         <item></item>
         <item></item>

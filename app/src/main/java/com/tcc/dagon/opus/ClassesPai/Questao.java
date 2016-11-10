@@ -301,8 +301,10 @@ public class Questao extends Fragment {
         habilitarRadioButtons();
 
         // TROCANDO O ICONE DO CADEADO
+
         mTabLayout.getTabAt(mViewPager.getCurrentItem() + 1).setIcon(R.drawable.icon_licao);
         mTabLayout.getTabAt(mViewPager.getCurrentItem() + 2).setIcon(R.drawable.icon_pergunta);
+
 
         // TORNANDO CLICAVEL A TAB QUE SERÁ DESBLOQUEADA
         tabStrip.getChildAt(mViewPager.getCurrentItem() + 1).setClickable(true);
