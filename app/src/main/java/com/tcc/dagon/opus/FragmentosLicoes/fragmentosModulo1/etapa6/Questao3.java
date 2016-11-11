@@ -93,6 +93,8 @@ public class Questao3 extends Questao {
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (mViewPager.getCurrentItem() + 1) );
         }
 
+
+
     }
 
 }

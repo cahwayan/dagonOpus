@@ -13,6 +13,9 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa5;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa6;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa7;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa8;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
 
 public class EtapasModulo1Activity extends TelaEtapas {
@@ -202,7 +205,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa4.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa7.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -218,7 +221,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa1.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa8.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -234,7 +237,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa1.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();

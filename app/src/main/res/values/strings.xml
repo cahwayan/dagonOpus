@@ -507,7 +507,7 @@
 
     <string name="texto1Modulo1Etapa7Licao2">
         Sempre que tivermos uma expressão aritmética em nosso programa temos que obedecer a <b>ordem de precedência, veja</b>:
-        \n\n<b>resultado  (a + b ^ 2) -  5 * 4 / 10</b>
+        \n\n<b>resultado <![CDATA[<-]]>  (a + b ^ 2) -  5 * 4 / 10</b>
         \n\nNesta expressão, o computador primeiramente resolve o que está entre parênteses, logo após o que indica potência, depois a multiplicação ou divisão e por fim a soma ou subtração. A ordem de prioridade é a seguinte:
         \n1º - <b>( )</b> Parênteses
         \n2º - <b>^</b> Exponenciação
@@ -534,6 +534,7 @@
     <string name="texto2Modulo1Etapa7Licao3">
         No Visualg, os operadores são representados utilizando os seguintes símbolos: 
     </string>
+
     <!-- IMAGEM 1-->
 
     <string name="texto3Modulo1Etapa7Licao3">
@@ -550,7 +551,7 @@
         \n\na = 5+5? (<b>a</b> é igual a soma de cinco e cinco? 10 é igual a 5+5!) verdadeiro, <b>a</b> é igual a 5+5.
     </string>
 
-    <!-- LIÇÃO 4 -->
+    <!-- LIÇÃO 4-->
 
     <string name="texto1Modulo1Etapa7Licao4">
         \nComo você já sabe, o tipo de dado <b>lógico, ou booleano</b>, pode assumir apenas dois estados: verdadeiro ou falso. 
@@ -866,6 +867,7 @@
             \nc = 9</b>
     </string>
     <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa7Pergunta3Linha0">a <![CDATA[<>]]>  b ? <u><b>verdadeiro</b></u></string>
     <string name="Modulo1Etapa7Pergunta3Linha1">a = b ? </string>
     <string name="Modulo1Etapa7Pergunta3Linha2">b <![CDATA[<>]]> c ? </string>
     <string name="Modulo1Etapa7Pergunta3Linha3">b = 4 + 4 ? </string>
@@ -882,7 +884,7 @@
     <string name="Modulo1Etapa7Pergunta4Linha1">Verdadeiro <b>E</b> Verdadeiro = </string>
     <string name="Modulo1Etapa7Pergunta4Linha2">Verdadeiro <b>E</b> Falso = </string>
     <string name="Modulo1Etapa7Pergunta4Linha3">Falso <b>E</b> Falso = </string>
-    <string name="Modulo1Etapa7Pergunta4Linha4">\n\nVerdadeiro <b>OU</b> Verdadeiro = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha4">Verdadeiro <b>OU</b> Verdadeiro = </string>
     <string name="Modulo1Etapa7Pergunta4Linha5">Verdadeiro <b>OU</b> Falso = </string>
     <string name="Modulo1Etapa7Pergunta4Linha6">Falso <b>OU</b> Falso = </string>
 
@@ -894,6 +896,159 @@
     <string name="Modulo1Etapa8Pergunta1Alternativa2">Comentários são usados por programadores relaxados para explicar códigos mal escritos</string>
     <string name="Modulo1Etapa8Pergunta1Alternativa3">Para escrever instruções para o computador executar tarefas</string>
     <string name="Modulo1Etapa8Pergunta1Alternativa4">Comentários são linhas ignoradas pelo programa, e que servem apenas para guiar os programadores sobre as funcionalidades do código e aumentar a legibilidade.</string>
+
+    <!-- PROVA 1 (ETAPA 9)-->
+    <!-- PERGUNTA 1 -->
+    <string name="ProvaModulo1Pergunta1">Qual o nome dado a um conjunto de instruções organizadas em uma sequência lógica?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 RESPOSTA D-->
+    <string name="ProvaModulo1Pergunta1Alternativa1">Variável</string>
+    <string name="ProvaModulo1Pergunta1Alternativa2">Portugol</string>
+    <string name="ProvaModulo1Pergunta1Alternativa3">Constante</string>
+    <string name="ProvaModulo1Pergunta1Alternativa4">Algoritmo</string>
+
+    <!-- PERGUNTA 2 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta2">Complete os espaços em branco e escreva um algoritmo que leia dois numeros, some eles, e escreva o resultado na tela</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="ProvaModulo1Pergunta2Linha1">
+        <u><b>Algoritmo <![CDATA[“]]>Soma<![CDATA[“]]></b></u>
+        \n\n<b><u>Var</u></b>
+        \n<b>numero1:</b> <u>inteiro</u>
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha2">
+        <b>numero2:</b>
+    </string>
+
+
+    <string name="ProvaModulo1Pergunta2Linha3">
+        <b>resultado:</b> 
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha4">
+        <u><b>Inicio</b></u>
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha5">
+        (<![CDATA[“]]>Digite o primeiro número: <![CDATA[“]]>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha6">
+        (<b>numero1</b>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha7">
+        <b><u>Escreva</u></b>(<![CDATA[“]]>Digite o segundo número: <![CDATA[“]]>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha8">
+        <b><u>Leia</u></b>(
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha9">
+         <![CDATA[<-]]> <b>numero1</b> + 
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha10">
+        <b><u>Escreva</u></b>(<![CDATA[“]]> O resultado é: <![CDATA[“]]> +  
+    </string>
+
+    <!-- PERGUNTA 3 -->
+    <string name="ProvaModulo1Pergunta3">Qual o fluxo básico do processamento de um dado?</string>
+    <!-- ALTERNATIVAS PERGUNTA 3 RESPOSTA: A-->
+    <string name="ProvaModulo1Pergunta3Alternativa1">entrada <![CDATA[->]]> processamento <![CDATA[->]]> saída</string>
+    <string name="ProvaModulo1Pergunta3Alternativa2">entrada <![CDATA[->]]> saída <![CDATA[->]]> processamento</string>
+    <string name="ProvaModulo1Pergunta3Alternativa3">processamento<![CDATA[->]]> entrada <![CDATA[->]]> saída</string>
+    <string name="ProvaModulo1Pergunta3Alternativa4">saída <![CDATA[->]]> processamento <![CDATA[->]]> entrada</string>
+
+    <!-- PERGUNTA 4 -->
+    <string name="ProvaModulo1Pergunta4">O que são variáveis?</string>
+    <!-- ALTERNATIVAS PERGUNTA 4 RESPOSTA: B-->
+    <string name="ProvaModulo1Pergunta4Alternativa1">Passos para resolver uma tarefa</string>
+    <string name="ProvaModulo1Pergunta4Alternativa2">Espaços reservados na memória do computador que guardam um tipo de dado determinado</string>
+    <string name="ProvaModulo1Pergunta4Alternativa3">Comandos que dizem para o computador o que ele deve fazer</string>
+    <string name="ProvaModulo1Pergunta4Alternativa4">Linhas que são ignoradas pelo programa, mas que servem de guia para programadores entenderem o código</string>
+
+    <!-- PERGUNTA 5 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta5">Complete os espaços em branco para declarar as variáveis de acordo com o contexto de seu nome</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="Prova1Modulo1Pergunta5Linha1">
+        <u><b>Algoritmo <![CDATA[“]]>Soma<![CDATA[“]]></b></u>
+        \n\n<b><u>Var</u></b>
+    </string>
+
+    <string name="Prova1Modulo1Pergunta5Linha2">
+        \n<b>variavelInteira: </b> 
+    </string>
+
+
+    <string name="Prova1Modulo1Pergunta5Linha3">
+        \n<b>variavelReal: </b> 
+    </string>
+
+    <string name="Prova1Modulo1Pergunta5Linha4">
+        \n<b>variavelCaractereOuString: </b>
+    </string>
+
+    <string name="Prova1Modulo1Pergunta5Linha5">
+        \n<b>variavelLogicaOuBooleana: </b> 
+    </string>
+
+    <!-- PERGUNTA 6 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta6">Preencha os campos em branco com o resultado das expressões relacionais (verdadeiro ou falso)</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="Prova1Modulo1Pergunta6Linha1">
+        4 <b><![CDATA[>]]></b> 9? FALSO
+    </string>
+
+    <string name="Prova1Modulo1Pergunta6Linha2">
+        20  <b><![CDATA[<=]]></b> 20? VERDADEIRO
+    </string>
+
+
+    <string name="Prova1Modulo1Pergunta6Linha3">
+        103 <b><![CDATA[>=]]></b>  60? VERDADEIRO
+    </string>
+
+    <string name="Prova1Modulo1Pergunta6Linha4">
+        37<b><![CDATA[<>]]></b> 37? FALSO
+    </string>
+
+    <string name="Prova1Modulo1Pergunta6Linha5">
+       5 <b><![CDATA[=]]></b> 29? FALSO
+    </string>
+
+    <!-- PERGUNTA 7 COMPLETAR -->
+
+
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    <!-- PEGAR COMPLETAR DA ETAPA 7 -->
+    
+
+
+     <!-- PERGUNTA 8 -->
+    <string name="ProvaModulo1Pergunta8">Qual a importância dos comentários no código?</string>
+    <!-- ALTERNATIVAS PERGUNTA 8 RESPOSTA: B -->
+    <string name="ProvaModulo1Pergunta8Alternativa1">Comentários são importantes para o funcionamento de um programa</string>
+    <string name="ProvaModulo1Pergunta8Alternativa2">Comentários são utilizados para aumentar a legibilidade do código e ajudar os programadores a entenderem o que o código faz</string>
+    <string name="ProvaModulo1Pergunta8Alternativa3">Comentários são fundamentais para que a máquina entenda o que está acontecendo no programa</string>
+    <string name="ProvaModulo1Pergunta8Alternativa4">Comentários não são importantes, são perda de tempo</string>
 
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>
@@ -971,7 +1126,7 @@
     </string-array>
 
     <!--ETAPA 9 MODULO 1-->
-    <string-array name="tab_modulo1_etapa9">
+    <string-array name="tab_modulo1_prova">
         <item></item>
         <item></item>
         <item></item>

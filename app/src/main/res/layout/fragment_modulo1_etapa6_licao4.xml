@@ -65,7 +65,7 @@
                     android:text="@string/Modulo1Etapa6Pergunta3Alternativa4"
                     android:id="@+id/Modulo1Etapa6Pergunta3Alternativa4"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="140dp"
                     android:background="@drawable/borda_alternativa"
                     android:padding="5dp"
                     android:textSize="@dimen/textSizeAltenativa"

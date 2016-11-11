@@ -272,7 +272,7 @@ public class Questao extends Fragment {
 
 
     // MÉTODO DE AVANÇAR LIÇÃO CASO A RESPOSTA ESTEJA CERTA E TALS
-    public void concluirQuestao() {
+    protected void concluirQuestao() {
         if(mViewPager.getCurrentItem() ==  (mTabLayout.getTabCount() -1 )  ) {
             questaoFinal();
         } else {
@@ -280,7 +280,7 @@ public class Questao extends Fragment {
         }
     }
 
-    public void questaoFinal() {
+    protected void questaoFinal() {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
         if(this.DB_PROGRESSO.verificaProgressoEtapa(etapaAtual) <= etapaAtual) {
@@ -290,7 +290,7 @@ public class Questao extends Fragment {
         this.getActivity().finish();
     }
 
-    public void avancarQuestao() {
+    protected void avancarQuestao() {
         // SUMINDO COM O BOTÃO AVANÇAR
         btnAvancar.setVisibility(View.GONE);
 

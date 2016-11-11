@@ -51,7 +51,11 @@ public class ContainerModulo1Etapa6 extends ContainerEtapa {
                 tabStrip.getChildAt(0).setClickable(true);
                 tabStrip.getChildAt(0).setEnabled(true);
 
-                for(int i = 0; i <= progresso - 1; i += 1) {
+                mTabLayout.getTabAt(1).setIcon(R.drawable.icon_pergunta);
+                tabStrip.getChildAt(1).setClickable(true);
+                tabStrip.getChildAt(1).setEnabled(true);
+
+                for(int i = 1; i <= progresso - 1; i += 1) {
                     if(mTabLayout.getTabAt(i) != null) {
                         if( i > 0) {
                             mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
@@ -60,8 +64,6 @@ public class ContainerModulo1Etapa6 extends ContainerEtapa {
                         }
 
                     }
-
-
                 }
                 break;
         }
