@@ -38,6 +38,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.28" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/btnCaptura"
+            android:layout_weight="0.28" />
+
     </LinearLayout>
 
 </RelativeLayout>

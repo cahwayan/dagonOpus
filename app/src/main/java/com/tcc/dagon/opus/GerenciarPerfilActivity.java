@@ -1,169 +1,201 @@
 package com.tcc.dagon.opus;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class GerenciarPerfilActivity extends Activity {
+
+    private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
 
 
+    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
 
-public class GerenciarPerfilActivity extends AppCompatActivity {
+    public static final int MEDIA_TYPE_IMAGE = 1;
 
-    private ImageView foto;
-    private String encoded_string, nome_imagem,email_user;
-    private Bitmap bitmap;
-    private File arquivo;
-    private Uri file_uri;
+    private Uri fileUri;
+
+    private Button btnCapturePicture;
+
+    private String imgfim;
+
+    private String email;
+
     private Handler handler = new Handler();
-    private TextView ca;
+
     RequestQueue requestQueue;
+    ImageView foto;
+
     String URLMOSTRA = "http://dagonopus.esy.es/phpAndroid/mostrarFoto.php?EMAIL_MOSTRA=";
-    String URLFIM,imgfim;
-    String urlTeste = "http://dagonopus.esy.es/phpAndroid/";
+    String URLFIM;
     String caminho;
+    String urlInicio = "http://dagonopus.esy.es/phpAndroid/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
-        ca=(TextView)findViewById(R.id.textViewca);
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        Intent i= getIntent();
-        Bundle b = i.getExtras();
 
 
+        // Pegando informações da activity anterior e passando a activity upload
+        Intent i = getIntent();
 
+        email = i.getStringExtra("id");
+        URLFIM = URLMOSTRA+email;
 
+        Intent y = new Intent(GerenciarPerfilActivity.this, UploadActivity.class);
+        i.putExtra("y",email);
+//---------
 
-        if(b!=null)
-        {
-            email_user =(String) b.get("id");
-        }
-        URLFIM = URLMOSTRA+email_user;
+        btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
+        foto = (ImageView) findViewById(R.id.fotoPerfil);
 
-        foto = (ImageView)findViewById(R.id.iconPerfil);
+     //   carregaLink();
 
-
-        carregaLink();
-
-        ca.setText(imgfim);
-
-        foto.setOnClickListener(new View.OnClickListener() {
+        btnCapturePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                getFileUri();
-                i.putExtra(MediaStore.EXTRA_OUTPUT,file_uri);
-
-                startActivityForResult(i,10);
+                captureImage();
             }
         });
 
 
-
+        if (!isDeviceSupportCamera()) {
+            Toast.makeText(getApplicationContext(),
+                    "Desculpe ,seu dispositivo não tem suporte",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 
-    private void getFileUri() {
-        nome_imagem = "dagon.jpg";
-        arquivo = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-        + File.separator + nome_imagem
-        );
+    private boolean isDeviceSupportCamera() {
+        if (getApplicationContext().getPackageManager().hasSystemFeature(
+                PackageManager.FEATURE_CAMERA)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private void captureImage() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-        file_uri = Uri.fromFile(arquivo);
+        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelable("file_uri", fileUri);
     }
 
     @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        fileUri = savedInstanceState.getParcelable("file_uri");
+    }
+
+
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode==10&&resultCode==RESULT_OK){
-            new Encode_image().execute();
+        if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+
+                launchUploadActivity(true);
+
+
+            } else if (resultCode == RESULT_CANCELED) {
+
+                Toast.makeText(getApplicationContext(),
+                        "Cancelado !", Toast.LENGTH_SHORT)
+                        .show();
+
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "Ocorreu um erro ao capturar a imagem", Toast.LENGTH_SHORT)
+                        .show();
+            }
 
         }
+       }
+
+    private void launchUploadActivity(boolean isImage){
+        Intent i = new Intent(GerenciarPerfilActivity.this, UploadActivity.class);
+        i.putExtra("filePath", fileUri.getPath());
+        i.putExtra("isImage", isImage);
+        i.putExtra("y", email);
+        startActivity(i);
     }
-//testeteste
-    private class Encode_image extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
 
-            bitmap = BitmapFactory.decodeFile(file_uri.getPath());
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
 
-            byte[] array = stream.toByteArray();
-            encoded_string = Base64.encodeToString(array, 0);
-            bitmap.recycle();
+    public Uri getOutputMediaFileUri(int type) {
+        return Uri.fromFile(getOutputMediaFile(type));
+    }
+
+    private static File getOutputMediaFile(int type) {
+
+        File mediaStorageDir = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                StringsBanco.IMAGE_DIRECTORY_NAME);
+
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d(TAG, "Falha ao criar o arquivo "
+                        + StringsBanco.IMAGE_DIRECTORY_NAME + " directory");
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                    + "IMG_" + timeStamp + ".jpg");
+        } else {
             return null;
         }
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            makeRequest();
-        }
+        return mediaFile;
     }
-
-
-    private void makeRequest() {
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest request = new StringRequest(Request.Method.POST, "http://dagonopus.esy.es/phpAndroid/insereFoto.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> map = new HashMap<>();
-                map.put("Content-Type", "application/json; charset=utf-8");
-                map.put("email_user",email_user);
-                map.put("encoded_string",encoded_string);
-                map.put("imagem_nome",nome_imagem);
-
-
-                return map;
-            }
-        };
-        requestQueue.add(request);
-    }
-
     public void loadImg(){
 
         new Thread(){
@@ -190,65 +222,56 @@ public class GerenciarPerfilActivity extends AppCompatActivity {
             }
         }.start();
     }
+/*
+    public void carregaLink() {
+        System.out.println("ww");
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,URLFIM, new Response.Listener<JSONObject>() {
 
 
+            @Override
+            public void onResponse(JSONObject response) {
+
+                System.out.println(response.toString());
+                try {
 
 
-        public void carregaLink() {
-            System.out.println("ww");
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,URLFIM, new Response.Listener<JSONObject>() {
+                    JSONArray students = response.getJSONArray("students");
+                    for (int i = 0; i < students.length(); i++) {
+                        JSONObject student = students.getJSONObject(i);
 
+                        caminho = student.getString("END_FOTO");
+                        imgfim=urlInicio+caminho;
+                        if(imgfim.equals("http://dagonopus.esy.es/phpAndroid/null")){
+                            Toast.makeText(getApplicationContext(),
+                                    "TESTE",
+                                    Toast.LENGTH_SHORT).show();
+                        }else {
 
-                @Override
-                public void onResponse(JSONObject response) {
-
-                    System.out.println(response.toString());
-                    try {
-
-
-                        JSONArray students = response.getJSONArray("students");
-                        for (int i = 0; i < students.length(); i++) {
-                            JSONObject student = students.getJSONObject(i);
-
-                            caminho = student.getString("END_FOTO");
-                            imgfim=urlTeste+caminho;
-                            if(imgfim.equals("http://dagonopus.esy.es/phpAndroid/null")){
-                                Toast.makeText(getApplicationContext(),
-                                        "TESTE",
-                                        Toast.LENGTH_SHORT).show();
-                            }else {
-                                ca.append(imgfim);
-                                loadImg();
-                            }
-
-
+                            loadImg();
                         }
-                        //result.append("===\n");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+
                     }
+                    //result.append("===\n");
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    System.out.append(error.getMessage());
 
-                }
-            }){
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.append(error.getMessage());
+
+            }
+        }){
 
 
 
-            };
+        };
 
-            requestQueue.add(jsonObjectRequest);
-        }
-
+        requestQueue.add(jsonObjectRequest);
+    }
+    */
 }
-
-
-
-
-
-

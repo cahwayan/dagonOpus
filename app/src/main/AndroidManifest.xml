@@ -36,6 +36,11 @@
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UploadActivity"
+            android:label="@string/title_activity_gerenciar_perfil"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity android:name=".telasEtapas.EtapasModulo1Activity"
             android:screenOrientation="portrait"/>
 
