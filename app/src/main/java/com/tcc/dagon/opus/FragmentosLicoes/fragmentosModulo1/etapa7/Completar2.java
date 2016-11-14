@@ -11,7 +11,6 @@ import android.widget.EditText;
 import com.tcc.dagon.opus.ClassesPai.Completar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa7;
 import com.tcc.dagon.opus.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,15 +19,15 @@ import java.util.Arrays;
  */
 public class Completar2 extends Completar {
 
-    private EditText linha1Palavra1,
+    protected EditText linha1Palavra1,
                     linha2Palavra1,
                     linha3Palavra1,
                     linha4Palavra1,
                     linha5Palavra1,
                     linha6Palavra1;
 
-    private String[] respostasCertas ;
-    private String[] respostasCertasAcentuadas;
+    protected String[] respostasCertas ;
+    protected String[] respostasCertasAcentuadas;
 
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -43,6 +42,8 @@ public class Completar2 extends Completar {
         super.moduloAtual = 1;
         super.etapaAtual  = 7;
 
+        // CONTAINER
+        inflateContainer();
         //TRAZENDO AS VIEWS
         accessViews();
 
@@ -52,12 +53,15 @@ public class Completar2 extends Completar {
         return this.rootView;
     }
 
-    protected void accessViews() {
+    private void inflateContainer() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
         mViewPager = ((ContainerModulo1Etapa7)getActivity()).getPager();
         tabStrip   = ((ContainerModulo1Etapa7)getActivity()).getTabStrip();
         mTabLayout = ((ContainerModulo1Etapa7)getActivity()).getmTabLayout();
 
+    }
+
+    protected void accessViews() {
         // RESGATANDO A REFERENCIA DOS EDIT TEXTS QUE TERAO AS RESPOSTAS
         linha1Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa7Pergunta4Linha1Palavra1);
         linha2Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa7Pergunta4Linha2Palavra1);

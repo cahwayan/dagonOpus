@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -137,9 +138,13 @@ public class AprenderActivity extends AppCompatActivity {
         // MÉTODO DE CONFIGURAÇÃO DO MENU PUXÁVEL
         configurarMenu();
 
-        // BOTÃO SUPERIOR MENU PUXÁVEL
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if(getSupportActionBar() != null) {
+            // BOTÃO SUPERIOR MENU PUXÁVEL
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
 
         // CLICK LISTENERS DOS BOTÕES
         listenersBtnModulos();
@@ -524,6 +529,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }

@@ -1,11 +1,13 @@
 package com.tcc.dagon.opus.ClassesPai;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -71,9 +73,10 @@ public class ContainerEtapa extends AppCompatActivity {
                 for(int i = 0; i <= progresso; i += 1) {
                     if(mTabLayout.getTabAt(i) != null) {
                         if( i % 2 == 0) {
-                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+                           mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
+
                         } else {
-                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
+                           mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                         }
 
                     }

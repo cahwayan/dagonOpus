@@ -140,7 +140,7 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,5,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,6,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,7,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,8,2);
+                DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,9,3);
             }
         });

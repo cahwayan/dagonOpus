@@ -77,6 +77,38 @@
             android:paddingBottom="@dimen/paddingBaixoTextoLicao"
             android:lineSpacingExtra="2sp" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/dica1Modulo1Etapa5Licao1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/dica1Modulo1Etapa4Licao1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_vermelha"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_vermelha"
+                android:id="@+id/imgDica0"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+
         <include layout="@layout/botao_avancar"/>
     </LinearLayout>
 

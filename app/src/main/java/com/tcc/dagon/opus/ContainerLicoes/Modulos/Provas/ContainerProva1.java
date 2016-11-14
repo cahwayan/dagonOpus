@@ -1,19 +1,24 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Provas.AdapterProva1;
-import com.tcc.dagon.opus.ClassesPai.ContainerEtapa;
+import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.R;
 
 /**
  * Created by cahwayan on 10/11/2016.
  */
 
-public class ContainerProva1 extends ContainerEtapa {
+public class ContainerProva1 extends ContainerProva {
+
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +48,27 @@ public class ContainerProva1 extends ContainerEtapa {
     }
 
     @Override
-    protected void desbloquearLicoes() {
-        int progresso = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
-        switch(progresso) {
-            default:
-                for(int i = 0; i <= progresso - 1; i += 1) {
-                    if(mTabLayout.getTabAt(i) != null) {
-                      mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
-                      tabStrip.getChildAt(i).setClickable(true);
-                      tabStrip.getChildAt(i).setEnabled(true);
-                    }
-                }
-                break;
+    protected void onDestroy() {
+        if(!readFlag()) {
+            DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
         }
+        super.onDestroy();
+    }
+
+    // MODIFICAR FLAG PARA LOGOUT
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("completouTeste1", flag);
+        editor.apply();
+    }
+
+    // LER FLAG PARA VER SE O USUARIO JA TERMINOU O TESTE ALGUMA VEZ
+    public boolean readFlag() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getBoolean("completouTeste1", false);
     }
 
 }

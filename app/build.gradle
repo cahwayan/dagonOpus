@@ -57,7 +57,5 @@ dependencies {
     compile 'com.github.akexorcist:Android-RoundCornerProgressBar:v2.0.3'
     compile 'com.github.Aspsine:FragmentNavigator:1.0.2'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
-    compile files('libs/apache-httpcomponents-httpcore.jar')
-    compile files('libs/apache-httpcomponents-httpclient.jar')
-    compile files('libs/apache-httpcomponents-httpmime.jar')
+
 }

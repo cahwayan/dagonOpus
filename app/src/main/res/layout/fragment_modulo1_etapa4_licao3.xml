@@ -67,7 +67,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/borda_pontilhada_verde"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="#ffffff"
                 android:paddingStart="64dp"
                 android:paddingLeft="64dp"

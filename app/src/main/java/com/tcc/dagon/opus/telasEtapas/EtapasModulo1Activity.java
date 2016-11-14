@@ -48,6 +48,8 @@ public class EtapasModulo1Activity extends TelaEtapas {
 
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
+            // BOTÃO SUPERIOR MENU PUXÁVEL
+            getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
