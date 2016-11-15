@@ -1,52 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:baselineAligned="false"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/telaloginbackground">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout">
-
-        <!-- Capture picture button -->
+        android:orientation="horizontal"
+        android:id="@+id/fotoPerfilLinear"
+        android:layout_weight="0.30">
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:id="@+id/fotoPerfil"
+            android:layout_above="@+id/linearLayout"
+            android:src="@drawable/icon_foto" />
 
         <Button
             android:id="@+id/btnCapturePicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="teste"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal"
-            android:text="ou"
-             />
-
-        <!-- Record video button -->
-
+            android:text="Carregar foto"
+            android:layout_gravity="top"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/perfilLinear"
+        android:layout_weight="0.5"></LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fotoPerfil"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="true" />
 
-</RelativeLayout>
+
+
+</LinearLayout>

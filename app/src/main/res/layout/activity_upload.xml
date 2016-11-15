@@ -50,7 +50,7 @@
 
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="teste"
+        android:text="Enviar foto"
 
         android:layout_marginBottom="20dp"/>
 

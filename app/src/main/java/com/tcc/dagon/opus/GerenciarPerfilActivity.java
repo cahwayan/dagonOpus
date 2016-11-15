@@ -30,6 +30,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,27 +61,26 @@ public class GerenciarPerfilActivity extends Activity {
     String URLMOSTRA = "http://dagonopus.esy.es/phpAndroid/mostrarFoto.php?EMAIL_MOSTRA=";
     String URLFIM;
     String caminho;
-    String urlInicio = "http://dagonopus.esy.es/phpAndroid/";
+    String endFoto = "http://dagonopus.esy.es/phpAndroid/uploads/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
 
-
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
         // Pegando informações da activity anterior e passando a activity upload
         Intent i = getIntent();
 
         email = i.getStringExtra("id");
         URLFIM = URLMOSTRA+email;
 
-        Intent y = new Intent(GerenciarPerfilActivity.this, UploadActivity.class);
         i.putExtra("y",email);
-//---------
+
 
         btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
         foto = (ImageView) findViewById(R.id.fotoPerfil);
 
-     //   carregaLink();
+        carregaLink();
 
         btnCapturePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +96,12 @@ public class GerenciarPerfilActivity extends Activity {
                     Toast.LENGTH_LONG).show();
             finish();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregaLink();
     }
 
     private boolean isDeviceSupportCamera() {
@@ -198,6 +204,7 @@ public class GerenciarPerfilActivity extends Activity {
     }
     public void loadImg(){
 
+        imgfim = endFoto + caminho;
         new Thread(){
             public void run(){
                 Bitmap img = null;
@@ -222,9 +229,8 @@ public class GerenciarPerfilActivity extends Activity {
             }
         }.start();
     }
-/*
+
     public void carregaLink() {
-        System.out.println("ww");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,URLFIM, new Response.Listener<JSONObject>() {
 
 
@@ -233,26 +239,15 @@ public class GerenciarPerfilActivity extends Activity {
 
                 System.out.println(response.toString());
                 try {
-
-
                     JSONArray students = response.getJSONArray("students");
                     for (int i = 0; i < students.length(); i++) {
                         JSONObject student = students.getJSONObject(i);
 
                         caminho = student.getString("END_FOTO");
-                        imgfim=urlInicio+caminho;
-                        if(imgfim.equals("http://dagonopus.esy.es/phpAndroid/null")){
-                            Toast.makeText(getApplicationContext(),
-                                    "TESTE",
-                                    Toast.LENGTH_SHORT).show();
-                        }else {
 
-                            loadImg();
-                        }
-
+                        loadImg();
 
                     }
-                    //result.append("===\n");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -267,11 +262,9 @@ public class GerenciarPerfilActivity extends Activity {
             }
         }){
 
-
-
         };
 
         requestQueue.add(jsonObjectRequest);
     }
-    */
+
 }
