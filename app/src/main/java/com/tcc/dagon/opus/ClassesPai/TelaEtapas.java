@@ -29,7 +29,6 @@ public class TelaEtapas extends AppCompatActivity {
     // OBJETO QUE FARÁ CONSULTA NO BANCO
     protected GerenciadorBanco DB_PROGRESSO;
 
-
     // OBJETO QUE INVOCA JANELA DE ALERTAS
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
 

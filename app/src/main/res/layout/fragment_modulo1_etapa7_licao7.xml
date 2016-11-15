@@ -111,7 +111,7 @@
             android:lineSpacingExtra="2sp" />
 
         <ImageView
-            android:src="@drawable/imagem2modulo1etapa7licao4"
+            android:src="@drawable/imagem3modulo1etapa7licao4"
             android:id="@+id/imagem3Modulo1Etapa7Licao4"
             android:layout_width="300dp"
             android:layout_height="240dp"

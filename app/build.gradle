@@ -57,5 +57,6 @@ dependencies {
     compile 'com.github.akexorcist:Android-RoundCornerProgressBar:v2.0.3'
     compile 'com.github.Aspsine:FragmentNavigator:1.0.2'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
+    compile 'com.github.thunderrise:android-TNRAnimationHelper:-SNAPSHOT'
 
 }

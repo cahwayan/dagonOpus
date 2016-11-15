@@ -31,4 +31,10 @@
     <color name="corDicaAzul">#00aedb</color>
     <color name="corDicaVerde">#8ec127</color>
     <color name="corDicaAmarela">#ffc425</color>
+
+    <!-- COR TAB LAYOUT PROVA -->
+    <color name="corTabProva">#8a2be2</color>
+
+    <!--CORES FUNDO-->
+    <color name="corFundoNeutro">#e7e7e7</color>
 </resources>

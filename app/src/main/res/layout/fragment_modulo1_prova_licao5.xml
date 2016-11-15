@@ -9,9 +9,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/paddingContainerLicao"
         android:layout_margin="5dp"
-        >
+        android:paddingBottom="@dimen/paddingContainerLicao"
+        android:paddingEnd="@dimen/paddingContainerLicao"
+        android:paddingLeft="@dimen/paddingContainerLicao"
+        android:paddingRight="@dimen/paddingContainerLicao"
+        android:paddingStart="@dimen/paddingContainerLicao">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -24,10 +24,12 @@
             android:id="@+id/tab_layout_modulo1_prova"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/corEtapaDesbloqueada" />
+            android:background="@color/corTabProva" />
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_modulo1_prova"
-        />
+
+
+    <include layout="@layout/vidas_provas"/>
+    <include layout="@layout/content_modulo1_prova"/>
 
 </android.support.design.widget.CoordinatorLayout>

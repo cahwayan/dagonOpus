@@ -66,6 +66,8 @@ public class Questao extends Fragment {
 
     protected int moduloAtual, etapaAtual, questaoAtual;
 
+
+
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
     @Override
@@ -90,8 +92,6 @@ public class Questao extends Fragment {
             somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
             somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
         }
-
-
     }
 
 
@@ -273,7 +273,7 @@ public class Questao extends Fragment {
 
     // MÉTODO DE AVANÇAR LIÇÃO CASO A RESPOSTA ESTEJA CERTA E TALS
     protected void concluirQuestao() {
-        if(mViewPager.getCurrentItem() ==  (mTabLayout.getTabCount() -1 )  ) {
+        if(mViewPager.getCurrentItem() ==  (mTabLayout.getTabCount() - 1 )  ) {
             questaoFinal();
         } else {
             avancarQuestao();

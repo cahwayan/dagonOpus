@@ -1,13 +1,12 @@
 package com.tcc.dagon.opus.ClassesPai;
 
-import android.content.Intent;
+import android.media.Image;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -16,11 +15,11 @@ import com.tcc.dagon.opus.databases.GerenciadorBanco;
  */
 
 public class ContainerEtapa extends AppCompatActivity {
+
     protected TabLayout mTabLayout;
     protected ViewPager mViewPager;
     protected GerenciadorBanco DB_PROGRESSO = null;
     protected LinearLayout tabStrip;
-
     protected int moduloAtual, etapaAtual;
 
     @Override
@@ -74,7 +73,6 @@ public class ContainerEtapa extends AppCompatActivity {
                     if(mTabLayout.getTabAt(i) != null) {
                         if( i % 2 == 0) {
                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_licao);
-
                         } else {
                            mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                         }

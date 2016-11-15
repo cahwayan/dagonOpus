@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
@@ -29,6 +31,10 @@ public class Questao1 extends QuestaoProva {
         // NÚMERO DA PERGUNTA
         super.questaoAtual = 1;
 
+
+        // TODA PRIMEIRA QUESTAO DA PROVA TEM QUE VIR COM 5 VIDAS
+        super.mCallback.onArticleSelected(5);
+
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
         super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_licao1, container, false);
 
@@ -46,6 +52,12 @@ public class Questao1 extends QuestaoProva {
         mViewPager = ((ContainerProva1)getActivity()).getPager();
         tabStrip   = ((ContainerProva1)getActivity()).getTabStrip();
         mTabLayout = ((ContainerProva1)getActivity()).getmTabLayout();
+
+        vida01 = ((ContainerProva1)getActivity()).getVida01();
+        vida02 = ((ContainerProva1)getActivity()).getVida02();
+        vida03 = ((ContainerProva1)getActivity()).getVida03();
+        vida04 = ((ContainerProva1)getActivity()).getVida04();
+        vida05 = ((ContainerProva1)getActivity()).getVida05();
 
         // PEGANDO OS RADIO BUTTONS DO LAYOUT
         alternativa1 = (RadioButton) rootView.findViewById(R.id.ProvaModulo1Pergunta1Alternativa1);

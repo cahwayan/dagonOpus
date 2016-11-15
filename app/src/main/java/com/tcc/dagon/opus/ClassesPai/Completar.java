@@ -136,7 +136,6 @@ public class Completar extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
-
                 resetarEditTexts();
             }
 
@@ -151,37 +150,7 @@ public class Completar extends Fragment {
             }
         });
 
-        /*
-        EM TESTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-        for(int i = 0; i == linhasCompletar.length; i++) {
-            linhasCompletar[i] = listaEditTexts.get(i);
-            linhasCompletar[i].addTextChangedListener(new TextWatcher() {
-                int x;
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    if(linhasCompletar[x].getText().length() == respostasCertas[x].length()) {
-                        if(linhasCompletar[x++ ] != null) {
-                            linhasCompletar[x ++].requestFocus();
-                            x++;
-                        }
-
-                    }
-                }
-
-            });
-        }
-
-        */
     }
 
     // MÉTODO QUE CHECA RESPOSTAS DO COMPLETAR

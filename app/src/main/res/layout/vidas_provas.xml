@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:id="@+id/containerVidas"
+    android:layout_gravity="top|right"
+    android:gravity="right"
+    android:paddingEnd="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:background="@color/corFundoNeutro">
+
+    <TextView
+        android:text="@string/qtdVidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtQtdVidas"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:typeface="sans"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textAllCaps="true"
+        android:textStyle="normal|bold" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconevidaprova"
+        android:id="@+id/vida05"
+        android:layout_marginRight="2dp"
+        android:layout_marginEnd="2dp"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconevidaprova"
+        android:id="@+id/vida04"
+        android:layout_marginRight="2dp"
+        android:layout_marginEnd="2dp"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconevidaprova"
+        android:id="@+id/vida03"
+        android:layout_marginRight="2dp"
+        android:layout_marginEnd="2dp"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconevidaprova"
+        android:id="@+id/vida02"
+        android:layout_marginRight="2dp"
+        android:layout_marginEnd="2dp"/>
+
+    <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/iconevidaprova"
+            android:id="@+id/vida01"
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/iconevidaprova" />
+
+
+</LinearLayout>

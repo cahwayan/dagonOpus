@@ -7,9 +7,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/paddingContainerLicao"
         android:layout_margin="5dp"
-        >
+        android:paddingBottom="@dimen/paddingContainerLicao"
+        android:paddingEnd="@dimen/paddingContainerLicao"
+        android:paddingLeft="@dimen/paddingContainerLicao"
+        android:paddingRight="@dimen/paddingContainerLicao"
+        android:paddingStart="@dimen/paddingContainerLicao">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borda_container_licao"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -65,7 +68,7 @@
                     android:text="@string/ProvaModulo1Pergunta3Alternativa4"
                     android:id="@+id/ProvaModulo1Pergunta3Alternativa4"
                     android:layout_width="match_parent"
-                    android:layout_height="95dp"
+                    android:layout_height="60dp"
                     android:background="@drawable/borda_alternativa"
                     android:padding="5dp"
                     android:textSize="@dimen/textSizeAltenativa"

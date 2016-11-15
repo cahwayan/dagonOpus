@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Provas.AdapterProva1;
 import com.tcc.dagon.opus.ClassesPai.ContainerProva;
@@ -16,7 +17,7 @@ import com.tcc.dagon.opus.R;
  * Created by cahwayan on 10/11/2016.
  */
 
-public class ContainerProva1 extends ContainerProva {
+public class ContainerProva1 extends ContainerProva  {
 
     Context context = this;
 
@@ -31,6 +32,16 @@ public class ContainerProva1 extends ContainerProva {
         accessViews();
         super.bloquearLicoes();
         this.desbloquearLicoes();
+
+        int progresso = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
+        if(readFlag()) {
+            for(int i = 0; i <= progresso - 1; i += 1) {
+                if(mTabLayout.getTabAt(i) != null) {
+                    tabStrip.getChildAt(i).setClickable(true);
+                    tabStrip.getChildAt(i).setEnabled(true);
+                }
+            }
+        }
     }
 
     protected void accessViews() {
@@ -43,6 +54,12 @@ public class ContainerProva1 extends ContainerProva {
                 getResources().getStringArray(R.array.tab_modulo1_prova)));
         mTabLayout.setupWithViewPager(mViewPager);
 
+        vida01 = (ImageView) findViewById(R.id.vida01);
+        vida02 = (ImageView) findViewById(R.id.vida02);
+        vida03 = (ImageView) findViewById(R.id.vida03);
+        vida04 = (ImageView) findViewById(R.id.vida04);
+        vida05 = (ImageView) findViewById(R.id.vida05);
+
         tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
 
     }
@@ -53,15 +70,6 @@ public class ContainerProva1 extends ContainerProva {
             DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
         }
         super.onDestroy();
-    }
-
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste1", flag);
-        editor.apply();
     }
 
     // LER FLAG PARA VER SE O USUARIO JA TERMINOU O TESTE ALGUMA VEZ
