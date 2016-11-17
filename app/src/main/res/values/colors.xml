@@ -10,8 +10,8 @@
 
     <!--CORES DOS MÓDULOS DESBLOQUEADOS-->
     <color name="corBtnModulo1">#d41243</color>
-    <color name="corBtnModulo2">#8ec127</color>
-    <color name="corBtnModulo3">#00aedb</color>
+    <color name="corBtnModulo2">#00aedb</color>
+    <color name="corBtnModulo3">#8ec127</color>
     <color name="corBtnModulo4">#f47835</color>
     <color name="corBtnModulo5">#ffc425</color>
     <color name="corBtnModulo6">#d11141</color>
@@ -20,6 +20,8 @@
     <color name="corBtnModulo9">#f47835</color>
 
     <color name="corEtapaDesbloqueada">#00aedb</color>
+
+    <color name="teste">#7c1313</color>
 
     <!--CORES DOS MÓDULOS BLOQUEADOS-->
     <color name="corBtnModuloBloqueado">#de232323</color>

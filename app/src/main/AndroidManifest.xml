@@ -36,13 +36,22 @@
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+
+        <!--
         <activity
             android:name=".UploadActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"/> -->
+
+        <!--TELAS DE ETAPAS-->
         <activity android:name=".telasEtapas.EtapasModulo1Activity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".telasEtapas.EtapasModulo2Activity"
+            android:screenOrientation="portrait"/>
+
+        <!--CONTAINERS DAS ETAPAS DOS MODULOS-->
 
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"

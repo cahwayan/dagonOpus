@@ -14,8 +14,8 @@
     <!--STRINGS MODULOS-->
     <!-- PROGRESSO DOS MÓDULOS -->
     <string name="txtProgressoModulo1">0/9</string>
-    <string name="txtProgressoModulo2">0/5</string>
-    <string name="txtProgressoModulo3">0/5</string>
+    <string name="txtProgressoModulo2">0/4</string>
+    <string name="txtProgressoModulo3">0/4</string>
     <string name="txtProgressoModulo4">0/5</string>
     <string name="txtProgressoModulo5">0/7</string>
     <string name="txtProgressoModulo6">0/3</string>
@@ -24,8 +24,8 @@
 
     <!-- TITULOS DOS MÓDULOS -->
     <string name="txtTituloModulo1">CONCEITOS BÁSICOS</string>
-    <string name="txtTituloModulo2">TIPOS DE DADOS E VETORES</string>
-    <string name="txtTituloModulo3">CONDIÇÕES E LOOPS</string>
+    <string name="txtTituloModulo2">CONDIÇÕES E LOOPS</string>
+    <string name="txtTituloModulo3">VETORES</string>
     <string name="txtTituloModulo4">FUNÇÕES</string>
     <string name="txtTituloModulo5">CLASSES E OBJETOS</string>
     <string name="txtTituloModulo6">DESAFIOS 1</string>
@@ -96,8 +96,8 @@
     <!-- MÓDULO 2 -->
     <string name="TituloEtapa1Modulo2">1. Estrutura de decisão simples</string>
     <string name="TituloEtapa2Modulo2">2. Estrutura de decisão composta</string>
-    <string name="TituloEtapa3Modulo2">3. Estrutura de repetição enquanto (while)</string>
-    <string name="TituloEtapa4Modulo2">4. Estrutura de repetição para (for)</string>
+    <string name="TituloEtapa3Modulo2">3. Estrutura de repetição <b>enquanto</b> (while)</string>
+    <string name="TituloEtapa4Modulo2">4. Estrutura de repetição <b>para</b> (for)</string>
     <string name="TituloEtapa5Modulo2">5. Prova 2</string>
 
     <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
@@ -233,7 +233,7 @@
     <string name="titulo1Modulo1Etapa5Licao2">1. Regras de nomenclatura e declaração</string>
     <!-- ETAPA 6 -->
     <!-- LIÇÃO 1 -->
-    <string name="titulo1Modulo1Etapa6Licao1">1 Tipos de variáveis primitivas</string>
+    <string name="titulo1Modulo1Etapa6Licao1">1. Tipos de variáveis primitivas</string>
     <string name="titulo2Modulo1Etapa6Licao1">1.1 Variáveis inteiras</string>
     <string name="titulo3Modulo1Etapa6Licao1">1.2 Variáveis reais</string>
     <string name="titulo4Modulo1Etapa6Licao1">1.3 Variáveis de caracteres (strings) </string>
@@ -355,9 +355,11 @@
         \n\nO processamento básico de uma informação possui essa estrutura:
     </string>
     <!--IMAGEM-->
-    <string name="texto2Modulo1Etapa4Licao1"><b>Entrada:</b> Quando precisamos entrar com algum dado do usuário para ser processado por um algoritmo, utilizamos comandos específicos que permitem a entrada desses dados. (No portugol temos o comando Leia).
+    <string name="texto2Modulo1Etapa4Licao1"><b>Entrada:</b> Quando precisamos entrar com algum dado do usuário para ser processado por um algoritmo, utilizamos comandos específicos que permitem a entrada desses dados. 
+    \nNo portugol temos o comando Leia para ler dados do usuário. Sempre que precisar ler um dado, use o comando <b>Leia</b>. Esse comando faz uma pausa no programa e espera o usuário digitar os dados e apertar a tecla enter. Os dados são então guardados temporariamente em um espaço na memória do computador para serem usados adiante.
         \n\n<b>Processamento:</b> Com os dados dentro do programa, os comandos são devidamente executados e tratam as informações de acordo com o desejado.
-        \n\n<b>Saída:</b> Com os dados já processados, o computador devolve eles ao usuário (no portugol temos o comando Escreva).
+        \n\n<b>Saída:</b> Com os dados já processados, o computador devolve eles ao usuário, 
+        \nNo portugol temos o comando <b>Escreva</b> para literalmente escrever mensagens na tela. Sempre que você precisar escrever algo na tela para o usuário, use o comando escreva.
     </string>
 
     <!--LIÇÃO 2-->
@@ -582,36 +584,34 @@
         \n\nOs comentários são linhas que serão <b>ignoradas pelo programa</b>, e estão lá apenas para guiar os programadores sobre o que aquele pedaço de código faz. Cada linguagem de programação possui sua maneira de escrever comentários, mas todas se parecem. Para deixarmos um comentário no Visualg, utilizamos “//” antes da linha. Veja o exemplo:
     </string>
 
-    <string name="textoXXModuloXXEtapaXXLicaoXX">
-        
+    <!-- MÓDULO 2 -->
+    <!-- ETAPA 1 -->
+    <!-- LIÇÃO 1 -->
+    <string name="texto1Modulo2Etapa1Licao1">
+                
     </string>
-
 
     <!--STRINGS CAIXAS DICAS-->
     <!--MÓDULO 1-->
     <!--ETAPA 1-->
     <!--LIÇÃO 2-->
-    <string name="dica0Modulo1Etapa1Licao2">
-        No decorrer deste curso vamos lhe guiar pelos conceitos de lógica de programação,
+    <string name="dica0Modulo1Etapa1Licao2">No decorrer deste curso vamos lhe guiar pelos conceitos de lógica de programação,
         porém a lógica é um assunto vasto, e que está presente em quase todas as áreas da nossa vida! 
         Aprender a programar também ajuda a construir um cérebro mais <b>inteligente e racional</b>.
     </string>
 
-    <string name="dica1Modulo1Etapa1Licao2">
-        As linguagens de programação são como idiomas para o computador. Os computadores entendem tudo em <b>linguagem binária. 0 e 1.</b> Porém, como nós humanos temos uma estrutura de linguagem diferente de uma máquina, adaptamos nossos idiomas para intermediarem nossa comunicação com os computadores. Já pensou que complicado seria ter que escrever programas em zeros e uns?
+    <string name="dica1Modulo1Etapa1Licao2">As linguagens de programação são como idiomas para o computador. Os computadores entendem tudo em <b>linguagem binária. 0 e 1.</b> Porém, como nós humanos temos uma estrutura de linguagem diferente de uma máquina, adaptamos nossos idiomas para intermediarem nossa comunicação com os computadores. Já pensou que complicado seria ter que escrever programas em zeros e uns?
         Através da linguagem de programação, um computador pode receber as instruções que escrevemos em uma linguagem amigável, converter para sequências binárias e executá-las. Existem várias linguagens de programação, e elas são diferentes entre si.
         Porém, todas obedecem um padrâo lógico básico.
     </string>
 
     <!--ETAPA 2-->
     <!-- LIÇÃO 1-->
-    <string name="dica1Modulo1Etapa2Licao1">
-        Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
+    <string name="dica1Modulo1Etapa2Licao1">Você percebeu que as ações do terceiro e quarto passo são controladas por condições? Repare nas instruções <b>"Se"</b> e <b>"Então"</b>
         escritas em negrito: condições também fazem parte da lógica de programação. Mas não se preocupe com isto agora, ao decorrer do curso iremos estudar isso melhor.
     </string>
     <!--LIÇÃO 3-->
-    <string name="dica0Modulo1Etapa2Licao3">
-        Se sentir necessidade, você pode ampliar a imagem clicando duas vezes nela ou arrastando os dedos em pinça na imagem para ampliá-la
+    <string name="dica0Modulo1Etapa2Licao3">Se sentir necessidade, você pode ampliar a imagem clicando duas vezes nela ou arrastando os dedos em pinça na imagem para ampliá-la
     </string>
 
     <!--LIÇÃO 4-->
@@ -619,29 +619,25 @@
 
     <!--ETAPA 3-->
     <!--LIÇÃo 1-->
-    <string name="dica1Modulo1Etapa3Licao1">
-        O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
+    <string name="dica1Modulo1Etapa3Licao1">O Portugol, também conhecido como português estruturado, foi criado pelo professor António Manso, do Instituto Politécnico de Tomar.
         \nO <b>Portugol não é uma linguagem de programação.</b> Porém, ele é capaz de executar comandos básicos de programação, e
         ajuda muito no ensino de lógica de programação por ter comandos em <b>português</b>.
     </string>
 
     <!--LIÇÃO 3-->
-    <string name="dica1Modulo1Etapa3Licao3">
-        Está curioso para testar esses códigos? Existe um programa para desktop que interpreta esses comandos e te mostra na prática como eles funcionam.
+    <string name="dica1Modulo1Etapa3Licao3">Está curioso para testar esses códigos? Existe um programa para desktop que interpreta esses comandos e te mostra na prática como eles funcionam.
         O nome dele é VisuAlg, e atualmente ele está na versão 3. Você pode encontrá-lo para download gratuito no site da <b>sourceforge.net</b> com uma breve pesquisa no Google. É uma ótima ferramenta
         para por em prática seus estudos e aprimorar sua lógica. Nós incentivamos você a pensar em outros exemplos, usar sua criatividade e criar novos algoritmos utilizando o VisuAlg.
     </string>
 
     <!--ETAPA 4-->
     <!--LICAO 1-->
-    <string name="dica1Modulo1Etapa4Licao1">
-        Você percebeu que podemos aplicar muito bem exemplos de informática no nosso dia a dia?
+    <string name="dica1Modulo1Etapa4Licao1">Você percebeu que podemos aplicar muito bem exemplos de informática no nosso dia a dia?
         Que é possível exemplificar conceitos usando tarefas básicas da nossa vida? Isso é porque a informática está muito ligada com a nossa realidade.
         Alguns dizem até que é uma coisa natural. Você concorda?
     </string>
     <!--LICAO 2-->
-    <string name="dica1Modulo1Etapa4Licao2">
-        Nós como programadores, temos sempre que imaginar como o usuário que estará utilizando o programa irá interpreta-lo.
+    <string name="dica1Modulo1Etapa4Licao2">Nós como programadores, temos sempre que imaginar como o usuário que estará utilizando o programa irá interpreta-lo.
         Por isso, é muito importante deixar bem claro o que ele deve fazer para cumprir as tarefas.
         No caso desse algoritmo, o que aconteceria se esquecêssemos do comando <b>escreva</b> para informar o usuário que ele deveria digitar um número?
         Ele não saberia o que fazer e nem para que o programa serve, e portanto, o programa se torna <b>inútil</b>.
@@ -656,13 +652,13 @@
 
     <!-- ETAPA 6 -->
     <!-- LIÇÃO 1 -->
-    <string name="dica1Modulo1Etapa6Licao1">
-        Você percebeu que na variável string há um número? Isso porque o programa entende qualquer valor entre aspas como texto. 
+    <string name="dica0Modulo1Etapa6Licao1">A atribuição de valores a variáveis é feita com o operador <b><![CDATA[\'<-\']]></b>. Do seu lado esquerdo fica a variável à qual está sendo atribuído o valor, e à sua direita pode-se colocar qualquer expressão (constantes, variáveis, expressões numéricas), desde que seu resultado tenha tipo igual ao da variável.
+    </string>
+    <string name="dica1Modulo1Etapa6Licao1">Você percebeu que na variável string há um número? Isso porque o programa entende qualquer valor entre aspas como texto. 
         Você pode escrever qualquer valor dentro de uma variável do tipo caractere, desde que esteja entre aspas. 
     </string>
 
-    <string name="dica2Modulo1Etapa6Licao1">
-        Se colocássemos o valor das variáveis entre aspas, na hora de imprimir na tela, o computador escreveria o <b>nome</b> das variáveis na tela ao invés de escrever seu valor. Preste bastante atenção nisso, pois é um engano que cometemos no início, e que pode gerar uma dorzinha de cabeça! Note também que podemos concatenar conjuntos de caracteres utilizando o símbolo de soma. Isso é muito útil quando queremos imprimir mensagens personalizadas na tela. Veja a imagem abaixo: 
+    <string name="dica2Modulo1Etapa6Licao1">Se colocássemos o valor das variáveis entre aspas, na hora de imprimir na tela, o computador escreveria o <b>nome</b> das variáveis na tela ao invés de escrever seu valor. Preste bastante atenção nisso, pois é um engano que cometemos no início, e que pode gerar uma dorzinha de cabeça! Note também que podemos concatenar conjuntos de caracteres utilizando o símbolo de soma. Isso é muito útil quando queremos imprimir mensagens personalizadas na tela. Veja a imagem abaixo: 
     </string>
 
     <!-- LIÇÃO 2 -->
@@ -685,7 +681,7 @@
 
 
     <string name="dicaXModuloXEtapaXLicaoX">
-        
+        \n<b>vetor1[0]  <![CDATA[<-]]> </b> <![CDATA[<b><font color=#ff0000>”Estamos atribuindo um valor na posição 0 do vetor caractere de 5 posições!</b>]]>
     </string>
     
 
