@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -47,11 +49,13 @@ public class GerenciarPerfilActivity extends Activity {
 
     private Uri fileUri;
 
-    private Button btnCapturePicture;
+    private Button btnAprender,btnAlterarSenha,btnLogout;
 
     private String imgfim;
 
-    private String email;
+    private String email,nomeUser;
+
+    private TextView txtNome;
 
     private Handler handler = new Handler();
 
@@ -67,6 +71,20 @@ public class GerenciarPerfilActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
 
+        txtNome = (TextView)findViewById(R.id.txtNome);
+
+
+
+
+        btnAprender = (Button)findViewById(R.id.btnAprender);
+        btnAlterarSenha = (Button)findViewById(R.id.btnAlterar);
+        btnLogout = (Button)findViewById(R.id.btnLogout);
+
+        btnAprender.setOnClickListener(btnClickListner);
+        btnAlterarSenha.setOnClickListener(btnClickListner);
+        btnLogout.setOnClickListener(btnClickListner);
+
+
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         // Pegando informações da activity anterior e passando a activity upload
         Intent i = getIntent();
@@ -77,12 +95,12 @@ public class GerenciarPerfilActivity extends Activity {
         i.putExtra("y",email);
 
 
-        btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
+
         foto = (ImageView) findViewById(R.id.fotoPerfil);
 
         carregaLink();
 
-        btnCapturePicture.setOnClickListener(new View.OnClickListener() {
+        foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 captureImage();
@@ -240,13 +258,24 @@ public class GerenciarPerfilActivity extends Activity {
                 System.out.println(response.toString());
                 try {
                     JSONArray students = response.getJSONArray("students");
+                  /*  JSONArray nome = response.getJSONArray("nome");
+                    for(int y = 0; y< nome.length();y++){
+                        JSONObject nomes = nome.getJSONObject(y);
+                        nomeUser = nomes.getString("NOME_USUARIO");
+                        txtNome.setText(nomeUser);
+
+                    }*/
                     for (int i = 0; i < students.length(); i++) {
                         JSONObject student = students.getJSONObject(i);
 
                         caminho = student.getString("END_FOTO");
+                        nomeUser = student.getString("NOME_USUARIO");
+                        txtNome.setText(nomeUser);
+                            if(caminho.equals("null")){
 
-                        loadImg();
-
+                            }else {
+                                loadImg();
+                            }
                     }
 
                 } catch (JSONException e) {
@@ -266,5 +295,33 @@ public class GerenciarPerfilActivity extends Activity {
 
         requestQueue.add(jsonObjectRequest);
     }
+
+    View.OnClickListener btnClickListner = new View.OnClickListener()
+    {
+        @Override
+        public void onClick( View v )
+        {
+            if( btnAprender.getId() == v.getId() )
+            {
+                Intent intent = new Intent(GerenciarPerfilActivity.this, AprenderActivity.class);
+                intent.putExtra("email",email);
+                startActivity(intent);
+
+            }
+            else if( btnLogout.getId() == v.getId() )
+            {
+
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+            else if( btnAlterarSenha.getId() == v.getId() )
+            {
+
+
+            }
+
+        }
+
+    };
 
 }

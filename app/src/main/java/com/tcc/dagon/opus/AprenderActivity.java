@@ -114,6 +114,10 @@ public class AprenderActivity extends AppCompatActivity {
     // VARIÁVEL DE LOGOUT
     boolean isLogin;
 
+    //VARIAVEL DO EMAIL AMARRAR COM A TELA DE PERFIL
+
+    private String email;
+
 
     // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
@@ -127,8 +131,10 @@ public class AprenderActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
+        //pegando informacoes da activity gerenciar
 
-
+        Intent intent = getIntent();
+        email = intent.getStringExtra("email");
 
         // INVOCANDO OS COMPONENTES
         accessViews();
@@ -645,8 +651,9 @@ public class AprenderActivity extends AppCompatActivity {
 
                 }
                 else if(position==1){
-                    Intent gerenciarPerfil = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
-                    startActivity(gerenciarPerfil);
+                    Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
+                    i.putExtra("id",email);
+                    startActivity(i);
                 } else if (position ==2) {
 
                 } else if(position ==3) {

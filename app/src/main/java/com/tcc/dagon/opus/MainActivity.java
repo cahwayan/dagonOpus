@@ -499,7 +499,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onConnectionFailed(ConnectionResult result) {
         if(!result.hasResolution()){
-            GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
+//            GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
             return;
         }
 
