@@ -94,13 +94,13 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoEtapa(1,9);
-                DB_PROGRESSO.atualizaProgressoEtapa(2,10);
-                DB_PROGRESSO.atualizaProgressoEtapa(3,7);
+                DB_PROGRESSO.atualizaProgressoEtapa(2,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(3,5);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,5);
-                DB_PROGRESSO.atualizaProgressoEtapa(5,6);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,7);
-                DB_PROGRESSO.atualizaProgressoEtapa(7,10);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,10);
+                DB_PROGRESSO.atualizaProgressoEtapa(5,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,4);
+                DB_PROGRESSO.atualizaProgressoEtapa(7,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,4);
             }
         });
 
@@ -141,7 +141,7 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,6,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,7,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,9,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,9,8);
             }
         });
 

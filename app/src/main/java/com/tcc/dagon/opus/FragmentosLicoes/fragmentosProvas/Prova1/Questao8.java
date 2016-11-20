@@ -80,6 +80,8 @@ public class Questao8 extends QuestaoProva {
         if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
+            // atualizar progresso do módulo 2 para 1
+            this.DB_PROGRESSO.atualizaProgressoEtapa(2, 1);
         }
 
         // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ

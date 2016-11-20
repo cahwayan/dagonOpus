@@ -19,8 +19,6 @@ import com.tcc.dagon.opus.R;
 
 public class ContainerProva1 extends ContainerProva  {
 
-    Context context = this;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // LAYOUT QUE O CONTAINER VAI PUXAR

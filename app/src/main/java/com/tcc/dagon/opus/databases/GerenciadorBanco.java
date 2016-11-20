@@ -18,7 +18,6 @@ import java.io.OutputStream;
  * TODAS AS OPERAÇÕES REALIZADAS COM O BANCO DE DADOS PRECISA SER FEITA NESSA CLASSE
  */
 
-
 public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERSÃO DO BANCO QUE ESTÁ NO APLICATIVO. A CADA NOVA BUILD QUE LANÇARMOS, TEMOS QUE

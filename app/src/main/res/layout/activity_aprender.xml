@@ -96,24 +96,6 @@
                     android:layout_gravity="top|center"
                     android:layout_marginTop="10dp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/botaopularpequeno"
-                    android:layout_gravity="bottom|right"
-                    android:clickable="true"
-                    android:id="@+id/btnPular1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtTituloModulo2"
-                    android:id="@+id/txtTitulo2"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/MargemTituloModulo"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:textColor="#ffffff" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,17 +107,27 @@
                     android:fontFamily="sans-serif"
                     android:typeface="normal" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtTituloModulo2"
+                    android:id="@+id/txtTitulo2"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/MargemTituloModulo"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:textColor="#ffffff" />
+
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
                 app:rcSecondaryProgress="0"
-                app:rcMax="10"
+                app:rcMax="7"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#8ec127"
+                app:rcProgressColor="#00aedb"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo2" />
@@ -158,16 +150,13 @@
                     android:layout_gravity="top|center"
                     android:layout_marginTop="10dp" />
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtProgressoModulo3"
-                    android:id="@+id/txtProgresso3"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:fontFamily="sans-serif"
-                    android:typeface="normal" />
+                    app:srcCompat="@drawable/botaopularpequeno"
+                    android:layout_gravity="bottom|right"
+                    android:clickable="true"
+                    android:id="@+id/btnPular1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,17 +168,28 @@
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:textColor="#ffffff" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtProgressoModulo3"
+                    android:id="@+id/txtProgresso3"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/tamanhoFonteModulo"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal" />
+
             </FrameLayout>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
                 app:rcSecondaryProgress="0"
-                app:rcMax="7"
+                app:rcMax="10"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#00aedb"
+                app:rcProgressColor="#8ec127"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo3" />
