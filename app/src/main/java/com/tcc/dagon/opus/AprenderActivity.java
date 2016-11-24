@@ -134,7 +134,7 @@ public class AprenderActivity extends AppCompatActivity {
         //pegando informacoes da activity gerenciar
 
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        email = lerEmail(intent.getStringExtra("emailUsuario"));
 
         // INVOCANDO OS COMPONENTES
         accessViews();
@@ -648,23 +648,26 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
+                    //aoFecharMenu();
 
                 }
                 else if(position==1){
                     Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
-                    i.putExtra("id",email);
+                    i.putExtra("id", email);
                     startActivity(i);
+                    finish();
                 } else if (position ==2) {
 
                 } else if(position ==3) {
 
                 } else if(position ==4) {
-
-                } else if(position ==5) {
-                    writeFlag(false);
-                    signOut();
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    writeFlag(false);
+                    fotoTrocada(false);
+                    signOut();
                     finish();
+                } else if(position ==5) {
+
                 } else if(position ==6) {
 
                 }
@@ -677,7 +680,7 @@ public class AprenderActivity extends AppCompatActivity {
         // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
         ArrayAdapter<String> mAdapter;
         // ITENS DO MENU
-        String[] itensMenu = {"Módulos", "Perfil", "Conquistas", "Glossário", "Configurações", "Logout", "Avalie-nos!"};
+        String[] itensMenu = {"Módulos", "Perfil", "Glossário", "Configurações", "Logout", "Avalie-nos!"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }
@@ -759,12 +762,26 @@ public class AprenderActivity extends AppCompatActivity {
         return sharedPreferences.getBoolean("isLogin", false);
     }
 
+    public String lerEmail(String emailUsuario) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString("emailUsuario", emailUsuario);
+    }
+
+    public void fotoTrocada(boolean flag) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("fotoTrocada", flag);
+        editor.apply();
+    }
+
     // SIGN OUT GOOGLE
     private void signOut() {
         if(googleApiClient.isConnected()) {
             Plus.AccountApi.clearDefaultAccount(googleApiClient);
             googleApiClient.disconnect();
-            googleApiClient.connect();
+            //googleApiClient.connect();
         }
 
     }

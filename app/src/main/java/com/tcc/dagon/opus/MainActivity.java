@@ -215,7 +215,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
                                 Intent i = new Intent(MainActivity.this, GerenciarPerfilActivity.class);
-                                i.putExtra("id",sEmail);
+                                gravarEmail(sEmail);
+                                i.putExtra("emailUsuario",sEmail);
                                 startActivity(i);
 
                                 //startActivity(new Intent(getApplicationContext(), GerenciarPerfilActivity.class));
@@ -394,7 +395,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO
     private void getPermissions() {
         int permissaoConta = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.GET_ACCOUNTS);
-        int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 0;
+        int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 1;
         // Should we show an explanation?
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.GET_ACCOUNTS)) {
@@ -402,7 +403,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             // this thread waiting for the user's response! After the user
             // sees the explanation, try again to request the permission.
         } else {
-
             // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.GET_ACCOUNTS},
@@ -410,12 +410,12 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS is an
             // app-defined int constant. The callback method gets the
             // result of the request.
+
         }
     }
 
     // MÉTODO QUE PEGA A PERMISSÃO DO USUÁRIO
     private void getAccounts() {
-
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.GET_ACCOUNTS)
@@ -438,12 +438,17 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btSignInDefault){
-            if(!googleApiClient.isConnecting()){
-                getAccounts();
-                isSignInButtonClicked = true;
-                showUi(false, true);
-                resolveSignIn();
+            if(verificarConexao()) {
+                if(!googleApiClient.isConnecting()){
+                    getAccounts();
+                    isSignInButtonClicked = true;
+                    showUi(false, true);
+                    resolveSignIn();
+                }
+            } else {
+                Toast.makeText(context, "Sem conexão", Toast.LENGTH_LONG).show();
             }
+
         }else if(v.getId() == R.id.btSignInCustom){
             Intent intent = new Intent(MainActivity.this, RecuperarSenhaActivity.class);
             startActivity(intent);
@@ -473,6 +478,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         else if(v.getId() == R.id.bt_AprenderActivity){
             Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
             String perfilEmail = emailG;
+            gravarEmail(emailG);
             String perfilNome = name;
             intent.putExtra("emailBundle", perfilEmail);
             intent.putExtra("nomeBundle", perfilNome);
@@ -526,5 +532,26 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         return sharedPreferences.getBoolean("isLogin", false);
+    }
+
+    public void gravarEmail(String emailUsuario) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("emailUsuario", emailUsuario);
+        editor.apply();
+    }
+
+    public Boolean verificarConexao() {
+        try {
+            Process p1 = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com");
+            int returnVal = p1.waitFor();
+            boolean reachable = (returnVal==0);
+            return reachable;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
     }
 }

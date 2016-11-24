@@ -27,10 +27,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -62,12 +64,13 @@ public class UploadActivity extends Activity {
         imgPreview = (ImageView) findViewById(R.id.imgPreview);
         vidPreview = (VideoView) findViewById(R.id.videoPreview);
 
-
-
         Intent i = getIntent();
 
+        // ESTA LINHA ESTÁ INDO COMO NULL PARA O MÉTODO DE UPLOAD,
+        // ACREDITO QUE SEJA PRECISO CRIAR UM MÉTODO PRA FAZER UM SELECT NO SERVIDOR
+        // COM PHP PARA PEGAR O EMAIL DO ESTUDANTE
 
-        email = i.getStringExtra("y");
+        email = i.getStringExtra("emailUsuario");
 
         filePath = i.getStringExtra("filePath");
 
@@ -154,12 +157,16 @@ public class UploadActivity extends Activity {
                         });
 
                 File sourceFile = new File(filePath);
+                gravarCaminhoFoto(filePath);
 
                 entity.addPart("image", new FileBody(sourceFile));
 
                 entity.addPart("website",
-                        new StringBody("www.androidhive.info"));
-                entity.addPart("email", new StringBody(email));
+                        new StringBody("http://dagonopus.esy.es/phpAndroid/"));
+
+                entity.addPart("email", new StringBody(lerEmail("emailUsuario")));
+                // SUBSTITUINDO POR UMA STRING, O APLICATIVO CONSEGUE ENVIAR PARA O SERVIDOR NO EMAIL CORRETO
+                //entity.addPart("email", new StringBody("cahwayan@gmail.com"));
 
                 totalSize = entity.getContentLength();
                 httppost.setEntity(entity);
@@ -198,7 +205,7 @@ public class UploadActivity extends Activity {
 
     private void showAlert(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message).setTitle("Resposta do servidor")
+        builder.setMessage(message).setTitle("Aviso do aplicativo")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -207,6 +214,33 @@ public class UploadActivity extends Activity {
                 });
         AlertDialog alert = builder.create();
         alert.show();
+        fotoTrocada();
+        this.finish();
     }
+
+    public String lerEmail(String emailUsuario) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+
+        return sharedPreferences.getString("emailUsuario", emailUsuario);
+    }
+
+
+    public void fotoTrocada() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("fotoTrocada", true);
+        editor.apply();
+    }
+
+    public void gravarCaminhoFoto(String caminho) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("caminhoFotoPerfil", caminho);
+        editor.apply();
+    }
+
 
 }

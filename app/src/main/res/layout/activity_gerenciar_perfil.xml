@@ -1,54 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:baselineAligned="false"
-    android:orientation="vertical"
-    android:background="@drawable/telaloginbackground">
+    android:id="@+id/ContainerGeral"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="horizontal"
         android:id="@+id/fotoPerfilLinear"
         android:layout_weight="0.30">
+
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:id="@+id/fotoPerfil"
-            android:layout_above="@+id/linearLayout"
-            android:src="@drawable/icon_foto" />
+            android:src="@drawable/icon_foto"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
             android:gravity="center"
             android:orientation="horizontal"
             android:id="@+id/dadosPerfil"
-            android:layout_weight="0.30">
+            android:layout_weight="0.30"
+          >
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bem vindo!   "
-                android:id="@+id/textView" />
+                android:text="Bem vindo,"
+                android:id="@+id/txtBemVindo"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/txtNome"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/perfilLinear"
@@ -56,34 +62,68 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Aprender !"
-            android:id="@+id/btnAprender" />
+            android:text="Aprender"
+            android:id="@+id/btnAprender"
+            android:layout_gravity="left" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Alterar Senha"
+            android:id="@+id/btnAlterar"
+            android:layout_gravity="left" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Conquistas"
-            android:id="@+id/button3"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alterar senha"
-            android:id="@+id/btnAlterar" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Logout"
-            android:id="@+id/btnLogout" />
+            android:id="@+id/btnLogout"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:text="Progresso Geral:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLabelProgresso"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/barraProgresso"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp">
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcSecondaryProgress="0"
+                app:rcMax="30"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#d41243"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraGeral" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
 
 
-</LinearLayout>
+
+
+    </LinearLayout>
