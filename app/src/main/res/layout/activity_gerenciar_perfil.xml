@@ -5,7 +5,9 @@
     android:id="@+id/ContainerGeral"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/borda_container_licao"
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +15,8 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:id="@+id/fotoPerfilLinear"
-        android:layout_weight="0.30">
+        android:layout_weight="0.30"
+        android:background="@drawable/borda_container_licao">
 
         <ImageView
             android:layout_width="120dp"
@@ -33,13 +36,6 @@
             android:layout_weight="0.30"
           >
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bem vindo,"
-                android:id="@+id/txtBemVindo"
-                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,14 +62,17 @@
             android:layout_height="wrap_content"
             android:text="Aprender"
             android:id="@+id/btnAprender"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp" />
 
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Alterar Senha"
             android:id="@+id/btnAlterar"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -81,7 +80,9 @@
             android:layout_height="wrap_content"
             android:text="Logout"
             android:id="@+id/btnLogout"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:text="Progresso Geral:"
