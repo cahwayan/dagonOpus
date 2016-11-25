@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/telaloginbackground"
     android:padding="0dp">
 <ScrollView
     android:layout_width="match_parent"
@@ -93,6 +92,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="DESBLOQUEAR MODULO 1"
+                    android:background="#37cc6c"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/tamanhoTextoBotao"
+                    android:typeface="sans"
+                    android:fontFamily="sans-serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:id="@+id/botaoDesbloquearPrimeiroModulo"
+                    android:layout_marginLeft="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -171,8 +194,8 @@
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/botaoBloqLicoes"
-                    android:text="bloquear Licoes"
+                    android:id="@+id/botaoDesbloqLicoes"
+                    android:text="Desbloquear Licoes"
                     android:background="#37cc6c"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/tamanhoTextoBotao"
@@ -182,11 +205,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp" />
+
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/botaoDesbloqLicoes"
-                    android:text="Desbloquear Licoes"
+                    android:id="@+id/botaoBloqLicoes"
+                    android:text="bloquear Licoes"
                     android:background="#37cc6c"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/tamanhoTextoBotao"

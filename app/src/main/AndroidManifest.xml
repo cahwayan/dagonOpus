@@ -31,11 +31,11 @@
         <activity android:name=".RecuperarSenhaActivity" android:screenOrientation="portrait"/>
         <activity android:name=".AprenderActivity" android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity" android:screenOrientation="portrait" />
+        <activity android:name=".GlossarioActivity" android:screenOrientation="portrait" />
 
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
-            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
 

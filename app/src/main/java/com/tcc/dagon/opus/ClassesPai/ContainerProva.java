@@ -1,11 +1,14 @@
 package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 
 
 /**
@@ -58,7 +61,8 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+        finish();
     }
 
 
@@ -103,11 +107,5 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     public void setContagemVidas(int contagemVidas) {
         this.contagemVidas = contagemVidas;
     }
-
-
-
-
-
-
 
 }

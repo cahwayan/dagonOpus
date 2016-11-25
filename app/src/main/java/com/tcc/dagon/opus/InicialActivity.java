@@ -23,6 +23,8 @@ public class InicialActivity extends AppCompatActivity {
     private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1,
                     botaoDesbloqLicoes, botaoBloqLicoes;
 
+    private Button botaoDesbloquearPrimeiroModulo;
+
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
@@ -51,6 +53,7 @@ public class InicialActivity extends AppCompatActivity {
         botaoBloqLicoes         = (Button)findViewById(R.id.botaoBloqLicoes);
         botaoDesbloqLicoes      = (Button)findViewById(R.id.botaoDesbloqLicoes);
         requesQueue             = Volley.newRequestQueue(getApplicationContext());
+        botaoDesbloquearPrimeiroModulo = (Button)findViewById(R.id.botaoDesbloquearPrimeiroModulo);
 
 
 
@@ -88,6 +91,12 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(9);
+            }
+        });
+
+        botaoDesbloquearPrimeiroModulo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DB_PROGRESSO.atualizaProgressoEtapa(1,9);
             }
         });
 
@@ -138,10 +147,11 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,4,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,5,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,6,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,7,3);
+                DB_PROGRESSO.atualizaProgressoLicao(1,6,4);
+                DB_PROGRESSO.atualizaProgressoLicao(1,7,7);
                 DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,9,8);
+                writeFlag(true);
             }
         });
 
@@ -152,6 +162,15 @@ public class InicialActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         return sharedPreferences.getBoolean("isLogin", false);
+    }
+
+    // MODIFICAR FLAG PARA LOGOUT
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("completouTeste1", flag);
+        editor.apply();
     }
 
 }

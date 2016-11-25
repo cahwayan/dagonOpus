@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.google.android.gms.plus.Plus;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -625,6 +626,7 @@ public class AprenderActivity extends AppCompatActivity {
         btnPular1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
+                startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
             }
         });
 
@@ -657,7 +659,7 @@ public class AprenderActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 } else if (position ==2) {
-
+                    startActivity(new Intent(getApplicationContext(), GlossarioActivity.class));
                 } else if(position ==3) {
 
                 } else if(position ==4) {

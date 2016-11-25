@@ -438,16 +438,16 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btSignInDefault){
-            if(verificarConexao()) {
+            //if(verificarConexao()) {
                 if(!googleApiClient.isConnecting()){
                     getAccounts();
                     isSignInButtonClicked = true;
                     showUi(false, true);
                     resolveSignIn();
                 }
-            } else {
-                Toast.makeText(context, "Sem conexão", Toast.LENGTH_LONG).show();
-            }
+            //} else {
+            //    Toast.makeText(context, "Sem conexão", Toast.LENGTH_LONG).show();
+           // }
 
         }else if(v.getId() == R.id.btSignInCustom){
             Intent intent = new Intent(MainActivity.this, RecuperarSenhaActivity.class);
@@ -483,6 +483,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             intent.putExtra("emailBundle", perfilEmail);
             intent.putExtra("nomeBundle", perfilNome);
             this.startActivity(intent);
+            this.finish();
         }
     }
 

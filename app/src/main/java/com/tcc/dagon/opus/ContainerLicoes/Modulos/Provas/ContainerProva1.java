@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Provas.AdapterProva1;
 import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 
 /**
  * Created by cahwayan on 10/11/2016.
@@ -67,6 +69,7 @@ public class ContainerProva1 extends ContainerProva  {
         if(!readFlag()) {
             DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
         }
+
         super.onDestroy();
     }
 
