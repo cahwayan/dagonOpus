@@ -4,9 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.hardware.camera" android:required="true" />
+    <uses-permission
+        android:name="android.hardware.camera"
+        android:required="true" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".utils.Multidex"
@@ -19,94 +21,96 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".InicialActivity"
+        <activity
+            android:name=".InicialActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".CadastroActivity" android:screenOrientation="portrait" />
-        <activity android:name=".RecuperarSenhaActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".AprenderActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
-        <activity android:name=".GlossarioActivity" android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".CadastroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecuperarSenhaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AprenderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GlossarioActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
-            android:screenOrientation="portrait"/>
-
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UploadActivity"
             android:label="@string/title_activity_gerenciar_perfil"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--TELAS DE ETAPAS-->
-        <activity android:name=".telasEtapas.EtapasModulo1Activity"
-            android:screenOrientation="portrait"/>
+        <!-- TELAS DE ETAPAS -->
+        <activity
+            android:name=".telasEtapas.EtapasModulo1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".telasEtapas.EtapasModulo2Activity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".telasEtapas.EtapasModulo2Activity"
-            android:screenOrientation="portrait"/>
-
-        <!--CONTAINERS DAS ETAPAS DOS MODULOS-->
+        <!-- CONTAINERS DAS ETAPAS DOS MODULOS -->
 
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
             android:label="@string/TituloEtapa1Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2"
             android:label="@string/TituloEtapa2Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3"
             android:label="@string/TituloEtapa3Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4"
             android:label="@string/TituloEtapa4Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa5"
             android:label="@string/TituloEtapa5Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa6"
             android:label="@string/TituloEtapa6Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa7"
             android:label="@string/TituloEtapa7Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa8"
             android:label="@string/TituloEtapa8Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContainerLicoes.Modulos.Provas.ContainerProva1"
             android:label="@string/TituloEtapa9Modulo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AlterarSenhaActivity"></activity>
     </application>
 
 </manifest>

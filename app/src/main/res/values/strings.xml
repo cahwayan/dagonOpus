@@ -238,7 +238,7 @@
     <string name="titulo3Modulo1Etapa6Licao1">1.2 Variáveis reais</string>
     <string name="titulo4Modulo1Etapa6Licao1">1.3 Variáveis de caracteres (strings) </string>
     <string name="titulo5Modulo1Etapa6Licao1">1.4 Variáveis lógicas (booleanas) </string>
-    
+
     <!-- ETAPA 7 -->
     <!-- LIÇÃO 1 -->
     <string name="titulo1Modulo1Etapa7Licao1">1. Operadores</string>
@@ -255,8 +255,8 @@
     <!-- ETAPA 8 -->
     <!-- LIÇÃO 1 -->
     <string name="titulo1Modulo1Etapa8Licao1">1. Comentários em código</string>
-    
-    <!-- ETAPAS MÓDULO 2 --> 
+
+    <!-- ETAPAS MÓDULO 2 -->
 
     <!-- TEXTOS LICOES -->
     <!--MÒDULO 1-->
@@ -287,11 +287,11 @@
         que você reconheça o valor da lógica</b>, e a aprimore máximo que puder, para que sua jornada como desenvolvedor seja facilitada.
     </string>
 
-    <string name="texto2Modulo1Etapa1Licao2" >Por definição, lógica de programação é a técnica de desenvolver instruções para o computador em uma
+    <string name="texto2Modulo1Etapa1Licao2">Por definição, lógica de programação é a técnica de desenvolver instruções para o computador em uma
         <b>sequência lógica</b>, para atingir um determinado objetivo. Essas instruções são passadas para o computador através de uma <b>linguagem de programação</b>.
     </string>
 
-    <string name="texto3Modulo1Etapa1Licao2" >Um conjunto de instruções organizadas em uma sequência lógica é chamada de <b>algoritmo</b> no mundo da programação.
+    <string name="texto3Modulo1Etapa1Licao2">Um conjunto de instruções organizadas em uma sequência lógica é chamada de <b>algoritmo</b> no mundo da programação.
         Um algoritmo nada mais é que um conjunto de passos que precisam ser dados
         para atingir determinado objetivo. Vamos estudar e explorar melhor isso nas próximas etapas.
         \n\nE é isso! Basicamente, a lógica de programação é usada para que possamos construir algoritmos com instruções para o computador executar tarefas dentro de um software.
@@ -430,7 +430,7 @@
         \n\n<b>1.2 Real:</b> Variáveis <b>reais</b> também armazenam valores numéricos. Porém, com a diferença de que esses valores numéricos podem conter casas decimais. 
         <b>Ex:</b> valorReal <![CDATA[<-]]> 2,9 (variável valorReal, do tipo real, recebe 2,9 como valor).
      </string>
-     <!-- DICA -->
+    <!-- DICA -->
       <string name="texto2Modulo1Etapa6Licao1">\n<b>1.3 Caractere (string):</b> Variáveis do tipo <b>caractere</b> ou <b>string</b>, guardam valores literais de texto como letras, dígitos e símbolos. 
           Valores do tipo caractere precisam sempre estar entre aspas, salvo quando o valor a ser atribuído for o de uma outra variável. 
            <b>Ex1:</b> \nvalorString <![CDATA[<-]]><b> <![CDATA[“]]> Hoje eu fui até o mercado e comprei 3 pacotes de bolacha<![CDATA[“]]></b> (variável valorString, do tipo caractere, recebe uma frase como valor).
@@ -439,22 +439,22 @@
     <string name="texto3Modulo1Etapa6Licao1"><b>Ex2:</b> Na imagem a seguir temos três variáveis: texto1, texto2 e texto3. Note como quando precisamos escrever o valor de uma variável, <b>não utilizamos aspas</b>.
            \n<b>Algoritmo: </b>
       </string>
-      <!-- IMAGEM -->
-      <string name="texto4Modulo1Etapa6Licao1"><b>Resultado:</b></string>
-      <!-- IMAGEM -->
+    <!-- IMAGEM -->
+    <string name="texto4Modulo1Etapa6Licao1"><b>Resultado:</b></string>
+    <!-- IMAGEM -->
 
-      <!-- DICA 2 -->
+    <!-- DICA 2 -->
 
-      <!-- IMAGEM -->
+    <!-- IMAGEM -->
       <string name="texto5Modulo1Etapa6Licao1">Nesse algoritmo, o programa escreve na tela uma mensagem informando o usuário para ele escrever seu nome. O computador lê a informação, e guarda em uma 
           variável com o nome <b>nomeUsuario</b>. Depois, ele escreve na tela uma saudação personalizada com o nome do usuário.
           Note que o uso das aspas diz para o computador o que ele deve escrever literalmente, e o que é uma variável. E lembre-se sempre de usar o operador de <b>soma</b> para concatenar!
           \n\nResultado do código: 
       </string>
 
-      <!-- IMAGEM -->
+    <!-- IMAGEM -->
 
-    <string name="texto6Modulo1Etapa6Licao1" ><b>1.4 Lógico (booleana):</b> As variáveis booleanas armazenam <b>estados</b>. Para um computador, há apenas dois estados possíveis: <b>verdadeiro ou falso</b>. 
+    <string name="texto6Modulo1Etapa6Licao1"><b>1.4 Lógico (booleana):</b> As variáveis booleanas armazenam <b>estados</b>. Para um computador, há apenas dois estados possíveis: <b>verdadeiro ou falso</b>.
         \nPense nesse estado de verdadeiro ou falso como uma porta. Uma porta possui basicamente dois estados possíveis: <b>aberta ou fechada</b>. Se tivéssemos que controlar o estado de uma porta para monitorar se ela está aberta ou fechada, poderíamos declarar uma variável para guardar essas condições. Ela ficaria mais ou menos assim: 
         \nportaAberta <![CDATA[<-]]> verdadeiro. Isto é, declaramos uma variável portaAberta do tipo lógico recebendo inicialmente o valor verdadeiro, isto é: a porta está aberta.
     </string>
@@ -645,7 +645,7 @@
 
     <!-- ETAPA 5 -->
     <!-- LIÇÃO 1 -->
-     <string name="dica1Modulo1Etapa5Licao1">Calma lá! Isso foi apenas um exemplo. Você verá a seguir como declarar corretamente variáveis dentro do visualg, e os tipos que você pode utilizar em seus programas.</string>
+    <string name="dica1Modulo1Etapa5Licao1">Calma lá! Isso foi apenas um exemplo. Você verá a seguir como declarar corretamente variáveis dentro do visualg, e os tipos que você pode utilizar em seus programas.</string>
 
     <!-- LIÇÃO 2-->
     <string name="dica1Modulo1Etapa5Licao2">\nBoa pratica: aconselhamos você sempre iniciar suas variáveis com letras minúsculas.\n</string>
@@ -683,7 +683,6 @@
     <string name="dicaXModuloXEtapaXLicaoX">
         \n<b>vetor1[0]  <![CDATA[<-]]> </b> <![CDATA[<b><font color=#ff0000>”Estamos atribuindo um valor na posição 0 do vetor caractere de 5 posições!</b>]]>
     </string>
-    
 
 
     <!--PERGUNTAS MÓDULOS-->
@@ -807,7 +806,7 @@
 
     <!-- ETAPA 7 -->
 
-     <!-- PERGUNTA 1 -->
+    <!-- PERGUNTA 1 -->
     <string name="Modulo1Etapa7Pergunta1">Para que servem os operadores aritméticos?</string>
     <!-- ALTERNATIVAS PERGUNTA 1-->
     <string name="Modulo1Etapa7Pergunta1Alternativa1">Os operadores aritméticos são utilizados para processar e obter resultados numéricos</string>
@@ -815,7 +814,7 @@
     <string name="Modulo1Etapa7Pergunta1Alternativa3">Os operadores aritméticos comparam um valor lógico com outro valor lógico</string>
     <string name="Modulo1Etapa7Pergunta1Alternativa4">Os operadores aritméticos são usados para monitorar o estado de uma variável</string>
 
-     <!-- PERGUNTA 2 -->
+    <!-- PERGUNTA 2 -->
     <string name="Modulo1Etapa7Pergunta2">Qual a ordem de prioridade no cálculo de expressões matemáticas na programação?</string>
     <!-- ALTERNATIVAS PERGUNTA 2-->
     <string name="Modulo1Etapa7Pergunta2Alternativa1">Parênteses, ponto e vírgula, multiplicação e soma</string>
@@ -1004,10 +1003,9 @@
     <!-- PEGAR COMPLETAR DA ETAPA 7 -->
     <!-- PEGAR COMPLETAR DA ETAPA 7 -->
     <!-- PEGAR COMPLETAR DA ETAPA 7 -->
-    
 
 
-     <!-- PERGUNTA 8 -->
+    <!-- PERGUNTA 8 -->
     <string name="ProvaModulo1Pergunta8">Qual a importância dos comentários no código?</string>
     <!-- ALTERNATIVAS PERGUNTA 8 RESPOSTA: B -->
     <string name="ProvaModulo1Pergunta8Alternativa1">Comentários são importantes para o funcionamento de um programa</string>

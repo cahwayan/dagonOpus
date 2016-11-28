@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlterarSenhaActivity"
+    android:orientation="vertical"
+    android:background="@drawable/telaloginbackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:layout_marginTop="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Digite sua senha"
+            android:id="@+id/txtDigitarSenha"
+            android:focusableInTouchMode="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtSenhaAtual" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txtNovaSenha"
+            android:focusableInTouchMode="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:text="Digite sua nova senha" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtNovaSenha" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtConfirmaSenha" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Alterar"
+            android:id="@+id/btAlterarSenha"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical"
+            android:typeface="sans"
+            android:fontFamily="fonts/GothamRounded-Light.otf"
+            android:background="@color/corBtnCadastro"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+</LinearLayout>
