@@ -340,14 +340,7 @@ public class GerenciarPerfilActivity extends Activity {
                 System.out.println(response.toString());
                 try {
                     JSONArray students = response.getJSONArray("students");
-                  /*  JSONArray nome = response.getJSONArray("nome");
-                    for(int y = 0; y< nome.length();y++){
-                        JSONObject nomes = nome.getJSONObject(y);
-                        nomeUser = nomes.getString("NOME_USUARIO");
-                        txtNome.setText(nomeUser);
-
-                    }*/
-                    for (int i = 0; i < students.length(); i++) {
+                 for (int i = 0; i < students.length(); i++) {
                         JSONObject student = students.getJSONObject(i);
 
                         caminho = student.getString("END_FOTO");
@@ -401,6 +394,11 @@ public class GerenciarPerfilActivity extends Activity {
             }
             else if( btnAlterarSenha.getId() == v.getId() )
             {
+                Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
+                i.putExtra("emailUsuario", email);
+                startActivity(i);
+                finish();
+
 
 
             }
@@ -416,17 +414,11 @@ public class GerenciarPerfilActivity extends Activity {
         // Should we show an explanation?
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.GET_ACCOUNTS)) {
-            // Show an explanation to the user *asynchronously* -- don't block
-            // this thread waiting for the user's response! After the user
-            // sees the explanation, try again to request the permission.
+
         } else {
-            // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_WRITE_STORAGE);
-            // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS is an
-            // app-defined int constant. The callback method gets the
-            // result of the request.
         }
     }
 
