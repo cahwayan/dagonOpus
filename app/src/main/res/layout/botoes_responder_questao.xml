@@ -39,7 +39,7 @@
         android:id="@+id/btnAvancarQuestao"
         android:layout_gravity="center_vertical|end"
         android:gravity="center_horizontal|center_vertical"
-        android:background="@color/corBtnModulo3"
+        android:background="@color/corBtnModulo2"
         android:textColor="#ffffff"
         android:padding="7dp"
         android:textSize="14sp"

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--STRINGS TELA CADASTRO-->
+    <string name="hintEmail">Email</string>
+    <string name="hintSenha">Senha</string>
+    <string name="hintConfirmarSenha">Confirmar senha</string>
+    <string name="nomeCompleto">Nome</string>
+    <string name="txtCadastro">Criar conta</string>
+    <string name="txtBemVindo">Bem-vindo!</string>
+    <string name="btnCadastrar">Cadastrar</string>
+    <string name="fonteBotao">sans-serif</string>
+    <string name="Enviar">Enviar</string>
+    <string name="digiteEmail">Digite seu email</string>
+    <!--FIM STRINGS CADASTRO-->
+
+    <!-- STRINGS TELA LOGIN-->
+    <string name="ou">ou</string>
+    <string name="Entrar">Entrar</string>
+    <string name="esqueceuSenha">Esqueceu sua senha?</string>
+    <string name="BotaoCriarConta">CRIAR CONTA</string>
+    <!--FIM TELA LOGIN-->
+</resources>

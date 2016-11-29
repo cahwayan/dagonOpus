@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TITULOS DAS ETAPAS -->
+
+    <!-- MÓDULO 2 -->
+    <string name="TituloEtapa1Modulo2">1. Estrutura de decisão simples</string>
+    <string name="TituloEtapa2Modulo2">2. Estrutura de decisão composta</string>
+    <string name="TituloEtapa3Modulo2">3. Estrutura de repetição <b>enquanto</b> (while)</string>
+    <string name="TituloEtapa4Modulo2">4. Estrutura de repetição <b>para</b> (for)</string>
+    <string name="TituloEtapa5Modulo2">5. Prova 2</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo2Etapa1">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa2">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa3">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo2Etapa5">4 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 2-->
+
+
+</resources>

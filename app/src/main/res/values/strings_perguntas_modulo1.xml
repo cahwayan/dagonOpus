@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--PERGUNTAS MÓDULOS-->
+    <!--MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo1Etapa1Pergunta1">Qual alternativa melhor descreve a lógica de programação?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa1Pergunta1Alternativa1">Apenas uma maneira de como se pensar em programar</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa2">Uma série de instruções aleatórias para o computador ler e se virar para saber o que ele deve fazer</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa3">A técnica de desenvolver instruções para o computador em uma sequência lógica, para atingir um determinado objetivo</string>
+    <string name="Modulo1Etapa1Pergunta1Alternativa4">Somente passos para executar uma tarefa com o computador</string>
+
+    <!--ETAPA 2-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo1Etapa2Pergunta1">Qual alternativa engloba melhor o que é um algoritmo?</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa1">Algoritmos são passos dados para executar uma tarefa</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa2">Algoritmos, além de conter ações, podem também conter condições dentro de seu conjunto de instruções</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa3">Algoritmos visam organizar uma série de passos em uma ordem lógica para solucionar um problema</string>
+    <string name="Modulo1Etapa2Pergunta1Alternativa4">Todas alternativas anteriores</string>
+
+    <!--PERGUNTA 2 DE AUTO COMPLETAR-->
+    <string name="Modulo1Etapa2Pergunta2">Sabendo que um algoritmo são passos detalhados que levam a execução de uma tarefa, ajude-nos a montar um algoritmo para atravessar a rua:</string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa2Pergunta2Linha1">1. Olhar para esquerda</string>
+    <string name="Modulo1Etapa2Pergunta2Linha2">2. </string>
+    <string name="Modulo1Etapa2Pergunta2Linha3">3. Se não estiver vindo carro, então </string>
+    <string name="Modulo1Etapa2Pergunta2Linha4">4. Se estiver vindo carro, então</string>
+
+    <!--ETAPA 3-->
+    <!-- PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta1">O que é portugol?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta1Alternativa1">Uma pseudo-linguagem de programação que ajuda estudantes a aprenderem lógica de programação por ser em português.</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa2">Uma forma de desenvolver softwares em português</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa3">É uma linguagem de programação usada em grandes projetos ao redor do mundo</string>
+    <string name="Modulo1Etapa3Pergunta1Alternativa4">A tradução de uma linguagem de programação</string>
+
+    <!--PERGUNTA 2-->
+    <string name="Modulo1Etapa3Pergunta2">Qual dos seguintes comandos está escrito corretamente de acordo com o portugol?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa3Pergunta2Alternativa1">escreva resultado</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa2">resultado <![CDATA[<-]]> numero1 + numero2</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa3">leia o número 1 e o número 2</string>
+    <string name="Modulo1Etapa3Pergunta2Alternativa4">escrever a soma dos números que o usuário digitou</string>
+
+    <!--ETAPA 4-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo1Etapa4Pergunta1">Qual o fluxo básico de processamento de um dado?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa4Pergunta1Alternativa1">saída <![CDATA[->]]> processamento <![CDATA[->]]> entrada</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa2">processamento<![CDATA[->]]> entrada <![CDATA[->]]> saída</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa3">entrada <![CDATA[->]]> saída <![CDATA[->]]> processamento</string>
+    <string name="Modulo1Etapa4Pergunta1Alternativa4">entrada <![CDATA[->]]> processamento <![CDATA[->]]> saída</string>
+
+    <!--PERGUNTA 2 AUTO COMPLETAR-->
+    <string name="Modulo1Etapa4Pergunta2">É de costume de todos os programadores ao redor do mundo fazer o computador escrever <![CDATA[“]]>Hello World!<![CDATA[“]]>
+        ou <![CDATA[“]]>Olá Mundo!<![CDATA[“]]> na tela.
+        Reza a lenda, que se você não fizer isso, não conseguirá entender a tecnologia que está estudando, e não será um bom programador.
+        É só uma lenda, mas você vai duvidar? Então, para acabar com essa maldição, vamos escrever um algoritmo que escreva <![CDATA[“]]>Olá mundo!<![CDATA[“]]> na tela.</string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa4Pergunta2Linha1">
+        <u>Algoritmo</u> <![CDATA[“]]>mensagem<![CDATA[“]]>
+        \n<u>Var</u>
+        \n\n\n<u>Inicio</u>
+    </string>
+    <string name="Modulo1Etapa4Pergunta2Linha2">Escreva  (<![CDATA[“]]></string>
+    <string name="Modulo1Etapa4Pergunta2ContinuacaoLinha2">!<![CDATA[“]]>)</string>
+    <string name="Modulo1Etapa4Pergunta2Linha3"><u>Fimalgoritmo</u></string>
+
+    <!-- ETAPA 5 -->
+
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta1">Qual alternativa melhor descreve uma variável?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta1Alternativa1">Variáveis e constantes são espaços reservados na memória do computador para guardar um tipo de dado determinado</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa2">As variáveis são valores que podem ser alteradas conforme a necessidade durante o código</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa3">Todas as alternativas</string>
+    <string name="Modulo1Etapa5Pergunta1Alternativa4">As variáveis possuem nomes que servem de referência para que elas sejam acessadas</string>
+    <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa5Pergunta2">Qual variável está declarada corretamente?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa5Pergunta2Alternativa1">variavel-numero-1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa2">variavel_numero_1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa3">variavel numero_1</string>
+    <string name="Modulo1Etapa5Pergunta2Alternativa4">variavel_número_1</string>
+
+    <!-- ETAPA 6 -->
+
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa6Pergunta1">Qual tipo de dado uma variável inteira armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 -->
+    <string name="Modulo1Etapa6Pergunta1Alternativa1">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa2">Conjuntos de caracteres</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa3">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta1Alternativa4">Valores lógicos</string>
+
+    <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa6Pergunta2">Qual tipo de dado uma variável real armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2 -->
+    <string name="Modulo1Etapa6Pergunta2Alternativa1">Valores lógicos</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa2">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa3">Conjuntos de caracteres</string>
+    <string name="Modulo1Etapa6Pergunta2Alternativa4">Valores numéricos sem casas decimais</string>
+
+    <!-- PERGUNTA 3 -->
+    <string name="Modulo1Etapa6Pergunta3">Qual tipo de dado uma variável caractere, ou <b>string</b> armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 3 -->
+    <string name="Modulo1Etapa6Pergunta3Alternativa1">Valores numéricos com casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa2">Valores lógicos</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa3">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta3Alternativa4">Um conjunto de caracteres que pode incluir letras, números e símbolos, desde que esteja entre aspas (salvo em caso de variáveis, nesse caso não utilizamos aspas, senão o programa irá escrever o nome da variável ao invés de escrever seu valor)</string>
+
+    <!-- PERGUNTA 4 -->
+    <string name="Modulo1Etapa6Pergunta4">Qual tipo de dado uma variável booleana, ou lógica armazena?</string>
+    <!-- ALTERNATIVAS PERGUNTA 4 -->
+    <string name="Modulo1Etapa6Pergunta4Alternativa1">Um conjunto de caracteres que pode incluir letras, números e símbolos, desde que esteja devidamente entre aspas</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa2">Valores numéricos sem casas decimais</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa3">Valores lógicos. Variáveis lógicas armazenam dois estados: verdadeiro ou falso.</string>
+    <string name="Modulo1Etapa6Pergunta4Alternativa4">Valores numéricos com casas decimais</string>
+
+    <!-- ETAPA 7 -->
+
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa7Pergunta1">Para que servem os operadores aritméticos?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo1Etapa7Pergunta1Alternativa1">Os operadores aritméticos são utilizados para processar e obter resultados numéricos</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa2">Os operadores aritméticos são utilizados para relacionar variáveis com expressões ou valores, comparando – as e gerando um resultado lógico.</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa3">Os operadores aritméticos comparam um valor lógico com outro valor lógico</string>
+    <string name="Modulo1Etapa7Pergunta1Alternativa4">Os operadores aritméticos são usados para monitorar o estado de uma variável</string>
+
+    <!-- PERGUNTA 2 -->
+    <string name="Modulo1Etapa7Pergunta2">Qual a ordem de prioridade no cálculo de expressões matemáticas na programação?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo1Etapa7Pergunta2Alternativa1">Parênteses, ponto e vírgula, multiplicação e soma</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa2">Parênteses, exponenciação, multiplicação e divisão, soma e subtração</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa3">Chaves, parênteses, multiplicação, subtração e divisão</string>
+    <string name="Modulo1Etapa7Pergunta2Alternativa4">Divisão e soma, subtração e multiplicação, parênteses </string>
+
+    <!-- AUTO COMPLETAR, PERGUNTA 3 -->
+    <string name="Modulo1Etapa7Pergunta3">
+        Considere o valor das variáveis a seguir e escreva se o resultado da expressão é verdadeiro ou falso:
+        \nVariáveis:
+        <b>\na = 4
+            \nb = 8
+            \nc = 9</b>
+    </string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa7Pergunta3Linha0">a <![CDATA[<>]]>  b ? <u><b>verdadeiro</b></u></string>
+    <string name="Modulo1Etapa7Pergunta3Linha1">a = b ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha2">b <![CDATA[<>]]> c ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha3">b = 4 + 4 ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha4">c <![CDATA[<=]]> b ?</string>
+    <string name="Modulo1Etapa7Pergunta3Linha5">a <![CDATA[>=]]> 4 ?</string>
+    <string name="Modulo1Etapa7Pergunta3Linha6">b <![CDATA[<]]> a ? </string>
+    <string name="Modulo1Etapa7Pergunta3Linha7">c <![CDATA[>]]> b ?</string>
+
+    <!-- AUTO COMPLETAR, PERGUNTA 4 -->
+    <string name="Modulo1Etapa7Pergunta4">
+        Qual é o resultado lógico das expressões relacionais a seguir?
+    </string>
+    <!--LINHAS AUTO COMPLETAR-->
+    <string name="Modulo1Etapa7Pergunta4Linha1">Verdadeiro <b>E</b> Verdadeiro = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha2">Verdadeiro <b>E</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha3">Falso <b>E</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha4">Verdadeiro <b>OU</b> Verdadeiro = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha5">Verdadeiro <b>OU</b> Falso = </string>
+    <string name="Modulo1Etapa7Pergunta4Linha6">Falso <b>OU</b> Falso = </string>
+
+    <!-- ETAPA 8 -->
+    <!-- PERGUNTA 1 -->
+    <string name="Modulo1Etapa8Pergunta1">Para que servem comentários em códigos?</string>
+    <!-- ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo1Etapa8Pergunta1Alternativa1">Para escrever piadas no meio do código e seus amigos possam ler e se descontrair durante o trabalho</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa2">Comentários são usados por programadores relaxados para explicar códigos mal escritos</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa3">Para escrever instruções para o computador executar tarefas</string>
+    <string name="Modulo1Etapa8Pergunta1Alternativa4">Comentários são linhas ignoradas pelo programa, e que servem apenas para guiar os programadores sobre as funcionalidades do código e aumentar a legibilidade.</string>
+
+    <!-- PROVA 1 (ETAPA 9)-->
+    <!-- PERGUNTA 1 -->
+    <string name="ProvaModulo1Pergunta1">Qual o nome dado a um conjunto de instruções organizadas em uma sequência lógica?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1 RESPOSTA D-->
+    <string name="ProvaModulo1Pergunta1Alternativa1">Variável</string>
+    <string name="ProvaModulo1Pergunta1Alternativa2">Portugol</string>
+    <string name="ProvaModulo1Pergunta1Alternativa3">Constante</string>
+    <string name="ProvaModulo1Pergunta1Alternativa4">Algoritmo</string>
+
+    <!-- PERGUNTA 2 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta2">Complete os espaços em branco e escreva um algoritmo que leia dois numeros, some eles, e escreva o resultado na tela</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="ProvaModulo1Pergunta2Linha1">
+        <u><b>Algoritmo <![CDATA[“]]>Soma<![CDATA[“]]></b></u>
+        \n\n<b><u>Var</u></b>
+        \n<b>numero1:</b> <u>inteiro</u>
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha2">
+        <b>numero2:</b>
+    </string>
+
+
+    <string name="ProvaModulo1Pergunta2Linha3">
+        <b>resultado:</b>
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha4">
+        <u><b>Inicio</b></u>
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha5">
+        (<![CDATA[“]]>Digite o primeiro número: <![CDATA[“]]>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha6">
+        (<b>numero1</b>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha7">
+        <b><u>Escreva</u></b>(<![CDATA[“]]>Digite o segundo número: <![CDATA[“]]>)
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha8">
+        <b><u>Leia</u></b>(
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha9">
+         <![CDATA[<-]]> <b>numero1</b> +
+    </string>
+
+    <string name="ProvaModulo1Pergunta2Linha10">
+        <b><u>Escreva</u></b>(<![CDATA[“]]> O resultado é: <![CDATA[“]]> +
+    </string>
+
+    <!-- PERGUNTA 3 -->
+    <string name="ProvaModulo1Pergunta3">Qual o fluxo básico do processamento de um dado?</string>
+    <!-- ALTERNATIVAS PERGUNTA 3 RESPOSTA: A-->
+    <string name="ProvaModulo1Pergunta3Alternativa1">entrada <![CDATA[->]]> processamento <![CDATA[->]]> saída</string>
+    <string name="ProvaModulo1Pergunta3Alternativa2">entrada <![CDATA[->]]> saída <![CDATA[->]]> processamento</string>
+    <string name="ProvaModulo1Pergunta3Alternativa3">processamento<![CDATA[->]]> entrada <![CDATA[->]]> saída</string>
+    <string name="ProvaModulo1Pergunta3Alternativa4">saída <![CDATA[->]]> processamento <![CDATA[->]]> entrada</string>
+
+    <!-- PERGUNTA 4 -->
+    <string name="ProvaModulo1Pergunta4">O que são variáveis?</string>
+    <!-- ALTERNATIVAS PERGUNTA 4 RESPOSTA: B-->
+    <string name="ProvaModulo1Pergunta4Alternativa1">Passos para resolver uma tarefa</string>
+    <string name="ProvaModulo1Pergunta4Alternativa2">Espaços reservados na memória do computador que guardam um tipo de dado determinado</string>
+    <string name="ProvaModulo1Pergunta4Alternativa3">Comandos que dizem para o computador o que ele deve fazer</string>
+    <string name="ProvaModulo1Pergunta4Alternativa4">Linhas que são ignoradas pelo programa, mas que servem de guia para programadores entenderem o código</string>
+
+    <!-- PERGUNTA 5 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta5">Complete os espaços em branco para declarar as variáveis de acordo com o contexto de seu nome</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="ProvaModulo1Pergunta5Linha1">
+        <u><b>Algoritmo <![CDATA[“]]>Soma<![CDATA[“]]></b></u>
+        \n\n\n<b><u>Var</u></b>
+    </string>
+
+    <string name="ProvaModulo1Pergunta5Linha2">
+        <b>variavelInteira: </b>
+    </string>
+
+
+    <string name="ProvaModulo1Pergunta5Linha3">
+        <b>variavelReal: </b>
+    </string>
+
+    <string name="ProvaModulo1Pergunta5Linha4">
+        <b>variavelCaractere: </b>
+    </string>
+
+    <string name="ProvaModulo1Pergunta5Linha5">
+        <b>variavelLogica: </b>
+    </string>
+
+    <!-- PERGUNTA 6 COMPLETAR -->
+    <string name="ProvaModulo1Pergunta6">Preencha os campos em branco com o resultado das expressões relacionais (verdadeiro ou falso)</string>
+    <!-- LINHAS DO COMPLETAR -->
+    <string name="ProvaModulo1Pergunta6Linha1">
+        4 <b><![CDATA[>]]></b> 9?
+    </string>
+
+    <string name="ProvaModulo1Pergunta6Linha2">
+        20  <b><![CDATA[<=]]></b> 20?
+    </string>
+
+
+    <string name="ProvaModulo1Pergunta6Linha3">
+        103 <b><![CDATA[>=]]></b>  60?
+    </string>
+
+    <string name="ProvaModulo1Pergunta6Linha4">
+        37<b><![CDATA[<>]]></b> 37?
+    </string>
+
+    <string name="ProvaModulo1Pergunta6Linha5">
+       5 <b><![CDATA[=]]></b> 29?
+    </string>
+
+    <!-- PERGUNTA 7 COMPLETAR -->
+
+
+    <!-- COMPLETAR DA ETAPA 7 -->
+
+
+
+
+    <!-- PERGUNTA 8 -->
+    <string name="ProvaModulo1Pergunta8">Qual a importância dos comentários no código?</string>
+    <!-- ALTERNATIVAS PERGUNTA 8 RESPOSTA: B -->
+    <string name="ProvaModulo1Pergunta8Alternativa1">Comentários são importantes para o funcionamento de um programa</string>
+    <string name="ProvaModulo1Pergunta8Alternativa2">Comentários são utilizados para aumentar a legibilidade do código e ajudar os programadores a entenderem o que o código faz</string>
+    <string name="ProvaModulo1Pergunta8Alternativa3">Comentários são fundamentais para que a máquina entenda o que está acontecendo no programa</string>
+    <string name="ProvaModulo1Pergunta8Alternativa4">Comentários não são importantes, são perda de tempo</string>
+
+</resources>
