@@ -28,13 +28,15 @@ public class EtapasModulo2Activity extends TelaEtapas {
             etapa2,
             etapa3,
             etapa4,
-            etapa5;
+            etapa5,
+            etapa6;
 
     private TextView    txtEtapa1,
                         txtEtapa2,
                         txtEtapa3,
                         txtEtapa4,
-                        txtEtapa5;
+                        txtEtapa5,
+                        txtEtapa6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class EtapasModulo2Activity extends TelaEtapas {
         etapa3 = (LinearLayout) findViewById(R.id.Modulo2Etapa3);
         etapa4 = (LinearLayout) findViewById(R.id.Modulo2Etapa4);
         etapa5 = (LinearLayout) findViewById(R.id.Modulo2Etapa5);
+        etapa6 = (LinearLayout) findViewById(R.id.Modulo2Etapa6);
 
         // BARRA INFERIOR DAS ETAPAS
         txtEtapa1 = (TextView) findViewById(R.id.txtQuestoesModulo2Etapa1);
@@ -79,10 +82,11 @@ public class EtapasModulo2Activity extends TelaEtapas {
         txtEtapa3 = (TextView) findViewById(R.id.txtQuestoesModulo2Etapa3);
         txtEtapa4 = (TextView) findViewById(R.id.txtQuestoesModulo2Etapa4);
         txtEtapa5 = (TextView) findViewById(R.id.txtQuestoesModulo2Etapa5);
+        txtEtapa6 = (TextView) findViewById(R.id.txtQuestoesModulo2Etapa6);
 
-        etapas = new LinearLayout[]{etapa1, etapa2, etapa3, etapa4, etapa5};
+        etapas = new LinearLayout[]{etapa1, etapa2, etapa3, etapa4, etapa5, etapa6};
 
-        barraInferiorEtapas = new TextView[] {txtEtapa1, txtEtapa2, txtEtapa3, txtEtapa4, txtEtapa5};
+        barraInferiorEtapas = new TextView[] {txtEtapa1, txtEtapa2, txtEtapa3, txtEtapa4, txtEtapa5, txtEtapa6};
 
         super.accessViews();
 
@@ -158,6 +162,22 @@ public class EtapasModulo2Activity extends TelaEtapas {
             @Override
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 5) {
+                    // ANIMAÇÃO
+                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    // ABRIR LICOES
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa5.class));
+                } else {
+                    // ALERTA CASO ESTEJA BLOQUEADO
+                    alertaEtapaBloqueada();
+                }
+            }
+        });
+
+        // setar um click listener
+        etapa6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 6) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES

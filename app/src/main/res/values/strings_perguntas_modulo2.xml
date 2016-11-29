@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--PERGUNTAS MÓDULOS-->
+    <!--MÓDULO 2-->
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo2Etapa1Pergunta1">Qual a sintaxe correta para o comando Se?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo2Etapa1Pergunta1Alternativa1">Se <![CDATA[“]]>condição<![CDATA[“]]> faça</string>
+    <string name="Modulo2Etapa1Pergunta1Alternativa2">Se {condição} = verdadeira decida</string>
+    <string name="Modulo2Etapa1Pergunta1Alternativa3">Se (condição) entao &#8230; FimSe</string>
+    <string name="Modulo2Etapa1Pergunta1Alternativa4">Se [condição] repita</string>
+
+    <!--PERGUNTA 2-->
+
+    <string name="Modulo2Etapa1Pergunta2">Preencha os campos em branco para comparar as variáveis e imprimir a menor variável na tela</string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha1">
+    <u>Var</u>
+    \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \n<b>a<![CDATA[ <- ]]>100
+    \nb <![CDATA[ <- ]]> 90</b>
+    </string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha2">
+    <![CDATA[<b><font color=#0000a0> Se </b>]]> (a <![CDATA[<]]> __ ) ______ B, ENTAO
+    </string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha3">
+    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000> “A é menor que B!“ </b>]]>
+    <b>)</b>\n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+    </string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha4">
+        ______ (_____ <![CDATA[<]]> A ) entao /SE, B
+    </string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha5">
+        _______ <b>(</b> <![CDATA[<b><font color=#FF0000> “B é menor que A!“ </b>]]> <b>)</b> escreva
+    </string>
+
+    <string name="Modulo2Etapa1Pergunta2Linha6">
+        _______ FimSe
+    </string>
+
+    <!--ETAPA 2-->
+    <!--Pergunta 1-->
+    <string name="Modulo2Etapa2Pergunta1">Preencha os campos em branco para criar um algoritmo que verifica se uma pessoa já é adulta ou não</string>
+
+    <string name="Modulo2Etapa2Pergunta1Linha1">
+        <u>Var</u>
+        \nidade: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+        \n<b>idade<![CDATA[ <- ]]> 35</b>
+    </string>
+
+    <string name="Modulo2Etapa2Pergunta1Linha2">
+        ____ (_______ <![CDATA[>]]> 18 ) ______ // SE IDADE ENTAO
+    </string>
+
+    <string name="Modulo2Etapa2Pergunta1Linha3">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Adulto!“</b>]]><b>)</b>
+        \n <![CDATA[<b><font color=#0000a0>Senao </b>]]>
+        \n <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Menor de idade!“</b>]]><b>)</b>
+        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+    </string>
+
+    <!--PERGUNTA 2-->
+
+    <string name="Modulo2Etapa2Pergunta2">Preencha os campos em branco e faça o texto do comando SENAO ser executado.</string>
+
+    <string name="Modulo2Etapa2Pergunta2Linha1">
+        <u>Var</u>
+        \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+        \n<b>a<![CDATA[ <- ]]>5
+        \nb <![CDATA[ <- ]]> 10</b>
+    </string>
+
+    <string name="Modulo2Etapa2Pergunta2Linha2">
+        <![CDATA[<b><font color=#0000a0>Se </b>]]>( __ <![CDATA[>]]> ___) ENTAO // A > B
+    </string>
+
+    <string name="Modulo2Etapa2Pergunta2Linha3">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Texto errado.“</b>]]><b>)</b>
+        \n <![CDATA[<b><font color=#0000a0>Senao </b>]]>
+        \n <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Texto certo!“</b>]]><b>)</b>
+        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+    </string>
+
+    <!--PERGUNTA 3-->
+    <string name="Modulo2Etapa2Pergunta3">Quantas estruturas Se/Senao você pode ter aninhadas dentro do seu bloco de códigos?</string>
+
+    <string name="Modulo2Etapa2Pergunta3Alternativa1">Apenas uma</string>
+    <string name="Modulo2Etapa2Pergunta3Alternativa2">Nenhuma</string>
+    <string name="Modulo2Etapa2Pergunta3Alternativa3">Duas</string>
+    <string name="Modulo2Etapa2Pergunta3Alternativa4">Quantas você quiser</string>
+
+    <!--ETAPA 3-->
+
+    <!--PERGUNTA 1-->
+
+    <string name="Modulo2Etapa3Pergunta1">Qual a sintaxe correta para o comando Enquanto?</string>
+
+    <string name="Modulo2Etapa3Pergunta1Alternativa1">Enquanto (<b>condicao</b>)  faca</string>
+    <string name="Modulo2Etapa3Pergunta1Alternativa2">  Enquanto <b>condicao</b> faca
+                                                        \n //bloco de comandos
+                                                        \nfimEnquanto
+    </string>
+    <string name="Modulo2Etapa3Pergunta1Alternativa3">Enquanto condicao é verdadeira faca</string>
+    <string name="Modulo2Etapa3Pergunta1Alternativa4">Enquanto <b>condicao</b> repita:</string>
+
+
+    <!--PERGUNTA 2-->
+
+    <string name="Modulo2Etapa3Pergunta2">Preencha os campos em branco para dar 10 pulos!</string>
+
+    <string name="Modulo2Etapa3Pergunta2Linha1">
+    <u>Var</u>
+    \nnumeroDePulos: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \nnumeroDePulos<![CDATA[ <- ]]> 0
+    </string>
+    <string name="Modulo2Etapa3Pergunta2Linha2">
+    _______  numeroDePulos <![CDATA[<=]]> 10 faca // enquanto
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta2Linha3">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Pulei!“</b>]]><b>)</b>
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta2Linha4">
+        <b>numeroDePulos <![CDATA[<-]]> </b>
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta2ContinuacaoLinha4">
+         __________  <b>+ 1</b>
+        \n<![CDATA[<b><font color=#0000a0>FimEnquanto </b>]]>
+    </string>
+
+    <!--PERGUNTA 3-->
+
+    <string name="Modulo2Etapa3Pergunta3">Preencha os campos em branco para ler três valores do usuário através do programa.</string>
+
+    <string name="Modulo2Etapa3Pergunta3Linha1">
+        <u>Var</u>
+        \nvariavelContadora: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \nvalorDoUsuario: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+        \n<b>variavelContadora<![CDATA[ <- ]]> 0</b>
+        \n<b>valorDoUsuario<![CDATA[ <- ]]> 0</b>
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta3Linha2">
+        enquanto
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta3ContinuacaoLinha2">
+            _________ <![CDATA[<]]> 3 faca
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta3Linha3">
+        <![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b>valorDoUsuario<b>)</b>
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Pulei!“</b>]]><b>)</b>
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta3Linha4">
+        <b>_________  <![CDATA[<-]]> variavelContadora + 1</b>
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta3Linha5">
+    \n<![CDATA[<b><font color=#0000a0>FimEnquanto </b>]]>
+    </string>
+
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+
+
+    <!--ETAPA 4-->
+
+    <!--PERGUNTA 1-->
+
+    <string name="Modulo2Etapa4Pergunta1">Preencha os campos em branco para criar um contador que imprima o valor da variável <![CDATA[“]]>i<![CDATA[“]]> CINCO vezes.</string>
+
+    <string name="Modulo2Etapa4Pergunta1Linha1">
+        <u>Var</u>
+        \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta1Linha2">
+        __________ i de 0 ate
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta1ContinuacaoLinha2">
+            __ passo 1 faca
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta1Linha3">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> i<b>)</b>
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta1Linha4">
+        <![CDATA[<b><font color=#0000a0>FimPara </b>]]>
+    </string>
+
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+
+
+    <!--ETAPA 5-->
+    <!--PERGUNTA 1-->
+
+    <string name="Modulo2Etapa5Pergunta1">Preencha os campos em branco para criar um programa que leia valores digitados pelo usuário, some eles, e escreva o valor na tela.</string>
+
+
+
+    <string name="Modulo2Etapa5Pergunta1Linha1">
+        <u>Var</u>
+        \ncontinuar: <![CDATA[<b><u><font color=#800000>caractere </u></b>]]>
+        \nnum: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \nsoma: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+         \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha2">
+        __________
+            <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Digite um número: “</b>]]><b>)</b>
+            \n<![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b> ____________ <!--<b>)</b> -->
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha3">
+        \n______ <![CDATA[<- ]]>soma + num
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha4">
+        <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Quer digitar mais um número? [S/N]: “</b>]]><b>)</b>
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha5">
+        <![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b>  <!--<b>)</b> -->
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha6">
+        <![CDATA[<b><font color=#0000a0>ate </b>]]> continuar = <![CDATA[<b><font color=#FF0000>“N “</b>]]>
+    </string>
+
+    <string name="Modulo2Etapa5Pergunta1Linha7">
+         <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“A soma dos números é:  “</b>]]>,  _______ <!--<b>)</b>-->
+    </string>
+
+
+
+
+
+
+
+    <!-- PROVA 1 (ETAPA 6)-->
+    <!-- PERGUNTA 1 -->
+    <string name="ProvaModulo2Pergunta1">Qual o nome dado a um conjunto de instruções organizadas em uma sequência lógica?</string>
+    <!-- ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo2Pergunta1Alternativa1">Para controlar as decisões que o programa irá tomar ao longo de sua execução.</string>
+    <string name="ProvaModulo2Pergunta1Alternativa2">Para repetir determinado bloco de códigos indefinidas vezes.</string>
+    <string name="ProvaModulo2Pergunta1Alternativa3">Para repetir um determinado código uma quantidade específica de vezes.</string>
+    <string name="ProvaModulo2Pergunta1Alternativa4">Para ler informações digitadas pelo usuário.</string>
+
+    <!--PERGUNTA 2-->
+
+    <string name="ProvaModulo2Pergunta2">Escreva um programa que imprima a variável de maior valor na tela</string>
+
+    <string name="ProvaModulo2Pergunta2Linha1">
+    <u>Var</u>
+    \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \n<b>a<![CDATA[ <- ]]>50
+    \nb <![CDATA[ <- ]]> 40</b>
+    </string>
+
+    <string name="ProvaModulo2Pergunta2Linha2">
+    <![CDATA[<b><font color=#0000a0> Se </b>]]> (a <![CDATA[>]]> __ ) ______ B, ENTAO
+    </string>
+
+    <string name="ProvaModulo2Pergunta2Linha3">
+    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000> “A é maior que B!“ </b>]]>
+    <b>)</b>\n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+    </string>
+
+    <string name="ProvaModulo2Pergunta2Linha4">
+        ___se___ (___b__ <![CDATA[>]]> A ) entao <!--SE, B-->
+    </string>
+
+    <string name="ProvaModulo2Pergunta2Linha5">
+        _______ <b>(</b> <![CDATA[<b><font color=#FF0000> “B é maior que A!“ </b>]]> <b>)</b> escreva
+    </string>
+
+    <string name="ProvaModulo2Pergunta2Linha6">
+       FimSe
+    </string>
+
+
+    <string name="ProvaModulo2Pergunta3">Para que usamos o loop de repetição while, ou, enquanto?</string>
+
+    <string name="ProvaModulo2Pergunta3Alternativa1">Para repetir um bloco de comandos uma determinada quantidade de vezes</string>
+    <string name="ProvaModulo2Pergunta3Alternativa2">Para repetir um bloco de comandos indeterminadas vezes até que uma condição seja atingida</string>
+    <string name="ProvaModulo2Pergunta3Alternativa3">Para tomar decisões dentro do programa</string>
+    <string name="ProvaModulo2Pergunta3Alternativa4">Para tornar o programa mais legível aos usuários</string>
+
+
+
+    <string name="ProvaModulo2Pergunta4">Complete o programa que conta até dez, de dois em dois, usando o loop <b>Para</b></string>
+
+    <string name="ProvaModulo2Pergunta4Linha1">
+    <u>Var</u>
+    \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    </string>
+
+    <string name="ProvaModulo2Pergunta4Linha2">
+    _______ i de 1 ate __ passo __ <!-- para, 10, 2,  faca-->
+    </string>
+
+    <string name="ProvaModulo2Pergunta4Linha3">
+    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b>i<b>)</b>
+    \n<![CDATA[<b><font color=#0000a0>FimPara </b>]]>
+    </string>
+
+    <string name="ProvaModulo2Pergunta5">Qual a diferença entre o loop enquanto e o loop repita?</string>
+
+    <string name="ProvaModulo2Pergunta5Alternativa1">Ambos são iguais</string>
+    <string name="ProvaModulo2Pergunta5Alternativa2">O loop enquanto serve para controlar decisões, e o repita para repetir comandos</string>
+    <string name="ProvaModulo2Pergunta5Alternativa3">Os dois loops servem para fazer com que o programa adquira inteligência artificial e domine o mundo</string>
+    <string name="ProvaModulo2Pergunta5Alternativa4">Ambos repetem blocos de código. Porém, o loop <b>enquanto</b> tem o teste lógico no início, e o <b>repita</b> tem o teste lógico no final.</string>
+
+</resources>

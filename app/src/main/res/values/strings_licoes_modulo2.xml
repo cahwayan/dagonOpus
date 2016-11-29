@@ -7,7 +7,8 @@
     <string name="TituloEtapa2Modulo2">2. Estrutura de decisão composta</string>
     <string name="TituloEtapa3Modulo2">3. Estrutura de repetição <b>enquanto</b> (while)</string>
     <string name="TituloEtapa4Modulo2">4. Estrutura de repetição <b>para</b> (for)</string>
-    <string name="TituloEtapa5Modulo2">5. Prova 2</string>
+    <string name="TituloEtapa5Modulo2">5. Estrutura de repetição <b>repita</b> (Do)</string>
+    <string name="TituloEtapa6Modulo2">6. Prova 2</string>
 
     <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
     <string name="qtdQuestoesModulo2Etapa1">X Questões</string>
@@ -15,7 +16,489 @@
     <string name="qtdQuestoesModulo2Etapa3">X Questões</string>
     <string name="qtdQuestoesModulo2Etapa4">X Questões</string>
     <string name="qtdQuestoesModulo2Etapa5">4 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa6">5 Questões</string>
     <!--FIM STRINGS ETAPAS MÓDULO 2-->
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!-- TITULOS LIÇÕES-->
+    <!-- MÓDULO 2-->
+    <!--ETAPA 1-->
+
+    <!-- LICAO 1 -->
+    <string name="titulo1Modulo2Etapa1Licao1">1. Estrutura condicional simples: If (Se)</string>
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo2Etapa1Licao2">1. Operadores relacionais com o comando Se</string>
+
+    <!--ETAPA 2-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo2Etapa2Licao1">1. Estrutura condicional composta: Se/Senao</string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="titulo1Modulo2Etapa2Licao2">1. Comando senao</string>
+
+    <!--LIÇÃO 3-->
+
+    <string name="titulo1Modulo2Etapa2Licao3">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo2Etapa3Licao1">1. Estrutura de repetição: While (Enquanto)</string>
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo2Etapa3Licao2">2. Estrutura de repetição: While (Enquanto)</string>
+
+    <!--LIÇÃO 3-->
+    <string name="titulo1Modulo2Etapa3Licao3">1. Obtendo resultados</string>
+
+    <!--LIÇÃO 4-->
+    <string name="titulo1Modulo2Etapa3Licao4">2. Obtendo resultados</string>
+
+    <!--ETAPA 4-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo2Etapa4Licao1">1. Estrutura de repetição For (para)</string>
+
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo2Etapa4Licao2">1. Recursos Adicionais</string>
+
+    <!--ETAPA 5-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo2Etapa5Licao1">1. A estrutura de repetição Do (Repita)</string>
+
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!-- TEXTOS LICOES -->
+    <!--MÒDULO 2-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
+    <string name="texto1Modulo2Etapa1Licao1">Você se lembra dos passos que realizamos para atravessar uma rua lá no inicio do primeiro módulo? Lá tínhamos dois passos que eram <b>condições</b>. Vamos nos lembrar do exemplo:
+        \n\n<b>Primeiro passo:</b> Olhar para esquerda
+        \n<b>Segundo passo:</b> Olhar para direita
+        \n<b>Terceiro passo:</b>
+        \n<b>Quarto passo:</b>
+        <![CDATA[<b><font color=#FF0000> Se estiver vindo carro, então não atravesse. </b>]]>
+    </string>
+
+    <!--DICA VERDE-->
+
+    <string name="texto2Modulo2Etapa1Licao1">Condições são usadas na programação para fazer com que
+        o programa tenha a capacidade de tomar <b>decisões</b>. Vamos começar vendo o operador
+        <b>Se</b> ou, operador <b>If</b>, como é conhecido em linguagens em inglês.
+        \n\nA condição <b>Se</b> é usada para executar um código caso uma condição seja
+        <b>verdadeira</b>. É bem simples: <b>Se</b> algo for verdadeiro, <b>entao</b> faça isso.
+        Vamos ver um exemplo:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto3Modulo2Etapa1Licao1">Nesse algoritmo, declaramos uma variável que checa
+        se a rua está vazia ou não. Caso a rua esteja <b>vazia</b>, a variável será <b>verdadeira</b>.
+        Senão, ela receberá falso.
+        \n\nEm seguida está a estrutura de condição simples.
+        É a mesma lógica do nosso exemplo lá em cima.
+        Primeiro escrevemos o comando <b>Se</b>, e colocamos entre <b>parênteses</b> a condição
+        que queremos testar se é verdadeira (lembra dos operadores relacionais?
+        Aqui eles ganham uma nova importância para verificar condições). Nesse caso,
+        se a variável estiver com o valor verdadeiro, <b>entao</b> o programa escreverá na tela
+        <b>Atravessei!</b>. Caso contrário, não fará nada. Quando a condição é falsa, o código
+        contido dentro do <b>Se</b> é <b>ignorado</b>.
+        \n\nNo Visualg, precisamos finalizar a instrução <b>Se</b> com um <b>fimSe</b>.
+    </string>
+
+    <!--DICA AZUL-->
+
+    <!--LIÇÃO 2-->
+    <string name="texto1Modulo2Etapa1Licao2">Você pode utilizar operadores relacionais para avaliar se uma condição é verdadeira:
+        \n\n<![CDATA[<b><font color=#0000a0> Se </b>]]>
+        <b>(10 > 3)</b>
+        <![CDATA[<b><font color=#0000a0> entao </b>]]>
+        \n     <![CDATA[<b><font color=#0000a0>Escreva </b>]]>
+         <b>(</b><![CDATA[<b><font color=#FF0000> “Sim“ </b>]]> <b>)</b>
+        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+        \n<![CDATA[<b><font color=#00803a>// Escreve  “sim“ na tela</b>]]>
+        \n\nO comando <b>Se</b> avalia a condição <b>(10 > 3)</b>, verifica como sendo <b>verdadeira</b>, e então executa o comando <![CDATA[<b><font color=#0000a0>Escreva </b>]]>.
+        \nSe nós mudássemos o operador para o operador <![CDATA[“]]>menor que<![CDATA[“]]>, para testar a
+        condição <b>(10 > 3)</b> a condição seria falsa, e o programa ignoraria o comando
+        <![CDATA[<b><font color=#0000a0>Escreva </b>]]>. Nós podemos utilizar todos os operadores
+        que aprendemos
+        no primeiro módulo, e mais alguns outros, para testar condições.
+    </string>
+
+    <!--DICA VERMELHA-->
+
+    <!--ETAPA 2-->
+    <!--LIÇÃO 1-->
+
+    <string name="texto1Modulo2Etapa2Licao1">O comando <b>Se</b> pode ser seguido de um comando
+        <b>Senao</b> opcional.
+        Esse comando é executado sempre que a condição é <b>falsa</b>. Veja a sintaxe:
+    </string>
+
+    <!--IMAGEM 1-->
+
+
+    <string name="texto2Modulo2Etapa2Licao1">O programa irá testar a condição do comando <b>Se</b>
+        e verificar se é verdadeira.
+        \n\n<b>Se</b> a condição for verdadeira, o código dentro do comando <b>Se</b> é executado.
+        \nSe a condição for falsa, então o código dentro do comando <b>Senao</b> será executado.
+    </string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="texto1Modulo2Etapa2Licao2">Veja esse exemplo:</string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa2Licao2">Este é um programa que lê a nota final que o aluno tirou, e avalia se ela atinge a
+        média mínima ou não. <b>Se</b> for maior ou igual a 5, o programa executa o
+        bloco de comandos dentro do comando
+        <b>Se</b>. <b>Senão</b>, ele executa o bloco dentro do comando <b>senao</b>.
+    </string>
+
+    <!--DICA AZUL-->
+
+    <!--LIÇÃO 3-->
+    <string name="texto1Modulo2Etapa2Licao3">Você pode ter várias estruturas <b>Se/Senao</b>
+        aninhadas, formando uma <b>cadeia de testes</b>.
+        Vamos incrementar aquele algoritmo que vimos antes:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa2Licao3">Desta vez, acrescentamos um comando <b>Se</b> adicional
+        dentro de cada condição, e a interpretação do programa será a seguinte:
+        \n\nSe a nota do aluno for maior ou igual a 5, o programa escreverá na tela que o usuário
+        passou por atingir a média mínima, que é 5. Só que agora, temos uma outra estrutura de
+        condição para testar caso o aluno tenha atingido a média máxima, que é 10. <b>Se</b> a
+        nota do aluno for igual a dez, o programa também escreverá uma mensagem de parabenização
+        para o aluno.
+        \n\nSe a nota do aluno não for maior ou igual a 5, o programa entenderá que o aluno não
+        atingiu a média mínima para passar. Porém, desta vez o programa também irá verificar
+        se a nota do aluno é igual a zero. Caso seja, escreverá uma mensagem de alerta para o aluno.
+    </string>
+
+    <!--DICA AZUL-->
+
+    <!--ETAPA 3-->
+
+    <string name="texto1Modulo2Etapa3Licao1">Estruturas de repetição são conhecidas como
+        <b>loops</b> no mundo da programação.
+        \nUm  <b>loop</b> executa um bloco de comandos até que determinada condição seja
+        atingida. Nesta etapa, vamos ver a estrutura de repetição <b>while</b>,
+        ou, <b>enquanto</b>. Vamos começar pela sintaxe:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa3Licao1">Iniciamos o comando escrevendo <b>enquanto</b>.
+        Em seguida, dizemos a condição que terá que ser atingida, e por fim usamos o
+        comando <b>faca</b>,
+        <![CDATA[que significa “faça“]]>, para dar início ao bloco de comandos.
+    </string>
+
+    <!--DICA VERMELHA-->
+
+    <string name="texto3Modulo2Etapa3Licao1">\nO loop <b>enquanto</b> executará o bloco de comandos
+        repetidamente até que a condição especificada seja atingida.
+        O loop dura até a condição se tornar falsa.
+    </string>
+
+    <!--DICA AZUL-->
+
+    <!--LIÇÃO 2-->
+
+    <string name="texto1Modulo2Etapa3Licao2">Vamos ver um exemplo:</string>
+
+    <!--IMAGEM 1-->
+
+    <!--DICA VERMELHA-->
+
+    <string name="texto2Modulo2Etapa3Licao2">Neste algoritmo, iniciamos uma variável
+        contadora que inicia em 0. Enquanto ela for menor que 100, o programa escreverá
+        na tela  <![CDATA[<b><font color=#FF0000>“continue pulando!“</b>]]>, e a
+        quantidade de pulos que foram dados. Veja o resultado:</string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo2Etapa3Licao2">É crucial <b>incrementar</b> o valor da variável
+        que conta o número de pulos. Pense: se não aumentarmos o valor dela,
+        ela nunca atingirá o número que precisamos, e o
+        entrará em um <b>loop infinito!</b> Então, a linha
+        \n\n<![CDATA[<b>numeroDePulos <- numeroDePulos + 1</b>]]>
+        \n\nÉ a forma como incrementamos a quantidade de pulos a cada vez que o loop é executado.
+        Você pode incrementar a variável de acordo com a necessidade, e em qual valor
+        precisar aumentar. Poderia ser de dois em dois, três em três, mil em mil, enfim.
+    </string>
+
+    <!-- DICA AZUL-->
+
+
+    <!--LIÇÃO 3-->
+
+    <string name="texto1Modulo2Etapa3Licao3">Um loop <b>enquanto</b> pode ser usado para ler
+        múltiplos valores do usuário.
+        Vamos ver um exemplo:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa3Licao3">Neste exemplo, o loop pede para o
+        usuário digitar valores enquanto a variável contadora for menor que cinco.
+        O programa então guarda os valores em uma variável chamada valorDoUsuario.
+        Veja o resultado do programa:
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <!--LIÇÃO 4-->
+
+    <string name="texto1Modulo2Etapa3Licao4">No exemplo anterior, a cada vez que o usuário
+        digitava um número, o programa substituia o valor antigo da variável pelo que o
+        usuário digitou. Agora, vamos ver um exemplo diferente, em que lemos os cinco valores,
+        somamos,
+        calculamos a média dos valores digitados, e avaliamos essa média:
+    </string>
+
+    <!--DICA VERMELHA-->
+
+    <!--IMAGEM 1-->
+
+    <!--DICA AZUL-->
+
+    <string name="texto2Modulo2Etapa3Licao4">O resultado do código: </string>
+
+    <!--IMAGEM 2-->
+
+    <!--ETAPA 4-->
+
+    <!--LIÇÃO 1-->
+
+    <string name="texto1Modulo2Etapa4Licao1">A estrutura de repetição For, ou, Para, é uma
+        estrutura de repetição controlada, que serve para executar um bloco de código
+        uma quantidade <b>determinada</b> de vezes. Vamos à sintaxe: </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa4Licao1">No loop <b>para</b> mais básico, precisamos definir três
+        coisas:
+        \n- Uma variável  contadora que contará o número de repetições. No Visualg, essa variável
+        precisa ser do tipo <b>inteiro</b>
+        \n- Em qual contagem o loop irá iniciar.
+        \n- A contagem limite do loop.
+        \nTambém podemos definir um passo para a contagem. Isto é, se o loop irá contar
+        de um em um, de dois em dois, etc.
+        \nTambém precisamos usar o comando “<b>faça</b>“ para dar início ao loop, e
+        terminar a estrutura com um <b>FimPara</b>. À essa altura, você deve estar
+        acostumado com os comandos do Visualg.
+        \nO loop <b>para</b> é ótimo para executar tarefas das quais sabemos quantas
+        vezes iremos precisar repetir. Vamos ver um exemplo:
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <!--DICA VERMELHA-->
+
+    <string name="texto3Modulo2Etapa4Licao1">Nesse exemplo, a variável <b>x</b> começa em 0,
+        e vai até 10. O contador irá contar ao passo de 1. Ou seja, de 1
+        em 1. Até que o contador atinja seu limite, o programa escreverá o
+        valor da variável contadora. Veja a saída do programa: </string>
+
+    <!--IMAGEM 3-->
+
+    <!--DICA AZUL-->
+
+    <!--LIÇÃO 2-->
+    <string name="texto1Modulo2Etapa4Licao2">Você também pode mudar o passo da contagem do loop,
+        caso precise. Vamos ver um exemplo: </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo2Etapa4Licao2">Esse loop conta de cinco em cinco. Veja: </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo2Etapa4Licao2">Você também pode fazer uma contagem <b>regressiva</b>: </string>
+
+    <!--IMAGEM 3-->
+    <string name="texto4Modulo2Etapa4Licao2">E o programa executará da seguinte forma: </string>
+
+    <!--IMAGEM 4-->
+
+    <!-- DICA VERMELHA-->
+
+    <!--ETAPA 5-->
+    <string name="texto1Modulo2Etapa5Licao1">A estrutura <b>Do</b>, ou, <b>repita</b>,
+        permite criar loops em que a condição lógica é testada no final. Ou seja,
+        <b>o código é executado pelo menos uma vez antes de se testar uma condição</b>.
+        Vamos ver a sintaxe:
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo2Etapa5Licao1">Bastante simples, não? Mas, para que precisamos dessa
+        estrutura? Vamos ver um exemplo prático:
+        \nVamos criar um algoritmo que lê números digitados pelo usuário, e soma eles.
+        Porém desta vez, iremos usar a estrutura de repetição <b>enquanto</b>  para
+        deixar o usuário decidir quantos números ele quer somar.
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo2Etapa5Licao1">Nesse algoritmo, o loop <b>enquanto</b> repete
+        indefinidamente enquanto a resposta do usuário for <b><u>S</u></b>.
+        Dessa forma, o usuário fica livre para somar quantos números ele precisar,
+        ao invés de definirmos um limite. Ao fim do loop, escrevemos a soma dos números
+        que foram digitados.
+        Vamos ver a saída do código:
+    </string>
+
+    <!--IMAGEM 3-->
+
+    <string name="texto4Modulo2Etapa5Licao1">Mas o que aconteceu? O usuário não tinha liberdade
+        para somar quantos números ele quisesse? Por que o
+        programa pulou o loop de repetição?
+        \nRepare que em nenhum momento nós definimos um valor para a variável
+        <b>continuar</b>. Portanto, quando o programa testou a condição
+        do loop logo no início do nosso algoritmo, ela não tinha uma resposta
+        do usuário. Nós podemos resolver esse problema da seguinte forma:
+    </string>
+
+    <!--IMAGEM 4-->
+
+    <string name="texto5Modulo2Etapa5Licao1">Como você pode ver, se iniciarmos o programa
+        atribuindo o valor <b>S</b> para a variável
+        <b>resposta</b>, o programa funciona normalmente:
+    </string>
+
+    <!--IMAGEM 5-->
+
+    <string name="texto6Modulo2Etapa5Licao1">Bem, o programa funciona&#8230; porém, convenhamos,
+        ficou um pouco com cara de gambiarra termos que iniciar a variável da resposta do
+        usuário como sendo <b>S</b> logo de início para que o programa pudesse funcionar.
+        \nÉ aqui que a estrutura <b>repita</b> se torna bastante útil, porque se você bem
+        se lembra, <b>o código é executado ao menos uma vez antes de validar o
+        teste lógico</b>. Ou seja, nosso problema poderia ser facilmente
+        resolvido utilizando a estrutura <b>repita</b>, dessa forma:
+    </string>
+
+    <!--IMAGEM 6-->
+
+    <string name="texto7Modulo2Etapa5Licao1">Desta vez, o programa ficou com uma cara melhor,
+        e até mais simples. Repare também que com o teste lógico sendo executado no final,
+        nós tivemos que alterar também o valor da condição lógica. Antes, a condição lógica era:
+        \n<b>Enquanto</b> a resposta for igual a <b>S</b>, faça
+        \nE utilizando a estrutura <b>repita</b> ficou dessa forma:
+        \nRepita&#8230; Até que a resposta seja <b>N</b>.
+    </string>
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo2Etapa1Licao1">Condições são partes fundamentais no desenvolvimento de
+        sistemas. Você irá usa-las o tempo todo, então nossa recomendação é que você estude bastante
+        a lógica das estruturas de condições. Por sorte, a lógica dessas estruturas se encaixam
+        muito bem com o nosso modo de resolver problemas e pensar.
+    </string>
+
+    <string name="dica2Modulo2Etapa1Licao1">Todas as instruções em azul são <b>comandos</b> e
+        fazem parte do conjunto de comandos nativos do portugol.
+        É obrigatório escrevê-los da maneira certa para o funcionamento do programa.
+    </string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="dica1Modulo2Etapa1Licao2">As linguagens de programação geralmente são todas em
+        inglês. Por este motivo, usamos frequentemente palavras em inglês para nos referirmos a
+        comandos, tipos de dados e outras coisas relacionadas à programação.
+        Você pode verificar como os comandos
+        são em outras linguagens no <b>glossário</b> que fica no menu principal.
+    </string>
+
+
+    <string name="dica1Modulo2Etapa2Licao2">Você pode ter vários comandos <b>se e senao</b>
+    aninhados um dentro do outro para fazer verificações mais complexas.
+    </string>
+
+    <!--LIÇÃO 3-->
+    <string name="dica1Modulo2Etapa2Licao3">Lembre-se que cada estrutura <b>Se/Senao</b> ,
+        possui seu próprio <b>FimSe</b> e condições próprias.
+    </string>
+
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo2Etapa3Licao1">Se você está escrevendo o mesmo código diversas vezes
+        durante a programação, pode ser que um loop ajude você a economizar tempo!
+    </string>
+
+    <string name="dica2Modulo2Etapa3Licao1">Assim que o loop termina, e a condição é avaliada
+        como falsa,
+        o programa continua executando na linha que está imediatamente após o loop.
+    </string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="dica1Modulo2Etapa3Licao2">O comando <b>EscrevaL</b> faz a mesma função do
+        comando <b>Escreva</b>, com a diferença
+        que ele pula uma linha após escrever o texto na tela.
+    </string>
+
+    <string name="dica2Modulo2Etapa3Licao2">Tome sempre cuidado com os loops infinitos!
+        Lembre-se sempre
+        de incrementar a variável contadora do seu loop!
+    </string>
+
+    <!--LIÇÃO 3-->
+    <string name="dica1Modulo2Etapa3Licao3">Neste exemplo, a cada vez que o usuário digita um
+        valor, ele substitui o
+        valor anterior que estava na variável.
+        Na próxima etapa vamos ver mais sobre isso.
+    </string>
+
+    <!--LIÇÃO 4-->
+
+    <string name="dica1Modulo2Etapa3Licao4">Note que à medida que o tamanho do código aumenta,
+        e incrementamos mais o programa com várias estruturas, o uso de
+        comentários pode nos ajudar muito a manter a legibilidade do código.
+        Leia os comentários abaixo para entender o que cada parte faz.
+        Lembrando que: um programa grande, é apenas um conjunto de pequenas partes.
+        Tenha paciência ao ler o código, e não pule etapas.
+        Você verá que se comunicar com um computador é mais fácil do que parece à primeira vista.
+    </string>
+
+    <string name="dica2Modulo2Etapa3Licao4">Lembre-se também de que ao escrever
+        valores na tela com o comando <b>escreva ou escrevaL</b> para o usuário,
+        utilizamos a vírgula <![CDATA[“,“]]> para
+        separar os valores literais das variáveis na hora de escrever.
+    </string>
+
+    <!--ETAPA 4-->
+    <!--LIÇÃO 1-->
+
+    <string name="dica1Modulo2Etapa4Licao1">O passo pode ser omitido na declaração do loop
+        <b>para</b>.
+        O Visualg usará o passo padrão, que é 1.
+    </string>
+
+    <string name="dica2Modulo2Etapa4Licao1">É uma boa prática de programação utilizar nomes
+        simples para variáveis
+        que possuem função de contar. Você pode utilizar <b>x</b> como no
+        exemplo acima, ou alguma outra letra. Uma das mais comuns no meio dos programadores é
+        a letra <b>i</b> que vem da palavra <b>índice</b>.
+    </string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="dica1Modulo2Etapa4Licao2">\nAssim como as estruturas de condição,
+        você pode utilizar loops de repetição aninhados.\n
+    </string>
+
+
+
+
 
 
 </resources>

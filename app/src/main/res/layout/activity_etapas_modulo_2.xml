@@ -222,9 +222,33 @@
                 android:padding="3dp"
                 android:id="@+id/Modulo2Etapa6"
                 android:layout_weight="50"
+                android:background="@drawable/borda_etapas"
                 android:layout_margin="2dp">
 
+                <TextView
+                    android:text="@string/TituloEtapa6Modulo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:id="@+id/txtTituloEtapa6"
+                    android:textSize="@dimen/tamanhoTextoEtapa"
+                    android:gravity="start|center_vertical"
+                    android:layout_margin="2dp"
+                    android:textAlignment="center" />
 
+                <TextView
+                    android:text="@string/qtdQuestoesModulo2Etapa6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom|end"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txtQuestoesModulo2Etapa6"
+                    android:background="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textoQuestoesEtapa"
+                    android:textColor="@android:color/white"
+                    android:padding="@dimen/paddingProgressoEtapas"
+                    android:drawableLeft="@drawable/icon_lock_etapa"
+                    android:drawableStart="@drawable/icon_lock_etapa"
+                    tools:text="@string/qtdQuestoesModulo2Etapa6" />
             </LinearLayout>
 
 
