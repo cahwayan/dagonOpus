@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     <string name="termosGlossario">
+        <b>Escreva(<![CDATA[“]]><![CDATA[“]]>)</b>- Comando que saída de dados que imprime dados na tela
+        \n\n<b>Leia(variavel)</b> - Comando que lê um valor que será digitado pelo usuario
+        \n\n\n<b>para(condicao) faca</b> - Loop de repetição com teste lógico no início
+        \n\n<b>enquanto(condicao) faca</b> - Loop de repetição com teste lógico no início ou no fim
+        \n\n<b>repita
+            \n<![CDATA[<bloco de comandos>]]>
+            \nate <![CDATA[<condicao>]]> - Essa estrutura de repetição repete comandos até que uma condição seja atingida. Importante notar que o teste lógico é feito no final da repetição. </b>
+
+        \n\n<b>funcao nomeFuncao(parametros): retorno - Declara uma função dentro do programa</b>
+
+    </string>
+
+    <string name="explicaoEtiquetaVermelha">
+        As etiquetas vermelhas representam informações sobre programação que não exatamente tem a ver com o assunto daquela lição.
+    </string>
+
+    <string name="explicaoEtiquetaAzul">
+        As etiquetas azuis representam informações referente às lições, mas que são mais curiosidades, ou referente a boas práticas.
+    </string>
+
+    <string name="explicaoEtiquetaVerde">
+        As etiquetas verdes são sobre o aprendizado em si. Achamos importante lembrar o aluno sobre os benefícios de aprender a programar, e como isso se relaciona com a vida dele.
+    </string>
+
+    <string name="explicaoEtiquetaAmarela">
+        As etiquetas amarelas são sobre a história da programação.
+    </string>
+</resources>
