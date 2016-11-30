@@ -32,9 +32,14 @@ public class InicialActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(readFlag()) {
+            startActivity(new Intent(this, AprenderActivity.class));
+
+        } else {
+            startActivity(new Intent(this, MainActivity.class));
+        }
         super.onCreate(savedInstanceState);
-        Intent intent2 = new Intent(this, MainActivity.class);
-        startActivityForResult(intent2, 1);
+
         setContentView(R.layout.activity_inicial);
 
         DB_PROGRESSO = new GerenciadorBanco(this);

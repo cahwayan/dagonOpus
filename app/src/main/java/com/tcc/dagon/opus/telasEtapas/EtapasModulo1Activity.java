@@ -102,6 +102,8 @@ public class EtapasModulo1Activity extends TelaEtapas {
 
     }
 
+
+
     private void clickListeners() {
         // setar um click listener
         etapa1.setOnClickListener(new View.OnClickListener() {

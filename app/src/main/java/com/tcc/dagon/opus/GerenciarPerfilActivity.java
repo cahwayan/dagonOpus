@@ -172,7 +172,7 @@ public class GerenciarPerfilActivity extends Activity {
                         == PackageManager.PERMISSION_GRANTED) {
                     captureImage();
                 } else {
-                    alertaOperacaoFinalizada.alertDialogBloqueado("Aviso", "Foto cancelada");
+
                 }
             }
         });
@@ -378,9 +378,6 @@ public class GerenciarPerfilActivity extends Activity {
         {
             if( btnAprender.getId() == v.getId() )
             {
-                Intent intent = new Intent(GerenciarPerfilActivity.this, AprenderActivity.class);
-                intent.putExtra("email",email);
-                startActivity(intent);
                 finish();
 
             }
@@ -398,9 +395,6 @@ public class GerenciarPerfilActivity extends Activity {
                 i.putExtra("emailUsuario", email);
                 startActivity(i);
                 finish();
-
-
-
             }
 
         }
@@ -461,8 +455,10 @@ public class GerenciarPerfilActivity extends Activity {
     private void signOut() {
         if(googleApiClient.isConnected()) {
             Plus.AccountApi.clearDefaultAccount(googleApiClient);
+            googleApiClient.clearDefaultAccountAndReconnect();
             googleApiClient.disconnect();
-            //googleApiClient.connect();
+            googleApiClient.connect();
+            writeFlag(false);
         }
 
     }

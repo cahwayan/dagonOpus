@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MÓDULO 3 -->
+    <string name="TituloEtapa1Modulo3">1. Introdução a vetores (arrays)</string>
+    <string name="TituloEtapa2Modulo3">2. Percorrendo vetores com loops</string>
+    <string name="TituloEtapa3Modulo3">3. Prova 3</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo3Etapa1">2 Questões</string>
+    <string name="qtdQuestoesModulo3Etapa2">1 Questão</string>
+    <string name="qtdQuestoesModulo3Etapa3">3 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 3-->
+
+    <!-- TITULOS LIÇÕES-->
+    <!-- MÓDULO 3-->
+    <!--ETAPA 1-->
+
+    <!-- LICAO 1 -->
+    <string name="titulo1Modulo3Etapa1Licao1">1. Introdução a vetores (Arrays)</string>
+    <string name="titulo1Modulo3Etapa1Licao2">1. Funcionamento</string>
+    <string name="titulo2Modulo3Etapa1Licao2">2. Atribuindo dados a vetores</string>
+    <string name="titulo1Modulo3Etapa2Licao1">1. Percorrendo vetores com loops</string>
+
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!-- TEXTOS LICOES -->
+    <!--MÒDULO 3-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
+    <string name="texto1Modulo3Etapa1Licao1">Um vetor é uma <b>coleção de dados</b>. Porém, pode te ajudar pensar em vetores como uma <b>coleção de variáveis</b>. Ao contrário das variáveis simples, que permitem o armazenamento de apenas um dado, <b>os vetores  tem a capacidade de armazenar vários dados dividos em índices, ou, colunas.</b>.
+        \n\nEm vez de declarar várias variáveis e guardar valores individuais nelas, você pode declarar apenas um vetor para guardar todos os valores.
+        \n\nOs vetores seguem as mesmas regras nomenclatura de declaração das variáveis. Você também precisa definir o tipo de dados que o vetor irá armazenar, e o tamanho que ele terá.
+        \n\nExemplo:
+        \n<b>vetor1: </b>
+        <![CDATA[<b><u><font color=#FF7C1313>vetor</u></b>]]>
+        <b>[</b>
+        <![CDATA[<b><font color=#FF0000>0..5</b>]]>
+        <b>]</b>
+        <![CDATA[<b><u><font color=#FF3E48CF>de</u></b>]]>
+        <![CDATA[<b><u><font color=#FF7C1313>caractere</u></b>]]>
+        \n<b>vetor2: </b>
+        <![CDATA[<b><u><font color=#FF7C1313>vetor</u></b>]]>
+        <b>[</b>
+        <![CDATA[<b><font color=#FF0000>1..40</b>]]>
+        <b>]</b>
+        <![CDATA[<b><u><font color=#FF3E48CF>de</u></b>]]>
+        <![CDATA[<b><u><font color=#FF7C1313>real</u></b>]]>
+        \nEssa é a sintaxe de declaração de um vetor no Visualg. Primeiro damos o nome, depois
+        declaramos que é um vetor, e o seu tamanho (nesse caso, o tamanho do primeiro
+        vetor começa em 0 e vai até 5, e o do segundo começa em 1 e vai até 40). Por último,
+        definimos o tipo de dados que ele armazenará. Lembrando que um vetor, apesar de armazenar
+        múltiplos valores, pode armazenar somente <b>um tipo</b> de dado. <b>Ex:</b> um vetor de
+        dados do tipo real, pode armazenar apenas valores do tipo real.
+    </string>
+
+    <!--LIÇÃO 2-->
+
+    <string name="texto1Modulo3Etapa1Licao2">Variáveis são espaços reservados na memória do computador, como você já sabe. Só que uma variável simples armazena dados aleatoriamente no computador. Vamos ao exemplo do armário novamente.
+        \nTemos então as seguintes variáveis simples:
+            <b>n1:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
+        <b>n2:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
+        <b>n3:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
+
+        \nE elas são armazenadas da seguinte forma na memória do computador:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo3Etapa1Licao2">Se elas estivessem em um vetor com quatro posições, o computador as armazenaria da seguinte forma:
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo3Etapa1Licao2">Como você pode ver, as variáveis armazenadas no vetor são colocadas em sequência.
+        <b>Em termos de funcionalidade, vetores são mais rápidos do que trabalhar com múltiplas
+            variáveis soltas pela memória.</b> No visualg não se nota a diferença de performance,
+        porém em softwares maiores, performance é
+        muito importante, e cada byte de memória e milisegundo de execução importam.
+    </string>
+
+    <!--TITULO 2-->
+
+    <string name="texto4Modulo3Etapa1Licao2">\n Um vetor é dividido em colunas, e nós acessamos essas colunas informando ao computador
+        em qual coluna nós queremos guardar determinado dado. Quando queremos armazenar um valor
+        a uma coluna no vetor, precisamos dizer em qual índice queremos que esse dado seja armazenado.
+        \n\nExemplo:
+        \n<b>vetor1[0]  <![CDATA[<-]]> </b> <![CDATA[<b><font color=#ff0000>“Estamos atribuindo
+        um valor na posição 0 do vetor caractere de 5 posições!“</b>]]>
+    </string>
+
+    <!-- DICA VERMELHA-->
+
+    <!--ETAPA 2-->
+
+    <!--LIÇÃO 1-->
+    <string name="texto1Modulo3Etapa2Licao1">Quando estamos trabalhando com vetores,
+        não é prático inserir valores posição por posição, como no exemplo abaixo:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo3Etapa2Licao1">Qual seria o sentido se tivéssemos que ter todo
+        esse trabalho para percorrer um vetor? É quase o mesmo trabalho de usar variáveis
+        simples! Mas calma lá, você se lembra dos loops, e de como eles são eficientes para
+        executar repetições? Pois bem, podemos usar loops
+        para deixar tudo mais fácil quando o assunto for varrer vetores. Veja o exemplo abaixo:
+    </string>
+
+    <!-- IMAGEM 2-->
+
+    <string name="texto3Modulo3Etapa2Licao1">Nesse algoritmo, nós temos dois loops: um para ler valores
+        do usuário, e outro para escrever os valores do vetor na tela.
+        \nNos exemplos anteriores, estávamos trabalhando com vetores com índice fixo, ou seja,
+        acessávamos os valores um a um. Dessa vez, utilizamos a própria variável contadora do
+        loop <b>para</b> como recurso para acessar os índices dos vetores. Veja a saída do programa:
+    </string>
+
+    <!--IMAGEM 3-->
+
+    <!-- DICA VERMELHA-->
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 3-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo3Etapa1Licao2">No Visualg, temos a liberdade de dizer para o programa em qual número o vetor
+        inicia, e em qual ele termina. Porém, na maioria das linguagem de programação,
+        um vetor é criado com a posição inicial sendo 0. É importante se lembrar disso
+        quando você estiver programando em linguagens de programação de verdade.
+        <b>Ex:</b> Um vetor de 10 posições em Java, possui índices de 0 até 9.
+    </string>
+
+    <!--ETAPA 2-->
+
+    <!--LIÇÃO 1-->
+
+    <string name="dica1Modulo3Etapa2Licao1">Fique atento para não ultrapassar o limite de índices do vetor ao construir
+    seu programa! Nosso vetor possui apenas quatro posições nesse exemplo. Se tentássemos
+    colocar um valor na posição cinco por exemplo, o
+    programa travaria, pois o vetor vai apenas até o índice quatro.
+    </string>
+
+
+
+</resources>

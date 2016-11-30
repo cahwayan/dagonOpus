@@ -1,7 +1,9 @@
 package com.tcc.dagon.opus.ClassesPai;
 
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -102,6 +104,21 @@ public class Questao extends Fragment {
         btnAvancar.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
         super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if(somRespostaCerta != null) {
+            somRespostaCerta.release();
+            somRespostaCerta = null;
+        }
+
+        if(somRespostaErrada != null) {
+            somRespostaErrada.release();
+            somRespostaErrada = null;
+        }
+
+        super.onDestroy();
     }
 
     protected void accessViews() {
@@ -229,7 +246,9 @@ public class Questao extends Fragment {
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
         // TOCAR SOM DE RESPOSTA CERTA
-        somRespostaCerta.start();
+        if(!verificarSons()) {
+            somRespostaCerta.start();
+        }
 
         // ANIMAÇÃO RESPOSTA CERTA
         imgRespostaCerta.setVisibility(View.VISIBLE);
@@ -249,8 +268,9 @@ public class Questao extends Fragment {
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada() {
         // TOCAR SOM DE RESPOSTA ERRADA
-        somRespostaErrada.start();
-
+        if(!verificarSons()) {
+            somRespostaErrada.start();
+        }
         // ANIMAÇÃO RESPOSTA ERRADA
         imgRespostaErrada.setVisibility(View.VISIBLE);
         PulseAnimation.create().with(imgRespostaErrada)
@@ -373,6 +393,13 @@ public class Questao extends Fragment {
             case 4: return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 4);
         }
         return 0;
+    }
+
+    // LER FLAG PARA VER SE O DESATIVOU SONS
+    public boolean verificarSons() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(getActivity());
+        return sharedPreferences.getBoolean("desativarSons", false);
     }
 
 }

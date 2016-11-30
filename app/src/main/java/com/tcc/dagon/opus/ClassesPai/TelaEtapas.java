@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +50,13 @@ public class TelaEtapas extends AppCompatActivity {
         DB_PROGRESSO = new GerenciadorBanco(this);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+        this.finish();
+    }
+
 
     @Override
     protected void onRestart() {
@@ -97,6 +107,7 @@ public class TelaEtapas extends AppCompatActivity {
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
                 this.finish();
                 return true;
             default:

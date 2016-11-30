@@ -36,6 +36,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
@@ -117,13 +119,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         // CONSTRUINDO O OBJETO DE CONEXÃO GOOGLE
         googleBuilder();
 
-        // VERIFICANDO SE O USUÁRIO ESTÁ LOGADO
-        if(readFlag()) {
-            Intent intent = new Intent(this, AprenderActivity.class);
-            startActivityForResult(intent, 1);
-            finish();
-        }
-
         setContentView(R.layout.activity_main);
 
         // VOLLEY
@@ -134,7 +129,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         // ADICIONANDO OS LISTENERS DOS BOTÕES
         listenersLogin();
-
 
     }
 
@@ -171,11 +165,14 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         // LISTENERS
         btSignIn.setOnClickListener(MainActivity.this);
+
+
         btSignInDefault.setOnClickListener(MainActivity.this);
         btSignInCustom.setOnClickListener(MainActivity.this);
+        /*
         btSignOut.setOnClickListener(MainActivity.this);
         btRevokeAccess.setOnClickListener(MainActivity.this);
-        btAprender.setOnClickListener(MainActivity.this);
+        btAprender.setOnClickListener(MainActivity.this);*/
 
 
     }
@@ -214,13 +211,8 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                         @Override
                         public void onResponse(String response) {
                             if(response.trim().equals("certo")){
-                                Intent i = new Intent(MainActivity.this, GerenciarPerfilActivity.class);
+                                Intent i = new Intent(MainActivity.this, AprenderActivity.class);
                                 gravarEmail(sEmail);
-                                i.putExtra("emailUsuario",sEmail);
-                                startActivity(i);
-
-                                //startActivity(new Intent(getApplicationContext(), GerenciarPerfilActivity.class));
-
                                 finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),
@@ -269,6 +261,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onStart(){
         super.onStart();
+
         if(googleApiClient != null){
             googleApiClient.connect();
         }
@@ -287,6 +280,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == SIGN_IN_CODE){
+
             isConsentScreenOpened = false;
 
             if(resultCode != RESULT_OK){
@@ -296,20 +290,14 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             if(!googleApiClient.isConnecting()){
                 googleApiClient.connect();
             }
+
         }
     }
 
     public void showUi(boolean status, boolean statusProgressBar){
         if(!statusProgressBar){
-            llContainerAll.setVisibility(View.VISIBLE);
-            pbContainer.setVisibility(View.GONE);
-
-            llLoginForm.setVisibility(status ? View.GONE : View.VISIBLE);
-            llConnected.setVisibility(!status ? View.GONE : View.VISIBLE);
-        }
-        else{
-            llContainerAll.setVisibility(View.GONE);
-            pbContainer.setVisibility(View.VISIBLE);
+            finish();
+            startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
         }
     }
 
@@ -351,6 +339,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                     }
                 }, new Response.ErrorListener() {
                     public void onErrorResponse(VolleyError error) {
@@ -367,6 +356,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                     }
                 };
 
+                /*
                 String id = p.getId();
                 name = p.getDisplayName();
                 String language = p.getLanguage();
@@ -387,7 +377,7 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 Log.i("Script", "IMG before: "+imageUrl);
                 imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
                 Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(ivProfile, pbProfile, imageUrl);
+                loadImage(ivProfile, pbProfile, imageUrl);*/
             }
 
     }
@@ -442,7 +432,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                 if(!googleApiClient.isConnecting()){
                     getAccounts();
                     isSignInButtonClicked = true;
-                    showUi(false, true);
                     resolveSignIn();
                 }
             //} else {
@@ -453,53 +442,24 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             Intent intent = new Intent(MainActivity.this, RecuperarSenhaActivity.class);
             startActivity(intent);
         }
-        else if(v.getId() == R.id.btSignOut){
-            if(googleApiClient.isConnected()){
-                Plus.AccountApi.clearDefaultAccount(googleApiClient);
-                googleApiClient.disconnect();
-                googleApiClient.connect();
-                showUi(false, false);
-                writeFlag(false);
-            }
-        }
-        else if(v.getId() == R.id.btRevokeAccess){
-            if(googleApiClient.isConnected()){
-                Plus.AccountApi.clearDefaultAccount(googleApiClient);
-                Plus.AccountApi.revokeAccessAndDisconnect(googleApiClient).setResultCallback(new ResultCallback<Status>(){
-                    @Override
-                    public void onResult(Status result) {
-                        writeFlag(false);
-                        finish();
-                    }
-                });
-            }
-        }
 
-        else if(v.getId() == R.id.bt_AprenderActivity){
-            Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
-            String perfilEmail = emailG;
-            gravarEmail(emailG);
-            String perfilNome = name;
-            intent.putExtra("emailBundle", perfilEmail);
-            intent.putExtra("nomeBundle", perfilNome);
-            this.startActivity(intent);
-            this.finish();
-        }
     }
 
 
     @Override
     public void onConnected(Bundle connectionHint) {
         isSignInButtonClicked = false;
-        showUi(true, false);
         getDataProfile();
+        if(!readFlag()) {
+            showUi(true, false);
+        }
+
     }
 
 
     @Override
     public void onConnectionSuspended(int cause) {
         googleApiClient.connect();
-        showUi(false, false);
     }
 
 

@@ -34,6 +34,9 @@
             android:name=".CadastroActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ActivityConfig"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".RecuperarSenhaActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -110,7 +113,8 @@
             android:label="@string/TituloEtapa9Modulo1"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AlterarSenhaActivity"></activity>
+        <activity android:name=".AlterarSenhaActivity" />
+
     </application>
 
 </manifest>

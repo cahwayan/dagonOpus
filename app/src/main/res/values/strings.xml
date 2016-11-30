@@ -13,21 +13,9 @@
     <string name="nomeAppLogin"><![CDATA[</OPUS>]]></string>
     <!--FIM TELA TESTE-->
 
-    <!-- MÓDULO 3 -->
-    <string name="TituloEtapa1Modulo3">1. Introdução a vetores (arrays)</string>
-    <string name="TituloEtapa2Modulo3">2. Usando vetores em loops</string>
-    <string name="TituloEtapa3Modulo3">3. Vetores em cálculos</string>
-    <string name="TituloEtapa4Modulo3">4. Matrizes</string>
-    <string name="TituloEtapa5Modulo3">5. Prova 3</string>
-
-    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
-    <string name="qtdQuestoesModulo3Etapa1">X Questões</string>
-    <string name="qtdQuestoesModulo3Etapa2">X Questões</string>
-    <string name="qtdQuestoesModulo3Etapa3">X Questões</string>
-    <string name="qtdQuestoesModulo3Etapa4">X Questões</string>
-    <string name="qtdQuestoesModulo3Etapa5">4 Questões</string>
-    <!--FIM STRINGS ETAPAS MÓDULO 3-->
-
+    <string name="txtConfig">Configurações</string>
+    <string name="txtSons">Desativar sons</string>
+    <string name="apagarProgresso">Resetar Progresso</string>
     <!-- MÓDULO 4 -->
     <string name="TituloEtapa1Modulo4">1. Introdução à funções</string>
     <string name="TituloEtapa2Modulo4">2. Função com parâmetros</string>
@@ -110,9 +98,7 @@
     <string name="txtChecar">CONFIRMAR</string>
     <string name="txtTentarNovamente">TENTAR NOVAMENTE</string>
     <string name="txtConcluir">CONCLUIR</string>
-
-
-
+    <string name="title_activity_config">ActivityConfig</string>
 
 
 </resources>

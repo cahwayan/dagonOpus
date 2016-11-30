@@ -1,9 +1,11 @@
 package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -93,6 +95,21 @@ public class Completar extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if(somRespostaCerta != null) {
+            somRespostaCerta.release();
+            somRespostaCerta = null;
+        }
+
+        if(somRespostaErrada != null) {
+            somRespostaErrada.release();
+            somRespostaErrada = null;
+        }
+
+        super.onDestroy();
     }
 
     protected void accessViews() {
@@ -249,7 +266,9 @@ public class Completar extends Fragment {
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
         // TOCAR SOM DE RESPOSTA CERTA
-        somRespostaCerta.start();
+        if(!verificarSons()) {
+            somRespostaCerta.start();
+        }
 
         // ANIMAÇÃO RESPOSTA CERTA
         imgRespostaCerta.setVisibility(View.VISIBLE);
@@ -269,7 +288,10 @@ public class Completar extends Fragment {
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
         // TOCAR SOM DE RESPOSTA ERRADA
-        somRespostaErrada.start();
+        if(!verificarSons()) {
+            somRespostaErrada.start();
+        }
+
         // ANIMAÇÃO RESPOSTA ERRADA
         imgRespostaErrada.setVisibility(View.VISIBLE);
         PulseAnimation.create().with(imgRespostaErrada)
@@ -392,6 +414,13 @@ public class Completar extends Fragment {
         //linha2Palavra1.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+    }
+
+    // LER FLAG PARA VER SE O DESATIVOU SONS
+    public boolean verificarSons() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(getActivity());
+        return sharedPreferences.getBoolean("desativarSons", false);
     }
 
 }

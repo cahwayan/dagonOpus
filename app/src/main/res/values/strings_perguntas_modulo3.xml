@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo3Etapa1Pergunta1">Qual a sintaxe de declaração de vetores no Visualg?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo3Etapa1Pergunta1Alternativa1"><![CDATA[<nome do vetor>]]>: <u>vetor</u>[pos.Inicial..pos.Final] de <![CDATA[<tipo de dado>]]></string>
+    <string name="Modulo3Etapa1Pergunta1Alternativa2"><![CDATA[<tipo de dado>]]>: vetor[<![CDATA[<quantidade posições>]]>] <![CDATA[<nome do vetor>]]></string>
+    <string name="Modulo3Etapa1Pergunta1Alternativa3">Vetor[<![CDATA[<posição inicial>]]>]: de <![CDATA[<tipo de dado>]]> <![CDATA[<nome do vetor>]]></string>
+    <string name="Modulo3Etapa1Pergunta1Alternativa4"><![CDATA[<nome do vetor>]]>: <u>vetor</u> [<![CDATA[<tipo de dado>]]>] de <![CDATA[<pos.Inicial..pos.Final>]]></string>
+
+    <!-- ETAPA 1 -->
+    <!--PERGUNTA 2-->
+    <string name="Modulo3Etapa1Pergunta2">Atribua a variável x ao índice 2 do vetor numeros</string>
+
+    <string name="Modulo3Etapa1Pergunta2Linha1">
+        <u>Var</u>
+        \n<b>numeros:</b> vetor[1..5] de <u>inteiro</u>
+        \n<b>x:</b> <u>inteiro</u>
+        \n\n<u>Inicio</u>
+    </string>
+
+    <string name="Modulo3Etapa1Pergunta2Linha2">
+        x <![CDATA[<- ]]> 100
+     </string>
+
+     <string name="Modulo3Etapa1Pergunta2Linha3">
+        numeros[__] <![CDATA[<- ]]> __ 
+     </string>
+
+    <string name="Modulo3Etapa1Pergunta2Linha4">
+        \n<u>FimAlgoritmo</u>
+    </string>
+
+
+    <!-- ETAPA 2 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo3Etapa2Pergunta1">Preencha os campos em branco para criar um programa que escreve o valor das quatro posições do vetor na tela</string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha1">
+        <u>Var</u>
+        \n<b>numeros:</b> vetor[1..4] de <u>inteiro</u>
+        \ni: <u>inteiro</u>
+        \n\n<u>Inicio</u>
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha2">
+        para i de 1 ate 4 faca
+     </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha3">
+        \nEscreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha4">
+        Leia(numeros[ _  <!-- ]) HARDCODE -->
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha5">
+        FimPara
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha6">
+        para i de 1 ate 4 faca
+     </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha7">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[“]]>Valor da posição <![CDATA[“]]>, i, <![CDATA[“]]>: <![CDATA[“]]>, numeros[ _ <!--] <b>)</b>-->
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha8">
+        Leia(numeros[ _  <!-- ]) HARDCODE -->
+    </string>
+
+    <string name="Modulo3Etapa2Pergunta1Linha9">
+        FimPara
+        \n<u>FimAlgoritmo</u>
+    </string>
+
+
+    <!-- PROVA 3 -->
+
+    <!--PERGUNTA 1-->
+    <string name="ProvaModulo3Pergunta1">Declare um vetor do tipo real com posições de 1 a 5</string>
+
+    <string name="ProvaModulo3Pergunta1Linha1">
+        <u>Var</u>
+        \n<b>numeros:</b> _____ [_ ..__] de <u>____</u>
+    </string>
+
+    <!--PERGUNTA 2-->
+
+    <string name="ProvaModulo3Pergunta2">Complete os campos para criar um programa que percorra o vetor e some seus números</string>
+
+    <string name="ProvaModulo3Pergunta2Linha1">
+        <u>Var</u>
+        \n<b>numeros:</b> vetor[1..5] de <u>inteiro</u>
+        \n<b>soma:</b> <u>inteiro</u>
+        \ni: <u>inteiro</u>
+        \n\n<u>Inicio</u>
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha2">
+        para i de 1 ate 4 faca
+     </string>
+
+    <string name="ProvaModulo3Pergunta2Linha3">
+        \nEscreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha4">
+        Leia(______ [ _  <!-- ]) HARDCODE -->
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha5">
+        soma <![CDATA[<-]]>  soma + numeros[__]
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha6">
+        FimPara
+        para i de 1 ate 4 faca
+     </string>
+
+    <string name="ProvaModulo3Pergunta2Linha7">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[“]]>Valor da posição <![CDATA[“]]>, i, <![CDATA[“]]>: <![CDATA[“]]>, numeros[ _ <!--] <b>)</b>-->
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha8">
+        Leia(numeros[ _  <!-- ]) HARDCODE -->
+    </string>
+
+    <string name="ProvaModulo3Pergunta2Linha9">
+        FimPara
+        \n<u>FimAlgoritmo</u>
+    </string>
+
+    <!-- PERGUNTA 3-->
+
+    <string name="ProvaModulo3Pergunta3">Qual alternativa melhor descreve o conceito de vetores?</string>
+    <string name="ProvaModulo3Pergunta3Alternativa1">Vetores são variáveis</string>
+    <string name="ProvaModulo3Pergunta3Alternativa2">Os vetores são containers para agrupar várias variáveis</string>
+    <string name="ProvaModulo3Pergunta3Alternativa3">Vetores são variáveis usadas para acelerar os programas computacionais</string>
+    <string name="ProvaModulo3Pergunta3Alternativa4">Vetores são coleções de dados. Ao contrário das variáveis simples, vetores podem armazenar diversos valores em colunas, que podem ser acessadas pelo número de seu índice</string>
+
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
+    <string-array name="tab_modulo3_etapa1">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <!--ETAPA 2 MODULO 1-->
+    <string-array name="tab_modulo3_etapa2">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo3_etapa3">
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

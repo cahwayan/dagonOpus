@@ -176,18 +176,28 @@
     \n<![CDATA[<b><font color=#0000a0>FimEnquanto </b>]]>
     </string>
 
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3--><!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
-    <!--CRIAR PERGUNTA 4 DA ETAPA 3-->
+    <!--PERGUNTA 4-->
+    <string name="Modulo2Etapa3Pergunta4">Qual alternativa melhor descreve o loop WHILE, ou, ENQUANTO?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 4-->
+    <string name="Modulo2Etapa3Pergunta4Alternativa1">O loop <![CDATA[“]]>enquanto<![CDATA[“]]> é usado para repetir um bloco de 
+        comandos uma quantidade indefinida de vezes. 
+        Ele possui teste lógico no início, e quando o usamos, 
+        geralmente não sabemos quantas vezes o código irá se repetir.
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta4Alternativa2">O comando <![CDATA[“]]>enquanto<![CDATA[“]]> é usado para repetir um bloco de 
+        comandos durante uma quantidade predefinida de vezes. 
+        O teste lógico ocorre no meio.
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta4Alternativa3">O comando <![CDATA[“]]>enquanto<![CDATA[“]]> funciona como uma estrutura de decisão, 
+        e faz o programa tomar decisões ao longo da execução
+    </string>
+
+    <string name="Modulo2Etapa3Pergunta4Alternativa4">d-    O comando <![CDATA[“]]>enquanto<![CDATA[“]]> possui a função de armazenar dados em espaços 
+        na memória do computador, tomando decisões sobre o que fazer com eles.
+    </string>
 
 
     <!--ETAPA 4-->
@@ -219,19 +229,32 @@
         <![CDATA[<b><font color=#0000a0>FimPara </b>]]>
     </string>
 
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <!--PERGUNTA 2-->
+    <string name="Modulo2Etapa4Pergunta2">Preencha os campos em branco para escrever um programa que conta de 10 até 0 de dois em dois usando o loop <![CDATA[“]]>para<![CDATA[“]]>.</string>
 
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4--><!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <string name="Modulo2Etapa4Pergunta2Linha1">
+        <u>Var</u>
+        \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
+        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+    </string>
 
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
-    <!--CRIAR PERGUNTA 2 DA ETAPA 4-->
+    <string name="Modulo2Etapa4Pergunta2Linha2">
+         __________ i de 10 ate
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta2Continuacaolinha2">
+         __ passo __ <!-- faca -->
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta2Linha3">
+        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> i<b>)</b>
+    </string>
+
+    <string name="Modulo2Etapa4Pergunta2Linha4">
+       <![CDATA[<b><font color=#0000a0>FimPara </b>]]>
+       \n<![CDATA[<b><u><font color=#0000a0>FimAlgoritmo </u></b>]]>
+    </string>
+
 
 
     <!--ETAPA 5-->
@@ -274,11 +297,6 @@
     <string name="Modulo2Etapa5Pergunta1Linha7">
          <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“A soma dos números é:  “</b>]]>,  _______ <!--<b>)</b>-->
     </string>
-
-
-
-
-
 
 
     <!-- PROVA 1 (ETAPA 6)-->
@@ -358,4 +376,58 @@
     <string name="ProvaModulo2Pergunta5Alternativa3">Os dois loops servem para fazer com que o programa adquira inteligência artificial e domine o mundo</string>
     <string name="ProvaModulo2Pergunta5Alternativa4">Ambos repetem blocos de código. Porém, o loop <b>enquanto</b> tem o teste lógico no início, e o <b>repita</b> tem o teste lógico no final.</string>
 
+
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
+    <string-array name="tab_modulo2_etapa1">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <!--ETAPA 2 MODULO 1-->
+    <string-array name="tab_modulo2_etapa2">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo2_etapa3">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 4 MODULO 1-->
+    <string-array name="tab_modulo2_etapa4">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 5 MODULO 1-->
+    <string-array name="tab_modulo2_etapa5">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 6 MODULO 1-->
+    <string-array name="tab_modulo2_etapa6">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
 </resources>

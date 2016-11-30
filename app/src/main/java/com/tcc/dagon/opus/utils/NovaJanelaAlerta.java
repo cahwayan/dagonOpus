@@ -3,6 +3,7 @@ package com.tcc.dagon.opus.utils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tcc.dagon.opus.AprenderActivity;
@@ -39,5 +40,27 @@ public class NovaJanelaAlerta extends AppCompatActivity {
         // Icone
         alerta.create().show();
     }
+
+    DialogInterface.OnClickListener listenerDialogClick = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    activity.finish();
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
+            }
+        }
+    };
+
+    public void alertDialogSair(String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)
+                .setNegativeButton("Não", listenerDialogClick).show();
+    }
+
 
 }

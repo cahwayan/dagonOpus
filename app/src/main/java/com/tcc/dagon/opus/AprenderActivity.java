@@ -122,17 +122,25 @@ public class AprenderActivity extends AppCompatActivity {
 
     // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
-
-
+    NovaJanelaAlerta alertaSair = new NovaJanelaAlerta(this);
+    @Override
+    public void onBackPressed() {
+        alerta.alertDialogSair("Tem certeza que deseja sair?");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
         instanciaBanco();
 
+        if(!readFlag()) {
+            writeFlag(true);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
-        //pegando informacoes da activity gerenciar
+
 
         Intent intent = getIntent();
         email = lerEmail(intent.getStringExtra("emailUsuario"));
@@ -182,10 +190,6 @@ public class AprenderActivity extends AppCompatActivity {
             googleApiClient.connect();
         }
 
-        if(!readFlag()) {
-            writeFlag(true);
-        }
-
         super.onStart();
     }
 
@@ -203,8 +207,20 @@ public class AprenderActivity extends AppCompatActivity {
             }
         }, 1);
 
+        if(drawer_layout.isDrawerVisible(mListView)) {
+            drawer_layout.closeDrawers();
+        }
 
         super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        if(drawer_layout.isDrawerVisible(mListView)) {
+            drawer_layout.closeDrawers();
+        }
+        super.onResume();
+
     }
 
 
@@ -525,6 +541,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    finish();
                 } else { // SENÃO EXIBIR ALERTDIALOG
                     alertaModuloBloqueado();
                 }
@@ -537,6 +554,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), EtapasModulo2Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -549,6 +567,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -561,6 +580,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -573,6 +593,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -585,6 +606,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -597,6 +619,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -609,6 +632,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -618,6 +642,7 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo9.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                //finish();
             }
         });
     }
@@ -650,27 +675,23 @@ public class AprenderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position ,long id) {
                 if (position==0){
-                    //aoFecharMenu();
-
+                    drawer_layout.closeDrawers();
                 }
                 else if(position==1){
                     Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
                     i.putExtra("id", email);
                     startActivity(i);
-                    finish();
                 } else if (position ==2) {
                     startActivity(new Intent(getApplicationContext(), GlossarioActivity.class));
                 } else if(position ==3) {
-
-                } else if(position ==4) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityConfig.class));
+                } else if(position == 4) {
                     writeFlag(false);
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     fotoTrocada(false);
                     signOut();
                     finish();
                 } else if(position ==5) {
-
-                } else if(position ==6) {
 
                 }
             }
@@ -697,7 +718,6 @@ public class AprenderActivity extends AppCompatActivity {
                 super.onDrawerOpened(drawerView);
                 getSupportActionBar().setTitle("Menu");
                 invalidateOptionsMenu(); // CRIA CHAMADA PARA O MÉTODO onPrepareOptionsMenu()
-
             }
             // Método chamado quando o menu fecha
             public void aoFecharMenu(View view) {
@@ -782,8 +802,9 @@ public class AprenderActivity extends AppCompatActivity {
     private void signOut() {
         if(googleApiClient.isConnected()) {
             Plus.AccountApi.clearDefaultAccount(googleApiClient);
+            googleApiClient.clearDefaultAccountAndReconnect();
             googleApiClient.disconnect();
-            //googleApiClient.connect();
+            googleApiClient.connect();
         }
 
     }
