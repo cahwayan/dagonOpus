@@ -18,7 +18,7 @@
         android:padding="3dp">
 
         <TextView
-            android:text="Certificado:"
+            android:text="Certificado Bloqueado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTituloCertificado"
@@ -82,7 +82,7 @@
                 app:rcProgressColor="#d41243"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
-                android:id="@+id/barraGeral" >
+                android:id="@+id/barraGeralCertificado" >
 
             </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
 
@@ -97,7 +97,7 @@
             android:id="@+id/btnCertificadoIncompleto"
             android:layout_weight="1"
             android:background="@color/corBtnCadastro"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:layout_margin="10dp" />
 

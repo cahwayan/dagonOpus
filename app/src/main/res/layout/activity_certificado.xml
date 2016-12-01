@@ -31,7 +31,7 @@
             android:id="@+id/btnCertificado"
             android:layout_weight="1"
             android:background="@color/corBtnCadastro"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:layout_margin="10dp" />
     </LinearLayout>

@@ -9,14 +9,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.tcc.dagon.opus.databases.GerenciadorBanco;
+
+import static java.lang.String.valueOf;
+
 public class CertificadoIncompleto extends AppCompatActivity {
 
     private Button btnCertificadoIncompleto;
     private TextView txtTituloCertificado;
+    private GerenciadorBanco DB_PROGRESSO;
+    private RoundCornerProgressBar barraGeralCertificado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_certificado);
+        setContentView(R.layout.activity_certificado_incompleto);
+
+        if(DB_PROGRESSO != null) {
+            DB_PROGRESSO = new GerenciadorBanco(this);
+        }
+
 
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
@@ -25,18 +38,10 @@ public class CertificadoIncompleto extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
 
-        btnCertificadoIncompleto = (Button) findViewById(R.id.btnCertificadoIncompleto);
-        txtTituloCertificado = (TextView) findViewById(R.id.txtTituloCertificado);
+        accessViews();
 
-        if(btnCertificadoIncompleto != null) {
-            btnCertificadoIncompleto.setTypeface(harabara);
-        }
-
-        if(txtTituloCertificado != null) {
-            txtTituloCertificado.setTypeface(harabara);
-        }
+        carregarProgresso();
 
         btnCertificadoIncompleto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +49,17 @@ public class CertificadoIncompleto extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    private void accessViews() {
+        btnCertificadoIncompleto = (Button) findViewById(R.id.btnCertificadoIncompleto);
+        txtTituloCertificado = (TextView) findViewById(R.id.txtTituloCertificado);
+        barraGeralCertificado = (RoundCornerProgressBar) findViewById(R.id.barraGeralCertificado);
+
+        Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
+        btnCertificadoIncompleto.setTypeface(harabara);
+        txtTituloCertificado.setTypeface(harabara);
 
     }
 
@@ -57,4 +73,16 @@ public class CertificadoIncompleto extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void carregarProgresso() {
+        barraGeralCertificado.setProgress(Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(1) +
+                DB_PROGRESSO.verificaProgressoEtapa(2) +
+                DB_PROGRESSO.verificaProgressoEtapa(3) +
+                DB_PROGRESSO.verificaProgressoEtapa(4) +
+                DB_PROGRESSO.verificaProgressoEtapa(5) +
+                DB_PROGRESSO.verificaProgressoEtapa(6) +
+                DB_PROGRESSO.verificaProgressoEtapa(7) +
+                DB_PROGRESSO.verificaProgressoEtapa(8))) );
+    }
+
 }
