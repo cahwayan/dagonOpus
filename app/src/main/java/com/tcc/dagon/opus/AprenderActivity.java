@@ -5,16 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -25,14 +22,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.google.android.gms.plus.Plus;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
-import static com.tcc.dagon.opus.MainActivity.googleApiClient;
 import static java.lang.String.valueOf;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 
@@ -54,8 +49,7 @@ public class AprenderActivity extends AppCompatActivity {
                         btnModulo5,
                         btnModulo6,
                         btnModulo7,
-                        btnModulo8,
-                        btnModulo9;
+                        btnModulo8;
 
     // IMAGENS DOS MÓDULOS
     private ImageView   imgModulo1,
@@ -65,13 +59,10 @@ public class AprenderActivity extends AppCompatActivity {
                         imgModulo5,
                         imgModulo6,
                         imgModulo7,
-                        imgModulo8,
-                        imgModulo9;
+                        imgModulo8;
 
     // BOTÕES PULAR
-    private ImageView btnPular1,
-                      btnPular2,
-                      btnPular3;
+    private ImageView btnPular1;
 
     // TEXTVIEWS QUE MOSTRA O TITULO DOS MÓDULOS
     protected TextView  txtTitulo1,
@@ -101,8 +92,7 @@ public class AprenderActivity extends AppCompatActivity {
                                     barraModulo4,
                                     barraModulo5,
                                     barraModulo6,
-                                    barraModulo7,
-                                    barraModulo8;
+                                    barraModulo7;
     // SUPER VARIÁVEL CONTEXT
     private Context context = this;
 
@@ -128,19 +118,21 @@ public class AprenderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_aprender);
+
+        if(getSupportActionBar() != null) {
+            // BOTÃO SUPERIOR MENU PUXÁVEL
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
         instanciaBanco();
 
         if(!readFlag()) {
             writeFlag(true);
         }
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aprender);
-
-
-        Intent intent = getIntent();
-        email = lerEmail(intent.getStringExtra("emailUsuario"));
 
         // INVOCANDO OS COMPONENTES
         accessViews();
@@ -150,14 +142,6 @@ public class AprenderActivity extends AppCompatActivity {
 
         // MÉTODO DE CONFIGURAÇÃO DO MENU PUXÁVEL
         configurarMenu();
-
-
-        if(getSupportActionBar() != null) {
-            // BOTÃO SUPERIOR MENU PUXÁVEL
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
 
         // CLICK LISTENERS DOS BOTÕES
         listenersBtnModulos();
@@ -235,7 +219,6 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo6 = (FrameLayout)findViewById(R.id.btnModulo6);
         btnModulo7 = (FrameLayout)findViewById(R.id.btnModulo7);
         btnModulo8 = (FrameLayout)findViewById(R.id.btnModulo8);
-        btnModulo9 = (FrameLayout)findViewById(R.id.btnModulo9);
 
         // IMAGENS DOS MÓDULOS
         imgModulo1 = (ImageView)findViewById(R.id.imgModulo1);
@@ -246,7 +229,6 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo6 = (ImageView)findViewById(R.id.imgModulo6);
         imgModulo7 = (ImageView)findViewById(R.id.imgModulo7);
         imgModulo8 = (ImageView)findViewById(R.id.imgModulo8);
-        imgModulo9 = (ImageView)findViewById(R.id.imgModulo9);
 
         // TEXT VIEWS DOS TITULOS DOS MODULOS
         txtTitulo1 = (TextView)findViewById(R.id.txtTitulo1);
@@ -257,7 +239,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo6 = (TextView)findViewById(R.id.txtTitulo6);
         txtTitulo7 = (TextView)findViewById(R.id.txtTitulo7);
         txtTitulo8 = (TextView)findViewById(R.id.txtTitulo8);
-        txtTitulo9 = (TextView)findViewById(R.id.txtTitulo9);
+
 
         // TEXT VIEWS DOS PROGRESSOS DOS MÓDULOS
         txtProgresso1 = (TextView)findViewById(R.id.txtProgresso1);
@@ -267,12 +249,10 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso5 = (TextView)findViewById(R.id.txtProgresso5);
         txtProgresso6 = (TextView)findViewById(R.id.txtProgresso6);
         txtProgresso7 = (TextView)findViewById(R.id.txtProgresso7);
-        txtProgresso8 = (TextView)findViewById(R.id.txtProgresso8);
 
         // BOTÕES PULAR
         btnPular1 = (ImageView) findViewById(R.id.btnPular1);
-        btnPular2 = (ImageView) findViewById(R.id.btnPular2);
-        btnPular3 = (ImageView) findViewById(R.id.btnPular3);
+
 
         // SETANDO A FONTE DOS TITULOS
         Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
@@ -284,7 +264,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo6.setTypeface(harabara);
         txtTitulo7.setTypeface(harabara);
         txtTitulo8.setTypeface(harabara);
-        txtTitulo9.setTypeface(harabara);
+
 
         // SETANDO A FONTE DO PROGRESSO
         txtProgresso1.setTypeface(harabara);
@@ -294,7 +274,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso5.setTypeface(harabara);
         txtProgresso6.setTypeface(harabara);
         txtProgresso7.setTypeface(harabara);
-        txtProgresso8.setTypeface(harabara);
 
         // BARRA DE PROGRESSO DOS MÓDULOS
 
@@ -305,7 +284,6 @@ public class AprenderActivity extends AppCompatActivity {
         barraModulo5 = (RoundCornerProgressBar)findViewById(R.id.barraModulo5);
         barraModulo6 = (RoundCornerProgressBar)findViewById(R.id.barraModulo6);
         barraModulo7 = (RoundCornerProgressBar)findViewById(R.id.barraModulo7);
-        barraModulo8 = (RoundCornerProgressBar)findViewById(R.id.barraModulo8);
 
         // MENU PUXÁVEL
         mListView = (ListView)findViewById(R.id.listMenuPrincipal);
@@ -340,7 +318,6 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
-        btnModulo9.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
 
         // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
         txtProgresso1.setVisibility(View.GONE);
@@ -350,7 +327,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso5.setVisibility(View.GONE);
         txtProgresso6.setVisibility(View.GONE);
         txtProgresso7.setVisibility(View.GONE);
-        txtProgresso8.setVisibility(View.GONE);
 
         // TROCANDO A IMAGEM DO MÓDULO PARA BLOQUEADO
         imgModulo1.setImageResource(R.drawable.modulo_bloqueado);
@@ -360,7 +336,6 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo5.setImageResource(R.drawable.modulo_bloqueado);
         imgModulo6.setImageResource(R.drawable.modulo_bloqueado);
         imgModulo7.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo8.setImageResource(R.drawable.modulo_bloqueado);
     }
 
 
@@ -402,7 +377,6 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo5.setImageResource(R.drawable.btnmodulo5);
         txtTitulo5.setText(R.string.txtTituloModulo5);
         txtProgresso5.setVisibility(View.VISIBLE);
-        btnPular2.setVisibility(View.GONE);
         btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo5));
     }
 
@@ -417,19 +391,11 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo7.setImageResource(R.drawable.btnmodulo7);
         txtTitulo7.setText(R.string.txtTituloModulo7);
         txtProgresso7.setVisibility(View.VISIBLE);
-        btnPular3.setVisibility(View.GONE);
         btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo7));
     }
 
-    private void desbloquearModulo8() {
-        imgModulo8.setImageResource(R.drawable.btnmodulo8);
-        txtTitulo8.setText(R.string.txtTituloModulo8);
-        txtProgresso8.setVisibility(View.VISIBLE);
-        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo8));
-    }
-
     private void desbloquearCertificado() {
-        btnModulo9.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo9));
+        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo8));
     }
 
 
@@ -488,7 +454,6 @@ public class AprenderActivity extends AppCompatActivity {
                 desbloquearModulo5();
                 desbloquearModulo6();
                 desbloquearModulo7();
-                desbloquearModulo8();
                 break;
             case 9:
                 desbloquearModulo1();
@@ -498,7 +463,6 @@ public class AprenderActivity extends AppCompatActivity {
                 desbloquearModulo5();
                 desbloquearModulo6();
                 desbloquearModulo7();
-                desbloquearModulo8();
                 desbloquearCertificado();
         }
     }
@@ -512,7 +476,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/6");
         txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
         txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
-        txtProgresso8.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) + "/X");
     }
 
     // CONFIGURA O PROGRESSO DAS PROGRESS BARS
@@ -524,7 +487,6 @@ public class AprenderActivity extends AppCompatActivity {
         barraModulo5.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) ) );
         barraModulo6.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) ) );
         barraModulo7.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) ) );
-        barraModulo8.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(8)) ) );
     }
 
     // Método que invoca os listeners dos botões
@@ -626,20 +588,13 @@ public class AprenderActivity extends AppCompatActivity {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 8) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
                 } else {
-                    alertaModuloBloqueado();
+                    startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
                 }
             }
         });
 
-        btnModulo9.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                //finish();
-            }
-        });
     }
 
     private void listenersBtnPular() {
@@ -647,18 +602,6 @@ public class AprenderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
                 startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
-            }
-        });
-
-        btnPular2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-            }
-        });
-
-        btnPular3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             }
         });
     }

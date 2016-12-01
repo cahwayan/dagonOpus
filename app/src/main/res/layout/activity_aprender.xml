@@ -210,14 +210,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="top|center" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/botaopularpequeno"
-                    android:layout_gravity="bottom|right"
-                    android:clickable="true"
-                    android:id="@+id/btnPular2" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -378,14 +370,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="top|center" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/botaopularpequeno"
-                    android:layout_gravity="bottom|right"
-                    android:clickable="true"
-                    android:id="@+id/btnPular3" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -421,14 +405,17 @@
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo7" />
 
+
+
             <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="160dp"
                 android:background="@color/corBtnModulo8"
                 android:id="@+id/btnModulo8">
+
                 <ImageView
                     android:id="@+id/imgModulo8"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/btnmodulo8"
                     android:clickable="false"
@@ -437,69 +424,14 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo8"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="top|center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtProgressoModulo8"
-                    android:id="@+id/txtProgresso8"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:fontFamily="sans-serif"
-                    android:typeface="normal" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtTituloModulo8"
-                    android:id="@+id/txtTitulo8"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/MargemTituloModulo"
-                    android:textSize="@dimen/tamanhoFonteModulo"
-                    android:textColor="#ffffff" />
-            </FrameLayout>
-
-            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                android:layout_width="fill_parent"
-                android:layout_height="10dp"
-                app:rcSecondaryProgress="0"
-                app:rcMax="10"
-                app:rcRadius="0dp"
-                app:rcBackgroundPadding="2dp"
-                app:rcReverse="false"
-                app:rcProgressColor="#00aedb"
-                app:rcSecondaryProgressColor="#ffffffff"
-                app:rcBackgroundColor="#ffffff"
-                android:id="@+id/barraModulo8" >
-            </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
-
-            <FrameLayout
-                android:layout_width="fill_parent"
-                android:layout_height="160dp"
-                android:background="@color/corBtnModulo9"
-                android:id="@+id/btnModulo9">
-
-                <ImageView
-                    android:id="@+id/imgModulo9"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/btnmodulo9"
-                    android:clickable="false"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="@+id/descricaoBotaoModulo9"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="top|center"
                     android:layout_marginBottom="10dp" />
 
                 <TextView
-                    android:text="@string/txtTituloModulo9"
+                    android:text="@string/txtTituloModulo8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtTitulo9"
+                    android:id="@+id/txtTitulo8"
                     android:textSize="@dimen/tamanhoFonteModulo"
                     android:layout_marginTop="@dimen/MargemTituloModulo"
                     android:gravity="center"

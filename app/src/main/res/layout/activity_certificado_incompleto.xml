@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_certificado"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tcc.dagon.opus.CertificadoActivity"
+    android:padding="5dp"
+    android:background="#e1e1e1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borda_container_licao"
+        android:padding="3dp">
+
+        <TextView
+            android:text="Certificado:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTituloCertificado"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:textSize="24sp"
+            android:gravity="left|center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="5dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            app:srcCompat="@drawable/certificado_incompleto"
+            android:id="@+id/imagemCertificado"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="@string/certificadoIncompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtInformativoCertificado"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp"
+            android:gravity="left"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:text="Progresso Geral:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtProgressoCertificado"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/barraProgresso"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp">
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcSecondaryProgress="0"
+                app:rcMax="30"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="#d41243"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraGeral" >
+
+            </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:text="@string/txtContinuarAprendendo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCertificadoIncompleto"
+            android:layout_weight="1"
+            android:background="@color/corBtnCadastro"
+            android:textSize="24sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

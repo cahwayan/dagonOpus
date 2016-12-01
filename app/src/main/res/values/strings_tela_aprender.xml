@@ -17,11 +17,10 @@
     <string name="txtTituloModulo2">CONDIÇÕES E LOOPS</string>
     <string name="txtTituloModulo3">VETORES</string>
     <string name="txtTituloModulo4">ROTINAS</string>
-    <string name="txtTituloModulo5">CLASSES E OBJETOS</string>
-    <string name="txtTituloModulo6">DESAFIOS 1</string>
+    <string name="txtTituloModulo5">DESAFIOS</string>
+    <string name="txtTituloModulo6">CLASSES E OBJETOS</string>
     <string name="txtTituloModulo7">CLASSES E OBJETOS 2</string>
-    <string name="txtTituloModulo8">DESAFIOS 2</string>
-    <string name="txtTituloModulo9">CERTIFICADO</string>
+    <string name="txtTituloModulo8">CERTIFICADO</string>
     <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
     <!--FIM STRINGS MODULOS-->
 

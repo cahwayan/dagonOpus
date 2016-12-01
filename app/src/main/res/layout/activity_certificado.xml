@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_certificado"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tcc.dagon.opus.CertificadoActivity"
+    android:padding="5dp"
+    android:background="#e1e1e1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borda_container_licao"
+        android:padding="3dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/certificado"
+            android:id="@+id/imagemCertificado"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="@string/txtCertificado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCertificado"
+            android:layout_weight="1"
+            android:background="@color/corBtnCadastro"
+            android:textSize="24sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+</LinearLayout>
