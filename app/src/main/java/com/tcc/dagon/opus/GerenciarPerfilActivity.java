@@ -25,8 +25,11 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,6 +47,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -53,7 +60,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GerenciarPerfilActivity extends Activity {
+public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
 
@@ -96,65 +103,75 @@ public class GerenciarPerfilActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_perfil);
-        DB_PROGRESSO = new GerenciadorBanco(this);
-        txtNome = (TextView) findViewById(R.id.txtNome);
 
+        // SETA VOLTAR NA BARRA DE MENU
+        if(getSupportActionBar() != null) {
+            // BOTÃO SUPERIOR MENU PUXÁVEL
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        // OBJETO BANCO PARA LER O PROGRESSO
+        DB_PROGRESSO = new GerenciadorBanco(this);
+
+        // OBJETO DE CONEXÃO COM API GOOGLE
+        googleBuilder();
+
+        // VIEWS DA CLASSE
+        accessViews();
+
+        // CARREGANDO CLICK LISTENERS
+        clickListeners();
+
+
+        // CARREGA PROGRESSO DA BARRA
+        carregarProgresso();
+
+        // VERIFICA SE O DISPOSITIVO POSSUI CÂMERA
+        verificarCamera();
+
+        // PUXA A FOTO DO USUÁRIO
+        trocarFotoPerfil();
+
+        // CONTEXT PARA CHAMADA VOLLEY
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        // MÈTODO QUE LIDA COM OS INTENTS (TROCA DE INFORMAÇÔES ENTRE AS CLASSES)
+        intents();
+
+        // MÉTODO JSON
+        carregaLink();
+
+
+
+
+    }
+
+    private void accessViews() {
+        alertaOperacaoFinalizada = new NovaJanelaAlerta(this);
+        txtNome = (TextView) findViewById(R.id.txtNome);
         btnAprender = (Button) findViewById(R.id.btnAprender);
         btnAlterarSenha = (Button) findViewById(R.id.btnAlterar);
         btnLogout = (Button) findViewById(R.id.btnLogout);
-
         barraGeral = (RoundCornerProgressBar) findViewById(R.id.barraGeral);
-        barraGeral.setProgress(Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(1) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(2) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(3) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(4) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(5) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(6) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(7) +
-                                                        DB_PROGRESSO.verificaProgressoEtapa(8))) );
+        foto = (ImageView) findViewById(R.id.fotoPerfil);
+    }
 
+    private void carregarProgresso() {
+        barraGeral.setProgress(Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(1) +
+                DB_PROGRESSO.verificaProgressoEtapa(2) +
+                DB_PROGRESSO.verificaProgressoEtapa(3) +
+                DB_PROGRESSO.verificaProgressoEtapa(4) +
+                DB_PROGRESSO.verificaProgressoEtapa(5) +
+                DB_PROGRESSO.verificaProgressoEtapa(6) +
+                DB_PROGRESSO.verificaProgressoEtapa(7) +
+                DB_PROGRESSO.verificaProgressoEtapa(8))) );
+    }
+
+    private void clickListeners() {
         btnAprender.setOnClickListener(btnClickListner);
         btnAlterarSenha.setOnClickListener(btnClickListner);
         btnLogout.setOnClickListener(btnClickListner);
-
-        foto = (ImageView) findViewById(R.id.fotoPerfil);
-
-        alertaOperacaoFinalizada = new NovaJanelaAlerta(this);
-
-        if (verificarFotoTrocada()) {
-            File imgFile = new File(lerCaminhoFoto());
-            Bitmap arquivoFoto = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            foto.setImageBitmap(arquivoFoto);
-        } else if(googleApiClient.isConnected()) {
-            try {
-                Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
-                // Abre a tela de login após cadastro
-                //carrega icone de imagem do perfil do google
-                Log.i("Script", "IMG before: "+imageUrl);
-                imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
-                Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(foto, pbProfile, imageUrl);
-            } catch(NullPointerException e) {
-                foto.setImageResource(R.drawable.icon_foto);
-            }
-
-        }else {
-            foto.setImageResource(R.drawable.icon_foto);
-        }
-
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        // Pegando informações da activity anterior e passando a activity upload
-        Intent i = getIntent();
-
-        email = i.getStringExtra("emailUsuario");
-        email = lerEmail("emailUsuario");
-
-        URLFIM = URLMOSTRA+email;
-
-        //i.putExtra("emailUsuario", email);
-
-        carregaLink();
 
         foto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,13 +194,60 @@ public class GerenciarPerfilActivity extends Activity {
             }
         });
 
+    }
 
+    private void verificarCamera() {
         if (!isDeviceSupportCamera()) {
             Toast.makeText(getApplicationContext(),
                     "Desculpe ,seu dispositivo não tem suporte",
                     Toast.LENGTH_LONG).show();
             finish();
         }
+    }
+
+    private void intents() {
+        // Pegando informações da activity anterior e passando a activity upload
+        Intent i = getIntent();
+        email = i.getStringExtra("emailUsuario");
+        email = lerEmail("emailUsuario");
+        URLFIM = URLMOSTRA+email;
+    }
+
+    private void trocarFotoPerfil() {
+        if (verificarFotoTrocada()) {
+            File imgFile = new File(lerCaminhoFoto());
+            Bitmap arquivoFoto = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            foto.setImageBitmap(arquivoFoto);
+        } else if(googleApiClient.isConnected()) {
+            try {
+                Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
+                // Abre a tela de login após cadastro
+                //carrega icone de imagem do perfil do google
+                Log.i("Script", "IMG before: "+imageUrl);
+                imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
+                Log.i("Script", "IMG after: "+imageUrl);
+                loadImage(foto, pbProfile, imageUrl);
+            } catch(NullPointerException e) {
+                foto.setImageResource(R.drawable.icon_foto);
+            }
+
+        }else {
+            foto.setImageResource(R.drawable.icon_foto);
+        }
+    }
+
+    private void googleBuilder() {
+        // Configura um objeto que contém o perfil básico do usuário: Perfil, Foto, E-Mail e ID Público
+        // Perfil e ID estão incluídos no DEFAULT_SIGN_IN
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Constrói um objeto de conexão que tem acesso à API Google e as características do objeto GSO
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* Essa atividade, precisa ser um fragmento */, this /* Listener de erro de conexão */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
     }
 
     @Override
@@ -209,6 +273,7 @@ public class GerenciarPerfilActivity extends Activity {
             return false;
         }
     }
+
     private void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -454,13 +519,11 @@ public class GerenciarPerfilActivity extends Activity {
     // SIGN OUT GOOGLE
     private void signOut() {
         if(googleApiClient.isConnected()) {
-            Plus.AccountApi.clearDefaultAccount(googleApiClient);
             googleApiClient.clearDefaultAccountAndReconnect();
             googleApiClient.disconnect();
             googleApiClient.connect();
             writeFlag(false);
         }
-
     }
 
     //FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
@@ -478,6 +541,22 @@ public class GerenciarPerfilActivity extends Activity {
         });
         pbImg.setVisibility(View.VISIBLE);
         il.get(urlImg, il.getImageListener(ivImg, pbImg.getId(), pbImg.getId()));
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+
+    }
+
+    // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

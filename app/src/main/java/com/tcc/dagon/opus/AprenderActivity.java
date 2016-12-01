@@ -123,10 +123,7 @@ public class AprenderActivity extends AppCompatActivity {
     // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
     NovaJanelaAlerta alertaSair = new NovaJanelaAlerta(this);
-    @Override
-    public void onBackPressed() {
-        alerta.alertDialogSair("Tem certeza que deseja sair?");
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,10 +183,6 @@ public class AprenderActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        if(!googleApiClient.isConnected()) {
-            googleApiClient.connect();
-        }
-
         super.onStart();
     }
 
@@ -223,6 +216,11 @@ public class AprenderActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        alerta.alertDialogSair("Tem certeza que deseja sair?");
+    }
+
 
     private void accessViews() {
         // LAYOUTS
@@ -240,7 +238,6 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo9 = (FrameLayout)findViewById(R.id.btnModulo9);
 
         // IMAGENS DOS MÓDULOS
-
         imgModulo1 = (ImageView)findViewById(R.id.imgModulo1);
         imgModulo2 = (ImageView)findViewById(R.id.imgModulo2);
         imgModulo3 = (ImageView)findViewById(R.id.imgModulo3);
@@ -252,7 +249,6 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo9 = (ImageView)findViewById(R.id.imgModulo9);
 
         // TEXT VIEWS DOS TITULOS DOS MODULOS
-
         txtTitulo1 = (TextView)findViewById(R.id.txtTitulo1);
         txtTitulo2 = (TextView)findViewById(R.id.txtTitulo2);
         txtTitulo3 = (TextView)findViewById(R.id.txtTitulo3);
@@ -264,7 +260,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo9 = (TextView)findViewById(R.id.txtTitulo9);
 
         // TEXT VIEWS DOS PROGRESSOS DOS MÓDULOS
-
         txtProgresso1 = (TextView)findViewById(R.id.txtProgresso1);
         txtProgresso2 = (TextView)findViewById(R.id.txtProgresso2);
         txtProgresso3 = (TextView)findViewById(R.id.txtProgresso3);
@@ -511,8 +506,8 @@ public class AprenderActivity extends AppCompatActivity {
     // VERIFICA O PROGRESSO DO USUÁRIO REFERENTE AS ETAPAS DE CADA MÓDULO E ATRIBUI A TEXTVIEW
     private void progressoTextView() {
         txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/9");
-        txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/10");
-        txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/7");
+        txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/6");
+        txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/3");
         txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/5");
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/6");
         txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
@@ -686,12 +681,6 @@ public class AprenderActivity extends AppCompatActivity {
                 } else if(position ==3) {
                     startActivity(new Intent(getApplicationContext(), ActivityConfig.class));
                 } else if(position == 4) {
-                    writeFlag(false);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    fotoTrocada(false);
-                    signOut();
-                    finish();
-                } else if(position ==5) {
 
                 }
             }
@@ -703,7 +692,7 @@ public class AprenderActivity extends AppCompatActivity {
         // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
         ArrayAdapter<String> mAdapter;
         // ITENS DO MENU
-        String[] itensMenu = {"Módulos", "Perfil", "Glossário", "Configurações", "Logout", "Avalie-nos!"};
+        String[] itensMenu = {"Módulos", "Perfil", "Glossário", "Configurações", "Avalie-nos!"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itensMenu);
         mListView.setAdapter(mAdapter);
     }
@@ -796,17 +785,6 @@ public class AprenderActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("fotoTrocada", flag);
         editor.apply();
-    }
-
-    // SIGN OUT GOOGLE
-    private void signOut() {
-        if(googleApiClient.isConnected()) {
-            Plus.AccountApi.clearDefaultAccount(googleApiClient);
-            googleApiClient.clearDefaultAccountAndReconnect();
-            googleApiClient.disconnect();
-            googleApiClient.connect();
-        }
-
     }
 
 }

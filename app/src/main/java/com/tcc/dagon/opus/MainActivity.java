@@ -15,6 +15,7 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -55,7 +58,7 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
-public class MainActivity extends Activity implements OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
     private static final int SIGN_IN_CODE = 56465;
     static GoogleApiClient googleApiClient;
     private ConnectionResult connectionResult;
@@ -90,6 +93,10 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                      email,password,
                      botaoCriarConta;
 
+    GoogleSignInAccount acct;
+
+    final int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 1;
+
     // VARIÁVEIS GOOGLE
     public String name,
                   emailG,
@@ -100,9 +107,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                    sPassword;
 
     Context context = this;
-
-    // Variavel que verifica se o usuario está logado
-    private boolean isLogin;
 
 
     // VARIÁVEIS DE CONEXÃO
@@ -115,6 +119,10 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         // CONSTRUINDO O OBJETO DE CONEXÃO GOOGLE
         googleBuilder();
@@ -129,8 +137,22 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         // ADICIONANDO OS LISTENERS DOS BOTÕES
         listenersLogin();
-
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+
+        if(googleApiClient.isConnected()) {
+            googleApiClient.disconnect();
+        }
+    }
+
 
     // COMPONENTES DA INTERFACE
     public void accessViews(){
@@ -169,10 +191,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
         btSignInDefault.setOnClickListener(MainActivity.this);
         btSignInCustom.setOnClickListener(MainActivity.this);
-        /*
-        btSignOut.setOnClickListener(MainActivity.this);
-        btRevokeAccess.setOnClickListener(MainActivity.this);
-        btAprender.setOnClickListener(MainActivity.this);*/
 
 
     }
@@ -250,92 +268,62 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
     }
 
     private void googleBuilder() {
-        googleApiClient = new GoogleApiClient.Builder(MainActivity.this)
-                .addConnectionCallbacks(MainActivity.this)
-                .addOnConnectionFailedListener(MainActivity.this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
+        // Configura um objeto que contém o perfil básico do usuário: Perfil, Foto, E-Mail e ID Público
+        // Perfil e ID estão incluídos no DEFAULT_SIGN_IN
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Constrói um objeto de conexão que tem acesso à API Google e as características do objeto GSO
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* Essa atividade, precisa ser um fragmento */, this /* Listener de erro de conexão */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
 
-    @Override
-    public void onStart(){
-        super.onStart();
+    public void signIn(){
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+        startActivityForResult(signInIntent, SIGN_IN_CODE);
+    }
 
-        if(googleApiClient != null){
-            googleApiClient.connect();
+    // ESSE MÉTODO DECIDE O QUE FAZER COM A RESPOSTA DO LOGIN DO USUÁRIO
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // RESULTADO DO INTENT DE LOGIN
+        if (requestCode == SIGN_IN_CODE) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
         }
     }
 
-
-    @Override
-    public void onStop(){
-        super.onStop();
-        if(googleApiClient != null && googleApiClient.isConnected()){
-            googleApiClient.disconnect();
-        }
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == SIGN_IN_CODE){
-
-            isConsentScreenOpened = false;
-
-            if(resultCode != RESULT_OK){
-                isSignInButtonClicked = false;
-            }
-
-            if(!googleApiClient.isConnecting()){
-                googleApiClient.connect();
-            }
-
-        }
-    }
-
-    public void showUi(boolean status, boolean statusProgressBar){
-        if(!statusProgressBar){
+    // MÉTODO QUE LIDA COM O SUCESSO OU A FALHA NO LOGIN
+    private void handleSignInResult(GoogleSignInResult result) {
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+        if (result.isSuccess()) {
+            // O USUÁRIO SE CONECTOU COM SUCESSO,
+            acct = result.getSignInAccount();
+            getDataProfile();
+            // FECHAR ATIVIDADE
             finish();
-            startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+            // ABRIR A TELA DE MÓDULOS
+            startActivity(new Intent(this, AprenderActivity.class));
+        } else {
+            // SE NAO DEU TUDO CERTO, MOSTRAR UMA MENSAGEM DE ERRO E RECRIAR ATIVIDADE
+            Toast.makeText(context, "Ocorreu um erro", Toast.LENGTH_LONG).show();
+            googleApiClient.clearDefaultAccountAndReconnect();
+            googleApiClient.disconnect();
+            googleApiClient.connect();
+            recreate();
         }
     }
 
-    //FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
-    public void loadImage(final ImageView ivImg, final ProgressBar pbImg, final String urlImg){
-        RequestQueue rq = Volley.newRequestQueue(MainActivity.this);
-        ImageLoader il = new ImageLoader(rq, new ImageLoader.ImageCache() {
-            @Override
-            public void putBitmap(String url, Bitmap bitmap) {
-                pbImg.setVisibility(View.GONE);
-            }
-            @Override
-            public Bitmap getBitmap(String url) {
-                return null;
-            }
-        });
-        pbImg.setVisibility(View.VISIBLE);
-        il.get(urlImg, il.getImageListener(ivImg, pbImg.getId(), pbImg.getId()));
-    }
-
-    public void resolveSignIn(){
-        if(connectionResult != null && connectionResult.hasResolution()){
-            try {
-                isConsentScreenOpened = true;
-                connectionResult.startResolutionForResult(MainActivity.this, SIGN_IN_CODE);
-
-            }
-            catch(SendIntentException e) {
-                isConsentScreenOpened = false;
-                googleApiClient.connect();
-            }
-        }
-    }
 
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
-            Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
-            if(p != null){
+
+            if(acct != null){
                 StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -350,67 +338,44 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
                     //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> parameters = new HashMap<String, String>();
-                        parameters.put("EMAIL_GOOGLE", emailG);
-                        parameters.put("NOME_GOOGLE", name);
+                        parameters.put("EMAIL_GOOGLE", acct.getEmail());
+                        parameters.put("NOME_GOOGLE", acct.getDisplayName());
                         return parameters;
                     }
                 };
 
-                /*
-                String id = p.getId();
-                name = p.getDisplayName();
-                String language = p.getLanguage();
-                String profileUrl = p.getUrl();
-                imageUrl = p.getImage().getUrl();
-                emailG = Plus.AccountApi.getAccountName(googleApiClient);
-
-                tvId.setText(id);
-                tvLanguage.setText(language);
-                tvName.setText(name);
-                tvEmail.setText(emailG);
-
-                tvUrlProfile.setText(profileUrl);
-                Linkify.addLinks(tvUrlProfile, Linkify.WEB_URLS);
-
-                // Abre a tela de login após cadastro
-                //carrega icone de imagem do perfil do google
-                Log.i("Script", "IMG before: "+imageUrl);
-                imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
-                Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(ivProfile, pbProfile, imageUrl);*/
             }
 
     }
 
     // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO
     private void getPermissions() {
-        int permissaoConta = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.GET_ACCOUNTS);
         int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 1;
-        // Should we show an explanation?
+        // DEVEMOS MOSTRAR UMA EXPLICAÇÃO?
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.GET_ACCOUNTS)) {
-            // Show an explanation to the user *asynchronously* -- don't block
-            // this thread waiting for the user's response! After the user
-            // sees the explanation, try again to request the permission.
+            // MOSTRA UMA EXPLICAÇÃO PARA O USUÁRIO SOBRE O PORQUE DA NECESSIDADE
+            // DA PERMISSÃO
         } else {
-            // No explanation needed, we can request the permission.
+            // CASO NÃO PRECISE DE EXPLICAÇÕES, VAMOS PEDIR A PERMISSÃO
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.GET_ACCOUNTS},
                     MY_PERMISSIONS_REQUEST_GET_ACCOUNTS);
-            // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS is an
-            // app-defined int constant. The callback method gets the
-            // result of the request.
-
+            // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS É UMA CONSTANTE DO APLICATIVO
         }
     }
 
-    // MÉTODO QUE PEGA A PERMISSÃO DO USUÁRIO
+    // MÉTODO QUE PEGA EFETIVAMENTE A PERMISSÃO DO USUÁRIO
     private void getAccounts() {
-        // Here, thisActivity is the current activity
+        // CASO A PERMISSÃO ATUAL SEJA DIFERENTE DE PERMITIDA
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.GET_ACCOUNTS)
                 != PackageManager.PERMISSION_GRANTED) {
+            // PEDIR PERMISSÕES
             getPermissions();
+        } else {
+            // SE AS PERMISSÕES JÁ FORAM GARANTIDAS, FAZER O SIGNIN
+            signIn();
         }
 
         AccountManager accountManager = AccountManager.get(this);
@@ -424,6 +389,36 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
         }
 
     }
+
+    // MÉTODO QUE LIDA COM O RESULTADO DA PERMISSÃO DO USUÁRIO
+    // SE ELE CONCEDEU OU NÃO
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_GET_ACCOUNTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    signIn();
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+
+
+
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
     // LISTENERS
     @Override
     public void onClick(View v) {
@@ -431,8 +426,6 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             //if(verificarConexao()) {
                 if(!googleApiClient.isConnecting()){
                     getAccounts();
-                    isSignInButtonClicked = true;
-                    resolveSignIn();
                 }
             //} else {
             //    Toast.makeText(context, "Sem conexão", Toast.LENGTH_LONG).show();
@@ -445,54 +438,16 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
 
     }
 
-
     @Override
     public void onConnected(Bundle connectionHint) {
         isSignInButtonClicked = false;
         getDataProfile();
-        if(!readFlag()) {
-            showUi(true, false);
-        }
 
     }
-
 
     @Override
     public void onConnectionSuspended(int cause) {
         googleApiClient.connect();
-    }
-
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        if(!result.hasResolution()){
-//            GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
-            return;
-        }
-
-        if(!isConsentScreenOpened){
-            connectionResult = result;
-
-            if(isSignInButtonClicked){
-                resolveSignIn();
-            }
-        }
-    }
-
-    // FLAG PARA MARCAR O USUARIO LOGaDO
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLogin", flag);
-        editor.apply();
-    }
-
-    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
-    public boolean readFlag() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("isLogin", false);
     }
 
     public void gravarEmail(String emailUsuario) {
@@ -514,5 +469,24 @@ public class MainActivity extends Activity implements OnClickListener, Connectio
             e.printStackTrace();
         }
         return false;
+    }
+
+
+
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        if(!result.hasResolution()){
+//            GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
+            return;
+        }
+
+        if(!isConsentScreenOpened){
+            connectionResult = result;
+
+            if(isSignInButtonClicked){
+                signIn();
+            }
+        }
     }
 }

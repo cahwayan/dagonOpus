@@ -3,7 +3,7 @@
     <string name="app_name">Opus - Aprenda Lógica de Programação</string>
 
     <!--STRINGS MANIFEST-->
-    <string name="title_activity_gerenciar_perfil">GerenciarPerfilActivity</string>
+    <string name="title_activity_gerenciar_perfil">Perfil</string>
     <!--FIM STRINGS MANIFEST-->
 
     <!-- STRING VIDAS -->

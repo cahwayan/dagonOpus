@@ -34,7 +34,6 @@ public class InicialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         if(readFlag()) {
             startActivity(new Intent(this, AprenderActivity.class));
-
         } else {
             startActivity(new Intent(this, MainActivity.class));
         }
