@@ -26,9 +26,9 @@ public class CertificadoIncompleto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certificado_incompleto);
 
-        if(DB_PROGRESSO != null) {
+
             DB_PROGRESSO = new GerenciadorBanco(this);
-        }
+
 
 
         // SETA VOLTAR NA BARRA DE MENU
@@ -59,7 +59,6 @@ public class CertificadoIncompleto extends AppCompatActivity {
 
         Typeface harabara = Typeface.createFromAsset(getAssets(), "fonts/harabara.ttf");
         btnCertificadoIncompleto.setTypeface(harabara);
-        txtTituloCertificado.setTypeface(harabara);
 
     }
 

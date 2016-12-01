@@ -27,7 +27,8 @@
             android:textSize="24sp"
             android:gravity="left|center_horizontal"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -41,11 +42,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtInformativoCertificado"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
             android:textSize="14sp"
             android:gravity="left"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="10dp" />
 
         <TextView
             android:text="Progresso Geral:"
@@ -79,7 +79,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#d41243"
+                app:rcProgressColor="@color/corBtnCadastro"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraGeralCertificado" >
