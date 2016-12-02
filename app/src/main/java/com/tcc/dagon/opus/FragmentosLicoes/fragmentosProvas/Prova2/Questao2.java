@@ -24,6 +24,7 @@ public class Questao2 extends CompletarProva {
                     linha2Palavra1,
                     linha2Palavra2,
                     linha4Palavra1,
+                    linha4Palavra2,
                     linha5Palavra1;
 
     private String[] respostasCertas ;
@@ -69,7 +70,7 @@ public class Questao2 extends CompletarProva {
         linha2Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha2Palavra1);
         linha2Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha2Palavra2);
         linha4Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha4Palavra1);
-        linha4Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha4Palavra2);
+        linha4Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha4Palavra2);
         linha5Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha5Palavra1);
 
         // CRIANDO UMA LISTA QUE VAI GUARDAR OS EDIT TEXTS
@@ -79,7 +80,7 @@ public class Questao2 extends CompletarProva {
         linhasCompletar = new EditText[]   {linha2Palavra1,
                                             linha2Palavra2,
                                             linha4Palavra1,
-                                            linha4Palavra1,
+                                            linha4Palavra2,
                                             linha5Palavra1};
 
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
