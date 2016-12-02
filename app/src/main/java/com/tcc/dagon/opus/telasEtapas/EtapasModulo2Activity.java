@@ -177,6 +177,7 @@ public class EtapasModulo2Activity extends TelaEtapas {
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
                     startActivity(new Intent(getApplicationContext(), ContainerProva2.class));
+                    finish();
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();

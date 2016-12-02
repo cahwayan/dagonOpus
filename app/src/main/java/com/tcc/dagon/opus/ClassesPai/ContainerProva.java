@@ -1,6 +1,8 @@
 package com.tcc.dagon.opus.ClassesPai;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.widget.ImageView;
@@ -61,9 +63,16 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-        finish();
+
     }
+
+    // método que constrói a janela de alerta ao apertar o back button
+    public void alertDialogSairProva(String mensagem, DialogInterface.OnClickListener listenerOnClick) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(mensagem).setPositiveButton("Sim", listenerOnClick)
+                .setNegativeButton("Não", listenerOnClick).show();
+    }
+
 
 
     @Override

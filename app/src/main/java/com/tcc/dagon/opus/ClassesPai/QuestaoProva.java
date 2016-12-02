@@ -198,10 +198,10 @@ public class QuestaoProva extends Questao {
     @Override
     protected void questaoFinal() {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
-        // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
+        // SE O PROGRESSO DA ETAPA DO MÓDULO FOR MENOR OU IGUAL, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
 
         if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
-            // AVANÇAR O PROGRESSO EM DOIS
+            // AVANÇAR O PROGRESSO EM UM
             this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
         }
 

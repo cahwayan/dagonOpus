@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Provas.AdapterProva1;
 import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 
 /**
@@ -43,6 +45,29 @@ public class ContainerProva1 extends ContainerProva  {
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.alertDialogSairProva("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
+                                    listenerDialogClickProva);
+    }
+
+    // MENSAGEM DE ALERTA AO CLICAR NO BACK BUTTON
+    DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
+            }
+        }
+    };
 
     protected void accessViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo1Prova);

@@ -56,6 +56,27 @@ public class NovaJanelaAlerta extends AppCompatActivity {
         }
     };
 
+    public void alertDialogSairProva(String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)
+                .setNegativeButton("Não", listenerDialogClick).show();
+    }
+
+    DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    activity.finish();
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
+            }
+        }
+    };
+
     public void alertDialogSair(String mensagem) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)

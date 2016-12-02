@@ -1,5 +1,8 @@
 package com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,6 +15,9 @@ import android.widget.LinearLayout;
 import com.tcc.dagon.opus.Adapters.Provas.AdapterProva2;
 import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
 /**
  * Created by cahwayan on 01/12/2016.
@@ -42,6 +48,31 @@ public class ContainerProva2 extends ContainerProva {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.alertDialogSairProva("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
+                listenerDialogClickProva);
+    }
+
+    // MENSAGEM DE ALERTA AO CLICAR NO BACK BUTTON
+    DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo2Activity.class));
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
+            }
+        }
+    };
+
+
+
     protected void accessViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo2Prova);
         setSupportActionBar(toolbar);
@@ -67,7 +98,7 @@ public class ContainerProva2 extends ContainerProva {
         // AO DESTRUIR O OBJETO, O APP VERIFICA SE O USUÁRIO TERMINOU A PROVA ALGUMA VEZ.
         // SE SIM, ELE LIBERA TODAS AS PERGUNTAS, SE NÃO, ELE RESETA
         if(!readFlag()) {
-            DB_PROGRESSO.atualizaProgressoLicao(1,6,1);
+            DB_PROGRESSO.atualizaProgressoLicao(2,6,1);
         }
 
         super.onDestroy();

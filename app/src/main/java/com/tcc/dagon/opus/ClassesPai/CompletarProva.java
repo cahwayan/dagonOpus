@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
@@ -182,6 +184,20 @@ public class CompletarProva extends Completar {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
             this.getActivity().finish();
         }
+    }
+
+    @Override
+    protected void completarFinal() {
+        // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
+        // SE O PROGRESSO DA ETAPA DO MÓDULO FOR MENOR OU IGUAL, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
+
+        if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
+            // AVANÇAR O PROGRESSO EM UM
+            this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
+        }
+
+        startActivity(new Intent(getActivity(), AprenderActivity.class));
+        this.getActivity().finish();
     }
 
 
