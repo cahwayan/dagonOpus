@@ -155,6 +155,28 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!--MÓDULO 3-->
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo3.ContainerModulo3Etapa1"
+            android:label="@string/TituloEtapa1Modulo3"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo3.ContainerModulo3Etapa2"
+            android:label="@string/TituloEtapa2Modulo3"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Provas.ContainerProva3"
+            android:label="@string/TituloEtapa3Modulo3"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
         <activity android:name=".AlterarSenhaActivity" />
         <activity android:name=".CertificadoActivity" />
         <activity android:name=".CertificadoIncompleto"/>

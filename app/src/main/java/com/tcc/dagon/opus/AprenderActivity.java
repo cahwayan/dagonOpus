@@ -524,7 +524,7 @@ public class AprenderActivity extends AppCompatActivity {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    finish();
+                    //finish();
                 } else {
                     alertaModuloBloqueado();
                 }

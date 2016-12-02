@@ -34,7 +34,7 @@ public class Questao1 extends QuestaoProva {
         super.mCallback.onArticleSelected(5);
 
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_licao1, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_questao1, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();

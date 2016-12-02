@@ -2,7 +2,6 @@ package com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.tcc.dagon.opus.ClassesPai.CompletarProva;
-import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
 
@@ -40,7 +38,7 @@ public class Questao7 extends CompletarProva {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.instanciaObjetos();
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_licao7, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_questao7, container, false);
         // DECLARANDO O MODULO E A ETAPA ATUAL A QUAL PERTENCE ESSA LIÇÃO
         // SERVE PARA FINS DE DEFINIR PROGRESSO NO BANCO DE DADOS
         super.moduloAtual = 1;

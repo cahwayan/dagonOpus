@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
+import android.util.Log;
+
 import com.tcc.dagon.opus.databases.ProgressoUsuario.Progresso;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,7 +24,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERSÃO DO BANCO QUE ESTÁ NO APLICATIVO. A CADA NOVA BUILD QUE LANÇARMOS, TEMOS QUE
     // ATUALIZAR ESSE NÚMERO
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
 
     // DECLARANDO O NOME DO BANCO
     private static final String DB_NAME = "DB_PROGRESSO";
@@ -35,6 +37,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // OBJETO BANCO
     private SQLiteDatabase DB_PROGRESSO;
+
+    private static final String TAG = "Atualização: ";
 
     // MÉTODO CONSTRUTOR DO BANCO
     public GerenciadorBanco(Context context) {
@@ -60,6 +64,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         DB_PROGRESSO.execSQL("DROP TABLE IF EXISTS" + Progresso.TABELA_PROGRESSO);
         try {
+            Log.i(TAG, "Estrutura alterada, recriando banco!!!");
             criarBanco();
         } catch (IOException e) {
             throw new Error("Erro ao criar banco!");

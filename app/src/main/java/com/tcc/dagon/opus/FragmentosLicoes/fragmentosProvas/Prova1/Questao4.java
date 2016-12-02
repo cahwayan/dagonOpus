@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
@@ -32,7 +31,7 @@ public class Questao4 extends QuestaoProva {
         super.questaoAtual = 4;
 
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_licao4, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_questao4, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();

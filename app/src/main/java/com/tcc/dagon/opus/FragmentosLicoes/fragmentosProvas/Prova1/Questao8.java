@@ -12,11 +12,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.tcc.dagon.opus.AprenderActivity;
-import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -37,7 +35,7 @@ public class Questao8 extends QuestaoProva {
         super.questaoAtual = 8;
 
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_licao8, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_questao8, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();

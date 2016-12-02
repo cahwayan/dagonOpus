@@ -8,9 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import com.tcc.dagon.opus.ClassesPai.Completar;
+
 import com.tcc.dagon.opus.ClassesPai.CompletarProva;
-import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
 
@@ -42,7 +41,7 @@ public class Questao2 extends CompletarProva {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.instanciaObjetos();
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_licao2, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo1_prova_questao2, container, false);
 
         // DECLARANDO O MODULO E A ETAPA ATUAL A QUAL PERTENCE ESSA LIÇÃO
         // SERVE PARA FINS DE DEFINIR PROGRESSO NO BANCO DE DADOS

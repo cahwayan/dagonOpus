@@ -195,7 +195,7 @@
             <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="160dp"
-                android:background="@color/corBtnModulo4"
+                android:background="@color/corBtnModulo8"
                 android:id="@+id/btnModulo4">
                 <ImageView
                     android:id="@+id/imgModulo4"
@@ -293,7 +293,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#ffc425"
+                app:rcProgressColor="@color/corBtnModulo5"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo5" />
@@ -347,7 +347,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#d11141"
+                app:rcProgressColor="@color/corBtnModulo6"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo6" />
@@ -400,7 +400,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="#8ec127"
+                app:rcProgressColor="@color/corBtnModulo7"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraModulo7" />

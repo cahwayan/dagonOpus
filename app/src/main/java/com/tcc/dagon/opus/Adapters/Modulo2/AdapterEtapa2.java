@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Completar1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Completar2;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Licao1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Licao2;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Licao3;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Licao5;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa2.Questao1;
 
 /**
@@ -32,11 +32,11 @@ public class AdapterEtapa2 extends FragmentPagerAdapter {
             case 1:
                 return new Completar1();
             case 2:
-                return new Licao2();
+                return new Licao3();
             case 3:
                 return new Completar2();
             case 4:
-                return new Licao3();
+                return new Licao5();
             case 5:
                 return new Questao1();
             default:

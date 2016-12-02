@@ -30,7 +30,7 @@ public class Questao5 extends QuestaoProva {
         super.questaoAtual = 5;
 
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_licao5, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_questao5, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();

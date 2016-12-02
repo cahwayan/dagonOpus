@@ -33,21 +33,9 @@
         \n\nEm vez de declarar várias variáveis e guardar valores individuais nelas, você pode declarar apenas um vetor para guardar todos os valores.
         \n\nOs vetores seguem as mesmas regras nomenclatura de declaração das variáveis. Você também precisa definir o tipo de dados que o vetor irá armazenar, e o tamanho que ele terá.
         \n\nExemplo:
-        \n<b>vetor1: </b>
-        <![CDATA[<b><u><font color=#FF7C1313>vetor</u></b>]]>
-        <b>[</b>
-        <![CDATA[<b><font color=#FF0000>0..5</b>]]>
-        <b>]</b>
-        <![CDATA[<b><u><font color=#FF3E48CF>de</u></b>]]>
-        <![CDATA[<b><u><font color=#FF7C1313>caractere</u></b>]]>
-        \n<b>vetor2: </b>
-        <![CDATA[<b><u><font color=#FF7C1313>vetor</u></b>]]>
-        <b>[</b>
-        <![CDATA[<b><font color=#FF0000>1..40</b>]]>
-        <b>]</b>
-        <![CDATA[<b><u><font color=#FF3E48CF>de</u></b>]]>
-        <![CDATA[<b><u><font color=#FF7C1313>real</u></b>]]>
-        \nEssa é a sintaxe de declaração de um vetor no Visualg. Primeiro damos o nome, depois
+        \n<b>vetor1: </b><u>vetor</u>[0..5] de caractere
+        \n<b>vetor2: </b><u>vetor</u>[1..40] de real
+        \n\nEssa é a sintaxe de declaração de um vetor no Visualg. Primeiro damos o nome, depois
         declaramos que é um vetor, e o seu tamanho (nesse caso, o tamanho do primeiro
         vetor começa em 0 e vai até 5, e o do segundo começa em 1 e vai até 40). Por último,
         definimos o tipo de dados que ele armazenará. Lembrando que um vetor, apesar de armazenar
@@ -59,11 +47,11 @@
 
     <string name="texto1Modulo3Etapa1Licao2">Variáveis são espaços reservados na memória do computador, como você já sabe. Só que uma variável simples armazena dados aleatoriamente no computador. Vamos ao exemplo do armário novamente.
         \nTemos então as seguintes variáveis simples:
-            <b>n1:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
-        <b>n2:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
-        <b>n3:</b> <![CDATA[<b><u><font color=#FF7C1313>inteiro</u></b>]]>
+            <b>\n\nn1:</b> inteiro
+            <b>\nn2:</b> inteiro
+            <b>\nn3:</b> inteiro
 
-        \nE elas são armazenadas da seguinte forma na memória do computador:
+            \n\nE elas são armazenadas da seguinte forma na memória do computador:
     </string>
 
     <!--IMAGEM 1-->
@@ -82,12 +70,11 @@
 
     <!--TITULO 2-->
 
-    <string name="texto4Modulo3Etapa1Licao2">\n Um vetor é dividido em colunas, e nós acessamos essas colunas informando ao computador
+    <string name="texto4Modulo3Etapa1Licao2">\nUm vetor é dividido em colunas, e nós acessamos essas colunas informando ao computador
         em qual coluna nós queremos guardar determinado dado. Quando queremos armazenar um valor
         a uma coluna no vetor, precisamos dizer em qual índice queremos que esse dado seja armazenado.
         \n\nExemplo:
-        \n<b>vetor1[0]  <![CDATA[<-]]> </b> <![CDATA[<b><font color=#ff0000>“Estamos atribuindo
-        um valor na posição 0 do vetor caractere de 5 posições!“</b>]]>
+        \n<b>vetor1[0]  <![CDATA[<-]]> </b> <![CDATA[“Estamos atribuindo um valor na posição 0 do vetor caractere de 5 posições!“]]>
     </string>
 
     <!-- DICA VERMELHA-->
