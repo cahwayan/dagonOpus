@@ -11,11 +11,11 @@
     <string name="TituloEtapa6Modulo2">6. Prova 2</string>
 
     <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
-    <string name="qtdQuestoesModulo2Etapa1">X Questões</string>
-    <string name="qtdQuestoesModulo2Etapa2">X Questões</string>
-    <string name="qtdQuestoesModulo2Etapa3">X Questões</string>
-    <string name="qtdQuestoesModulo2Etapa4">X Questões</string>
-    <string name="qtdQuestoesModulo2Etapa5">4 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa1">2 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa2">3 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa3">4 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa4">2 Questões</string>
+    <string name="qtdQuestoesModulo2Etapa5">1 Questão</string>
     <string name="qtdQuestoesModulo2Etapa6">5 Questões</string>
     <!--FIM STRINGS ETAPAS MÓDULO 2-->
 
