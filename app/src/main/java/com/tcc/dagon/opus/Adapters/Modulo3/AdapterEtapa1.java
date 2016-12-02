@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa1.Completar1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa1.Licao1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa1.Licao3;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo2.etapa1.Questao1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo3.etapa1.Completar1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo3.etapa1.Licao1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo3.etapa1.Licao3;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo3.etapa1.Questao1;
 
 /**
  * Created by charlinho on 09/10/2016.

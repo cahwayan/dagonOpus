@@ -25,7 +25,11 @@
      </string>
 
      <string name="Modulo3Etapa1Pergunta2Linha3">
-        numeros[__] <![CDATA[<- ]]> __ 
+        numeros[
+     </string>
+
+     <string name="Modulo3Etapa1Pergunta2ContinuacaoLinha3">
+        ] <![CDATA[<- ]]>
      </string>
 
     <string name="Modulo3Etapa1Pergunta2Linha4">
@@ -49,11 +53,11 @@
      </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha3">
-        \nEscreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
+        \n<![CDATA[      ]]>Escreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
     </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha4">
-        Leia(numeros[ _  <!-- ]) HARDCODE -->
+        <![CDATA[      ]]>Leia(numeros[<!-- ]) HARDCODE -->
     </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha5">
@@ -61,20 +65,16 @@
     </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha6">
-        para i de 1 ate 4 faca
+        \n\npara i de 1 ate 4 faca
      </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha7">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[“]]>Valor da posição <![CDATA[“]]>, i, <![CDATA[“]]>: <![CDATA[“]]>, numeros[ _ <!--] <b>)</b>-->
-    </string>
-
-    <string name="Modulo3Etapa2Pergunta1Linha8">
-        Leia(numeros[ _  <!-- ]) HARDCODE -->
+        <![CDATA[      ]]>EscrevaL<b> (</b>numeros[
     </string>
 
     <string name="Modulo3Etapa2Pergunta1Linha9">
         FimPara
-        \n<u>FimAlgoritmo</u>
+        \n\n<u>FimAlgoritmo</u>
     </string>
 
 
@@ -85,7 +85,10 @@
 
     <string name="ProvaModulo3Pergunta1Linha1">
         <u>Var</u>
-        \n<b>numeros:</b> _____ [_ ..__] de <u>____</u>
+    </string>
+
+    <string name="ProvaModulo3Pergunta1Linha2">
+        <b>numeros:</b>
     </string>
 
     <!--PERGUNTA 2-->
@@ -105,33 +108,29 @@
      </string>
 
     <string name="ProvaModulo3Pergunta2Linha3">
-        \nEscreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
+        \n<![CDATA[      ]]>Escreva<b>(</b> <![CDATA[“]]> Digite o <![CDATA[“]]>, i, <![CDATA[“]]>° número: <![CDATA[“]]><b>)</b>
     </string>
 
     <string name="ProvaModulo3Pergunta2Linha4">
-        Leia(______ [ _  <!-- ]) HARDCODE -->
+        <![CDATA[      ]]>Leia(<!-- ]) HARDCODE -->
     </string>
 
     <string name="ProvaModulo3Pergunta2Linha5">
-        soma <![CDATA[<-]]>  soma + numeros[__]
+        <![CDATA[      ]]>soma <![CDATA[<-]]>  soma + numeros[
     </string>
 
     <string name="ProvaModulo3Pergunta2Linha6">
         FimPara
-        para i de 1 ate 4 faca
+        \n\npara i de 1 ate 4 faca
      </string>
 
     <string name="ProvaModulo3Pergunta2Linha7">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[“]]>Valor da posição <![CDATA[“]]>, i, <![CDATA[“]]>: <![CDATA[“]]>, numeros[ _ <!--] <b>)</b>-->
-    </string>
-
-    <string name="ProvaModulo3Pergunta2Linha8">
-        Leia(numeros[ _  <!-- ]) HARDCODE -->
+        <![CDATA[      ]]>EscrevaL<b>(</b>numeros[<!--] <b>)</b>-->
     </string>
 
     <string name="ProvaModulo3Pergunta2Linha9">
-        FimPara
-        \n<u>FimAlgoritmo</u>
+        \nFimPara
+        \n\n<u>FimAlgoritmo</u>
     </string>
 
     <!-- PERGUNTA 3-->
@@ -158,7 +157,7 @@
     </string-array>
 
     <!--ETAPA 3 MODULO 1-->
-    <string-array name="tab_modulo3_etapa3">
+    <string-array name="tab_modulo3_prova">
         <item></item>
         <item></item>
         <item></item>

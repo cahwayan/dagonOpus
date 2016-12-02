@@ -15,8 +15,8 @@
         android:paddingRight="@dimen/paddingContainerLicao"
         android:paddingStart="@dimen/paddingContainerLicao">
         <TextView
-            android:id="@+id/ProvaModulo2Pergunta1"
-            android:text="@string/ProvaModulo2Pergunta1"
+            android:id="@+id/ProvaModulo3Pergunta3"
+            android:text="@string/ProvaModulo3Pergunta3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
@@ -36,10 +36,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="3dp"
-                android:id="@+id/radioGroupProvaModulo2Pergunta1">
+                android:id="@+id/radioGroupProvaModulo3Pergunta3">
                 <RadioButton
-                    android:text="@string/ProvaModulo2Pergunta1Alternativa1"
-                    android:id="@+id/ProvaModulo2Pergunta1Alternativa1"
+                    android:text="@string/ProvaModulo3Pergunta3Alternativa1"
+                    android:id="@+id/ProvaModulo3Pergunta3Alternativa1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/borda_alternativa"
@@ -47,8 +47,8 @@
                     android:textSize="@dimen/textSizeAltenativa" />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo2Pergunta1Alternativa2"
-                    android:id="@+id/ProvaModulo2Pergunta1Alternativa2"
+                    android:text="@string/ProvaModulo3Pergunta3Alternativa2"
+                    android:id="@+id/ProvaModulo3Pergunta3Alternativa2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/borda_alternativa"
@@ -57,8 +57,8 @@
                     />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo2Pergunta1Alternativa3"
-                    android:id="@+id/ProvaModulo2Pergunta1Alternativa3"
+                    android:text="@string/ProvaModulo3Pergunta3Alternativa3"
+                    android:id="@+id/ProvaModulo3Pergunta3Alternativa3"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/borda_alternativa"
@@ -67,10 +67,10 @@
                     />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo2Pergunta1Alternativa4"
-                    android:id="@+id/ProvaModulo2Pergunta1Alternativa4"
+                    android:text="@string/ProvaModulo3Pergunta3Alternativa4"
+                    android:id="@+id/ProvaModulo3Pergunta3Alternativa4"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="110dp"
                     android:background="@drawable/borda_alternativa"
                     android:padding="5dp"
                     android:textSize="@dimen/textSizeAltenativa"

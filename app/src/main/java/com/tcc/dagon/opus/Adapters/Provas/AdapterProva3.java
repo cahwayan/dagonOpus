@@ -4,11 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2.Questao1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2.Questao2;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2.Questao3;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2.Questao4;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2.Questao5;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova3.Questao1;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova3.Questao2;
+import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova3.Questao3;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -32,10 +30,6 @@ public class AdapterProva3 extends FragmentPagerAdapter {
                 return new Questao2();
             case 2:
                 return new Questao3();
-            case 3:
-                return new Questao4();
-            case 4:
-                return new Questao5();
             default:
                 return null;
         }

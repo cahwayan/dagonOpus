@@ -25,6 +25,7 @@ import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
@@ -172,27 +173,25 @@ public class AprenderActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable()
         {
             @Override
             public void run()
             {
+                bloquearModulos();
                 desbloquearModulos();
                 progressBars();
                 progressoTextView();
             }
         }, 1);
 
-        if(drawer_layout.isDrawerVisible(mListView)) {
-            drawer_layout.closeDrawers();
-        }
-
-        super.onRestart();
-    }
-
-    @Override
-    protected void onResume() {
         if(drawer_layout.isDrawerVisible(mListView)) {
             drawer_layout.closeDrawers();
         }
@@ -523,8 +522,8 @@ public class AprenderActivity extends AppCompatActivity {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 3) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo3Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }
@@ -602,6 +601,7 @@ public class AprenderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
                 startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
+                finish();
             }
         });
     }

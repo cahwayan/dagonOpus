@@ -63,8 +63,13 @@
         <activity
             android:name=".telasEtapas.EtapasModulo1Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".telasEtapas.EtapasModulo2Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".telasEtapas.EtapasModulo3Activity"
             android:screenOrientation="portrait" />
 
         <!-- CONTAINERS MODULO 1-->

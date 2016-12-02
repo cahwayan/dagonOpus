@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.tcc.dagon.opus.ClassesPai.Completar;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa3;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo3.ContainerModulo3Etapa2;
 import com.tcc.dagon.opus.R;
 
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ import java.util.Arrays;
  */
 public class Completar1 extends Completar {
 
-    private EditText linha2Palavra1,
-                     linha2Palavra2;
+    private EditText linha4Palavra1,
+                     linha7Palavra1;
 
     private String[] respostasCertas;
     private String[] respostasCertasAcentuadas;
@@ -31,9 +31,9 @@ public class Completar1 extends Completar {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.instanciaObjetos();
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_etapa3_licao4, container, false);
-        super.moduloAtual = 2;
-        super.etapaAtual  = 3;
+        super.rootView = inflater.inflate(R.layout.fragment_modulo3_etapa2_licao2, container, false);
+        super.moduloAtual = 3;
+        super.etapaAtual  = 2;
         //TRAZENDO AS VIEWS
         accessViews();
 
@@ -44,18 +44,18 @@ public class Completar1 extends Completar {
 
     protected void accessViews() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        mViewPager = ((ContainerModulo2Etapa3)getActivity()).getPager();
-        tabStrip   = ((ContainerModulo2Etapa3)getActivity()).getTabStrip();
-        mTabLayout = ((ContainerModulo2Etapa3)getActivity()).getmTabLayout();
+        mViewPager = ((ContainerModulo3Etapa2)getActivity()).getPager();
+        tabStrip   = ((ContainerModulo3Etapa2)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerModulo3Etapa2)getActivity()).getmTabLayout();
 
-        linha2Palavra1 = (EditText) rootView.findViewById(R.id.Modulo2Etapa3Pergunta2Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.Modulo2Etapa3Pergunta2Linha2Palavra2);
+        linha4Palavra1 = (EditText) rootView.findViewById(R.id.Modulo3Etapa2Pergunta1Linha4Palavra1);
+        linha7Palavra1 = (EditText) rootView.findViewById(R.id.Modulo3Etapa2Pergunta1Linha7Palavra1);
 
         // INSTANCIANDO A LISTA
         listaEditTexts = new ArrayList<>();
 
         // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
-        linhasCompletar = new EditText[] {linha2Palavra1, linha2Palavra2};
+        linhasCompletar = new EditText[] {linha4Palavra1, linha7Palavra1};
 
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
@@ -63,8 +63,8 @@ public class Completar1 extends Completar {
         super.accessViews();
 
         // CRIANDO OS VETORES DE RESPOSTAS
-        respostasCertas = new String[]{"enquanto", "numeroDePulos"};
-        respostasCertasAcentuadas = new String[]{"enquanto", "numeroDePulos"};
+        respostasCertas = new String[]{"i", "i"};
+        respostasCertasAcentuadas = new String[]{"i", "i"};
     }
 
 

@@ -11,10 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.tcc.dagon.opus.Adapters.Provas.AdapterProva2;
+import com.tcc.dagon.opus.Adapters.Provas.AdapterProva3;
 import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
 
 /**
  * Created by cahwayan on 01/12/2016.
@@ -25,11 +25,11 @@ public class ContainerProva3 extends ContainerProva {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // LAYOUT QUE O CONTAINER VAI PUXAR
-        setContentView(R.layout.container_modulo2_prova);
+        setContentView(R.layout.container_modulo3_prova);
         super.onCreate(savedInstanceState);
         super.instanciaObjetos();
-        super.moduloAtual = 2;
-        super.etapaAtual = 6;
+        super.moduloAtual = 3;
+        super.etapaAtual = 3;
         accessViews();
         super.bloquearLicoes();
         this.desbloquearLicoes();
@@ -58,7 +58,7 @@ public class ContainerProva3 extends ContainerProva {
             switch(which) {
                 case DialogInterface.BUTTON_POSITIVE:
                     finish();
-                    startActivity(new Intent(getApplicationContext(), EtapasModulo2Activity.class));
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo3Activity.class));
                     break;
 
                 case DialogInterface.BUTTON_NEGATIVE:
@@ -74,10 +74,10 @@ public class ContainerProva3 extends ContainerProva {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo2Prova);
         setSupportActionBar(toolbar);
 
-        mTabLayout = (TabLayout)findViewById(R.id.tab_layout_modulo2_prova);
-        mViewPager = (ViewPager)findViewById(R.id.pager_modulo2_prova);
-        mViewPager.setAdapter(new AdapterProva2(getSupportFragmentManager(),
-                getResources().getStringArray(R.array.tab_modulo2_prova)));
+        mTabLayout = (TabLayout)findViewById(R.id.tab_layout_modulo3_prova);
+        mViewPager = (ViewPager)findViewById(R.id.pager_modulo3_prova);
+        mViewPager.setAdapter(new AdapterProva3(getSupportFragmentManager(),
+                getResources().getStringArray(R.array.tab_modulo3_prova)));
         mTabLayout.setupWithViewPager(mViewPager);
 
         vida01 = (ImageView) findViewById(R.id.vida01);
@@ -95,7 +95,7 @@ public class ContainerProva3 extends ContainerProva {
         // AO DESTRUIR O OBJETO, O APP VERIFICA SE O USUÁRIO TERMINOU A PROVA ALGUMA VEZ.
         // SE SIM, ELE LIBERA TODAS AS PERGUNTAS, SE NÃO, ELE RESETA
         if(!readFlag()) {
-            DB_PROGRESSO.atualizaProgressoLicao(2,6,1);
+            DB_PROGRESSO.atualizaProgressoLicao(3,3,1);
         }
 
         super.onDestroy();
@@ -105,6 +105,6 @@ public class ContainerProva3 extends ContainerProva {
     public boolean readFlag() {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("completouTeste2", false);
+        return sharedPreferences.getBoolean("completouTeste3", false);
     }
 }

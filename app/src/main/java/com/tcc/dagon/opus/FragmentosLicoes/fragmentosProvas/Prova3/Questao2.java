@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.tcc.dagon.opus.ClassesPai.CompletarProva;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva2;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva3;
 import com.tcc.dagon.opus.R;
 
 import java.util.ArrayList;
@@ -19,14 +19,12 @@ import java.util.Arrays;
  */
 public class Questao2 extends CompletarProva {
 
-    private EditText
-                    linha2Palavra1,
-                    linha2Palavra2,
-                    linha4Palavra1,
-                    linha4Palavra2,
-                    linha5Palavra1;
+    private EditText linha4Palavra1,
+                     linha4Palavra2,
+                     linha5Palavra1,
+                     linha7Palavra1;
 
-    private String[] respostasCertas ;
+    private String[] respostasCertas;
     private String[] respostasCertasAcentuadas;
 
 
@@ -36,12 +34,12 @@ public class Questao2 extends CompletarProva {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.instanciaObjetos();
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_questao2, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo3_prova_questao2, container, false);
 
         // DECLARANDO O MODULO E A ETAPA ATUAL A QUAL PERTENCE ESSA LIÇÃO
         // SERVE PARA FINS DE DEFINIR PROGRESSO NO BANCO DE DADOS
-        super.moduloAtual = 1;
-        super.etapaAtual  = 6;
+        super.moduloAtual = 3;
+        super.etapaAtual  = 3;
 
         //TRAZENDO AS VIEWS
         accessViews();
@@ -55,32 +53,30 @@ public class Questao2 extends CompletarProva {
 
     protected void accessViews() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        mViewPager = ((ContainerProva2)getActivity()).getPager();
-        tabStrip   = ((ContainerProva2)getActivity()).getTabStrip();
-        mTabLayout = ((ContainerProva2)getActivity()).getmTabLayout();
+        mViewPager = ((ContainerProva3)getActivity()).getPager();
+        tabStrip   = ((ContainerProva3)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerProva3)getActivity()).getmTabLayout();
 
-        vida01 = ((ContainerProva2)getActivity()).getVida01();
-        vida02 = ((ContainerProva2)getActivity()).getVida02();
-        vida03 = ((ContainerProva2)getActivity()).getVida03();
-        vida04 = ((ContainerProva2)getActivity()).getVida04();
-        vida05 = ((ContainerProva2)getActivity()).getVida05();
+        vida01 = ((ContainerProva3)getActivity()).getVida01();
+        vida02 = ((ContainerProva3)getActivity()).getVida02();
+        vida03 = ((ContainerProva3)getActivity()).getVida03();
+        vida04 = ((ContainerProva3)getActivity()).getVida04();
+        vida05 = ((ContainerProva3)getActivity()).getVida05();
 
         // RESGATANDO A REFERENCIA DOS EDIT TEXTS QUE TERAO AS RESPOSTAS
-        linha2Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha2Palavra2);
-        linha4Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha4Palavra1);
-        linha4Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha4Palavra2);
-        linha5Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta2Linha5Palavra1);
+        linha4Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo3Pergunta2Linha4Palavra1);
+        linha4Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo3Pergunta2Linha4Palavra2);
+        linha5Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo3Pergunta2Linha5Palavra1);
+        linha7Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo3Pergunta2Linha7Palavra1);
 
         // CRIANDO UMA LISTA QUE VAI GUARDAR OS EDIT TEXTS
         listaEditTexts = new ArrayList<>();
 
         // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
-        linhasCompletar = new EditText[]   {linha2Palavra1,
-                                            linha2Palavra2,
-                                            linha4Palavra1,
+        linhasCompletar = new EditText[]   {linha4Palavra1,
                                             linha4Palavra2,
-                                            linha5Palavra1};
+                                            linha5Palavra1,
+                                            linha7Palavra1};
 
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
@@ -89,9 +85,9 @@ public class Questao2 extends CompletarProva {
         super.accessViews();
 
         // DEFININDO AS RESPOSTAS DO EXERCICIO, NA ORDEM EM QUE DEVEM SER ESCRITAS
-        respostasCertas = new String[]{"b", "entao", "se", "b", "escreva"};
+        respostasCertas = new String[]{"numeros", "i", "i", "i"};
 
-        respostasCertasAcentuadas = new String[]{"b", "entao", "se", "b", "escreva"};
+        respostasCertasAcentuadas = new String[]{"numeros", "i", "i", "i"};
     }
 
 
