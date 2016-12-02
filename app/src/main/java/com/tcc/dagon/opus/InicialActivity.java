@@ -107,10 +107,10 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoEtapa(1,9);
-                DB_PROGRESSO.atualizaProgressoEtapa(2,5);
-                DB_PROGRESSO.atualizaProgressoEtapa(3,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(2,6);
+                DB_PROGRESSO.atualizaProgressoEtapa(3,3);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,5);
-                DB_PROGRESSO.atualizaProgressoEtapa(5,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(5,1);
                 DB_PROGRESSO.atualizaProgressoEtapa(6,4);
                 DB_PROGRESSO.atualizaProgressoEtapa(7,5);
                 DB_PROGRESSO.atualizaProgressoEtapa(8,4);

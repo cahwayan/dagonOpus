@@ -2,7 +2,9 @@ package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.ImageView;
@@ -198,15 +200,32 @@ public class QuestaoProva extends Questao {
     @Override
     protected void questaoFinal() {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
-        // SE O PROGRESSO DA ETAPA DO MÓDULO FOR MENOR OU IGUAL, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
+        // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
 
-        if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
-            // AVANÇAR O PROGRESSO EM UM
+        if (this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
+            // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
+            // atualizar progresso do módulo 2 para 1
+            this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
 
+        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
+        writeFlag(true);
+
+        // INICIANDO ATIVIDADE DOS MODULOS
+
         startActivity(new Intent(getActivity(), AprenderActivity.class));
+        // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
+    }
+
+    // MODIFICAR FLAG PARA LOGOUT
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("completouTeste", flag);
+        editor.apply();
     }
 
 }

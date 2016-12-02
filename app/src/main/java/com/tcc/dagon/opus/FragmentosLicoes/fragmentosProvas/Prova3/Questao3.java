@@ -1,6 +1,8 @@
 package com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova3;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +67,16 @@ public class Questao3 extends QuestaoProva {
 
         super.accessViews();
 
+    }
+
+    @Override
+    // MODIFICAR FLAG PARA LOGOUT
+    public void writeFlag(boolean flag) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("completouTeste3", flag);
+        editor.apply();
     }
 
 }
