@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".CadastroActivity"
             android:screenOrientation="portrait" />
@@ -66,7 +67,8 @@
             android:name=".telasEtapas.EtapasModulo2Activity"
             android:screenOrientation="portrait" />
 
-        <!-- CONTAINERS DAS ETAPAS DOS MODULOS -->
+        <!-- CONTAINERS MODULO 1-->
+        <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
         <activity
             android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
@@ -113,9 +115,49 @@
             android:label="@string/TituloEtapa9Modulo1"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- CONTAINERS MODULO 2-->
+        <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa1"
+            android:label="@string/TituloEtapa1Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa2"
+            android:label="@string/TituloEtapa2Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa3"
+            android:label="@string/TituloEtapa3Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa4"
+            android:label="@string/TituloEtapa4Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa5"
+            android:label="@string/TituloEtapa5Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Provas.ContainerProva2"
+            android:label="@string/TituloEtapa6Modulo2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".AlterarSenhaActivity" />
         <activity android:name=".CertificadoActivity" />
-        <activity android:name=".CertificadoIncompleto"></activity>
+        <activity android:name=".CertificadoIncompleto"/>
     </application>
 
 </manifest>

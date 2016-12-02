@@ -77,7 +77,7 @@
         \n<b>Segundo passo:</b> Olhar para direita
         \n<b>Terceiro passo:</b>
         \n<b>Quarto passo:</b>
-        <![CDATA[<b><font color=#FF0000> Se estiver vindo carro, então não atravesse. </b>]]>
+        <b>Se estiver vindo carro, então não atravesse. </b>
     </string>
 
     <!--DICA VERDE-->
@@ -110,17 +110,18 @@
 
     <!--LIÇÃO 2-->
     <string name="texto1Modulo2Etapa1Licao2">Você pode utilizar operadores relacionais para avaliar se uma condição é verdadeira:
-        \n\n<![CDATA[<b><font color=#0000a0> Se </b>]]>
-        <b>(10 > 3)</b>
-        <![CDATA[<b><font color=#0000a0> entao </b>]]>
-        \n     <![CDATA[<b><font color=#0000a0>Escreva </b>]]>
-         <b>(</b><![CDATA[<b><font color=#FF0000> “Sim“ </b>]]> <b>)</b>
-        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
-        \n<![CDATA[<b><font color=#00803a>// Escreve  “sim“ na tela</b>]]>
-        \n\nO comando <b>Se</b> avalia a condição <b>(10 > 3)</b>, verifica como sendo <b>verdadeira</b>, e então executa o comando <![CDATA[<b><font color=#0000a0>Escreva </b>]]>.
+        \n\n<b>Se </b>
+        (10 <![CDATA[>]]> 3) <b>entao</b>
+        \n<![CDATA[      ]]><b>Escreva</b>(<![CDATA[“Sim“]]>)
+        \n<![CDATA[      ]]><![CDATA[//Escreve  “sim“ na tela]]>
+        \n<b>FimSe </b>
+        
+
+        \n\nO comando <b>Se</b> avalia a condição <b>(10 <![CDATA[>]]> 3)</b>, verifica como sendo <b>verdadeira</b>, e então executa o comando 
+        <b>Escreva</b>.
         \nSe nós mudássemos o operador para o operador <![CDATA[“]]>menor que<![CDATA[“]]>, para testar a
-        condição <b>(10 > 3)</b> a condição seria falsa, e o programa ignoraria o comando
-        <![CDATA[<b><font color=#0000a0>Escreva </b>]]>. Nós podemos utilizar todos os operadores
+        condição <b>(10 <![CDATA[>]]> 3)</b> a condição seria falsa, e o programa ignoraria o comando
+        <b>Escreva </b>. Nós podemos utilizar todos os operadores
         que aprendemos
         no primeiro módulo, e mais alguns outros, para testar condições.
     </string>
@@ -216,7 +217,7 @@
 
     <string name="texto2Modulo2Etapa3Licao2">Neste algoritmo, iniciamos uma variável
         contadora que inicia em 0. Enquanto ela for menor que 100, o programa escreverá
-        na tela  <![CDATA[<b><font color=#FF0000>“continue pulando!“</b>]]>, e a
+        na tela  <![CDATA[“continue pulando!“]]>, e a
         quantidade de pulos que foram dados. Veja o resultado:</string>
 
     <!--IMAGEM 2-->
@@ -225,7 +226,7 @@
         que conta o número de pulos. Pense: se não aumentarmos o valor dela,
         ela nunca atingirá o número que precisamos, e o
         entrará em um <b>loop infinito!</b> Então, a linha
-        \n\n<![CDATA[<b>numeroDePulos <- numeroDePulos + 1</b>]]>
+        \n\n<![CDATA[numeroDePulos <- numeroDePulos + 1]]>
         \n\nÉ a forma como incrementamos a quantidade de pulos a cada vez que o loop é executado.
         Você pode incrementar a variável de acordo com a necessidade, e em qual valor
         precisar aumentar. Poderia ser de dois em dois, três em três, mil em mil, enfim.

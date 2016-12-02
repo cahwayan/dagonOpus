@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#e7e7e7">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingContainerLicao"
+        android:layout_margin="5dp"
+        >
+        <TextView
+            android:id="@+id/Modulo2Etapa4Pergunta1"
+            android:text="@string/Modulo2Etapa4Pergunta1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="15sp"
+            android:textStyle="normal|bold"
+            android:typeface="normal"
+            android:fontFamily="@string/fonteQuestao"
+            android:layout_marginBottom="15dp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/Modulo2Etapa4Pergunta1Linha1"
+            android:text="@string/Modulo2Etapa4Pergunta1Linha1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="12.5sp"
+            android:typeface="normal"
+            android:fontFamily="@string/fonteQuestao"
+            android:layout_marginBottom="5dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|fill_horizontal"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/Modulo2Etapa4Pergunta1Linha2Palavra1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:width="45dp" />
+
+            <TextView
+                android:text="@string/Modulo2Etapa4Pergunta1Linha2"
+                android:id="@+id/Modulo2Etapa3Pergunta3Linha2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12.5sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+
+            <EditText
+                android:id="@+id/Modulo2Etapa4Pergunta1Linha2Palavra2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:width="15dp" />
+
+            <TextView
+                android:text="@string/Modulo2Etapa4Pergunta1ContinuacaoLinha2"
+                android:id="@+id/Modulo2Etapa4Pergunta1ContinuacaoLinha2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12.5sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|fill_horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:text="@string/Modulo2Etapa4Pergunta1Linha3"
+                android:id="@+id/Modulo2Etapa4Pergunta1Linha3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12.5sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+        </LinearLayout>
+
+        <include layout="@layout/botoes_responder_questao"/>
+    </LinearLayout>
+
+</ScrollView>

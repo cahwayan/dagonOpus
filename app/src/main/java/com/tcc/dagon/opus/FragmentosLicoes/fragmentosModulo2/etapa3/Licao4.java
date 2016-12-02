@@ -7,15 +7,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tcc.dagon.opus.ClassesPai.Licao;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo2.ContainerModulo2Etapa3;
 import com.tcc.dagon.opus.R;
 
 /**
  * Created by charlinho on 09/10/2016.
  */
-public class Licao4 extends Fragment {
+public class Licao4 extends Licao {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_modulo1_etapa2_licao1, container, false);
+        super.viewRoot = inflater.inflate(R.layout.fragment_modulo2_etapa3_licao7,container,false);
+        this.accessViews();
+        super.listeners();
+
+        return this.viewRoot;
+    }
+
+    protected void accessViews() {
+        mViewPager = ((ContainerModulo2Etapa3)getActivity()).getPager();
+        super.accessViews();
     }
 }

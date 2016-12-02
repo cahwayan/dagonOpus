@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e7e7e7">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingContainerLicao"
+        android:layout_margin="5dp"
+        android:background="@drawable/borda_container_licao"
+        android:weightSum="1">
+        <TextView
+            android:text="@string/titulo1Modulo2Etapa2Licao2"
+            android:id="@+id/txtTitulo1Modulo2Etapa2Licao2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="20sp"
+            />
 
-</LinearLayout>
+        <TextView
+            android:text="@string/texto1Modulo2Etapa2Licao2"
+            android:id="@+id/txtTexto1Modulo2Etapa2Licao2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <ImageView
+            android:src="@drawable/imagem1modulo2etapa2licao2"
+            android:id="@+id/imagem1Modulo2Etapa2Licao2"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:padding="10dp" />
+
+
+        <TextView
+            android:text="@string/texto2Modulo2Etapa2Licao2"
+            android:id="@+id/txtTexto2Modulo2Etapa2Licao2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/dica1Modulo2Etapa2Licao2"
+                android:id="@+id/dica1Modulo2Etapa2Licao2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_azul"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:id="@+id/imgDica1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_azul"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+
+        <include layout="@layout/botao_avancar"/>
+    </LinearLayout>
+
+
+
+</ScrollView>

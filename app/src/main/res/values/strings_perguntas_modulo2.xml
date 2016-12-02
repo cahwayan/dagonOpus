@@ -18,32 +18,27 @@
 
     <string name="Modulo2Etapa1Pergunta2Linha1">
     <u>Var</u>
-    \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \na: inteiro 
+    \nb: inteiro 
+    \n\n Inicio
     \n<b>a<![CDATA[ <- ]]>100
     \nb <![CDATA[ <- ]]> 90</b>
     </string>
 
     <string name="Modulo2Etapa1Pergunta2Linha2">
-    <![CDATA[<b><font color=#0000a0> Se </b>]]> (a <![CDATA[<]]> __ ) ______ B, ENTAO
+     Se (a <![CDATA[<]]>
     </string>
 
     <string name="Modulo2Etapa1Pergunta2Linha3">
-    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000> “A é menor que B!“ </b>]]>
-    <b>)</b>\n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+        EscrevaL<b>(</b> <![CDATA[“A é menor que B!“]]><b>)</b>
     </string>
 
     <string name="Modulo2Etapa1Pergunta2Linha4">
-        ______ (_____ <![CDATA[<]]> A ) entao /SE, B
+        <![CDATA[<]]> A ) entao
     </string>
 
     <string name="Modulo2Etapa1Pergunta2Linha5">
-        _______ <b>(</b> <![CDATA[<b><font color=#FF0000> “B é menor que A!“ </b>]]> <b>)</b> escreva
-    </string>
-
-    <string name="Modulo2Etapa1Pergunta2Linha6">
-        _______ FimSe
+       <b>(</b><![CDATA[ “B é menor que A!“]]> <b>)</b>
     </string>
 
     <!--ETAPA 2-->
@@ -52,20 +47,20 @@
 
     <string name="Modulo2Etapa2Pergunta1Linha1">
         <u>Var</u>
-        \nidade: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+        \nidade: inteiro 
+        \n\nInicio
         \n<b>idade<![CDATA[ <- ]]> 35</b>
     </string>
 
     <string name="Modulo2Etapa2Pergunta1Linha2">
-        ____ (_______ <![CDATA[>]]> 18 ) ______ // SE IDADE ENTAO
+       <![CDATA[>]]>18)
     </string>
 
     <string name="Modulo2Etapa2Pergunta1Linha3">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Adulto!“</b>]]><b>)</b>
-        \n <![CDATA[<b><font color=#0000a0>Senao </b>]]>
-        \n <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Menor de idade!“</b>]]><b>)</b>
-        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+        <![CDATA[     ]]>Escreva<b>(</b> “Adulto!“<b>)</b>
+        \n\nSenao 
+        \n\n<![CDATA[     ]]>Escreva<b>(</b>“Menor de idade!“<b>)</b>
+        \n\nFimSe
     </string>
 
     <!--PERGUNTA 2-->
@@ -74,22 +69,22 @@
 
     <string name="Modulo2Etapa2Pergunta2Linha1">
         <u>Var</u>
-        \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+        \na: inteiro
+        \nb: inteiro 
+        \n\nInicio
         \n<b>a<![CDATA[ <- ]]>5
         \nb <![CDATA[ <- ]]> 10</b>
     </string>
 
     <string name="Modulo2Etapa2Pergunta2Linha2">
-        <![CDATA[<b><font color=#0000a0>Se </b>]]>( __ <![CDATA[>]]> ___) ENTAO // A > B
+        <![CDATA[>]]>
     </string>
 
     <string name="Modulo2Etapa2Pergunta2Linha3">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Texto errado.“</b>]]><b>)</b>
-        \n <![CDATA[<b><font color=#0000a0>Senao </b>]]>
-        \n <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Texto certo!“</b>]]><b>)</b>
-        \n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+        <![CDATA[     ]]>Escreva<b>(</b><![CDATA[“Texto errado.“]]><b>)</b>
+        \n\nSenao
+        \n\n<![CDATA[     ]]>Escreva <b>(</b><![CDATA[“Texto certo!“]]><b>)</b>
+        \n\nFimSe
     </string>
 
     <!--PERGUNTA 3-->
@@ -108,7 +103,7 @@
 
     <string name="Modulo2Etapa3Pergunta1Alternativa1">Enquanto (<b>condicao</b>)  faca</string>
     <string name="Modulo2Etapa3Pergunta1Alternativa2">  Enquanto <b>condicao</b> faca
-                                                        \n //bloco de comandos
+                                                        \n<![CDATA[     ]]>//bloco de comandos
                                                         \nfimEnquanto
     </string>
     <string name="Modulo2Etapa3Pergunta1Alternativa3">Enquanto condicao é verdadeira faca</string>
@@ -121,25 +116,24 @@
 
     <string name="Modulo2Etapa3Pergunta2Linha1">
     <u>Var</u>
-    \nnumeroDePulos: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
-    \nnumeroDePulos<![CDATA[ <- ]]> 0
+    \nnumeroDePulos: inteiro
+    \n\nInicio
+    \n\nnumeroDePulos<![CDATA[ <- ]]> 0
     </string>
     <string name="Modulo2Etapa3Pergunta2Linha2">
-    _______  numeroDePulos <![CDATA[<=]]> 10 faca // enquanto
+    numeroDePulos <![CDATA[<=]]> 10 faca
     </string>
 
     <string name="Modulo2Etapa3Pergunta2Linha3">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Pulei!“</b>]]><b>)</b>
+        <![CDATA[      ]]>Escreva<b>(</b> <![CDATA[“Pulei!“]]><b>)</b>
     </string>
 
     <string name="Modulo2Etapa3Pergunta2Linha4">
-        <b>numeroDePulos <![CDATA[<-]]> </b>
+        <![CDATA[      ]]><b>numeroDePulos <![CDATA[<-]]> </b>
     </string>
 
     <string name="Modulo2Etapa3Pergunta2ContinuacaoLinha4">
-         __________  <b>+ 1</b>
-        \n<![CDATA[<b><font color=#0000a0>FimEnquanto </b>]]>
+         <b>+ 1</b>
     </string>
 
     <!--PERGUNTA 3-->
@@ -148,10 +142,10 @@
 
     <string name="Modulo2Etapa3Pergunta3Linha1">
         <u>Var</u>
-        \nvariavelContadora: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \nvalorDoUsuario: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
-        \n<b>variavelContadora<![CDATA[ <- ]]> 0</b>
+        \ncontador: inteiro
+        \nvalorDoUsuario: inteiro
+        \n\n<u>Inicio</u>
+        \n\n<b>contador<![CDATA[ <- ]]> 0</b>
         \n<b>valorDoUsuario<![CDATA[ <- ]]> 0</b>
     </string>
 
@@ -160,16 +154,15 @@
     </string>
 
     <string name="Modulo2Etapa3Pergunta3ContinuacaoLinha2">
-            _________ <![CDATA[<]]> 3 faca
+        <![CDATA[<]]> 3 faca
     </string>
 
     <string name="Modulo2Etapa3Pergunta3Linha3">
-        <![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b>valorDoUsuario<b>)</b>
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Pulei!“</b>]]><b>)</b>
+        <![CDATA[      ]]>Leia<b>(</b>valorDoUsuario<b>)</b>
     </string>
 
     <string name="Modulo2Etapa3Pergunta3Linha4">
-        <b>_________  <![CDATA[<-]]> variavelContadora + 1</b>
+        <b><![CDATA[<-]]>contador + 1</b>
     </string>
 
     <string name="Modulo2Etapa3Pergunta3Linha5">
@@ -195,7 +188,7 @@
         e faz o programa tomar decisões ao longo da execução
     </string>
 
-    <string name="Modulo2Etapa3Pergunta4Alternativa4">d-    O comando <![CDATA[“]]>enquanto<![CDATA[“]]> possui a função de armazenar dados em espaços 
+    <string name="Modulo2Etapa3Pergunta4Alternativa4">O comando <![CDATA[“]]>enquanto<![CDATA[“]]> possui a função de armazenar dados em espaços 
         na memória do computador, tomando decisões sobre o que fazer com eles.
     </string>
 
@@ -208,25 +201,22 @@
 
     <string name="Modulo2Etapa4Pergunta1Linha1">
         <u>Var</u>
-        \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+        \ni:inteiro
+        \n\nInicio
 
     </string>
 
     <string name="Modulo2Etapa4Pergunta1Linha2">
-        __________ i de 0 ate
+        i de 0 ate
     </string>
 
     <string name="Modulo2Etapa4Pergunta1ContinuacaoLinha2">
-            __ passo 1 faca
+        passo 1 faca
     </string>
 
     <string name="Modulo2Etapa4Pergunta1Linha3">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> i<b>)</b>
-    </string>
-
-    <string name="Modulo2Etapa4Pergunta1Linha4">
-        <![CDATA[<b><font color=#0000a0>FimPara </b>]]>
+        <![CDATA[      ]]>Escreva<b>(</b>i<b>)</b>
+        \n\nFimPara
     </string>
 
     <!--PERGUNTA 2-->
@@ -234,74 +224,71 @@
 
     <string name="Modulo2Etapa4Pergunta2Linha1">
         <u>Var</u>
-        \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+        \ni: inteiro
+        \n\nInicio
     </string>
 
     <string name="Modulo2Etapa4Pergunta2Linha2">
-         __________ i de 10 ate
+         i de 10 ate
     </string>
 
     <string name="Modulo2Etapa4Pergunta2Continuacaolinha2">
-         __ passo __ <!-- faca -->
+         passo -
     </string>
 
     <string name="Modulo2Etapa4Pergunta2Linha3">
-        \n<![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> i<b>)</b>
+        <![CDATA[      ]]>Escreva<b>(</b>i<b>)</b>
+        \n\nFimPara
     </string>
-
-    <string name="Modulo2Etapa4Pergunta2Linha4">
-       <![CDATA[<b><font color=#0000a0>FimPara </b>]]>
-       \n<![CDATA[<b><u><font color=#0000a0>FimAlgoritmo </u></b>]]>
-    </string>
-
-
 
     <!--ETAPA 5-->
     <!--PERGUNTA 1-->
 
-    <string name="Modulo2Etapa5Pergunta1">Preencha os campos em branco para criar um programa que leia valores digitados pelo usuário, some eles, e escreva o valor na tela.</string>
+    <string name="Modulo2Etapa5Pergunta1">Preencha os campos em branco para criar um programa que leia valores digitados pelo usuário, some eles, e escreva o valor na tela usando a estrutura de repetição repita.</string>
 
 
+
+    <string name="Modulo2Etapa5Pergunta1Linha0">
+        <u>Var</u>
+        \ncontinuar: caractere
+        \nnum: inteiro
+        \nsoma: inteiro
+         \n\nInicio
+    </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha1">
-        <u>Var</u>
-        \ncontinuar: <![CDATA[<b><u><font color=#800000>caractere </u></b>]]>
-        \nnum: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-        \nsoma: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-         \n\n <![CDATA[<b><u><font color=#0000a0>Inicio</u></b>]]>
+            <![CDATA[      ]]>Escreva<b>(</b> <![CDATA[“Digite um número: “]]><b>)</b>
+            
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha2">
-        __________
-            <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Digite um número: “</b>]]><b>)</b>
-            \n<![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b> ____________ <!--<b>)</b> -->
+        <![CDATA[      ]]>Leia<b>(</b>
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha3">
-        \n______ <![CDATA[<- ]]>soma + num
+        <![CDATA[<- ]]>soma + num
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha4">
-        <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“Quer digitar mais um número? [S/N]: “</b>]]><b>)</b>
+        <![CDATA[      ]]>Escreva<b>(</b> <![CDATA[“Quer continuar? [S/N]: “]]><b>)</b>
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha5">
-        <![CDATA[<b><font color=#0000a0>Leia </b>]]> <b>(</b>  <!--<b>)</b> -->
+        <![CDATA[      ]]>Leia <b>(</b>  <!--<b>)</b> -->
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha6">
-        <![CDATA[<b><font color=#0000a0>ate </b>]]> continuar = <![CDATA[<b><font color=#FF0000>“N “</b>]]>
+       ate continuar = <![CDATA[“N“]]>
     </string>
 
     <string name="Modulo2Etapa5Pergunta1Linha7">
-         <![CDATA[<b><font color=#0000a0>Escreva </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000>“A soma dos números é:  “</b>]]>,  _______ <!--<b>)</b>-->
+         Escreva <b>(</b><![CDATA[“A soma dos números é:  “]]>, <!--<b>)</b>-->
     </string>
 
 
     <!-- PROVA 1 (ETAPA 6)-->
     <!-- PERGUNTA 1 -->
-    <string name="ProvaModulo2Pergunta1">Qual o nome dado a um conjunto de instruções organizadas em uma sequência lógica?</string>
+    <string name="ProvaModulo2Pergunta1">Para que servem as estruturas de decisão Se/Senao, ou, If/Else?</string>
     <!-- ALTERNATIVAS PERGUNTA 1-->
     <string name="ProvaModulo2Pergunta1Alternativa1">Para controlar as decisões que o programa irá tomar ao longo de sua execução.</string>
     <string name="ProvaModulo2Pergunta1Alternativa2">Para repetir determinado bloco de códigos indefinidas vezes.</string>
@@ -314,35 +301,35 @@
 
     <string name="ProvaModulo2Pergunta2Linha1">
     <u>Var</u>
-    \na: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \nb: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \na: inteiro
+    \nb: inteiro 
+    \n\nInicio
     \n<b>a<![CDATA[ <- ]]>50
     \nb <![CDATA[ <- ]]> 40</b>
     </string>
 
     <string name="ProvaModulo2Pergunta2Linha2">
-    <![CDATA[<b><font color=#0000a0> Se </b>]]> (a <![CDATA[>]]> __ ) ______ B, ENTAO
+    Se (a <![CDATA[>]]>
     </string>
 
     <string name="ProvaModulo2Pergunta2Linha3">
-    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b> <![CDATA[<b><font color=#FF0000> “A é maior que B!“ </b>]]>
-    <b>)</b>\n<![CDATA[<b><font color=#0000a0>FimSe </b>]]>
+    \nEscrevaL<b>(</b> <![CDATA[“A é maior que B!“]]>
+    <b>)</b>\nFimSe
     </string>
 
     <string name="ProvaModulo2Pergunta2Linha4">
-        ___se___ (___b__ <![CDATA[>]]> A ) entao <!--SE, B-->
+        <![CDATA[>]]> a ) entao
     </string>
 
     <string name="ProvaModulo2Pergunta2Linha5">
-        _______ <b>(</b> <![CDATA[<b><font color=#FF0000> “B é maior que A!“ </b>]]> <b>)</b> escreva
+        <b>(</b> <![CDATA[“B é maior que A!“]]> <b>)</b>
     </string>
 
     <string name="ProvaModulo2Pergunta2Linha6">
        FimSe
     </string>
 
-
+    <!-- PERGUNTA 3 -->
     <string name="ProvaModulo2Pergunta3">Para que usamos o loop de repetição while, ou, enquanto?</string>
 
     <string name="ProvaModulo2Pergunta3Alternativa1">Para repetir um bloco de comandos uma determinada quantidade de vezes</string>
@@ -356,17 +343,17 @@
 
     <string name="ProvaModulo2Pergunta4Linha1">
     <u>Var</u>
-    \ni: <![CDATA[<b><u><font color=#800000>inteiro </u></b>]]>
-    \n\n <![CDATA[<b><u><font color=#0000a0>Inicio </u></b>]]>
+    \ni: inteiro
+    \n\nInicio
     </string>
 
     <string name="ProvaModulo2Pergunta4Linha2">
-    _______ i de 1 ate __ passo __ <!-- para, 10, 2,  faca-->
+        i de 1 ate
     </string>
 
     <string name="ProvaModulo2Pergunta4Linha3">
-    \n     <![CDATA[<b><font color=#0000a0>EscrevaL </b>]]> <b>(</b>i<b>)</b>
-    \n<![CDATA[<b><font color=#0000a0>FimPara </b>]]>
+    \nEscrevaL<b>(</b>i<b>)</b>
+    \nFimPara
     </string>
 
     <string name="ProvaModulo2Pergunta5">Qual a diferença entre o loop enquanto e o loop repita?</string>
@@ -423,7 +410,7 @@
     </string-array>
 
     <!--ETAPA 6 MODULO 1-->
-    <string-array name="tab_modulo2_etapa6">
+    <string-array name="tab_modulo2_prova">
         <item></item>
         <item></item>
         <item></item>
