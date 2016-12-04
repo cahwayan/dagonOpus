@@ -43,9 +43,9 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SAIR"
+            android:text="voltar"
             android:id="@+id/btnVoltar"
             android:layout_gravity="left|start"
             android:layout_marginLeft="5dp"
