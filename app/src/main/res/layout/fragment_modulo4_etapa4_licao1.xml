@@ -13,8 +13,8 @@
         android:background="@drawable/borda_container_licao"
         android:weightSum="1">
         <TextView
-            android:text="@string/titulo1Modulo4Etapa2Licao1"
-            android:id="@+id/txtTitulo1Modulo4Etapa2Licao1"
+            android:text="@string/titulo1Modulo4Etapa4Licao1"
+            android:id="@+id/txtTitulo1Modulo4Etapa4Licao1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -23,8 +23,8 @@
             />
 
         <TextView
-            android:text="@string/texto1Modulo4Etapa2Licao1"
-            android:id="@+id/texto1Modulo4Etapa2Licao1"
+            android:text="@string/texto1Modulo4Etapa4Licao1"
+            android:id="@+id/texto1Modulo4Etapa4Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -35,8 +35,31 @@
             android:lineSpacingExtra="2sp" />
 
         <ImageView
-            android:src="@drawable/imagem1modulo4etapa2licao1"
-            android:id="@+id/imagem1Modulo4Etapa2Licao1"
+            android:src="@drawable/imagem1modulo4etapa4licao1"
+            android:id="@+id/imagem1Modulo4Etapa4Licao1"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:padding="10dp" />
+
+
+        <TextView
+            android:text="@string/texto2Modulo4Etapa4Licao1"
+            android:id="@+id/texto2Modulo4Etapa4Licao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <ImageView
+            android:src="@drawable/imagem2modulo4etapa4licao1"
+            android:id="@+id/imagem2Modulo4Etapa4Licao1"
             android:layout_width="300dp"
             android:layout_height="240dp"
             android:scaleType="fitCenter"
@@ -45,8 +68,8 @@
             android:padding="10dp" />
 
         <TextView
-            android:text="@string/texto2Modulo4Etapa2Licao1"
-            android:id="@+id/texto2Modulo4Etapa2Licao1"
+            android:text="@string/texto3Modulo4Etapa4Licao1"
+            android:id="@+id/texto3Modulo4Etapa4Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -57,18 +80,18 @@
             android:lineSpacingExtra="2sp" />
 
         <ImageView
-            android:src="@drawable/imagem2modulo4etapa2licao1"
-            android:id="@+id/imagem2Modulo4Etapa2Licao1"
+            android:src="@drawable/imagem3modulo4etapa4licao1"
+            android:id="@+id/imagem3Modulo4Etapa4Licao1"
             android:layout_width="300dp"
-            android:layout_height="239.9dp"
+            android:layout_height="240dp"
             android:scaleType="fitCenter"
             android:layout_gravity="center_horizontal"
             android:adjustViewBounds="false"
             android:padding="10dp" />
 
         <TextView
-            android:text="@string/texto3Modulo4Etapa2Licao1"
-            android:id="@+id/texto3Modulo4Etapa2Licao1"
+            android:text="@string/texto4Modulo4Etapa4Licao1"
+            android:id="@+id/texto4Modulo4Etapa4Licao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -77,6 +100,7 @@
             android:paddingTop="@dimen/paddingTopoTextoLicao"
             android:paddingBottom="@dimen/paddingBaixoTextoLicao"
             android:lineSpacingExtra="2sp" />
+
 
         <include layout="@layout/botao_avancar"/>
     </LinearLayout>

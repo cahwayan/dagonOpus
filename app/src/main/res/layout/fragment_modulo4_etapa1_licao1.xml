@@ -52,7 +52,7 @@
                 android:paddingStart="64dp"
                 android:paddingLeft="64dp"
                 android:paddingTop="15dp"
-                android:paddingBottom="15dp" />
+                android:paddingBottom="15.1dp" />
 
             <ImageView
                 android:id="@+id/imgDica1"
