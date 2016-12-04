@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
+import com.tcc.dagon.opus.Glossario.ContainerComandosGlossario;
+import com.tcc.dagon.opus.Glossario.FragmentComandosGlossario;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
@@ -472,7 +474,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso1.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(1)) + "/9");
         txtProgresso2.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(2)) + "/6");
         txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/3");
-        txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/5");
+        txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/6");
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/1");
         txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
         txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
@@ -621,7 +623,7 @@ public class AprenderActivity extends AppCompatActivity {
                     i.putExtra("id", email);
                     startActivity(i);
                 } else if (position ==2) {
-                    startActivity(new Intent(getApplicationContext(), GlossarioActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ContainerComandosGlossario.class));
                 } else if(position ==3) {
                     startActivity(new Intent(getApplicationContext(), ActivityConfig.class));
                 } else if(position == 4) {

@@ -29,4 +29,11 @@
     <string name="explicaoEtiquetaAmarela">
         As etiquetas amarelas são sobre a história da programação.
     </string>
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
+    <string-array name="tab_glossario">
+        <item>Comandos</item>
+        <item>Interface</item>
+    </string-array>
 </resources>

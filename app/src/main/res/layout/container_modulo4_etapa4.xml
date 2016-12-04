@@ -27,7 +27,7 @@
             android:background="@color/corEtapaDesbloqueada" />
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_modulo2_etapa4"
+    <include layout="@layout/content_modulo4_etapa4"
         />
 
 </android.support.design.widget.CoordinatorLayout>

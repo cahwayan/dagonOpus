@@ -109,7 +109,7 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(1,9);
                 DB_PROGRESSO.atualizaProgressoEtapa(2,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(3,3);
-                DB_PROGRESSO.atualizaProgressoEtapa(4,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(4,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(5,1);
                 DB_PROGRESSO.atualizaProgressoEtapa(6,4);
                 DB_PROGRESSO.atualizaProgressoEtapa(7,5);
@@ -155,6 +155,13 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,7,7);
                 DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,9,8);
+
+                DB_PROGRESSO.atualizaProgressoLicao(4,1,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,3,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,4,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,5,5);
+                DB_PROGRESSO.atualizaProgressoLicao(4,6,4);
                 writeFlag(true);
             }
         });

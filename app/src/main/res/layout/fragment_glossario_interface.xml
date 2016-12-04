@@ -1,0 +1,165 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp"
+    android:background="#e1e1e1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Interface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:id="@+id/tituloDicasEstrutura"
+            android:layout_marginTop="10dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/explicaoEtiquetaVermelha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/glossarioEtiquetaVermelha"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_vermelha"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_vermelha"
+                android:id="@+id/imgGlossarioEtiquetaVermelha"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/explicaoEtiquetaAzul"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/glossarioEtiquetaAzul"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_azul"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_azul"
+                android:id="@+id/imgGlossarioEtiquetaAzul"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/explicaoEtiquetaVerde"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/glossarioEtiquetaVerde"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_verde"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_verde"
+                android:id="@+id/imgGlossarioEtiquetaVerde"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:text="@string/explicaoEtiquetaAmarela"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/glossarioEtiquetaAmarela"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/borda_pontilhada_amarela"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:paddingStart="64dp"
+                android:paddingLeft="64dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/icon_dica_amarela"
+                android:id="@+id/imgGlossarioEtiquetaAmarela"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp" />
+
+        </FrameLayout>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="SAIR"
+            android:id="@+id/btnVoltar2"
+            android:layout_gravity="left|start"
+            android:layout_marginLeft="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+
+
+    </ScrollView>

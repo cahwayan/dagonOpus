@@ -113,7 +113,7 @@
     <!--PERGUNTA 2-->
     <string name="Modulo4Etapa5Pergunta2">Qual a diferença entre variáveis globais e locais?</string>
 
-    <!--ALTERNATIVAS PERGUNTA 1-->
+    <!--ALTERNATIVAS PERGUNTA 2-->
     <string name="Modulo4Etapa5Pergunta2Alternativa1">Variáveis globais funcionam em todo o programa, variáveis locais funcionam apenas dentro da função ou procedimento em que foram declaradas</string> <!--CORRETA-->
     <string name="Modulo4Etapa5Pergunta2Alternativa2">Não há diferença entre as duas.</string>
     <string name="Modulo4Etapa5Pergunta2Alternativa3">Variáveis locais funcionam em todo o programa, variáveis globais funcionam apenas dentro da função ou procedimento em que foram declaradas</string>
@@ -129,15 +129,5 @@
     <string name="Modulo4Etapa5Pergunta3Linha2"><![CDATA[     ]]>Retorne <!--_  _  _--></string>
 
     <string name="Modulo4Etapa5Pergunta3Linha3">fimfuncao</string>
-
-
-
-
-
-
-
-
-
-
-
+    
 </resources>

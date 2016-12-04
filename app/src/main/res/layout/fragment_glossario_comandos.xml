@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp"
+    android:background="#e1e1e1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/borda_container_licao">
+
+        <TextView
+            android:text="Glossário"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTituloGlossario"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="Comandos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:id="@+id/tituloComandosGlossario"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:text="@string/termosGlossario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtComandosGlossario" />
+
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="SAIR"
+            android:id="@+id/btnVoltar"
+            android:layout_gravity="left|start"
+            android:layout_marginLeft="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+</ScrollView>

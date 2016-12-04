@@ -46,9 +46,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".GlossarioActivity"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
@@ -76,7 +74,13 @@
             android:name=".telasEtapas.EtapasModulo4Activity"
             android:screenOrientation="portrait" />
 
+        <!--CONTAINER GLOSSARIO -->
 
+        <activity
+            android:name=".Glossario.ContainerComandosGlossario"
+            android:label="Glossario"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!-- CONTAINERS MODULO 1-->
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 

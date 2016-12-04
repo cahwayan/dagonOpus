@@ -23,7 +23,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo1"
                 android:id="@+id/btnModulo1">
                 <ImageView
@@ -37,7 +37,7 @@
                     android:contentDescription="@+id/descricaoBotaoModulo1"
                     android:layout_gravity="top|center"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo2"
                 android:id="@+id/btnModulo2">
                 <ImageView
@@ -92,7 +92,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo2"
                     android:layout_gravity="top|center"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,7 +133,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo3"
                 android:id="@+id/btnModulo3">
                 <ImageView
@@ -146,7 +147,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo3"
                     android:layout_gravity="top|center"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="65dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -194,7 +196,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo8"
                 android:id="@+id/btnModulo4">
                 <ImageView
@@ -208,7 +210,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo4"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="top|center" />
+                    android:layout_gravity="top|center"
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,7 +250,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo5"
                 android:id="@+id/btnModulo5">
                 <ImageView
@@ -261,7 +264,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo5"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="top|center" />
+                    android:layout_gravity="top|center"
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -300,7 +304,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo6"
                 android:id="@+id/btnModulo6">
 
@@ -315,7 +319,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo6"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="top|center" />
+                    android:layout_gravity="top|center"
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -354,7 +359,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo7"
                 android:id="@+id/btnModulo7">
                 <ImageView
@@ -368,7 +373,8 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@+id/descricaoBotaoModulo7"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="top|center" />
+                    android:layout_gravity="top|center"
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -409,7 +415,7 @@
 
             <FrameLayout
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:background="@color/corBtnModulo8"
                 android:id="@+id/btnModulo8">
 
@@ -425,7 +431,7 @@
                     android:contentDescription="@+id/descricaoBotaoModulo8"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="top|center"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="65dp" />
 
                 <TextView
                     android:text="@string/txtTituloModulo8"
