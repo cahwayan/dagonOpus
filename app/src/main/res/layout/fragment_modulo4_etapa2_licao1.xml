@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e7e7e7">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingContainerLicao"
+        android:layout_margin="5dp"
+        android:background="@drawable/borda_container_licao"
+        android:weightSum="1">
+        <TextView
+            android:text="@string/titulo1Modulo4Etapa2Licao1"
+            android:id="@+id/txtTitulo1Modulo4Etapa2Licao1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:text="@string/texto1Modulo4Etapa2Licao1"
+            android:id="@+id/texto1Modulo4Etapa2Licao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <ImageView
+            android:src="@drawable/imagem1modulo4etapa2licao1"
+            android:id="@+id/imagem1Modulo4Etapa2Licao1"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:padding="10dp" />
+
+        <TextView
+            android:text="@string/texto2Modulo4Etapa2Licao1"
+            android:id="@+id/texto2Modulo4Etapa2Licao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <ImageView
+            android:src="@drawable/imagem2modulo4etapa2licao1"
+            android:id="@+id/imagem2Modulo4Etapa2Licao1"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:padding="10dp" />
+
+        <TextView
+            android:text="@string/texto3Modulo4Etapa2Licao1"
+            android:id="@+id/texto3Modulo4Etapa2Licao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
+
+        <include layout="@layout/botao_avancar"/>
+    </LinearLayout>
+
+
+
+</ScrollView>
