@@ -72,6 +72,11 @@
             android:name=".telasEtapas.EtapasModulo3Activity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".telasEtapas.EtapasModulo4Activity"
+            android:screenOrientation="portrait" />
+
+
         <!-- CONTAINERS MODULO 1-->
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
@@ -179,6 +184,45 @@
             android:label="@string/TituloEtapa3Modulo3"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--MÓDULO 4-->
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo4.ContainerModulo4Etapa1"
+            android:label="@string/TituloEtapa1Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo4.ContainerModulo4Etapa2"
+            android:label="@string/TituloEtapa2Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo4.ContainerModulo4Etapa3"
+            android:label="@string/TituloEtapa3Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo4.ContainerModulo4Etapa4"
+            android:label="@string/TituloEtapa4Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo4.ContainerModulo4Etapa5"
+            android:label="@string/TituloEtapa5Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Provas.ContainerProva4"
+            android:label="@string/TituloEtapa6Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
 
 
