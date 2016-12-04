@@ -28,7 +28,7 @@
             android:background="@drawable/borda_container_licao"
             android:layout_marginTop="20dp">
             <RadioGroup
-                android:id="@+id/radioGroupModulo4Etapa1Licao1"
+                android:id="@+id/radioGroupModulo4Etapa1Licao2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="3dp"    >

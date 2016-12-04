@@ -99,7 +99,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo2Etapa4Pergunta1Linha2Palavra1"
+                android:id="@+id/Modulo4Etapa4Pergunta1Linha3Palavra1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -142,7 +142,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo2Etapa4Pergunta1Linha4Palavra1"
+                android:id="@+id/Modulo4Etapa4Pergunta1Linha4Palavra1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"

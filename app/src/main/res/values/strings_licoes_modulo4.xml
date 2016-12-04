@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MÓDULO 4 -->
+    <string name="TituloEtapa1Modulo4">1. Introdução a rotinas</string>
+    <string name="TituloEtapa2Modulo4">2. Procedimentos</string>
+    <string name="TituloEtapa3Modulo4">3. Praticando</string>
+    <string name="TituloEtapa4Modulo4">4. Passagem por parâmetros</string>
+    <string name="TituloEtapa5Modulo4">5. Funções</string>
+    <string name="TituloEtapa6Modulo4">Prova 4</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo4Etapa1">1 Questão</string>
+    <string name="qtdQuestoesModulo4Etapa2">1 Questão</string>
+    <string name="qtdQuestoesModulo4Etapa3">1 Questão</string>
+    <string name="qtdQuestoesModulo4Etapa4">1 Questão</string>
+    <string name="qtdQuestoesModulo4Etapa5">3 Questões</string>
+    <string name="qtdQuestoesModulo4Etapa6">5 Questões</string>
+
+    <!--FIM STRINGS ETAPAS MÓDULO 4-->
+
+    <!-- TITULOS LIÇÕES-->
+    <!-- MÓDULO 3-->
+    <!--ETAPA 1-->
+
+    <!-- LICAO 1 -->
+    <string name="titulo1Modulo4Etapa1Licao1">1. Rotinas!</string>
+
+    <string name="titulo1Modulo4Etapa2Licao1">1. Procedimentos</string>
+
+    <string name="titulo1Modulo4Etapa3Licao1">1. Exemplo prático</string>
+
+    <string name="titulo1Modulo4Etapa4Licao1">1. Passagem por parâmetros</string>
+
+    <string name="titulo1Modulo4Etapa5Licao1">1. Funções</string>
+    <string name="titulo1Modulo4Etapa5Licao2">1. Escopo</string>
+    <string name="titulo1Modulo4Etapa5Licao3">1. Exemplo prático 2</string>
+
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!-- TEXTOS LICOES -->
+    <!--MÒDULO 4-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
+    <string name="texto1Modulo4Etapa1Licao1"><b>Rotinas</b>, aposto que esse nome te faz lembrar de várias coisas do seu dia a dia, como
+        ir pra escola, lavar fielmente todo dia a louça do almoço que sua mãe manda
+        (é melhor não contrariar sua mãe, não é mesmo?)
+        dentre outras coisas que você faz <b>rotineiramente</b>
+        durante o seu dia.
+
+	    \n\nNa programação não é diferente, se você tem gostado do curso até aqui
+        (diz que sim =D) e se identificou com programação, reparou que tudo (ou quase tudo)
+        foi feito para facilitar a vida de nós programadores, e é isso que vamos aprender! :)
+    </string>
+
+    <!--DICA AZUL-->
+
+    <!--ETAPA 2-->
+
+    <string name="texto1Modulo4Etapa2Licao1">Imagine que você quer tomar uma vitamina de leite, mamão e banana. Você terá que seguir
+    um <b>Procedimento</b> para que isso se torne realidade. Imaginemos que você já está com todos
+    os  ingredientes necessários prontos e precisa realizar um
+    <b>procedimento</b> para manusear o liquidificador e tornar a sua deliciosa
+    vitamina realidade, então você precisará:
+
+        \n\n<b>Procedimento Preparar Vitamina</b>
+        \n<![CDATA[     ]]>- Ligar o liquidificador na energia
+        \n<![CDATA[     ]]>- Abrir a tampa
+        \n<![CDATA[     ]]>- Inserir os ingredientes
+        \n<![CDATA[     ]]>- Fechar a tampa
+        \n<![CDATA[     ]]>- Girar o botão para ligar o liquidificador
+        \n<b>Fim do Procedimento</b>
+
+        \n\nEstes são os passos para fazer a vitamina. Imagine que todos esses passos são linhas de códigos escritos
+        para definir um <b>Procedimento</b>. Esse procedimento, uma vez escrito, pode ser utilizado quantas
+        vezes quisermos, bastando escrever o nome do procedimento quando queremos utiliza-lo.
+
+        \n\nPensando analogicamente na vida real, é como se com um simples apertar de botão, o
+        liquidificador se <b>conectasse na energia</b>, <b>abrisse a tampa</b>, <b>inserisse
+            os ingredientes</b>, <b>fechasse a tampa e ligasse</b>. Veja:
+        \n\nEscrevemos o procedimento&#8230;
+
+        <b>Procedimento ProcLiquidificador()</b>
+        \nInicio
+        \n<![CDATA[     ]]>Ligar o liquidificador na energia
+        \n<![CDATA[     ]]>Abrir a tampa
+        \n<![CDATA[     ]]>Inserir os ingredientes
+        \n<![CDATA[     ]]>Fechar a tampa
+        \n<![CDATA[     ]]>Girar o botão para ligar o liquidificador
+        \n<b>FimProcedimento</b>
+
+    </string>
+
+    <!--IMAGEM 1 -->
+
+    <string name="texto2Modulo4Etapa2Licao1">&#8230; e TCHANAM! (Barulho de mágica). <b> Invocamos o procedimento chamando o seu nome: </b>
+         \n\nProcLiquidificador()
+        \n\nE o resultado:
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo4Etapa2Licao1">Pronto, a sua subrotina, seu procedimento está
+        pronto para ser usado, quantas vezes for necessário, com uma só linha.
+        E repare que você pode usá-lo para fazer qualquer vitamina ou alimento no liquidificador
+        desde que prepare os ingredientes. :)
+    </string>
+
+    <!--ETAPA 3-->
+
+    <!-- LICAO 1 -->
+    <string name="texto1Modulo4Etapa3Licao1">Vamos desenvolver um programa que leia o peso de
+        5 pessoas, informe qual o maior peso até o momento e ao final diga quem foi a pessoa com maior peso.
+    </string>
+
+    <!--IMAGEM 1-->
+
+
+    <string name="texto2Modulo4Etapa3Licao1">Ao executar o programa, você digitará primeiramente
+        o nome da pessoa e em seguida o seu peso, e assim por diante até chegar na quinta pessoa:
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo4Etapa3Licao1">Simples, não é mesmo? Agora vamos ao nosso amigo portugol:
+    </string>
+
+    <!--IMAGEM 3-->
+
+    <string name="texto4Modulo4Etapa3Licao1">Repare que as três linhas de códigos a seguir aparecem varias vezes no código: </string>
+
+    <!--IMAGEM 4-->
+
+    <string name="texto5Modulo4Etapa3Licao1">Estamos pensando a mesma coisa? Sim, é isso mesmo!
+        E se ao invés de repetir o código “LimpaTela” três vezes criássemos um procedimento
+        com essas 3 linhas de código e após isso com uma linha chamaríamos o <b>procedimento</b>,
+        vamos tentar?
+    </string>
+
+    <!--IMAGEM 5-->
+
+    <string name="texto6Modulo4Etapa3Licao1">Percebeu a diferença?  Além da diminuição de linhas de código e
+        uma melhor organização, é muito mais fácil programar dessa forma, pois você só programa o bloco de
+        comandos uma vez e quando precisar que aquele <b>procedimento</b> seja realizado é só chama-lo,
+        com apenas uma linha de código.
+    </string>
+
+    <!--ETAPA 4-->
+
+    <!-- LIÇÃO 1-->
+
+    <string name="texto1Modulo4Etapa4Licao1">Você se lembra do nosso exemplo do liquidificador?
+        (Se não se lembra é só voltar na etapa “Introdução a procedimentos” deste módulo)
+        pois bem, no exemplo do liquidificador nós imaginamos que já teríamos os ingredientes
+        prontos e o nosso procedimento iria fazer nossa vitamina ou alimento, agora vamos
+        imaginar que você é apaixonado por vitamina de mamão e laranja, você toma fielmente
+        todos os dias a sua vitamina e acha muito chato
+        ter que preparar um mamão, um ou dois copos de leite e uma laranja para utilizar
+        o procedimento do liquidificador para o preparo.
+
+        \n\nProcedimento ProcLiquidificador(L ,M, LA: Inteiro)
+        \nInicio
+        \n<![CDATA[     ]]>Ligar o liquidificador na energia
+        \n<![CDATA[     ]]>Abrir a tampa
+        \n<![CDATA[     ]]>Inserir os ingredientes
+        \n<![CDATA[     ]]>Fechar a tampa
+        \n<![CDATA[     ]]>Girar o botão para ligar o liquidificador
+        \nFimProcedimento
+
+        \n\nAposto que você viu aqueles parênteses <b>()</b>
+        que anteriormente estavam vazios agora com algumas letras
+        separadas por virgula e do tipo inteiro, aquilo são parâmetros,
+        onde <b>L</b> receber a quantidade de copos de leite,
+        <b>M</b> receberá a quantidade de mamões e
+        <b>LA</b> de laranjas. Caso você queira adicionar 2
+        copos de leite, 1 mamão e 1 laranja você chamaria o procedimento dessa forma:
+
+        \n\n<b>ProcLiquidificador(2,1,1)</b>
+
+        \n\nNão entendeu? Relaxa, você vai entender já já!
+
+        \n\nPara exemplificar melhor, vamos criar um algoritmo, com um procedimento
+        que soma dois números por passagem de <b>parâmetros</b> e mostra o resultado da soma.
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo4Etapa4Licao1">Foi criado um procedimento <b>Soma</b> com os parâmetros <b>A</b> e
+        <b>B</b> do tipo inteiro, ao encerramento do procedimento e iniciando-se o algoritmo,
+        simplesmente chama-se o procedimento passando os parâmetros necessários (dois números do tipo
+        inteiro) e o resultado é:
+    </string>
+
+    <!--IMAGEM 2-->
+
+
+    <string name="texto3Modulo4Etapa4Licao1">Quando você cria um procedimento com parâmetros, você
+        obrigatoriamente tem que passar os parâmetros corretamente, tanto em
+        quantidade como em tipo de dado. Meu cachorro estava programando por coincidência esse
+        mesmo algoritmo e ele cometeu alguns erros:
+    </string>
+
+    <!--IMAGEM 3-->
+
+    <string name="texto4Modulo4Etapa4Licao1">Repare que em ambas ocasiões ou não foi informado a quantidade
+        correta de parâmetros que foi destinado (dois), ou não foi informado os
+        parâmetros ou foi informado um tipo de dado diferente de <b>inteiro</b>.
+
+        \n\nIsso é importante para que o parâmetro saia exatamente como você deseja, você quer somar
+        dois números e o seu programa obediente como é não deixará acontecer de outra forma, ele somará dois números.
+    </string>
+
+    <!--ETAPA 5-->
+
+    <!--LIÇÃO 1-->
+
+    <string name="texto1Modulo4Etapa5Licao1">Assim como os procedimentos, funções são rotinas,
+        são blocos de comandos escritos e que com apenas uma linha depois de escritos, podem
+        ser utilizados durante o nosso código, porém, as funçoes tem uma diferença em relação aos procedimentos,
+        as funções <b>retornam</b> uma respostas, vamos entender isso melhor comparando um procedimento com uma função.
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo4Etapa5Licao1">Vamos analisar algumas diferenças, na declaração da função,
+        além dos seus parametros e tipos de parametros, a função também tem um tipo, nesse caso inteiro,
+        por que ela retorna uma resposta do tipo inteiro. Nos procedimentos você não consegue retornar
+        um valor, em uma <b>função</b> você tem o valor de retorno.
+
+        \n\nEssa parte pode parecer um pouco complicada, mas acredite, não é. Os procedimentos eles
+        trabalham de forma padronizada, no caso desse nosso exemplo, ele não está nos retornando
+        o valor da soma dos nois numeros, ele está apresentando na tela o valor dos dois números,
+        já no caso da função ela está realmente nos retornando o valor da soma dos dois números e
+        nós estamos apresentando no programa principal, essa é a grande vantagem das funções, nós podemos tratar o retorno.
+
+    </string>
+
+    <!--LIÇÃO 2-->,
+
+    <string name="texto1Modulo4Etapa5Licao2">Quando declaramos uma variavel dentro de um bloco de
+        comandos essa variavel é uma variavel de <b>escopo local</b>, ou seja, ela só funcionará dentro daquele
+        bloco de comandos, ao contrário da variavel de <b>escopo global</b> que é aquela declara antes mesmo de
+        iniciar o algoritmo, a variavel de escopo global pode ser utilizada em qualquer parte do código, vamos ver um exemplo.
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo4Etapa5Licao2">Repare neste exemplo, o comando escreva não funcionou, porque somente <b>N1</b> e
+    <b>N2</b> São variaveis globais, as outras foram declaradas dentro do bloco de comandos do procedimento. Veja esse outro exemplo.
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <string name="texto3Modulo4Etapa5Licao2">Chamando o procedimento que possui o comando escreva com todas as variaveis, ele funciona perfeitamente:
+    </string>
+
+    <!--IMAGEM 3-->
+
+    <string name="texto4Modulo4Etapa5Licao2">Pois as variaveis A,B,X e Y estão dentro do bloco de comandos do procedimento
+        e as variaveis N1 e N2 são globais e funcionam em qualquer local do código.
+    </string>
+
+    <!--LIÇÃO 3-->
+
+    <string name="texto1Modulo4Etapa5Licao3">Retornando as funções, vamos visualizar mais um exemplo, veja:
+    </string>
+
+    <!--IMAGEM 1-->
+
+    <string name="texto2Modulo4Etapa5Licao3">Nesse caso retornamos diretamente a soma de x+y, o usuário irá digitar os dois valores que serão lidos pelas
+    variaveis V1 e V2 e a variavel S recebe o retorno da função soma com as variaveis V1 e V2 como parametros, ou seja, o que o usuário digitou.
+    </string>
+
+    <!--IMAGEM 2-->
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 4-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo4Etapa1Licao1"><b>Rotinas</b> na programação são blocos de códigos
+        escritos para definir tarefas que o programa poderá usar várias vezes durante sua execução,
+        podendo inclusive ser aproveitados em
+        outros programas. Dentro do portugol nós temos dois tipos de <b>Rotinas</b>,
+        são elas  <b>Procedimentos</b> e <b>Funções</b>.
+    </string>
+
+    <!--ETAPA 3-->
+    <!--LICAO 1-->
+    <string name="dica1Modulo4Etapa3Licao1">Independente das instruções utilizadas, a forma
+        como organizamos o código do nosso programa é importante para aumentarmos as possibilidades
+        de <b>reuso</b> e reduzirmos as complexidades de manutenção. Para isso podemos usar a
+        técnica de <b>modularização</b>.
+        Modularizar significa quebrar em módulos, o que em termos mais técnicos, quer dizer criar
+        <b>procedimentos</b> e <b>funções</b>.
+    </string>
+
+
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
+    <string-array name="tab_modulo4_etapa1">
+        <item></item>
+        <item></item>
+    </string-array>
+    <!--ETAPA 2 MODULO 1-->
+    <string-array name="tab_modulo4_etapa2">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo4_etapa3">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo4_etapa4">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo4_etapa5">
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 1-->
+    <string-array name="tab_modulo4_prova">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+
+</resources>

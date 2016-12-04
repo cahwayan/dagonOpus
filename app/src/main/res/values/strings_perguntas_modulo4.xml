@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo4Etapa1Pergunta1">Qual alternativa corresponde melhor ao que é uma rotina dentro da programação?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo4Etapa1Pergunta1Alternativa1">Lavar fielmente a louça todos os dias</string>
+    <string name="Modulo4Etapa1Pergunta1Alternativa2">Bloco de comandos que são usados de forma sequencial no programa, podendo ser usado várias vezes</string>
+    <string name="Modulo4Etapa1Pergunta1Alternativa3">Blocos de códigos escritos para definir tarefas que podem ser usadas várias vezes</string> <!--CORRETA-->
+    <string name="Modulo4Etapa1Pergunta1Alternativa4">Rotina é a primeira linha de qualquer programa, que tem que ser feito rotineiramente para o programa funcionar corretamente</string>
+
+    <!-- ETAPA 2 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo4Etapa2Pergunta1">Imaginando o exemplo anterior do liquidificador,
+                                            preencha os campos em branco para escrever um procedimento
+                                            chamado ProcLiquidificador:
+    </string>
+
+    <string name="Modulo4Etapa2Pergunta1Linha1">_________ __________</string>
+    <string name="Modulo4Etapa2Pergunta1Linha2">_________</string>
+    <string name="Modulo4Etapa2Pergunta1Linha3">\n\n<![CDATA[     ]]>Ligar o liquidificador na energia
+                                                \n<![CDATA[     ]]>Abrir a tampa
+                                                \n<![CDATA[     ]]>Inserir os ingredientes
+                                                \n<![CDATA[     ]]>Fechar a tampa
+                                                \n<![CDATA[     ]]>Girar o botão para ligar o liquidificador
+    </string>
+    <string name="Modulo4Etapa2Pergunta1Linha4">_________</string>
+
+    <!--ETAPA 3-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo4Etapa3Pergunta1">Complete corretamente os campos necessários
+        de acordo com o exemplo anterior. Lembre-se que o procedimento
+        chamava-se <![CDATA[“Topo”]]>
+    </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha1"><u>Var</u>
+                                                \nI: <u>Inteiro</u>
+                                                \nnome, maisPesado: <u>caractere</u>
+                                                \npeso, maiorPeso: <u>Real</u>
+    </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha2"><!--_________ __________--> ()</string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha3"><!--________ --></string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha4"><![CDATA[     ]]>LimpaTela
+                                                \n<![CDATA[     ]]>EscrevaL(<![CDATA[“]]>DETECTOR DE PESO<![CDATA[“]]>)
+                                                \n<![CDATA[     ]]>EscrevaL(<![CDATA[“]]>Maior peso ate agora<![CDATA[“]]>, maiorPeso, <![CDATA[“]]>kg<![CDATA[“]]>)
+    </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha5"><u>fimProcedimento</u>
+                                                \n\n<b><u>inicio</u></b></string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha6"><!--_________--> ()</string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha7">Para i <![CDATA[<-]]> 1 ate 5 faca
+                                                \n<![CDATA[     ]]>Escreva(<![CDATA[“]]>Digite o nome: <![CDATA[“]]>)
+                                                \n<![CDATA[     ]]>Leia (nome)
+                                                </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha8"><![CDATA[     ]]>Escreva(<![CDATA[“]]>Digite o peso de: <![CDATA[“]]>, nome, <![CDATA[“]]>: <![CDATA[“]]>)
+    </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha9"><![CDATA[    ]]> Leia(peso)
+                                                \n\n<![CDATA[     ]]>Se (peso <![CDATA[>]]> maiorPeso) entao
+                                                \n<![CDATA[          ]]>maiorPeso <![CDATA[<-]]> peso
+                                                \n<![CDATA[          ]]>maisPesado <![CDATA[<-]]> nome
+                                                \n<![CDATA[     ]]>FimSe
+    </string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha10"><!--____--> ()</string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha11">\n\nFimPara</string>
+
+    <string name="Modulo4Etapa3Pergunta1Linha12"><!--_______-->()</string>
+
+
+    <string name="Modulo4Etapa3Pergunta1Linha13">EscrevaL(<![CDATA[“]]>A pessoa mais pesada foi:
+                                                 <![CDATA[“]]>, maisPesado, <![CDATA[“]]>com <![CDATA[“]]>, maiorPeso, <![CDATA[“]]>Kgs<![CDATA[“]]>)
+                                                \n\n<u>FimAlgoritmo</u></string>
+
+    <!--ETAPA 4-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo4Etapa4Pergunta1">Agora que você aprendeu a criar procedimentos com passagem de paramêtros, complete
+    o algoritmo a seguir para criar um procedimento que multiplique dois numeros INTEIROS por passagem de parâmetro
+    </string>
+
+
+    <string name="Modulo4Etapa4Pergunta1Linha1"><u>Procedimento Multiplicacao</u>(A, B: <!--___inteiro____ )--></string>
+
+    <string name="Modulo4Etapa4Pergunta1Linha2">Inicio</string>
+
+    <string name="Modulo4Etapa4Pergunta1Linha3"><![CDATA[     ]]>EscrevaL(<![CDATA[“]]>Recebi o número:  <![CDATA[“]]>, <!--____a___ )--></string>
+    <string name="Modulo4Etapa4Pergunta1Linha4"><![CDATA[     ]]>EscrevaL(<![CDATA[“]]>Recebi o número: <![CDATA[“]]>, <!--___b____ )--></string>
+    <string name="Modulo4Etapa4Pergunta1Linha5"><![CDATA[     ]]>EscrevaL(  <!-- _ * _)--></string>
+    <string name="Modulo4Etapa4Pergunta1Linha6">FimProcedimento
+                                                \n\n<u>inicio</u>
+                                                \n\n<![CDATA[     ]]>Multiplicacao(3,2)
+                                                \n\n<u>fimAlgoritmo</u>
+
+                                                <!-- A E B BE BAEJAIRJIEAR -->
+    </string>
+
+    <!--ETAPA 5-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo4Etapa5Pergunta1">Qual a diferença entre procedimentos e funções?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo4Etapa5Pergunta1Alternativa1">Procedimentos recebem parametros, funções não.</string>
+    <string name="Modulo4Etapa5Pergunta1Alternativa2">Procedimentos não podem receber parametros, já as funções recebem parametros para retornar dados.</string>
+    <string name="Modulo4Etapa5Pergunta1Alternativa3">Procedimentos não retornam valores, já as funções retornam valores.</string> <!--CORRETA-->
+    <string name="Modulo4Etapa5Pergunta1Alternativa4">Procedimentos recebem parametros e as funções somente retornam dados</string>
+
+    <!--PERGUNTA 2-->
+    <string name="Modulo4Etapa5Pergunta2">Qual a diferença entre variáveis globais e locais?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo4Etapa5Pergunta2Alternativa1">Variáveis globais funcionam em todo o programa, variáveis locais funcionam apenas dentro da função ou procedimento em que foram declaradas</string> <!--CORRETA-->
+    <string name="Modulo4Etapa5Pergunta2Alternativa2">Não há diferença entre as duas.</string>
+    <string name="Modulo4Etapa5Pergunta2Alternativa3">Variáveis locais funcionam em todo o programa, variáveis globais funcionam apenas dentro da função ou procedimento em que foram declaradas</string>
+    <string name="Modulo4Etapa5Pergunta2Alternativa4">Variáveis globais e locais servem para retornar parâmetros dentro de procedimentos</string>
+
+    <!--PERGUNTA 3-->
+
+    <string name="Modulo4Etapa5Pergunta3">Preencha os campos em branco para criar uma função que some e retorne dois valores</string>
+
+    <string name="Modulo4Etapa5Pergunta3Linha1">Funcao Soma(X, Y:Inteiro):inteiro
+                                                \n\n<u>Inicio</u></string>
+
+    <string name="Modulo4Etapa5Pergunta3Linha2"><![CDATA[     ]]>Retorne <!--_  _  _--></string>
+
+    <string name="Modulo4Etapa5Pergunta3Linha3">fimfuncao</string>
+
+
+
+
+
+
+
+
+
+
+
+</resources>

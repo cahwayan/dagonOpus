@@ -18,8 +18,14 @@
 
     <!-- LICAO 1 -->
     <string name="titulo1Modulo3Etapa1Licao1">1. Introdução a vetores (Arrays)</string>
+    <!--LICAO 2-->
     <string name="titulo1Modulo3Etapa1Licao2">1. Funcionamento</string>
+
+    <!--LICAO 2-->
     <string name="titulo2Modulo3Etapa1Licao2">2. Atribuindo dados a vetores</string>
+
+    <!--ETAPA 2-->
+    <!--LICAO 1-->
     <string name="titulo1Modulo3Etapa2Licao1">1. Percorrendo vetores com loops</string>
 
 
