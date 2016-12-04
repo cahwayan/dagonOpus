@@ -26,6 +26,7 @@ import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
@@ -535,8 +536,8 @@ public class AprenderActivity extends AppCompatActivity {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 4) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo4Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }
