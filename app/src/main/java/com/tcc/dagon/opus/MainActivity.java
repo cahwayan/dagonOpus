@@ -63,34 +63,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     static GoogleApiClient googleApiClient;
     private ConnectionResult connectionResult;
 
-    private boolean isConsentScreenOpened,
-                    isSignInButtonClicked;
+    private boolean isConsentScreenOpened, isSignInButtonClicked;
 
-    // VIEWS
-    private LinearLayout llLoginForm,
-                         llContainerAll,
-                         llConnected;
 
     private Button btSignIn,
-                   btSignInCustom,
-                   btAprender;
+                   btSignInCustom;
+
 
     private SignInButton btSignInDefault;
 
-    private ImageView ivProfile,
-                      txtLogin;
 
-    private ProgressBar pbProfile,
-                        pbContainer;
 
-    private TextView tvId,
-                     tvLanguage,
-                     tvName,
-                     tvUrlProfile,
-                     tvEmail,
-                     btSignOut,
-                     btRevokeAccess,
-                     email,password,
+    private TextView email,password,
                      botaoCriarConta;
 
     GoogleSignInAccount acct;
@@ -111,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     // VARIÁVEIS DE CONEXÃO
     private RequestQueue requestQueue;
-    private StringRequest request;
+    private StringRequest request, requestNome;
     StringsBanco StringsBanco = new StringsBanco();
     GerenciarPerfilActivity gerenc = new GerenciarPerfilActivity();
 
@@ -156,32 +140,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     // COMPONENTES DA INTERFACE
     public void accessViews(){
-        txtLogin        = (ImageView)findViewById(R.id.txtLogin);
         botaoCriarConta = (TextView)findViewById(R.id.botaoCriarConta);
-        llContainerAll  = (LinearLayout) findViewById(R.id.llContainerAll);
-        pbContainer     = (ProgressBar) findViewById(R.id.pbContainer);
 
-        // sem conexão
-        llLoginForm     = (LinearLayout) findViewById(R.id.llLoginForm);
         btSignIn        = (Button) findViewById(R.id.btSignIn);
         btSignInCustom  = (Button) findViewById(R.id.btSignInCustom);
         btSignInDefault = (SignInButton) findViewById(R.id.btSignInDefault);
-        btAprender      = (Button)findViewById(R.id.bt_AprenderActivity);
 
         Typeface adam   =  Typeface.createFromAsset(getAssets(), "fonts/adam.otf");
         botaoCriarConta.setTypeface(adam);
 
-        // CONECTADO
-        llConnected     = (LinearLayout) findViewById(R.id.llConnected);
-        ivProfile       = (ImageView) findViewById(R.id.ivProfile);
-        pbProfile       = (ProgressBar) findViewById(R.id.pbProfile);
-        tvId            = (TextView) findViewById(R.id.tvId);
-        tvLanguage      = (TextView) findViewById(R.id.tvLanguage);
-        tvName          = (TextView) findViewById(R.id.tvName);
-        tvUrlProfile    = (TextView) findViewById(R.id.tvUrlProfile);
-        tvEmail         = (TextView) findViewById(R.id.tvEmail);
-        btSignOut       = (Button) findViewById(R.id.btSignOut);
-        btRevokeAccess  = (Button) findViewById(R.id.btRevokeAccess);
         email           = (EditText) findViewById(R.id.edt_email);
         password        = (EditText) findViewById(R.id.edt_senha);
 
@@ -223,37 +190,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                 } else { // FAZ TENTATIVA DE CONEXÃO
-                    request = new StringRequest(Request.Method.POST,
-                                                StringsBanco.loginUrl,
-                                                new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            if(response.trim().equals("certo")){
-                                Intent i = new Intent(MainActivity.this, AprenderActivity.class);
-                                gravarEmail(sEmail);
-                                finish();
-                            }else{
-                                Toast.makeText(getApplicationContext(),
-                                               "Login ou senha inválidos",
-                                               Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), "Erro ao conectar. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
-                        }
-                    }){
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            HashMap<String,String> hashMap = new HashMap<String, String>();
-                            hashMap.put("EMAIL_USUARIO", sEmail);
-                            hashMap.put("SENHA_USUARIO", sPassword);
-                            return hashMap;
-                        }
-
-                    };
-                    requestQueue.add(request);
+                    logar();
                 }
 
             }
@@ -266,6 +203,47 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             }
         });
     }
+
+    private void logar() {
+
+        request = new StringRequest(Request.Method.POST,
+                StringsBanco.loginUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.trim().equals("certo")){
+                            Intent i = new Intent(MainActivity.this, AprenderActivity.class);
+                            gravarEmail(sEmail);
+                            //lerNomeInterno();
+                            gravarNomeInterno();
+                            startActivity(i);
+                            finish();
+                        }else{
+                            Toast.makeText(getApplicationContext(),
+                                    "Login ou senha inválidos",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Erro ao conectar. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> hashMap = new HashMap<String, String>();
+                hashMap.put("EMAIL_USUARIO", sEmail);
+                hashMap.put("SENHA_USUARIO", sPassword);
+                return hashMap;
+            }
+
+        };
+        requestQueue.add(request);
+
+    }
+
+
 
     private void googleBuilder() {
         // Configura um objeto que contém o perfil básico do usuário: Perfil, Foto, E-Mail e ID Público
@@ -304,6 +282,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         if (result.isSuccess()) {
             // O USUÁRIO SE CONECTOU COM SUCESSO,
             acct = result.getSignInAccount();
+            gravarNomeUsuario(acct.getDisplayName());
+            Log.d(TAG, "SharedPref nome gravado: " + lerNomeUsuario());
             getDataProfile();
             // FECHAR ATIVIDADE
             finish();
@@ -322,7 +302,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     public void getDataProfile(){
-
             if(acct != null){
                 StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
                     @Override
@@ -343,6 +322,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                         return parameters;
                     }
                 };
+
+                // Abre a tela de login após cadastro
+                requestQueue.add(request);
 
             }
 
@@ -407,11 +389,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
-
-
-
                 }
-                return;
+
             }
 
             // other 'case' lines to check for other
@@ -488,5 +467,46 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 signIn();
             }
         }
+    }
+
+    private void gravarNomeInterno() {
+        requestNome = new StringRequest(Request.Method.POST,
+                StringsBanco.nomeUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        gravarNomeUsuario(response);
+                        Log.d(TAG, "Nome gravado: " + response);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> hashMap = new HashMap<String, String>();
+                hashMap.put("EMAIL_USUARIO", email.getText().toString().trim());
+                return hashMap;
+            }
+
+        };
+        requestQueue.add(requestNome);
+    }
+
+    public void gravarNomeUsuario(String nome) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("nomeUsuario", nome);
+        editor.apply();
+    }
+
+    public String lerNomeUsuario() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString("nomeUsuario", "default");
     }
 }

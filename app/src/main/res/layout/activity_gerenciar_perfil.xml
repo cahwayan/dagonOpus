@@ -20,42 +20,105 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/fotoPerfilLinear"
-            android:layout_weight="0.30">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:id="@+id/fotoPerfil"
-                android:src="@drawable/icon_foto"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp" />
+            android:id="@+id/containerFoto"
+            android:layout_weight="100"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical|fill_vertical|center">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/dadosPerfil"
-                android:layout_weight="0.30"
-              >
+                android:id="@+id/fotoPerfilLinear"
+                android:layout_weight="50"
+                android:paddingTop="10dp"
+                android:gravity="center">
 
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/fotoPerfil"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/icon_foto"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorPrimary"
+                    android:layout_gravity="left" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/containerNome"
+                android:layout_weight="50"
+                android:paddingTop="10dp"
+                android:gravity="center_vertical|center"
+                android:background="@drawable/borda_esquerda">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/txtNome"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="22sp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginRight="40dp" />
+                    android:textSize="18sp"
+                    android:gravity="left|center_horizontal|center"
+                    android:text="Texto Sample"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="sans-serif-condensed"
+                    android:maxLength="30"
+                    android:padding="5dp"
+                    android:layout_marginLeft="2dp" />
+
             </LinearLayout>
+
         </LinearLayout>
+
+
+        <TextView
+            android:text="Progresso Geral:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLabelProgresso"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/borda_topo"
+            android:paddingTop="20dp"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/barraProgresso"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp">
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                app:rcSecondaryProgress="0"
+                app:rcMax="30"
+                app:rcRadius="0dp"
+                app:rcBackgroundPadding="2dp"
+                app:rcReverse="false"
+                app:rcProgressColor="@color/corBtnModulo2"
+                app:rcSecondaryProgressColor="#ffffffff"
+                app:rcBackgroundColor="#ffffff"
+                android:id="@+id/barraGeral" />
+
+        </LinearLayout>
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -64,6 +127,8 @@
             android:id="@+id/perfilLinear"
             android:layout_weight="0.5"
             android:layout_marginTop="50dp">
+
+
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -101,43 +166,6 @@
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
-            <TextView
-                android:text="Progresso Geral:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtLabelProgresso"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:textSize="14sp"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:id="@+id/barraProgresso"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginEnd="5dp">
-
-                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                    android:layout_width="fill_parent"
-                    android:layout_height="10dp"
-                    app:rcSecondaryProgress="0"
-                    app:rcMax="30"
-                    app:rcRadius="0dp"
-                    app:rcBackgroundPadding="2dp"
-                    app:rcReverse="false"
-                    app:rcProgressColor="#d41243"
-                    app:rcSecondaryProgressColor="#ffffffff"
-                    app:rcBackgroundColor="#ffffff"
-                    android:id="@+id/barraGeral" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

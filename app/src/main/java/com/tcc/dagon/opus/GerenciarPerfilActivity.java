@@ -1,10 +1,13 @@
 package com.tcc.dagon.opus;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -15,6 +18,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -63,6 +67,14 @@ import org.json.JSONObject;
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
+
+    // INICIO TESTE
+
+    private static int RESULT_LOAD_IMAGE = 1;
+
+    static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
+
+    // FIM TESTE
 
 
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -128,19 +140,16 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         carregarProgresso();
 
         // VERIFICA SE O DISPOSITIVO POSSUI CÂMERA
-        verificarCamera();
+        /*verificarCamera();*/
 
-        // PUXA A FOTO DO USUÁRIO
-        trocarFotoPerfil();
+
 
         // CONTEXT PARA CHAMADA VOLLEY
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        // MÈTODO QUE LIDA COM OS INTENTS (TROCA DE INFORMAÇÔES ENTRE AS CLASSES)
-        intents();
 
         // MÉTODO JSON
-        carregaLink();
+        /*carregaLink();*/
 
 
 
@@ -150,11 +159,36 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private void accessViews() {
         alertaOperacaoFinalizada = new NovaJanelaAlerta(this);
         txtNome = (TextView) findViewById(R.id.txtNome);
+
+        if(lerNomeUsuario().equals("default")) {
+            txtNome.setText("Nome");
+        } else {
+            txtNome.setText(lerNomeUsuario());
+        }
+
+
         btnAprender = (Button) findViewById(R.id.btnAprender);
         btnAlterarSenha = (Button) findViewById(R.id.btnAlterar);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         barraGeral = (RoundCornerProgressBar) findViewById(R.id.barraGeral);
         foto = (ImageView) findViewById(R.id.fotoPerfil);
+
+        Log.d(TAG, "SharedPref caminho: " + lerCaminhoFoto());
+
+        if(foto != null){
+            if(lerCaminhoFoto() == "default") {
+                foto.setImageResource(R.drawable.icon_foto);
+            } else {
+                try {
+                    foto.setImageBitmap(BitmapFactory.decodeFile(lerCaminhoFoto()));
+                } catch(NullPointerException e) {
+                    foto.setImageResource(R.drawable.icon_foto);
+                }
+
+            }
+        }
+
+
     }
 
     private void carregarProgresso() {
@@ -177,62 +211,97 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             @Override
             public void onClick(View v) {
 
-                // Here, thisActivity is the current activity
-                if (ContextCompat.checkSelfPermission(GerenciarPerfilActivity.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    getPermissions();
-                }
+                checkPermissions();
 
-                if(ContextCompat.checkSelfPermission(GerenciarPerfilActivity.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    captureImage();
-                } else {
-
-                }
             }
         });
 
     }
 
-    private void verificarCamera() {
-        if (!isDeviceSupportCamera()) {
-            Toast.makeText(getApplicationContext(),
-                    "Desculpe ,seu dispositivo não tem suporte",
-                    Toast.LENGTH_LONG).show();
-            finish();
+    // MÉTODO QUE CHECA PERMISSÕES
+    private void checkPermissions() {
+        // SE NÃO TIVER PERMISSÃO
+        if (ContextCompat.checkSelfPermission(GerenciarPerfilActivity.this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // PEDIR PERMISSÕES
+            getPermissions();
+
+        }else {
+            Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(i, RESULT_LOAD_IMAGE);
+        }
+
+    }
+
+    // MÉTODO QUE PEGA A PERMISSÃO DO USUÁRIO
+    private void getPermissions() {
+        int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
+
+        // DEVEMOS MOSTRAR UMA EXPLICAÇÃO?
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            // MOSTRA UMA EXPLICAÇÃO PARA O USUÁRIO SOBRE O PORQUE DA NECESSIDADE
+            // DA PERMISSÃO
+        } else {
+            // CASO NÃO PRECISE DE EXPLICAÇÕES, VAMOS PEDIR A PERMISSÃO
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_READ_STORAGE);
+
+            // MY_PERMISSIONS_REQUEST_GET_ACCOUNTS É UMA CONSTANTE DO APLICATIVO
         }
     }
 
-    private void intents() {
-        // Pegando informações da activity anterior e passando a activity upload
-        Intent i = getIntent();
-        email = i.getStringExtra("emailUsuario");
-        email = lerEmail("emailUsuario");
-        URLFIM = URLMOSTRA+email;
-    }
+    // MÉTODO QUE LIDA COM O RESULTADO DA PERMISSÃO DO USUÁRIO
+    // SE ELE CONCEDEU OU NÃO
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-    private void trocarFotoPerfil() {
-        if (verificarFotoTrocada()) {
-            File imgFile = new File(lerCaminhoFoto());
-            Bitmap arquivoFoto = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            foto.setImageBitmap(arquivoFoto);
-        } else if(googleApiClient.isConnected()) {
-            try {
-                Person p = Plus.PeopleApi.getCurrentPerson(googleApiClient);
-                // Abre a tela de login após cadastro
-                //carrega icone de imagem do perfil do google
-                Log.i("Script", "IMG before: "+imageUrl);
-                imageUrl = imageUrl.substring(0, imageUrl.length() - 2)+"200";
-                Log.i("Script", "IMG after: "+imageUrl);
-                loadImage(foto, pbProfile, imageUrl);
-            } catch(NullPointerException e) {
-                foto.setImageResource(R.drawable.icon_foto);
+                    // PERMISSAO GARANTIDA
+                    Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(i, RESULT_LOAD_IMAGE);
+
+                } else {
+                    // PERMISSAO NEGADA
+                    Toast.makeText(getApplicationContext(), "Você precisa conceder autorização para utilizar esse recurso", Toast.LENGTH_LONG).show();
+
+                }
+                return;
             }
 
-        }else {
-            foto.setImageResource(R.drawable.icon_foto);
+        }
+    }
+
+    // MÉTODO QUE LIDA COM A FOTO ESCOLHIDA PELO USUARIO
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+            if(cursor != null) {
+                cursor.moveToFirst();
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                ImageView imageView = (ImageView) findViewById(R.id.fotoPerfil);
+
+                if(imageView != null ){
+                    imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                    gravarCaminhoFoto(picturePath);
+                }
+            }
+
         }
     }
 
@@ -262,179 +331,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     @Override
     protected void onResume() {
         super.onResume();
-        carregaLink();
     }
 
-    private boolean isDeviceSupportCamera() {
-        if (getApplicationContext().getPackageManager().hasSystemFeature(
-                PackageManager.FEATURE_CAMERA)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
-    }
-
-
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putParcelable("file_uri", fileUri);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        fileUri = savedInstanceState.getParcelable("file_uri");
-    }
-
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-
-                launchUploadActivity(true);
-
-
-            } else if (resultCode == RESULT_CANCELED) {
-
-                Toast.makeText(getApplicationContext(),
-                        "Cancelado !", Toast.LENGTH_SHORT)
-                        .show();
-
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "Ocorreu um erro ao capturar a imagem", Toast.LENGTH_SHORT)
-                        .show();
-            }
-
-        }
-       }
-
-    private void launchUploadActivity(boolean isImage){
-        Intent i = new Intent(GerenciarPerfilActivity.this, UploadActivity.class);
-        i.putExtra("filePath", fileUri.getPath());
-        i.putExtra("isImage", isImage);
-        i.putExtra("emailUsuario", email);
-        startActivity(i);
-    }
-
-
-    public Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-
-    private static File getOutputMediaFile(int type) {
-
-        File mediaStorageDir = new File(
-                Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                StringsBanco.IMAGE_DIRECTORY_NAME);
-
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d(TAG, "Falha ao criar o arquivo "
-                        + StringsBanco.IMAGE_DIRECTORY_NAME + " directory");
-                //return null;
-            }
-        }
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
-                Locale.getDefault()).format(new Date());
-
-        File mediaFile = null;
-
-        if (type == MEDIA_TYPE_IMAGE) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "IMG_" + timeStamp + ".jpg");
-        } else {
-            //return null;
-        }
-
-        return mediaFile;
-    }
-
-    public void loadImg(){
-
-        imgfim = endFoto + caminho;
-        new Thread(){
-            public void run(){
-                Bitmap img = null;
-
-                try{
-                    URL url = new URL(imgfim);
-                    HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
-                    InputStream input = conexao.getInputStream();
-                    img = BitmapFactory.decodeStream(input);
-                }
-                catch(IOException e){}
-
-                final Bitmap imgAux = img;
-                handler.post(new Runnable(){
-                    public void run(){
-                        ImageView iv = new ImageView(getBaseContext());
-                        foto.setImageBitmap(imgAux);
-                    }
-                });
-            }
-        }.start();
-    }
-
-    public void carregaLink() {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,URLFIM, new Response.Listener<JSONObject>() {
-
-
-            @Override
-            public void onResponse(JSONObject response) {
-
-                System.out.println(response.toString());
-                try {
-                    JSONArray students = response.getJSONArray("students");
-                 for (int i = 0; i < students.length(); i++) {
-                        JSONObject student = students.getJSONObject(i);
-
-                        caminho = student.getString("END_FOTO");
-                        nomeUser = student.getString("NOME_USUARIO");
-                        txtNome.setText(nomeUser);
-                            if(caminho.equals("null")){
-
-                            }else {
-                                loadImg();
-                            }
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.append(error.getMessage());
-
-            }
-        }){
-
-        };
-
-        requestQueue.add(jsonObjectRequest);
-    }
 
     View.OnClickListener btnClickListner = new View.OnClickListener()
     {
@@ -450,7 +348,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 writeFlag(false);
-                fotoTrocada(false);
                 signOut();
                 finish();
             }
@@ -466,21 +363,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     };
 
-    // MÉTODO QUE VERIFICA A PERMISSÃO DO USUÁRIO
-    private void getPermissions() {
-        int permissaoConta = ContextCompat.checkSelfPermission(GerenciarPerfilActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int MY_PERMISSIONS_REQUEST_WRITE_STORAGE = 0;
-        // Should we show an explanation?
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.GET_ACCOUNTS)) {
-
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    MY_PERMISSIONS_REQUEST_WRITE_STORAGE);
-        }
-    }
-
     // MODIFICAR FLAG PARA LOGOUT
     public void writeFlag(boolean flag) {
         SharedPreferences sharedPreferences = PreferenceManager
@@ -490,24 +372,28 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         editor.apply();
     }
 
-    public String lerEmail(String emailUsuario) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getString("emailUsuario", emailUsuario);
-    }
-
-    public void fotoTrocada(boolean flag) {
+    public void gravarNomeUsuario(String nome) {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("fotoTrocada", flag);
+        editor.putString("nomeUsuario", nome);
         editor.apply();
     }
 
-    public boolean verificarFotoTrocada() {
+    public String lerNomeUsuario() {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("fotoTrocada", false);
+        return sharedPreferences.getString("nomeUsuario", "default");
+    }
+
+
+
+    public void gravarCaminhoFoto(String caminho) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("caminhoFotoPerfil", caminho);
+        editor.apply();
     }
 
     public String lerCaminhoFoto() {
@@ -522,26 +408,12 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             googleApiClient.clearDefaultAccountAndReconnect();
             googleApiClient.disconnect();
             googleApiClient.connect();
+            gravarCaminhoFoto(null);
+            gravarNomeUsuario(null);
             writeFlag(false);
         }
     }
 
-    //FUNÇAO PARA CARREGAR IMAGEM COM PROGRESSBAR
-    public void loadImage(final ImageView ivImg, final ProgressBar pbImg, final String urlImg){
-        RequestQueue rq = Volley.newRequestQueue(GerenciarPerfilActivity.this);
-        ImageLoader il = new ImageLoader(rq, new ImageLoader.ImageCache() {
-            @Override
-            public void putBitmap(String url, Bitmap bitmap) {
-                pbImg.setVisibility(View.GONE);
-            }
-            @Override
-            public Bitmap getBitmap(String url) {
-                return null;
-            }
-        });
-        pbImg.setVisibility(View.VISIBLE);
-        il.get(urlImg, il.getImageListener(ivImg, pbImg.getId(), pbImg.getId()));
-    }
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {

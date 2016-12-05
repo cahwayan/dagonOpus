@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.tcc.dagon.opus.ClassesPai.Licao;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3;
 import com.tcc.dagon.opus.R;
@@ -21,7 +23,6 @@ public class Licao3 extends Licao {
         this.accessViews();
         super.adicionarZoomImagem(imagem1);
         super.listeners();
-
         return this.viewRoot;
     }
 
@@ -30,4 +31,5 @@ public class Licao3 extends Licao {
         imagem1 = (ImageView) viewRoot.findViewById(R.id.imagem1Modulo1Etapa3Licao3);
         super.accessViews();
     }
+
 }

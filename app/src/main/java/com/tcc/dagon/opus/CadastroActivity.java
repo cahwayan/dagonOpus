@@ -2,7 +2,9 @@ package com.tcc.dagon.opus;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -117,6 +119,7 @@ public class CadastroActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(getApplicationContext(), "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                            gravarNomeUsuario(sNome);
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             finish();
@@ -153,6 +156,14 @@ public class CadastroActivity extends AppCompatActivity {
         senha  = (TextView) findViewById(R.id.textSenha);
         csenha = (TextView) findViewById(R.id.textCSenha);
         email  = (TextView) findViewById(R.id.textEmail);
+    }
+
+    private void gravarNomeUsuario(String nome) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("gravarNomeUsuario", nome);
+        editor.apply();
     }
 
 }

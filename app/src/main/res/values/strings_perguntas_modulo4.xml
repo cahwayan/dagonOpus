@@ -129,5 +129,35 @@
     <string name="Modulo4Etapa5Pergunta3Linha2"><![CDATA[     ]]>Retorne <!--_  _  _--></string>
 
     <string name="Modulo4Etapa5Pergunta3Linha3">fimfuncao</string>
-    
+
+
+
+    <!-- STRINGS PROVA -->
+
+    <!--PERGUNTA 1-->
+    <string name="ProvaModulo4Pergunta1">O que é uma rotina dentro da lógica de programação?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo4Pergunta1Alternativa1">Blocos de códigos escritos para definir tarefas que podem ser usadas várias vezes durante a execução do programa</string><!--CORRETA-->
+    <string name="ProvaModulo4Pergunta1Alternativa2">Rotinas são maneiras de introduzir estruturas condicionais no algoritmo</string>
+    <string name="ProvaModulo4Pergunta1Alternativa3">As rotinas servem para definir processos que se repetirão apenas uma única vez</string>
+    <string name="ProvaModulo4Pergunta1Alternativa4">Rotina é a primeira linha de qualquer programa, que tem que ser feito rotineiramente para o programa funcionar corretamente</string>
+
+    <!--PERGUNTA 2-->
+    <string name="ProvaModulo4Pergunta2">Defina um procedimento chamado fazerBolo:
+    </string>
+
+    <string name="ProvaModulo4Pergunta2Linha1">_________ __________</string> <!-- PROCEDIMENTO FAZERBOLO -->
+    <string name="ProvaModulo4Pergunta2Linha2">_________</string>
+    <string name="ProvaModulo4Pergunta2Linha3">\n\n<![CDATA[     ]]>Separar os ingredientes
+                                                \n<![CDATA[     ]]>Bater a massa do bolo
+                                                \n<![CDATA[     ]]>Colocar a massa em uma forma
+                                                \n<![CDATA[     ]]>Colocar no forno
+                                                \n<![CDATA[     ]]>Esperar o bolo assar
+                                                \n<![CDATA[     ]]>Retirar do forno
+                                                \n<![CDATA[     ]]>Desenformar
+                                                \n<![CDATA[     ]]>Confeitar
+                                                \n<![CDATA[     ]]>Servir
+    </string>
+    <string name="ProvaModulo4Pergunta2Linha4">_________</string>
+
 </resources>

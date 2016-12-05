@@ -9,6 +9,7 @@ public class StringsBanco {
     final String loginUrl;
     final String insereGoogle;
     final String recuperarSenha;
+    final String nomeUrl;
     public static final String IMAGE_DIRECTORY_NAME = "Android File Upload";
     public static final String FILE_UPLOAD_URL = "http://dagonopus.esy.es/phpAndroid/fileUpload.php";
 
@@ -18,7 +19,7 @@ public class StringsBanco {
         insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
         loginUrl = "http://dagonopus.esy.es/phpAndroid/login.php";
         recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
-
+        nomeUrl = "http://dagonopus.esy.es/phpAndroid/lerNome.php";
 
     }
 

@@ -167,6 +167,27 @@
     <string name="texto1Modulo1Etapa3Licao3">Você se lembra dos passos que realizamos para somar dois números? Vamos agora passa-los para o Portugol.
     </string>
 
+    <string name="textoTestePortugol">
+        // Nome do algoritmo
+        \nAlgoritmo <![CDATA[“SomarNumeros“]]> 
+        \nVar // Seção de declaração das variáveis
+        \n<![CDATA[     ]]>numero1: inteiro
+        \n<![CDATA[     ]]>numero2: inteiro
+        \n<![CDATA[     ]]>numero3: inteiro
+
+        \n\ninicio //Início do algoritmo
+        \n// Seção de comandos
+        \n<![CDATA[     ]]>Escreva(<![CDATA[“Digite o primeiro número: “]]>)
+        \n<![CDATA[     ]]>Leia(numero1)
+        \n<![CDATA[     ]]>Escreva(<![CDATA[“Digite o segundo número: “]]>)
+        \n<![CDATA[     ]]>Leia(numero2)
+        \n<![CDATA[     ]]>resultado <![CDATA[<-]]> numero1 + numero2
+        \n<![CDATA[     ]]>Escreva(<![CDATA[“O resultado é: “, resultado]]>)
+        \nFimAlgoritmo
+    </string>
+
+    <!-- IMAGEM 1 -->
+
     <string name="texto2Modulo1Etapa3Licao3">Esse é o mesmo algoritmo para realizar a soma de dois números e escrever o resultado, porém dessa vez usando a estrutura do portugol.
         Como você pode ver, a lógica é bastante parecida com as tarefas do nosso dia a dia, como <b>atravessar uma rua.</b> Primeiro, dizemos para o computador escrever na tela um pedido para o usuário digitar o primeiro número,
          e em seguida damos o comando para o computador ler o primeiro número que o usuário digitou, depois fazemos o mesmo para o segundo número.
