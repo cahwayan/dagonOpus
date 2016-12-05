@@ -36,9 +36,9 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         btAlterar= (Button)findViewById(R.id.btAlterarSenha);
 
-        strSenhaAnt =((EditText)findViewById(R.id.edtSenhaAtual)).getText().toString();
-        strSenha = ((EditText)findViewById(R.id.edtNovaSenha)).getText().toString();
-        strSenhaConfirma = ((EditText)findViewById(R.id.edtConfirmaSenha)).getText().toString();
+        senhaAtual = (EditText)findViewById(R.id.edtSenhaAtual);
+        edtRec =(EditText)findViewById(R.id.edtNovaSenha);
+        edtRecConfirm= (EditText)findViewById(R.id.edtConfirmaSenha);
         listClick();
 
     }
@@ -57,7 +57,7 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                         }else{
 
                             Toast.makeText(getApplicationContext(),
-                                    emailAlterar+strSenhaAnt+strSenha,
+                                    "Confirme a nova senha por favor",
                                     Toast.LENGTH_SHORT).show();
 
                         }
@@ -71,8 +71,8 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> parameters = new HashMap<String, String>();
                         parameters.put("EMAIL_USUARIO", emailAlterar);
-                        parameters.put("SENHA_USUARIO", strSenhaAnt);
-                        parameters.put("SENHA_NOVA", strSenha);
+                        parameters.put("SENHA_USUARIO", edtRec.getText().toString());
+                        parameters.put("SENHA_NOVA", edtRecConfirm.getText().toString());
                         return parameters;
                     }
                 };
