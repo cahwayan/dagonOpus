@@ -85,19 +85,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     private Button btnAprender,btnAlterarSenha,btnLogout;
 
-    private String imgfim;
-
-    private String email,nomeUser;
-
     private TextView txtNome;
-
-    private Handler handler = new Handler();
-
-    private NovaJanelaAlerta alertaOperacaoFinalizada;
-
-    private String imageUrl;
-
-    private ProgressBar pbProfile;
 
     private RoundCornerProgressBar barraGeral;
 
@@ -157,7 +145,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     }
 
     private void accessViews() {
-        alertaOperacaoFinalizada = new NovaJanelaAlerta(this);
         txtNome = (TextView) findViewById(R.id.txtNome);
 
         if(lerNomeUsuario().equals("default")) {
@@ -354,7 +341,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             else if( btnAlterarSenha.getId() == v.getId() )
             {
                 Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
-                i.putExtra("emailUsuario", email);
+                i.putExtra("emailUsuario", lerEmail());
                 startActivity(i);
                 finish();
             }
@@ -400,6 +387,12 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         return sharedPreferences.getString("caminhoFotoPerfil", "default");
+    }
+
+    public String lerEmail() {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString("emailUsuario", "default");
     }
 
     // SIGN OUT GOOGLE
