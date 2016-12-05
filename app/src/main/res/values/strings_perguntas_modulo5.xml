@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+
+    <string name="Modulo5Etapa1Pergunta1">Mentalize o algoritmo anterior e preencha os
+        campos abaixo para construir um algoritmo que leia <b>CINCO</b> números do usuário, e escreva o <b>MAIOR</b> número digitado na tela utilizando o loop <b>PARA</b>.
+        \n\n<b>- Declare primeiro uma variável contadora chamada I ou X
+        \n\n- Declare em seguida uma variável para guardar os números digitados chamada NUM
+        \n\n- Declare então uma variável para guardar o maior número chamada MAIORNUM
+        \n\n- Não se esqueça da estrutura padrão do algoritmo!</b>
+    </string>
+
+    <string name="Modulo5Etapa1Pergunta1Linha0"><u>Algoritmo</u> <![CDATA[“MaiorNumero“]]></string>
+    <string name="Modulo5Etapa1Pergunta1Linha1">___ <!--VAR--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha2">\n// Hora de declarar as variáveis!<!--I OU X, INTEIRO--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha3">___: _______<!--NUM, INTEIRO--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha4">_______: _______<!--MAIORNUM, INTEIRO--></string>
+
+    <string name="Modulo5Etapa1Pergunta1Linha5">// Hora de iniciar o algoritmo <!--INICIO--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha6">// Lembra-se da estrutura do Para?<!--____ _ __ _ ___ _ --> <!--PARA I de 1 ATE 5 FACA--> </string>
+    <string name="Modulo5Etapa1Pergunta1Linha7">(<![CDATA[“Digite o numero: “]]>)<!--ESCREVA--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha8">____ (___) <!--LEIA, NUM--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha9">// Lembra-se da estrutura de decisão Se?<!--__ (___ _ _______) _____--> <!--SE NUM > MAIORNUM ENTAO--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha10">________ <![CDATA[<-]]> ___ <!--MAIORNUM <- NUM--> </string>
+    <string name="Modulo5Etapa1Pergunta1Linha11">_____ <!--FIMSE--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha12">_______ <!--FIMPARA--></string>
+    <string name="Modulo5Etapa1Pergunta1Linha13">(<![CDATA[“Maior número: “ , maiorNum)]]> <!--ESCREVA--></string>
+
+    <string name="Modulo5Etapa1Pergunta1Linha14">FimAlgoritmo</string>
+
+    <string name="simboloRecebe"><![CDATA[ <- ]]></string>
+</resources>

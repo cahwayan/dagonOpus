@@ -5,107 +5,65 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-
-import com.tcc.dagon.opus.ClassesPai.CompletarProva;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva2;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva4;
 import com.tcc.dagon.opus.R;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by cahwayan on 09/10/2016.
  */
-public class Questao4 extends CompletarProva {
-
-    private EditText    linha2Palavra1,
-                        linha2Palavra2,
-                        linha2Palavra3;
-
-    private String[] respostasCertas ;
-    private String[] respostasCertasAcentuadas;
-
+public class Questao4 extends QuestaoProva {
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // INSTANCIA DE OBJETOS / BANCO / JANELA ALERTA / SONS
         super.instanciaObjetos();
-        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_questao4, container, false);
+        // MÓDULO A QUAL A PERGUNTA PERTENCE
+        super.moduloAtual = 4;
+        // ETAPA A QUAL A PERGUNTA PERTENCE
+        super.etapaAtual = 6;
+        // NÚMERO DA PERGUNTA
+        super.questaoAtual = 2;
 
-        // DECLARANDO O MODULO E A ETAPA ATUAL A QUAL PERTENCE ESSA LIÇÃO
-        // SERVE PARA FINS DE DEFINIR PROGRESSO NO BANCO DE DADOS
-        super.moduloAtual = 1;
-        super.etapaAtual  = 6;
+        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
+        super.rootView = inflater.inflate(R.layout.fragment_modulo4_prova_questao4, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();
 
+        // Carregando os listeners
         super.listeners();
-        // TRAZENDO OS LISTENERS
-        listeners();
 
         return this.rootView;
     }
 
+
     protected void accessViews() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        mViewPager = ((ContainerProva2)getActivity()).getPager();
-        tabStrip   = ((ContainerProva2)getActivity()).getTabStrip();
-        mTabLayout = ((ContainerProva2)getActivity()).getmTabLayout();
+        mViewPager = ((ContainerProva4)getActivity()).getPager();
+        tabStrip   = ((ContainerProva4)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerProva4)getActivity()).getmTabLayout();
 
-        vida01 = ((ContainerProva2)getActivity()).getVida01();
-        vida02 = ((ContainerProva2)getActivity()).getVida02();
-        vida03 = ((ContainerProva2)getActivity()).getVida03();
-        vida04 = ((ContainerProva2)getActivity()).getVida04();
-        vida05 = ((ContainerProva2)getActivity()).getVida05();
+        vida01 = ((ContainerProva4)getActivity()).getVida01();
+        vida02 = ((ContainerProva4)getActivity()).getVida02();
+        vida03 = ((ContainerProva4)getActivity()).getVida03();
+        vida04 = ((ContainerProva4)getActivity()).getVida04();
+        vida05 = ((ContainerProva4)getActivity()).getVida05();
 
-        // RESGATANDO A REFERENCIA DOS EDIT TEXTS QUE TERAO AS RESPOSTAS
-        linha2Palavra1 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta4Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta4Linha2Palavra2);
-        linha2Palavra3 = (EditText) rootView.findViewById(R.id.ProvaModulo2Pergunta4Linha2Palavra3);
+        // PEGANDO OS RADIO BUTTONS DO LAYOUT
+        alternativa1 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta4Alternativa1);
+        alternativa2 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta4Alternativa2);
+        alternativa3 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta4Alternativa3);
+        alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta4Alternativa4);
 
-        // CRIANDO UMA LISTA QUE VAI GUARDAR OS EDIT TEXTS
-        listaEditTexts = new ArrayList<>();
+        // PEGANDO O RADIOGROUP DO LAYOUT
+        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo4Pergunta4);
 
-        // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
-        linhasCompletar = new EditText[]   {linha2Palavra1,
-                                            linha2Palavra2,
-                                            linha2Palavra3};
-
-        // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
-        listaEditTexts.addAll(Arrays.asList(linhasCompletar));
-
-        // CHAMANDO AS VIEWS DA SUPER CLASSE
         super.accessViews();
-
-        // DEFININDO AS RESPOSTAS DO EXERCICIO, NA ORDEM EM QUE DEVEM SER ESCRITAS
-        respostasCertas = new String[]{"para", "10", "2"};
-
-        respostasCertasAcentuadas = new String[]{"para", "10", "2"};
-    }
-
-
-    protected void listeners() {
-        super.listeners();
-
-        // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
-
-        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
-
     }
 
 }

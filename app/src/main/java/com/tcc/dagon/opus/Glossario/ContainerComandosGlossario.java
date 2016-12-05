@@ -1,10 +1,14 @@
 package com.tcc.dagon.opus.Glossario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
+
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.ClassesPai.ContainerEtapa;
 import com.tcc.dagon.opus.R;
 
@@ -19,6 +23,15 @@ public class ContainerComandosGlossario extends ContainerEtapa {
         // LAYOUT QUE O CONTAINER VAI PUXAR
         setContentView(R.layout.container_glossario);
         super.onCreate(savedInstanceState);
+
+        // SETA VOLTAR NA BARRA DE MENU
+        if(getSupportActionBar() != null) {
+            // BOTÃO SUPERIOR MENU PUXÁVEL
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+
         super.instanciaObjetos();
         super.moduloAtual = 0;
         super.etapaAtual = 0;
@@ -38,4 +51,17 @@ public class ContainerComandosGlossario extends ContainerEtapa {
         tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
 
     }
+
+    // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

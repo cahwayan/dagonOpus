@@ -2,15 +2,26 @@
 <resources>
 
      <string name="termosGlossario">
-        <b>Escreva(<![CDATA[“]]><![CDATA[“]]>)</b>- Comando que saída de dados que imprime dados na tela
-        \n\n<b>Leia(variavel)</b> - Comando que lê um valor que será digitado pelo usuario
-        \n\n\n<b>para(condicao) faca</b> - Loop de repetição com teste lógico no início
-        \n\n<b>enquanto(condicao) faca</b> - Loop de repetição com teste lógico no início ou no fim
-        \n\n<b>repita
-            \n<![CDATA[<bloco de comandos>]]>
-            \nate <![CDATA[<condicao>]]> - Essa estrutura de repetição repete comandos até que uma condição seja atingida. Importante notar que o teste lógico é feito no final da repetição. </b>
+        <b>Escreva(<![CDATA[“]]><![CDATA[<Conjunto de caracteres>]]><![CDATA[“]]>)</b>
+        \nComando que saída de dados que imprime dados na tela
 
-        \n\n<b>funcao nomeFuncao(parametros): retorno - Declara uma função dentro do programa</b>
+        \n\n\n<b>Leia(<![CDATA[<variável>]]>)</b> 
+        \nComando que lê um valor que será digitado pelo usuario e guarda em uma variável
+
+        \n\n\n<b>para <![CDATA[<contador>]]> de <![CDATA[<inicio contagem>]]> ate <![CDATA[<fim contagem>]]> faca</b> 
+        \nLoop de repetição com teste lógico no início. Geralmente utilizamos o loop Para quando sabemos quantas vezes o código irá se repetir. Você pode definir um passo para a contagem também.
+
+        \n\n\n<b>enquanto <![CDATA[<condição>]]> faca</b> 
+        \nLoop de repetição com teste lógico no início e/ou no fim. Geralmente utilizamos o loop Enquanto, quando não sabemos exatamente quantas vezes um código precisará se repetir.
+
+        \n\n\n<b>repita
+            \n<![CDATA[     <bloco de comandos>]]>
+            \nate <![CDATA[<condicao>]]> </b>
+
+            \nEssa estrutura de repetição repete comandos até que uma condição seja atingida. Importante notar que o teste lógico é feito no final da repetição, e que o código é executado pelo menos uma vez antes do teste lógico ser realizado. 
+
+        \n\n\n<b>funcao <![CDATA[<nome da função>]]>(<![CDATA[<parametros>]]>): <![CDATA[<retorno>]]></b>
+        \nDeclara uma função dentro do programa. Funções são utilizadas para definir um processo que pode ser repetido diversas vezes ao longo do código.
 
     </string>
 

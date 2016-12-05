@@ -105,7 +105,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="10dp"
                 app:rcSecondaryProgress="0"
-                app:rcMax="30"
+                app:rcMax="32"
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"

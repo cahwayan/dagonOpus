@@ -23,34 +23,23 @@
 
 
     <!-- MÓDULO 5 -->
-    <string name="TituloEtapa1Modulo5">1. Objetos</string>
-    <string name="TituloEtapa2Modulo5">2. Classes</string>
-    <string name="TituloEtapa3Modulo5">3. Abstração</string>
-    <string name="TituloEtapa4Modulo5">4. Métodos</string>
-    <string name="TituloEtapa5Modulo5">5. Métodos construtores</string>
-    <string name="TituloEtapa6Modulo5">6. Encapsulamento</string>
-    <string name="TituloEtapa7Modulo5">7. Prova 5</string>
-
-    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
-    <string name="qtdQuestoesModulo5Etapa1">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa2">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa3">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa4">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa5">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa6">X Questões</string>
-    <string name="qtdQuestoesModulo5Etapa7">6 Questões</string>
-    <!--FIM STRINGS ETAPAS MÓDULO 5 -->
-
-    <!-- MÓDULO 6 -->
-    <string name="TituloEtapa1Modulo6">1. Desafio 1</string>
-    <string name="TituloEtapa2Modulo6">2. Desafio 2</string>
-    <string name="TituloEtapa3Modulo6">3. Desafio 3</string>
+    <string name="TituloEtapa1Modulo6">1. Objetos</string>
+    <string name="TituloEtapa2Modulo6">2. Classes</string>
+    <string name="TituloEtapa3Modulo6">3. Abstração</string>
+    <string name="TituloEtapa4Modulo6">4. Métodos</string>
+    <string name="TituloEtapa5Modulo6">5. Métodos construtores</string>
+    <string name="TituloEtapa6Modulo6">6. Encapsulamento</string>
+    <string name="TituloEtapa7Modulo6">7. Prova 5</string>
 
     <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
     <string name="qtdQuestoesModulo6Etapa1">X Questões</string>
     <string name="qtdQuestoesModulo6Etapa2">X Questões</string>
     <string name="qtdQuestoesModulo6Etapa3">X Questões</string>
-    <!--FIM STRINGS ETAPAS MÓDULO 6 -->
+    <string name="qtdQuestoesModulo6Etapa4">X Questões</string>
+    <string name="qtdQuestoesModulo6Etapa5">X Questões</string>
+    <string name="qtdQuestoesModulo6Etapa6">X Questões</string>
+    <string name="qtdQuestoesModulo6Etapa7">6 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 5 -->
 
     <!-- MÓDULO 7 -->
     <string name="TituloEtapa1Modulo7">1. Estrutura de classes e objetos</string>
@@ -68,18 +57,6 @@
     <string name="qtdQuestoesModulo7Etapa5">X Questões</string>
     <string name="qtdQuestoesModulo7Etapa6">5 Questões</string>
     <!--FIM STRINGS ETAPAS MÓDULO 7 -->
-
-    <!-- MÓDULO 8 -->
-    <string name="TituloEtapa1Modulo8">1. Desafio 1</string>
-    <string name="TituloEtapa2Modulo8">2. Desafio 2</string>
-    <string name="TituloEtapa3Modulo8">3. Desafio 3</string>
-
-    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
-    <string name="qtdQuestoesModulo8Etapa1">X Questões</string>
-    <string name="qtdQuestoesModulo8Etapa2">X Questões</string>
-    <string name="qtdQuestoesModulo8Etapa3">X Questões</string>
-    <!--FIM STRINGS ETAPAS MÓDULO 8 -->
-
 
     <!--FONTE-->
     <string name="fonteQuestao">sans-serif-light</string>

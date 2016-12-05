@@ -160,4 +160,41 @@
     </string>
     <string name="ProvaModulo4Pergunta2Linha4">_________</string>
 
+    <!--PERGUNTA 3-->
+    <string name="ProvaModulo4Pergunta3">Preencha os campos em branco para criar um programa
+    que some dois numeros INTEIROS por passagem de parâmetro utlizando um procedimento
+    </string>
+
+
+    <string name="ProvaModulo4Pergunta3Linha1"><u>Procedimento somaParametro</u>(X, Y: <!--___inteiro____ )--></string>
+
+    <string name="ProvaModulo4Pergunta3Linha2">Inicio</string>
+
+    <string name="ProvaModulo4Pergunta3Linha3"><![CDATA[     ]]>EscrevaL(<![CDATA[“]]>1° Número:  <![CDATA[“]]>, <!--____x___ )--></string>
+    <string name="ProvaModulo4Pergunta3Linha4"><![CDATA[     ]]>EscrevaL(<![CDATA[“]]>2° Número: <![CDATA[“]]>, <!--___y____ )--></string>
+    <string name="ProvaModulo4Pergunta3Linha5"><![CDATA[     ]]>EscrevaL(  <!-- _ * _)--></string>
+    <string name="ProvaModulo4Pergunta3Linha6">FimProcedimento
+                                                \n\n<u>inicio</u>
+                                                \n\n<![CDATA[     ]]>somaParametro(3,2)
+                                                \n\n<u>fimAlgoritmo</u>
+
+    </string>
+    <!--PERGUNTA 4-->
+    <string name="ProvaModulo4Pergunta4">Qual a principal utilidade das funções?</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo4Pergunta4Alternativa1">Funções permitem que o programa trabalhe mais rapidamente.</string>
+    <string name="ProvaModulo4Pergunta4Alternativa2">As funções adicionam recursos de decisão no algoritmo.</string>
+    <string name="ProvaModulo4Pergunta4Alternativa3">Utilizar parâmetros.</string>
+    <string name="ProvaModulo4Pergunta4Alternativa4">Um dos grandes benefícios das funções é não precisar copiar o código todas as vezes que precisar executar aquela operação, bastando chamar a função com uma linha. Além de deixar a leitura do código mais intuitiva, também podemos retornar valores.</string>  <!--CORRETA-->
+
+    <!--PERGUNTA 5-->
+    <string name="ProvaModulo4Pergunta5">Preencha os campos em branco para criar uma função que multiplique e retorne dois valores</string>
+
+    <string name="ProvaModulo4Pergunta5Linha1">Funcao Multiplicar(A, B:Inteiro):inteiro
+                                                \n\n<u>Inicio</u></string>
+
+    <string name="ProvaModulo4Pergunta5Linha2"><![CDATA[     ]]>Retorne <!--_ A _  B B A _--></string>
+
+    <string name="ProvaModulo4Pergunta5Linha3">fimfuncao</string>
+
 </resources>

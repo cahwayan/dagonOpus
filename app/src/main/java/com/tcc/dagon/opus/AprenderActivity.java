@@ -24,16 +24,17 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.Glossario.ContainerComandosGlossario;
-import com.tcc.dagon.opus.Glossario.FragmentComandosGlossario;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.String.valueOf;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
+
 
 /**
  * Created by Andrade on 23/09/2016.
@@ -476,8 +477,8 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/3");
         txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/6");
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/1");
-        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/7");
-        txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/X");
+        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/6");
+        txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/10");
     }
 
     // CONFIGURA O PROGRESSO DAS PROGRESS BARS
@@ -551,8 +552,8 @@ public class AprenderActivity extends AppCompatActivity {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 5) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo5Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }

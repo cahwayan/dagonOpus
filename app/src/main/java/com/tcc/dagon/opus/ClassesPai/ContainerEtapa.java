@@ -1,12 +1,16 @@
 package com.tcc.dagon.opus.ClassesPai;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -108,5 +112,7 @@ public class ContainerEtapa extends AppCompatActivity {
     protected void movePrevious(View view) {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
+
+
 
 }

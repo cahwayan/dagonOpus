@@ -74,6 +74,10 @@
             android:name=".telasEtapas.EtapasModulo4Activity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".telasEtapas.EtapasModulo5Activity"
+            android:screenOrientation="portrait" />
+
         <!--CONTAINER GLOSSARIO -->
 
         <activity
@@ -224,6 +228,14 @@
         <activity
             android:name=".ContainerLicoes.Modulos.Provas.ContainerProva4"
             android:label="@string/TituloEtapa6Modulo4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--MÓDULO 5-->
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo5.ContainerModulo5Etapa1"
+            android:label="@string/TituloEtapa1Modulo5"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

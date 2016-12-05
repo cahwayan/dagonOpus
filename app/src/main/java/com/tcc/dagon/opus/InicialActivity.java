@@ -111,8 +111,8 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(3,3);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(5,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,4);
-                DB_PROGRESSO.atualizaProgressoEtapa(7,5);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,6);
+                DB_PROGRESSO.atualizaProgressoEtapa(7,10);
                 DB_PROGRESSO.atualizaProgressoEtapa(8,4);
             }
         });

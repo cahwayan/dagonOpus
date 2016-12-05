@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--MÓDULO 1-->
+    <string name="TituloEtapa1Modulo5">Desafio 1</string>
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo5Etapa1">1 Desafio</string>
+
+    <!--FIM STRINGS ETAPAS MÓDULO 1-->
+
+    <!-- TITULOS LIÇÕES-->
+    <!-- MÓDULO 5-->
+    <!--ETAPA 1-->
+    <!-- LICAO 1 -->
+    <string name="titulo1Modulo5Etapa1Licao1">1. Primeiro desafio!</string>
+
+    <!-- TEXTOS LICOES -->
+    <!--MÒDULO 5-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
+    <string name="texto1Modulo5Etapa1Licao1">
+        Bem-vindo aos desafios! Nesta parte, faremos exercícios um pouco mais difíceis do que os que estamos fazendo até agora (não tá difícil, vai). 
+        \n\nA proposta é a seguinte: observe o algoritmo abaixo com muita atenção. Você vai ter que recriar um algoritmo similar a este a seguir.
+
+        \n\n<u>Var</u>
+        \n<![CDATA[     ]]>I: <u>inteiro</u>
+        \n<![CDATA[     ]]>nome, maisPesado: <u>caractere</u>
+        \n<![CDATA[     ]]>peso, maiorPeso: <u>real</u>
+
+        \n\n<u>inicio</u>
+        \n<![CDATA[     ]]>Para i <![CDATA[<-]]> 1 ate 5 faca
+        \n<![CDATA[          ]]>Escreva(<![CDATA[“Digite seu nome: “]]>)
+        \n<![CDATA[          ]]>Leia(nome)
+        \n<![CDATA[          ]]>Escreva(<![CDATA[“Digite o peso: “]]>)
+        \n<![CDATA[          ]]>Leia(peso)
+
+        \n\n<![CDATA[          ]]>Se(peso <![CDATA[>]]> maiorPeso) entao
+        \n<![CDATA[               ]]><![CDATA[maiorPeso <- peso]]>
+        \n<![CDATA[               ]]><![CDATA[maisPesado <- nome]]>
+        \n<![CDATA[          ]]>FimSe
+        \nFimPara
+
+        \n\nEscrevaL(<![CDATA[“Pessoa de maior peso: “ , maisPesado]]>)
+        \nEscrevaL(<![CDATA[“Com o peso de: “ , maiorPeso, “Kg“]]>)
+    </string>
+
+    <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 1-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 2-->
+    <string name="x">
+    </string>
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 1-->
+    <string-array name="tab_modulo5_etapa1">
+        <item></item>
+        <item></item>
+    </string-array>
+    
+
+</resources>

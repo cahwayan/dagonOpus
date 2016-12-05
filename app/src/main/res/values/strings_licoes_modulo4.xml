@@ -64,13 +64,13 @@
     <b>procedimento</b> para manusear o liquidificador e tornar a sua deliciosa
     vitamina realidade, então você precisará:
 
-        \n\n<b>Procedimento Preparar Vitamina</b>
+        \n\n<b>Procedimento PrepararVitamina</b>
         \n<![CDATA[     ]]>- Ligar o liquidificador na energia
         \n<![CDATA[     ]]>- Abrir a tampa
         \n<![CDATA[     ]]>- Inserir os ingredientes
         \n<![CDATA[     ]]>- Fechar a tampa
         \n<![CDATA[     ]]>- Girar o botão para ligar o liquidificador
-        \n<b>Fim do Procedimento</b>
+        \n<b>FimProcedimento</b>
 
         \n\nEstes são os passos para fazer a vitamina. Imagine que todos esses passos são linhas de códigos escritos
         para definir um <b>Procedimento</b>. Esse procedimento, uma vez escrito, pode ser utilizado quantas

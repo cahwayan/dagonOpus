@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva2;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva4;
 import com.tcc.dagon.opus.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -24,7 +25,7 @@ public class Questao1 extends QuestaoProva {
         // INSTANCIA DE OBJETOS / BANCO / JANELA ALERTA / SONS
         super.instanciaObjetos();
         // MÓDULO A QUAL A PERGUNTA PERTENCE
-        super.moduloAtual = 2;
+        super.moduloAtual = 4;
         // ETAPA A QUAL A PERGUNTA PERTENCE
         super.etapaAtual = 6;
         // NÚMERO DA PERGUNTA
@@ -35,7 +36,7 @@ public class Questao1 extends QuestaoProva {
         super.mCallback.onArticleSelected(5);
 
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo2_prova_questao1, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo4_prova_questao1, container, false);
 
         //TRAZENDO AS VIEWS
         accessViews();
@@ -46,29 +47,29 @@ public class Questao1 extends QuestaoProva {
         return this.rootView;
     }
 
+
     protected void accessViews() {
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        mViewPager = ((ContainerProva2)getActivity()).getPager();
-        tabStrip   = ((ContainerProva2)getActivity()).getTabStrip();
-        mTabLayout = ((ContainerProva2)getActivity()).getmTabLayout();
+        mViewPager = ((ContainerProva4)getActivity()).getPager();
+        tabStrip   = ((ContainerProva4)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerProva4)getActivity()).getmTabLayout();
 
-        vida01 = ((ContainerProva2)getActivity()).getVida01();
-        vida02 = ((ContainerProva2)getActivity()).getVida02();
-        vida03 = ((ContainerProva2)getActivity()).getVida03();
-        vida04 = ((ContainerProva2)getActivity()).getVida04();
-        vida05 = ((ContainerProva2)getActivity()).getVida05();
+        vida01 = ((ContainerProva4)getActivity()).getVida01();
+        vida02 = ((ContainerProva4)getActivity()).getVida02();
+        vida03 = ((ContainerProva4)getActivity()).getVida03();
+        vida04 = ((ContainerProva4)getActivity()).getVida04();
+        vida05 = ((ContainerProva4)getActivity()).getVida05();
 
         // PEGANDO OS RADIO BUTTONS DO LAYOUT
-        alternativa1 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta1Alternativa1);
-        alternativa2 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta1Alternativa2);
-        alternativa3 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta1Alternativa3);
-        alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta1Alternativa4);
+        alternativa1 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta1Alternativa1);
+        alternativa2 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta1Alternativa2);
+        alternativa3 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta1Alternativa3);
+        alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta1Alternativa4);
 
         // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo2Pergunta1);
+        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo4Pergunta1);
 
         super.accessViews();
-
     }
 
 }
