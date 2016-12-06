@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+
+    <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
+    <string name="qtdQuestoesModulo6Etapa1">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa2">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa3">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa4">2 Questões</string>
+    <string name="qtdQuestoesModulo6Etapa5">3 Questões</string>
+    <string name="qtdQuestoesModulo6Etapa6">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa7">4 Questões</string>
+    <string name="qtdQuestoesModulo6Etapa8">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa9">1 Questão</string>
+    <string name="qtdQuestoesModulo6Etapa10">9 Questões</string>
+    <!--FIM STRINGS ETAPAS MÓDULO 6 -->
+
+    <!-- MÓDULO 6 -->
+    <string name="TituloEtapa1Modulo6">1. Introdução</string>
+    <string name="TituloEtapa2Modulo6">2. POO</string>
+    <string name="TituloEtapa3Modulo6">3. Objetos</string>
+    <string name="TituloEtapa4Modulo6">4. UML</string>
+    <string name="TituloEtapa5Modulo6">5. Classes</string>
+    <string name="TituloEtapa6Modulo6">6. Abstração</string>
+    <string name="TituloEtapa7Modulo6">7. Visibilidade e métodos especiais</string>
+    <string name="TituloEtapa8Modulo6">8. Métodos Construtores</string>
+    <string name="TituloEtapa9Modulo6">9. Encapsulamento</string>
+    <string name="TituloEtapa10Modulo6">10. Prova 6</string>
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!-- TITULOS LIÇÕES-->
+    <!-- MÓDULO 6-->
+    <!--ETAPA 1-->
+
+    <!-- LICAO 1 -->
+    <string name="titulo1Modulo6Etapa1Licao1">1. Estrutura condicional simples: If (Se)</string>
+
+    <!--ETAPA 2-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa2Licao1">1. Estrutura condicional composta: Se/Senao</string>
+
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa3Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 4-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa4Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo6Etapa4Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 5-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa5Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo6Etapa1Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 3-->
+    <string name="titulo1Modulo6Etapa1Licao3">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 6-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa6Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 7-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa7Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 2-->
+    <string name="titulo1Modulo6Etapa7Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 3-->
+    <string name="titulo1Modulo6Etapa7Licao3">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--LIÇÃO 4-->
+    <string name="titulo1Modulo6Etapa7Licao4">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 8-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa8Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+    <!--ETAPA 9-->
+    <!--LIÇÃO 1-->
+    <string name="titulo1Modulo6Etapa9Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+
+
+
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+
+    <!-- TEXTOS LICOES -->
+    <!--MÒDULO 4-->
+    <!--ETAPA 1-->
+    <!--LICAO 1-->
+    <string name="texto1Modulo6Etapa1Licao1">Encerram-se aqui os comandos em portugol, a partir de agora nada do que fizermos funcionara no VisualG ou qualquer outra ferramente de portugol, pois não é possível explicar alguns conceitos, porque ele não tem suporte para <b>classes</b>, <b>objetos</b>, <b>herança</b>, <b>polimorfismo</b> dentre outros conceitos importantíssimos para a lógica de <b>programação orientada a objetos</b>
+
+    \n\nMas calma meu amigo! Não se desespere, o professor <b>Gustavo Guanabara</b> desenvolveu uma metodologia com “algoritmos”, para que possamos estudar esses conceitos, por isso o portugol nos foi importantissmo, pois você já sabe lógica de programação e algoritmos, então irá tirar de letra! :)
+
+    \n\nO professor <b>Gustavo Guanabara</b> é o idealizador do canal no youtube <b>“Curso em video”</b>um canal que ensina lógica de programação, linguagens de programação dentre outros cursos na área de tecnologia de forma totalmente gratuita. Sem ele, muito provavelmente esse aplicativo não se tornaria realidade (mesmo ele não sabendo disso rs), pois seus vídeos nos ajudaram tanto a compreender melhor a lógica de programação, a linguagem de programação Java, na qual esse aplicativo foi desenvolvido, quanto na metodologia que aplicamos aqui pra vocês.
+    </string>
+
+    <!-- DICA VERDE -->
+
+    <!-- ETAPA 2 -->
+    <!-- LIÇÃO 1 -->
+
+    <string name="texto1Modulo6Etapa2Licao1">O objetivo da <b>Programação orientada a objetos</b> é aproximar o mundo digital do mundo real, quando nos tornamos programadores normalmente nos preocupamos demais com detalhes e coisas técnicas, e claro, isso é muito importante para construirmos um código sólido e um sistema confiável, porém antigamente, 40/50 anos atrás isso era muito difícil. A programação tinha que ser feita para cada maquina especifica, não existiam comandos, para dar instruções ao computador você tinha que dar essas instruções da forma que o computador compreendia, ou seja, se o computador era binário você tinha que dar instruções em binário, se fosse decimal tinha que dar instruções em decimal, então você já consegue imaginar como era fácil né? Rs
+    \n\nCom o tempo isso foi evoluindo, foram criados comandos que já podiam ser compreendidos por nós e passados aos computadores como instruções. Um pouco mais tarde foi criada a programação estruturada, onde é composta por comandos e instruções de forma estruturada (dãr rs) e o código podia ser executado fora da “ordem natural das coisas”, a programação estruturada deu origem aos sistemas, ou seja, parou de ser “pequenos programinhas” e começaram a surgir os sistemas, porém com o crescer dos sistemas a programação estruturada começou a falhar em alguns conceitos. Com a necessidade por conta das falhas da programação estruturada, foi criada a programação modular.
+    \n\nNa programação modular podiam-se criar pequenos procedimentos ou módulos estruturados, valorizando dados e funcionalidades onde era possível coloca-los em pequenas cápsulas protegidas, que poderiam compor sistemas cada vez maiores. 
+    \n\nA programação modular teve uma vida um tanto quanto reduzida, pois, pouco tempo depois, surgiu a nossa querida e amada <b>Programação Orientada a Objetos</b> (<b>POO</b>) que ampliava ainda mais os conceitos da programação modular.
+    \n\nA grande vantagem da <b>POO</b> é que ela se dá de forma natural, e é extremamente simples de explicar e entender  <b>Programação Orientada a Objetos</b>, é possível explicar qualquer conceito, de forma natural, usando qualquer tipo de objeto ou coisa da vida real.
+    </string>
+
+    <!-- DICA AMARELA -->
+
+    <!-- ETAPA 3 -->
+
+    <!-- LIÇÃO 1 -->
+
+    <string name="texto1Modulo6Etapa3Licao1">Pra você, o que é um objeto? Dê uma olhada ao seu redor, você com certeza esta rodeado de objetos, o celular que você está utilizando neste exato momento é um objeto, o controle da sua TV é um objeto, o liquidificador é um objeto rs. 
+    Aposto que você consegue pensar facilmente em todas essas coisas como objetos. 
+    Agora vamos pensar diferente, o horário que você acorda para ir a escola, é um objeto? O compromisso que você tem agendado, o aluno de uma escola são objetos? O que você responderia?
+    </string>
+
+    <!-- DICA VERDE -->
+
+    <string name="texto2Modulo6Etapa3Licao1">Pra você, o que é um objeto? Dê uma olhada ao seu redor, você com certeza esta rodeado de objetos, o celular que você está utilizando neste exato momento é um objeto, o controle da sua TV é um objeto, o liquidificador é um objeto rs. 
+    Aposto que você consegue pensar facilmente em todas essas coisas como objetos. 
+    Agora vamos pensar diferente, o horário que você acorda para ir a escola, é um objeto? O compromisso que você tem agendado, o aluno de uma escola são objetos? O que você responderia?
+    </string>
+
+    <string name="texto3Modulo6Etapa3Licao1">Para nosso melhor entendimento vamos pensar em uma lâmpada, uma lâmpada é um objeto? Sim.
+
+        <!-- IMAGEM 1 -->
+   
+    \n\nQuais características possuem uma lâmpada? Bom, a lâmpada possuí tensão (127v ou 220v) Ela pode ser incandescente ou fluorescente&#8230; etc.
+
+    \n\nQuais comportamentos possuí uma lâmpada? Isso é mais simples ainda se tratando da lâmpada, ou você acende a lampada ou apaga. Então, a lâmpada está apagada, acesa ou está queimada (não pode ser ligada). Vamos listar essas características:
+
+    \n\n<b>Caracteristicas (Atributos):</b>
+    \n<![CDATA[     ]]>- Tipo (Incandescente, fluorescente)
+    \n<![CDATA[     ]]>- Tensao (127V,220V)
+    \n<![CDATA[     ]]>- Cor
+
+    \n\n<b>Comportamentos (Métodos, procedimentos):</b>
+    \n<![CDATA[     ]]>- Acender
+    \n<![CDATA[     ]]>- Apagar
+
+    \n\n<b>Estado:</b>
+    \n<![CDATA[     ]]>- Acesa
+    \n<![CDATA[     ]]>- Apagada
+    \n<![CDATA[     ]]>- Queimada
+
+    \n\nUma lâmpada pode possuir muitas outras características. Você pode estar pensando em algumas delas, mas para exemplo, vamos pensar só nessas por enquanto. 
+
+    \n\nCaracteristicas são os atríbutos que o objeto possui,comportamentos são os metodos ou procedimentos, é o que ele pode fazer e o estado é como ele está agora.
+
+    \n\nEntão de acordo com o que vimos, tudo que possuir atributos, métodos e estado é um objeto. 
+
+    \n\nAgora que já vimos um objeto simples, que pode de fato ser identificado como objeto por qualquer pessoa, vamos pensar em um objeto <b>abstrato</b> que é aquele que não existe fisicamente, nós não conseguimos tocar, vamos pensar no <b>horário</b>.
+    </string>
+
+    <!-- IMAGEM 2 -->
+
+    <string name="texto4Modulo6Etapa3Licao1">Atributos
+     \n<![CDATA[     ]]>- Hora atual                                                            
+     \n<![CDATA[     ]]>- Tipo de hora (verão, normal)
+     \n<![CDATA[     ]]>- Fuso horário (país)
+
+    \n\nMétodos
+    \n<![CDATA[     ]]>- Ligar horário de verão
+    \n<![CDATA[     ]]>- Ligar horário normal
+
+    \n\nEstado
+    \n<![CDATA[     ]]>- Horário Atual
+
+     Lembre-se, nós não estamos falando do objeto relógio, que é usado para mostrar o <b>horário</b>, nós estamos falando do objeto horário, tempo, que não pode ser tocado, que por possuir atributos, <b>métodos</b> e <b>estado</b> é sim um <b>objeto</b>. Vamos pensar em algumas características?
+    </string>
+
+    <!-- ETAPA 4 -->
+    <!-- LIÇÃO 1 -->
+    <string name="texto1Modulo6Etapa4Licao1">Você já ouviu falar de <b>Modelo de Linguagem Unificada</b>? A <b>UML</b> é uma forma de “desenhar” ou “projetar” sistemas antes mesmo de começar a desenvolve-los, obviamente para não haver ou diminuir os possíveis erros quando for desenvolver de fato o sistema. São feitos diversos desenhos, descritivos, fluxogramas, para que o programador quando for desenvolver, saiba exatamente o que tem que fazer. Nós não vamos entrar afundo na UML aqui, porém saiba que ela é fundamental na área de desenvolvimento de sistemas, vamos a um exemplo, lembra do objeto lâmpada que você aprendeu no módulo anterior? Pois bem:
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa4Licao1">Lampada
+        \nTipo
+        \nTensao
+        \nCor
+        \nAcender()
+        \nApagar()
+
+        \n\nNós representamos a lâmpada no módulo anterior de forma simples, na UML isso não é diferente, ela leva essa simplicidade ao extremo, então vamos para a explicação. 
+    </string>
+
+    <!-- IMAGEM 2 -->
+
+    <string name="texto3Modulo6Etapa4Licao1">Viu como é simples? Esse é um diagrama de classes, o mais famoso da <b>UML</b>. Daqui a pouco você vai entender o que é uma classe, isso se já não tiver sacado! 
+    
+    \n\nRepare também que o nome da classe inicia com letra maiúscula e os atributos e métodos com letra minúscula, isso pode parecer frescura, mas é muito importante, pois se você reparar que começa com letra maiúscula já saberá que se trata de uma classe, e se iniciar com minúsculos atributos ou métodos. E como saberá se é um atributo ou método? É só reparar que os atributos não possuem nada em sua frente e os métodos possuem parênteses (), esta vendo como tudo é feito para facilitar a nossa vida? =D
+    </string>
+
+    <!-- LIÇÃO 2 --> 
+    <string name="texto1Modulo6Etapa4Licao2">O que é visibilidade para você?
+
+        \n\nOs <b>Modificadores de visibilidade</b> indicam o nivel de acesso aos componentes de uma classe, e que componentes são esses? Sim. Esses mesmos, Atributos e métodos.
+
+        \n\nE na UML nós iremos representar a visibilidade com 3 símbolos, são eles:
+        \n\n<b>+</b> O símbolo de mais, representa a visibilidade pública
+        \n<b>-</b>  O de menos a visibilidade privada
+        \n<b>#</b> E hashtag representa visibilidade protegida.
+        \n\nFicou confuso? Agora iremos para um exemplo, explicar de forma <b>natural</b> a visibilidade. 
+        \n\nVamos pensar em tipos de telefones: orelhões, celulares e telefones fixos.
+        \n\nQual é o nível de visibilidade deles? 
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa4Licao2">+ O orelhão é público, pois em qualquer lugar que tenha um, qualquer um pode acessá-lo
+
+        \n\n- O celular é privado, pois ele foi criado com essa finalidade, é de uso pessoal. Só você tem acesso ao seu celular.
+
+        \n\n# O telefone fixo, o da sua casa, é protegido, isso porque nem todas as pessoas tem acesso, somente as que moram na sua casa, então ele é protegido. 
+    </string>
+
+    <!-- DICA AZUL -->
+
+    <!-- ETAPA 5 -->
+    <!-- LIÇÃO 1 -->
+    <string name="texto1Modulo6Etapa5Licao1">Todo objeto vem a partir de uma classe, pense na classe como um “molde”, a lâmpada por exemplo, ela vem a partir de onde? Pense num molde que faz as lâmpadas, esse molde analogicamente falando seria a classe.
+    \n\nPensando num exemplo mais simples de entender, vamos imaginar um bolo, quando você vai fazer um bolo, existem vários tipos de formas, mas vamos imaginar aquela forma redonda. O bolo seja qual sabor for, quais ingredientes forem, não importa, o bolo é o objeto, e a forma é a classe. Todo objeto bolo que partir da classe Forma redonda serão redondos. =D
+
+    \n\n<b>Classe:</b>
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa5Licao1"><b>Objeto:</b></string>
+
+    <!-- IMAGEM 2 -->
+
+    <string name="texto3Modulo6Etapa5Licao1">Ou seja, para criar um objeto, temos que antes definir uma classe para ele, tem que planejar esse objeto, como suas características, métodos e possíveis estados que esse objeto possa ter.
+    </string>
+
+    <!-- LIÇÃO 2 -->
+    <string name="texto1Modulo6Etapa5Licao2">Aposto que você está com saudades de praticar, eu sei que está (diz que sim), bom então vamos lá. Vamos pensar em mais um objeto. Dessa vez, vamos pensar em uma uma caneta. 
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa5Licao2">Vamos planejar a classe caneta de acordo com a <b>UML</b>? </string>
+
+    <!-- IMAGEM 2 --> 
+
+    <string name="texto3Modulo6Etapa5Licao2">Só para refrescarmos a memória, o primeiro item é o nome da classe, na segunda parte vem os métodos e os seus tipos (modelo é caractere porque irá receber dado do tipo caractere, um nome) e na última parte são os seus métodos. Entenda os métodos como procedimento e funções que você aprendeu anteriormente no portugol, pois é exatamente o que métodos são.
+        \n\nAgora que já planejamos a classe Caneta na UML, vamos programar a classe Caneta.
+        \n\nClasse Caneta
+        \n<![CDATA[     ]]>modelo:Caractere
+        \n<![CDATA[     ]]>cor:Caractere
+        \n<![CDATA[     ]]>ponta:Real
+        \n<![CDATA[     ]]>carga:Inteiro
+        \n<![CDATA[     ]]>tampada:Logico
+
+        \n\n<![CDATA[     ]]>Metodo rabiscar()
+        \n<![CDATA[          ]]>Se(tampada) entao
+        \n<![CDATA[               ]]>Escreva (<![CDATA[“Não é possível rabiscar.“]]>) 
+        \n<![CDATA[          ]]>senao
+        \n<![CDATA[               ]]>Escreva (<![CDATA[“Rabiscando...“]]>)
+        \n<![CDATA[          ]]>Fimse
+        \n<![CDATA[     ]]>FimMetodo
+
+        \n\n<![CDATA[     ]]>Metodo tampar()
+        \n<![CDATA[          ]]>tampada = verdadeiro
+        \n<![CDATA[     ]]>FimMetodo
+        \n\nFimClasse
+
+        \n\nRepare, agora que as coisas começaram a ficar interessantes! Você reparou na semelhança do nosso código com aquele simples diagrama da caneta? O que tivemos que “pensar” realmente foi o que os métodos fazem, o tampar torna o atributo “tampada” como verdadeiro, ou seja, a caneta está tampada, o método rabiscar o que ele faz? RABISCA! Hahaha, desde que a caneta não esteja tampada, ou seja, desde que o metodo tampar() não tenha sido chamado antes do rabiscar. =D
+    </string>
+
+    <!-- LIÇÃO 3 -->
+    <string name="texto1Modulo6Etapa5Licao3">Agora nós vamos valorar os atributos da nossa caneta, entender o estado dela, vamos entender também a diferença de atributo e estado, ah.. vamos criar também mais alguns métodos, ou você achou que só é possivel rabiscar e tampar uma caneta? E se por um acaso você usasse o método tampar() antes, não conseguiria rabiscar() certo? Iria fazer o que? Jogar a caneta fora? Não, vamos criar o método destampar() e mais alguns outros, vamos ao exemplo para você entender melhor, vamos lá!
+
+        \n\n<b>Classe Caneta</b>
+
+        \n\n<b>Atributos</b>
+        \n<![CDATA[     ]]>modelo:Caractere = BIC Cristal
+        \n<![CDATA[     ]]>cor:Caractere  = Azul
+        \n<![CDATA[     ]]>ponta:Real = 0.5
+        \n<![CDATA[     ]]>carga:Inteiro = 90
+        \n<![CDATA[     ]]>tampada:Logico = falso
+
+        \n\n<b>Métodos</b>
+        \n<![CDATA[     ]]>escrever()
+        \n<![CDATA[     ]]>rabiscar()
+        \n<![CDATA[     ]]>pintar()
+        \n<![CDATA[     ]]>tampar()
+        \n<![CDATA[     ]]>destampar()
+
+        \n\n<b>Estado</b>
+        \n<![CDATA[     ]]>Bic Cristal
+        \n<![CDATA[     ]]>Azul
+        \n<![CDATA[     ]]>0.5
+        \n<![CDATA[     ]]>90% de carga
+        \n<![CDATA[     ]]>Destampada
+
+        \n\nConseguiu entender a diferença entre atributos, métodos e estado? O estado é como o objeto está agora, no presente momento, o estado pode ser mudado diversas vezes de acordo com a necessidade. 
+        \n\nE quando eu tenho uma classe, e quero gerar um objeto a partir dessa classe? O nome disso é <b>Instanciar</b>, você instancia ou seja, gera, um objeto a partir da classe         
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa5Licao3">Para instanciar a classe, nós fazemos assim:
+
+        \n\nc1 = <b>nova</b> Caneta
+
+        \n\nOnde c1 é o nome que nós damos ao objeto, esse nome poderia ser qualquer um, colocamos c1 pra identificar de formar mais fácil, “c” de caneta e “1” de primeiro objeto, o “nova” é porque estamos criando um novo objeto da classe “Caneta”, então a criação de um objeto sempre se dará dessa forma.
+
+        \n\nA partir de agora temos uma caneta, um objeto da classe Caneta, chamado c1. Nós podemos por exemplo colocar uma cor em c1, como fazemos isso? é simples. 
+
+        \n\nc1.cor = “Azul”
+
+        \n\nc1 é o nome do objeto obviamente, quando eu coloco o ponto eu estou dizendo que quero fazer algo com o meu objeto, o “cor” é o atributo cor do meu objeto, o igual é para ele receber o valor e assim eu defino a cor como “Azul’, vamos terminar de valorar nosso objeto. 
+
+        \n\nc1 = nova Caneta
+        \nc1.cor = <![CDATA[“Azul“]]>
+        \nc1.ponta = 0.5
+        \nc1.tampada = falso
+        \nc1.rabiscar()
+
+        \n\nRepare que após o metodo vem os parenteses, isso indica que é um metodo, se não houver parenteses, são atributos, e nós podemos mais, vamos criar uma segunda caneta!
+
+        \n\nc2 = nova Caneta
+        \nc2.cor = <![CDATA[“Vermelha“]]>
+        \nc2.ponta = 0.7
+        \nc2.tampada = falso
+        \nc2.rabiscar()
+        \nc2.tampar() // Tampei. Não será possível rabiscar
+        <![CDATA[                     ]]>// Até que eu chame o método destampar().
+
+        <![CDATA[““]]>
+
+        \n\nSão dois objetos, que partiram da mesma classe, porém são diferentes, e assim podemos fazer quantos objetos forem necessários, não há um limite para isso. 
+    </string>
+
+    <!-- DICA AZUL -->
+
+    <string name="texto3Modulo6Etapa5Licao3">A classe é o que dá origem ao objeto, porém a classe não é um objeto, você pode por exemplo, criar uma classe e em nenhum momento <b>instanciar</b> um objeto, a classe irá existir mas o objeto não.
+    </string>
+
+    <!-- ETAPA 6 -->
+    <!-- LIÇÃO 1 -->
+
+    <string name="texto1Modulo6Etapa6Licao1">Abstrair, é exatamente tudo que estamos fazendo até aqui, mas como assim Opus? Como assim estamos abstraindo? Sim, abstraímos e você nem percebeu. Por exemplo, eu sou uma pessoa (estou falando de mim que programei esse aplicativo, não do seu celular), você é uma pessoa, nós somos pessoas. Certo? Agora, se nós somos objetos da classe pessoa, nós temos os mesmos atributos como Cabelo, Altura, Peso, idade dentre outros, porém temos estados diferentes. Eu por exemplo Sou loira, tenho 1,75 de altura e peso, bom.. deixa pra lá! rs, e você dificilmente terá exatamente os mesmos atributos que eu, entendeu? =D
+
+    \n\nEntão.. se eu for fazer um cadastro de aluno em uma escola, é importante a cor do cabelo, o peso, a altura de um aluno para uma escola? Não. Porém se eu for fazer um cadastro de modelo para uma agencia de modelos, isso irá importar.
+
+    \n\nEntão isso é abstração, ainda usando nós, pessoas como exemplo, nós possuímos diversos atributos, então eu irei pegar da classe pessoa, quando for instanciar o meu objeto pessoa, somente os atributos principais, de realmente me interessam.
+    </string>
+
+    <!-- DICA AZUL -->
+
+     <!-- ETAPA 7 -->
+    <string name="texto1Modulo6Etapa7Licao1">
+        Você se lembra quando falamos um pouquinho sobre UML, das visibilidades? <b>+ Público</b>, <b>- Privado</b>e <b># Protegido</b>? pois bem, vamos aplicar isso em nossa classe? 
+
+        \n\nClasse Caneta
+        \n<![CDATA[     ]]>publico modelo:Caractere
+        \n<![CDATA[     ]]>publico cor:Caractere
+        \n<![CDATA[     ]]>privado ponta:Real
+        \n<![CDATA[     ]]>protegido carga:Inteiro
+        \n<![CDATA[     ]]>protegido tampada:Logico
+
+        \n\n<![CDATA[     ]]>publico Metodo rabiscar()
+        \n<![CDATA[          ]]>Se(tampada) entao
+        \n<![CDATA[               ]]>Escreva (<![CDATA[“Não é possivel rabiscar“]]>) 
+        \n<![CDATA[          ]]>senao
+        \n<![CDATA[               ]]>Escreva (<![CDATA[“Rabiscando...“]]>)
+        \n<![CDATA[          ]]>Fimse
+        \n<![CDATA[     ]]>FimMetodo
+
+        \n\n<![CDATA[     ]]>publico Metodo tampar()
+        \n<![CDATA[          ]]>tampada = verdadeiro
+        \n<![CDATA[     ]]>FimMetodo
+        \n\nFimClasse
+
+        \n\nAgora vamos instanciar um objeto dessa classe e valorar alguns atributos. 
+
+        \n\nc1 = nova Caneta    
+        // Posso definir o modelo, pois a visibilidade é publica
+        \nc1.modelo = "Bic Cristal"  
+
+        /\n\n/ Posso definir a cor, pois a visibilidade tambem é publica
+        \nc1.cor = "Azul"         
+
+        \n\n// Não posso definir dessa forma a ponta, pois é privado    
+        \nc1.ponta = 0.5      
+
+        \n\nMas porque colocamos o atributo ou um método como privado ou protegido? se não conseguimos acessar depois? Na verdade conseguimos sim. Existe uma forma mais correta e segura de se fazer isso, utilizando o métodos especiais acessores e modificadores que nós vamos ver em breve.
+
+        \n\nContinuando, vamos para o próximo atributo. O atributo <b>carga</b> que é protegido.
+        
+        \n\nc1.carga = 80
+        
+        \n\nVocê acha que essa linha é possivel? você se lembra como funciona a visbilidade protegido? Onde somente a mãe (classe) e os filhos (subclasses) teriam acesso? então, essa linha também está incorreta, pois estamos criando esse objeto fora da classe.
+        
+        \n\nVocê ainda não aprendeu como definir uma classe <b>Filha</b> mas não se preocupe, só é importante que você entenda sobre a visibilidade, que dessa forma como fizemos, fora da classe, só é possível alterar e modificar os atributos definidor como público, e você perceberá como isso irá te ajudar mais pra frente.
+    </string>
+
+    <!-- DICA VERDE -->
+
+    <string name="texto2Modulo6Etapa7Licao1">Repare também que os métodos possuem visibilidade, porém os dois estao como público então nesse caso não faz diferença. Veja bem, nesse exemplo não nos preocupamos com a usabilidade das visibilidade, não paramos pra pensar no que de fato seria melhor colocar como publico, privado ou protegido, é somente uma maneira de explicar. 
+
+    \n\nAgora vamos para mais um exemplo, para entendermos melhor o porque usar as visibilidades. 
+    
+    \n\nVeja a seguinte imagem de controle remoto:
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto4Modulo6Etapa7Licao1">Olhe bem, os botões da “carcaça” do controle, são públicos, pois nós podemos utilizar qualquer botão. Porém quando se abre o controle tem uma placa com diversos componentes, porém esses componentes você não deve ter acesso, eles são privados, isso porque? pra você não quebrar o controle.
+
+    \n\nOu seja, para o controle durar mais tempo, cria-se essa “Capsula” guarde essa palavra rs, para proteger, e você ter acess que é público.
+
+    \n\nAgora pense no chip que é o responsavel por transmitir as intruções que você dá ao apertar para a televisão, ele seria uma espécie de componente “protegido”, porque? porque você tem acesso e a sua TV também. 
+
+    </string>
+
+
+    <string name="texto1Modulo6Etapa7Licao2">Nós estamos prestes a conhecer os métodos especiais, os métodos especiais, acessores e modificadores, são utilizados em toda linguagem de programação orientada a objetos, é importante dizer que você pode dar o nome que quiser para esses métodos, porém existe um padrão, que é utilizado por todos programadores profissionais para um melhor entendimento e para que possam trabalhar de uma melhor forma em equipe, mais pra frente iremos entender isso.
+
+    \n\nAgora vamos imaginar a seguinte situação:
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa7Licao2">Existe uma sala, com documentos importantes de diversas pessoas, e essas pessoas vão até essa sala e cada um conta o total de seus documento. Você não acha que pode acontecer alguma confusão de troca de documento, perda de documento ou algo do tipo? 
+
+    \n\nÉ aí que entra os <b>Métodos Acessores</b>, mais conhecidos pelo como <b>Getters</b>, o método getter é um método no qual você pega alguma coisa, algum valor, ou acessa esse valor, sendo assim o método getter é aquele que pega alguma informação, normalmente identificados com o “get” na frente do nome, vamos pensar nesse caso da estante, onde vamos criar um método para as pessoas saberem o total de documentos que possuem, vamos nomear esse método acessor de getTotDocs, nós abreviamos total e documentos, para facilitar nossa vida vamos nos acostumar com isso.
+
+    \n\nEsse método getter, funcionaria da seguinte forma, agora ao invés de ter a estante livre na sala, para cada pessoa chegar e pegar seus documentos teria uma mesa na frente da estante, e entre a estante e a mesa teria uma pessoa que <b>possuí autorização</b> para mecher nesses documentos e faria esse controle. Ou seja, não se teria mais acesso direto a esses documentos, nós estamos dificultando, dando uma maior segurança a esses documentos.
+
+    \n\nAgora vamos imaginar o seguinte:
+    \ne = nova Estante
+    \nt = e.getTotDocs()
+
+    \n\nConseguiu comprrender o que ocorreu aí? instanciamos um objeto do tipo estante e utilizamos o método getTotDocs() para receber na variavel “t” a quantidade total de documentos.
+
+    \n\nAnalogicamente pensando, é como se você chegasse até a mesa e perguntasse para a pessoa que pussui autorização que está do outro lado quantos documentos você tem lá, daí essa pessoa vai até os documentos pega essa informação e retorna quantos documentos você possui.
+
+    \n\nParece mais complicado dessa forma? E é mesmo, mas isso tudo tem um motivo, você irá perceber que é importante não dar acesso direto a alguns componentes isso garante uma segurança adicional.
+
+    \n\nVocê lembra dos atributos que nós definimos como privado? pois bem, com o método acessor getter, é possivel acessalos de fora da classe.
+
+    \n\nÉ interessante lembrar que você não é obrigado a fazer dessa forma, porém o mercado de trabalho, quando você se tornar um programador profissional, exige que seja feito dessa forma.
+    </string>
+
+    <!-- LIÇÃO 3 -->
+    <string name="texto1Modulo6Etapa7Licao3">Agora vamos imaginar uma situação parecida, porém dessa vez ao invés de só verificar quantos documentos você possuí na mesa, você quer colocar mais um documento alí, ou seja, quer somar mais um documento aos seus documentos na mesa, da maneira anterior, sem método especial, você entraria na sala e colocaria o documento, poderia entrar outra pessoa e fazer o mesmo, não concorda que dessa forma ficaria bagunçado? é por isso que aprentamos outro método especial, são os <b>métodos modificadores</b> mais conhecidos em ingles como <b>setters</b>então, como anteriormente, ocorreria da mesma forma, teria uma mesa e entre a mesa e a estante teria uma pessoa com autorização, e se quisessemos colocar mais um documento alí, entregariamos para essa pessoa e ela colocaria na estante ai sim somaria mais um documento lá.
+
+    \n\nEntão você nesse caso, não estaria somente querendo acessar quantos documentos tem, mas sim passar um documento, passar algo, que somaria mais um documento na pilha.
+    \n\ne = nova Estante
+    \ne.setTotDocs(doc)
+
+    \n\nReparou que tem praticamente o mesmo nome, só muda o inicio? tente se lembrar de get como ver, acessar, e set como setar, configurar.
+
+    \n\nRepare também que entre os parenteses você teve que passar um parametro, que é o documento, para que fosse colocado junto a pilha. 
+    </string>
+
+    <!-- LIÇÃO 4 -->
+
+    <string name="texto1Modulo6Etapa7Licao4">Os métodos getters e setters devem ser uma das primeiras coisas a serem criados na nossa classe. Vamos continuar com o exemplo da caneta. Note que dessa vez, todos os atributos estão como <b>privados</b> ou <b>protegidos</b>:
+
+    \n\n<b>Classe caneta: </b>
+        \n\nCaneta
+        \n- modelo
+        \n- cor
+        \n- ponta
+        \n# carga
+        \n# tampada
+        \n+ escrever()
+        \n+ rabiscar()
+        \n+ pintar()
+        \n- tampar()
+        \n- destampar()
+
+        \n\n<b>Getters e Setters:</b>
+
+        \n\n+ getModelo()          
+        \n+ setModelo(m)   
+        \n+ getCor()    
+        \n+ setCor(c)         
+        \n+ getPonta()
+        \n+ setPonta(p)
+        \n+ getCarga()              
+        \n+ setCarga(c) 
+        \n+ getTampada()
+        \n+ setTampada(t)
+
+        \n\nTemos que criar um método getter e um método setter para cada atributo da classe, lembrando que o método setter receberá um parametro, pois ele irá modificar o atributo. 
+
+        \n\nVamos deixar nossa classe mais simples, para verificarmos como isso fica no código.
+
+        \n\nClasse Caneta
+        \n<![CDATA[     ]]>publico modelo: Caractere
+        \n<![CDATA[     ]]>privado ponta: Real
+        \n\n<![CDATA[     ]]>publico Metodo getModelo()
+            \n<![CDATA[          ]]>retorne modelo
+        \n<![CDATA[     ]]>FimMetodo
+
+        \n\nO método get retorna o atributo do jeito que ele está, isso é bem simples, e o método set ele recebe um valor por parametro (aquele entre parenteses, que colocamos o nome da primeira letra do atributo) ao receber esse valor por parametro, ele passa o valor para o atributo, desse forma o modificando, repare também na visibilidade dos métodos getters e setters, eles sempre serão públicos, pois precisam ser acessados de qualquer lugar. =D
+
+        \n\nAgora, fora da classe, vamos criar nossos objetos. 
+
+        \n\nEu quero modificar o modelo da minha caneta para “Bic Cristal” sim eu adoro bic cristal, rs. 
+
+        \n\nc1 = nova caneta
+        \nc1.setModelo(“Bic Cristal”)
+
+        \n\nPronto! agora eu tenho uma nova caneta (c1) do modelo bic cristal. heheheh
+    </string>
+
+    <!-- ETAPA 8 -->
+
+    <string name="texto1Modulo6Etapa8Licao1">O método get retorna o atributo do jeito que ele está, isso é bem simples, e o método set ele recebe um valor por parametro (aquele entre parenteses, que colocamos o nome da primeira letra do atributo) ao receber esse valor por parametro, ele passa o valor para o atributo, desse forma o modificando, repare também na visibilidade dos métodos getters e setters, eles sempre serão públicos, pois precisam ser acessados de qualquer lugar. =D
+
+    \n\nAgora, fora da classe, vamos criar nossos objetos. 
+
+    \n\nEu quero modificar o modelo da minha caneta para “Bic Cristal” sim eu adoro bic cristal, rs. 
+
+    \n\nc1 = nova caneta
+    \nc1.setModelo(“Bic Cristal”)
+
+    \n\nPronto! agora eu tenho uma nova caneta (c1) do modelo bic cristal. heheheh
+    </string>
+
+    <!-- ETAPA 9 -->
+
+    <string name="texto1Modulo6Etapa9Licao1">Estamos finalizando o penúltimo módulo do nosso curso, e agora, iremos iniciar a falar dos pilares da programação orientada a objeto, pilar, sim, o que sustenta. 
+
+    \n\nNós iremos falar de <b>encapsulamento</b> que junto com <b>herança</b> e <b>polimorfismo</b> são os pilares da POO, muitas bibliografias consideram a abstração também um pilar, porém, como nós somos devotos do professor Gustavo Guanabara e estamos utilizando a metodologia do canal Curso em Video do youtube para fazer esse nosso aplicativo, nós não consideramos.
+
+    \n\nVocê deve ta se lembrando de capsula, ao pensar em encapsulamento, e sim, tem muito a ver, guarde isso com você que será mais fácil de lembrar lá na frente.
+    Iremos usar como exemplo para começar a entender encapsulamento uma pilha.
+    </string>
+
+    <!-- IMAGEM 1 -->
+
+    <string name="texto2Modulo6Etapa8Licao1">Já parou pra pensar porque existe essa cápsula, porque a pilha é uma capsula protegida?  Primeiro para proteger você dos componentes químicos, pois existem componentes na pilha que podem danificar a sua pele e causar danos a sua saúde, e também para proteger a pilha de você, pois se não existisse essa capsula você poderia mexer em um desses componentes e a pilha parar de funcionar, ou seja, é uma proteção de duplo sentido, protege você dos componentes químicos, e protege a pilha de você para não causar defeitos. Esses são os principais motivos para encapsular uma pilha. 
+
+    \n\nPorém existem outros motivos, como por exemplo para dar padrão, controle remoto por exemplo utiliza um padrão de pilha, o telefone sem fio da sua casa utiliza outro padrão de pilha, o relógio, enfim..
+
+    \n\nUm software encapsulado protege o usuário do software e o software do usuário, protege até mesmo o código desse software do programador e o programador do código, um programador não conseguirá fazer besteiras num código bem encapsulado:
+
+     </string>
+
+     <!-- DICA 1 AZUL-->
+
+     <!-- IMAGEM 2 -->
+
+     <!-- DICA 2 AZUL-->
+
+    <string name="texto3Modulo6Etapa8Licao1">Vamos pensar em um exemplo que irá nos ajudar a entender o que é uma interface, um controle remoto, lembra? o que é a interface do controle remoto, é o que estamos vendo, é o que é acessivel para nós, então vamos criar essa interface:
+    \n\n<![CDATA[<<interface>>]]>
+    \n\nControlador
+
+    \n+ ligar()
+    \n+ desligar()
+    \n+ abrirMenu()
+    \n+ fecharMenu()
+    \n+ maisVolume()
+    \n+ menosVolume()
+    \n+ ligarMudo()
+    \n+ desligarMudo()
+    \n+ play()
+    \n+ pause()
+     
+    \n\nNa interface, nós não dizemos exatamente o que cada método vai fazer, nós só dizemos que esses métodos devem existir, por exemplo, vamos supor que você tenha dois controles remotos aí, um da sua TV e outro do seu SOM ou home teather, enfim, ambos possuem métodos, ações parecidas, porém trabalham de formas diferentes, concorda? imagine que ao desligar a sua TV você delisgasse também o som, ou ao contrário, teria um conflito não é mesmo? pois bem, essa interface serviria para os dois controle, está entendendo onde estamos chegando?
+    \n\nVamos criar nossa classe controle remoto.
+
+    \n\nControleRemoto
+    \n- volume
+    \n- ligado
+    \n- tocando
+    \n+ ligar()
+    \n+ desligar()
+    \n+ abrirMenu()
+    \n+ fecharMenu()
+    \n+ maisVolume()
+    \n+ menosVolume()
+    \n+ ligarMudo()
+    \n+ desligarMudo()
+    \n+ play()
+    \n+ pause()
+    \n- setVolume()
+    \n- getVolume()
+    \n- setLigado()
+    \n- getLigado()
+    \n- setTocando()
+    \n- getTocando()
+
+    \n\nReparou que nós copiamos todos os métodos da interface Controlador? isso porque iremos utilizar ela, e você se lembra que nós sempre declaravamos como público os métodos getter e setter? e sim, nós sempre faremos dessa forma, porém, dessa vez iremos definir eles como privado para que você entenda melhor como funciona a interface. =D
+
+    \n\nAgora vamos ver como ficar isso tudo no código, vamos definir primeiramente nossa interface:
+
+    \n\ninterface Controlador
+    \n// Métodos Abstratos
+    \npublico abstrato Metodo ligar()
+    \npublico abstrato Metodo desligar()
+    \npublico abstrato Metodo abrirMenu()
+    \npublico abstrato Metodo fecharMenu()
+    \npublico abstrato Metodo maisVolume()
+    \npublico abstrato Metodo menosVolume()
+    \npublico abstrato Metodo ligarMudo()
+
+    </string>
+
+    <!-- DICA 3 VERDE -->
+
+    <string name="texto4Modulo6Etapa8Licao1">É assim que se cria uma interface no código, porque os métodos são abstratos? porque eles não serão definidos ali, eu não digo o que esses métodos vão fazer eu só digo que vou precisar desses métodos que serão programados em outro local, pra ser mais exato na classe que utilizar essa interface, toda classe que for definida como “Controlador” terá que obrigatóriamente implementar esses métodos:
+
+    \n\nClasse ControleRemoto implementa Controlador
+
+    \n\n<![CDATA[     ]]>//Atributos
+    \n<![CDATA[     ]]>privado inteiro volume
+    \n<![CDATA[     ]]>privado logico ligado
+    \n<![CDATA[     ]]>privado logico tocando
+
+    \n\n<![CDATA[     ]]>//Metodo construtor
+
+    \n<![CDATA[     ]]>publico ControleRemoto()
+    \n<![CDATA[          ]]>volume = 50
+    \n<![CDATA[          ]]>ligado = falso
+    \n<![CDATA[          ]]>tocando = falso
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n//Metodos Especiais
+
+    \n<![CDATA[     ]]>privado Metodo getVolume()
+    \n<![CDATA[          ]]>retorne volume
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n<![CDATA[     ]]>privado Metodo setVolume(v: Inteiro)
+    \n<![CDATA[          ]]>volume = v
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n<![CDATA[     ]]>privado Metodo getTocando()
+    \n<![CDATA[          ]]>retorne tocando
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n<![CDATA[     ]]>privado Metodo setTocando(t: Logico)
+    \n<![CDATA[          ]]>tocando = t
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n<![CDATA[     ]]>privado Metodo getLigado()
+    \n<![CDATA[          ]]>retorne ligado
+    \n<![CDATA[     ]]>FimMetodo
+
+    \n\n<![CDATA[     ]]>privado Metodo setLigado(l: Logico)
+    \n<![CDATA[          ]]>ligado = l
+    \n<![CDATA[     ]]>fimMetodo
+
+    \n\nAo implementar Controlador, obrigatóriamente é implementado os métodos abstratos na classe para serem trabalhados, nós vamos trabalha-los logo abaixo. Esse com certeza é o maior código que já fizemos até aqui, mas não se desespere e nem tome decisões precipitadas, pois, se você chegou até aqui é porque você sabe fazer tudo que está aí! =) Espero que você esteja gostando do curso, nosso objeto é e sempre será te mostrar o quão facil é programar orientado a objetos. Vamos lá!
+     </string>
+
+    <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+
+    <!--STRINGS CAIXAS DICAS-->
+    <!--MÓDULO 4-->
+    <!--ETAPA 1-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo6Etapa1Licao1">Sabendo lógica de programação e portugol você consegue desenvolver programas em outras <b>linguagens de programação</b>, é só você saber a sintaxe e os comandos da linguagem, que são em inglês.
+    </string>
+
+    <!--ETAPA 2-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo6Etapa2Licao1">Alan kay é o pai da <b>Programação Orientada a Objetos</b>, ele não era um "programador", era formado em matemática e biologia, era especialista em educação infantil. A formação em matemática lhe deu um raciocínio lógico muito bom e sua formação em biologia deu os principais conceitos da <b>Programação Orientada a Objetos</b>.
+    </string>
+
+    <!--ETAPA 3-->
+    <!--LIÇÃO 1-->
+    <string name="dica1Modulo6Etapa3Licao1">Objeto segundo diversos livros de<b> programação</b>: coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características, comportamentos e estado atual.
+    </string>
+
+    <!--ETAPA 4-->
+    <!--LIÇÃO 2-->
+    <string name="dica1Modulo6Etapa4Licao1">A visibilidade segundo a <b>UML:</b>
+    \n\n<b>+ público</b>: A classe atual e todas outras as classes
+    \n<b>- privado</b>: Somente a classe atual
+    \n<b># protegido</b>: a classe atual e todas as suas subclasses
+    </string>
+
+    <!-- ETAPA 5 -->
+
+    <!-- LIÇÃO 3 -->
+
+    <string name="dica1Modulo6Etapa5Licao3"><b>Classe</b>:
+    \nDefine os atributos e métodos comuns que serao compartilhados por um objeto
+    \n\n<b>Objeto</b>:
+    \nÉ a instancia de uma classe.
+    </string>
+
+    <!-- ETAPA 6 -->
+
+    <!-- LIÇÃO 1 -->
+
+    <string name="dica1Modulo6Etapa6Licao1"><b>Classe</b>:
+    Agora, irei te propor uma coisa diferente, uma atividade que você irá realizar na sua cabeça, ou utilizando um papel. Você sem dúvidas está rodeado de objetos, certo? Identifique dois objetos: pode ser uma cadeira, geladeira, o motorista do ônibus ou enfim.. identifique dois objetos e os classifique. Crie a classe que deu origem a esses objetos! =D
+    \n\nPense nos atributos desses objetos, métodos e estado atual. 
+    </string>
+
+    <!-- ETAPA 7-->
+    <!-- LIÇÃO 1 -->
+    <string name="dica1Modulo6Etapa7Licao1">Todo atributo e método vem com uma visibilidade, mesmo que você não a coloque, normalmente essa visibilidade é publica, porém depende da linguagem de programação que você está trabalhando.
+    </string>
+
+    <!-- ETAPA 8 -->
+    <!-- LIÇÃO 1 -->
+    <string name="dica1Modulo6Etapa8Licao1">Encapsular: Ocultar partes independentes da implementação, permitindo construir partes invisiveis ao mundo exterior.
+    </string>
+
+    <string name="dica2Modulo6Etapa8Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
+    </string>
+
+    <string name="dica3Modulo6Etapa8Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
+    </string>
+
+
+
+    <!--TITULOS TABS-->
+    <!--ETAPA 1 MODULO 6-->
+    <string-array name="tab_modulo6_etapa1">
+        <item></item>
+        <item></item>
+    </string-array>
+    <!--ETAPA 2 MODULO 6-->
+    <string-array name="tab_modulo6_etapa2">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 6-->
+    <string-array name="tab_modulo6_etapa3">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 3 MODULO 6-->
+    <string-array name="tab_modulo6_etapa4">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 4 MODULO 6-->
+    <string-array name="tab_modulo6_etapa5">
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 5 MODULO 6-->
+    <string-array name="tab_modulo6_prova">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+
+
+</resources>
