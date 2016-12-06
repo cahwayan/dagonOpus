@@ -1,5 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--ETAPA 1-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa1Pergunta1">Nós não vamos mais usar o portugol porque:</string>
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa1Pergunta1Alternativa1">O portugol morreu</string>
+
+    <string name="Modulo6Etapa1Pergunta1Alternativa2">O portugol suporta os comandos que nós vamos usar pois ele é uma linguagem de programação</string>
+
+    <string name="Modulo6Etapa1Pergunta1Alternativa3">O portugol não tem suporte para que possamos estudar conceitos importantíssimos como <b>classes</b>, <b>objetos</b>, <b>herança</b>, <b>polimorfismo</b>, que fazem parte da <b>programação orientada a objetos</b>.</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa1Pergunta1Alternativa4">O portugol possui suporte a orientação a objetos, mas não queremos mais utiliza-lo.</string>
+
+    <!--ETAPA 2-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa2Pergunta1">Levando em conta a história da programação, qual a grande vantagem da <b>Programação Orientada a Objetos</b>?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa2Pergunta1Alternativa1">A <b>Programação Orientada a Objetos</b> acontece de forma natural, é simples de explicar e simples de entender pois é possível explicar qualquer conceito usando um objeto ou coisa da vida real.</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa2Pergunta1Alternativa2">É possível programar de forma simples e objetiva, sempre visando os objetos do código, que é o que realmente importa.</string>
+
+    <string name="Modulo6Etapa2Pergunta1Alternativa3">A teoria da <b>Programação Orientada a Objetos</b> é muito mais simples de entender, por isso os programadores conseguem ter mais sucesso.</string> 
+
+    <string name="Modulo6Etapa2Pergunta1Alternativa4">A programação orientada a objetos é mais complicada e por isso nos faz sentir mais inteligentes quando aprendemos</string>
+
+    <!--ETAPA 3-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa3Pergunta1">De acordo com o que aprendemos, é correto afirmar que é considerado um objeto dentro da programação tudo que: </string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa3Pergunta1Alternativa1">Possuir atributos e métodos de acordo com o seu estado atual</string> 
+
+    <string name="Modulo6Etapa3Pergunta1Alternativa2">Possuir atributos e métodos e características</string>
+
+    <string name="Modulo6Etapa3Pergunta1Alternativa3">Possuir características, métodos e procedimentos</string> 
+
+    <string name="Modulo6Etapa3Pergunta1Alternativa4">Possuir atributos, métodos e estado atual, podendo ser material ou abstrata</string><!--CORRETA-->
+
+    <!--ETAPA 4-->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa4Pergunta1">O que é linguagem de modelagem unificada?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa4Pergunta1Alternativa1">Uma maneira que inventaram para fazer quem estuda programação desistir do curso</string> 
+
+    <string name="Modulo6Etapa4Pergunta1Alternativa2">Uma linguagem de programação usada para modelar sistemas antes de construi-los </string>
+
+    <string name="Modulo6Etapa4Pergunta1Alternativa3">A UML é uma maneira de projetar o sistema antes de começar a programa-lo, para facilitar a vida de quem for programar e evitar futuros erros durante o desenvolvimento.</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa4Pergunta1Alternativa4">A LMU é uma maneira de desenvolver sistemas de forma mais eficaz e rápida, já que se é pensado em tudo durante o desenvolvimento, facilitando assim a vida do programador.</string>
+
+    <!--ETAPA 5 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa5Pergunta1">Agora que aprendemos o que são classes, é correto afirmar que:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa5Pergunta1Alternativa1">Classes são diagramas para que possamos desenhar o objeto antes de programa-lo</string> 
+
+    <string name="Modulo6Etapa5Pergunta1Alternativa2">Classes são como uma prévia do objeto, onde de uma classe parte diversos objetos diferentes</string>
+
+    <string name="Modulo6Etapa5Pergunta1Alternativa3">Classes dão origem aos objetos, sem as classes os objetos não existem, os atributos e métodos são planejados na classe</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa5Pergunta1Alternativa4">Classe é uma forma de classificar os objetos</string>
+
+    <!--PERGUNTA 2-->
+    <string name="Modulo6Etapa5Pergunta2">Declare uma classe chamada Caneta
+    </string>
+
+    <string name="Modulo6Etapa5Pergunta2Linha1"><!--______ _______--> <!--Classe Caneta --></string>
+
+    <string name="Modulo6Etapa5Pergunta2Linha2">FimClasse</string>
+
+    <!-- SUB PERGUNTA 2-->
+    <string name="Modulo6Etapa5Pergunta2_2">Agora declare um método chamado tampar</string>
+
+    <string name="Modulo6Etapa5Pergunta2Linha3"><!--______ _______-->() <!-- METODO TAMPAR --></string>
+
+    <string name="Modulo6Etapa5Pergunta2Linha4"><![CDATA[     ]]>tampada = verdadeiro</string>
+
+    <string name="Modulo6Etapa5Pergunta2Linha5">FimMetodo</string>
+
+ 
+    <!--PERGUNTA 3-->
+    <string name="Modulo6Etapa5Pergunta3">Instancie um objeto do tipo Caneta</string>
+
+    <string name="Modulo6Etapa5Pergunta3Linha1">c3 = ______ ______ <!--NOVA, CANETA --></string>
+
+    <!-- SUB PERGUNTA 3-->
+    <string name="Modulo6Etapa5Pergunta3_2">Adicione cor ao objeto c3. Em seguida, chame o método destampar() do objeto c3.</string>
+
+    <string name="Modulo6Etapa5Pergunta3Linha2">c3.ponta = 0.5
+	c3.tampada = falso
+    </string>
+
+    <string name="Modulo6Etapa5Pergunta3Linha3"><!-- c3. hardcode --> <!-- ___ --> = <![CDATA[“Azul“]]><!--cor--></string>
+
+   <string name="Modulo6Etapa5Pergunta3Linha4">
+	<![CDATA[     ]]>c3.rabiscar()
+	<![CDATA[     ]]>c3.tampar()	
+   </string>
+
+   <string name="Modulo6Etapa5Pergunta3Linha5">
+	<![CDATA[     ]]>c3. ________	
+   </string>
+
+    <string name="Modulo6Etapa5Pergunta3Linha6"><![CDATA[     ]]>c3.escrever()
+   	\n\nFimMetodo
+   </string>
+
+
+   <!--ETAPA 6 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa6Pergunta1">Abstrair é:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa6Pergunta1Alternativa1">Emagrecer para entrar numa agência de modelos</string> 
+
+    <string name="Modulo6Etapa6Pergunta1Alternativa2">Criar diferentes objetos de uma mesma classe, pegando somente os atributos mais importante para aquela ocasião</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa6Pergunta1Alternativa3">Criar diferentes objetos de uma mesma classe</string> 
+
+    <string name="Modulo6Etapa6Pergunta1Alternativa4">Criar objetos da mesma classe independente se são iguais ou não</string>
+
+    <!--ETAPA 7 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa7Pergunta1">É correto afirmar que os métodos e atributos...</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa7Pergunta1Alternativa1">Públicos podem ser acessados de qualquer classe desde que ela seja filha da classe mãe</string> 
+
+    <string name="Modulo6Etapa7Pergunta1Alternativa2">Privados podem ser acessado de classes também privadas</string> 
+
+    <string name="Modulo6Etapa7Pergunta1Alternativa3">Protegidos podem ser acessados da classe mãe e das classes filhas</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa7Pergunta1Alternativa4">Secretos só podem ser acessados pelo Sherlock Holmes</string>
+
+
+    <!--PERGUNTA 2-->
+    <string name="Modulo6Etapa7Pergunta2">Os métodos GETTERS acessores são responsaveis por:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo6Etapa7Pergunta2Alternativa1">Retornar o acesso de um objeto especifico</string> 
+
+    <string name="Modulo6Etapa7Pergunta2Alternativa2">Retornar um valor de um atributo que tenha permissão para ser acessado</string> 
+
+    <string name="Modulo6Etapa7Pergunta2Alternativa3">Retornar o valor de um atributo, que mesmo sendo privado permite o acesso através do método acessor getter</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa7Pergunta2Alternativa4">Retornar o valor de todos atributos de uma forma mais segura e rápida</string>
+
+    <!--PERGUNTA 3-->
+    <string name="Modulo6Etapa7Pergunta3">É corretor afirmar que um método SETTER é:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 2-->
+    <string name="Modulo6Etapa7Pergunta3Alternativa1">Um método utilizado para selecionar qual atributo o usuário terá acesso</string> 
+
+    <string name="Modulo6Etapa7Pergunta3Alternativa2">Um método utilizado para modificar os valores de um atributo, sem que eu tenha acesso direto a ele, sendo assim de forma muito mais segura</string>  <!--CORRETA-->
+
+    <string name="Modulo6Etapa7Pergunta3Alternativa3">Um método responsavel pela construção do objeto em sí</string> 
+
+    <string name="Modulo6Etapa7Pergunta3Alternativa4">Um método utilizado para passagem de parametro, que será passada para o atributo do objeto, de forma mais fácil</string>
+
+    <!-- PERGUNTA 4 -->
+
+    <string name="Modulo6Etapa7Pergunta4">Declare um método GETTER para o atributo COR</string>
+
+    <string name="Modulo6Etapa7Pergunta4Linha1">publico metodo ______  <!--HARDCODE (), GETCOR --></string>
+
+    <string name="Modulo6Etapa7Pergunta4Linha2"><![CDATA[     retorne]]> ____   <!-- cor --></string>
+
+     <string name="Modulo6Etapa7Pergunta4Linha3">FimMetodo</string>
+
+    <!--ETAPA 8 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa8Pergunta1">Imagine que nós definimos o método construtor da nossa classe Caneta da seguinte forma: Metodo construtor(modelo: Caractere, cor: Caractere, ponta: real) sendo assim, instancie de forma correta um objeto da classe Caneta do modelo BIC, de cor AZUL, e tamanho de ponta 0.5</string>
+
+    <string name="Modulo6Etapa8Pergunta1Linha1">c1 = nova Caneta(<![CDATA[“]]>___ ___ ___)<!--HARDCODAR AS ASPAS <![CDATA[“]]>, BIC, AZUL, 0.5 --></string>
+
+    <!--ETAPA 9 -->
+    <!--PERGUNTA 1-->
+    <string name="Modulo6Etapa9Pergunta1">Por que é importante encapsular?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa9Pergunta1Alternativa1">Para fazer com que o programa fique inutilizável por usuários</string> 
+
+    <string name="Modulo6Etapa9Pergunta1Alternativa2">Para proteger o programador do programa</string> 
+
+    <string name="Modulo6Etapa9Pergunta1Alternativa3">Para proteger o programa de ataques alienígenas</string> 
+
+    <string name="Modulo6Etapa9Pergunta1Alternativa4">Encapsular é importante para aumentar a segurança do sistema. Tanto quanto contra hackers, quanto usuários sem conhecimento, e outros programadores.</string> <!--CORRETA-->
 
 </resources>

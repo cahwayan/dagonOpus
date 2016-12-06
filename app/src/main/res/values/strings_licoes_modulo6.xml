@@ -18,7 +18,7 @@
 
     <!-- MÓDULO 6 -->
     <string name="TituloEtapa1Modulo6">1. Introdução</string>
-    <string name="TituloEtapa2Modulo6">2. POO</string>
+    <string name="TituloEtapa2Modulo6">2. Programação Orientada a Objetos</string>
     <string name="TituloEtapa3Modulo6">3. Objetos</string>
     <string name="TituloEtapa4Modulo6">4. UML</string>
     <string name="TituloEtapa5Modulo6">5. Classes</string>
@@ -35,57 +35,57 @@
     <!--ETAPA 1-->
 
     <!-- LICAO 1 -->
-    <string name="titulo1Modulo6Etapa1Licao1">1. Estrutura condicional simples: If (Se)</string>
+    <string name="titulo1Modulo6Etapa1Licao1">1. Introdução à essa parte do curso</string>
 
     <!--ETAPA 2-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa2Licao1">1. Estrutura condicional composta: Se/Senao</string>
+    <string name="titulo1Modulo6Etapa2Licao1">2. Introdução à POO</string>
 
     <!--ETAPA 3-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa3Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa3Licao1">1. O que é um objeto?</string>
 
     <!--ETAPA 4-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa4Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa4Licao1">1. Introdução à UML</string>
 
     <!--LIÇÃO 2-->
-    <string name="titulo1Modulo6Etapa4Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa4Licao2">1. O que é visibilidade?</string>
 
     <!--ETAPA 5-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa5Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa5Licao1">1. O que é uma classe?</string>
 
     <!--LIÇÃO 2-->
-    <string name="titulo1Modulo6Etapa1Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa1Licao2">1. Exemplo prático</string>
 
     <!--LIÇÃO 3-->
-    <string name="titulo1Modulo6Etapa1Licao3">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa1Licao3">1. Valorando</string>
 
     <!--ETAPA 6-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa6Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa6Licao1">1. Abstração!</string>
 
     <!--ETAPA 7-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa7Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa7Licao1">1. Visibilidade</string>
 
     <!--LIÇÃO 2-->
-    <string name="titulo1Modulo6Etapa7Licao2">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa7Licao2">1. Métodos especiais</string>
 
     <!--LIÇÃO 3-->
-    <string name="titulo1Modulo6Etapa7Licao3">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa7Licao3">1. Exemplo prático</string>
 
     <!--LIÇÃO 4-->
-    <string name="titulo1Modulo6Etapa7Licao4">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa7Licao4">1. Mais sobre getters e setters</string>
 
     <!--ETAPA 8-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa8Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa8Licao1">1. Métodos Construtores!</string>
 
     <!--ETAPA 9-->
     <!--LIÇÃO 1-->
-    <string name="titulo1Modulo6Etapa9Licao1">1. Estrutura condicional <b>Se</b> aninhada</string>
+    <string name="titulo1Modulo6Etapa9Licao1">1. Encapsulamento?</string>
 
 
 
@@ -343,8 +343,6 @@
         \nc2.tampar() // Tampei. Não será possível rabiscar
         <![CDATA[                     ]]>// Até que eu chame o método destampar().
 
-        <![CDATA[““]]>
-
         \n\nSão dois objetos, que partiram da mesma classe, porém são diferentes, e assim podemos fazer quantos objetos forem necessários, não há um limite para isso. 
     </string>
 
@@ -527,16 +525,38 @@
 
     <!-- ETAPA 8 -->
 
-    <string name="texto1Modulo6Etapa8Licao1">O método get retorna o atributo do jeito que ele está, isso é bem simples, e o método set ele recebe um valor por parametro (aquele entre parenteses, que colocamos o nome da primeira letra do atributo) ao receber esse valor por parametro, ele passa o valor para o atributo, desse forma o modificando, repare também na visibilidade dos métodos getters e setters, eles sempre serão públicos, pois precisam ser acessados de qualquer lugar. =D
+    <string name="texto1Modulo6Etapa8Licao1">Como uma caneta vem da loja quando você compra, tampada, não é? e se, toda vez que você executasse sua classe, criasse um objeto a partir dela, você quisesse que esse objeto viesse de uma forma, tivesse um estado no qual ele fosse iniciado, sempre que instanciado, esse estado poderia ser mudado obviamente, mas ele teria um estado de origem, no caso da caneta seria interessante que sempre que criassemos um objeto caneta, ele viesse tampado. 
+    Isso tudo é feito no método construtor, métodos construtores são extremamente simples de serem executados, cada linguagem tem a sua forma de declaração, mas aqui nós vamos chamar o método construtor de&#8230; MÉTODO CONSTRUTOR! pois bem, vamos a declaração.
 
-    \n\nAgora, fora da classe, vamos criar nossos objetos. 
+    \n\nClasse Caneta
+        \n<![CDATA[     ]]>Metodo Construtor()
+          \n<![CDATA[          ]]>tampar()
+          \n<![CDATA[          ]]>cor="Azul"    
+        \n<![CDATA[     ]]>FimMetodo
+    \nFimClasse
 
-    \n\nEu quero modificar o modelo da minha caneta para “Bic Cristal” sim eu adoro bic cristal, rs. 
+    \n\nAinda fizemos mais, colocamos no método construtor que sempre que for criado um objeto caneta ele terá a cor azul, isso pode ser mudado depois, é claro, mas sempre que for criado terá já um estado iniciado. 
 
-    \n\nc1 = nova caneta
-    \nc1.setModelo(“Bic Cristal”)
+    \n\nOs métodos construtores podem ser ainda mais avançados, podemos receber parametros através deles, obrigando assim, sempre que formos criar um objeto a partir daquela classe, teremos que obrigatóriamente informar esses parametros, se não, não conseguiremos criar o objeto.
 
-    \n\nPronto! agora eu tenho uma nova caneta (c1) do modelo bic cristal. heheheh
+
+    \n\nClasse Caneta
+        \n<![CDATA[     ]]>Metodo construtor(m: Caractere, c: Caractere,p: Real)
+            \n<![CDATA[          ]]>setModelo(m)
+            \n<![CDATA[          ]]>setCor(c)
+            \n<![CDATA[          ]]>setPonta(p)
+            \n<![CDATA[          ]]>tampar()   
+        \n<![CDATA[     ]]>FimMetodo
+    \nFimClasse
+
+    \n\nAnalise comigo, criamos o metodo construtor com 3 parametros, sendo eles <b>m</b> de modelo, <b>c</b> de cor e <b>r</b> de real. E chamamos os metodos setter para que modifique o atributo do objeto já quando for criado, e ainda chamamos o metodo tampar, para que inicie tampado.
+
+    \n\nE como ficar para criar um objeto com método construtor que possuí parametros? é simples, veja só:
+
+    \n\nc1 = nova Caneta (“BIC”,”Azul”,0.5)
+
+    \n\nReparou nessa facilidade? Tivemos que criar o método construtor? sim, mas agora com uma linha, podemos criar um objeto caneta e já definir seus atributos através dos parametros, isso pode ser usado pra milhares, milhoes de canetas.
+
     </string>
 
     <!-- ETAPA 9 -->
@@ -750,13 +770,16 @@
         <item></item>
     </string-array>
 
-    <!--ETAPA 3 MODULO 6-->
+    <!--ETAPA 4 MODULO 6-->
     <string-array name="tab_modulo6_etapa4">
+        <item></item>
+        <item></item>
+
         <item></item>
         <item></item>
     </string-array>
 
-    <!--ETAPA 4 MODULO 6-->
+    <!--ETAPA 5 MODULO 6-->
     <string-array name="tab_modulo6_etapa5">
         <item></item>
         <item></item>
@@ -768,8 +791,45 @@
         <item></item>
     </string-array>
 
-    <!--ETAPA 5 MODULO 6-->
+    <!--ETAPA 6 MODULO 6-->
+    <string-array name="tab_modulo6_etapa6">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 7 MODULO 6-->
+    <string-array name="tab_modulo6_etapa7">
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 8 MODULO 6-->
+    <string-array name="tab_modulo6_etapa8">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--ETAPA 9 MODULO 6-->
+    <string-array name="tab_modulo6_etapa9">
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--PROVA MODULO 6-->
     <string-array name="tab_modulo6_prova">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
         <item></item>
         <item></item>
         <item></item>
