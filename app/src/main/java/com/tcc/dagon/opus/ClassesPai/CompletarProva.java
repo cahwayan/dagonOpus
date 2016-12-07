@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.PulseAnimation;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 /**
  * Created by cahwayan on 11/11/2016.
@@ -201,7 +203,7 @@ public class CompletarProva extends Completar {
         }
 
         // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        writeFlag(true);
+        preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
 
         // INICIANDO ATIVIDADE DOS MODULOS
 
@@ -209,16 +211,5 @@ public class CompletarProva extends Completar {
         // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
     }
-
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste1", flag);
-        editor.apply();
-    }
-
-
 
 }

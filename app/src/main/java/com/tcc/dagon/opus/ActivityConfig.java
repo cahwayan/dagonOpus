@@ -2,23 +2,17 @@ package com.tcc.dagon.opus;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
-
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
 public class ActivityConfig extends AppCompatActivity {
@@ -26,13 +20,21 @@ public class ActivityConfig extends AppCompatActivity {
     private Button btnApagarProgresso;
     private GerenciadorBanco DB_PROGRESSO;
     private NovaJanelaAlerta alertaApagar;
+    private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
-        alertaApagar = new NovaJanelaAlerta(this);
-        DB_PROGRESSO = new GerenciadorBanco(this);
+        if(alertaApagar == null) {
+            alertaApagar = new NovaJanelaAlerta(this);
+        }
+
+        if(DB_PROGRESSO == null) {
+            DB_PROGRESSO = new GerenciadorBanco(this);
+        }
+
 
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
@@ -45,7 +47,7 @@ public class ActivityConfig extends AppCompatActivity {
         switchSons =         (Switch) findViewById(R.id.switchSons);
         btnApagarProgresso = (Button) findViewById(R.id.btnResetarProgresso);
 
-        if(verificarBotaoSonsChecked()) {
+        if(preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.flagSwitchConfigSom)) {
             switchSons.setChecked(true);
         }
         listeners();
@@ -56,11 +58,11 @@ public class ActivityConfig extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(switchSons.isChecked()) {
-                    desativarSons(true);
-                    botaoSonsChecked(true);
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagSwitchConfigSom, true);
+                    preferencias.escreverFlagBoolean(NomePreferencia.desativarSons, true);
                 } else {
-                    desativarSons(false);
-                    botaoSonsChecked(false);
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagSwitchConfigSom, false);
+                    preferencias.escreverFlagBoolean(NomePreferencia.desativarSons, false);
                 }
             }
         });
@@ -68,7 +70,7 @@ public class ActivityConfig extends AppCompatActivity {
         btnApagarProgresso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertaApagarProgresso("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
+                alertaApagarProgresso("Todo seu progresso será apagado. Tem certeza que deseja fazer isso?",
                         listenerDialogClickProva);
 
             }
@@ -88,41 +90,61 @@ public class ActivityConfig extends AppCompatActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch(which) {
                 case DialogInterface.BUTTON_POSITIVE:
+
                     // RESETAR PROGRESSO DO MÓDULO
                     DB_PROGRESSO.atualizaProgressoModulo(1);
                     // RESETAR PROGRESSO ETAPAS
+                    for(int i=0; i <= 8; ++i) {
+                        DB_PROGRESSO.atualizaProgressoEtapa(i,0);
+                    }
+
                     DB_PROGRESSO.atualizaProgressoEtapa(1,1);
-                    DB_PROGRESSO.atualizaProgressoEtapa(2,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(3,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(4,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(5,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(6,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(7,0);
-                    DB_PROGRESSO.atualizaProgressoEtapa(8,0);
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 1
+                    for(int i = 0; i <= 9; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(1,i,1);
+                    }
+
                     DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,2,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,3,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,4,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,5,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,6,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,7,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 2
-                    DB_PROGRESSO.atualizaProgressoLicao(2,1,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(2,2,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(2,3,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(2,4,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(2,5,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(2,6,1);
+                    for(int i = 0; i <= 6; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(2,i,1);
+                    }
 
-                    // RESETAR PROGRESSO LIÇÕES MÓDULO 2
-                    DB_PROGRESSO.atualizaProgressoLicao(3,1,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(3,2,1);
-                    DB_PROGRESSO.atualizaProgressoLicao(3,3,1);
+                    // RESETAR PROGRESSO LIÇÕES MÓDULO 3
+                    for(int i = 0; i <= 3; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(3,i,1);
+                    }
+
+                    // RESETAR PROGRESSO LIÇÕES MÓDULO 4
+
+                    for(int i = 0; i <= 6; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(4,i,1);
+                    }
+
+                    // RESETAR PROGRESSO LIÇÕES MÓDULO 5
+
+                    for(int i = 0; i <= 1; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(5,i,1);
+                    }
+
+
+                    // RESETAR PROGRESSO LIÇÕES MÓDULO 6
+                    for(int i = 0; i <= 10; ++i) {
+                        DB_PROGRESSO.atualizaProgressoLicao(6,i,1);
+                    }
+
+
+
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
+
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
+
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
+                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
 
                     Toast.makeText(getApplicationContext(), "Progresso resetado!", Toast.LENGTH_LONG).show();
                     break;
@@ -134,29 +156,6 @@ public class ActivityConfig extends AppCompatActivity {
         }
     };
 
-
-    public void desativarSons(boolean flag) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("desativarSons", flag);
-        editor.apply();
-    }
-
-    public void botaoSonsChecked(boolean flag) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("botaoSonsChecked", flag);
-        editor.apply();
-    }
-
-    // LER FLAG PARA VER SE O DESATIVOU SONS
-    public boolean verificarBotaoSonsChecked() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("botaoSonsChecked", false);
-    }
 
     // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
     public boolean onOptionsItemSelected (MenuItem item) {

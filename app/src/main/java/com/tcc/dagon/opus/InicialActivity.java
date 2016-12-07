@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,11 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 
 /**
  * Created by Otávio Paulino on 21/09/2016.
@@ -28,23 +27,21 @@ public class InicialActivity extends AppCompatActivity {
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
-    Context context;
+    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(readFlag()) {
+        if(preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
             startActivity(new Intent(this, AprenderActivity.class));
         } else {
             startActivity(new Intent(this, MainActivity.class));
         }
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_inicial);
 
         DB_PROGRESSO = new GerenciadorBanco(this);
-
-
-
 
         txtInicial              = (TextView)findViewById(R.id.txtInicial);
         login                   = (Button) findViewById(R.id.btn_Login);
@@ -94,7 +91,7 @@ public class InicialActivity extends AppCompatActivity {
 
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoModulo(9);
+                DB_PROGRESSO.atualizaProgressoModulo(7);
             }
         });
 
@@ -111,9 +108,9 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(3,3);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(5,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,6);
-                DB_PROGRESSO.atualizaProgressoEtapa(7,10);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,4);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,9);
+                /*DB_PROGRESSO.atualizaProgressoEtapa(7,10);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,4);*/
             }
         });
 

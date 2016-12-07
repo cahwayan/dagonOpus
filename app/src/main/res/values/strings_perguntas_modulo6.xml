@@ -52,6 +52,20 @@
 
     <string name="Modulo6Etapa4Pergunta1Alternativa4">A LMU é uma maneira de desenvolver sistemas de forma mais eficaz e rápida, já que se é pensado em tudo durante o desenvolvimento, facilitando assim a vida do programador.</string>
 
+    <!-- PERGUNTA 2 -->
+
+    <string name="Modulo6Etapa4Pergunta2">De acordo com a UML, o que é a visibilidade dos componentes?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="Modulo6Etapa4Pergunta2Alternativa1">Define quais classes terão acesso aos componentes</string> <!--CORRETA-->
+
+    <string name="Modulo6Etapa4Pergunta2Alternativa2">Define o que ficará visível no código depois de compilado</string>
+
+    <string name="Modulo6Etapa4Pergunta2Alternativa3">Define a segurança de cada componente, sendo protegido o mais seguro.</string> 
+
+    <string name="Modulo6Etapa4Pergunta2Alternativa4">Define o que o usuário poderá ver na interface do programa.</string>
+
+
     <!--ETAPA 5 -->
     <!--PERGUNTA 1-->
     <string name="Modulo6Etapa5Pergunta1">Agora que aprendemos o que são classes, é correto afirmar que:</string>
@@ -78,7 +92,7 @@
 
     <string name="Modulo6Etapa5Pergunta2Linha3"><!--______ _______-->() <!-- METODO TAMPAR --></string>
 
-    <string name="Modulo6Etapa5Pergunta2Linha4"><![CDATA[     ]]>tampada = verdadeiro</string>
+    <string name="Modulo6Etapa5Pergunta2Linha4"><![CDATA[          ]]>tampada = verdadeiro</string>
 
     <string name="Modulo6Etapa5Pergunta2Linha5">FimMetodo</string>
 
@@ -92,22 +106,21 @@
     <string name="Modulo6Etapa5Pergunta3_2">Adicione cor ao objeto c3. Em seguida, chame o método destampar() do objeto c3.</string>
 
     <string name="Modulo6Etapa5Pergunta3Linha2">c3.ponta = 0.5
-	c3.tampada = falso
+    \nc3.tampada = falso
     </string>
 
     <string name="Modulo6Etapa5Pergunta3Linha3"><!-- c3. hardcode --> <!-- ___ --> = <![CDATA[“Azul“]]><!--cor--></string>
 
-   <string name="Modulo6Etapa5Pergunta3Linha4">
-	<![CDATA[     ]]>c3.rabiscar()
-	<![CDATA[     ]]>c3.tampar()	
+   <string name="Modulo6Etapa5Pergunta3Linha4">c3.rabiscar()
+   \nc3.tampar()	
    </string>
 
    <string name="Modulo6Etapa5Pergunta3Linha5">
-	<![CDATA[     ]]>c3. ________	
+	<![CDATA[     ]]>c3.	
    </string>
 
-    <string name="Modulo6Etapa5Pergunta3Linha6"><![CDATA[     ]]>c3.escrever()
-   	\n\nFimMetodo
+    <string name="Modulo6Etapa5Pergunta3Linha6">c3.escrever()
+    \n\nFimMetodo
    </string>
 
 
@@ -118,7 +131,7 @@
     <!--ALTERNATIVAS PERGUNTA 1-->
     <string name="Modulo6Etapa6Pergunta1Alternativa1">Emagrecer para entrar numa agência de modelos</string> 
 
-    <string name="Modulo6Etapa6Pergunta1Alternativa2">Criar diferentes objetos de uma mesma classe, pegando somente os atributos mais importante para aquela ocasião</string> <!--CORRETA-->
+    <string name="Modulo6Etapa6Pergunta1Alternativa2">Criar diferentes objetos de uma mesma classe, pegando somente os atributos mais importantes para aquela ocasião</string> <!--CORRETA-->
 
     <string name="Modulo6Etapa6Pergunta1Alternativa3">Criar diferentes objetos de uma mesma classe</string> 
 
@@ -151,7 +164,7 @@
     <string name="Modulo6Etapa7Pergunta2Alternativa4">Retornar o valor de todos atributos de uma forma mais segura e rápida</string>
 
     <!--PERGUNTA 3-->
-    <string name="Modulo6Etapa7Pergunta3">É corretor afirmar que um método SETTER é:</string>
+    <string name="Modulo6Etapa7Pergunta3">É correto afirmar que um método SETTER é:</string>
 
     <!--ALTERNATIVAS PERGUNTA 2-->
     <string name="Modulo6Etapa7Pergunta3Alternativa1">Um método utilizado para selecionar qual atributo o usuário terá acesso</string> 
@@ -166,9 +179,9 @@
 
     <string name="Modulo6Etapa7Pergunta4">Declare um método GETTER para o atributo COR</string>
 
-    <string name="Modulo6Etapa7Pergunta4Linha1">publico metodo ______  <!--HARDCODE (), GETCOR --></string>
+    <string name="Modulo6Etapa7Pergunta4Linha1">publico metodo <!--HARDCODE (), GETCOR --></string>
 
-    <string name="Modulo6Etapa7Pergunta4Linha2"><![CDATA[     retorne]]> ____   <!-- cor --></string>
+    <string name="Modulo6Etapa7Pergunta4Linha2"><![CDATA[     retorne]]><!-- cor --></string>
 
      <string name="Modulo6Etapa7Pergunta4Linha3">FimMetodo</string>
 
@@ -176,7 +189,7 @@
     <!--PERGUNTA 1-->
     <string name="Modulo6Etapa8Pergunta1">Imagine que nós definimos o método construtor da nossa classe Caneta da seguinte forma: Metodo construtor(modelo: Caractere, cor: Caractere, ponta: real) sendo assim, instancie de forma correta um objeto da classe Caneta do modelo BIC, de cor AZUL, e tamanho de ponta 0.5</string>
 
-    <string name="Modulo6Etapa8Pergunta1Linha1">c1 = nova Caneta(<![CDATA[“]]>___ ___ ___)<!--HARDCODAR AS ASPAS <![CDATA[“]]>, BIC, AZUL, 0.5 --></string>
+    <string name="Modulo6Etapa8Pergunta1Linha1">c1 = nova Caneta(<!--HARDCODAR AS ASPAS <![CDATA[“]]>, BIC, AZUL, 0.5 --></string>
 
     <!--ETAPA 9 -->
     <!--PERGUNTA 1-->

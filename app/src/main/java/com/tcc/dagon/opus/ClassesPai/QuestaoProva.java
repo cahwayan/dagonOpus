@@ -224,7 +224,7 @@ public class QuestaoProva extends Questao {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(getActivity());
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste", flag);
+        editor.putBoolean("completouTeste1", flag);
         editor.apply();
     }
 

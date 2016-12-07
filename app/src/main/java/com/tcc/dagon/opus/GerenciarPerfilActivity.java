@@ -1,87 +1,44 @@
 package com.tcc.dagon.opus;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.channels.FileChannel;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import static com.tcc.dagon.opus.MainActivity.googleApiClient;
 import static java.lang.String.valueOf;
-
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
-import com.google.android.gms.plus.model.people.Person;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
 
-    // INICIO TESTE
-
     private static int RESULT_LOAD_IMAGE = 1;
 
     static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
-
-    // FIM TESTE
-
-
-    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
-
-    public static final int MEDIA_TYPE_IMAGE = 1;
-
-    private Uri fileUri;
 
     private Button btnAprender,btnAlterarSenha,btnLogout;
 
@@ -90,6 +47,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private RoundCornerProgressBar barraGeral;
 
     private GerenciadorBanco DB_PROGRESSO;
+
+    private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     RequestQueue requestQueue;
     Context context = this;
@@ -123,34 +82,21 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         // CARREGANDO CLICK LISTENERS
         clickListeners();
 
-
         // CARREGA PROGRESSO DA BARRA
         carregarProgresso();
 
-        // VERIFICA SE O DISPOSITIVO POSSUI CÂMERA
-        /*verificarCamera();*/
-
-
-
         // CONTEXT PARA CHAMADA VOLLEY
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-
-        // MÉTODO JSON
-        /*carregaLink();*/
-
-
-
 
     }
 
     private void accessViews() {
         txtNome = (TextView) findViewById(R.id.txtNome);
 
-        if(lerNomeUsuario().equals("default")) {
+        if(preferencias.lerFlagString(NomePreferencia.nomeUsuario).equals("default")) {
             txtNome.setText("Nome");
         } else {
-            txtNome.setText(lerNomeUsuario());
+            txtNome.setText(preferencias.lerFlagString(NomePreferencia.nomeUsuario));
         }
 
 
@@ -160,14 +106,15 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         barraGeral = (RoundCornerProgressBar) findViewById(R.id.barraGeral);
         foto = (ImageView) findViewById(R.id.fotoPerfil);
 
-        Log.d(TAG, "SharedPref caminho: " + lerCaminhoFoto());
+        /* DEBUG, PARA VERIFICAR O CAMINHO DA FOTO SALVA
+        Log.d(TAG, "SharedPref caminho: " + preferencias.lerFlagString(NomePreferencia.caminhoFoto));*/
 
         if(foto != null){
-            if(lerCaminhoFoto() == "default") {
+            if(preferencias.lerFlagString(NomePreferencia.caminhoFoto).equals("default")) {
                 foto.setImageResource(R.drawable.icon_foto);
             } else {
                 try {
-                    foto.setImageBitmap(BitmapFactory.decodeFile(lerCaminhoFoto()));
+                    foto.setImageBitmap(BitmapFactory.decodeFile(preferencias.lerFlagString(NomePreferencia.caminhoFoto)));
                 } catch(NullPointerException e) {
                     foto.setImageResource(R.drawable.icon_foto);
                 }
@@ -285,7 +232,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
                 if(imageView != null ){
                     imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-                    gravarCaminhoFoto(picturePath);
+                    preferencias.escreverFlagString(NomePreferencia.caminhoFoto, picturePath);
                 }
             }
 
@@ -334,14 +281,14 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             else if( btnLogout.getId() == v.getId() )
             {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                writeFlag(false);
+                preferencias.escreverFlagBoolean(NomePreferencia.isLogin, false);
                 signOut();
                 finish();
             }
             else if( btnAlterarSenha.getId() == v.getId() )
             {
                 Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
-                i.putExtra("emailUsuario", lerEmail());
+                i.putExtra("emailUsuario", preferencias.lerFlagString(NomePreferencia.emailUsuario));
                 startActivity(i);
                 finish();
             }
@@ -350,60 +297,15 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     };
 
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLogin", flag);
-        editor.apply();
-    }
-
-    public void gravarNomeUsuario(String nome) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("nomeUsuario", nome);
-        editor.apply();
-    }
-
-    public String lerNomeUsuario() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getString("nomeUsuario", "default");
-    }
-
-
-
-    public void gravarCaminhoFoto(String caminho) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("caminhoFotoPerfil", caminho);
-        editor.apply();
-    }
-
-    public String lerCaminhoFoto() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getString("caminhoFotoPerfil", "default");
-    }
-
-    public String lerEmail() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getString("emailUsuario", "default");
-    }
-
     // SIGN OUT GOOGLE
     private void signOut() {
         if(googleApiClient.isConnected()) {
             googleApiClient.clearDefaultAccountAndReconnect();
             googleApiClient.disconnect();
             googleApiClient.connect();
-            gravarCaminhoFoto(null);
-            gravarNomeUsuario(null);
-            writeFlag(false);
+            preferencias.escreverFlagString(NomePreferencia.caminhoFoto, null);
+            preferencias.escreverFlagString(NomePreferencia.nomeUsuario, null);
+            preferencias.escreverFlagBoolean(NomePreferencia.isLogin, false);
         }
     }
 

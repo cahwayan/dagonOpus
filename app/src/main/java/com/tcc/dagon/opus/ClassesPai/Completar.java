@@ -26,6 +26,8 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 import java.util.List;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -70,6 +72,8 @@ public class Completar extends Fragment {
     protected ImageView imgRespostaCerta, imgRespostaErrada;
 
     protected int moduloAtual, etapaAtual;
+
+    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(getActivity());
 
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -266,7 +270,7 @@ public class Completar extends Fragment {
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
         // TOCAR SOM DE RESPOSTA CERTA
-        if(!verificarSons()) {
+        if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaCerta.start();
         }
 
@@ -288,9 +292,10 @@ public class Completar extends Fragment {
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
         // TOCAR SOM DE RESPOSTA ERRADA
-        if(!verificarSons()) {
+        if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaErrada.start();
         }
+
 
         // ANIMAÇÃO RESPOSTA ERRADA
         imgRespostaErrada.setVisibility(View.VISIBLE);
@@ -414,13 +419,6 @@ public class Completar extends Fragment {
         //linha2Palavra1.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-    }
-
-    // LER FLAG PARA VER SE O DESATIVOU SONS
-    public boolean verificarSons() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(getActivity());
-        return sharedPreferences.getBoolean("desativarSons", false);
     }
 
 }

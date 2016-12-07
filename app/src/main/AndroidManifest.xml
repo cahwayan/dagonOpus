@@ -51,11 +51,6 @@
             android:name=".GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".UploadActivity"
-            android:label="@string/title_activity_gerenciar_perfil"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- TELAS DE ETAPAS -->
         <activity
@@ -76,6 +71,10 @@
 
         <activity
             android:name=".telasEtapas.EtapasModulo5Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".telasEtapas.EtapasModulo6Activity"
             android:screenOrientation="portrait" />
 
         <!--CONTAINER GLOSSARIO -->
@@ -238,6 +237,76 @@
             android:label="@string/TituloEtapa1Modulo5"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--MÓDULO 6-->
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa1"
+            android:label="@string/TituloEtapa1Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa2"
+            android:label="@string/TituloEtapa2Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa3"
+            android:label="@string/TituloEtapa3Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa4"
+            android:label="@string/TituloEtapa4Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa5"
+            android:label="@string/TituloEtapa5Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa6"
+            android:label="@string/TituloEtapa6Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa7"
+            android:label="@string/TituloEtapa7Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa8"
+            android:label="@string/TituloEtapa8Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Modulo6.ContainerModulo6Etapa9"
+            android:label="@string/TituloEtapa9Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ContainerLicoes.Modulos.Provas.ContainerProva6"
+            android:label="@string/TituloEtapa10Modulo6"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
 
 
 

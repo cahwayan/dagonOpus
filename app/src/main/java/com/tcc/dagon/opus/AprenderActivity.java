@@ -30,6 +30,9 @@ import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import java.io.File;
 import java.io.IOException;
@@ -54,7 +57,7 @@ public class AprenderActivity extends AppCompatActivity {
                         btnModulo5,
                         btnModulo6,
                         btnModulo7,
-                        btnModulo8;
+                        btnCertificado;
 
     // IMAGENS DOS MÓDULOS
     private ImageView   imgModulo1,
@@ -118,6 +121,7 @@ public class AprenderActivity extends AppCompatActivity {
     // OBJETO DE JANELA DE ALERTA
     NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
     NovaJanelaAlerta alertaSair = new NovaJanelaAlerta(this);
+    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
 
     @Override
@@ -135,8 +139,8 @@ public class AprenderActivity extends AppCompatActivity {
         // INSTANCIANDO E CRIANDO O BANCO CASO ELE NÃO EXISTA
         instanciaBanco();
 
-        if(!readFlag()) {
-            writeFlag(true);
+        if(!preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
+            preferencias.escreverFlagBoolean(NomePreferencia.isLogin, true);
         }
 
         // INVOCANDO OS COMPONENTES
@@ -191,8 +195,9 @@ public class AprenderActivity extends AppCompatActivity {
             {
                 bloquearModulos();
                 desbloquearModulos();
-                progressBars();
                 progressoTextView();
+                progressBars();
+
             }
         }, 1);
 
@@ -220,8 +225,8 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo4 = (FrameLayout)findViewById(R.id.btnModulo4);
         btnModulo5 = (FrameLayout)findViewById(R.id.btnModulo5);
         btnModulo6 = (FrameLayout)findViewById(R.id.btnModulo6);
-        btnModulo7 = (FrameLayout)findViewById(R.id.btnModulo7);
-        btnModulo8 = (FrameLayout)findViewById(R.id.btnModulo8);
+        /*btnModulo7 = (FrameLayout)findViewById(R.id.btnModulo7);*/
+        btnCertificado = (FrameLayout)findViewById(R.id.btnModulo8);
 
         // IMAGENS DOS MÓDULOS
         imgModulo1 = (ImageView)findViewById(R.id.imgModulo1);
@@ -230,7 +235,7 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo4 = (ImageView)findViewById(R.id.imgModulo4);
         imgModulo5 = (ImageView)findViewById(R.id.imgModulo5);
         imgModulo6 = (ImageView)findViewById(R.id.imgModulo6);
-        imgModulo7 = (ImageView)findViewById(R.id.imgModulo7);
+        /*imgModulo7 = (ImageView)findViewById(R.id.imgModulo7);*/
         imgModulo8 = (ImageView)findViewById(R.id.imgModulo8);
 
         // TEXT VIEWS DOS TITULOS DOS MODULOS
@@ -240,7 +245,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo4 = (TextView)findViewById(R.id.txtTitulo4);
         txtTitulo5 = (TextView)findViewById(R.id.txtTitulo5);
         txtTitulo6 = (TextView)findViewById(R.id.txtTitulo6);
-        txtTitulo7 = (TextView)findViewById(R.id.txtTitulo7);
+        /*txtTitulo7 = (TextView)findViewById(R.id.txtTitulo7);*/
         txtTitulo8 = (TextView)findViewById(R.id.txtTitulo8);
 
 
@@ -251,7 +256,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso4 = (TextView)findViewById(R.id.txtProgresso4);
         txtProgresso5 = (TextView)findViewById(R.id.txtProgresso5);
         txtProgresso6 = (TextView)findViewById(R.id.txtProgresso6);
-        txtProgresso7 = (TextView)findViewById(R.id.txtProgresso7);
+        /*txtProgresso7 = (TextView)findViewById(R.id.txtProgresso7);*/
 
         // BOTÕES PULAR
         btnPular1 = (ImageView) findViewById(R.id.btnPular1);
@@ -265,7 +270,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtTitulo4.setTypeface(harabara);
         txtTitulo5.setTypeface(harabara);
         txtTitulo6.setTypeface(harabara);
-        txtTitulo7.setTypeface(harabara);
+        /*txtTitulo7.setTypeface(harabara);*/
         txtTitulo8.setTypeface(harabara);
 
 
@@ -276,7 +281,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso4.setTypeface(harabara);
         txtProgresso5.setTypeface(harabara);
         txtProgresso6.setTypeface(harabara);
-        txtProgresso7.setTypeface(harabara);
+        /*txtProgresso7.setTypeface(harabara);*/
 
         // BARRA DE PROGRESSO DOS MÓDULOS
 
@@ -286,7 +291,7 @@ public class AprenderActivity extends AppCompatActivity {
         barraModulo4 = (RoundCornerProgressBar)findViewById(R.id.barraModulo4);
         barraModulo5 = (RoundCornerProgressBar)findViewById(R.id.barraModulo5);
         barraModulo6 = (RoundCornerProgressBar)findViewById(R.id.barraModulo6);
-        barraModulo7 = (RoundCornerProgressBar)findViewById(R.id.barraModulo7);
+        /*barraModulo7 = (RoundCornerProgressBar)findViewById(R.id.barraModulo7);*/
 
         // MENU PUXÁVEL
         mListView = (ListView)findViewById(R.id.listMenuPrincipal);
@@ -319,8 +324,8 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo4.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
         btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
-        btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
-        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
+        /*btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));*/
+        btnCertificado.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));
 
         // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
         txtProgresso1.setVisibility(View.GONE);
@@ -329,7 +334,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso4.setVisibility(View.GONE);
         txtProgresso5.setVisibility(View.GONE);
         txtProgresso6.setVisibility(View.GONE);
-        txtProgresso7.setVisibility(View.GONE);
+        /*txtProgresso7.setVisibility(View.GONE);*/
 
         // TROCANDO A IMAGEM DO MÓDULO PARA BLOQUEADO
         imgModulo1.setImageResource(R.drawable.modulo_bloqueado);
@@ -338,7 +343,7 @@ public class AprenderActivity extends AppCompatActivity {
         imgModulo4.setImageResource(R.drawable.modulo_bloqueado);
         imgModulo5.setImageResource(R.drawable.modulo_bloqueado);
         imgModulo6.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo7.setImageResource(R.drawable.modulo_bloqueado);
+        /*imgModulo7.setImageResource(R.drawable.modulo_bloqueado);*/
     }
 
 
@@ -390,15 +395,8 @@ public class AprenderActivity extends AppCompatActivity {
         btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo6));
     }
 
-    private void desbloquearModulo7() {
-        imgModulo7.setImageResource(R.drawable.btnmodulo7);
-        txtTitulo7.setText(R.string.txtTituloModulo7);
-        txtProgresso7.setVisibility(View.VISIBLE);
-        btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo7));
-    }
-
     private void desbloquearCertificado() {
-        btnModulo8.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo8));
+        btnCertificado.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo7));
     }
 
 
@@ -447,25 +445,6 @@ public class AprenderActivity extends AppCompatActivity {
                 desbloquearModulo4();
                 desbloquearModulo5();
                 desbloquearModulo6();
-                desbloquearModulo7();
-                break;
-            case 8:
-                desbloquearModulo1();
-                desbloquearModulo2();
-                desbloquearModulo3();
-                desbloquearModulo4();
-                desbloquearModulo5();
-                desbloquearModulo6();
-                desbloquearModulo7();
-                break;
-            case 9:
-                desbloquearModulo1();
-                desbloquearModulo2();
-                desbloquearModulo3();
-                desbloquearModulo4();
-                desbloquearModulo5();
-                desbloquearModulo6();
-                desbloquearModulo7();
                 desbloquearCertificado();
         }
     }
@@ -478,7 +457,6 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/6");
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/1");
         txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/6");
-        txtProgresso7.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) + "/10");
     }
 
     // CONFIGURA O PROGRESSO DAS PROGRESS BARS
@@ -489,7 +467,6 @@ public class AprenderActivity extends AppCompatActivity {
         barraModulo4.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) ) );
         barraModulo5.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) ) );
         barraModulo6.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) ) );
-        barraModulo7.setProgress( Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(7)) ) );
     }
 
     // Método que invoca os listeners dos botões
@@ -565,28 +542,15 @@ public class AprenderActivity extends AppCompatActivity {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 6) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), EtapasModulo6Activity.class));
+                    finish();
                 } else {
                     alertaModuloBloqueado();
                 }
             }
         });
 
-        btnModulo7.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoModulo() >= 7) {
-                    // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-                    v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                    //startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
-                    //finish();
-                } else {
-                    alertaModuloBloqueado();
-                }
-            }
-        });
-
-        btnModulo8.setOnClickListener(new View.OnClickListener(){
+        btnCertificado.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 if(DB_PROGRESSO.verificaProgressoModulo() >= 8) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
@@ -702,36 +666,6 @@ public class AprenderActivity extends AppCompatActivity {
     // MÉTODO DE CONFIGURAÇÃO DA JANELA DE ALERTA PARA OS MODULOS
     private void alertaModuloBloqueado() {
         alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
-    }
-
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLogin", flag);
-        editor.apply();
-    }
-
-    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
-    public boolean readFlag() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("isLogin", false);
-    }
-
-    public String lerEmail(String emailUsuario) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getString("emailUsuario", emailUsuario);
-    }
-
-    public void fotoTrocada(boolean flag) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("fotoTrocada", flag);
-        editor.apply();
     }
 
 }

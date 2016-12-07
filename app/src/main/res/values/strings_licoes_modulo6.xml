@@ -24,8 +24,8 @@
     <string name="TituloEtapa5Modulo6">5. Classes</string>
     <string name="TituloEtapa6Modulo6">6. Abstração</string>
     <string name="TituloEtapa7Modulo6">7. Visibilidade e métodos especiais</string>
-    <string name="TituloEtapa8Modulo6">8. Métodos Construtores</string>
-    <string name="TituloEtapa9Modulo6">9. Encapsulamento</string>
+    <string name="TituloEtapa8Modulo6">8. Métodos Construtores, polimorfismo</string>
+    <string name="TituloEtapa9Modulo6">9. Encapsulamento e herança</string>
     <string name="TituloEtapa10Modulo6">10. Prova 6</string>
 
     <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
@@ -57,10 +57,10 @@
     <string name="titulo1Modulo6Etapa5Licao1">1. O que é uma classe?</string>
 
     <!--LIÇÃO 2-->
-    <string name="titulo1Modulo6Etapa1Licao2">1. Exemplo prático</string>
+    <string name="titulo1Modulo6Etapa5Licao2">1. Exemplo prático</string>
 
     <!--LIÇÃO 3-->
-    <string name="titulo1Modulo6Etapa1Licao3">1. Valorando</string>
+    <string name="titulo1Modulo6Etapa5Licao3">1. Valorando</string>
 
     <!--ETAPA 6-->
     <!--LIÇÃO 1-->
@@ -94,7 +94,7 @@
 
 
     <!-- TEXTOS LICOES -->
-    <!--MÒDULO 4-->
+    <!--MÒDULO 6-->
     <!--ETAPA 1-->
     <!--LICAO 1-->
     <string name="texto1Modulo6Etapa1Licao1">Encerram-se aqui os comandos em portugol, a partir de agora nada do que fizermos funcionara no VisualG ou qualquer outra ferramente de portugol, pois não é possível explicar alguns conceitos, porque ele não tem suporte para <b>classes</b>, <b>objetos</b>, <b>herança</b>, <b>polimorfismo</b> dentre outros conceitos importantíssimos para a lógica de <b>programação orientada a objetos</b>
@@ -124,21 +124,20 @@
 
     <string name="texto1Modulo6Etapa3Licao1">Pra você, o que é um objeto? Dê uma olhada ao seu redor, você com certeza esta rodeado de objetos, o celular que você está utilizando neste exato momento é um objeto, o controle da sua TV é um objeto, o liquidificador é um objeto rs. 
     Aposto que você consegue pensar facilmente em todas essas coisas como objetos. 
-    Agora vamos pensar diferente, o horário que você acorda para ir a escola, é um objeto? O compromisso que você tem agendado, o aluno de uma escola são objetos? O que você responderia?
+    
+    \n\nAgora vamos pensar diferente, o horário que você acorda para ir a escola, é um objeto? O compromisso que você tem agendado, o aluno de uma escola são objetos? O que você responderia?
     </string>
 
     <!-- DICA VERDE -->
 
-    <string name="texto2Modulo6Etapa3Licao1">Pra você, o que é um objeto? Dê uma olhada ao seu redor, você com certeza esta rodeado de objetos, o celular que você está utilizando neste exato momento é um objeto, o controle da sua TV é um objeto, o liquidificador é um objeto rs. 
-    Aposto que você consegue pensar facilmente em todas essas coisas como objetos. 
-    Agora vamos pensar diferente, o horário que você acorda para ir a escola, é um objeto? O compromisso que você tem agendado, o aluno de uma escola são objetos? O que você responderia?
+    <string name="texto2Modulo6Etapa3Licao1">Calma, muita calma. Pare de sair daqui pra ir para o whatsapp (estou com ciúmes sim, e daí?) que você irá entender isso agora.
+
+    \n\nPara nosso melhor entendimento vamos pensar em uma lâmpada. Uma lâmpada é um objeto? Sim!
     </string>
 
-    <string name="texto3Modulo6Etapa3Licao1">Para nosso melhor entendimento vamos pensar em uma lâmpada, uma lâmpada é um objeto? Sim.
+    <!-- IMAGEM 1 -->
 
-        <!-- IMAGEM 1 -->
-   
-    \n\nQuais características possuem uma lâmpada? Bom, a lâmpada possuí tensão (127v ou 220v) Ela pode ser incandescente ou fluorescente&#8230; etc.
+    <string name="texto3Modulo6Etapa3Licao1">\n\nQuais características possui uma lâmpada? Bom, a lâmpada possui tensão (127v ou 220v) Ela pode ser incandescente ou fluorescente&#8230; etc.
 
     \n\nQuais comportamentos possuí uma lâmpada? Isso é mais simples ainda se tratando da lâmpada, ou você acende a lampada ou apaga. Então, a lâmpada está apagada, acesa ou está queimada (não pode ser ligada). Vamos listar essas características:
 
@@ -421,7 +420,7 @@
 
     <!-- IMAGEM 1 -->
 
-    <string name="texto4Modulo6Etapa7Licao1">Olhe bem, os botões da “carcaça” do controle, são públicos, pois nós podemos utilizar qualquer botão. Porém quando se abre o controle tem uma placa com diversos componentes, porém esses componentes você não deve ter acesso, eles são privados, isso porque? pra você não quebrar o controle.
+    <string name="texto3Modulo6Etapa7Licao1">Olhe bem, os botões da “carcaça” do controle, são públicos, pois nós podemos utilizar qualquer botão. Porém quando se abre o controle tem uma placa com diversos componentes, porém esses componentes você não deve ter acesso, eles são privados, isso porque? pra você não quebrar o controle.
 
     \n\nOu seja, para o controle durar mais tempo, cria-se essa “Capsula” guarde essa palavra rs, para proteger, e você ter acess que é público.
 
@@ -429,8 +428,8 @@
 
     </string>
 
-
-    <string name="texto1Modulo6Etapa7Licao2">Nós estamos prestes a conhecer os métodos especiais, os métodos especiais, acessores e modificadores, são utilizados em toda linguagem de programação orientada a objetos, é importante dizer que você pode dar o nome que quiser para esses métodos, porém existe um padrão, que é utilizado por todos programadores profissionais para um melhor entendimento e para que possam trabalhar de uma melhor forma em equipe, mais pra frente iremos entender isso.
+    <!-- LICAO 2 -->
+    <string name="texto1Modulo6Etapa7Licao2">Nós estamos prestes a conhecer os métodos especiais. Os métodos especiais, acessores e modificadores, são utilizados em toda linguagem de programação orientada a objetos, é importante dizer que você pode dar o nome que quiser para esses métodos, porém existe um padrão, que é utilizado por todos programadores profissionais para um melhor entendimento e para que possam trabalhar de uma melhor forma em equipe, mais pra frente iremos entender isso.
 
     \n\nAgora vamos imaginar a seguinte situação:
     </string>
@@ -571,7 +570,7 @@
 
     <!-- IMAGEM 1 -->
 
-    <string name="texto2Modulo6Etapa8Licao1">Já parou pra pensar porque existe essa cápsula, porque a pilha é uma capsula protegida?  Primeiro para proteger você dos componentes químicos, pois existem componentes na pilha que podem danificar a sua pele e causar danos a sua saúde, e também para proteger a pilha de você, pois se não existisse essa capsula você poderia mexer em um desses componentes e a pilha parar de funcionar, ou seja, é uma proteção de duplo sentido, protege você dos componentes químicos, e protege a pilha de você para não causar defeitos. Esses são os principais motivos para encapsular uma pilha. 
+    <string name="texto2Modulo6Etapa9Licao1">Já parou pra pensar porque existe essa cápsula, porque a pilha é uma capsula protegida?  Primeiro para proteger você dos componentes químicos, pois existem componentes na pilha que podem danificar a sua pele e causar danos a sua saúde, e também para proteger a pilha de você, pois se não existisse essa capsula você poderia mexer em um desses componentes e a pilha parar de funcionar, ou seja, é uma proteção de duplo sentido, protege você dos componentes químicos, e protege a pilha de você para não causar defeitos. Esses são os principais motivos para encapsular uma pilha. 
 
     \n\nPorém existem outros motivos, como por exemplo para dar padrão, controle remoto por exemplo utiliza um padrão de pilha, o telefone sem fio da sua casa utiliza outro padrão de pilha, o relógio, enfim..
 
@@ -585,7 +584,7 @@
 
      <!-- DICA 2 AZUL-->
 
-    <string name="texto3Modulo6Etapa8Licao1">Vamos pensar em um exemplo que irá nos ajudar a entender o que é uma interface, um controle remoto, lembra? o que é a interface do controle remoto, é o que estamos vendo, é o que é acessivel para nós, então vamos criar essa interface:
+    <string name="texto3Modulo6Etapa9Licao1">Vamos pensar em um exemplo que irá nos ajudar a entender o que é uma interface, um controle remoto, lembra? o que é a interface do controle remoto, é o que estamos vendo, é o que é acessivel para nós, então vamos criar essa interface:
     \n\n<![CDATA[<<interface>>]]>
     \n\nControlador
 
@@ -642,7 +641,7 @@
 
     <!-- DICA 3 VERDE -->
 
-    <string name="texto4Modulo6Etapa8Licao1">É assim que se cria uma interface no código, porque os métodos são abstratos? porque eles não serão definidos ali, eu não digo o que esses métodos vão fazer eu só digo que vou precisar desses métodos que serão programados em outro local, pra ser mais exato na classe que utilizar essa interface, toda classe que for definida como “Controlador” terá que obrigatóriamente implementar esses métodos:
+    <string name="texto4Modulo6Etapa9Licao1">É assim que se cria uma interface no código, porque os métodos são abstratos? porque eles não serão definidos ali, eu não digo o que esses métodos vão fazer eu só digo que vou precisar desses métodos que serão programados em outro local, pra ser mais exato na classe que utilizar essa interface, toda classe que for definida como “Controlador” terá que obrigatóriamente implementar esses métodos:
 
     \n\nClasse ControleRemoto implementa Controlador
 
@@ -709,7 +708,7 @@
 
     <!--ETAPA 4-->
     <!--LIÇÃO 2-->
-    <string name="dica1Modulo6Etapa4Licao1">A visibilidade segundo a <b>UML:</b>
+    <string name="dica1Modulo6Etapa4Licao2">A visibilidade segundo a <b>UML:</b>
     \n\n<b>+ público</b>: A classe atual e todas outras as classes
     \n<b>- privado</b>: Somente a classe atual
     \n<b># protegido</b>: a classe atual e todas as suas subclasses
@@ -739,15 +738,15 @@
     <string name="dica1Modulo6Etapa7Licao1">Todo atributo e método vem com uma visibilidade, mesmo que você não a coloque, normalmente essa visibilidade é publica, porém depende da linguagem de programação que você está trabalhando.
     </string>
 
-    <!-- ETAPA 8 -->
+    <!-- ETAPA 9 -->
     <!-- LIÇÃO 1 -->
-    <string name="dica1Modulo6Etapa8Licao1">Encapsular: Ocultar partes independentes da implementação, permitindo construir partes invisiveis ao mundo exterior.
+    <string name="dica1Modulo6Etapa9Licao1">Encapsular: Ocultar partes independentes da implementação, permitindo construir partes invisiveis ao mundo exterior.
     </string>
 
-    <string name="dica2Modulo6Etapa8Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
+    <string name="dica2Modulo6Etapa9Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
     </string>
 
-    <string name="dica3Modulo6Etapa8Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
+    <string name="dica3Modulo6Etapa9Licao1">Interface: lista de serviços fornecidos por um componente. É o contato com o mundo exterior, que defini o que pode ser feito com um objeto dessa classe.
     </string>
 
 
