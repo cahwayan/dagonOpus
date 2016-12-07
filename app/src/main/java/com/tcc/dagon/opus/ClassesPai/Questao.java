@@ -68,7 +68,7 @@ public class Questao extends Fragment {
 
     protected int moduloAtual, etapaAtual, questaoAtual;
 
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(getActivity());
+    protected GerenciadorSharedPreferences preferencias;
 
 
 
@@ -96,6 +96,8 @@ public class Questao extends Fragment {
             somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
             somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
         }
+
+        preferencias = new GerenciadorSharedPreferences(getActivity());
     }
 
 

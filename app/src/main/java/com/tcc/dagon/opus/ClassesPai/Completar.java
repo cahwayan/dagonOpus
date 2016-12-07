@@ -73,7 +73,7 @@ public class Completar extends Fragment {
 
     protected int moduloAtual, etapaAtual;
 
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(getActivity());
+    protected GerenciadorSharedPreferences preferencias;
 
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -94,6 +94,8 @@ public class Completar extends Fragment {
             somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
             somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
         }
+
+        preferencias = new GerenciadorSharedPreferences(getActivity());
     }
 
     @Override
