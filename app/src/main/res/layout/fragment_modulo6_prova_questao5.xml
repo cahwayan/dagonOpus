@@ -78,6 +78,7 @@
             android:fontFamily="@string/fonteQuestao"
             android:layout_marginBottom="5dp"/>
 
+        <include layout="@layout/botoes_responder_questao" />
     </LinearLayout>
 
 </ScrollView>

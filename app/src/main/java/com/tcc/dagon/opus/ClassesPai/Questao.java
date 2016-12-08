@@ -309,10 +309,11 @@ public class Questao extends Fragment {
     protected void questaoFinal() {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        if(this.DB_PROGRESSO.verificaProgressoEtapa(etapaAtual) <= etapaAtual) {
+        if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
         }
+
         this.getActivity().finish();
     }
 

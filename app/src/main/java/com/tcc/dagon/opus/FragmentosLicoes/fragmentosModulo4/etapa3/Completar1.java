@@ -69,11 +69,18 @@ public class Completar1 extends Completar {
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
-        super.accessViews();
-
         // CRIANDO OS VETORES DE RESPOSTAS
         respostasCertas = new String[]{"procedimento", "topo", "inicio", "topo", "topo", "topo"};
         respostasCertasAcentuadas = new String[]{"procedimento", "topo", "início", "topo", "topo", "topo"};
+
+        // VIEWS DA SUPERCLASSE
+        super.accessViews();
+
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
     }
 
 

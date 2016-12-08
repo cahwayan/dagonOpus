@@ -11,6 +11,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
@@ -194,6 +200,7 @@ public class QuestaoProva extends Questao {
 
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getActivity(), retornarTelaEtapas(moduloAtual)));
             this.getActivity().finish();
         }
 
@@ -221,4 +228,15 @@ public class QuestaoProva extends Questao {
         this.getActivity().finish();
     }
 
+    protected Class retornarTelaEtapas(int numeroModulo) {
+        switch(numeroModulo) {
+            case 1: return EtapasModulo1Activity.class;
+            case 2: return EtapasModulo2Activity.class;
+            case 3: return EtapasModulo3Activity.class;
+            case 4: return EtapasModulo4Activity.class;
+            case 5: return EtapasModulo5Activity.class;
+            case 6: return EtapasModulo6Activity.class;
+            default: return null;
+        }
+    }
 }

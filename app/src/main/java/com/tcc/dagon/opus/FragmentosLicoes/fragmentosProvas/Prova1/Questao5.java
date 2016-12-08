@@ -81,13 +81,19 @@ public class Questao5 extends CompletarProva {
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
-        // CHAMANDO AS VIEWS DA SUPER CLASSE
-        super.accessViews();
-
         // DEFININDO AS RESPOSTAS DO EXERCICIO, NA ORDEM EM QUE DEVEM SER ESCRITAS
         respostasCertas = new String[]{"inteiro", "real", "caractere", "logico"};
 
         respostasCertasAcentuadas = new String[]{"inteiro", "real", "caractere", "logico"};
+
+        // VIEWS DA SUPERCLASSE
+        super.accessViews();
+
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
     }
 
     protected void listeners() {
@@ -105,82 +111,6 @@ public class Questao5 extends CompletarProva {
             @Override
             public void onClick(View v) {
                 tentarNovamente(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
-
-        linha2Palavra1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha2Palavra1.getText().length() == 7) {
-                    linha3Palavra1.requestFocus();
-                }
-            }
-        });
-
-        linha3Palavra1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha3Palavra1.getText().length() == 4) {
-                    linha4Palavra1.requestFocus();
-                }
-            }
-        });
-
-        linha4Palavra1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha4Palavra1.getText().length() == 9) {
-                    linha5Palavra1.requestFocus();
-                }
-            }
-        });
-
-        linha5Palavra1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha5Palavra1.getText().length() == 6) {
-                    escondeTeclado();
-                }
             }
         });
 

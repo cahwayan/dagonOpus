@@ -12,7 +12,7 @@
         >
         <TextView
             android:id="@+id/pergunta1"
-            android:text="@string/ProvaModulo6Pergunta7"
+            android:text="@string/ProvaModulo6Pergunta9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:padding="3dp"    >
                 <RadioButton
-                    android:text="@string/ProvaModulo6Pergunta7Alternativa1"
+                    android:text="@string/ProvaModulo6Pergunta9Alternativa1"
                     android:id="@+id/alternativa1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
@@ -42,7 +42,7 @@
                     android:textSize="@dimen/textSizeAltenativa" />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo6Pergunta7Alternativa2"
+                    android:text="@string/ProvaModulo6Pergunta9Alternativa2"
                     android:id="@+id/alternativa2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
@@ -52,7 +52,7 @@
                     />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo6Pergunta7Alternativa3"
+                    android:text="@string/ProvaModulo6Pergunta9Alternativa3"
                     android:id="@+id/alternativa3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
@@ -62,10 +62,10 @@
                     />
 
                 <RadioButton
-                    android:text="@string/ProvaModulo6Pergunta7Alternativa4"
+                    android:text="@string/ProvaModulo6Pergunta9Alternativa4"
                     android:id="@+id/alternativa4"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:background="@drawable/borda_alternativa"
                     android:padding="5dp"
                     android:textSize="@dimen/textSizeAltenativa"

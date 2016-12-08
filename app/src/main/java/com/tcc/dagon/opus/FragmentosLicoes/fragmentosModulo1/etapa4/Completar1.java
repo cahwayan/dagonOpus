@@ -64,12 +64,19 @@ public class Completar1 extends Completar {
         listaEditTexts.add( linha2Palavra1 );
         listaEditTexts.add( linha2Palavra2 );
 
-        // CHAMANDO AS VIEWS DA SUPER CLASSE
-        super.accessViews();
 
         // DEFININDO AS RESPOSTAS DO EXERCICIO, NA ORDEM EM QUE DEVEM SER ESCRITAS
         respostasCertas = new String[]{"ola", "mundo"};
         respostasCertasAcentuadas = new String[]{"olá", "mundo"};
+
+        super.accessViews();
+
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
+
     }
 
 
@@ -90,47 +97,6 @@ public class Completar1 extends Completar {
                 tentarNovamente(respostasCertas, respostasCertasAcentuadas);
             }
         });
-
-        linha2Palavra1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha2Palavra1.getText().length() == 3) {
-                    linha2Palavra2.requestFocus();
-                }
-            }
-        });
-
-        linha2Palavra2.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(linha2Palavra2.getText().length() == 5) {
-                    escondeTeclado();
-                }
-            }
-        });
-
-
-
     }
 
 }

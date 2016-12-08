@@ -65,7 +65,7 @@ public class Completar extends Fragment {
     protected EditText linhasCompletar[];
 
     protected String respostasUsuario[];
-
+    protected String respostasCertas[];
 
     
     // IMAGENS DE CERTO E ERRADO
@@ -74,6 +74,8 @@ public class Completar extends Fragment {
     protected int moduloAtual, etapaAtual;
 
     protected GerenciadorSharedPreferences preferencias;
+
+    protected int[] tamanhoPalavras;
 
 
     // MÉTODO ON CREATE DO FRAGMENTO
@@ -129,8 +131,14 @@ public class Completar extends Fragment {
         imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-        imgRespostaCerta.setVisibility(View.GONE);
-        imgRespostaErrada.setVisibility(View.GONE);
+        if(imgRespostaCerta != null) {
+            imgRespostaCerta.setVisibility(View.GONE);
+        }
+
+        if(imgRespostaErrada != null) {
+            imgRespostaErrada.setVisibility(View.GONE);
+        }
+
 
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
         btnAvancar.setVisibility(View.GONE);
@@ -138,6 +146,11 @@ public class Completar extends Fragment {
 
         linhasCompletar = new EditText[listaEditTexts.size()];
         respostasUsuario = new String[listaEditTexts.size()];
+
+        tamanhoPalavras = new int[listaEditTexts.size()];
+
+
+
     }
 
 
@@ -152,9 +165,30 @@ public class Completar extends Fragment {
         });
 
 
+        /*LISTENERS DAS EDIT TEXTS PARA AVANÇAREM QUANDO FOR PREENCHIDA A PALAVRA*/
+        // de 0 até o tamanho do vetor que guarda o tamanho de cada palavra
+        for(int i = 0; i <= (listaEditTexts.size() - 1) ; i++) {
+            // pegue a coleção que está na lista, jogue no vetor
+            // adicione um click listener que tenha:
+            // o tamanho da palavra na posição i,
+            // na edit text da posição i
+            // e sete o focus para a próxima edit text
+            linhasCompletar[i] = listaEditTexts.get(i);
+
+            try {
+                    adicionarClickListenerEditText(tamanhoPalavras[i], linhasCompletar[i], listaEditTexts.get(i + 1));
+
+            } catch(IndexOutOfBoundsException erroLista) {
+                erroLista.printStackTrace();
+                adicionarClickListenerEditText(tamanhoPalavras[i], linhasCompletar[i], null);
+            }
+
+        }
+
         // LISTENER QUE VERIFICA QUANDO A ABA SELECIONADA É MUDADA, SELECIONADA ou RE-SELECIONADA
         // ELE É IMPORTANTE PARA ESVAZIAR AS EDIT TEXTS AO SAIR DA ATIVIDADE ENQUANTO ESTÃO PREENCHIDAS
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -335,7 +369,7 @@ public class Completar extends Fragment {
     protected void completarFinal() {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        if(this.DB_PROGRESSO.verificaProgressoEtapa(etapaAtual) <= etapaAtual) {
+        if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
         }
@@ -396,6 +430,7 @@ public class Completar extends Fragment {
             linhasCompletar[i].setTextColor(Color.BLACK);
         }
 
+
         // LIMPANDO AS EDIT TEXTS VERMELHAS
         limparEditTextsVermelhas(respostasCertas, respostasCertasAcentuadas);
 
@@ -414,6 +449,8 @@ public class Completar extends Fragment {
 
     protected void escondeTeclado() {
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }
 
@@ -422,5 +459,38 @@ public class Completar extends Fragment {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
+
+    protected void adicionarClickListenerEditText(final int tamanhoMaximo, final EditText editText1, final EditText editText2) {
+
+        editText1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(editText2 == null && editText1.length() == tamanhoMaximo & !editText1.getText().toString().equals("")) {
+                    try {
+                        escondeTeclado();
+                    } catch(NullPointerException e) {
+                        e.printStackTrace();
+                    }
+
+                } else if(editText1.getText().length() == tamanhoMaximo) {
+                    if(editText2 != null && !editText1.getText().toString().equals("") ) {
+                        editText2.requestFocus();
+                    }
+
+                }
+            }
+        });
+    }
+
 
 }

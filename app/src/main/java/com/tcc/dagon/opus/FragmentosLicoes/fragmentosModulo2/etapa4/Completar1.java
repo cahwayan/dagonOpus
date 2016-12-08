@@ -46,7 +46,7 @@ public class Completar1 extends Completar {
         mTabLayout = ((ContainerModulo2Etapa4)getActivity()).getmTabLayout();
 
         linha2Palavra1 = (EditText) rootView.findViewById(R.id.Modulo2Etapa4Pergunta1Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.Modulo2Etapa4Pergunta1Linha2Palavra1);
+        linha2Palavra2 = (EditText) rootView.findViewById(R.id.Modulo2Etapa4Pergunta1Linha2Palavra2);
 
         // INSTANCIANDO A LISTA
         listaEditTexts = new ArrayList<>();
@@ -57,11 +57,18 @@ public class Completar1 extends Completar {
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
-        super.accessViews();
-
         // CRIANDO OS VETORES DE RESPOSTAS
         respostasCertas = new String[]{"para", "5"};
         respostasCertasAcentuadas = new String[]{"para", "5"};
+
+        // VIEWS DA SUPERCLASSE
+        super.accessViews();
+
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
     }
 
 

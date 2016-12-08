@@ -77,11 +77,18 @@ public class Questao3 extends CompletarProva {
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
-        super.accessViews();
-
         // CRIANDO OS VETORES DE RESPOSTAS
         respostasCertas = new String[]{"inteiro", "x", "y", "x", "y"};
         respostasCertasAcentuadas = new String[]{"inteiro", "y", "x", "y", "x"};
+
+        // VIEWS DA SUPERCLASSE
+        super.accessViews();
+
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
     }
 
 
