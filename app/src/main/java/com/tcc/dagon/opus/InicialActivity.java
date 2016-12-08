@@ -108,7 +108,7 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(3,3);
                 DB_PROGRESSO.atualizaProgressoEtapa(4,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(5,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,9);
+                DB_PROGRESSO.atualizaProgressoEtapa(6,10);
                 /*DB_PROGRESSO.atualizaProgressoEtapa(7,10);
                 DB_PROGRESSO.atualizaProgressoEtapa(8,4);*/
             }
@@ -138,6 +138,45 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(1,7,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
+
+                DB_PROGRESSO.atualizaProgressoLicao(2,1,1);
+                DB_PROGRESSO.atualizaProgressoLicao(2,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(2,3,1);
+                DB_PROGRESSO.atualizaProgressoLicao(2,4,1);
+                DB_PROGRESSO.atualizaProgressoLicao(2,5,1);
+                DB_PROGRESSO.atualizaProgressoLicao(2,6,1);
+
+                DB_PROGRESSO.atualizaProgressoLicao(3,1,1);
+                DB_PROGRESSO.atualizaProgressoLicao(3,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(3,3,1);
+
+                DB_PROGRESSO.atualizaProgressoLicao(4,1,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,3,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,4,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,5,1);
+                DB_PROGRESSO.atualizaProgressoLicao(4,6,1);
+
+                DB_PROGRESSO.atualizaProgressoLicao(6,1,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,2,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,3,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,4,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,5,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,6,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,7,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,8,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,9,1);
+                DB_PROGRESSO.atualizaProgressoLicao(6,10,1);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
+
             }
         });
 
@@ -159,7 +198,17 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(4,4,1);
                 DB_PROGRESSO.atualizaProgressoLicao(4,5,5);
                 DB_PROGRESSO.atualizaProgressoLicao(4,6,4);
-                writeFlag(true);
+
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, true);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, true);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, true);
+
             }
         });
 
@@ -179,6 +228,8 @@ public class InicialActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("completouTeste1", flag);
         editor.apply();
+
+
     }
 
 }
