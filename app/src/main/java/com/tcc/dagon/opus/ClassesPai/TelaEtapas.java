@@ -100,8 +100,7 @@ public class TelaEtapas extends AppCompatActivity {
         }
 
     }
-
-
+    
 
     // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
     public boolean onOptionsItemSelected (MenuItem item) {

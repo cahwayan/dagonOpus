@@ -28,6 +28,27 @@ public class GerenciadorSharedPreferences extends Activity {
         public static final String flagProva5 = "completouTeste5";
         public static final String flagProva6 = "completouTeste6";
 
+        public static String lerFlagProva(int moduloProva) {
+            switch(moduloProva) {
+                case 1: return flagProva1;
+
+                case 2: return flagProva2;
+
+                case 3: return flagProva3;
+
+                case 4: return flagProva4;
+
+                case 5: return flagProva5;
+
+                case 6: return flagProva6;
+
+                default: return "default";
+
+            }
+
+        }
+
+
         /*FLAGS DA TELA DE CONFIGURAÇÕES*/
         public static final String flagSwitchConfigSom = "botaoSonsChecked";
         public static final String desativarSons = "desativarSons";
@@ -47,11 +68,13 @@ public class GerenciadorSharedPreferences extends Activity {
 
     }
 
+
+
     /*MÉTODOS QUE ALTERAM FLAGS*/
 
     public void escreverFlagString(String nomeFlag, String valorFlag ) {
         SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this.context);
+                PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(nomeFlag, valorFlag);
         editor.apply();

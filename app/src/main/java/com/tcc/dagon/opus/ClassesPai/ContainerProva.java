@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.ClassesPai;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,9 +9,16 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
+import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 
 /**
@@ -25,6 +33,8 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     private int contagemVidas;
 
     Context context = this;
+
+    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     public void onArticleSelected(int position) {
         // The user selected the headline of an article from the HeadlinesFragment
@@ -62,8 +72,12 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     }
 
     @Override
-    public void onBackPressed() {
+    protected void onDestroy() {
+        if(!preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual))) {
+            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual,1);
+        }
 
+        super.onDestroy();
     }
 
     // método que constrói a janela de alerta ao apertar o back button
@@ -86,6 +100,15 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
                     }
                 }
                 break;
+        }
+
+        if(preferencias.lerFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual))) {
+            for(int i = 0; i <= progresso - 1; i += 1) {
+                if(mTabLayout.getTabAt(i) != null) {
+                    tabStrip.getChildAt(i).setClickable(true);
+                    tabStrip.getChildAt(i).setEnabled(true);
+                }
+            }
         }
     }
 
@@ -116,5 +139,42 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     public void setContagemVidas(int contagemVidas) {
         this.contagemVidas = contagemVidas;
     }
+
+    @Override
+    public void onBackPressed() {
+        alertDialogSairProva("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
+                listenerDialogClickProva);
+    }
+
+    // MENSAGEM DE ALERTA AO CLICAR NO BACK BUTTON
+    DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
+                    finish();
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
+            }
+        }
+    };
+
+    protected Class retornarTelaEtapas(int numeroModulo) {
+        switch(numeroModulo) {
+            case 1: return EtapasModulo1Activity.class;
+            case 2: return EtapasModulo2Activity.class;
+            case 3: return EtapasModulo3Activity.class;
+            case 4: return EtapasModulo4Activity.class;
+            case 5: return EtapasModulo5Activity.class;
+            case 6: return EtapasModulo6Activity.class;
+            default: return null;
+        }
+    }
+
+
 
 }

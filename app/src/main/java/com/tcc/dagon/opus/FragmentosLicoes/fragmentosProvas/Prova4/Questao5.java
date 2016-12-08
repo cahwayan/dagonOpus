@@ -93,14 +93,4 @@ public class Questao5 extends CompletarProva {
             }
         });
     }
-
-    /*@Override
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste4", flag);
-        editor.apply();
-    }*/
 }

@@ -138,17 +138,7 @@
     <string name="Modulo6Etapa6Pergunta1Alternativa4">Criar objetos da mesma classe independente se são iguais ou não</string>
 
     <!--ETAPA 7 -->
-    <!--PERGUNTA 1-->
-    <string name="Modulo6Etapa7Pergunta1">É correto afirmar que os métodos e atributos...</string>
-
-    <!--ALTERNATIVAS PERGUNTA 1-->
-    <string name="Modulo6Etapa7Pergunta1Alternativa1">Públicos podem ser acessados de qualquer classe desde que ela seja filha da classe mãe</string> 
-
-    <string name="Modulo6Etapa7Pergunta1Alternativa2">Privados podem ser acessado de classes também privadas</string> 
-
-    <string name="Modulo6Etapa7Pergunta1Alternativa3">Protegidos podem ser acessados da classe mãe e das classes filhas</string> <!--CORRETA-->
-
-    <string name="Modulo6Etapa7Pergunta1Alternativa4">Secretos só podem ser acessados pelo Sherlock Holmes</string>
+    c
 
 
     <!--PERGUNTA 2-->
@@ -176,7 +166,6 @@
     <string name="Modulo6Etapa7Pergunta3Alternativa4">Um método utilizado para passagem de parametro, que será passada para o atributo do objeto, de forma mais fácil</string>
 
     <!-- PERGUNTA 4 -->
-
     <string name="Modulo6Etapa7Pergunta4">Declare um método GETTER para o atributo COR</string>
 
     <string name="Modulo6Etapa7Pergunta4Linha1">publico metodo <!--HARDCODE (), GETCOR --></string>
@@ -203,5 +192,113 @@
     <string name="Modulo6Etapa9Pergunta1Alternativa3">Para proteger o programa de ataques alienígenas</string> 
 
     <string name="Modulo6Etapa9Pergunta1Alternativa4">Encapsular é importante para aumentar a segurança do sistema. Tanto quanto contra hackers, quanto usuários sem conhecimento, e outros programadores.</string> <!--CORRETA-->
+
+
+
+    <!--PROVA -->
+
+    <!--PERGUNTA 1-->
+    <string name="ProvaModulo6Pergunta1">De acordo com o que aprendemos, é correto afirmar que é considerado um objeto dentro da programação tudo que: </string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo6Pergunta1Alternativa1">Possuir atributos, métodos e estado atual, podendo ser material ou abstrata</string> <!--CORRETA-->
+
+    <string name="ProvaModulo6Pergunta1Alternativa2">Possuir atributos e métodos de acordo com o seu estado atual </string>
+
+    <string name="ProvaModulo6Pergunta1Alternativa3">Possuir características, métodos e procedimentosPossuir atributos e métodos e características</string>
+
+    <string name="ProvaModulo6Pergunta1Alternativa4">Possuir atributos e métodos e características</string>
+
+    
+    <!--PERGUNTA 2-->
+    <string name="ProvaModulo6Pergunta2">É correto afirmar que um método SETTER é:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 2-->
+    <string name="ProvaModulo6Pergunta2Alternativa1">Um método responsável pela construção do objeto em sí</string> 
+
+    <string name="ProvaModulo6Pergunta2Alternativa2">Um método utilizado para passagem de parametro, que será passada para o atributo do objeto, de forma mais fácil</string> 
+
+    <string name="ProvaModulo6Pergunta2Alternativa3">Um método utilizado para selecionar qual atributo o usuário terá acesso</string> 
+
+    <string name="ProvaModulo6Pergunta2Alternativa4">Um método utilizado para modificar os valores de um atributo, sem que eu tenha acesso direto a ele, sendo assim de forma muito mais segura</string> <!--CORRETA-->
+
+    <!--PERGUNTA 3-->
+    <string name="ProvaModulo6Pergunta3">Abstrair é:</string>
+
+    <!--ALTERNATIVAS PERGUNTA 3-->
+    <string name="ProvaModulo6Pergunta3Alternativa1">Criar diferentes objetos de uma mesma classe</string> 
+
+    <string name="ProvaModulo6Pergunta3Alternativa2">Criar diferentes objetos de uma mesma classe, pegando somente os atributos mais importantes para aquela ocasião</string> <!--CORRETA-->
+
+    <string name="ProvaModulo6Pergunta3Alternativa3">Criar objetos da mesma classe independente se são iguais ou não</string> 
+
+    <string name="ProvaModulo6Pergunta3Alternativa4">Emagrecer para entrar numa agência de modelos</string>
+
+    <!--PERGUNTA 4 -->
+    <string name="ProvaModulo6Pergunta4">Declare uma classe chamada Bicicleta
+    </string>
+
+    <string name="ProvaModulo6Pergunta4Linha1"><!--______ _____--> <!--Classe Bolo --></string>
+
+    <string name="ProvaModulo6Pergunta4Linha2">FimClasse</string>
+
+    <!--PERGUNTA 5-->
+    <string name="ProvaModulo6Pergunta5">Agora declare um método chamado pedalar</string>
+
+    <string name="ProvaModulo6Pergunta5Linha3"><!--______ _______-->() <!-- METODO PEDALAR --></string>
+
+    <string name="ProvaModulo6Pergunta5Linha4"><![CDATA[          ]]>enquanto destino = falso faca
+                                                                             \n<![CDATA[                    ]]>pedalada <![CDATA[<-]]> pedalada + 1
+                                                                             \n<![CDATA[          ]]>fimEnquanto
+                                                                             \nFimMetodo</string>
+
+    <!--PERGUNTA 6-->
+    <string name="ProvaModulo6Pergunta6">Por que é importante encapsular?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo6Pergunta6Alternativa1">Encapsular é importante para aumentar a segurança do sistema. Tanto quanto contra hackers, quanto usuários sem conhecimento, e outros programadores.</string> <!--CORRETA-->
+
+    <string name="ProvaModulo6Pergunta6Alternativa2">Para proteger o programador do programa</string> 
+
+    <string name="ProvaModulo6Pergunta6Alternativa3">Para proteger o programa de ataques alienígenas</string> 
+
+    <string name="ProvaModulo6Pergunta6Alternativa4">Para fazer com que o programa fique inutilizável por usuários</string> 
+
+
+    <!-- PERGUNTA 7 -->
+
+    <string name="ProvaModulo6Pergunta7">De acordo com a UML, o que é a visibilidade dos componentes?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo6Pergunta7Alternativa1">Define a segurança de cada componente, sendo protegido o mais seguro.</string> 
+
+    <string name="ProvaModulo6Pergunta7Alternativa2">Define o que o usuário poderá ver na interface do programa.</string>
+
+    <string name="ProvaModulo6Pergunta7Alternativa3">Define quais classes terão acesso aos componentes</string> <!--CORRETA-->
+
+    <string name="ProvaModulo6Pergunta7Alternativa4">Define o que ficará visível no código depois de compilado</string>
+
+    <!--PERGUNTA 8-->
+    <string name="ProvaModulo6Pergunta8">Imagine que nós definimos o método construtor da nossa classe Caneta da seguinte forma: Metodo construtor(modelo: Caractere, cor: Caractere, ponta: real) sendo assim, instancie de forma correta um objeto da classe Caneta do modelo BIC, de cor AZUL, e tamanho de ponta 0.5</string>
+
+    <string name="ProvaModulo6Pergunta8Linha1">c1 = nova Caneta(<!--HARDCODAR AS ASPAS <![CDATA[“]]>, BIC, AZUL, 0.5 --></string>
+
+
+    <!--PERGUNTA 9-->
+    <string name="ProvaModulo6Pergunta9">Levando em conta a história da programação, qual a grande vantagem da <b>Programação Orientada a Objetos</b>?</string>
+
+    <!--ALTERNATIVAS PERGUNTA 1-->
+    <string name="ProvaModulo6Pergunta9Alternativa1">A programação orientada a objetos é mais complicada e por isso nos faz sentir mais inteligentes quando aprendemos</string> 
+
+    <string name="ProvaModulo6Pergunta9Alternativa2">A teoria da <b>Programação Orientada a Objetos</b> é muito mais simples de entender, por isso os programadores conseguem ter mais sucesso.</string>
+
+    <string name="ProvaModulo6Pergunta9Alternativa3">É possível programar de forma simples e objetiva, sempre visando os objetos do código, que é o que realmente importa.</string> 
+
+    <string name="ProvaModulo6Pergunta9Alternativa4">A <b>Programação Orientada a Objetos</b> acontece de forma natural, é simples de explicar e simples de entender pois é possível explicar qualquer conceito usando um objeto ou coisa da vida real.</string> <!--CORRETA-->
+
+
+
+
+
 
 </resources>

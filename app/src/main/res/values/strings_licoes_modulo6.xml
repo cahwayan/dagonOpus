@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    
-
     <!-- QUANTIDADE DE QUESTOES EM CADA ETAPA -->
     <string name="qtdQuestoesModulo6Etapa1">1 Questão</string>
     <string name="qtdQuestoesModulo6Etapa2">1 Questão</string>
@@ -24,8 +22,8 @@
     <string name="TituloEtapa5Modulo6">5. Classes</string>
     <string name="TituloEtapa6Modulo6">6. Abstração</string>
     <string name="TituloEtapa7Modulo6">7. Visibilidade e métodos especiais</string>
-    <string name="TituloEtapa8Modulo6">8. Métodos Construtores, polimorfismo</string>
-    <string name="TituloEtapa9Modulo6">9. Encapsulamento e herança</string>
+    <string name="TituloEtapa8Modulo6">8. Métodos Construtores</string>
+    <string name="TituloEtapa9Modulo6">9. Encapsulamento, herança, polimorfismo</string>
     <string name="TituloEtapa10Modulo6">10. Prova 6</string>
 
     <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->

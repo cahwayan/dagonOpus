@@ -68,15 +68,4 @@ public class Questao8 extends QuestaoProva {
         super.accessViews();
 
     }
-
-    @Override
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste1", flag);
-        editor.apply();
-    }
-
 }

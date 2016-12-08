@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
 import java.util.List;
@@ -106,6 +107,7 @@ public class QuestaoProva extends Questao {
                     }
                 }, 1000);
                 break;
+
             case 4:
                 PulseAnimation.create().with(vida04)
                         .setDuration(310)
@@ -199,6 +201,10 @@ public class QuestaoProva extends Questao {
 
     @Override
     protected void questaoFinal() {
+
+        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
+        preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual), true);
+
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
 
@@ -209,23 +215,10 @@ public class QuestaoProva extends Questao {
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
 
-        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        writeFlag(true);
-
         // INICIANDO ATIVIDADE DOS MODULOS
-
         startActivity(new Intent(getActivity(), AprenderActivity.class));
         // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
-    }
-
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste1", flag);
-        editor.apply();
     }
 
 }

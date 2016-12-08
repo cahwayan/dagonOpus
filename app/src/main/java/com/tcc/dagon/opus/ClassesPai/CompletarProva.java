@@ -195,15 +195,15 @@ public class CompletarProva extends Completar {
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
 
+        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
+        preferencias.escreverFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual), true);
+
         if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
             // atualizar progresso do módulo 2 para 1
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
-
-        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
 
         // INICIANDO ATIVIDADE DOS MODULOS
 

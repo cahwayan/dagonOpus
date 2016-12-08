@@ -456,7 +456,7 @@ public class AprenderActivity extends AppCompatActivity {
         txtProgresso3.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(3)) + "/3");
         txtProgresso4.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(4)) + "/6");
         txtProgresso5.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(5)) + "/1");
-        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/6");
+        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.verificaProgressoEtapa(6)) + "/10");
     }
 
     // CONFIGURA O PROGRESSO DAS PROGRESS BARS
@@ -585,8 +585,8 @@ public class AprenderActivity extends AppCompatActivity {
                 }
                 else if(position==1){
                     Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
-                    i.putExtra("id", email);
                     startActivity(i);
+                    finish();
                 } else if (position ==2) {
                     startActivity(new Intent(getApplicationContext(), ContainerComandosGlossario.class));
                 } else if(position ==3) {

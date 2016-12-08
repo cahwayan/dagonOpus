@@ -93,45 +93,46 @@ public class ActivityConfig extends AppCompatActivity {
 
                     // RESETAR PROGRESSO DO MÓDULO
                     DB_PROGRESSO.atualizaProgressoModulo(1);
+
                     // RESETAR PROGRESSO ETAPAS
-                    for(int i=0; i <= 8; ++i) {
-                        DB_PROGRESSO.atualizaProgressoEtapa(i,0);
+                    for(int i=1; i <= 8; ++i) {
+                        DB_PROGRESSO.atualizaProgressoEtapa( i , 0);
                     }
 
                     DB_PROGRESSO.atualizaProgressoEtapa(1,1);
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 1
-                    for(int i = 0; i <= 9; ++i) {
+                    for(int i = 1; i <= 9; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(1,i,1);
                     }
 
                     DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 2
-                    for(int i = 0; i <= 6; ++i) {
+                    for(int i = 1; i <= 6; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(2,i,1);
                     }
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 3
-                    for(int i = 0; i <= 3; ++i) {
+                    for(int i = 1; i <= 3; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(3,i,1);
                     }
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 4
 
-                    for(int i = 0; i <= 6; ++i) {
+                    for(int i = 1; i <= 6; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(4,i,1);
                     }
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 5
 
-                    for(int i = 0; i <= 1; ++i) {
+                    for(int i = 1; i <= 1; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(5,i,1);
                     }
 
 
                     // RESETAR PROGRESSO LIÇÕES MÓDULO 6
-                    for(int i = 0; i <= 10; ++i) {
+                    for(int i = 1; i <= 10; ++i) {
                         DB_PROGRESSO.atualizaProgressoLicao(6,i,1);
                     }
 

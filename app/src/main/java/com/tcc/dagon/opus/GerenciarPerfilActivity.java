@@ -90,6 +90,12 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+        finish();
+    }
+
     private void accessViews() {
         txtNome = (TextView) findViewById(R.id.txtNome);
 
@@ -208,7 +214,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                     Toast.makeText(getApplicationContext(), "Você precisa conceder autorização para utilizar esse recurso", Toast.LENGTH_LONG).show();
 
                 }
-                return;
+
             }
 
         }
@@ -275,12 +281,16 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         {
             if( btnAprender.getId() == v.getId() )
             {
+                Intent i = new Intent(getApplicationContext(), AprenderActivity.class);
+                startActivity(i);
                 finish();
 
             }
             else if( btnLogout.getId() == v.getId() )
             {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 preferencias.escreverFlagBoolean(NomePreferencia.isLogin, false);
                 signOut();
                 finish();
@@ -319,7 +329,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                startActivity(new Intent(getApplicationContext(), AprenderActivity.class));
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
