@@ -79,7 +79,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="@color/corBtnCadastro"
+                app:rcProgressColor="@color/corBtnModulo1"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraGeralCertificado" >
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:background="@color/corBtnCadastro"
             android:textSize="30sp"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textColor="#ffffff"
             android:layout_margin="10dp" />
 
     </LinearLayout>

@@ -33,8 +33,10 @@ public class InicialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         if(preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
             startActivity(new Intent(this, AprenderActivity.class));
+            //finish();
         } else {
             startActivity(new Intent(this, MainActivity.class));
+            //finish();
         }
 
         super.onCreate(savedInstanceState);
@@ -109,8 +111,8 @@ public class InicialActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoEtapa(4,6);
                 DB_PROGRESSO.atualizaProgressoEtapa(5,1);
                 DB_PROGRESSO.atualizaProgressoEtapa(6,10);
-                /*DB_PROGRESSO.atualizaProgressoEtapa(7,10);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,4);*/
+                //DB_PROGRESSO.atualizaProgressoEtapa(7,10);
+                DB_PROGRESSO.atualizaProgressoEtapa(8,4);
             }
         });
 
@@ -211,24 +213,6 @@ public class InicialActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    // LER FLAG PARA VER SE O USUARIO JA SE LOGOU
-    public boolean readFlag() {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        return sharedPreferences.getBoolean("isLogin", false);
-    }
-
-    // MODIFICAR FLAG PARA LOGOUT
-    public void writeFlag(boolean flag) {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("completouTeste1", flag);
-        editor.apply();
-
 
     }
 

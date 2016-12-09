@@ -20,11 +20,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AlterarSenhaActivity extends AppCompatActivity {
+
     private Button btAlterar;
-    private EditText senhaAtual,edtRec,edtRecConfirm;
-    private String emailAlterar,strSenha,strSenhaConfirma,strSenhaAnt;
+    private EditText senhaAtual, edtNovaSenha, edtConfirmaSenha;
+    private String emailAlterar, strSenha, strSenhaConfirma, strNovaSenha;
     private StringsBanco StringsBanco = new StringsBanco();
     RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +39,22 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         btAlterar= (Button)findViewById(R.id.btAlterarSenha);
 
         senhaAtual = (EditText)findViewById(R.id.edtSenhaAtual);
-        edtRec =(EditText)findViewById(R.id.edtNovaSenha);
-        edtRecConfirm= (EditText)findViewById(R.id.edtConfirmaSenha);
+        edtNovaSenha = (EditText)findViewById(R.id.edtNovaSenha);
+        edtConfirmaSenha = (EditText)findViewById(R.id.edtConfirmaSenha);
+
         listClick();
 
     }
     public void listClick(){
     btAlterar.setOnClickListener(new View.OnClickListener() {
+
         @Override
         public void onClick(View v) {
-            if(strSenha.equals(strSenhaConfirma)){
+            strSenha = senhaAtual.getText().toString();
+            strNovaSenha = edtNovaSenha.getText().toString();
+            strSenhaConfirma = edtConfirmaSenha.getText().toString();
+
+            if(strNovaSenha.equals(strSenhaConfirma)){
 
                 StringRequest request = new StringRequest(Request.Method.POST, "http://dagonopus.esy.es/phpAndroid/alterarSenha.php", new Response.Listener<String>() {
                     @Override
@@ -54,6 +62,9 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                         if(response.trim().equals("certo")){
                             Intent i = new Intent(AlterarSenhaActivity.this, GerenciarPerfilActivity.class);
                             startActivity(i);
+                            Toast.makeText(getApplicationContext(), "Senha alterada!", Toast.LENGTH_LONG).show();
+                            finish();
+
                         }else{
 
                             Toast.makeText(getApplicationContext(),
@@ -71,8 +82,8 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> parameters = new HashMap<String, String>();
                         parameters.put("EMAIL_USUARIO", emailAlterar);
-                        parameters.put("SENHA_USUARIO", edtRec.getText().toString());
-                        parameters.put("SENHA_NOVA", edtRecConfirm.getText().toString());
+                        parameters.put("SENHA_USUARIO", strSenha);
+                        parameters.put("SENHA_NOVA", strNovaSenha);
                         return parameters;
                     }
                 };

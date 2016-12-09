@@ -109,7 +109,7 @@
                 app:rcRadius="0dp"
                 app:rcBackgroundPadding="2dp"
                 app:rcReverse="false"
-                app:rcProgressColor="@color/corBtnModulo2"
+                app:rcProgressColor="@color/corBtnModulo1"
                 app:rcSecondaryProgressColor="#ffffffff"
                 app:rcBackgroundColor="#ffffff"
                 android:id="@+id/barraGeral" />
@@ -138,7 +138,7 @@
                 android:id="@+id/btnAprender"
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:layout_marginBottom="5dp" />
 
@@ -150,7 +150,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:layout_marginBottom="5dp" />
 
@@ -163,7 +163,7 @@
                 android:layout_gravity="left"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
 

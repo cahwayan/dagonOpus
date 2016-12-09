@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:background="@color/corBtnCadastro"
             android:textSize="30sp"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textColor="#ffffff"
             android:layout_margin="10dp" />
     </LinearLayout>
 

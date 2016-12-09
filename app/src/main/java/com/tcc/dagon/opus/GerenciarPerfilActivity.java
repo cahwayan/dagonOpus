@@ -51,13 +51,9 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     RequestQueue requestQueue;
-    Context context = this;
+
     ImageView foto;
 
-    String URLMOSTRA = "http://dagonopus.esy.es/phpAndroid/mostrarFoto.php?EMAIL_MOSTRA=";
-    String URLFIM;
-    String caminho;
-    String endFoto = "http://dagonopus.esy.es/phpAndroid/uploads/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

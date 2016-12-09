@@ -306,6 +306,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".ContainerLicoes.Modulos.Provas.ContainerPular1"
+            android:label="@string/tituloPular"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
+
         <activity android:name=".AlterarSenhaActivity" />
         <activity android:name=".CertificadoActivity" />
         <activity android:name=".CertificadoIncompleto"/>

@@ -20,11 +20,12 @@
         android:textIsSelectable="false"
         android:textColor="@color/colorPrimary"
         android:typeface="monospace"
-        android:fontFamily="fonts/GothamRounded-Light.otf"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="17sp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:letterSpacing="0.1" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
 
     <EditText
         android:id="@+id/edt_senha"
@@ -37,11 +38,12 @@
         android:textColorLink="@color/colorPrimary"
         android:textColor="@color/colorPrimary"
         android:hint="@string/hintSenha"
-        android:fontFamily="fonts/GothamRounded-Light.otf"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="17sp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:letterSpacing="0.1" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
 
 
 
@@ -66,8 +68,8 @@
             android:typeface="sans"
             android:fontFamily="fonts/GothamRounded-Light.otf"
             android:background="@color/corBtnCadastro"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp" />
         <TextView
             android:layout_width="wrap_content"
@@ -88,8 +90,8 @@
             android:text="Login"
             android:layout_weight="0.49"
             android:clickable="true"
-            android:layout_marginRight="35dp"
-            android:layout_marginLeft="35dp" />
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp" />
 
 
        <!-- <Button
@@ -98,6 +100,39 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Entrar G+" /> -->
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/esqueceuSenha"
+            android:id="@+id/btSignInCustom"
+            android:textAllCaps="false"
+            android:background="#00ffffff"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="2dp" />
+        <!-- PROFILE -->
+
+        <TextView
+            android:text="@string/BotaoCriarConta"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/botaoCriarConta"
+            android:gravity="center_horizontal"
+            android:fontFamily="fonts/GothamRounded-Light.otf"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp" />
+
+        <!--<include layout="@layout/profile" /> -->
 
     </LinearLayout>
 </LinearLayout>

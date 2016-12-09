@@ -17,6 +17,8 @@
     <string name="nomeAppLogin"><![CDATA[</OPUS>]]></string>
     <!--FIM TELA TESTE-->
 
+    <string name="tituloPular">Pular módulos</string>
+
     <string name="txtConfig">Configurações</string>
     <string name="txtSons">Desativar sons</string>
     <string name="apagarProgresso">Resetar Progresso</string>

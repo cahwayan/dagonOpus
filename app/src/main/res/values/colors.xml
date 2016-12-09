@@ -2,9 +2,9 @@
 <resources>
 
     <!-- CORES REFERENTE AO TEMA ANDROID-->
-    <color name="colorPrimary">#504f38</color>
-    <color name="colorPrimaryDark">#302f22</color>
-    <color name="colorAccent">#504f38</color>
+    <color name="colorPrimary">#50331a</color>
+    <color name="colorPrimaryDark">#5e4e2f</color>
+    <color name="colorAccent">#00aedb</color>
 
     <color name="corBotaoVerde">#8ec127</color>
 

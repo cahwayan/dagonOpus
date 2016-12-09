@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerPular1;
 import com.tcc.dagon.opus.Glossario.ContainerComandosGlossario;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
@@ -552,7 +553,7 @@ public class AprenderActivity extends AppCompatActivity {
 
         btnCertificado.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoModulo() >= 8) {
+                if(DB_PROGRESSO.verificaProgressoModulo() >= 7) {
                     // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
@@ -568,7 +569,7 @@ public class AprenderActivity extends AppCompatActivity {
         btnPular1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(context,R.anim.anim_botaoimageview));
-                startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
+                startActivity(new Intent(getApplicationContext(), ContainerPular1.class));
                 finish();
             }
         });

@@ -86,20 +86,22 @@
                 android:paddingLeft="5dp"
                 android:layout_margin="5dp" />
 
-            <TextView
-                android:text="@string/texto3Modulo6Etapa5Licao3"
-                android:id="@+id/texto3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:gravity="start|end"
-                android:layout_gravity="end|center_vertical"
-                android:paddingTop="@dimen/paddingTopoTextoLicao"
-                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
-                android:lineSpacingExtra="2sp" />
+
 
 
         </FrameLayout>
+
+        <TextView
+            android:text="@string/texto3Modulo6Etapa5Licao3"
+            android:id="@+id/texto3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="start|end"
+            android:layout_gravity="end|center_vertical"
+            android:paddingTop="@dimen/paddingTopoTextoLicao"
+            android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+            android:lineSpacingExtra="2sp" />
 
 
 
