@@ -19,29 +19,29 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
  */
 public class InicialActivity extends AppCompatActivity {
 
-    private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1,
+    /*private Button login, cadastra, modulos, botaoBloquear, botaoDesbloquear, botaoDesbloquearEtapas, botaoBloquearEtapas,Modulo1,
                     botaoDesbloqLicoes, botaoBloqLicoes;
 
     private Button botaoDesbloquearPrimeiroModulo;
 
     private TextView txtInicial;
     RequestQueue requesQueue;
-    GerenciadorBanco DB_PROGRESSO;
+    GerenciadorBanco DB_PROGRESSO;*/
     GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
             startActivity(new Intent(this, AprenderActivity.class));
-            //finish();
+            finish();
         } else {
             startActivity(new Intent(this, MainActivity.class));
-            //finish();
+            finish();
         }
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_inicial);
+        /*setContentView(R.layout.activity_inicial);
 
         DB_PROGRESSO = new GerenciadorBanco(this);
 
@@ -57,8 +57,6 @@ public class InicialActivity extends AppCompatActivity {
         botaoDesbloqLicoes      = (Button)findViewById(R.id.botaoDesbloqLicoes);
         requesQueue             = Volley.newRequestQueue(getApplicationContext());
         botaoDesbloquearPrimeiroModulo = (Button)findViewById(R.id.botaoDesbloquearPrimeiroModulo);
-
-
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,7 +210,7 @@ public class InicialActivity extends AppCompatActivity {
                 preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, true);
 
             }
-        });
+        });*/
 
     }
 

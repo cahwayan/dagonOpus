@@ -2,7 +2,7 @@
     <!--NOME APP-->
     <string name="app_name">Opus</string>
 
-    <string name="txtCertificado">GERAR CERTIFICADO</string>
+    <string name="txtCertificado">ABRIR PEDIDO DE CERTIFICADO</string>
     <string name="certificadoIncompleto">Termine todos os módulos para desbloquear o certificado!</string>
     <string name="txtContinuarAprendendo">CONTINUAR APRENDENDO!</string>
 

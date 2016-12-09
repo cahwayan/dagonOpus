@@ -272,6 +272,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         if (result.isSuccess()) {
             // O USUÁRIO SE CONECTOU COM SUCESSO,
             acct = result.getSignInAccount();
+            gravarEmail(acct.getEmail());
             preferencias.escreverFlagString(NomePreferencia.nomeUsuario, acct.getDisplayName());
             /* DEBUG, PARA LER O NOME DO USUARIO GRAVADO
             Log.d(TAG, "SharedPref nome gravado: " + preferencias.lerFlagString(NomePreferencia.nomeUsuario));*/
