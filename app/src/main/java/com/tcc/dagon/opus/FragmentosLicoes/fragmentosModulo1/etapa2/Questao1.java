@@ -20,6 +20,8 @@ public class Questao1 extends Questao {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
         // INSTANCIA DE OBJETOS / BANCO / JANELA ALERTA / SONS
         super.instanciaObjetos();
         // MÓDULO A QUAL A PERGUNTA PERTENCE
@@ -29,16 +31,13 @@ public class Questao1 extends Questao {
         // NÚMERO DA PERGUNTA
         super.questaoAtual = 1;
 
-        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_etapa2_licao2, container, false);
-
         //TRAZENDO AS VIEWS
         accessViews();
 
         // Carregando os listeners
         super.listeners();
 
-        return this.rootView;
+        return super.rootView;
     }
 
 
@@ -47,15 +46,6 @@ public class Questao1 extends Questao {
         mViewPager = ((ContainerModulo1Etapa2)getActivity()).getPager();
         tabStrip   = ((ContainerModulo1Etapa2)getActivity()).getTabStrip();
         mTabLayout = ((ContainerModulo1Etapa2)getActivity()).getmTabLayout();
-
-        // PEGANDO OS RADIO BUTTONS DO LAYOUT
-        alternativa1 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa2Pergunta1Alternativa1);
-        alternativa2 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa2Pergunta1Alternativa2);
-        alternativa3 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa2Pergunta1Alternativa3);
-        alternativa4 = (RadioButton) rootView.findViewById(R.id.Modulo1Etapa2Pergunta1Alternativa4);
-
-        // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupModulo1Etapa2Licao2);
 
         super.accessViews();
     }

@@ -321,45 +321,19 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     }
 
     // VERIFICA SE A PERGUNTA ESTÁ CERTA
-    public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numPergunta, int alternativa) {
-        String tabela = "";
+    public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
+        String tabela = Progresso.RESPOSTAS_QUESTOES;
         String colunaAlternativa[] = {""};
 
-        switch (moduloPertencente) {
-            case 1:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO1;
-                break;
-            case 2:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO2;
-                break;
-            case 3:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO3;
-                break;
-            case 4:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO4;
-                break;
-            case 5:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO5;
-                break;
-            case 6:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO6;
-                break;
-            case 7:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO7;
-                break;
-            case 8:
-                tabela = Progresso.TABELA_PERGUNTAS_MODULO8;
-                break;
-        }
         String colunaEtapa[] = {""};
         String limit = "1";
-        int respostaPergunta = 0;
+        int respostaPergunta = 10;
 
         // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
-        String select       = Progresso.ETAPA_PERGUNTA + " LIKE ? AND " + Progresso.NUM_PERGUNTA + " LIKE ? " ;
+        String select       = Progresso.MODULO + " lIKE ? AND " + Progresso.ETAPA + " LIKE ? AND " + Progresso.NUM_QUESTAO + " LIKE ? " ;
 
         // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
-        String selectArgs[] = {String.valueOf(etapaPertencente), String.valueOf(numPergunta)};
+        String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
 
         switch (alternativa) {
             case 1:
@@ -399,6 +373,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
 
         // RETORNA O VALOR REQUERIDO
+        Log.i(TAG, String.valueOf(respostaPergunta));
         return respostaPergunta;
     }
 
@@ -530,7 +505,99 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         fecharBanco();
     }
 
+    public String puxarPergunta(int moduloPertencente, int etapaPertencente, int numQuestao) {
 
+        String tabela = Progresso.QUESTOES;
+        String coluna[] = {Progresso.TEXTO_QUESTAO};
+        String pergunta = "";
+        String limit = "1";
+
+        // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
+        String select = Progresso.MODULO + " LIKE ? AND " +
+                        Progresso.ETAPA + " LIKE ? AND " +
+                        Progresso.NUM_QUESTAO + " LIKE ? " ;
+
+        // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
+        String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
+
+        abrirBanco();
+        Cursor cursor = DB_PROGRESSO.query(
+                tabela,
+                coluna,
+                select,
+                selectArgs,
+                null,
+                null,
+                limit
+        );
+
+        if( cursor != null && cursor.moveToFirst() ){
+            pergunta = cursor.getString(
+                    cursor.getColumnIndexOrThrow(coluna[0])
+            );
+            cursor.close();
+        }
+
+
+        fecharBanco();
+
+        return pergunta;
+    }
+
+    public String puxarAlternativa(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
+
+        String tabela = Progresso.QUESTOES;
+        String coluna[] = {""};
+        String textoAlternativa = "";
+
+        switch(alternativa) {
+            case 1:
+                coluna[0] = Progresso.ALTERNATIVA1;
+                break;
+            case 2:
+                coluna[0] = Progresso.ALTERNATIVA2;
+                break;
+            case 3:
+                coluna[0] = Progresso.ALTERNATIVA3;
+                break;
+            case 4:
+                coluna[0] = Progresso.ALTERNATIVA4;
+                break;
+        }
+
+        String limit = "1";
+
+        // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
+        String select = Progresso.MODULO + " LIKE ? AND " +
+                Progresso.ETAPA + " LIKE ? AND " +
+                Progresso.NUM_QUESTAO + " LIKE ? " ;
+
+        // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
+        String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
+
+        abrirBanco();
+        Cursor cursor = DB_PROGRESSO.query(
+                tabela,
+                coluna,
+                select,
+                selectArgs,
+                null,
+                null,
+                limit
+        );
+
+        if( cursor != null && cursor.moveToFirst() ){
+            textoAlternativa = cursor.getString(
+                    cursor.getColumnIndexOrThrow(coluna[0])
+            );
+            cursor.close();
+        }
+
+
+        fecharBanco();
+
+        return textoAlternativa;
+    }
 }
 
 

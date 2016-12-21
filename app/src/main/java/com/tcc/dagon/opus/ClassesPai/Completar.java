@@ -43,6 +43,8 @@ public class Completar extends Fragment {
                      btnAvancar,
                      btnTentarNovamente;
 
+
+
     // REFERENCIA DO VIEWPAGER DO CONTAINER
     protected ViewPager mViewPager;
 
@@ -65,7 +67,9 @@ public class Completar extends Fragment {
     protected EditText linhasCompletar[];
 
     protected String respostasUsuario[];
+
     protected String respostasCertas[];
+    protected String[] respostasCertasAcentuadas;
 
     
     // IMAGENS DE CERTO E ERRADO
@@ -149,12 +153,33 @@ public class Completar extends Fragment {
 
         tamanhoPalavras = new int[listaEditTexts.size()];
 
+        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
+        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
+        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
+            tamanhoPalavras[i] = respostasCertas[i].length();
+        }
+
 
 
     }
 
 
     protected void listeners() {
+
+        // LISTENER BOTÃO CHECAR RESPOSTA
+        btnChecar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
+
+        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
+            }
+        });
 
         // BOTAO AVANÇAR LICAO
         btnAvancar.setOnClickListener(new View.OnClickListener() {
@@ -204,6 +229,18 @@ public class Completar extends Fragment {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
                 resetarEditTexts();
+            }
+        });
+
+        imgRespostaCerta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                concluirCompletar();
+            }
+        });
+
+        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
             }
         });
 

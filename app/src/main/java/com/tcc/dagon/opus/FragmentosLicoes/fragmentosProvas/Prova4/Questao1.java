@@ -11,8 +11,6 @@ import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva4;
 import com.tcc.dagon.opus.R;
 
-import java.util.ArrayList;
-
 /**
  * Created by cahwayan on 09/10/2016.
  */
@@ -67,7 +65,7 @@ public class Questao1 extends QuestaoProva {
         alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo4Pergunta1Alternativa4);
 
         // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo4Pergunta1);
+        radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo4Pergunta1);
 
         super.accessViews();
     }

@@ -14,27 +14,8 @@ public class ContainerModulo3Etapa2 extends ContainerEtapa {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.container_modulo3_etapa2);
-        super.onCreate(savedInstanceState);
-        super.instanciaObjetos();
         super.moduloAtual = 3;
         super.etapaAtual = 2;
-        accessViews();
-        super.bloquearLicoes();
-        super.desbloquearLicoes();
+        super.onCreate(savedInstanceState);
     }
-
-    protected void accessViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo3Etapa2);
-        setSupportActionBar(toolbar);
-
-        mTabLayout = (TabLayout)findViewById(R.id.tab_layout_modulo3_etapa2);
-        mViewPager = (ViewPager)findViewById(R.id.pager_modulo3_etapa2);
-        mViewPager.setAdapter(new AdapterEtapa2(getSupportFragmentManager(),
-                getResources().getStringArray(R.array.tab_modulo3_etapa2)));
-        mTabLayout.setupWithViewPager(mViewPager);
-
-        tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
-    }
-
 }

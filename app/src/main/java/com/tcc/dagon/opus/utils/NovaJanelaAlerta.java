@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 
-import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 
 /**

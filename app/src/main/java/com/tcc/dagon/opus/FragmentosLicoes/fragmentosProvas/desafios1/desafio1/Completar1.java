@@ -3,14 +3,12 @@ package com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.desafios1.desafio1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.tcc.dagon.opus.AprenderActivity;
+import com.tcc.dagon.opus.Aprender.AprenderActivity;
 import com.tcc.dagon.opus.ClassesPai.Completar;
 import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo5.ContainerModulo5Etapa1;
 import com.tcc.dagon.opus.R;

@@ -25,7 +25,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".InicialActivity"
+            android:name=".LauncherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,23 +35,29 @@
         </activity>
 
         <activity
-            android:name=".CadastroActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ActivityConfig"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".RecuperarSenhaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AprenderActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity_"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".GerenciarPerfilActivity"
+            android:name=".Aprender.AprenderActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/TemaSemActionBar"
+            />
+
+        <activity
+            android:name=".CadastroActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ActivityConfig"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PerfilUsuario.RecuperarSenhaActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PerfilUsuario.GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:screenOrientation="portrait" />
 

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
+import com.tcc.dagon.opus.ClassesPai.Adapter;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo4.etapa1.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo4.etapa1.Questao1;
 
@@ -12,12 +13,11 @@ import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo4.etapa1.Questao1;
  * Created by charlinho on 09/10/2016.
  */
 
-public class AdapterEtapa1 extends FragmentPagerAdapter {
+public class AdapterEtapa1 extends Adapter {
 
-private String[] tabTitulos;
 
     public AdapterEtapa1(FragmentManager fm, String[] tabTitulos) {
-        super(fm);
+        super(fm, tabTitulos);
         this.tabTitulos = tabTitulos;
     }
 
@@ -32,18 +32,5 @@ private String[] tabTitulos;
                 return null;
         }
     }
-
-    @Override
-    public int getCount() {
-        return this.tabTitulos.length;
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return this.tabTitulos[position];
-    }
-
-
-
 
 }

@@ -27,9 +27,6 @@ public class Completar1 extends Completar {
                     palavra5,
                     palavra6;
 
-    private String[] respostasCertas;
-    private String[] respostasCertasAcentuadas;
-
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
@@ -76,19 +73,10 @@ public class Completar1 extends Completar {
 
 
         // CRIANDO OS VETORES DE RESPOSTAS
-        respostasCertas = new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"};
-        respostasCertasAcentuadas = new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"};
+        super.respostasCertas = new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"};
+        super.respostasCertasAcentuadas = new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"};
 
         super.accessViews();
-
-        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
-        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
-        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            tamanhoPalavras[i] = respostasCertas[i].length();
-        }
-
-
-
 
     }
 
@@ -96,20 +84,7 @@ public class Completar1 extends Completar {
     protected void listeners() {
         super.listeners();
 
-        // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
 
-        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
 
 
 

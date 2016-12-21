@@ -2,14 +2,11 @@ package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-import com.tcc.dagon.opus.AprenderActivity;
+
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
@@ -19,8 +16,6 @@ import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
-
-import java.util.List;
 
 /**
  * Created by cahwayan on 11/11/2016.
@@ -59,10 +54,10 @@ public class QuestaoProva extends Questao {
     @Override
     protected void avancarQuestao() {
         // SUMINDO COM O BOTÃO AVANÇAR
-        btnAvancar.setVisibility(View.GONE);
+        btnAvancarQuestao.setVisibility(View.GONE);
 
         // TRAZENDO O BOTÃO CHECAR NOVAMENTE
-        btnChecar.setVisibility(View.VISIBLE);
+        btnChecarResposta.setVisibility(View.VISIBLE);
 
         // REABILITANDO OS RADIO BUTTONS
         habilitarRadioButtons();
@@ -222,8 +217,9 @@ public class QuestaoProva extends Questao {
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
 
-        // INICIANDO ATIVIDADE DOS MODULOS
-        startActivity(new Intent(getActivity(), AprenderActivity.class));
+       /* // INICIANDO ATIVIDADE DOS MODULOS
+        startActivity(new Intent(getActivity(), AprenderActivity.class));*/
+
         // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
     }

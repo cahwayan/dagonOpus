@@ -1,8 +1,6 @@
 package com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova2;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +60,7 @@ public class Questao5 extends QuestaoProva {
         alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta5Alternativa4);
 
         // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo2Pergunta5);
+        radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo2Pergunta5);
 
         super.accessViews();
 

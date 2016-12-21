@@ -3,26 +3,28 @@
     <!--STRINGS TELA APRENDER-->
     <!--STRINGS MODULOS-->
     <!-- PROGRESSO DOS MÓDULOS -->
-    <string name="txtProgressoModulo1">0/9</string>
-    <string name="txtProgressoModulo2">0/6</string>
-    <string name="txtProgressoModulo3">0/3</string>
-    <string name="txtProgressoModulo4">0/6</string>
-    <string name="txtProgressoModulo5">0/1</string>
-    <string name="txtProgressoModulo6">0/10</string>
-    <string name="txtProgressoModulo7">0/6</string>
-    <string name="txtProgressoModulo8">0/3</string>
+    <string name="txtProgressoModulo1">0/9 etapas concluídas</string>
+    <string name="txtProgressoModulo2">0/6 etapas concluídas</string>
+    <string name="txtProgressoModulo3">0/3 etapas concluídas</string>
+    <string name="txtProgressoModulo4">0/6 etapas concluídas</string>
+    <string name="txtProgressoModulo5">0/1 etapas concluídas</string>
+    <string name="txtProgressoModulo6">0/10 etapas concluídas</string>
+    <string name="txtProgressoModulo7">0/6 etapas concluídas</string>
+    <string name="txtProgressoModulo8">0/3 etapas concluídas</string>
 
     <!-- TITULOS DOS MÓDULOS -->
-    <string name="txtTituloModulo1">CONCEITOS BÁSICOS</string>
-    <string name="txtTituloModulo2">CONDIÇÕES E LOOPS</string>
-    <string name="txtTituloModulo3">VETORES</string>
-    <string name="txtTituloModulo4">ROTINAS</string>
-    <string name="txtTituloModulo5">DESAFIOS</string>
-    <string name="txtTituloModulo6">CLASSES E OBJETOS</string>
-    <string name="txtTituloModulo7">CLASSES E OBJETOS 2</string>
-    <string name="txtTituloModulo8">CERTIFICADO</string>
+    <string name="txtTituloModulo1">Conceitos Básicos</string>
+    <string name="txtTituloModulo2">Condições e Loops</string>
+    <string name="txtTituloModulo3">Vetores</string>
+    <string name="txtTituloModulo4">Rotinas</string>
+    <string name="txtTituloModulo5">Desafios</string>
+    <string name="txtTituloModulo6">Classes e Objetos</string>
+    <string name="txtTituloModulo7">Classes e Objetos 2</string>
+    <string name="txtTituloModulo8">Certificado</string>
     <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
     <!--FIM STRINGS MODULOS-->
+
+    <string name="moduloBloqueado">Módulo Bloqueado</string>
 
     <!--MENU PUXAVEL-->
     <string name="mAbrir">Abrir navegação</string>

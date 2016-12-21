@@ -9,7 +9,7 @@
         android:layout_height="54dp"
         android:id="@+id/btnAvancarLicao"
         android:layout_gravity="end"
-        android:background="@color/corBtnModulo2"
+        android:background="@color/colorAccent"
         android:textColor="#ffffff"
         android:padding="10dp"
         />

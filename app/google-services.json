@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1089081090555",
+    "project_id": "firebase-opus"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089081090555:android:281b382b22c9489e",
+        "android_client_info": {
+          "package_name": "com.tcc.dagon.opus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089081090555-h36gfm39oemvfvv2tu2f16chviqlv31k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM7IpLH2ptqC5pZMXqzb03LPe08my6IR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

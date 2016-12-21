@@ -1,15 +1,14 @@
 package com.tcc.dagon.opus.ClassesPai;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.tcc.dagon.opus.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
@@ -36,6 +35,16 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
 
     GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.container_prova);
+        super.instanciaObjetos();
+        this.accessViews();
+        super.bloquearLicoes();
+        this.desbloquearLicoes();
+    }
+
     public void onArticleSelected(int position) {
         // The user selected the headline of an article from the HeadlinesFragment
         // Do something here to display that article
@@ -61,6 +70,7 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
                     @Override
                     public void run()
                     {
+                        startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
                         Toast.makeText(context, "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
                         finish();
                     }
@@ -74,7 +84,7 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     @Override
     protected void onDestroy() {
         if(!preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual))) {
-            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual,1);
+            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, 1);
         }
 
         super.onDestroy();
@@ -173,6 +183,15 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
             case 6: return EtapasModulo6Activity.class;
             default: return null;
         }
+    }
+
+    protected void accessViews() {
+        super.accessViews();
+        vida01 = (ImageView) findViewById(R.id.vida01);
+        vida02 = (ImageView) findViewById(R.id.vida02);
+        vida03 = (ImageView) findViewById(R.id.vida03);
+        vida04 = (ImageView) findViewById(R.id.vida04);
+        vida05 = (ImageView) findViewById(R.id.vida05);
     }
 
 

@@ -17,19 +17,13 @@ final class ProgressoUsuario {
         // TABELAS DO BANCO DE DADOS
         static final String TABELA_PROGRESSO = "TD_PROG_USUARIO";
         static final String TABELA_PROGRESSO_LICOES = "TD_PROG_LICOES_MODULO";
-        static final String TABELA_PERGUNTAS_MODULO1 = "TD_QUESTOES_MODULO1";
-        static final String TABELA_PERGUNTAS_MODULO2 = "TD_QUESTOES_MODULO2";
-        static final String TABELA_PERGUNTAS_MODULO3 = "TD_QUESTOES_MODULO3";
-        static final String TABELA_PERGUNTAS_MODULO4 = "TD_QUESTOES_MODULO4";
-        static final String TABELA_PERGUNTAS_MODULO5 = "TD_QUESTOES_MODULO5";
-        static final String TABELA_PERGUNTAS_MODULO6 = "TD_QUESTOES_MODULO6";
-        static final String TABELA_PERGUNTAS_MODULO7 = "TD_QUESTOES_MODULO7";
-        static final String TABELA_PERGUNTAS_MODULO8 = "TD_QUESTOES_MODULO8";
 
         // COLUNA DO ID
         static final String COLUNA_ID = "_id";
         // COLUNA DA TABELA DO PROGRESSO DOS MÓDULOS
         static final String COLUNA_MODULO = "PROG_MODULO";
+
+
 
         // COLUNAS DO PROGRESSO DAS ETAPAS DOS MÓDULOS
         static final String COLUNA_ETAPA1 = "PROG_ETAPA_MODULO1";
@@ -54,9 +48,24 @@ final class ProgressoUsuario {
         static final String COLUNA_PROG_LICOES_ETAPA9 = "PROG_LICOES_ETAPA9";
         static final String COLUNA_PROG_LICOES_ETAPA10 = "PROG_LICOES_ETAPA10";
 
-        // COLUNAS DA TABELA DE PERGUNTAS
-        static final String ETAPA_PERGUNTA = "ETAPA";
-        static final String NUM_PERGUNTA   = "NUM_PERGUNTA";
+        // TABELA QUE GUARDA O TEXTO DAS QUESTÕES
+        static final String QUESTOES = "TD_QUESTOES";
+
+        // TABELA QUE GUARDA AS RESPOSTAS DAS QUESTÕES
+        static final String RESPOSTAS_QUESTOES = "TD_RESPOSTAS_QUESTOES";
+
+        /*COLUNAS QUE AJUDAM NA SELEÇÃO*/
+        static final String MODULO = "MODULO";
+        static final String ETAPA = "ETAPA";
+        static final String NUM_QUESTAO = "NUM_QUESTAO";
+
+        /* A PERGUNTA EM SI*/
+        static final String TEXTO_QUESTAO = "QUESTAO";
+
+        /**//**//*/*/
+
+        // COLUNAS DA TABELA DAS RESPOSTAS DAS PERGUNTAS
+        // SERVE TANTO PARA AS RESPOSTAS QUANDO PARA O TEXTO
         static final String ALTERNATIVA1   = "ALTERNATIVA1";
         static final String ALTERNATIVA2   = "ALTERNATIVA2";
         static final String ALTERNATIVA3   = "ALTERNATIVA3";

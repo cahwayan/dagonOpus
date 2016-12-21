@@ -14,28 +14,10 @@ public class ContainerModulo2Etapa4 extends ContainerEtapa {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // LAYOUT QUE O CONTAINER VAI PUXAR
-        setContentView(R.layout.container_modulo2_etapa4);
-        super.onCreate(savedInstanceState);
-        super.instanciaObjetos();
+
         super.moduloAtual = 2;
         super.etapaAtual = 4;
-        accessViews();
-        super.bloquearLicoes();
-        super.desbloquearLicoes();
-    }
-
-    protected void accessViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarModulo2Etapa4);
-        setSupportActionBar(toolbar);
-
-        mTabLayout = (TabLayout)findViewById(R.id.tab_layout_modulo2_etapa4);
-        mViewPager = (ViewPager)findViewById(R.id.pager_modulo2_etapa4);
-        mViewPager.setAdapter(new AdapterEtapa4(getSupportFragmentManager(),
-                getResources().getStringArray(R.array.tab_modulo2_etapa4)));
-        mTabLayout.setupWithViewPager(mViewPager);
-
-        tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
+        super.onCreate(savedInstanceState);
 
     }
 

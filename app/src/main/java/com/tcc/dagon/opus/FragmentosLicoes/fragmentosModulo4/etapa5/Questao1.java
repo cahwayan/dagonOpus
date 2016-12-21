@@ -56,7 +56,7 @@ public class Questao1 extends Questao {
         alternativa4 = (RadioButton) rootView.findViewById(R.id.Modulo4Etapa5Pergunta1Alternativa4);
 
         // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupModulo4Etapa5Licao2);
+        radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupModulo4Etapa5Licao2);
 
         super.accessViews();
     }

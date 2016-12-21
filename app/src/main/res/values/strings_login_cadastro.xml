@@ -15,7 +15,7 @@
 
     <!-- STRINGS TELA LOGIN-->
     <string name="ou">ou</string>
-    <string name="Entrar">Entrar</string>
+    <string name="Entrar">ENTRAR</string>
     <string name="esqueceuSenha">Esqueceu sua senha?</string>
     <string name="BotaoCriarConta">CRIAR CONTA</string>
     <!--FIM TELA LOGIN-->

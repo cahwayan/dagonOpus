@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -33,13 +35,15 @@ public class Questao extends Fragment {
                           alternativa3,
                           alternativa4;
 
+    protected TextView pergunta;
+
 
     // OBJETO BANCO PARA VERIFICAR AS RESPOSTAS
     protected GerenciadorBanco DB_PROGRESSO = null;
 
     // BOTÕES DE CHECAR RESPOSTA, AVANÇAR E TENTAR DE NOVO
-    protected Button btnChecar,
-                     btnAvancar,
+    protected Button btnChecarResposta,
+            btnAvancarQuestao,
                      btnTentarNovamente;
 
     // REFERENCIA DO VIEWPAGER DO CONTAINER
@@ -54,7 +58,7 @@ public class Questao extends Fragment {
     protected View rootView;
 
     // RADIOGROUP
-    protected RadioGroup containerRadioButtons;
+    protected RadioGroup radioGroupQuestao;
 
     // SONS DO APP
     protected MediaPlayer somRespostaCerta = null;
@@ -76,7 +80,8 @@ public class Questao extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
+        rootView = inflater.inflate(R.layout.activity_questao, container, false);
+        return rootView;
     }
 
     protected void instanciaObjetos() {
@@ -100,12 +105,11 @@ public class Questao extends Fragment {
         preferencias = new GerenciadorSharedPreferences(getActivity());
     }
 
-
     @Override
     public void onPause() {
         desmarcarRadioButtons();
-        btnChecar.setVisibility(View.VISIBLE);
-        btnAvancar.setVisibility(View.GONE);
+        btnChecarResposta.setVisibility(View.VISIBLE);
+        btnAvancarQuestao.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
         super.onPause();
     }
@@ -127,17 +131,30 @@ public class Questao extends Fragment {
 
     protected void accessViews() {
 
+        // PEGANDO O RADIOGROUP DO LAYOUT
+        radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupQuestao);
+
+        pergunta = (TextView) rootView.findViewById(R.id.pergunta);
+
+        // PEGANDO OS RADIO BUTTONS DO LAYOUT
+        alternativa1 = (RadioButton) rootView.findViewById(R.id.alternativa1);
+        alternativa2 = (RadioButton) rootView.findViewById(R.id.alternativa2);
+        alternativa3 = (RadioButton) rootView.findViewById(R.id.alternativa3);
+        alternativa4 = (RadioButton) rootView.findViewById(R.id.alternativa4);
+
+        carregarPergunta();
+
         // IMAGENS CERTO E ERRADO
         imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
         imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
-        btnChecar = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
+        btnChecarResposta = (Button) rootView.findViewById(R.id.btnChecarResposta);
+        btnAvancarQuestao = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE
-        btnAvancar.setVisibility(View.GONE);
+        btnAvancarQuestao.setVisibility(View.GONE);
         btnTentarNovamente.setVisibility(View.GONE);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
@@ -148,7 +165,7 @@ public class Questao extends Fragment {
 
     protected void listeners() {
         // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
+        btnChecarResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // SE A ALTERNATIVA 1 ESTIVER SELECIONADA AO CLICAR
@@ -186,7 +203,7 @@ public class Questao extends Fragment {
         });
 
         // BOTAO AVANÇAR LICAO
-        btnAvancar.setOnClickListener(new View.OnClickListener() {
+        btnAvancarQuestao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 concluirQuestao();
@@ -222,6 +239,18 @@ public class Questao extends Fragment {
             }
         });
 
+        imgRespostaCerta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                concluirQuestao();
+            }
+        });
+
+        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tentarNovamente();
+            }
+        });
+
     }
 
     // MÉTODO QUE DESABILITA OS RADIO BUTTONS
@@ -244,7 +273,7 @@ public class Questao extends Fragment {
 
     // MÉTODO DE DESMARCAR OS RADIO BUTTONS
     protected void desmarcarRadioButtons() {
-        containerRadioButtons.clearCheck();
+        radioGroupQuestao.clearCheck();
     }
 
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
@@ -267,7 +296,7 @@ public class Questao extends Fragment {
         desabilitarRadioButtons();
 
         //TRAZENDO O BOTÃO AVANÇAR
-        btnAvancar.setVisibility(View.VISIBLE);
+        btnAvancarQuestao.setVisibility(View.VISIBLE);
     }
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
@@ -287,7 +316,7 @@ public class Questao extends Fragment {
 
 
         // SUMINDO COM O BOTAO CHECAR
-        btnChecar.setVisibility(View.GONE);
+        btnChecarResposta.setVisibility(View.GONE);
 
         // TRAZENDO BOTÃO TENTAR NOVAMENTE
         btnTentarNovamente.setVisibility(View.VISIBLE);
@@ -319,10 +348,10 @@ public class Questao extends Fragment {
 
     protected void avancarQuestao() {
         // SUMINDO COM O BOTÃO AVANÇAR
-        btnAvancar.setVisibility(View.GONE);
+        btnAvancarQuestao.setVisibility(View.GONE);
 
         // TRAZENDO O BOTÃO CHECAR NOVAMENTE
-        btnChecar.setVisibility(View.VISIBLE);
+        btnChecarResposta.setVisibility(View.VISIBLE);
 
         // REABILITANDO OS RADIO BUTTONS
         habilitarRadioButtons();
@@ -363,7 +392,7 @@ public class Questao extends Fragment {
         btnTentarNovamente.setVisibility(View.GONE);
 
         // TRAZENDO O BOTAO CHECAR
-        btnChecar.setVisibility(View.VISIBLE);
+        btnChecarResposta.setVisibility(View.VISIBLE);
 
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
         imgRespostaCerta.setVisibility(View.GONE);
@@ -388,6 +417,15 @@ public class Questao extends Fragment {
 
     protected void movePrevious(View view) {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+    }
+
+    protected void carregarPergunta() {
+        pergunta.setText(DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
+
+        alternativa1.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, 1));
+        alternativa2.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, 2));
+        alternativa3.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, 3));
+        alternativa4.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, 4));
     }
 
     // MÉTODOS DE VERIFICAÇÃO DAS ALTERNATIVAS

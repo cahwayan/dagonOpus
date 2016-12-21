@@ -13,30 +13,9 @@ public class ContainerModulo6Etapa4 extends ContainerEtapa {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // LAYOUT QUE O CONTAINER VAI PUXAR
-        setContentView(R.layout.container_modulo6_etapa4);
-        super.onCreate(savedInstanceState);
-        super.instanciaObjetos();
         super.moduloAtual = 6;
         super.etapaAtual = 4;
-        accessViews();
-        super.bloquearLicoes();
-        this.desbloquearLicoes();
+        super.onCreate(savedInstanceState);
     }
-
-    protected void accessViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        mTabLayout = (TabLayout)findViewById(R.id.tabLayout);
-        mViewPager = (ViewPager)findViewById(R.id.viewpagerSemSwipe);
-        mViewPager.setAdapter(new AdapterEtapa4(getSupportFragmentManager(),
-                getResources().getStringArray(R.array.tab_modulo6_etapa4)));
-        mTabLayout.setupWithViewPager(mViewPager);
-
-        tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
-
-    }
-
 
 }

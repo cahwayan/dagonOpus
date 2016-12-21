@@ -5,16 +5,16 @@ package com.tcc.dagon.opus;
  */
 public class StringsBanco {
     final String insereUrl;
-    private final String mostrarUrl;
+    final String mostrarUrl;
     final String loginUrl;
     final String insereGoogle;
-    final String recuperarSenha;
+    public  final String recuperarSenha;
     final String certificadoUrl;
     final String nomeUrl;
     public static final String IMAGE_DIRECTORY_NAME = "Android File Upload";
     public static final String FILE_UPLOAD_URL = "http://dagonopus.esy.es/phpAndroid/fileUpload.php";
 
-    StringsBanco(){
+    public StringsBanco(){
         mostrarUrl = "http://dagonopus.esy.es/phpAndroid/mostrarEstudante.php";
         insereUrl = "http://dagonopus.esy.es/phpAndroid/insere.php";
         insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";

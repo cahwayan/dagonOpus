@@ -105,7 +105,7 @@
     <string name="Modulo1Etapa6Pergunta2Alternativa4">Valores numéricos sem casas decimais</string>
 
     <!-- PERGUNTA 3 -->
-    <string name="Modulo1Etapa6Pergunta3">Qual tipo de dado uma variável caractere, ou <b>string</b> armazena?</string>
+    <string name="Modulo1Etapa6Pergunta3">Qual tipo de dado uma variável caractere, ou string armazena?</string>
     <!-- ALTERNATIVAS PERGUNTA 3 -->
     <string name="Modulo1Etapa6Pergunta3Alternativa1">Valores numéricos com casas decimais</string>
     <string name="Modulo1Etapa6Pergunta3Alternativa2">Valores lógicos</string>

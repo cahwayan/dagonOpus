@@ -2,19 +2,12 @@ package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.tcc.dagon.opus.AprenderActivity;
+import com.tcc.dagon.opus.Aprender.AprenderActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
@@ -23,7 +16,6 @@ import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
 import com.tcc.dagon.opus.utils.PulseAnimation;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 /**
@@ -212,8 +204,8 @@ public class CompletarProva extends Completar {
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
 
-        // INICIANDO ATIVIDADE DOS MODULOS
-        startActivity(new Intent(getActivity(), AprenderActivity.class));
+        /*// INICIANDO ATIVIDADE DOS MODULOS
+        startActivity(new Intent(getActivity(), AprenderActivity.class));*/
         
         // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();

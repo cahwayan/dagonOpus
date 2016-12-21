@@ -60,7 +60,7 @@ public class Questao3 extends QuestaoProva {
         alternativa4 = (RadioButton) rootView.findViewById(R.id.ProvaModulo2Pergunta3Alternativa4);
 
         // PEGANDO O RADIOGROUP DO LAYOUT
-        containerRadioButtons = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo2Pergunta3);
+        radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupProvaModulo2Pergunta3);
 
         super.accessViews();
 

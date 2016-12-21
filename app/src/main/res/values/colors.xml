@@ -2,20 +2,22 @@
 <resources>
 
     <!-- CORES REFERENTE AO TEMA ANDROID-->
-    <color name="colorPrimary">#50331a</color>
-    <color name="colorPrimaryDark">#5e4e2f</color>
-    <color name="colorAccent">#00aedb</color>
+    <color name="colorPrimary">#011f4b</color>
+    <color name="colorPrimaryDark">#171c40</color>
+    <color name="colorAccent">#40e0d0</color>
+    <color name="colorAccentDark">#fff</color>
+    <color name="colorBackground">#212857</color>
 
     <color name="corBotaoVerde">#8ec127</color>
 
     <!--CORES DOS MÓDULOS DESBLOQUEADOS-->
-    <color name="corBtnModulo1">#d41243</color>
-    <color name="corBtnModulo2">#00aedb</color>
-    <color name="corBtnModulo3">#8ec127</color>
-    <color name="corBtnModulo4">#ffc425</color>
-    <color name="corBtnModulo5">#d11141</color>
-    <color name="corBtnModulo6">#00aedb</color>
-    <color name="corBtnModulo7">#8ec127</color>
+    <color name="corBtnModulo1">#013183</color>
+    <color name="corBtnModulo2">#013893</color>
+    <color name="corBtnModulo3">#0032ad</color>
+    <color name="corBtnModulo4">#1974cd</color>
+    <color name="corBtnModulo5">#0994d5</color>
+    <color name="corBtnModulo6">#59b5de</color>
+    <color name="corBtnModulo7">#69cbe6</color>
     <color name="corBtnModulo8">#f47835</color>
 
     <color name="corEtapaDesbloqueada">#00aedb</color>
@@ -23,7 +25,14 @@
     <color name="teste">#7c1313</color>
 
     <!--CORES DOS MÓDULOS BLOQUEADOS-->
-    <color name="corBtnModuloBloqueado">#de232323</color>
+    <color name="corBtnModuloBloqueado1">#464648</color>
+    <color name="corBtnModuloBloqueado2">#535456</color>
+    <color name="corBtnModuloBloqueado3">#5c5d5f</color>
+    <color name="corBtnModuloBloqueado4">#696a6c</color>
+    <color name="corBtnModuloBloqueado5">#797a7e</color>
+    <color name="corBtnModuloBloqueado6">#818286</color>
+    <color name="corCertificadoBloqueado">#a0a1a5</color>
+
     <color name="corBtnCadastro">#00aedb</color>
     <color name="corTituloLicao">#333232</color>
 
