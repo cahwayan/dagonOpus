@@ -70,8 +70,8 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
                     @Override
                     public void run()
                     {
-                        startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
                         Toast.makeText(context, "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
                         finish();
                     }
                 }, 1500);
