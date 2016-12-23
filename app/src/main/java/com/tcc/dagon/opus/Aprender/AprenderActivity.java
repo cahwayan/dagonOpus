@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,13 +62,13 @@ public class AprenderActivity
     /* VIEWS */
 
     /*BOTÕES DOS MÓDULOS*/
-    @ViewById protected RelativeLayout btnModulo1;
-    @ViewById protected RelativeLayout btnModulo2;
-    @ViewById protected RelativeLayout btnModulo3;
-    @ViewById protected RelativeLayout btnModulo4;
-    @ViewById protected RelativeLayout btnModulo5;
-    @ViewById protected RelativeLayout btnModulo6;
-    @ViewById protected RelativeLayout btnCertificado;
+    @ViewById protected LinearLayout btnModulo1;
+    @ViewById protected LinearLayout btnModulo2;
+    @ViewById protected LinearLayout btnModulo3;
+    @ViewById protected LinearLayout btnModulo4;
+    @ViewById protected LinearLayout btnModulo5;
+    @ViewById protected LinearLayout btnModulo6;
+    @ViewById protected LinearLayout btnCertificado;
 
     /*IMAGENS DOS MÓDULOS*/
     @ViewById protected ImageView imgModulo1;
@@ -253,33 +254,23 @@ public class AprenderActivity
 
     // BLOQUEIA OS MÓDULOS
     protected void bloquearModulos() {
-        // MUDANDO COR DO FUNDO PARA AS BLOQUEADAS
-        btnModulo1.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado1));
-        btnModulo2.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado2));
-        btnModulo3.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado3));
-        btnModulo4.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado4));
-        btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado5));
-        btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado6));
-        /*btnModulo7.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModuloBloqueado));*/
-        btnCertificado.setBackgroundColor(ContextCompat.getColor(context, R.color.corCertificadoBloqueado));
 
         // SUMINDO COM AS TEXTVIEWS DE PROGRESSO
-        txtProgresso1.setText(R.string.moduloBloqueado);
-        txtProgresso2.setText(R.string.moduloBloqueado);
-        txtProgresso3.setText(R.string.moduloBloqueado);
-        txtProgresso4.setText(R.string.moduloBloqueado);
-        txtProgresso5.setText(R.string.moduloBloqueado);
-        txtProgresso6.setText(R.string.moduloBloqueado);
-        /*txtProgresso7.setVisibility(View.GONE);*/
+        txtProgresso1.setVisibility(View.GONE);
+        txtProgresso2.setVisibility(View.GONE);
+        txtProgresso3.setVisibility(View.GONE);
+        txtProgresso4.setVisibility(View.GONE);
+        txtProgresso5.setVisibility(View.GONE);
+        txtProgresso6.setVisibility(View.GONE);
 
         // TROCANDO A IMAGEM DO MÓDULO PARA BLOQUEADO
-        imgModulo1.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo2.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo3.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo4.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo5.setImageResource(R.drawable.modulo_bloqueado);
-        imgModulo6.setImageResource(R.drawable.modulo_bloqueado);
-        /*imgModulo7.setImageResource(R.drawable.modulo_bloqueado);*/
+        imgModulo1.setImageResource(R.drawable.btnmodulo1bloqueado);
+        imgModulo2.setImageResource(R.drawable.btnmodulo2bloqueado);
+        imgModulo3.setImageResource(R.drawable.btnmodulo3bloqueado);
+        imgModulo4.setImageResource(R.drawable.btnmodulo4bloqueado);
+        imgModulo5.setImageResource(R.drawable.btnmodulo5bloqueado);
+        imgModulo6.setImageResource(R.drawable.btnmodulo6bloqueado);
+        imgCertificado.setImageResource(R.drawable.btncertificadobloqueado);
 
         // sumindo com as barras de progresso
         barraModulo1.setVisibility(View.GONE);
@@ -293,58 +284,98 @@ public class AprenderActivity
     // DESBLOQUEIA OS MÓDULOS
     protected void desbloquearModulo1() {
 
-        // MUDANDO A IMAGEM PARA A ORIGINAL DO MÓDULO
-        imgModulo1.setImageResource(R.drawable.btnmodulo1);
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva1) ) {
+            imgModulo1.setImageResource(R.drawable.btnmodulo1completo);
 
-        // TROCANDO A COR DO BACKGROUND PARA A ORIGINAL DESBLOQUEADA
-        btnModulo1.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo1));
+        } else {
+            imgModulo1.setImageResource(R.drawable.btnmodulo1cursando);
+            // trazendo a barra de progresso
+            barraModulo1.setVisibility(View.VISIBLE);
+            txtProgresso1.setVisibility(View.VISIBLE);
+        }
 
-        // trazendo a barra de progresso
-        barraModulo1.setVisibility(View.VISIBLE);
+
+
+
     }
 
     protected void desbloquearModulo2() {
-        imgModulo2.setImageResource(R.drawable.btnmodulo2);
-        btnModulo2.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo2));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva2) ) {
+            imgModulo2.setImageResource(R.drawable.btnmodulo2completo);
+        } else {
+            imgModulo2.setImageResource(R.drawable.btnmodulo2cursando);
+            // trazendo a barra de progresso
+            barraModulo2.setVisibility(View.VISIBLE);
 
-        // trazendo a barra de progresso
-        barraModulo2.setVisibility(View.VISIBLE);
+            txtProgresso2.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     protected void desbloquearModulo3() {
-        imgModulo3.setImageResource(R.drawable.btnmodulo3);
-        btnModulo3.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo3));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva3) ) {
+            imgModulo3.setImageResource(R.drawable.btnmodulo3completo);
+        } else {
+            imgModulo3.setImageResource(R.drawable.btnmodulo3cursando);
+            // trazendo a barra de progresso
+            barraModulo3.setVisibility(View.VISIBLE);
 
-        // trazendo a barra de progresso
-        barraModulo3.setVisibility(View.VISIBLE);
+            txtProgresso3.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     protected void desbloquearModulo4() {
-        imgModulo4.setImageResource(R.drawable.btnmodulo4);
-        btnModulo4.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo4));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva4) ) {
+            imgModulo4.setImageResource(R.drawable.btnmodulo4completo);
+        } else {
+            imgModulo4.setImageResource(R.drawable.btnmodulo4cursando);
+            // trazendo a barra de progresso
+            barraModulo4.setVisibility(View.VISIBLE);
 
-        // trazendo a barra de progresso
-        barraModulo4.setVisibility(View.VISIBLE);
+            txtProgresso4.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     protected void desbloquearModulo5() {
-        imgModulo5.setImageResource(R.drawable.btnmodulo5);
-        btnModulo5.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo5));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva5) ) {
+            imgModulo5.setImageResource(R.drawable.btnmodulo5completo);
+        } else {
+            imgModulo5.setImageResource(R.drawable.btnmodulo5cursando);
+            // trazendo a barra de progresso
+            barraModulo5.setVisibility(View.VISIBLE);
 
-        // trazendo a barra de progresso
-        barraModulo5.setVisibility(View.VISIBLE);
+            txtProgresso5.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     protected void desbloquearModulo6() {
-        imgModulo6.setImageResource(R.drawable.btnmodulo6);
-        btnModulo6.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo6));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva6) ) {
+            imgModulo6.setImageResource(R.drawable.btnmodulo6completo);
+        } else {
+            imgModulo6.setImageResource(R.drawable.btnmodulo6cursando);
+            // trazendo a barra de progresso
+            barraModulo6.setVisibility(View.VISIBLE);
 
-        // trazendo a barra de progresso
-        barraModulo6.setVisibility(View.VISIBLE);
+            txtProgresso6.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     protected void desbloquearCertificado() {
-        btnCertificado.setBackgroundColor(ContextCompat.getColor(context, R.color.corBtnModulo7));
+        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva6) ) {
+            imgCertificado.setImageResource(R.drawable.btncertificadocursando);
+        } else if( preferencias.lerFlagBoolean(NomePreferencia.flagCertificadoGerado) ) {
+            imgCertificado.setImageResource(R.drawable.btncertificadocompleto);
+        }
+
     }
 
 
@@ -424,7 +455,7 @@ public class AprenderActivity
         // SE O MÓDULO ESTIVER DESBLOQUEADO, INICIAR A ACTIVITY
         if(DB_PROGRESSO.verificaProgressoModulo() >= 1) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo1Activity.class));
             //finish();
         } else { // SENÃO EXIBIR ALERTDIALOG
@@ -436,7 +467,7 @@ public class AprenderActivity
     protected void btnModulo2() {
         if(DB_PROGRESSO.verificaProgressoModulo() >= 2) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo2Activity.class));
             //finish();
         } else {
@@ -449,7 +480,7 @@ public class AprenderActivity
 
         if(DB_PROGRESSO.verificaProgressoModulo() >= 3) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo3.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo3.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo3Activity.class));
             //finish();
         } else {
@@ -463,7 +494,7 @@ public class AprenderActivity
 
         if(DB_PROGRESSO.verificaProgressoModulo() >= 4) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo4.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo4.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo4Activity.class));
             //finish();
         } else {
@@ -476,7 +507,7 @@ public class AprenderActivity
     protected void btnModulo5() {
         if(DB_PROGRESSO.verificaProgressoModulo() >= 5) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo5.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo5.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo5Activity.class));
             //finish();
         } else {
@@ -488,7 +519,7 @@ public class AprenderActivity
     protected void btnModulo6() {
         if(DB_PROGRESSO.verificaProgressoModulo() >= 6) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnModulo6.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgModulo6.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), EtapasModulo6Activity.class));
             //finish();
         } else {
@@ -500,10 +531,10 @@ public class AprenderActivity
     protected void btnCertificado() {
         if(DB_PROGRESSO.verificaProgressoModulo() >= 7) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            btnCertificado.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgCertificado.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
         } else {
-            btnCertificado.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            imgCertificado.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
         }
     }

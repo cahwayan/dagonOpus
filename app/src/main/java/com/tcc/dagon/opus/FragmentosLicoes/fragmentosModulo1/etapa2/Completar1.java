@@ -40,7 +40,7 @@ public class Completar1 extends Completar {
         //TRAZENDO AS VIEWS
         accessViews();
 
-        listeners();
+        super.listeners();
 
         return this.rootView;
     }
@@ -51,14 +51,14 @@ public class Completar1 extends Completar {
         tabStrip   = ((ContainerModulo1Etapa2)getActivity()).getTabStrip();
         mTabLayout = ((ContainerModulo1Etapa2)getActivity()).getmTabLayout();
 
-        palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha2Palavra1);
-        palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha2Palavra2);
-        palavra3 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha2Palavra3);
+        palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+        palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+        palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
 
-        palavra4 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha3Palavra1);
+        palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
 
-        palavra5 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra1);
-        palavra6 = (EditText) rootView.findViewById(R.id.Modulo1Etapa2Pergunta2Linha4Palavra2);
+        palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+        palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
 
         // INSTANCIANDO A LISTA
         listaEditTexts = new ArrayList<>();
@@ -69,24 +69,11 @@ public class Completar1 extends Completar {
         // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
-
-
-
         // CRIANDO OS VETORES DE RESPOSTAS
         super.respostasCertas = new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"};
         super.respostasCertasAcentuadas = new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"};
 
         super.accessViews();
-
-    }
-
-
-    protected void listeners() {
-        super.listeners();
-
-
-
-
 
     }
 }

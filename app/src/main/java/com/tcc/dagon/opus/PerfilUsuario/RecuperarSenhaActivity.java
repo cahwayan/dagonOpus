@@ -73,7 +73,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                     StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.recuperarSenha, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Toast.makeText(getApplicationContext(), "Um link foi gerado e enviado ao seu email !", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Um link foi gerado e enviado ao seu textEmail !", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(intent);
                             finish();

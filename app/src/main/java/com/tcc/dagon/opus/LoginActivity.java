@@ -14,13 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -31,17 +24,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.tcc.dagon.opus.Aprender.AprenderActivity_;
-import com.tcc.dagon.opus.PerfilUsuario.GerenciarPerfilActivity;
 import com.tcc.dagon.opus.PerfilUsuario.RecuperarSenhaActivity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.VerificarConexao;
+import com.tcc.dagon.opus.utils.VolleyRequest;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import java.util.HashMap;
-import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
@@ -61,10 +52,10 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     protected boolean isConsentScreenOpened, isSignInButtonClicked;
 
     /* VIEWS */
-    @ViewById protected EditText edt_email;
-    @ViewById protected EditText edt_senha;
-    @ViewById protected Button btnSignIn;
-    @ViewById protected SignInButton btnSignInGoogle;
+    @ViewById protected EditText textEmail;
+    @ViewById protected EditText textSenha;
+    @ViewById protected Button btnLogar;
+    @ViewById protected SignInButton btnLogarComGoogle;
     @ViewById protected Button btnAlterarSenha;
     @ViewById protected TextView btnCriarConta;
 
@@ -78,23 +69,17 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
     /* VARIÁVEIS GOOGLE */
 
-    public String name,
-                  emailG,
-                  imageUrl;
-
-    // VARIÁVEIS DE CONEXÃO
-    protected RequestQueue requestQueue;
-    protected StringRequest request, requestNome;
+    public String name;
 
     /*STRINGS DO EMAIL E SENHA*/
     protected String sEmail,
-                   sPassword;
+                     sSenha;
 
     /* Context */
     protected Context context = this;
 
     /* INSTANCIAÇÃO DE OBJETOS */
-    protected StringsBanco StringsBanco = new StringsBanco();
+    protected VolleyRequest volleyRequest;
 
     /* FIM ATRIBUTOS */
 
@@ -158,8 +143,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         // CRIAÇÃO DO OBJETO DE CONEXÃO GOOGLE
         googleBuilder();
 
-        // INSTANCIAÇÃO DO OBJETO VOLLEY REQUEST
-        requestQueue  = Volley.newRequestQueue(this);
+        volleyRequest = new VolleyRequest(this);
 
     }
 
@@ -168,67 +152,30 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     /* CLICK LISTENERS */
 
     @Click
-    protected void btnSignIn() {
-        sEmail    = edt_email.getText().toString().trim();
-        sPassword = edt_senha.getText().toString().trim();
+    protected void btnLogar() {
+
+        sEmail    = textEmail.getText().toString().trim();
+        sSenha = textSenha.getText().toString().trim();
+
         // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
-        if( sEmail.matches("") ) {
-            // MENSAGEM DE ERRO
-            Toast.makeText(getApplicationContext(), "Campo email vazio!", Toast.LENGTH_SHORT).show();
-            // FOCA NA TEXTVIEW APÓS ERRO
-            edt_email.requestFocus();
-            // CÓDIGO QUE INVOCA O TECLADO APÓS O ERRO
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-        } else if ( sPassword.matches("") ) {
-            Toast.makeText(getApplicationContext(), // PARÂMETRO PADRÃO TOAST
-                    "Campo senha vazio!" ,  // MENSAGEM TOAST
-                    Toast.LENGTH_SHORT).show(); // TAMANHO DO TOAST E MÉTODO PARA MOSTRAR
-            edt_senha.requestFocus();
-
-            // CÓDIGO QUE INVOCA O TECLADO APÓS O ERRO
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-        } else { // FAZ TENTATIVA DE CONEXÃO
-            request = new StringRequest(Request.Method.POST,
-                    StringsBanco.loginUrl,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            if(response.trim().equals("certo")){
-                                Intent i = new Intent(LoginActivity.this, AprenderActivity_.class);
-                                preferencias.escreverFlagString(NomePreferencia.emailUsuario, sEmail);
-                                //lerNomeInterno();
-                                gravarNomeInterno();
-                                startActivity(i);
-                                finish();
-                            }else{
-                                Toast.makeText(getApplicationContext(),
-                                        "Login ou senha inválidos",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), "Erro ao conectar. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
-                }
-            }){
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    HashMap<String,String> hashMap = new HashMap<String, String>();
-                    hashMap.put("EMAIL_USUARIO", sEmail);
-                    hashMap.put("SENHA_USUARIO", sPassword);
-                    return hashMap;
+        if(VerificarConexao.verificarConexao()) {
+            if(verificarCredenciais(sEmail, sSenha)) {
+                if(volleyRequest.requestLogar(sEmail, sSenha)) {
+                    startLogin();
                 }
 
-            };
-            requestQueue.add(request);
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
         }
+
     }
 
+
+
     @Click
-    protected void btnSignInGoogle() {
+    protected void btnLogarComGoogle() {
         if(VerificarConexao.verificarConexao()) {
             if(!googleApiClient.isConnecting()){
                 verificarPermissaoGoogleLogin();
@@ -247,10 +194,45 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     @Click
     protected void btnCriarConta() {
         btnCriarConta.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-        startActivity(new Intent(getApplicationContext(), CadastroActivity.class));
+        startActivity(new Intent(getApplicationContext(), CadastroActivity_.class));
     }
 
     /* FIM CLICK LISTENERS */
+
+    /* VERIFICAÇÃO CONSISTÊNCIA CREDENCIAIS */
+    protected boolean verificarCredenciais(String sEmail, String sSenha) {
+
+        /* VERIFICAÇÃO CAMPO EMAIL VAZIO */
+        if( sEmail.matches("") ) {
+
+            Toast.makeText(getApplicationContext(), "Campo email vazio", Toast.LENGTH_SHORT).show();
+            textEmail.requestFocus();
+
+            /* INVOCANDO TECLADO CASO CREDENCIAIS ESTEJAM ERRADAS */
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+            return false;
+
+        /* VERIFICAÇÃO CAMPO SENHA VAZIO */
+        } else if ( sSenha.matches("") ) {
+
+            Toast.makeText(getApplicationContext(), "Campo senha vazio", Toast.LENGTH_SHORT).show();
+            textSenha.requestFocus();
+
+            /* INVOCANDO TECLADO CASO CREDENCIAIS ESTEJAM ERRADAS */
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+            return false;
+
+        /* VERIFICAR CREDENCIAIS NO BANCO*/
+        } else {
+
+            return true;
+
+        }
+    }
 
     /* GOOGLE BUILDER */
 
@@ -355,9 +337,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             * QUE SE LOGOI PELA GOOGLE*/
             getDataProfile();
             // FECHAR ATIVIDADE
-            finish();
-            // ABRIR A TELA DE MÓDULOS
-            startActivity(new Intent(this, AprenderActivity_.class));
+            startLogin();
         } else {
             // SE NAO DEU TUDO CERTO, MOSTRAR UMA MENSAGEM DE ERRO
             Toast.makeText(context, "Ocorreu um erro", Toast.LENGTH_LONG).show();
@@ -370,61 +350,16 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
+    /* PEGA OS DADOS DO GOOGLE E GUARDA NO NOSSO BANCO*/
     protected void getDataProfile(){
             if(acct != null){
-                StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereGoogle, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                    }
-                }, new Response.ErrorListener() {
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }) {
-                    @Override
-                    //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> parameters = new HashMap<String, String>();
-                        parameters.put("EMAIL_GOOGLE", acct.getEmail());
-                        parameters.put("NOME_GOOGLE", acct.getDisplayName());
-                        return parameters;
-                    }
-                };
-
-                // Abre a tela de login após cadastro
-                requestQueue.add(request);
+                volleyRequest.requestCadastrarDadosGoogle(acct);
             }
     }
 
-    /*MÉTODO QUE FAZ UM REQUEST NO BANCO QUANDO O USUÁRIO LOGA
-    E GUARDA ESSE NOME EM UMA SHARED PREFERENCE
-     PARA USAR O NOME DELE E USAR NO PERFIL*/
-    protected void gravarNomeInterno() {
-        requestNome = new StringRequest(Request.Method.POST,
-                StringsBanco.nomeUrl,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        preferencias.escreverFlagString(NomePreferencia.nomeUsuario, response);
-                        Log.d(TAG, "Nome gravado: " + response);
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> hashMap = new HashMap<String, String>();
-                hashMap.put("EMAIL_USUARIO", edt_email.getText().toString().trim());
-                return hashMap;
-            }
-
-        };
-        requestQueue.add(requestNome);
+    public void startLogin() {
+        startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
+        this.finish();
     }
 }
 

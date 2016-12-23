@@ -69,7 +69,7 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                         }else{
 
                             Toast.makeText(getApplicationContext(),
-                                    "Confirme a nova senha por favor",
+                                    "Confirme a nova textSenha por favor",
                                     Toast.LENGTH_SHORT).show();
 
                         }
@@ -92,7 +92,7 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                 requestQueue.add(request);
             }else{
                 Toast.makeText(getApplicationContext(),
-                        "Verifique os campos digitados, a senha deve ser igual",
+                        "Verifique os campos digitados, a textSenha deve ser igual",
                         Toast.LENGTH_SHORT).show();
 
             }

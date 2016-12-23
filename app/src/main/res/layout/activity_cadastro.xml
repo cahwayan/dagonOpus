@@ -106,7 +106,7 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:id="@+id/btn_cadastra"
+            android:id="@+id/btnCadastra"
             android:text="@string/btnCadastrar"
             android:background="@color/corBtnCadastro"
             android:textColor="#ffffff"

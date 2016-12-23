@@ -4,14 +4,16 @@
     <shared>
       <config>
         <devices>
-          <device id="Nexus 6" />
+          <device id="Nexus One" />
+          <device id="Nexus S" />
           <device id="Nexus 4" />
+          <device id="Nexus 6" />
           <device id="pixel_c" />
+          <device id="Nexus 9" />
           <device id="Nexus 6P" />
           <device id="Nexus 5X" />
           <device id="tv_720p" />
           <device id="wear_round" />
-          <device id="Nexus One" />
         </devices>
       </config>
     </shared>
@@ -21,173 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14eae26d-857c-4565-b1e6-f75475874e6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/bariol/Bariol_Regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/bariol/Bariol_Regular_Italic.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/bebasneue/regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/building.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Black.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-BlackItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-BoldItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Hairline.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-HairlineItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Heavy.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-HeavyItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Italic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-LightItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Medium.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-MediumItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Semibold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-SemiboldItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-Thin.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/lato/Lato-ThinItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/montserrat/regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/notosans/NotoSans-BoldItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/notosans/NotoSans-Italic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/notosans/bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/fonts/notosans/regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulox.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/androidannotations_api_4_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/google-services.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Aprender/AprenderActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Adapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/CustomButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/CustomEditText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/CustomTextView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/HelperClass/FontCache.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/HelperClass/HelperButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/HelperClass/HelperEditText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CustomViews/HelperClass/HelperTextView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LoginActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/PerfilUsuario/GerenciarPerfilActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/PerfilUsuario/RecuperarSenhaActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VerificarConexao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/container_etapa.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/container_prova.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/style.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterPular1.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/AndroidMultiPartEntity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/AprenderActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/CompletarPular.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/QuestaoPular.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao1.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao3.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao4.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao5.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao6.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao7.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/PularModulos/Questao8.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/GerenciarPerfilActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/RecuperarSenhaActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_etapa8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo1_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo2_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo3_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo3_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo3_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo4_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo5_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_etapa8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo1_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo2_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo3_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo3_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo3_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo4_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo5_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_etapa9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_modulo6_prova.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_pular1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa3_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa3_licao4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa4_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa5_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa5_licao4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa6_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa6_licao3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa6_licao4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa6_licao5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa7_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa7_licao4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa8_licao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_prova_questao1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_prova_questao3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_prova_questao8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pular1_questao8.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/InicialActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_modulo6_etapa1.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_layout_fragments.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/container_pular1.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_layout_prova.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa1_licao3.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_questao.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/login_form.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_fragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btncertificadobloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btncertificadocompleto.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btncertificadocursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo1bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo1completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo1cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo2bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo2completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo2cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo3bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo3completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo3cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo4bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo4completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo4cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo5bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo5completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo5cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo6bloqueado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo6completo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnmodulo6cursando.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VolleyRequest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -195,163 +52,35 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_volley_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_volley_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_volley_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_volley_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logo_opus.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo_opus.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa7.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa8.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa8.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo5/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo5/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa7.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa8.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa8.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa9.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa9.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva6.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ActivityConfig.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ActivityConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/AlterarSenhaActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/AlterarSenhaActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Aprender/AprenderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Aprender/AprenderActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CadastroActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CadastroActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CertificadoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CertificadoActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Completar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Completar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/CompletarProva.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/CompletarProva.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerEtapa.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerEtapa.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerProva.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerProva.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Questao.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Questao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/QuestaoProva.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/QuestaoProva.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/TelaEtapas.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/TelaEtapas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa7.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa8.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa8.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo2/ContainerModulo2Etapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo3/ContainerModulo3Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo3/ContainerModulo3Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo3/ContainerModulo3Etapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo3/ContainerModulo3Etapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo4/ContainerModulo4Etapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo5/ContainerModulo5Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo5/ContainerModulo5Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa7.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa8.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa8.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa9.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo6/ContainerModulo6Etapa9.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerPular1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerPular1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa1/Questao1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Completar1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Completar1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa3/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa3/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa3/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa3/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa4/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa4/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa5/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa5/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa5/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa5/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa6/Questao4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa7/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa7/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa7/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa7/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa8/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa8/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa1/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa2/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa2/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa3/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa3/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa3/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo2/etapa3/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo3/etapa1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo3/etapa1/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa1/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa5/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa5/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa5/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo4/etapa5/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa1/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa2/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa2/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa3/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa3/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa4/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa4/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa4/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa4/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa5/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa5/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa6/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa6/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa7/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa9/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo6/etapa9/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao8.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao8.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova2/Questao5.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova3/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova3/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova4/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova4/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova4/Questao4.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova4/Questao4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao3.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao7.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao9.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova6/Questao9.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/desafios1/desafio1/Completar1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/desafios1/desafio1/Completar1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Glossario/ContainerComandosGlossario.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Glossario/ContainerComandosGlossario.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao5.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao5.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao6.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao6.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao7.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao7.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/PerfilUsuario/RecuperarSenhaActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/PerfilUsuario/RecuperarSenhaActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/StringsBanco.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/StringsBanco.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/databases/GerenciadorBanco.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/databases/GerenciadorBanco.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/databases/ProgressoUsuario.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/databases/ProgressoUsuario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/NovaJanelaAlerta.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/NovaJanelaAlerta.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/GerenciadorSharedPreferences.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/GerenciadorSharedPreferences.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_recuperar_senha.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recuperar_senha.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/botao_avancar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/botao_avancar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_fragment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao4.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao4.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_login_cadastro.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_login_cadastro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_perguntas_modulo1.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_perguntas_modulo1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_tela_aprender.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_tela_aprender.xml" />
     </list>
-    <list id="c38575d8-a769-426a-b1f1-46076656ae65" name="New changelist" comment="New changelist">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/DB_PROGRESSO.sqlite" afterPath="$PROJECT_DIR$/app/src/main/assets/DB_PROGRESSO.sqlite" />
-    </list>
+    <list id="c38575d8-a769-426a-b1f1-46076656ae65" name="New changelist" comment="New changelist" />
     <ignored path="dagonOpus.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -3915,28 +3644,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva3.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva4.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerProva6.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Provas/ContainerPular1.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/tab_layout_prova.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/container_prova.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerProva.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Adapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa1.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa3.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa4.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa5.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa6.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa7.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa8.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa1.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa3.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa4.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa5.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa1.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa1.java" />
@@ -3962,10 +3669,32 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/botao_avancar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/tab_layout_fragments.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/container_etapa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/StringsBanco.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ActivityConfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao4.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Questao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Completar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa4/Completar1.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/tcc/dagon/opus/LoginActivity_.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CadastroActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VolleyRequest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings_tela_aprender.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/GerenciadorSharedPreferences.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CertificadoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Aprender/AprenderActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao5.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao6.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao7.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Completar1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml" />
       </list>
     </option>
   </component>
@@ -4000,6 +3729,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -4031,6 +3761,24 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dagonOpus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -4047,6 +3795,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dagonOpus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4162,97 +3928,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fragmentosModulo6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FragmentosLicoes" />
+              <option name="myItemId" value="fragmentosProvas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fragmentosModulo6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etapa3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FragmentosLicoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragmentosModulo6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etapa2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FragmentosLicoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragmentosModulo6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etapa1" />
+              <option name="myItemId" value="Prova1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4374,7 +4054,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ClassesPai" />
+              <option name="myItemId" value="Aprender" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4388,75 +4068,14 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modulo2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modulo1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -4596,6 +4215,15 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -4783,6 +4411,21 @@
       <option name="presentableId" value="Default" />
       <updated>1481601117847</updated>
     </task>
+    <task id="LOCAL-00001" summary="Mudanças bruscas no projeto. O layout vai mudar, eu prometo">
+      <created>1482343724173</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1482343724193</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Banco Reestruturado">
+      <created>1482343847819</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1482343847819</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -4807,19 +4450,20 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29953918" sideWeight="0.8930318" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30184332" sideWeight="0.8930318" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328341" sideWeight="0.48655257" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.48655257" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5134474" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19682151" sideWeight="0.8719441" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2200489" sideWeight="0.8719441" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.49755502" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19720101" sideWeight="0.12805589" order="3" side_tool="true" content_ui="tabs" />
@@ -4829,7 +4473,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.49755502" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4846,20 +4489,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29953918" sideWeight="0.8930318" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30267754" sideWeight="0.8930318" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328341" sideWeight="0.48655257" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.48655257" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328341" sideWeight="0.5134474" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19682151" sideWeight="0.8719441" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5134474" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40554157" sideWeight="0.8719441" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.49755502" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -4878,8 +4521,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
-    <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
+    <MESSAGE value="Mudanças bruscas no projeto. O layout vai mudar, eu prometo" />
+    <MESSAGE value="Banco Reestruturado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Banco Reestruturado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4888,400 +4532,171 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerProva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-          <folding>
-            <element signature="method#onArticleSelected#0;class#ContainerProva#0" expanded="false" />
-            <element signature="method#alertDialogSairProva#0;class#ContainerProva#0" expanded="false" />
-            <element signature="method#desbloquearLicoes#0;class#ContainerProva#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/PulseAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/QuestaoProva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1885">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_pular1.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/botao_avancar.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/container_prova.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/fonts/bebasneue/book.otf" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_fragment.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VerificarConexao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/StringsBanco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_config.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/AlterarSenhaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/Multidex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/telasEtapas/EtapasModulo1Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-843">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa8.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo2/AdapterEtapa5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo3/AdapterEtapa2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo4/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo5/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa7.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa7.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa8.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo6/AdapterEtapa9.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="25" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Provas/AdapterProva6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tab_layout_fragments.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/container_etapa.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/botao_avancar.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao4.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="41" selection-end-column="69" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_modulo1_etapa2_licao1.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa7/Completar1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Questao.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="243" column="34" selection-start-line="243" selection-start-column="34" selection-end-line="243" selection-end-column="34" />
+        <state relative-caret-position="119">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa4/Completar1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/ContainerEtapa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="706">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
             <element signature="method#bloquearLicoes#0;class#ContainerEtapa#0" expanded="false" />
             <element signature="method#desbloquearLicoes#0;class#ContainerEtapa#0" expanded="false" />
@@ -5291,39 +4706,325 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml">
-      <provider selected="true" editor-type-id="android-designer2">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Adapters/Modulo1/AdapterEtapa2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/volley/src/main/java/com/android/volley/toolbox/Volley.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ActivityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/NovaJanelaAlerta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/volley/src/main/java/com/android/volley/ExecutorDelivery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/tcc/dagon/opus/LoginActivity_.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/volley/src/main/java/com/android/volley/toolbox/StringRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="339" column="25" selection-start-line="339" selection-start-column="25" selection-end-line="339" selection-end-column="25" />
+          <folding>
+            <element signature="method#onCreate#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#onConnected#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#onConnectionSuspended#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#btnLogar#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#btnLogarComGoogle#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#btnAlterarSenha#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#verificarCredenciais#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#googleBuilder#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#verificarPermissaoGoogleLogin#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#pedirPermissaoGoogleLogin#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#signInGoogle#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#getDataProfile#0;class#LoginActivity#0" expanded="false" />
+            <element signature="method#startLogin#0;class#LoginActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CadastroActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="95" column="93" selection-start-line="95" selection-start-column="93" selection-end-line="95" selection-end-column="93" />
+          <folding>
+            <element signature="method#onOptionsItemSelected#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#verificarDados#0;class#CadastroActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gerenciar_perfil.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_tela_aprender.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/QuestaoProva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2979">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Questao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1461">
+          <caret line="232" column="34" selection-start-line="232" selection-start-column="34" selection-end-line="232" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/GerenciadorSharedPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CertificadoIncompleto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/CertificadoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="66" column="141" selection-start-line="66" selection-start-column="141" selection-end-line="66" selection-end-column="141" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VolleyRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="method#requestCadastrarDados#0;class#VolleyRequest#0" expanded="false" />
+            <element signature="method#gravarNomeInterno#0;class#VolleyRequest#0" expanded="false" />
+            <element signature="method#requestCadastrarDadosGoogle#0;class#VolleyRequest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/tcc/dagon/opus/Aprender/AprenderActivity_.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <marker date="1482449352242" expanded="true" signature="236:827" ph="..." />
+            <marker date="1482449352242" expanded="true" signature="1603:1918" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="1970:2044" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2108:2214" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2293:2400" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2458:2557" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2634:2703" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2794:2864" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="2973:3050" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="3615:8734" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="6323:6489" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="6399:6475" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="6624:6790" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="6700:6776" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="6925:7091" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7001:7077" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7226:7392" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7302:7378" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7527:7693" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7603:7679" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7828:7994" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="7904:7980" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8135:8305" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8211:8291" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8464:8687" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8590:8673" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8791:9011" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8845:8988" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="8900:8978" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="9128:10557" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="9292:9356" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="9419:9532" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="9606:9726" ph="{...}" />
+            <marker date="1482449352242" expanded="true" signature="9813:10551" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ClassesPai/Completar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
+        <state relative-caret-position="193">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ContainerLicoes/Modulos/Modulo1/ContainerModulo1Etapa1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosProvas/Prova1/Questao7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/FragmentosLicoes/fragmentosModulo1/etapa2/Completar1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        <state relative-caret-position="391">
+          <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/fonts/bebasneue/book.otf">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/Aprender/AprenderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="288" column="0" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="205" column="41" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

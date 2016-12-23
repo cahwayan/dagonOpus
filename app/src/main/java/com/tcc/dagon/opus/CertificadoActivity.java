@@ -64,6 +64,7 @@ public class CertificadoActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 if(response.trim().equals("certo")){
                                     Toast.makeText(getApplicationContext(), "Seu pedido de certificado foi aberto. Aguarde a chegada no seu e-mail cadastrado!", Toast.LENGTH_LONG).show();
+                                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.flagCertificadoGerado, true);
                                     finish();
                                 }else{
                                     Toast.makeText(getApplicationContext(),

@@ -1,75 +1,58 @@
 package com.tcc.dagon.opus;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.ValidarEmail;
+import com.tcc.dagon.opus.utils.VerificarConexao;
+import com.tcc.dagon.opus.utils.VolleyRequest;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
-
+@EActivity(R.layout.activity_cadastro)
 public class CadastroActivity extends AppCompatActivity {
 
-    //Instanciando objetos
-    private StringsBanco StringsBanco = new StringsBanco();
+    /* VIEWS */
+    @ViewById protected Button btnCadastra;
+    @ViewById protected TextView textNome;
+    @ViewById protected TextView textSenha;
+    @ViewById protected TextView textCSenha;
+    @ViewById protected TextView textEmail;
 
-    //Declarando botões e elementos da tela
-    private Button btn_cadastra;
-    private TextView nome,
-                     senha,
-                     csenha,
-                     email;
+    /* OBJETOS */
+    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    protected VolleyRequest volleyRequest;
 
-    // String dos componentes
-    private String  sNome,
-                    sSenha,
-                    sCsenha,
-                    sEmail;
-
-    //Declarando variavel de conexao
-    RequestQueue requestQueue;
-    private ProgressDialog progresso;
-
-    private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
-
+    /* VARIÁVEIS */
+    protected String sNome,
+                     sSenha,
+                     sCsenha,
+                     sEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+    }
+
+    @AfterViews
+    protected void init() {
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        //VARIAVEIS DE CONEXAO
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        volleyRequest = new VolleyRequest(this);
 
-        // INVOCANDO OS COMPONENTES
-        accessViews();
-
-        // CHAMANDO OS LISTENERS
-        listenersOnClick();
     }
+
+    /* LISTENER DO BOTÃO DA ACTION BAR*/
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
@@ -83,87 +66,78 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
 
-    // MÉTODO QUE CONFIGURA OS LISTENERS DOS COMPONENTES
-    public void listenersOnClick() {
-        // BOTÃO CADASTRAR
-        btn_cadastra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                cadastrar();
-
-            }
-        });
+    @Click
+    protected void btnCadastra() {
+        cadastrar();
     }
 
-    public void cadastrar() {
+    protected void cadastrar() {
 
-        // Strings das TextViews (permite trabalhar os dados com mais facilidade depois)
-        sNome   = nome.getText().toString().trim();
-        sSenha  = senha.getText().toString().trim();
-        sCsenha = csenha.getText().toString().trim();
-        sEmail  = email.getText().toString().trim();
+        /* TRABALHAR COM VARIÁVEIS É MELHOR DO QUE TRABALHAR COM OBJETOS DIRETAMENTE */
+        /* PEGANDO OS DADOS DO USUÁRIO */
+        sNome   = textNome.getText().toString().trim();
+        sSenha  = textSenha.getText().toString().trim();
+        sCsenha = textCSenha.getText().toString().trim();
+        sEmail  = textEmail.getText().toString().trim();
 
-        // VERIFICAÇÕES DE CAMPOS VAZIOS
+        /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
+        if(VerificarConexao.verificarConexao()) {
 
+            /* SE OS DADOS ESTIVEREM OK E A FUNÇÃO RETORNAR VERDADEIRO... */
+            if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
+
+                /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
+                volleyRequest.requestCadastrarDados(sEmail, sSenha, sNome);
+
+            }
+
+        /* RESPOSTA CASO O USUÁRIO NÃO ESTEJA CONECTADO */
+        } else {
+            Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    protected boolean verificarDados(String sNome, String sSenha, String sCsenha, String sEmail) {
+        /* VERIFICAÇÃO CAMPOS VAZIOS */
         if ((sNome.matches("")) ||
                 sSenha.matches("") ||
                 sCsenha.matches("") ||
                 sEmail.matches("")) {
             Toast.makeText(getApplicationContext(), "Há campos em branco", Toast.LENGTH_LONG).show();
-        } else if (sNome.length() < 3 ) {
-            Toast.makeText(getApplicationContext(), "Informe um nome maior que 3 caracteres", Toast.LENGTH_LONG).show();
-            nome.requestFocus();
+            return false;
+
+            /* VERIFICAÇÃO DO TAMANHO DO NOME */
+        } else if (sNome.length() < 2 ) {
+            Toast.makeText(getApplicationContext(), "Informe um nome maior que 2 caracteres", Toast.LENGTH_LONG).show();
+            textNome.requestFocus();
+            return false;
+
+            /* VERIFICAÇÃO DO EMAIL*/
         } else if (!ValidarEmail.validarEmail(sEmail)) {
-            // VERIFICAÇÃO DO EMAIL
             Toast.makeText(getApplicationContext(), "Por favor informe um email válido!", Toast.LENGTH_LONG).show();
-            email.requestFocus();
+            textEmail.requestFocus();
+            return false;
+
+            /* VERIFICAÇÃO DA SENHA */
         } else if (sSenha.length() < 6) {
             Toast.makeText(getApplicationContext(), "A senha precisa conter no mínimo 6 caracteres", Toast.LENGTH_LONG).show();
-            senha.requestFocus();
+            textSenha.requestFocus();
+            return false;
+
+            /* CONFIRMAÇÃO DE SENHA */
         } else if (!sSenha.equals(sCsenha)) {
             Toast.makeText(getApplicationContext(), "A senha e a confirmação de senha estão diferentes!", Toast.LENGTH_LONG).show();
-            senha.requestFocus();
-        } else {
-            // MOSTRA JANELA DE PROGRESSO ENQUANTO GRAVA O CADASTRO NO BANCO
-            progresso = ProgressDialog.show(CadastroActivity.this, "Cadastrando", "Aguarde", true);
-            StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.insereUrl, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(), "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                    preferencias.escreverFlagString(NomePreferencia.nomeUsuario, sNome);
-                    finish();
-                }
-            }, new Response.ErrorListener() {
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), "Ocorreu um erro ao cadastrar. Por favor verifique sua conexão.", Toast.LENGTH_SHORT).show();
-                }
-            }) {
-                @Override
-                //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> parameters = new HashMap<String, String>();
-                    parameters.put("EMAIL_USUARIO", sEmail);
-                    parameters.put("SENHA_USUARIO", sSenha);
-                    parameters.put("NOME_USUARIO", sNome);
-                    return parameters;
-                }
-            };
+            textSenha.requestFocus();
+            return false;
 
-            // Abre a tela de login após cadastro
-            requestQueue.add(request);
-            progresso.dismiss();
+        /* TENTATIVA DE GRAVAR OS DADOS NO BANCO */
+        } else {
+
+            return true;
+
         }
 
+
     }
 
-    public void accessViews() {
-        //BOTÕES
-        btn_cadastra = (Button) findViewById(R.id.btn_cadastra);
-
-        nome   = (TextView) findViewById(R.id.textNome);
-        senha  = (TextView) findViewById(R.id.textSenha);
-        csenha = (TextView) findViewById(R.id.textCSenha);
-        email  = (TextView) findViewById(R.id.textEmail);
-    }
 }

@@ -149,8 +149,8 @@ public class Questao extends Fragment {
         imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
 
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
-        btnChecarResposta = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancarQuestao = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
+        btnChecarResposta = (Button) rootView.findViewById(R.id.btnChecar);
+        btnAvancarQuestao = (Button) rootView.findViewById(R.id.btnAvancar);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         // SUMINDO COM OS BOTÕES DESNECESSARIOS NO INICIO DA ATIVIDADE

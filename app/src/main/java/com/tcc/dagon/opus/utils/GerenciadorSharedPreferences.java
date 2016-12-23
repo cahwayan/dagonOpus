@@ -27,6 +27,7 @@ public class GerenciadorSharedPreferences extends Activity {
         public static final String flagProva4 = "completouTeste4";
         public static final String flagProva5 = "completouTeste5";
         public static final String flagProva6 = "completouTeste6";
+        public static final String flagCertificadoGerado = "flagCertificadoGerado";
 
         public static String lerFlagProva(int moduloProva) {
             switch(moduloProva) {

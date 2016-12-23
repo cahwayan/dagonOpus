@@ -47,7 +47,7 @@ public class Questao6 extends CompletarProva {
         accessViews();
 
         // TRAZENDO OS LISTENERS
-        listeners();
+        super.listeners();
 
         return this.rootView;
     }
@@ -82,37 +82,12 @@ public class Questao6 extends CompletarProva {
         listaEditTexts.addAll(Arrays.asList(linhasCompletar));
 
         // DEFININDO AS RESPOSTAS DO EXERCICIO, NA ORDEM EM QUE DEVEM SER ESCRITAS
-        respostasCertas = new String[]{"falso", "verdadeiro", "verdadeiro", "falso", "falso"};
+        super.respostasCertas = new String[]{"falso", "verdadeiro", "verdadeiro", "falso", "falso"};
 
-        respostasCertasAcentuadas = new String[]{"falso", "verdadeiro", "verdadeiro", "falso", "falso"};
+        super.respostasCertasAcentuadas = new String[]{"falso", "verdadeiro", "verdadeiro", "falso", "falso"};
 
         // VIEWS DA SUPERCLASSE
         super.accessViews();
-
-        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
-        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
-        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            tamanhoPalavras[i] = respostasCertas[i].length();
-        }
-    }
-
-    protected void listeners() {
-        super.listeners();
-
-        // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
-
-        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tentarNovamente(respostasCertas, respostasCertasAcentuadas);
-            }
-        });
 
     }
 

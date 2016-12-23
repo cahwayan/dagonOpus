@@ -4,15 +4,31 @@ package com.tcc.dagon.opus;
  * Created by charlinho on 04/09/2016.
  */
 public class StringsBanco {
-    final String insereUrl;
-    final String mostrarUrl;
-    final String loginUrl;
-    final String insereGoogle;
+
+    public String getInsereUrl() {
+        return insereUrl;
+    }
+
+    public String getLoginUrl() {
+        return loginUrl;
+    }
+
+    public String getNomeUrl() {
+        return nomeUrl;
+    }
+
+    public String getInsereGoogle() {
+        return insereGoogle;
+    }
+
+    private final String insereUrl;
+    private final String loginUrl;
+    private final String insereGoogle;
+    private final String nomeUrl;
+    private final String mostrarUrl;
     public  final String recuperarSenha;
     final String certificadoUrl;
-    final String nomeUrl;
-    public static final String IMAGE_DIRECTORY_NAME = "Android File Upload";
-    public static final String FILE_UPLOAD_URL = "http://dagonopus.esy.es/phpAndroid/fileUpload.php";
+
 
     public StringsBanco(){
         mostrarUrl = "http://dagonopus.esy.es/phpAndroid/mostrarEstudante.php";

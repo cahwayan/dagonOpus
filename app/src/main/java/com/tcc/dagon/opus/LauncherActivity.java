@@ -85,12 +85,27 @@ public class LauncherActivity extends AppCompatActivity {
         botaoBloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(1);
+
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagCertificadoGerado, false);
             }
         });
 
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(7);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, true);
+                preferencias.escreverFlagBoolean(NomePreferencia.flagCertificadoGerado, true);
             }
         });
 

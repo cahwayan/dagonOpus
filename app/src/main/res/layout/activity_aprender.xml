@@ -39,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="fill_vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="#fff">
 
         <LinearLayout
             android:orientation="vertical"
@@ -50,67 +51,64 @@
             android:baselineAligned="false">
 
             <RelativeLayout
-                android:background="@color/corBtnModulo1"
-                android:id="@+id/btnModulo1"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo1"
-                    android:src="@drawable/btnmodulo1"
-                    android:contentDescription="@+id/descricaoBotaoModulo1"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="55dp"
+                android:layout_marginTop="25dp"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo1"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="center_vertical|center_horizontal"
+                    android:id="@+id/btnModulo1">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo1"
+                        android:src="@drawable/btnmodulo1bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:padding="0dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo1"
                         android:id="@+id/txtTitulo1"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo1"
                         android:id="@+id/txtProgresso1"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
-                        android:layout_marginStart="2dp"/>
+                        android:layout_marginStart="2dp"
+                        android:maxLines="1" />
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo1"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
                         app:rcMax="9"
@@ -119,443 +117,390 @@
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
                 </LinearLayout>
 
             </RelativeLayout>
 
 
-            <RelativeLayout
-                android:background="@color/corBtnModulo2"
-                android:id="@+id/btnModulo2"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo2"
-                    android:src="@drawable/btnmodulo2"
-                    android:contentDescription="@+id/descricaoBotaoModulo2"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="55dp"
+                android:paddingEnd="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingStart="15dp"
+                android:layout_weight="100"
+                android:gravity="center_horizontal"
+                android:layout_gravity="top">
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo2"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="top|center_horizontal"
+                    android:layout_weight="50"
+                    android:id="@+id/btnModulo2">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo2"
+                        android:src="@drawable/btnmodulo2bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:padding="0dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo2"
                         android:id="@+id/txtTitulo2"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo2"
                         android:id="@+id/txtProgresso2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
                         android:layout_marginStart="2dp"/>
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo2"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="9"
+                        app:rcMax="6"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
+
                 </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:background="@color/corBtnModulo3"
-                android:id="@+id/btnModulo3"
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo3"
-                    android:src="@drawable/btnmodulo3"
-                    android:contentDescription="@+id/descricaoBotaoModulo3"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
-
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo3"
+                    android:id="@+id/btnModulo3"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="top|center_horizontal"
+                    android:layout_weight="50">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo3"
+                        android:src="@drawable/btnmodulo3bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo3"
                         android:id="@+id/txtTitulo3"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo3"
                         android:id="@+id/txtProgresso3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
                         android:layout_marginStart="2dp"/>
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo3"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="9"
+                        app:rcMax="3"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
                 </LinearLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
-                android:background="@color/corBtnModulo4"
-                android:id="@+id/btnModulo4"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo4"
-                    android:src="@drawable/btnmodulo4"
-                    android:contentDescription="@+id/descricaoBotaoModulo4"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="55dp">
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo4"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="center_vertical|center_horizontal"
+                    android:id="@+id/btnModulo4">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo4"
+                        android:src="@drawable/btnmodulo4bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo4"
                         android:id="@+id/txtTitulo4"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo4"
                         android:id="@+id/txtProgresso4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
                         android:layout_marginStart="2dp"/>
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo4"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="9"
+                        app:rcMax="6"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
                 </LinearLayout>
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:background="@color/corBtnModulo5"
-                android:id="@+id/btnModulo5"
+            <LinearLayout
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo5"
-                    android:src="@drawable/btnmodulo5"
-                    android:contentDescription="@+id/descricaoBotaoModulo5"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="55dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="100"
+                android:paddingEnd="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingStart="15dp">
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo5"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="top|center_horizontal"
+                    android:id="@+id/btnModulo5"
+                    android:layout_weight="50">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo5"
+                        android:src="@drawable/btnmodulo5bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo5"
                         android:id="@+id/txtTitulo5"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo5"
                         android:id="@+id/txtProgresso5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
                         android:layout_marginStart="2dp"/>
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo5"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="9"
+                        app:rcMax="1"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
                 </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:background="@color/corBtnModulo6"
-                android:id="@+id/btnModulo6"
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgModulo6"
-                    android:src="@drawable/btnmodulo6"
-                    android:contentDescription="@+id/descricaoBotaoModulo6"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgModulo6"
+                    android:id="@+id/btnModulo6"
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:gravity="top|center_horizontal"
+                    android:layout_weight="50">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo6"
+                        android:src="@drawable/btnmodulo6bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:padding="0dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
                         android:text="@string/txtTituloModulo6"
                         android:id="@+id/txtTitulo6"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                     <TextView
                         android:text="@string/txtProgressoModulo6"
                         android:id="@+id/txtProgresso6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="sans-serif"
                         android:typeface="normal"
-                        android:textSize="16sp"
-                        android:gravity="top"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="2dp"
                         android:layout_marginStart="2dp"/>
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo6"
-                        android:layout_width="157dp"
+                        android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="9"
+                        app:rcMax="10"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="3dp" />
+                        app:rcBackgroundColor="#ffffff" />
+
                 </LinearLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
-                android:background="@color/corBtnModulo7"
-                android:id="@+id/btnCertificado"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <ImageView
-                    android:id="@+id/imgCertificado"
-                    android:src="@drawable/btnmodulo8"
-                    android:contentDescription="@+id/descricaoBotaoModulo8"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="left|center_vertical|center"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginEnd="7dp" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:layout_toEndOf="@+id/imgCertificado"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|center_horizontal"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/btnCertificado">
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgCertificado"
+                        android:src="@drawable/btncertificadobloqueado"
+                        android:contentDescription="@+id/descricaocertificado"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:padding="0dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo8"
+                        android:text="@string/txtTituloCertificado"
                         android:id="@+id/txtTituloCertificado"
                         style="@style/customTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textColor="#ffffff"
-                        android:gravity="top"
-                        android:includeFontPadding="false" />
+                        android:textSize="17sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
 
                 </LinearLayout>
 

@@ -71,7 +71,7 @@ public class Completar extends Fragment {
     protected String respostasCertas[];
     protected String[] respostasCertasAcentuadas;
 
-    
+
     // IMAGENS DE CERTO E ERRADO
     protected ImageView imgRespostaCerta, imgRespostaErrada;
 
@@ -126,8 +126,8 @@ public class Completar extends Fragment {
 
     protected void accessViews() {
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
-        btnChecar          = (Button) rootView.findViewById(R.id.btnChecarResposta);
-        btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancarQuestao);
+        btnChecar          = (Button) rootView.findViewById(R.id.btnChecar);
+        btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancar);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
 
         // IMAGENS CERTO E ERRADO

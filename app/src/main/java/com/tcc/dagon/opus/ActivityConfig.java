@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -15,17 +14,36 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
+@EActivity(R.layout.activity_config)
 public class ActivityConfig extends AppCompatActivity {
-    private Switch switchSons;
-    private Button btnApagarProgresso;
-    private GerenciadorBanco DB_PROGRESSO;
-    private NovaJanelaAlerta alertaApagar;
-    private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+
+    /* VIEWS */
+    @ViewById protected Switch switchSons;
+    @ViewById protected Button btnResetarProgresso;
+
+    /* OBJETOS */
+    protected GerenciadorBanco DB_PROGRESSO;
+    protected NovaJanelaAlerta alertaApagar;
+    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_config);
+    }
+
+    @AfterViews
+    protected void init() {
+
+        // SETA VOLTAR NA BARRA DE MENU
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         if(alertaApagar == null) {
             alertaApagar = new NovaJanelaAlerta(this);
@@ -35,22 +53,12 @@ public class ActivityConfig extends AppCompatActivity {
             DB_PROGRESSO = new GerenciadorBanco(this);
         }
 
-
-        // SETA VOLTAR NA BARRA DE MENU
-        if(getSupportActionBar() != null) {
-            // BOTÃO SUPERIOR MENU PUXÁVEL
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
-
-        switchSons =         (Switch) findViewById(R.id.switchSons);
-        btnApagarProgresso = (Button) findViewById(R.id.btnResetarProgresso);
-
         if(preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.flagSwitchConfigSom)) {
             switchSons.setChecked(true);
         }
+
         listeners();
+
     }
 
     private void listeners() {
@@ -66,15 +74,12 @@ public class ActivityConfig extends AppCompatActivity {
                 }
             }
         });
+    }
 
-        btnApagarProgresso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertaApagarProgresso("Todo seu progresso será apagado. Tem certeza que deseja fazer isso?",
-                        listenerDialogClickProva);
-
-            }
-        });
+    @Click
+    void btnResetarProgresso() {
+        alertaApagarProgresso("Todo seu progresso será apagado. Tem certeza que deseja fazer isso?",
+                listenerDialogClickProva);
     }
 
     // método que constrói a janela de alerta ao apertar o botão de apagar dados

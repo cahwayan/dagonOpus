@@ -45,11 +45,11 @@
             />
 
         <activity
-            android:name=".CadastroActivity"
+            android:name=".CadastroActivity_"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ActivityConfig"
+            android:name=".ActivityConfig_"
             android:screenOrientation="portrait" />
 
         <activity
