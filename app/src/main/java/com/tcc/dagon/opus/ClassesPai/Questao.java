@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -43,7 +44,7 @@ public class Questao extends Fragment {
 
     // BOTÕES DE CHECAR RESPOSTA, AVANÇAR E TENTAR DE NOVO
     protected Button btnChecarResposta,
-            btnAvancarQuestao,
+                     btnAvancarQuestao,
                      btnTentarNovamente;
 
     // REFERENCIA DO VIEWPAGER DO CONTAINER
@@ -70,17 +71,58 @@ public class Questao extends Fragment {
     // IMAGENS CERTO E ERRADO
     protected ImageView imgRespostaCerta, imgRespostaErrada;
 
+    public void setModuloAtual(int moduloAtual) {
+        this.moduloAtual = moduloAtual;
+    }
+
+    public void setEtapaAtual(int etapaAtual) {
+        this.etapaAtual = etapaAtual;
+    }
+
+    public void setQuestaoAtual(int questaoAtual) {
+        this.questaoAtual = questaoAtual;
+    }
+
     protected int moduloAtual, etapaAtual, questaoAtual;
 
     protected GerenciadorSharedPreferences preferencias;
 
+    public static Questao newInstance(int moduloAtual, int etapaAtual, int questaoAtual) {
+        Questao questao = new Questao();
 
+        Bundle args = new Bundle();
+        args.putInt("moduloAtual", moduloAtual);
+        args.putInt("etapaAtual", etapaAtual);
+        args.putInt("questaoAtual", questaoAtual);
+        questao.setArguments(args);
+
+        return questao;
+    }
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        this.moduloAtual  = getArguments().getInt("moduloAtual", 0);
+        this.etapaAtual   = getArguments().getInt("etapaAtual", 0);
+        this.questaoAtual = getArguments().getInt("questaoAtual", 0);
+
+        super.onCreateView(inflater, container, savedInstanceState);
+
+
+
+        configurarQuestao(moduloAtual, etapaAtual, questaoAtual);
+
         rootView = inflater.inflate(R.layout.activity_questao, container, false);
+
+        this.instanciaObjetos();
+
+        //TRAZENDO AS VIEWS
+        this.accessViews();
+
+        // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
+        this.listeners();
         return rootView;
     }
 
@@ -103,6 +145,12 @@ public class Questao extends Fragment {
         }
 
         preferencias = new GerenciadorSharedPreferences(getActivity());
+    }
+
+    public void configurarQuestao(int moduloAtual, int etapaAtual, int questaoAtual) {
+        this.moduloAtual  = moduloAtual;
+        this.etapaAtual   = etapaAtual;
+        this.questaoAtual = questaoAtual;
     }
 
     @Override
@@ -130,6 +178,10 @@ public class Questao extends Fragment {
     }
 
     protected void accessViews() {
+
+        mViewPager = ((ContainerEtapa)this.getActivity()).getPager();
+        tabStrip   = ((ContainerEtapa)this.getActivity()).getTabStrip();
+        mTabLayout = ((ContainerEtapa)this.getActivity()).getmTabLayout();
 
         // PEGANDO O RADIOGROUP DO LAYOUT
         radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupQuestao);

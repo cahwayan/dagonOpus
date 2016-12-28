@@ -27,12 +27,12 @@ public class Questao1 extends Questao {
         super.onCreateView(inflater, container, savedInstanceState);
         // INSTANCIA DE OBJETOS / BANCO / JANELA ALERTA / SONS
         super.instanciaObjetos();
-        // MÓDULO A QUAL A PERGUNTA PERTENCE
+        /*// MÓDULO A QUAL A PERGUNTA PERTENCE
         super.moduloAtual = 1;
         // ETAPA A QUAL A PERGUNTA PERTENCE
         super.etapaAtual = 1;
         // NÚMERO DA PERGUNTA
-        super.questaoAtual = 1;
+        super.questaoAtual = 1;*/
 
         //TRAZENDO AS VIEWS
         accessViews();
@@ -46,9 +46,7 @@ public class Questao1 extends Questao {
     protected void accessViews() {
 
         // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        super.mViewPager = ((ContainerModulo1Etapa1)this.getActivity()).getPager();
-        super.tabStrip   = ((ContainerModulo1Etapa1)this.getActivity()).getTabStrip();
-        super.mTabLayout = ((ContainerModulo1Etapa1)this.getActivity()).getmTabLayout();
+
 
         super.accessViews();
 

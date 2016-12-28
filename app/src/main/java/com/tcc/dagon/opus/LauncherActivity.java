@@ -40,7 +40,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_inicial);
+        setContentView(R.layout.activity_launcher);
 
         DB_PROGRESSO = new GerenciadorBanco(this);
 

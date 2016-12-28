@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tcc.dagon.opus.ClassesPai.Adapter;
+import com.tcc.dagon.opus.ClassesPai.Questao;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao3;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao5;
@@ -31,11 +32,11 @@ public class AdapterEtapa7 extends Adapter {
             case 0:
                 return new Licao1();
             case 1:
-                return new Questao1();
+                return Questao.newInstance(MODULO1, ETAPA7, QUESTAO1);
             case 2:
                 return new Licao3();
             case 3:
-                return new Questao2();
+                return Questao.newInstance(MODULO1, ETAPA7, QUESTAO2);
             case 4:
                 return new Licao5();
             case 5:

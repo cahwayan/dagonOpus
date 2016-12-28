@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#e7e7e7">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingContainerLicao"
+        android:layout_margin="5dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/Modulo1Etapa2Pergunta2"
+            android:text="@string/Modulo1Etapa2Pergunta2"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="15sp"
+            android:textStyle="normal|bold"
+            android:typeface="normal"
+            android:fontFamily="@string/fonteQuestao"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:id="@+id/Modulo1Etapa2Pergunta2Linha1"
+            android:text="@string/Modulo1Etapa2Pergunta2Linha1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/corTituloLicao"
+            android:textSize="12.5sp"
+            android:typeface="normal"
+            android:fontFamily="@string/fonteQuestao"
+            android:layout_marginBottom="5dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|fill_horizontal">
+
+            <TextView
+                android:text="@string/Modulo1Etapa2Pergunta2Linha2"
+                android:id="@+id/Modulo1Etapa2Pergunta2Linha2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+
+            <EditText
+                android:id="@+id/palavra1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:maxLength="5"
+                android:maxLines="1"
+                android:width="55dp" />
+
+            <EditText
+                android:id="@+id/palavra2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:textSize="13sp"
+                android:width="45dp" />
+
+            <EditText
+                android:id="@+id/palavra3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="7"
+                android:maxLines="1"
+                android:width="65dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|fill_horizontal">
+
+            <TextView
+                android:text="@string/Modulo1Etapa2Pergunta2Linha3"
+                android:id="@+id/Modulo1Etapa2Pergunta2Linha3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12.5sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+
+            <EditText
+                android:id="@+id/palavra4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="9"
+                android:maxLines="1"
+                android:width="80dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|fill_horizontal">
+
+            <TextView
+                android:text="@string/Modulo1Etapa2Pergunta2Linha4"
+                android:id="@+id/Modulo1Etapa2Pergunta2Linha4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12.5sp"
+                android:gravity="start|end"
+                android:layout_gravity="end|center_vertical"
+                android:paddingTop="@dimen/paddingTopoTextoLicao"
+                android:paddingBottom="@dimen/paddingBaixoTextoLicao"
+                android:lineSpacingExtra="2sp"
+                android:typeface="normal"/>
+
+            <EditText
+                android:id="@+id/palavra5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:width="30dp" />
+            <EditText
+                android:id="@+id/palavra6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="13sp"
+                android:layout_weight="15"
+                android:maxLength="9"
+                android:maxLines="1"
+                android:width="75dp" />
+        </LinearLayout>
+
+        <include layout="@layout/botoes_responder_questao"/>
+    </LinearLayout>
+
+</ScrollView>

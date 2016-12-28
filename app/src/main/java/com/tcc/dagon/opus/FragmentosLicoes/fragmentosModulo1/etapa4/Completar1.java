@@ -2,8 +2,6 @@ package com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +30,7 @@ public class Completar1 extends Completar {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.instanciaObjetos();
         // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        super.rootView = inflater.inflate(R.layout.fragment_modulo1_etapa4_licao4, container, false);
+        super.rootView = inflater.inflate(R.layout.fragment_modulo1_etapa4_completar1, container, false);
         // DECLARANDO O MODULO E A ETAPA ATUAL A QUAL PERTENCE ESSA LIÇÃO
         // SERVE PARA FINS DE DEFINIR PROGRESSO NO BANCO DE DADOS
         super.moduloAtual = 1;

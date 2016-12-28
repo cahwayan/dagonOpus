@@ -6,7 +6,6 @@ import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.design.widget.AppBarLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ActivityConfig;
@@ -30,11 +28,6 @@ import com.tcc.dagon.opus.PerfilUsuario.GerenciarPerfilActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo2Activity;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo3Activity;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo4Activity;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo5Activity;
-import com.tcc.dagon.opus.telasEtapas.EtapasModulo6Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -463,7 +456,7 @@ public class AprenderActivity
         }
     }
 
-    @Click
+    /*@Click
     protected void btnModulo2() {
         if(DB_PROGRESSO.verificaProgressoModulo() >= 2) {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
@@ -525,7 +518,7 @@ public class AprenderActivity
         } else {
             alertaModuloBloqueado();
         }
-    }
+    }*/
 
     @Click
     protected void btnCertificado() {

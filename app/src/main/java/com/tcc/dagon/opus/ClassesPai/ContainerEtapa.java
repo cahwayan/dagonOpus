@@ -20,18 +20,32 @@ public class ContainerEtapa extends AppCompatActivity {
     protected ViewPager mViewPager;
     protected GerenciadorBanco DB_PROGRESSO = null;
     protected LinearLayout tabStrip;
+
+    public void setModuloAtual(int moduloAtual) {
+        this.moduloAtual = moduloAtual;
+    }
+
+    public void setEtapaAtual(int etapaAtual) {
+        this.etapaAtual = etapaAtual;
+    }
+
     protected int moduloAtual, etapaAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.container_etapa);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.container_etapa);
+        configurarContainer(moduloAtual, etapaAtual);
         instanciaObjetos();
         accessViews();
         bloquearLicoes();
         desbloquearLicoes();
     }
 
+    public void configurarContainer(int moduloAtual, int etapaAtual) {
+        this.moduloAtual = moduloAtual;
+        this.etapaAtual  = etapaAtual;
+    }
 
     @Override
     public void onBackPressed() {
@@ -183,7 +197,7 @@ public class ContainerEtapa extends AppCompatActivity {
                 }
             break;
 
-            // CASO MÓDULO 2 ....
+            /*// CASO MÓDULO 2 ....
             case 2:
                 switch(etapaAtual) {
                     case 1:
@@ -313,7 +327,7 @@ public class ContainerEtapa extends AppCompatActivity {
                         break;
 
                 }
-            break;
+            break;*/
 
         }
     }

@@ -41,7 +41,6 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
@@ -49,6 +48,7 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
@@ -210,6 +210,7 @@
     <orderEntry type="library" exported="" name="play-services-tagmanager-api-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-9.8.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-games-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-9.8.0" level="project" />
@@ -240,7 +241,6 @@
     <orderEntry type="library" exported="" name="play-services-identity-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-maps-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-common-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="androidannotations-api-4.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-iid-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-9.8.0" level="project" />
