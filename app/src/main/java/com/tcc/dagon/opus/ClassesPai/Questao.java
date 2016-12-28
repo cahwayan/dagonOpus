@@ -83,7 +83,7 @@ public class Questao extends Fragment {
         this.questaoAtual = questaoAtual;
     }
 
-    protected int moduloAtual, etapaAtual, questaoAtual;
+    private int moduloAtual, etapaAtual, questaoAtual;
 
     protected GerenciadorSharedPreferences preferencias;
 

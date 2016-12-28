@@ -2,7 +2,6 @@ package com.tcc.dagon.opus.Adapters.Modulo1;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tcc.dagon.opus.ClassesPai.Adapter;
 import com.tcc.dagon.opus.ClassesPai.Questao;
@@ -10,8 +9,6 @@ import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao3;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao5;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Licao7;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Questao1;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Questao2;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Completar1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa7.Completar2;
 

@@ -6,7 +6,6 @@ import com.tcc.dagon.opus.ClassesPai.Adapter;
 import com.tcc.dagon.opus.ClassesPai.Questao;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Licao2;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa1.Questao1;
 
 /**
  * Created by charlinho on 09/10/2016.
