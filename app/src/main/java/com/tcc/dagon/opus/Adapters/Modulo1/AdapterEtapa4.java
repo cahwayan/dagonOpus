@@ -4,10 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.tcc.dagon.opus.ClassesPai.Adapter;
+import com.tcc.dagon.opus.ClassesPai.Completar;
 import com.tcc.dagon.opus.ClassesPai.Questao;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4.Licao1;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4.Licao3;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosModulo1.etapa4.Completar1;
+import com.tcc.dagon.opus.R;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -30,7 +32,10 @@ public class AdapterEtapa4 extends Adapter {
             case 2:
                 return new Licao3();
             case 3:
-                return new Completar1();
+                return Completar.newInstance(R.layout.fragment_modulo1_etapa4_completar1,
+                                             MODULO1, ETAPA4, 2 /* PALAVRAS */,
+                                             respostasCertas = new String[] {"ola", "mundo"},
+                                             respostasCertasAcentuadas = new String[] {"olá", "mundo"});
             default:
                 return null;
         }

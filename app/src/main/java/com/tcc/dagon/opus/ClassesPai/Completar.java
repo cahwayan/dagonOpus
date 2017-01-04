@@ -25,6 +25,9 @@ import android.widget.Toast;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.PulseAnimation;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
@@ -42,6 +45,14 @@ public class Completar extends Fragment {
     protected Button btnChecar,
                      btnAvancar,
                      btnTentarNovamente;
+
+    private int quantidadePalavras;
+
+    private EditText palavra1, palavra2, palavra3, palavra4, palavra5,
+                     palavra6, palavra7, palavra8, palavra9, palavra10,
+                     palavra11, palavra12, palavra13, palavra14, palavra15,
+                     palavra16, palavra17, palavra18, palavra19, palavra20;
+
 
 
 
@@ -71,6 +82,8 @@ public class Completar extends Fragment {
     protected String respostasCertas[];
     protected String[] respostasCertasAcentuadas;
 
+    private int layoutID;
+
 
     // IMAGENS DE CERTO E ERRADO
     protected ImageView imgRespostaCerta, imgRespostaErrada;
@@ -81,12 +94,361 @@ public class Completar extends Fragment {
 
     protected int[] tamanhoPalavras;
 
+    public static Completar newInstance(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        Completar completar = new Completar();
+        completar.setContentView(layoutID);
+        Bundle args = new Bundle();
+        args.putInt("moduloAtual", moduloAtual);
+        args.putInt("etapaAtual", etapaAtual);
+        args.putInt("quantidadePalavras", quantidadePalavras);
+        args.putStringArray("respostasCertas", respostasCertas);
+        args.putStringArray("respostasCertasAcentuadas", respostasCertasAcentuadas);
+        completar.setArguments(args);
+        return completar;
+    }
+
+    private int setContentView(int layoutID) {
+        return this.layoutID = layoutID;
+    }
 
     // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        this.moduloAtual               = getArguments().getInt("moduloAtual", 0);
+        this.etapaAtual                = getArguments().getInt("etapaAtual" , 0);
+        this.quantidadePalavras        = getArguments().getInt("quantidadePalavras", 0);
+        this.respostasCertas           = getArguments().getStringArray("respostasCertas");
+        this.respostasCertasAcentuadas = getArguments().getStringArray("respostasCertasAcentuadas");
+
+        this.instanciaObjetos();
+
+        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
+        this.rootView = inflater.inflate( setContentView(this.layoutID) , container, false);
+
+        // INSTANCIANDO A LISTA
+        this.listaEditTexts = new ArrayList<>();
+
+        // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
+        this.verificaQuantidadePalavras(this.quantidadePalavras);
+
+        // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
+        this.listaEditTexts.addAll(Arrays.asList(this.linhasCompletar));
+
+        this.accessViews();
+
+        this.listeners();
+
+        return this.rootView;
+    }
+
+    private void verificaQuantidadePalavras(int quantidadePalavras) {
+
+
+        switch(quantidadePalavras) {
+            case 1:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                this.linhasCompletar = new EditText[] {palavra1};
+                break;
+            case 2:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2};
+                break;
+            case 3:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3};
+                break;
+            case 4:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4};
+                break;
+            case 5:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5};
+                break;
+            case 6:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6};
+                break;
+            case 7:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7};
+                break;
+            case 8:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8};
+                break;
+            case 9:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9};
+                break;
+            case 10:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10};
+                break;
+            case 11:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11};
+                break;
+            case 12:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12};
+                break;
+            case 13:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13};
+                break;
+            case 14:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14};
+                break;
+            case 15:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15};
+                break;
+            case 16:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15,
+                                                  palavra16};
+                break;
+            case 17:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
+                palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15,
+                                                  palavra16, palavra17};
+                break;
+            case 18:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
+                palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
+                palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15,
+                                                  palavra16, palavra17, palavra18};
+                break;
+            case 19:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
+                palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
+                palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
+                palavra19 = (EditText) rootView.findViewById(R.id.palavra19);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15,
+                                                  palavra16, palavra17, palavra18, palavra19};
+                break;
+            case 20:
+                palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
+                palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
+                palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
+                palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
+                palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
+                palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
+                palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
+                palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
+                palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
+                palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
+                palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
+                palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
+                palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
+                palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
+                palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
+                palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
+                palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
+                palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
+                palavra19 = (EditText) rootView.findViewById(R.id.palavra19);
+                palavra20 = (EditText) rootView.findViewById(R.id.palavra20);
+                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                                                  palavra6, palavra7, palavra8, palavra9, palavra10,
+                                                  palavra11, palavra12, palavra13, palavra14, palavra15,
+                                                  palavra16, palavra17, palavra18, palavra19, palavra20};
+                break;
+        }
     }
 
     protected void instanciaObjetos() {
@@ -125,6 +487,12 @@ public class Completar extends Fragment {
     }
 
     protected void accessViews() {
+
+        // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
+        mViewPager = ((ContainerEtapa)getActivity()).getPager();
+        tabStrip   = ((ContainerEtapa)getActivity()).getTabStrip();
+        mTabLayout = ((ContainerEtapa)getActivity()).getmTabLayout();
+
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar          = (Button) rootView.findViewById(R.id.btnChecar);
         btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancar);

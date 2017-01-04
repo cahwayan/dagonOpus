@@ -56,6 +56,9 @@ public class Adapter extends FragmentPagerAdapter {
     protected final int QUESTAO14 = 14;
     protected final int QUESTAO15 = 15;
 
+    protected String respostasCertas[];
+    protected String respostasCertasAcentuadas[];
+
 
 
 

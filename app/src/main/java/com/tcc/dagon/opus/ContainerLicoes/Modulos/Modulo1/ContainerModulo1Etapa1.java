@@ -7,7 +7,6 @@ public class ContainerModulo1Etapa1 extends ContainerEtapa {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.moduloAtual = 1;
         super.etapaAtual = 1;
 

@@ -51,10 +51,6 @@ public class Completar1 extends Completar {
         tabStrip   = ((ContainerModulo1Etapa4)getActivity()).getTabStrip();
         mTabLayout = ((ContainerModulo1Etapa4)getActivity()).getmTabLayout();
 
-        // RESGATANDO A REFERENCIA DOS EDIT TEXTS QUE TERAO AS RESPOSTAS
-        linha2Palavra1 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra1);
-        linha2Palavra2 = (EditText) rootView.findViewById(R.id.Modulo1Etapa4Pergunta2Linha2Palavra2);
-
         // CRIANDO UMA LISTA QUE VAI GUARDAR OS EDIT TEXTS
         listaEditTexts = new ArrayList<>();
 
