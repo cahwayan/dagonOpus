@@ -36,6 +36,7 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
         setContentView(R.layout.container_prova);
         super.instanciaObjetos();
         this.accessViews();
+        this.setContagemVidas(5);
         super.bloquearLicoes();
         this.desbloquearLicoes();
     }

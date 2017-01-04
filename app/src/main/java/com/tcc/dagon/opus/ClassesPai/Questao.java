@@ -30,58 +30,29 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 public class Questao extends Fragment {
 
-    // RADIO BUTTONS DAS ALTERNATIVAS
-    protected RadioButton alternativa1,
-                          alternativa2,
-                          alternativa3,
-                          alternativa4;
+    /* COMPONENTES VISUAIS */
 
-    protected TextView pergunta;
+    private RadioGroup radioGroupQuestao;
+    private RadioButton alternativa1,
+                        alternativa2,
+                        alternativa3,
+                        alternativa4;
+    private TextView pergunta;
+    private Button btnChecarResposta;
+    private Button btnAvancarQuestao;
+    private Button btnTentarNovamente;
+    private ViewPager mViewPager;
+    private LinearLayout tabStrip;
+    private TabLayout mTabLayout;
+    private ImageView imgRespostaCerta, imgRespostaErrada;
 
-
-    // OBJETO BANCO PARA VERIFICAR AS RESPOSTAS
-    protected GerenciadorBanco DB_PROGRESSO = null;
-
-    // BOTÕES DE CHECAR RESPOSTA, AVANÇAR E TENTAR DE NOVO
-    protected Button btnChecarResposta,
-                     btnAvancarQuestao,
-                     btnTentarNovamente;
-
-    // REFERENCIA DO VIEWPAGER DO CONTAINER
-    protected ViewPager mViewPager;
-
-    // REFERENCIA DO LAYOUT DO CONTAINER
-    protected LinearLayout tabStrip;
-
-    // REFERENCIA DO TABLAYOUT DO CONTAINER
-    protected TabLayout mTabLayout;
+    /* OBJETOS */
+    private GerenciadorBanco DB_PROGRESSO = null;
+    private MediaPlayer somRespostaCerta = null;
+    private MediaPlayer somRespostaErrada = null;
+    private NovaJanelaAlerta alertaOpcaoVazia = null;
 
     protected View rootView;
-
-    // RADIOGROUP
-    protected RadioGroup radioGroupQuestao;
-
-    // SONS DO APP
-    protected MediaPlayer somRespostaCerta = null;
-    protected MediaPlayer somRespostaErrada = null;
-
-    // OBJETO DE JANELA DE ALERTA
-    protected NovaJanelaAlerta alertaOpcaoVazia = null;
-
-    // IMAGENS CERTO E ERRADO
-    protected ImageView imgRespostaCerta, imgRespostaErrada;
-
-    public void setModuloAtual(int moduloAtual) {
-        this.moduloAtual = moduloAtual;
-    }
-
-    public void setEtapaAtual(int etapaAtual) {
-        this.etapaAtual = etapaAtual;
-    }
-
-    public void setQuestaoAtual(int questaoAtual) {
-        this.questaoAtual = questaoAtual;
-    }
 
     private int moduloAtual, etapaAtual, questaoAtual;
 
@@ -103,12 +74,11 @@ public class Questao extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
 
         this.moduloAtual  = getArguments().getInt("moduloAtual", 0);
         this.etapaAtual   = getArguments().getInt("etapaAtual", 0);
         this.questaoAtual = getArguments().getInt("questaoAtual", 0);
-
-        super.onCreateView(inflater, container, savedInstanceState);
 
 
 
@@ -492,4 +462,77 @@ public class Questao extends Fragment {
         return 0;
     }
 
+    /* MÉTODOS ESPECIAIS */
+
+    public void setModuloAtual(int moduloAtual) {
+        this.moduloAtual = moduloAtual;
+    }
+
+    public void setEtapaAtual(int etapaAtual) {
+        this.etapaAtual = etapaAtual;
+    }
+
+    public void setQuestaoAtual(int questaoAtual) {
+        this.questaoAtual = questaoAtual;
+    }
+
+    public int getModuloAtual() {
+        return moduloAtual;
+    }
+
+    public int getEtapaAtual() {
+        return etapaAtual;
+    }
+
+    public int getQuestaoAtual() {
+        return questaoAtual;
+    }
+
+    public GerenciadorBanco getDB_PROGRESSO() {
+        return DB_PROGRESSO;
+    }
+
+    public Button getBtnChecarResposta() {
+        return btnChecarResposta;
+    }
+
+    public Button getBtnAvancarQuestao() {
+        return btnAvancarQuestao;
+    }
+
+    public Button getBtnTentarNovamente() {
+        return btnTentarNovamente;
+    }
+
+    public LinearLayout getTabStrip() {
+        return tabStrip;
+    }
+
+    public TabLayout getmTabLayout() {
+        return mTabLayout;
+    }
+
+    public ViewPager getmViewPager() {
+        return mViewPager;
+    }
+
+    public ImageView getImgRespostaCerta() {
+        return imgRespostaCerta;
+    }
+
+    public ImageView getImgRespostaErrada() {
+        return imgRespostaErrada;
+    }
+
+    public void setmViewPager(ViewPager mViewPager) {
+        this.mViewPager = mViewPager;
+    }
+
+    public void setTabStrip(LinearLayout tabStrip) {
+        this.tabStrip = tabStrip;
+    }
+
+    public void setmTabLayout(TabLayout mTabLayout) {
+        this.mTabLayout = mTabLayout;
+    }
 }

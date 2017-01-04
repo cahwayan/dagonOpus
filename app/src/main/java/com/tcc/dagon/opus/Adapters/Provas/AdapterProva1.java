@@ -2,17 +2,13 @@ package com.tcc.dagon.opus.Adapters.Provas;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tcc.dagon.opus.ClassesPai.Adapter;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao1;
+import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao2;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao3;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao4;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao5;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao6;
 import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao7;
-import com.tcc.dagon.opus.FragmentosLicoes.fragmentosProvas.Prova1.Questao8;
 
 /**
  * Created by cahwayan on 09/10/2016.
@@ -29,13 +25,13 @@ public class AdapterProva1 extends Adapter {
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return new Questao1();
+                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO1);
             case 1:
                 return new Questao2();
             case 2:
-                return new Questao3();
+                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO3);
             case 3:
-                return new Questao4();
+                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO4);
             case 4:
                 return new Questao5();
             case 5:
@@ -43,7 +39,7 @@ public class AdapterProva1 extends Adapter {
             case 6:
                 return new Questao7();
             case 7:
-                return new Questao8();
+                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO8);
             default:
                 return null;
         }
