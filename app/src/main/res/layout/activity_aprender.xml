@@ -66,18 +66,20 @@
                     android:gravity="center_vertical|center_horizontal"
                     android:id="@+id/btnModulo1">
 
-                    <ImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgModulo1"
-                        android:src="@drawable/btnmodulo1bloqueado"
-                        android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:padding="0dp"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="false"
-                        android:layout_marginTop="10dp" />
+                        <ImageView
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/imgModulo1"
+                            android:src="@drawable/btnmodulo1bloqueado"
+                            android:contentDescription="@+id/descricaoBotaoModulo1"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:padding="0dp"
+                            android:layout_gravity="center_vertical|center_horizontal|center"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentStart="false"
+                            android:layout_marginTop="10dp" />
+
+
 
                     <TextView
                         android:text="@string/txtTituloModulo1"

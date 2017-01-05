@@ -35,6 +35,7 @@ public class Questao extends Fragment {
                         alternativa2,
                         alternativa3,
                         alternativa4;
+
     private TextView pergunta;
     private Button btnChecarResposta;
     private Button btnAvancarQuestao;
@@ -57,6 +58,7 @@ public class Questao extends Fragment {
     protected GerenciadorSharedPreferences preferencias;
 
     public static Questao newInstance(int moduloAtual, int etapaAtual, int questaoAtual) {
+
         Questao questao = new Questao();
 
         Bundle args = new Bundle();

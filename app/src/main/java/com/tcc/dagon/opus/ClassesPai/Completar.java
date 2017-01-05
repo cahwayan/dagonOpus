@@ -135,7 +135,7 @@ public class Completar extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        super.onCreateView(inflater, container, savedInstanceState);
         /* PEGANDO OS ARGUMENTOS DO MÉTODO DE INSTÂNCIAÇÃO*/
         this.moduloAtual               = getArguments().getInt("moduloAtual", 0);
         this.etapaAtual                = getArguments().getInt("etapaAtual" , 0);
