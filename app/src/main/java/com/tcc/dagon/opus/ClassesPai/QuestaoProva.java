@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
@@ -266,11 +264,11 @@ public class QuestaoProva extends Questao {
         super.setTabStrip  (( (ContainerProva)this.getActivity() ).getTabStrip());
         super.setmTabLayout(( (ContainerProva)this.getActivity() ).getmTabLayout() );
 
-        vida01 = ((ContainerProva1)getActivity()).getVida01();
-        vida02 = ((ContainerProva1)getActivity()).getVida02();
-        vida03 = ((ContainerProva1)getActivity()).getVida03();
-        vida04 = ((ContainerProva1)getActivity()).getVida04();
-        vida05 = ((ContainerProva1)getActivity()).getVida05();
+        vida01 = ((ContainerProva)getActivity()).getVida01();
+        vida02 = ((ContainerProva)getActivity()).getVida02();
+        vida03 = ((ContainerProva)getActivity()).getVida03();
+        vida04 = ((ContainerProva)getActivity()).getVida04();
+        vida05 = ((ContainerProva)getActivity()).getVida05();
     }
 
     protected Class retornarTelaEtapas(int numeroModulo) {

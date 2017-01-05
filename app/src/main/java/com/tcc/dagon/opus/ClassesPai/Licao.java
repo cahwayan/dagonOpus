@@ -22,14 +22,31 @@ public class Licao extends Fragment {
     protected ViewPager mViewPager;
     protected View viewRoot;
     protected PhotoViewAttacher photoView;
+    private int layoutID;
+
+    public static Licao newInstance(int layoutID) {
+        Licao licao = new Licao();
+        licao.setContentView(layoutID);
+        return licao;
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
+        super.onCreateView(inflater, container, savedInstanceState);
+        this.viewRoot = inflater.inflate( setContentView(this.layoutID), container, false);
+        this.accessViews();
+        this.listeners();
+
+        return this.viewRoot;
     }
 
-    protected void listeners() {
+    private int setContentView(int layoutID) {
+        this.layoutID = layoutID;
+        return this.layoutID;
+    }
+
+    private void listeners() {
         btnAvancar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 moveNext(mViewPager);
@@ -37,20 +54,21 @@ public class Licao extends Fragment {
         });
     }
 
-    protected void adicionarZoomImagem(ImageView imagem) {
+    private void adicionarZoomImagem(ImageView imagem) {
         photoView = new PhotoViewAttacher(imagem);
         photoView.update();
     }
 
-    protected void accessViews() {
+    private void accessViews() {
+        mViewPager = ((ContainerEtapa)getActivity()).getPager();
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
     }
 
-    protected void moveNext(View view) {
+    private void moveNext(View view) {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
     }
 
-    protected void movePrevious(View view) {
+    private void movePrevious(View view) {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 

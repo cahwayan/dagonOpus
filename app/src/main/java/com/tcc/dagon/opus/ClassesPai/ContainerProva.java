@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -34,10 +35,18 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_prova);
+
+        this.tituloEtapa = getIntent().getStringExtra("tituloEtapa");
+
+        this.moduloAtual = getIntent().getIntExtra("moduloAtual", 0);
+        this.etapaAtual  = getIntent().getIntExtra("etapaAtual", 0);
+
+
         super.instanciaObjetos();
         this.accessViews();
         this.setContagemVidas(5);
         super.bloquearLicoes();
+        Log.i(TAG1, String.valueOf(moduloAtual)  + " " +  String.valueOf(etapaAtual) );
         this.desbloquearLicoes();
     }
 

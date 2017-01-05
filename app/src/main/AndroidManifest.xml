@@ -77,48 +77,12 @@
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
         <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1"
-            android:label="@string/TituloEtapa1Modulo1"
+            android:name=".ClassesPai.ContainerEtapa"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2"
-            android:label="@string/TituloEtapa2Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3"
-            android:label="@string/TituloEtapa3Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4"
-            android:label="@string/TituloEtapa4Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa5"
-            android:label="@string/TituloEtapa5Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa6"
-            android:label="@string/TituloEtapa6Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa7"
-            android:label="@string/TituloEtapa7Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa8"
-            android:label="@string/TituloEtapa8Modulo1"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ContainerLicoes.Modulos.Provas.ContainerProva1"
-            android:label="@string/TituloEtapa9Modulo1"
+            android:name=".ClassesPai.ContainerProva"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

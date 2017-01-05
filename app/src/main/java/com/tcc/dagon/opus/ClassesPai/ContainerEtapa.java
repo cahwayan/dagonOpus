@@ -5,8 +5,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.tcc.dagon.opus.Manifest;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
@@ -20,6 +23,7 @@ public class ContainerEtapa extends AppCompatActivity {
     protected ViewPager mViewPager;
     protected GerenciadorBanco DB_PROGRESSO = null;
     protected LinearLayout tabStrip;
+    protected String tituloEtapa;
 
     public void setModuloAtual(int moduloAtual) {
         this.moduloAtual = moduloAtual;
@@ -31,20 +35,23 @@ public class ContainerEtapa extends AppCompatActivity {
 
     protected int moduloAtual, etapaAtual;
 
+    final String TAG1 = "Debug!";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_etapa);
-        configurarContainer(moduloAtual, etapaAtual);
+
+        this.tituloEtapa = getIntent().getStringExtra("tituloEtapa");
+
+        this.moduloAtual = getIntent().getIntExtra("moduloAtual", 0);
+        this.etapaAtual  = getIntent().getIntExtra("etapaAtual", 0);
+
         instanciaObjetos();
         accessViews();
+
         bloquearLicoes();
         desbloquearLicoes();
-    }
-
-    public void configurarContainer(int moduloAtual, int etapaAtual) {
-        this.moduloAtual = moduloAtual;
-        this.etapaAtual  = etapaAtual;
     }
 
     @Override
@@ -85,6 +92,10 @@ public class ContainerEtapa extends AppCompatActivity {
     protected void accessViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if(this.getSupportActionBar() != null) {
+            this.getSupportActionBar().setTitle(tituloEtapa);
+        }
 
         mTabLayout = (TabLayout)findViewById(R.id.tab_layout);
         mViewPager = (ViewPager)findViewById(R.id.view_pager);
@@ -162,34 +173,34 @@ public class ContainerEtapa extends AppCompatActivity {
                         mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa1)));
                         break;
-                    case 2:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa2(getSupportFragmentManager(),
+                    /*case 2:
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa2)));
                         break;
                     case 3:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa3(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa3(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa3)));
                         break;
                     case 4:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa4(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa4(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa4)));
                         break;
                     case 5:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa5(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa5(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa5)));
                         break;
                     case 6:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa6(getSupportFragmentManager(),
-                                getResources().getStringArray(R.array.tab_modulo1_etapa6)));
-                        break;
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa6(getSupportFragmentManager(),
+                                getResources().getStringArray(R.array.tab_modulo1_etapa6)));*/
+                        //break;
                     case 7:
                         mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa7(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa7)));
                         break;
-                    case 8:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa8(getSupportFragmentManager(),
+                    /*case 8:
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo1.AdapterEtapa8(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_etapa8)));
-                        break;
+                        break;*/
                     case 9:
                         mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo1_prova)));
@@ -201,27 +212,27 @@ public class ContainerEtapa extends AppCompatActivity {
             case 2:
                 switch(etapaAtual) {
                     case 1:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa1(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_etapa1)));
                         break;
                     case 2:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa2(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_etapa2)));
                         break;
                     case 3:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa3(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa3(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_etapa3)));
                         break;
                     case 4:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa4(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa4(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_etapa4)));
                         break;
                     case 5:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa5(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo2.AdapterEtapa5(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_etapa5)));
                         break;
                     case 6:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva2(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo2_prova)));
                         break;
                 }
@@ -231,15 +242,15 @@ public class ContainerEtapa extends AppCompatActivity {
             case 3:
                 switch(etapaAtual) {
                     case 1:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo3.AdapterEtapa1(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo3.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo3_etapa1)));
                         break;
                     case 2:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo3.AdapterEtapa2(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo3.AdapterEtapa2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo3_etapa2)));
                         break;
                     case 3:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva3(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva3(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo3_prova)));
                         break;
                 }
@@ -248,27 +259,27 @@ public class ContainerEtapa extends AppCompatActivity {
             case 4:
                 switch(etapaAtual) {
                     case 1:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa1(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_etapa1)));
                         break;
                     case 2:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa2(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_etapa2)));
                         break;
                     case 3:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa3(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa3(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_etapa3)));
                         break;
                     case 4:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa4(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa4(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_etapa4)));
                         break;
                     case 5:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa5(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo4.AdapterEtapa5(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_etapa5)));
                         break;
                     case 6:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva4(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva4(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo4_prova)));
                         break;
                 }
@@ -277,7 +288,7 @@ public class ContainerEtapa extends AppCompatActivity {
             case 5:
                 switch(etapaAtual) {
                     case 1:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo5.AdapterEtapa1(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo5.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo5_etapa1)));
                         break;
                 }
@@ -286,43 +297,43 @@ public class ContainerEtapa extends AppCompatActivity {
             case 6:
                 switch(etapaAtual) {
                     case 1:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa1(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa1(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa1)));
                         break;
                     case 2:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa2(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa2(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa2)));
                         break;
                     case 3:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa3(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa3(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa3)));
                         break;
                     case 4:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa4(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa4(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa4)));
                         break;
                     case 5:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa5(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa5(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa5)));
                         break;
                     case 6:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa6(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa6(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa6)));
                         break;
                     case 7:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa7(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa7(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa7)));
                         break;
                     case 8:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa8(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa8(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa8)));
                         break;
                     case 9:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa9(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Modulo6.AdapterEtapa9(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_etapa9)));
                         break;
                     case 10:
-                        mViewPager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva6(getSupportFragmentManager(),
+                        view_pager.setAdapter(new com.tcc.dagon.opus.Adapters.Provas.AdapterProva6(getSupportFragmentManager(),
                                 getResources().getStringArray(R.array.tab_modulo6_prova)));
                         break;
 

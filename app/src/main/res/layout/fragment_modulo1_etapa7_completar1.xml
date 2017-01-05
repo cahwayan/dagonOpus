@@ -56,7 +56,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha1Palavra1"
+                android:id="@+id/palavra1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -87,7 +87,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha2Palavra1"
+                android:id="@+id/palavra2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -118,7 +118,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha3Palavra1"
+                android:id="@+id/palavra3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -149,7 +149,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha4Palavra1"
+                android:id="@+id/palavra4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -180,7 +180,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha5Palavra1"
+                android:id="@+id/palavra5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -211,7 +211,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha6Palavra1"
+                android:id="@+id/palavra6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -242,7 +242,7 @@
                 android:typeface="normal"/>
 
             <EditText
-                android:id="@+id/Modulo1Etapa7Pergunta3Linha7Palavra1"
+                android:id="@+id/palavra7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"

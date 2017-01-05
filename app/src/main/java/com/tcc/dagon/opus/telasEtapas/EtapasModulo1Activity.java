@@ -6,16 +6,10 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.tcc.dagon.opus.ClassesPai.ContainerEtapa;
+import com.tcc.dagon.opus.ClassesPai.ContainerProva;
 import com.tcc.dagon.opus.ClassesPai.TelaEtapas;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa2;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa3;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa4;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa5;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa6;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa7;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa8;
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Provas.ContainerProva1;
 import com.tcc.dagon.opus.R;
 
 public class EtapasModulo1Activity extends TelaEtapas {
@@ -113,7 +107,11 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa1.class));
+                    Intent intent = new Intent(getApplicationContext(), ContainerEtapa.class);
+                    intent.putExtra("moduloAtual", 1);
+                    intent.putExtra("etapaAtual", 1);
+                    intent.putExtra("tituloEtapa", "Bem-vindo!");
+                    startActivity(intent);
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -129,7 +127,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa2.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa2.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -145,7 +143,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa3.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa3.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -161,7 +159,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa4.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa4.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -177,7 +175,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa5.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa5.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -193,7 +191,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa6.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa6.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -209,7 +207,11 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa7.class));
+                    Intent intent = new Intent(getApplicationContext(), ContainerEtapa.class);
+                    intent.putExtra("moduloAtual", 1);
+                    intent.putExtra("etapaAtual", 7);
+                    intent.putExtra("tituloEtapa", "Operadores aritméticos, lógicos e relacionais");
+                    startActivity(intent);
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -225,7 +227,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa8.class));
+                    //startActivity(new Intent(getApplicationContext(), ContainerModulo1Etapa8.class));
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO
                     alertaEtapaBloqueada();
@@ -241,7 +243,11 @@ public class EtapasModulo1Activity extends TelaEtapas {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
-                    startActivity(new Intent(getApplicationContext(), ContainerProva1.class));
+                    Intent intent = new Intent(getApplicationContext(), ContainerProva.class);
+                    intent.putExtra("moduloAtual", 1);
+                    intent.putExtra("etapaAtual", 9);
+                    intent.putExtra("tituloEtapa", "Prova 1");
+                    startActivity(intent);
                     finish();
                 } else {
                     // ALERTA CASO ESTEJA BLOQUEADO

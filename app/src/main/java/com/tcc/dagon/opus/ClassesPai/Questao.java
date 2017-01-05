@@ -15,8 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import com.tcc.dagon.opus.ContainerLicoes.Modulos.Modulo1.ContainerModulo1Etapa1;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -79,8 +77,6 @@ public class Questao extends Fragment {
         this.moduloAtual  = getArguments().getInt("moduloAtual", 0);
         this.etapaAtual   = getArguments().getInt("etapaAtual", 0);
         this.questaoAtual = getArguments().getInt("questaoAtual", 0);
-
-
 
         configurarQuestao(moduloAtual, etapaAtual, questaoAtual);
 

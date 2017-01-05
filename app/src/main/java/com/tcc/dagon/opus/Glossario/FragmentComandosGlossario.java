@@ -37,6 +37,6 @@ public class FragmentComandosGlossario extends Licao {
     protected void accessViews() {
         mViewPager = ((ContainerComandosGlossario)getActivity()).getPager();
         btnVoltar = (Button) viewRoot.findViewById(R.id.btnVoltar);
-        super.accessViews();
+        //super.accessViews();
     }
 }

@@ -5,13 +5,25 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 /**
- * Created by cahwayan on 21/12/2016.
- */
+ * Created by cahwayan on 09/10/2016.
+ *
+ * CLASSE ADAPTER
+ * ESSA CLASSE É RESPONSÁVEL POR INSTANCIAR OS FRAGMENTOS DE ACORDO COM A NAVEGAÇÃO DO USUÁRIO.
+ * HÁ CINCO TIPOS DE INSTÂNCIAS PARA O CONTEÚDO DO CURSO:
+ * LIÇÃO: PRECISA RECEBER UM LAYOUT COMO PARÂMETRO
+ * QUESTÃO DE ALTERNATIVA: PRECISA RECEBER O MÓDULO, ETAPA E O NÚMERO DA QUESTÃO COMO PARÂMETROS
+ * EXERCÍCIO DE COMPLETAR: PRECISA RECEBER UM LAYOUT, O MÓDULO ATUAL, A ETAPA ATUAL, A QUANTIDADE DE PALAVRAS,
+ *                         AS RESPOSTAS CERTAS SEM ACENTO, E AS RESPOSTAS CERTAS COM ACENTUAÇÃO.
+ * QUESTÃO DE ALTERNATIVAS PROVA: MESMO DA QUESTÃO DE ALTERNATIVA
+ * EXERCÍCIO COMPLETAR PROVA: MESMO DO COMPLETAR NORMAL
+ *
+ * ESTA CLASSE POSSUI CONSTANTES QUE FACILITAM A LEITURA DAS INSTÂNCIAS DAS CLASSES FILHAS*/
 
 public class Adapter extends FragmentPagerAdapter {
 
     protected String[] tabTitulos;
-    /* CONSTANTES MÓDULOS */
+
+    /* CONSTANTES NÚMEROS MÓDULOS */
     protected final int MODULO1  = 1;
     protected final int MODULO2  = 2;
     protected final int MODULO3  = 3;
@@ -56,10 +68,10 @@ public class Adapter extends FragmentPagerAdapter {
     protected final int QUESTAO14 = 14;
     protected final int QUESTAO15 = 15;
 
+    /* RESPOSTAS QUE IRÃO PARA A INSTÂNCIA DO EXERCÍCIO DE COMPLETAR
+    *  ELAS PRECISAM IR EM UM VETOR*/
     protected String respostasCertas[];
     protected String respostasCertasAcentuadas[];
-
-
 
 
     public Adapter(FragmentManager fm, String[] tabTitulos) {
