@@ -35,6 +35,16 @@ public class EtapasModulo1Activity extends TelaEtapas {
                       txtEtapa8,
                       txtEtapa9;
 
+    private TextView    tituloEtapa1,
+                        tituloEtapa2,
+                        tituloEtapa3,
+                        tituloEtapa4,
+                        tituloEtapa5,
+                        tituloEtapa6,
+                        tituloEtapa7,
+                        tituloEtapa8,
+                        tituloEtapa9;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,17 +87,32 @@ public class EtapasModulo1Activity extends TelaEtapas {
         etapa9 = (LinearLayout) findViewById(R.id.Modulo1Etapa9);
 
         // BARRA INFERIOR DAS ETAPAS
-        txtEtapa1 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa1);
-        txtEtapa2 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa2);
-        txtEtapa3 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa3);
-        txtEtapa4 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa4);
-        txtEtapa5 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa5);
-        txtEtapa6 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa6);
-        txtEtapa7 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa7);
-        txtEtapa8 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa8);
-        txtEtapa9 = (TextView) findViewById(R.id.txtQuestoesModulo1Etapa9);
+        txtEtapa1 = (TextView) findViewById(R.id.questoesEtapa1);
+        txtEtapa2 = (TextView) findViewById(R.id.questoesEtapa2);
+        txtEtapa3 = (TextView) findViewById(R.id.questoesEtapa3);
+        txtEtapa4 = (TextView) findViewById(R.id.questoesEtapa4);
+        txtEtapa5 = (TextView) findViewById(R.id.questoesEtapa5);
+        txtEtapa6 = (TextView) findViewById(R.id.questoesEtapa6);
+        txtEtapa7 = (TextView) findViewById(R.id.questoesEtapa7);
+        txtEtapa8 = (TextView) findViewById(R.id.questoesEtapa8);
+        txtEtapa9 = (TextView) findViewById(R.id.questoesEtapa9);
+
+        // BARRA INFERIOR DAS ETAPAS
+        tituloEtapa1 = (TextView) findViewById(R.id.tituloEtapa1);
+        tituloEtapa2 = (TextView) findViewById(R.id.tituloEtapa2);
+        tituloEtapa3 = (TextView) findViewById(R.id.tituloEtapa3);
+        tituloEtapa4 = (TextView) findViewById(R.id.tituloEtapa4);
+        tituloEtapa5 = (TextView) findViewById(R.id.tituloEtapa5);
+        tituloEtapa6 = (TextView) findViewById(R.id.tituloEtapa6);
+        tituloEtapa7 = (TextView) findViewById(R.id.tituloEtapa7);
+        tituloEtapa8 = (TextView) findViewById(R.id.tituloEtapa8);
+        tituloEtapa9 = (TextView) findViewById(R.id.tituloEtapa9);
+
 
         etapas = new LinearLayout[]{etapa1, etapa2, etapa3, etapa4, etapa5, etapa6, etapa7, etapa8, etapa9};
+
+        tituloEtapas = new TextView[] {tituloEtapa1, tituloEtapa2, tituloEtapa3, tituloEtapa4,
+                                       tituloEtapa5, tituloEtapa6, tituloEtapa7, tituloEtapa8, tituloEtapa9};
 
         barraInferiorEtapas = new TextView[] {txtEtapa1, txtEtapa2, txtEtapa3, txtEtapa4, txtEtapa5,
                                               txtEtapa6, txtEtapa7, txtEtapa8, txtEtapa9};

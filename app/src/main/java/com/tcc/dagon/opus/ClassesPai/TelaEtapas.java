@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.ClassesPai;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,9 @@ public class TelaEtapas extends AppCompatActivity {
 
     protected TextView barraInferiorEtapas[];
     protected List<TextView> listaBarraInferiorEtapas;
+
+    protected TextView tituloEtapas[];
+    protected List<TextView> listaTituloEtapas;
 
     protected int moduloAtual;
 
@@ -75,6 +79,9 @@ public class TelaEtapas extends AppCompatActivity {
 
         listaBarraInferiorEtapas = new ArrayList<TextView>();
         listaBarraInferiorEtapas.addAll(Arrays.asList(barraInferiorEtapas));
+
+        listaTituloEtapas = new ArrayList<TextView>();
+        listaBarraInferiorEtapas.addAll(Arrays.asList(tituloEtapas) );
     }
 
     protected void desbloquearEtapas(List<LinearLayout> listaEtapas) {
@@ -83,15 +90,19 @@ public class TelaEtapas extends AppCompatActivity {
             // A CADA LOOP ELE VAI LIBERAR UMA ETAPA. ATÉ QUE I SEJA IGUAL O PROGRESSO
             etapas[i] = listaEtapas.get(i);
             barraInferiorEtapas[i] = listaBarraInferiorEtapas.get(i);
+            tituloEtapas[i] = listaTituloEtapas.get(i);
+
+            tituloEtapas[i].setTextColor(Color.WHITE);
 
             // TROCAR A COR DA BORDA
             etapas[i].setBackgroundResource(R.drawable.borda_etapa_desbloqueada);
 
             // SUMIR COM O CADEADO
             barraInferiorEtapas[i].setCompoundDrawables(null, null, null, null);
+            barraInferiorEtapas[i].setTextColor(Color.WHITE);
 
             // TROCAR A COR DE FUNDO
-            barraInferiorEtapas[i].setBackgroundColor(ContextCompat.getColor(context, R.color.corEtapaDesbloqueada));
+            barraInferiorEtapas[i].setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
         }
 
     }

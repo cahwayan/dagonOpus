@@ -287,9 +287,6 @@ public class AprenderActivity
             txtProgresso1.setVisibility(View.VISIBLE);
         }
 
-
-
-
     }
 
     protected void desbloquearModulo2() {

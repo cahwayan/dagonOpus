@@ -28,18 +28,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa1"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa1Modulo1"
+                    android:text="@string/TituloModulo1Etapa1"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa1"
+                    android:id="@+id/tituloEtapa1"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa1"
@@ -47,8 +48,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa1"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa1"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
@@ -63,33 +64,35 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa2"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa2Modulo1"
+                    android:text="@string/TituloModulo1Etapa2"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa2"
+                    android:id="@+id/tituloEtapa2"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
 
                 <TextView
-                    android:text="@string/qtdQuestoesModulo1Etapa2"
+                    android:text="@string/qtdQuestoesModulo1Etapa1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa2"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa2"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
                     android:drawableLeft="@drawable/icon_lock_etapa"
                     android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -97,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/ContainerLinha2"
+            android:weightSum="100"
             android:baselineAligned="false">
 
             <LinearLayout
@@ -106,18 +110,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa3"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa3Modulo1"
+                    android:text="@string/TituloModulo1Etapa3"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa3"
+                    android:id="@+id/tituloEtapa3"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa3"
@@ -125,14 +130,13 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa3"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa3"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
                     android:drawableLeft="@drawable/icon_lock_etapa"
-                    android:drawableStart="@drawable/icon_lock_etapa"
-                    tools:text="@string/qtdQuestoesModulo1Etapa3" />
+                    android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
 
             <LinearLayout
@@ -142,19 +146,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa4"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa4Modulo1"
+                    android:text="@string/TituloModulo1Etapa4"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa4"
+                    android:id="@+id/tituloEtapa4"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
                     android:textAlignment="center"
-                    />
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa4"
@@ -162,14 +166,15 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa4"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa4"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
                     android:drawableLeft="@drawable/icon_lock_etapa"
                     android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -177,6 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/ContainerLinha3"
+            android:weightSum="100"
             android:baselineAligned="false">
 
             <LinearLayout
@@ -186,18 +192,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa5"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa5Modulo1"
+                    android:text="@string/TituloModulo1Etapa5"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa5"
+                    android:id="@+id/tituloEtapa5"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa5"
@@ -205,14 +212,13 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa5"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa5"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
                     android:drawableLeft="@drawable/icon_lock_etapa"
-                    android:drawableStart="@drawable/icon_lock_etapa"
-                    tools:text="@string/qtdQuestoesModulo1Etapa5" />
+                    android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
 
             <LinearLayout
@@ -222,19 +228,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa6"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa6Modulo1"
+                    android:text="@string/TituloModulo1Etapa6"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa6"
+                    android:id="@+id/tituloEtapa6"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
                     android:textAlignment="center"
-                    />
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa6"
@@ -242,14 +248,15 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa6"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa6"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
                     android:drawableLeft="@drawable/icon_lock_etapa"
                     android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -257,6 +264,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/ContainerLinha4"
+            android:weightSum="100"
             android:baselineAligned="false">
 
             <LinearLayout
@@ -266,18 +274,19 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:id="@+id/Modulo1Etapa7"
-                android:background="@drawable/borda_etapas"
+                android:background="@color/colorPrimary"
                 android:layout_margin="2dp">
 
                 <TextView
-                    android:text="@string/TituloEtapa7Modulo1"
+                    android:text="@string/TituloModulo1Etapa7"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa7"
+                    android:id="@+id/tituloEtapa7"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
 
                 <TextView
                     android:text="@string/qtdQuestoesModulo1Etapa7"
@@ -285,89 +294,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa7"
-                    android:background="@color/colorPrimaryDark"
-                    android:textSize="@dimen/textoQuestoesEtapa"
-                    android:textColor="@android:color/white"
-                    android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableLeft="@drawable/icon_lock_etapa"
-                    android:drawableStart="@drawable/icon_lock_etapa"
-                    tools:text="@string/qtdQuestoesModulo1Etapa3" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_weight="50"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:id="@+id/Modulo1Etapa8"
-                android:background="@drawable/borda_etapas"
-                android:layout_margin="2dp">
-
-                <TextView
-                    android:text="@string/TituloEtapa8Modulo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa8"
-                    android:textSize="@dimen/tamanhoTextoEtapa"
-                    android:gravity="start|center_vertical"
-                    android:layout_margin="2dp"
-                    android:textAlignment="center"
-                    />
-
-                <TextView
-                    android:text="@string/qtdQuestoesModulo1Etapa8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom|end"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa8"
-                    android:background="@color/colorPrimaryDark"
-                    android:textSize="@dimen/textoQuestoesEtapa"
-                    android:textColor="@android:color/white"
-                    android:padding="@dimen/paddingProgressoEtapas"
-                    android:drawableStart="@drawable/icon_lock_etapa"
-                    android:drawableLeft="@drawable/icon_lock_etapa"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ContainerLinha5"
-            android:baselineAligned="false">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:id="@+id/Modulo1Etapa9"
-                android:background="@drawable/borda_etapas"
-                android:layout_margin="2dp"
-                android:layout_weight="50">
-
-                <TextView
-                    android:text="@string/TituloEtapa9Modulo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:id="@+id/txtTituloEtapa9"
-                    android:textSize="@dimen/tamanhoTextoEtapa"
-                    android:gravity="start|center_vertical"
-                    android:layout_margin="2dp"
-                    android:textAlignment="center"
-                    />
-
-                <TextView
-                    android:text="@string/qtdQuestoesModulo1Etapa9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom|end"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/txtQuestoesModulo1Etapa9"
-                    android:background="@color/colorPrimaryDark"
+                    android:id="@+id/questoesEtapa7"
+                    android:background="@color/colorPrimary"
                     android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
                     android:padding="@dimen/paddingProgressoEtapas"
@@ -378,29 +306,110 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
+                android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:layout_margin="2dp"
-                android:layout_weight="50">
+                android:id="@+id/Modulo1Etapa8"
+                android:background="@color/colorPrimary"
+                android:layout_margin="2dp">
 
                 <TextView
+                    android:text="@string/TituloModulo1Etapa8"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
+                    android:id="@+id/tituloEtapa8"
                     android:textSize="@dimen/tamanhoTextoEtapa"
                     android:gravity="start|center_vertical"
                     android:layout_margin="2dp"
                     android:textAlignment="center"
-                    />
+                    android:textColor="#fff" />
 
                 <TextView
+                    android:text="@string/qtdQuestoesModulo1Etapa8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="bottom|end"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/layoutVazio"
+                    android:id="@+id/questoesEtapa8"
+                    android:background="@color/colorPrimary"
+                    android:textSize="@dimen/textoQuestoesEtapa"
                     android:textColor="@android:color/white"
-                    android:padding="@dimen/paddingProgressoEtapas"/>
+                    android:padding="@dimen/paddingProgressoEtapas"
+                    android:drawableLeft="@drawable/icon_lock_etapa"
+                    android:drawableStart="@drawable/icon_lock_etapa"/>
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ContainerLinha5"
+            android:baselineAligned="false">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="50"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:id="@+id/Modulo1Etapa9"
+                    android:background="@color/colorPrimary"
+                    android:layout_margin="2dp">
+
+                    <TextView
+                        android:text="@string/TituloModulo1Etapa9"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:id="@+id/tituloEtapa9"
+                        android:textSize="@dimen/tamanhoTextoEtapa"
+                        android:gravity="start|center_vertical"
+                        android:layout_margin="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:text="@string/qtdQuestoesModulo1Etapa9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom|end"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/questoesEtapa9"
+                        android:background="@color/colorPrimary"
+                        android:textSize="@dimen/textoQuestoesEtapa"
+                        android:textColor="@android:color/white"
+                        android:padding="@dimen/paddingProgressoEtapas"
+                        android:drawableLeft="@drawable/icon_lock_etapa"
+                        android:drawableStart="@drawable/icon_lock_etapa"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="50">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:textSize="@dimen/tamanhoTextoEtapa"
+                        android:gravity="start|center_vertical"
+                        android:layout_margin="2dp"
+                        android:textAlignment="center"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom|end"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/layoutVazio"
+                        android:textColor="@android:color/white"
+                        android:padding="@dimen/paddingProgressoEtapas"/>
+                </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
