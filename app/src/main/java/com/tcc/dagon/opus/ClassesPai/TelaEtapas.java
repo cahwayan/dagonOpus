@@ -81,7 +81,7 @@ public class TelaEtapas extends AppCompatActivity {
         listaBarraInferiorEtapas.addAll(Arrays.asList(barraInferiorEtapas));
 
         listaTituloEtapas = new ArrayList<TextView>();
-        listaBarraInferiorEtapas.addAll(Arrays.asList(tituloEtapas) );
+        listaTituloEtapas.addAll(Arrays.asList(tituloEtapas) );
     }
 
     protected void desbloquearEtapas(List<LinearLayout> listaEtapas) {
@@ -92,7 +92,7 @@ public class TelaEtapas extends AppCompatActivity {
             barraInferiorEtapas[i] = listaBarraInferiorEtapas.get(i);
             tituloEtapas[i] = listaTituloEtapas.get(i);
 
-            tituloEtapas[i].setTextColor(Color.WHITE);
+            tituloEtapas[i].setTextColor(Color.BLACK);
 
             // TROCAR A COR DA BORDA
             etapas[i].setBackgroundResource(R.drawable.borda_etapa_desbloqueada);

@@ -22,7 +22,7 @@ public class Licao extends Fragment {
     protected ViewPager mViewPager;
     protected View viewRoot;
     protected PhotoViewAttacher photoView;
-    private int layoutID;
+    private int layoutID = R.layout.id_resource;
 
     public static Licao newInstance(int layoutID) {
         Licao licao = new Licao();

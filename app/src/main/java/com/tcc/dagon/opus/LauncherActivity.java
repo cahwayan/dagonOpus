@@ -143,7 +143,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoBloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,2,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,4,1);
@@ -196,7 +196,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoDesbloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,2);
+                DB_PROGRESSO.atualizaProgressoLicao(1,1,1);
                 DB_PROGRESSO.atualizaProgressoLicao(1,2,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,3,3);
                 DB_PROGRESSO.atualizaProgressoLicao(1,4,3);

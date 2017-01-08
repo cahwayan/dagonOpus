@@ -97,7 +97,7 @@ public class EtapasModulo1Activity extends TelaEtapas {
         txtEtapa8 = (TextView) findViewById(R.id.questoesEtapa8);
         txtEtapa9 = (TextView) findViewById(R.id.questoesEtapa9);
 
-        // BARRA INFERIOR DAS ETAPAS
+        // TITULO DAS ETAPAS
         tituloEtapa1 = (TextView) findViewById(R.id.tituloEtapa1);
         tituloEtapa2 = (TextView) findViewById(R.id.tituloEtapa2);
         tituloEtapa3 = (TextView) findViewById(R.id.tituloEtapa3);

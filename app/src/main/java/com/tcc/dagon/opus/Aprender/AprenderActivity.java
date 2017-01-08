@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.ActivityConfig;
+import com.tcc.dagon.opus.ActivityConfig_;
 import com.tcc.dagon.opus.CertificadoActivity;
 import com.tcc.dagon.opus.CertificadoIncompleto;
 import com.tcc.dagon.opus.Glossario.ContainerComandosGlossario;
@@ -544,7 +545,7 @@ public class AprenderActivity
                 startActivity(new Intent(getApplicationContext(), ContainerComandosGlossario.class));
                 break;
             case 3: // CONFIGURAÇÕES
-                startActivity(new Intent(getApplicationContext(), ActivityConfig.class));
+                startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));
                 break;
             case 4:
                 break;

@@ -2,19 +2,24 @@ package com.tcc.dagon.opus.ClassesPai;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.google.android.gms.vision.text.Text;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
@@ -27,6 +32,8 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
  */
 
 public class Questao extends Fragment {
+
+    private final String TAG = "DEBUG!";
 
     /* COMPONENTES VISUAIS */
 
@@ -91,6 +98,7 @@ public class Questao extends Fragment {
 
         // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
         this.listeners();
+
         return rootView;
     }
 
@@ -119,6 +127,11 @@ public class Questao extends Fragment {
         this.moduloAtual  = moduloAtual;
         this.etapaAtual   = etapaAtual;
         this.questaoAtual = questaoAtual;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -180,7 +193,6 @@ public class Questao extends Fragment {
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
-
     }
 
     protected void listeners() {
@@ -296,13 +308,14 @@ public class Questao extends Fragment {
         radioGroupQuestao.clearCheck();
     }
 
+
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
+        Log.d(TAG, String.valueOf(DB_PROGRESSO.verificarPontuacao()) );
         // TOCAR SOM DE RESPOSTA CERTA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaCerta.start();
         }
-
 
         // ANIMAÇÃO RESPOSTA CERTA
         imgRespostaCerta.setVisibility(View.VISIBLE);
@@ -403,7 +416,6 @@ public class Questao extends Fragment {
             // AVANÇAR O PROGRESSO EM DOIS
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (mViewPager.getCurrentItem() + 1) );
         }
-
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE

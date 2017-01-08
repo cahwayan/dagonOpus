@@ -193,6 +193,56 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return progressoModulo;
     }
 
+    public int verificarPontuacao() {
+        String tabela = Progresso.TABELA_PONTOS;
+        String colunas[] = {
+            Progresso.COLUNA_PONTOS
+        };
+
+        String limit = "1";
+
+        abrirBanco();
+        Cursor cursor = DB_PROGRESSO.query(
+                tabela,
+                colunas,
+                null,
+                null,
+                null,
+                null,
+                null,
+                limit
+        );
+
+        cursor.moveToFirst();
+
+        int pontuacao = cursor.getInt(
+                cursor.getColumnIndexOrThrow(Progresso.COLUNA_PONTOS)
+        );
+
+        fecharBanco();
+        cursor.close();
+        return pontuacao;
+    }
+
+    public void alterarPontuacao(int pontos) {
+        int pontuacaoAtual = this.verificarPontuacao();
+        String tabela = Progresso.TABELA_PONTOS;
+        ContentValues values = new ContentValues();
+        values.put(Progresso.COLUNA_PONTOS, pontuacaoAtual + pontos);
+
+        String select = Progresso.COLUNA_ID + " LIKE ? ";
+        String[] selectArgs = {String.valueOf(1)};
+
+        abrirBanco();
+        DB_PROGRESSO.update(
+                tabela,
+                values,
+                select,
+                selectArgs
+        );
+        fecharBanco();
+    }
+
     // MÉTODO QUE VERIFICA O PROGRESSO DA ETAPA
     // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
     // DAS ETAPAS DO USUÁRIO PARA AQUELE MÓDULO

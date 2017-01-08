@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -409,6 +410,7 @@ public class Completar extends Fragment {
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+
         // TOCAR SOM DE RESPOSTA ERRADA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaErrada.start();
@@ -459,6 +461,7 @@ public class Completar extends Fragment {
     }
 
     protected void avancarCompletar() {
+
 
         limparEditTexts(listaEditTexts);
         habilitarEditTexts(listaEditTexts);
@@ -531,8 +534,6 @@ public class Completar extends Fragment {
 
     private void escondeTeclado() {
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-
-
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }
 

@@ -17,6 +17,11 @@ final class ProgressoUsuario {
         // TABELAS DO BANCO DE DADOS
         static final String TABELA_PROGRESSO = "TD_PROG_USUARIO";
         static final String TABELA_PROGRESSO_LICOES = "TD_PROG_LICOES_MODULO";
+        static final String TABELA_PONTOS = "TD_PONTOS";
+
+        // COLUNAS PONTOS
+        static final String COLUNA_PONTOS = "PONTUACAO_GERAL";
+
 
         // COLUNA DO ID
         static final String COLUNA_ID = "_id";

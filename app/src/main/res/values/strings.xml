@@ -51,6 +51,7 @@
     <string name="txtTentarNovamente">TENTAR NOVAMENTE</string>
     <string name="txtConcluir">CONCLUIR</string>
     <string name="title_activity_config">ActivityConfig</string>
+    <string name="formato_cronometro">00:00</string>
 
 
 </resources>
