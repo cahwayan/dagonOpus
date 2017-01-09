@@ -87,13 +87,14 @@ public class CompletarProva extends Completar {
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
 
-        // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
-
         if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, getPontuacao());
             // AVANÇAR O PROGRESSO EM DOIS
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
         }
+
+        // TROCANDO O FRAGMENTO
+        moveNext(view_pager);
 
     }
 
@@ -133,6 +134,7 @@ public class CompletarProva extends Completar {
         preferencias.escreverFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual), true);
 
         if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
+            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, getPontuacao());
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
             // atualizar progresso do módulo 2 para 1

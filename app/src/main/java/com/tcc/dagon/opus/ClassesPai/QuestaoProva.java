@@ -106,13 +106,14 @@ public class QuestaoProva extends Questao {
         getImgRespostaCerta().setVisibility(View.GONE);
         getImgRespostaErrada().setVisibility(View.GONE);
 
-        // TROCANDO O FRAGMENTO
-        moveNext(getmViewPager());
-
         if(getDB_PROGRESSO().verificaProgressoLicao(getModuloAtual(), getEtapaAtual()) <= getmViewPager().getCurrentItem()) {
             // AVANÇAR O PROGRESSO EM DOIS
             getDB_PROGRESSO().atualizaProgressoLicao(getModuloAtual(), getEtapaAtual(), (getmViewPager().getCurrentItem() + 1) );
+            getDB_PROGRESSO().alterarPontuacao(getModuloAtual(), this.getPontuacao());
         }
+
+        // TROCANDO O FRAGMENTO
+        moveNext(getmViewPager());
     }
 
 
@@ -244,6 +245,7 @@ public class QuestaoProva extends Questao {
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
 
         if (this.getDB_PROGRESSO().verificaProgressoModulo() <= getModuloAtual()) {
+            getDB_PROGRESSO().alterarPontuacao(getModuloAtual(), getPontuacao());
             // AVANÇAR O PROGRESSO EM DOIS
             this.getDB_PROGRESSO().atualizaProgressoModulo(getModuloAtual() + 1);
             // atualizar progresso do módulo 2 para 1

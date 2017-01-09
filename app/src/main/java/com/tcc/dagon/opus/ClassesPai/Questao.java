@@ -19,7 +19,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.vision.text.Text;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
@@ -55,6 +54,8 @@ public class Questao extends Fragment {
     private TextView txtPontos;
 
     private int qtdErros = 0;
+
+
     private int pontuacao = 0;
 
     /* OBJETOS */
@@ -449,9 +450,9 @@ public class Questao extends Fragment {
 
         if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= mViewPager.getCurrentItem()) {
             DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
+
             // AVANÇAR O PROGRESSO EM DOIS
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (mViewPager.getCurrentItem() + 1) );
-
         }
 
         // TROCANDO O FRAGMENTO
@@ -588,4 +589,13 @@ public class Questao extends Fragment {
     public void setmTabLayout(TabLayout mTabLayout) {
         this.mTabLayout = mTabLayout;
     }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
 }

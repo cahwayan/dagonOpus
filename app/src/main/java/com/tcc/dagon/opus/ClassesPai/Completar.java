@@ -65,6 +65,9 @@ public class Completar extends Fragment {
     private TextView txtPontos;
 
     private int qtdErros;
+
+
+
     private int pontuacao;
 
     /* VARIÁVEIS */
@@ -958,6 +961,13 @@ public class Completar extends Fragment {
         }
     }
 
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
 
 
 }
