@@ -66,7 +66,16 @@
                     android:gravity="center_vertical|center_horizontal"
                     android:id="@+id/btnModulo1">
 
-                        <ImageView
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota1"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
+                    <ImageView
                             xmlns:app="http://schemas.android.com/apk/res-auto"
                             android:id="@+id/imgModulo1"
                             android:src="@drawable/btnmodulo1bloqueado"
@@ -147,6 +156,15 @@
                     android:layout_weight="50"
                     android:id="@+id/btnModulo2">
 
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota2"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
                     <ImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/imgModulo2"
@@ -207,6 +225,15 @@
                     android:gravity="top|center_horizontal"
                     android:layout_weight="50">
 
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota3"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
                     <ImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/imgModulo3"
@@ -266,6 +293,8 @@
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="55dp">
 
+
+
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
@@ -273,6 +302,15 @@
                     android:layout_alignParentTop="true"
                     android:gravity="center_vertical|center_horizontal"
                     android:id="@+id/btnModulo4">
+
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota4"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
 
                     <ImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -348,6 +386,15 @@
                     android:id="@+id/btnModulo5"
                     android:layout_weight="50">
 
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota5"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
                     <ImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/imgModulo5"
@@ -406,6 +453,15 @@
                     android:layout_height="match_parent"
                     android:gravity="top|center_horizontal"
                     android:layout_weight="50">
+
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota6"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
 
                     <ImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"

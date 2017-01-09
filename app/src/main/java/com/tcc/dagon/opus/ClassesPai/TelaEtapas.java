@@ -86,6 +86,8 @@ public class TelaEtapas extends AppCompatActivity {
 
     protected void desbloquearEtapas(List<LinearLayout> listaEtapas) {
         for(int i = 0 ; i <= DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) - 1; i++) {
+
+
             // ENCHENDO OS VETORES COM OS OBJETOS
             // A CADA LOOP ELE VAI LIBERAR UMA ETAPA. ATÉ QUE I SEJA IGUAL O PROGRESSO
             etapas[i] = listaEtapas.get(i);

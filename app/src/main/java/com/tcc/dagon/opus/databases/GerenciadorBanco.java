@@ -193,11 +193,14 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return progressoModulo;
     }
 
-    public int verificarPontuacao() {
+    public int verificarPontuacao(int moduloPertencente) {
         String tabela = Progresso.TABELA_PONTOS;
         String colunas[] = {
             Progresso.COLUNA_PONTOS
         };
+
+        String select = Progresso.MODULO + " LIKE ? ";
+        String selectArgs[] = {String.valueOf(moduloPertencente)};
 
         String limit = "1";
 
@@ -205,9 +208,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         Cursor cursor = DB_PROGRESSO.query(
                 tabela,
                 colunas,
-                null,
-                null,
-                null,
+                select,
+                selectArgs,
                 null,
                 null,
                 limit
@@ -224,14 +226,32 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return pontuacao;
     }
 
-    public void alterarPontuacao(int pontos) {
-        int pontuacaoAtual = this.verificarPontuacao();
+    public void alterarPontuacao(int moduloPertencente, int pontos) {
+        int pontuacaoAtual = this.verificarPontuacao(moduloPertencente);
         String tabela = Progresso.TABELA_PONTOS;
         ContentValues values = new ContentValues();
         values.put(Progresso.COLUNA_PONTOS, pontuacaoAtual + pontos);
 
-        String select = Progresso.COLUNA_ID + " LIKE ? ";
-        String[] selectArgs = {String.valueOf(1)};
+        String select = Progresso.MODULO + " LIKE ? ";
+        String[] selectArgs = {String.valueOf(moduloPertencente)};
+
+        abrirBanco();
+        DB_PROGRESSO.update(
+                tabela,
+                values,
+                select,
+                selectArgs
+        );
+        fecharBanco();
+    }
+
+    public void alterarPontuacaoTotal(int moduloPertencente, int pontos) {
+        String tabela = Progresso.TABELA_PONTOS;
+        ContentValues values = new ContentValues();
+        values.put(Progresso.COLUNA_PONTOS, pontos);
+
+        String select = Progresso.MODULO + " LIKE ? ";
+        String[] selectArgs = {String.valueOf(moduloPertencente)};
 
         abrirBanco();
         DB_PROGRESSO.update(

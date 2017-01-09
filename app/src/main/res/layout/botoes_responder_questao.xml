@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Pontos: 0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPontos"
+            android:textSize="14sp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp"
+            android:gravity="right"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
     <Button
         android:text="@string/txtChecar"
@@ -60,5 +86,6 @@
         android:id="@+id/imgRespostaErrada"
         android:layout_marginLeft="30dp"
         android:layout_gravity="center_vertical" />
+    </FrameLayout>
 
-</FrameLayout>
+</LinearLayout>

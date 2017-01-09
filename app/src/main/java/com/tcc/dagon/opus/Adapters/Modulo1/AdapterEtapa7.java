@@ -40,7 +40,7 @@ public class AdapterEtapa7 extends Adapter {
             case 6:
                 return Licao.newInstance(R.layout.fragment_modulo1_etapa7_licao7);
             case 7:
-                return Completar.newInstance(R.layout.fragment_modulo1_etapa7_completar1,
+                return Completar.newInstance(R.layout.fragment_modulo1_etapa7_completar2,
                                              MODULO1, ETAPA7, 6 /* PALAVRAS */,
                                              respostasCertas = new String[] {"verdadeiro", "falso", "falso", "verdadeiro", "verdadeiro", "falso"},
                                              respostasCertasAcentuadas = new String[] {"verdadeiro", "falso", "falso", "verdadeiro", "verdadeiro", "falso"});

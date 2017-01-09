@@ -182,6 +182,8 @@ public class LauncherActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(6,9,1);
                 DB_PROGRESSO.atualizaProgressoLicao(6,10,1);
 
+                DB_PROGRESSO.alterarPontuacaoTotal(1, 0);
+
                 preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
                 preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
 

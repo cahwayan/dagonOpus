@@ -62,6 +62,10 @@ public class Completar extends Fragment {
     protected ImageView imgRespostaErrada;
 
     protected LinearLayout tabStrip;
+    private TextView txtPontos;
+
+    private int qtdErros;
+    private int pontuacao;
 
     /* VARIÁVEIS */
     // GUARDA O ID DO LAYOUT QUE SERÁ USADO NA INSTÂNCIA
@@ -198,6 +202,8 @@ public class Completar extends Fragment {
         tabStrip   = ((ContainerEtapa)getActivity()).getTabStrip();
         tab_layout = ((ContainerEtapa)getActivity()).getmTabLayout();
 
+        txtPontos = (TextView) rootView.findViewById(R.id.txtPontos);
+
         // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
         btnChecar          = (Button) rootView.findViewById(R.id.btnChecar);
         btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancar);
@@ -277,17 +283,20 @@ public class Completar extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 view_pager.setCurrentItem(tab.getPosition());
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 resetarEditTexts();
+                pontuacao = 0;
+                qtdErros = 0;
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                resetarEditTexts();
+                pontuacao = 0;
+                qtdErros = 0;
             }
         });
 
@@ -386,8 +395,44 @@ public class Completar extends Fragment {
         }
     }
 
+    private void setPontuacao() {
+        this.pontuacao += 1000;
+        switch (qtdErros) {
+            case 0: this.pontuacao += 500;
+                break;
+            case 1: this.pontuacao -= 50;
+                break;
+            case 2: this.pontuacao -= 100;
+                break;
+            case 3: this.pontuacao -= 150;
+                break;
+            case 4: this.pontuacao -= 200;
+                break;
+            case 5: this.pontuacao -= 250;
+                break;
+            case 6: this.pontuacao -= 300;
+                break;
+            case 7: this.pontuacao -= 350;
+                break;
+            case 8: this.pontuacao -= 400;
+                break;
+            case 9: this.pontuacao -= 450;
+                break;
+            case 10: this.pontuacao -= 500;
+                break;
+            default: this.pontuacao = 0;
+                break;
+        }
+
+        txtPontos.setText("Pontos: " + String.valueOf(this.pontuacao) );
+    }
+
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     private void respostaCerta() {
+
+        setPontuacao();
+        Toast.makeText(getActivity(), String.valueOf(DB_PROGRESSO.verificarPontuacao(moduloAtual)), Toast.LENGTH_LONG).show();
+
         // TOCAR SOM DE RESPOSTA CERTA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaCerta.start();
@@ -410,6 +455,8 @@ public class Completar extends Fragment {
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+
+        this.qtdErros++;
 
         // TOCAR SOM DE RESPOSTA ERRADA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
@@ -456,12 +503,12 @@ public class Completar extends Fragment {
         if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
+            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
         }
         this.getActivity().finish();
     }
 
     protected void avancarCompletar() {
-
 
         limparEditTexts(listaEditTexts);
         habilitarEditTexts(listaEditTexts);
@@ -487,13 +534,13 @@ public class Completar extends Fragment {
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
 
+        if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
+            this.DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
+            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
+        }
+
         // TROCANDO O FRAGMENTO
         moveNext(view_pager);
-
-        if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
-            // AVANÇAR O PROGRESSO EM DOIS
-            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
-        }
 
     }
 
@@ -515,6 +562,8 @@ public class Completar extends Fragment {
             linhasCompletar[i].setTextColor(Color.BLACK);
         }
 
+        txtPontos.setText("Pontos: 0");
+        this.pontuacao = 0;
 
         // LIMPANDO AS EDIT TEXTS VERMELHAS
         limparEditTextsVermelhas(respostasCertas, respostasCertasAcentuadas);

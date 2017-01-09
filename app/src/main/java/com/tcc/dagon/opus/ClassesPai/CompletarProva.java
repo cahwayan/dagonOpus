@@ -139,9 +139,6 @@ public class CompletarProva extends Completar {
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
         }
 
-        /*// INICIANDO ATIVIDADE DOS MODULOS
-        startActivity(new Intent(getActivity(), AprenderActivity.class));*/
-
         // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
     }

@@ -64,6 +64,14 @@ public class AprenderActivity
     @ViewById protected LinearLayout btnModulo6;
     @ViewById protected LinearLayout btnCertificado;
 
+    /* TXT NOTAS */
+    @ViewById protected TextView txtNota1;
+    @ViewById protected TextView txtNota2;
+    @ViewById protected TextView txtNota3;
+    @ViewById protected TextView txtNota4;
+    @ViewById protected TextView txtNota5;
+    @ViewById protected TextView txtNota6;
+
     /*IMAGENS DOS MÓDULOS*/
     @ViewById protected ImageView imgModulo1;
     @ViewById protected ImageView imgModulo2;
@@ -105,6 +113,8 @@ public class AprenderActivity
     @ViewById protected ListView     mListView;
     protected ActionBarDrawerToggle  mAlterna;
     protected String                 mTitulo;
+
+    protected int pontuacaoTotalModulo = 0;
 
     /*FIM VIEWS*/
 
@@ -273,6 +283,14 @@ public class AprenderActivity
         barraModulo4.setVisibility(View.GONE);
         barraModulo5.setVisibility(View.GONE);
         barraModulo6.setVisibility(View.GONE);
+
+        txtNota1.setVisibility(View.GONE);
+        txtNota2.setVisibility(View.GONE);
+        txtNota3.setVisibility(View.GONE);
+        txtNota4.setVisibility(View.GONE);
+        txtNota5.setVisibility(View.GONE);
+        txtNota6.setVisibility(View.GONE);
+
     }
 
     // DESBLOQUEIA OS MÓDULOS
@@ -280,6 +298,8 @@ public class AprenderActivity
 
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva1) ) {
             imgModulo1.setImageResource(R.drawable.btnmodulo1completo);
+            definirNota(1);
+            txtNota1.setVisibility(View.VISIBLE);
 
         } else {
             imgModulo1.setImageResource(R.drawable.btnmodulo1cursando);
@@ -293,6 +313,7 @@ public class AprenderActivity
     protected void desbloquearModulo2() {
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva2) ) {
             imgModulo2.setImageResource(R.drawable.btnmodulo2completo);
+            txtNota2.setVisibility(View.VISIBLE);
         } else {
             imgModulo2.setImageResource(R.drawable.btnmodulo2cursando);
             // trazendo a barra de progresso
@@ -307,6 +328,7 @@ public class AprenderActivity
     protected void desbloquearModulo3() {
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva3) ) {
             imgModulo3.setImageResource(R.drawable.btnmodulo3completo);
+            txtNota3.setVisibility(View.VISIBLE);
         } else {
             imgModulo3.setImageResource(R.drawable.btnmodulo3cursando);
             // trazendo a barra de progresso
@@ -321,6 +343,7 @@ public class AprenderActivity
     protected void desbloquearModulo4() {
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva4) ) {
             imgModulo4.setImageResource(R.drawable.btnmodulo4completo);
+            txtNota4.setVisibility(View.VISIBLE);
         } else {
             imgModulo4.setImageResource(R.drawable.btnmodulo4cursando);
             // trazendo a barra de progresso
@@ -335,6 +358,7 @@ public class AprenderActivity
     protected void desbloquearModulo5() {
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva5) ) {
             imgModulo5.setImageResource(R.drawable.btnmodulo5completo);
+            txtNota5.setVisibility(View.VISIBLE);
         } else {
             imgModulo5.setImageResource(R.drawable.btnmodulo5cursando);
             // trazendo a barra de progresso
@@ -349,6 +373,7 @@ public class AprenderActivity
     protected void desbloquearModulo6() {
         if( preferencias.lerFlagBoolean(NomePreferencia.flagProva6) ) {
             imgModulo6.setImageResource(R.drawable.btnmodulo6completo);
+            txtNota6.setVisibility(View.VISIBLE);
         } else {
             imgModulo6.setImageResource(R.drawable.btnmodulo6cursando);
             // trazendo a barra de progresso
@@ -365,6 +390,41 @@ public class AprenderActivity
             imgCertificado.setImageResource(R.drawable.btncertificadocursando);
         } else if( preferencias.lerFlagBoolean(NomePreferencia.flagCertificadoGerado) ) {
             imgCertificado.setImageResource(R.drawable.btncertificadocompleto);
+        }
+
+    }
+
+    protected void definirNota(int modulo) {
+        String stringNota = "";
+        int pontuacaoModulo = DB_PROGRESSO.verificarPontuacao(modulo);
+
+        switch (modulo) {
+            case 1:
+                if(pontuacaoModulo <= 3000) {
+                    stringNota = "C";
+                } else if(pontuacaoModulo <= 4000) {
+                    stringNota = "C++";
+                } else if(pontuacaoModulo <= 5000) {
+                    stringNota = "B";
+                } else if(pontuacaoModulo <= 6000) {
+                    stringNota = "B+";
+                } else if(pontuacaoModulo <= 7000) {
+                    stringNota = "A";
+                } else if(pontuacaoModulo <= 8000) {
+                    stringNota = "A++";
+                }
+                txtNota1.setText(stringNota);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
         }
 
     }

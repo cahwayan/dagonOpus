@@ -30,6 +30,8 @@ final class ProgressoUsuario {
 
 
 
+
+
         // COLUNAS DO PROGRESSO DAS ETAPAS DOS MÓDULOS
         static final String COLUNA_ETAPA1 = "PROG_ETAPA_MODULO1";
         static final String COLUNA_ETAPA2 = "PROG_ETAPA_MODULO2";

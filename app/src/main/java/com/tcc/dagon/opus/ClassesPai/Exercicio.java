@@ -14,13 +14,5 @@ public class Exercicio extends Fragment {
     Chronometer cronometro;
     int pontuacao;
 
-    protected void setPontuacao() {
-
-
-    }
-
-    protected void adicionarPontuacao() {
-        DB_PROGRESSO.alterarPontuacao(this.pontuacao);
-    }
 
 }

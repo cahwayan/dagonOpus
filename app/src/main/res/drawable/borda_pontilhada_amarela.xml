@@ -1,7 +1,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item>
         <shape>
-            <solid android:color="@color/corDicaAmarela" />
+            <solid android:color="@color/corAmareloDourado" />
             <stroke
                 android:dashGap="3dp"
                 android:dashWidth="10dp"

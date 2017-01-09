@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.vision.text.Text;
 import com.tcc.dagon.opus.R;
@@ -51,6 +52,10 @@ public class Questao extends Fragment {
     private LinearLayout tabStrip;
     private TabLayout mTabLayout;
     private ImageView imgRespostaCerta, imgRespostaErrada;
+    private TextView txtPontos;
+
+    private int qtdErros = 0;
+    private int pontuacao = 0;
 
     /* OBJETOS */
     private GerenciadorBanco DB_PROGRESSO = null;
@@ -175,6 +180,8 @@ public class Questao extends Fragment {
         alternativa3 = (RadioButton) rootView.findViewById(R.id.alternativa3);
         alternativa4 = (RadioButton) rootView.findViewById(R.id.alternativa4);
 
+        txtPontos = (TextView) rootView.findViewById(R.id.txtPontos);
+
         carregarPergunta();
 
         // IMAGENS CERTO E ERRADO
@@ -253,11 +260,13 @@ public class Questao extends Fragment {
         // LISTENER QUE VERIFICA QUANDO A ABA SELECIONADA É MUDADA, SELECIONADA ou RE-SELECIONADA
         // ELE É IMPORTANTE PARA ESVAZIAR OS RADIO BUTTONS AO SAIR DA ATIVIDADE ENQUANTO ESTÃO CHECADOS
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
-                tentarNovamente();
+
             }
 
             @Override
@@ -282,6 +291,7 @@ public class Questao extends Fragment {
                 tentarNovamente();
             }
         });
+
 
     }
 
@@ -308,10 +318,34 @@ public class Questao extends Fragment {
         radioGroupQuestao.clearCheck();
     }
 
+    private void setPontuacao() {
+        this.pontuacao += 1000;
+        switch (qtdErros) {
+            case 0: this.pontuacao += 500;
+                break;
+            case 1: this.pontuacao -= 100;
+                break;
+            case 2: this.pontuacao -= 200;
+                break;
+            case 3: this.pontuacao -= 300;
+                break;
+            case 4: this.pontuacao -= 400;
+                break;
+            default: this.pontuacao = 0;
+                break;
+        }
+
+        txtPontos.setText("Pontos: " + String.valueOf(pontuacao));
+    }
 
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
     protected void respostaCerta() {
-        Log.d(TAG, String.valueOf(DB_PROGRESSO.verificarPontuacao()) );
+
+        setPontuacao();
+        Log.i("pontuação geral: ", String.valueOf(DB_PROGRESSO.verificarPontuacao(moduloAtual)));
+        Log.i("pontuação: ", String.valueOf(this.pontuacao));
+        Log.i("qtd erros: ", String.valueOf(this.qtdErros));
+
         // TOCAR SOM DE RESPOSTA CERTA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaCerta.start();
@@ -334,6 +368,9 @@ public class Questao extends Fragment {
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada() {
+
+        this.qtdErros++;
+
         // TOCAR SOM DE RESPOSTA ERRADA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
             somRespostaErrada.start();
@@ -374,6 +411,7 @@ public class Questao extends Fragment {
         if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
             // AVANÇAR O PROGRESSO EM DOIS
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
+            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
         }
 
         this.getActivity().finish();
@@ -409,13 +447,15 @@ public class Questao extends Fragment {
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
 
-        // TROCANDO O FRAGMENTO
-        moveNext(mViewPager);
-
         if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= mViewPager.getCurrentItem()) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
             // AVANÇAR O PROGRESSO EM DOIS
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (mViewPager.getCurrentItem() + 1) );
+
         }
+
+        // TROCANDO O FRAGMENTO
+        moveNext(mViewPager);
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
@@ -429,6 +469,9 @@ public class Questao extends Fragment {
         // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
         imgRespostaCerta.setVisibility(View.GONE);
         imgRespostaErrada.setVisibility(View.GONE);
+
+        txtPontos.setText("Pontos: 0");
+        this.pontuacao = 0;
 
         // DESMARCANDO OS RADIO BUTTONS
         desmarcarRadioButtons();
