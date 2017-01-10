@@ -6,6 +6,7 @@ import com.tcc.dagon.opus.ClassesPai.Adapter;
 import com.tcc.dagon.opus.ClassesPai.Completar;
 import com.tcc.dagon.opus.ClassesPai.Licao;
 import com.tcc.dagon.opus.ClassesPai.Questao;
+import com.tcc.dagon.opus.ClassesPai.QuestaoMultipla;
 import com.tcc.dagon.opus.R;
 
 /**
@@ -25,7 +26,7 @@ public class AdapterEtapa7 extends Adapter {
             case 0:
                 return Licao.newInstance(R.layout.fragment_modulo1_etapa7_licao1);
             case 1:
-                return Questao.newInstance(MODULO1, ETAPA7, QUESTAO1);
+                return QuestaoMultipla.newInstance(MODULO1, ETAPA7, QUESTAO1);
             case 2:
                 return Licao.newInstance(R.layout.fragment_modulo1_etapa7_licao3);
             case 3:

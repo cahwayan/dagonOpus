@@ -28,10 +28,6 @@ final class ProgressoUsuario {
         // COLUNA DA TABELA DO PROGRESSO DOS MÓDULOS
         static final String COLUNA_MODULO = "PROG_MODULO";
 
-
-
-
-
         // COLUNAS DO PROGRESSO DAS ETAPAS DOS MÓDULOS
         static final String COLUNA_ETAPA1 = "PROG_ETAPA_MODULO1";
         static final String COLUNA_ETAPA2 = "PROG_ETAPA_MODULO2";
@@ -77,6 +73,11 @@ final class ProgressoUsuario {
         static final String ALTERNATIVA2   = "ALTERNATIVA2";
         static final String ALTERNATIVA3   = "ALTERNATIVA3";
         static final String ALTERNATIVA4   = "ALTERNATIVA4";
+
+        static final String RESPOSTA_ALTERNATIVA1   = "RESPOSTA_ALTERNATIVA1";
+        static final String RESPOSTA_ALTERNATIVA2   = "RESPOSTA_ALTERNATIVA2";
+        static final String RESPOSTA_ALTERNATIVA3   = "RESPOSTA_ALTERNATIVA3";
+        static final String RESPOSTA_ALTERNATIVA4   = "RESPOSTA_ALTERNATIVA4";
 
 
     }

@@ -43,8 +43,8 @@ public class Questao extends Fragment {
                         alternativa3,
                         alternativa4;
 
-    private TextView pergunta;
-    private Button btnChecarResposta;
+    protected TextView pergunta;
+    protected Button btnChecarResposta;
     private Button btnAvancarQuestao;
     private Button btnTentarNovamente;
     private ViewPager mViewPager;
@@ -100,7 +100,9 @@ public class Questao extends Fragment {
         this.instanciaObjetos();
 
         //TRAZENDO AS VIEWS
+        this.accessRadioButtons();
         this.accessViews();
+        this.carregarPergunta();
 
         // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
         this.listeners();
@@ -164,26 +166,26 @@ public class Questao extends Fragment {
         super.onDestroy();
     }
 
-    protected void accessViews() {
-
-        mViewPager = ((ContainerEtapa)this.getActivity()).getPager();
-        tabStrip   = ((ContainerEtapa)this.getActivity()).getTabStrip();
-        mTabLayout = ((ContainerEtapa)this.getActivity()).getmTabLayout();
-
+    private void accessRadioButtons() {
         // PEGANDO O RADIOGROUP DO LAYOUT
         radioGroupQuestao = (RadioGroup) rootView.findViewById(R.id.radioGroupQuestao);
-
-        pergunta = (TextView) rootView.findViewById(R.id.pergunta);
 
         // PEGANDO OS RADIO BUTTONS DO LAYOUT
         alternativa1 = (RadioButton) rootView.findViewById(R.id.alternativa1);
         alternativa2 = (RadioButton) rootView.findViewById(R.id.alternativa2);
         alternativa3 = (RadioButton) rootView.findViewById(R.id.alternativa3);
         alternativa4 = (RadioButton) rootView.findViewById(R.id.alternativa4);
+    }
+
+    protected void accessViews() {
+
+        mViewPager = ((ContainerEtapa)this.getActivity()).getPager();
+        tabStrip   = ((ContainerEtapa)this.getActivity()).getTabStrip();
+        mTabLayout = ((ContainerEtapa)this.getActivity()).getmTabLayout();
+
+        pergunta = (TextView) rootView.findViewById(R.id.pergunta);
 
         txtPontos = (TextView) rootView.findViewById(R.id.txtPontos);
-
-        carregarPergunta();
 
         // IMAGENS CERTO E ERRADO
         imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
@@ -343,9 +345,9 @@ public class Questao extends Fragment {
     protected void respostaCerta() {
 
         setPontuacao();
-        Log.i("pontuação geral: ", String.valueOf(DB_PROGRESSO.verificarPontuacao(moduloAtual)));
+        /*Log.i("pontuação geral: ", String.valueOf(DB_PROGRESSO.verificarPontuacao(moduloAtual)));
         Log.i("pontuação: ", String.valueOf(this.pontuacao));
-        Log.i("qtd erros: ", String.valueOf(this.qtdErros));
+        Log.i("qtd erros: ", String.valueOf(this.qtdErros));*/
 
         // TOCAR SOM DE RESPOSTA CERTA
         if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
@@ -433,7 +435,6 @@ public class Questao extends Fragment {
         mTabLayout.getTabAt(mViewPager.getCurrentItem() + 1).setIcon(R.drawable.icon_licao);
         mTabLayout.getTabAt(mViewPager.getCurrentItem() + 2).setIcon(R.drawable.icon_pergunta);
 
-
         // TORNANDO CLICAVEL A TAB QUE SERÁ DESBLOQUEADA
         tabStrip.getChildAt(mViewPager.getCurrentItem() + 1).setClickable(true);
         tabStrip.getChildAt(mViewPager.getCurrentItem() + 1).setEnabled(true);
@@ -512,8 +513,8 @@ public class Questao extends Fragment {
             case 2: return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 2);
             case 3: return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 3);
             case 4: return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 4);
+            default: return 10;
         }
-        return 0;
     }
 
     /* MÉTODOS ESPECIAIS */

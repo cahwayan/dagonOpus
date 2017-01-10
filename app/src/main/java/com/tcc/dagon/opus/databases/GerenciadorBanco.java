@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.tcc.dagon.opus.databases.ProgressoUsuario.Progresso;
@@ -392,10 +393,9 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERIFICA SE A PERGUNTA ESTÁ CERTA
     public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
-        String tabela = Progresso.RESPOSTAS_QUESTOES;
+        String tabela = Progresso.QUESTOES;
         String colunaAlternativa[] = {""};
 
-        String colunaEtapa[] = {""};
         String limit = "1";
         int respostaPergunta = 10;
 
@@ -407,16 +407,16 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         switch (alternativa) {
             case 1:
-                colunaAlternativa[0] = Progresso.ALTERNATIVA1;
+                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA1;
                 break;
             case 2:
-                colunaAlternativa[0] = Progresso.ALTERNATIVA2;
+                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA2;
                 break;
             case 3:
-                colunaAlternativa[0] = Progresso.ALTERNATIVA3;
+                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA3;
                 break;
             case 4:
-                colunaAlternativa[0] = Progresso.ALTERNATIVA4;
+                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA4;
                 break;
         }
 
@@ -438,9 +438,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
             cursor.close();
         }
 
-
         fecharBanco();
-
 
         // RETORNA O VALOR REQUERIDO
         Log.i(TAG, String.valueOf(respostaPergunta));
