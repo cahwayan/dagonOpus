@@ -23,7 +23,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.tcc.dagon.opus.Aprender.AprenderActivity_;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.Aprender.AprenderActivity_;
 import com.tcc.dagon.opus.PerfilUsuario.RecuperarSenhaActivity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;

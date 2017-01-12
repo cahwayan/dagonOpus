@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import com.tcc.dagon.opus.ClassesPai.Licao;
+import com.tcc.dagon.opus.Activities.Fragments.Licoes.Licao;
 import com.tcc.dagon.opus.R;
 
 /**

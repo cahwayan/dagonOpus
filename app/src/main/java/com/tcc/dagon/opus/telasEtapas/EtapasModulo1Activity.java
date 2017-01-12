@@ -7,9 +7,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tcc.dagon.opus.ClassesPai.ContainerEtapa;
-import com.tcc.dagon.opus.ClassesPai.ContainerProva;
-import com.tcc.dagon.opus.ClassesPai.TelaEtapas;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerEtapa;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerProva;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.TelaEtapas.TelaEtapas;
 import com.tcc.dagon.opus.R;
 
 public class EtapasModulo1Activity extends TelaEtapas {

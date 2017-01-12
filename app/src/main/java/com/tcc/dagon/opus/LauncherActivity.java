@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.tcc.dagon.opus.Aprender.AprenderActivity_;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.Aprender.AprenderActivity_;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;

@@ -39,7 +39,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Aprender.AprenderActivity_"
+            android:name=".Activities.AppCompatActivity.Aprender.AprenderActivity_"
             android:screenOrientation="portrait"
             android:label="Aprender"
             android:theme="@style/TemaSemActionBar"
@@ -78,12 +78,12 @@
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
         <activity
-            android:name=".ClassesPai.ContainerEtapa"
+            android:name=".Activities.AppCompatActivity.Containers.ContainerEtapa"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ClassesPai.ContainerProva"
+            android:name=".Activities.AppCompatActivity.Containers.ContainerProva"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

@@ -3,9 +3,9 @@ package com.tcc.dagon.opus.Adapters.Provas;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.tcc.dagon.opus.ClassesPai.Adapter;
-import com.tcc.dagon.opus.ClassesPai.CompletarProva;
-import com.tcc.dagon.opus.ClassesPai.QuestaoProva;
+import com.tcc.dagon.opus.Activities.Fragments.Adapter.Adapter;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CompletarProva;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.QuestaoProva;
 import com.tcc.dagon.opus.R;
 
 /**

@@ -2,9 +2,9 @@ package com.tcc.dagon.opus.Adapters.Modulo1;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import com.tcc.dagon.opus.ClassesPai.Adapter;
-import com.tcc.dagon.opus.ClassesPai.Licao;
-import com.tcc.dagon.opus.ClassesPai.Questao;
+import com.tcc.dagon.opus.Activities.Fragments.Adapter.Adapter;
+import com.tcc.dagon.opus.Activities.Fragments.Licoes.Licao;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.Questao;
 import com.tcc.dagon.opus.R;
 
 /**

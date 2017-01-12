@@ -27,7 +27,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.tcc.dagon.opus.AlterarSenhaActivity;
-import com.tcc.dagon.opus.Aprender.AprenderActivity_;
+import com.tcc.dagon.opus.Activities.AppCompatActivity.Aprender.AprenderActivity_;
 import com.tcc.dagon.opus.LoginActivity_;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;

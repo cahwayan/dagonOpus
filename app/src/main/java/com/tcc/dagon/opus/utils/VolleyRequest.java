@@ -1,9 +1,6 @@
 package com.tcc.dagon.opus.utils;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -14,8 +11,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.tcc.dagon.opus.Aprender.AprenderActivity_;
-import com.tcc.dagon.opus.LoginActivity_;
 import com.tcc.dagon.opus.StringsBanco;
 import java.util.HashMap;
 import java.util.Map;
