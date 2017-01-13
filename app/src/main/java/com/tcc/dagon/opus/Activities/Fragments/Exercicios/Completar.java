@@ -2,12 +2,9 @@ package com.tcc.dagon.opus.Activities.Fragments.Exercicios;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -15,22 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerEtapa;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 /**
@@ -39,32 +30,9 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
  */
 
 
-public class Completar extends Fragment {
+public class Completar extends Exercicio {
 
-    /* OBJETOS */
-    protected GerenciadorBanco DB_PROGRESSO = null;
-    private MediaPlayer somRespostaCerta = null;
-    private MediaPlayer somRespostaErrada = null;
-    protected GerenciadorSharedPreferences preferencias = null;
     protected View rootView;
-
-    /* VIEWS */
-    protected Button btnChecar;
-    protected Button btnAvancar;
-    protected Button btnTentarNovamente;
-
-    protected ViewPager view_pager;
-    protected TabLayout tab_layout;
-
-    protected ImageView imgRespostaCerta;
-    protected ImageView imgRespostaErrada;
-
-    protected LinearLayout tabStrip;
-    private TextView txtPontos;
-
-    private int qtdErros;
-
-    private int pontuacao;
 
     /* VARIÁVEIS */
     // GUARDA O ID DO LAYOUT QUE SERÁ USADO NA INSTÂNCIA
@@ -73,12 +41,14 @@ public class Completar extends Fragment {
 
     /* LISTAS, COLEÇÕES */
     // GUARDA AS EDIT TEXTS EM UMA LISTA DE OBJETOS PARA PODER TRABALHAR COM ELAS DE MANEIRA DINÂMICA
-    protected List<EditText> listaEditTexts;
+    protected List<EditText> listRespostasUsuario;
+
+    private int quantidadePalavras;
 
     /* VETORES */
     /* VETOR QUE GUARDA AS EDIT TEXTS. ELA É NECESSÁRIA APENAS PARA PASSAR AS EDIT TEXTS PARA UMA LISTA
     *  QUE É MELHOR DE SER TRABALHADA*/
-    private EditText linhasCompletar[];
+    private EditText totalDeRespostas[];
 
     /* VETOR QUE PEGA AS RESPOSTAS DIGITADAS PELO USUÁRIO. ESSE VETOR PEGA OS VALORES DA LISTA DE EDIT TEXTS*/
     private String   respostasUsuario[];
@@ -91,7 +61,7 @@ public class Completar extends Fragment {
     *  ESSE VETOR SERVE PARA ADICIONAR LISTENERS DE MANEIRA PROGRAMÁTICA DE ACORDO COM O
     *  TAMANHO DA RESPOSTA. O LISTENER EM QUESTÃO É O TEXT WATCHER, E FAZ PULAR DE UMA
     *  EDIT TEXT PARA OUTRA ASSIM QUE O TAMANHO DA PALAVRA CORRETA FOR ATINGIDO*/
-    private int      tamanhoPalavras[];
+    private int lengthRespostas[];
 
     /* MÉTODO ESTÁTICO DE INSTÂNCIA. COMO FRAGMENTOS NÃO POSSUEM SUPORTE DECENTE PARA O USO DE MÉTODOS CONSTRUTORES
     * (NA VERDADE NÃO É RECOMENDADO NEM SOBRESCREVER O CONSTRUTOR DE UM FRAGMENT)
@@ -101,7 +71,7 @@ public class Completar extends Fragment {
     * COMO UM CONSTRUTOR*/
     public static Completar newInstance(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         Completar completar = new Completar();
-        completar.setContentView(layoutID);
+        //completar.setLayoutID(layoutID);
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);
         args.putInt("etapaAtual", etapaAtual);
@@ -139,100 +109,70 @@ public class Completar extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.getConstructorArgs();
         super.onCreateView(inflater, container, savedInstanceState);
-        /* PEGANDO OS ARGUMENTOS DO MÉTODO DE INSTÂNCIAÇÃO*/
-        this.moduloAtual               = getArguments().getInt("moduloAtual", 0);
-        this.etapaAtual                = getArguments().getInt("etapaAtual" , 0);
-        int quantidadePalavras         = getArguments().getInt("quantidadePalavras", 0);
-        this.respostasCertas           = getArguments().getStringArray("respostasCertas");
-        this.respostasCertasAcentuadas = getArguments().getStringArray("respostasCertasAcentuadas");
-        this.layoutID                  = getArguments().getInt("layoutID", (R.layout.fragment_modulo1_etapa1_licao1));
-
-        /* MÉTODO QUE INSTANCIA OS OBJETOS PRINCIPAIS DA CLASSE*/
-        this.instanciaObjetos();
-
-        // GUARDANDO O LAYOUT EM UMA VARIÁVEL PARA RETORNAR NO FIM DO MÉTODO
-        this.rootView = inflater.inflate( setContentView(this.layoutID) , container, false);
-
-        // INSTANCIANDO A LISTA
-        this.listaEditTexts = new ArrayList<>();
-
-        // ENCHENDO O ARRAY DE EDIT TEXTS COM AS EDIT TEXTS
-        this.verificaQuantidadePalavras(quantidadePalavras);
-
-        // ENCHENDO A LISTA COM O ARRAY DE EDIT TEXTS
-        this.listaEditTexts.addAll(Arrays.asList(this.linhasCompletar));
-
-        this.accessViews();
-
+        this.setRootView(this.layoutID, inflater, container, savedInstanceState);
+        super.instanciaObjetos();
+        this.configurarVetoresListas();
+        this.accessViews(this.rootView);
         this.listeners();
-
         return this.rootView;
     }
 
-    private void instanciaObjetos() {
-        // BANCO DE DADOS
-        if(this.DB_PROGRESSO == null) {
-            this.DB_PROGRESSO = new GerenciadorBanco(getActivity());
-        }
-
-        // SONS DO APP
-        if (this.somRespostaCerta == null || this.somRespostaErrada == null) {
-            this.somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
-            this.somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
-        }
-
-        if(this.preferencias == null) {
-            this.preferencias = new GerenciadorSharedPreferences(getActivity());
-        }
-
+    @Override
+    protected void getConstructorArgs() {
+        super.getConstructorArgs();
+        this.quantidadePalavras        = getArguments().getInt("quantidadePalavras", 0);
+        this.respostasCertas           = getArguments().getStringArray("respostasCertas");
+        this.respostasCertasAcentuadas = getArguments().getStringArray("respostasCertasAcentuadas");
+        this.layoutID                  = getArguments().getInt("layoutID", 0);
     }
 
+    protected void setRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.rootView = inflater.inflate(layoutID, container, false);
+    }
 
+    protected void setLayoutID(int layoutID) {
+        this.layoutID = layoutID;
+    }
 
-    protected void accessViews() {
+    protected void configurarVetoresListas() {
+        this.listRespostasUsuario = new ArrayList<>();
 
-        // IMAGENS CERTO E ERRADO
-        imgRespostaCerta  = (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
-        imgRespostaErrada = (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
+        this.verificaQuantidadePalavras(this.quantidadePalavras);
 
-        // PEGANDO A REFERENCIA DOS LAYOUTS DA ATIVIDADE CONTAINER
-        view_pager = ((ContainerEtapa)getActivity()).getPager();
-        tabStrip   = ((ContainerEtapa)getActivity()).getTabStrip();
-        tab_layout = ((ContainerEtapa)getActivity()).getmTabLayout();
-
-        txtPontos = (TextView) rootView.findViewById(R.id.txtPontos);
-
-        // PEGANDO OS BOTÕES AVANÇAR, CHECAR E TENTAR DE NOVO
-        btnChecar          = (Button) rootView.findViewById(R.id.btnChecar);
-        btnAvancar         = (Button) rootView.findViewById(R.id.btnAvancar);
-        btnTentarNovamente = (Button) rootView.findViewById(R.id.btnTentarNovamente);
-
-        // COMPONENTES ESCONDIDOS
-        imgRespostaCerta.setVisibility(View.GONE);
-        imgRespostaErrada.setVisibility(View.GONE);
-        btnAvancar.setVisibility(View.GONE);
-        btnTentarNovamente.setVisibility(View.GONE);
+        this.listRespostasUsuario.addAll(Arrays.asList(this.totalDeRespostas));
 
         // VETORES QUE TOMARÃO O TAMANHO DA LISTA DE EDIT TEXTS
-        linhasCompletar = new EditText[listaEditTexts.size()];
-        respostasUsuario = new String[listaEditTexts.size()];
-        tamanhoPalavras = new int[listaEditTexts.size()];
+        final int TAMANHO_LISTA_RESPOSTAS = this.listRespostasUsuario.size();
+        this.totalDeRespostas = new EditText[TAMANHO_LISTA_RESPOSTAS];
+        this.respostasUsuario  = new String[TAMANHO_LISTA_RESPOSTAS];
+        this.lengthRespostas   = new int[TAMANHO_LISTA_RESPOSTAS];
 
-        // ESSE LOOP PEGA A RESPOSTA NO INDICE I E ATRIBUI AO VETOR
-        // QUE GUARDA O TAMANHO DESSA PALAVRA NO VETOR DE TAMANHO
-        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            tamanhoPalavras[i] = respostasCertas[i].length();
+        this.getLengthRespostas();
+
+    }
+
+    protected void getLengthRespostas() {
+        final int RESPOSTAS_USUARIO = this.listRespostasUsuario.size() - 1;
+        for(int i = 0; i <= RESPOSTAS_USUARIO; i++) {
+            // O vetor lengthRespostas guarda o tamanho das strings que guardam as respostas certas.
+            // as respostas certas são passadas por parâmetro no construtor, na ordem em que devem
+            // ser preenchidas
+            this.lengthRespostas[i] = this.respostasCertas[i].length();
         }
     }
 
-    private void listeners() {
+    @Override
+    protected void listeners() {
+
+        super.listeners();
 
         // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecar.setOnClickListener(new View.OnClickListener() {
+        btnChecarResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checarRespostasCompletar(respostasCertas, respostasCertasAcentuadas);
+                validarRespostaUsuario(respostasCertas, respostasCertasAcentuadas);
             }
         });
 
@@ -243,32 +183,23 @@ public class Completar extends Fragment {
             }
         });
 
-        // BOTAO AVANÇAR LICAO
-        btnAvancar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                concluirCompletar();
-            }
-        });
-
-
         /*LISTENERS DAS EDIT TEXTS PARA AVANÇAREM QUANDO FOR PREENCHIDA A PALAVRA*/
         // de 0 até o tamanho do vetor que guarda o tamanho de cada palavra
-        for(int i = 0; i <= (listaEditTexts.size() - 1) ; i++) {
+        for(int i = 0; i <= (listRespostasUsuario.size() - 1) ; i++) {
             // pegue a coleção que está na lista, jogue no vetor
             // adicione um click listener que tenha:
             // o tamanho da palavra na posição i,
             // na edit text da posição i
             // e sete o focus para a próxima edit text
-            linhasCompletar[i] = listaEditTexts.get(i);
+            totalDeRespostas[i] = listRespostasUsuario.get(i);
 
             try {
 
-                adicionarClickListenerEditText(tamanhoPalavras[i], linhasCompletar[i], listaEditTexts.get(i + 1));
+                adicionarClickListenerEditText(lengthRespostas[i], totalDeRespostas[i], listRespostasUsuario.get(i + 1));
 
             } catch(IndexOutOfBoundsException erroLista) {
                 erroLista.printStackTrace();
-                adicionarClickListenerEditText(tamanhoPalavras[i], linhasCompletar[i], null);
+                adicionarClickListenerEditText(lengthRespostas[i], totalDeRespostas[i], null);
             }
 
         }
@@ -286,26 +217,19 @@ public class Completar extends Fragment {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                resetarEditTexts();
-                pontuacao = 0;
-                qtdErros = 0;
+                resetarEstadoExercicio();
+                setQtdErros(0);
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                resetarEditTexts();
-                pontuacao = 0;
-                qtdErros = 0;
-            }
-        });
-
-        this.imgRespostaCerta.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                concluirCompletar();
+                resetarEstadoExercicio();
+                setQtdErros(0);
             }
         });
 
         this.imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 tentarNovamente(respostasCertas, respostasCertasAcentuadas);
             }
@@ -315,40 +239,49 @@ public class Completar extends Fragment {
     }
 
     // MÉTODO QUE CHECA RESPOSTAS DO COMPLETAR
-    private void checarRespostasCompletar(String[] respostasCertas, String[] respostasCertasAcentuadas) {
-        int i;
+    private void validarRespostaUsuario(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+
         int qtdRespostasCorretas = 0;
+
+        final int TAMANHO_LISTA_RESPOSTAS = listRespostasUsuario.size() - 1;
+
         // ESSE LOOP ENCHE OS VETORES COM OS DADOS A SEREM CHECADOS
-        for(i = 0; i <= (listaEditTexts.size() - 1); i++) {
+        for(int i = 0; i <= TAMANHO_LISTA_RESPOSTAS; i++) {
+
             // PASSANDO AS STRINGS QUE ESTÃO NAS EDIT TEXTS PARA UM VETOR PARA PODER COMPARAR
-            linhasCompletar[i] = listaEditTexts.get(i);
-            respostasUsuario[i] = linhasCompletar[i].getText().toString();
+            totalDeRespostas[i] = listRespostasUsuario.get(i);
+            respostasUsuario[i] = totalDeRespostas[i].getText().toString();
 
             // SE A RESPOSTA DO USUARIO FORNECIDA NA POSIÇÃO I FOR IGUAL A RESPOSTA CERTA DEFINIDA NA CLASSE FILHA, OU IGUAL À VERSÃO ACENTUADA,
             // INCREMENTAR 1 NA QUANTIDADE DE RESPOSTAS CORRETAS
-            if(respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) || respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i])) {
+            String RESPOSTA_USUARIO = respostasUsuario[i];
+            String RESPOSTA_CERTA   = respostasCertas[i];
+            String RESPOSTA_CERTA_ACENTUADA = respostasCertasAcentuadas[i];
+
+            if(RESPOSTA_USUARIO.equalsIgnoreCase(RESPOSTA_CERTA) || RESPOSTA_USUARIO.equalsIgnoreCase(RESPOSTA_CERTA_ACENTUADA)) {
                 qtdRespostasCorretas++;
             }
         }
 
         // SE A QUANTIDADE DE RESPOSTAS CORRETAS FOR IGUAL AO TAMANHO DO VETOR DE EDIT TEXTS, SIGNIFICA QUE O USUÁRIO ACERTOU TODAS AS PALAVRAS
-        if(qtdRespostasCorretas == linhasCompletar.length) {
+        int TOTAL_QUANTIDADE_RESPOSTAS = totalDeRespostas.length;
+
+        if(qtdRespostasCorretas == TOTAL_QUANTIDADE_RESPOSTAS) {
             respostaCerta();
         } else {
             // SE NÃO FOR IGUAL, ELE ERROU, CHAMAR MÉTODO DE RESPOSTA ERRADA COM OS PARÂMETROS
             respostaErrada(respostasCertas, respostasCertasAcentuadas);
         }
-
     }
 
     // MÉTODO QUE DESABILITA AS EDIT TEXTS
     // PARA QUE O USUÁRIO NÃO POSSA TROCAR DE RESPOSTA DEPOIS DE CLICAR EM CHECAR
     private void desabilitarEditTexts(List<EditText> listaEditTexts) {
         for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            this.linhasCompletar[i] = listaEditTexts.get(i);
-            this.linhasCompletar[i].setInputType(InputType.TYPE_NULL);
-            this.linhasCompletar[i].setFocusable(false);
-            this.linhasCompletar[i].setFocusableInTouchMode(false);
+            this.totalDeRespostas[i] = listaEditTexts.get(i);
+            this.totalDeRespostas[i].setInputType(InputType.TYPE_NULL);
+            this.totalDeRespostas[i].setFocusable(false);
+            this.totalDeRespostas[i].setFocusableInTouchMode(false);
         }
     }
 
@@ -356,45 +289,48 @@ public class Completar extends Fragment {
     //PARA TRAZER DE VOLTA OS BOTÔES DEPOIS DE CLICAR EM TENTAR NOVAMENTE OU RETORNAR A ATIVIDADE
     protected void habilitarEditTexts(List<EditText> listaEditTexts) {
         for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            this.linhasCompletar[i] = listaEditTexts.get(i);
-            this.linhasCompletar[i].setInputType(InputType.TYPE_CLASS_TEXT);
-            this.linhasCompletar[i].setFocusable(true);
-            this.linhasCompletar[i].setFocusableInTouchMode(true);
+            this.totalDeRespostas[i] = listaEditTexts.get(i);
+            this.totalDeRespostas[i].setInputType(InputType.TYPE_CLASS_TEXT);
+            this.totalDeRespostas[i].setFocusable(true);
+            this.totalDeRespostas[i].setFocusableInTouchMode(true);
         }
     }
 
     // MÉTODO DE LIMPAR AS EDIT TEXTS
     protected void limparEditTexts(List<EditText> listaEditTexts) {
         for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            this.linhasCompletar[i] = listaEditTexts.get(i);
-            this.linhasCompletar[i].setText("");
+            this.totalDeRespostas[i] = listaEditTexts.get(i);
+            this.totalDeRespostas[i].setText("");
         }
     }
 
-    private void resetarEditTexts() {
-        this.limparEditTexts(this.listaEditTexts);
-        this.habilitarEditTexts(this.listaEditTexts);
+    private void resetarEstadoExercicio() {
+        zerarPontuacao();
+        this.limparEditTexts(this.listRespostasUsuario);
+        this.habilitarEditTexts(this.listRespostasUsuario);
 
-        for(int i = 0; i <= (this.listaEditTexts.size() - 1); i++) {
-            this.linhasCompletar[i] = this.listaEditTexts.get(i);
-            this.linhasCompletar[i].setTextColor(Color.BLACK);
+        for(int i = 0; i <= (this.listRespostasUsuario.size() - 1); i++) {
+            mudarCorEditTexts(Color.BLACK, i);
         }
-
-
     }
 
-    private void limparEditTextsVermelhas(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+    private void mudarCorEditTexts(int color, int contador) {
+        totalDeRespostas[contador] = listRespostasUsuario.get(contador);
+        this.totalDeRespostas[contador].setTextColor(color);
+    }
 
-        for(int i = 0; i <= (this.listaEditTexts.size() - 1); i++) {
-            this.respostasUsuario[i] = this.linhasCompletar[i].getText().toString();
+    private void limparEditTextsComRespostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        for(int i = 0; i <= (this.listRespostasUsuario.size() - 1); i++) {
+            this.respostasUsuario[i] = this.totalDeRespostas[i].getText().toString();
             if(!this.respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) && !this.respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
-                this.linhasCompletar[i] = this.listaEditTexts.get(i);
-                this.linhasCompletar[i].setText("");
+                this.totalDeRespostas[i] = this.listRespostasUsuario.get(i);
+                this.totalDeRespostas[i].setText("");
             }
         }
     }
 
-    private void setPontuacao() {
+    @Override
+    protected void setPontuacao() {
         this.pontuacao += 1000;
         switch (qtdErros) {
             case 0: this.pontuacao += 500;
@@ -426,169 +362,57 @@ public class Completar extends Fragment {
         txtPontos.setText("Pontos: " + String.valueOf(this.pontuacao) );
     }
 
-    // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
-    private void respostaCerta() {
+    @Override
+    protected void respostaCerta() {
+        super.respostaCerta();
 
-        setPontuacao();
-        Toast.makeText(getActivity(), String.valueOf(DB_PROGRESSO.verificarPontuacao(moduloAtual)), Toast.LENGTH_LONG).show();
-
-        // TOCAR SOM DE RESPOSTA CERTA
-        if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
-            somRespostaCerta.start();
-        }
-
-        // ANIMAÇÃO RESPOSTA CERTA
-        imgRespostaCerta.setVisibility(View.VISIBLE);
-        PulseAnimation.create().with(imgRespostaCerta)
-                .setDuration(310)
-                .setRepeatCount(PulseAnimation.INFINITE)
-                .setRepeatMode(PulseAnimation.REVERSE)
-                .start();
-
-        // DESABILITAR RADIO BUTTONS
-        desabilitarEditTexts(listaEditTexts);
-
-        //TRAZENDO O BOTÃO AVANÇAR
-        btnAvancar.setVisibility(View.VISIBLE);
+        // BLOQUEAR EDIT TEXTS
+        desabilitarEditTexts(listRespostasUsuario);
     }
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        super.respostaErrada();
 
-        this.qtdErros++;
+        for(int i = 0; i <= (listRespostasUsuario.size() - 1); i++) {
+            String RESPOSTA_USUARIO = respostasUsuario[i];
+            String RESPOSTA_CERTA = respostasCertas[i];
+            String RESPOSTA_CERTA_ACENTUADA = respostasCertasAcentuadas[i];
 
-        // TOCAR SOM DE RESPOSTA ERRADA
-        if(!preferencias.lerFlagBoolean(NomePreferencia.desativarSons)) {
-            somRespostaErrada.start();
-        }
-
-
-        // ANIMAÇÃO RESPOSTA ERRADA
-        imgRespostaErrada.setVisibility(View.VISIBLE);
-        PulseAnimation.create().with(imgRespostaErrada)
-                .setDuration(310)
-                .setRepeatCount(PulseAnimation.INFINITE)
-                .setRepeatMode(PulseAnimation.REVERSE)
-                .start();
-
-        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i]) && !respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
-                linhasCompletar[i] = listaEditTexts.get(i);
-                linhasCompletar[i].setTextColor(Color.RED);
+            if(!RESPOSTA_USUARIO.equalsIgnoreCase(RESPOSTA_CERTA) && !RESPOSTA_USUARIO.equalsIgnoreCase(RESPOSTA_CERTA_ACENTUADA) ){
+                mudarCorEditTexts(Color.RED, i);
             }
         }
 
         // DESABILITAR RADIO BUTTONS
-        desabilitarEditTexts(listaEditTexts);
-
-        // SUMINDO COM O BOTAO CHECAR
-        btnChecar.setVisibility(View.GONE);
-
-        // TRAZENDO BOTÃO TENTAR NOVAMENTE
-        btnTentarNovamente.setVisibility(View.VISIBLE);
+        desabilitarEditTexts(listRespostasUsuario);
     }
 
-    private void concluirCompletar() {
-        if(view_pager.getCurrentItem() ==  (tab_layout.getTabCount() -1 )  ) {
-            completarFinal();
-        } else {
-            avancarCompletar();
-        }
-    }
-
-    protected void completarFinal() {
-        // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
-        // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
-            // AVANÇAR O PROGRESSO EM DOIS
-            this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
-            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
-        }
-        this.getActivity().finish();
-    }
-
-    protected void avancarCompletar() {
-
-        limparEditTexts(listaEditTexts);
-        habilitarEditTexts(listaEditTexts);
-
-        // SUMINDO COM O BOTAO TENTAR NOVAMENTE
-        btnAvancar.setVisibility(View.GONE);
-
-        // TRAZENDO O BOTAO CHECAR
-        btnChecar.setVisibility(View.VISIBLE);
-
-        // TROCANDO O ICONE DO CADEADO
-        tab_layout.getTabAt(view_pager.getCurrentItem() + 1).setIcon(R.drawable.icon_licao);
-        tab_layout.getTabAt(view_pager.getCurrentItem() + 2).setIcon(R.drawable.icon_pergunta);
-
-        // TORNANDO CLICAVEL A TAB QUE SERÁ DESBLOQUEADA
-        tabStrip.getChildAt(view_pager.getCurrentItem() + 1).setClickable(true);
-        tabStrip.getChildAt(view_pager.getCurrentItem() + 1).setEnabled(true);
-
-        tabStrip.getChildAt(view_pager.getCurrentItem() + 2).setClickable(true);
-        tabStrip.getChildAt(view_pager.getCurrentItem() + 2).setEnabled(true);
-
-        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-        imgRespostaCerta.setVisibility(View.GONE);
-        imgRespostaErrada.setVisibility(View.GONE);
-
-        if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
-            this.DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
-            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
-        }
-
-        // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
-
+    @Override
+    protected void avancarQuestao() {
+        limparEditTexts(listRespostasUsuario);
+        habilitarEditTexts(listRespostasUsuario);
+        super.avancarQuestao();
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
     protected void tentarNovamente(String[] respostasCertas, String[] respostasCertasAcentuadas) {
+        super.tentarNovamente();
 
-        // SUMINDO COM O BOTAO TENTAR NOVAMENTE
-        btnTentarNovamente.setVisibility(View.GONE);
-
-        // TRAZENDO O BOTAO CHECAR
-        btnChecar.setVisibility(View.VISIBLE);
-
-        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-        imgRespostaCerta.setVisibility(View.GONE);
-        imgRespostaErrada.setVisibility(View.GONE);
-
-        for(int i = 0; i <= (listaEditTexts.size() - 1); i++) {
-            linhasCompletar[i] = listaEditTexts.get(i);
-            linhasCompletar[i].setTextColor(Color.BLACK);
+        for(int i = 0; i <= (listRespostasUsuario.size() - 1); i++) {
+            mudarCorEditTexts(Color.BLACK, i);
         }
 
-        txtPontos.setText("Pontos: 0");
-        this.pontuacao = 0;
-
         // LIMPANDO AS EDIT TEXTS VERMELHAS
-        limparEditTextsVermelhas(respostasCertas, respostasCertasAcentuadas);
+        limparEditTextsComRespostaErrada(respostasCertas, respostasCertasAcentuadas);
 
         // HABILITANDO RADIO BUTTONS DE NOVO
-        habilitarEditTexts(listaEditTexts);
-
-    }
-
-    protected void moveNext(View view) {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
-    }
-
-    protected void movePrevious(View view) {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
+        habilitarEditTexts(listRespostasUsuario);
     }
 
     private void escondeTeclado() {
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
-    }
-
-    private void invocaTeclado() {
-        //linha2Palavra1.requestFocus();
-        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 
     protected void adicionarClickListenerEditText(final int tamanhoMaximo, final EditText editText1, final EditText editText2) {
@@ -606,7 +430,8 @@ public class Completar extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(editText2 == null && editText1.length() == tamanhoMaximo & !editText1.getText().toString().equals("")) {
+                if(editText2 == null && editText1.length() == tamanhoMaximo
+                        && !editText1.getText().toString().equals("")) {
                     try {
                         escondeTeclado();
                     } catch(NullPointerException e) {
@@ -614,19 +439,14 @@ public class Completar extends Fragment {
                     }
 
                 } else if(editText1.getText().length() == tamanhoMaximo) {
-                    if(editText2 != null && !editText1.getText().toString().equals("") ) {
+                    if(editText2 != null
+                            && !editText1.getText().toString().equals("") ) {
                         editText2.requestFocus();
                     }
 
                 }
             }
         });
-    }
-
-    /* MÉTODOS ESPECIAIS */
-    /* MÉTODO QUE SETA O LAYOUT QUE SERÁ UTILIZADO NA INSTÂNCIA DO FRAGMENTO*/
-    int setContentView(int layoutID) {
-        return this.layoutID = layoutID;
     }
 
     private void verificaQuantidadePalavras(int quantidadePalavras) {
@@ -656,25 +476,25 @@ public class Completar extends Fragment {
         switch(quantidadePalavras) {
             case 1:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
-                this.linhasCompletar = new EditText[] {palavra1};
+                this.totalDeRespostas = new EditText[] {palavra1};
                 break;
             case 2:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
                 palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2};
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2};
                 break;
             case 3:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
                 palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
                 palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3};
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3};
                 break;
             case 4:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
                 palavra2 = (EditText) rootView.findViewById(R.id.palavra2);
                 palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
                 palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4};
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4};
                 break;
             case 5:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
@@ -682,7 +502,7 @@ public class Completar extends Fragment {
                 palavra3 = (EditText) rootView.findViewById(R.id.palavra3);
                 palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
                 palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5};
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5};
                 break;
             case 6:
                 palavra1 = (EditText) rootView.findViewById(R.id.palavra1);
@@ -691,7 +511,7 @@ public class Completar extends Fragment {
                 palavra4 = (EditText) rootView.findViewById(R.id.palavra4);
                 palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
                 palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6};
                 break;
             case 7:
@@ -702,7 +522,7 @@ public class Completar extends Fragment {
                 palavra5 = (EditText) rootView.findViewById(R.id.palavra5);
                 palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
                 palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7};
                 break;
             case 8:
@@ -714,7 +534,7 @@ public class Completar extends Fragment {
                 palavra6 = (EditText) rootView.findViewById(R.id.palavra6);
                 palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
                 palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8};
                 break;
             case 9:
@@ -727,7 +547,7 @@ public class Completar extends Fragment {
                 palavra7 = (EditText) rootView.findViewById(R.id.palavra7);
                 palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
                 palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9};
                 break;
             case 10:
@@ -741,7 +561,7 @@ public class Completar extends Fragment {
                 palavra8 = (EditText) rootView.findViewById(R.id.palavra8);
                 palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
                 palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10};
                 break;
             case 11:
@@ -756,7 +576,7 @@ public class Completar extends Fragment {
                 palavra9 = (EditText) rootView.findViewById(R.id.palavra9);
                 palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
                 palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11};
                 break;
@@ -773,7 +593,7 @@ public class Completar extends Fragment {
                 palavra10 = (EditText) rootView.findViewById(R.id.palavra10);
                 palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
                 palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12};
                 break;
@@ -791,7 +611,7 @@ public class Completar extends Fragment {
                 palavra11 = (EditText) rootView.findViewById(R.id.palavra11);
                 palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
                 palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13};
                 break;
@@ -810,7 +630,7 @@ public class Completar extends Fragment {
                 palavra12 = (EditText) rootView.findViewById(R.id.palavra12);
                 palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
                 palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14};
                 break;
@@ -830,7 +650,7 @@ public class Completar extends Fragment {
                 palavra13 = (EditText) rootView.findViewById(R.id.palavra13);
                 palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
                 palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15};
                 break;
@@ -851,7 +671,7 @@ public class Completar extends Fragment {
                 palavra14 = (EditText) rootView.findViewById(R.id.palavra14);
                 palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
                 palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15,
                         palavra16};
@@ -874,7 +694,7 @@ public class Completar extends Fragment {
                 palavra15 = (EditText) rootView.findViewById(R.id.palavra15);
                 palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
                 palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15,
                         palavra16, palavra17};
@@ -898,7 +718,7 @@ public class Completar extends Fragment {
                 palavra16 = (EditText) rootView.findViewById(R.id.palavra16);
                 palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
                 palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15,
                         palavra16, palavra17, palavra18};
@@ -923,7 +743,7 @@ public class Completar extends Fragment {
                 palavra17 = (EditText) rootView.findViewById(R.id.palavra17);
                 palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
                 palavra19 = (EditText) rootView.findViewById(R.id.palavra19);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15,
                         palavra16, palavra17, palavra18, palavra19};
@@ -949,7 +769,7 @@ public class Completar extends Fragment {
                 palavra18 = (EditText) rootView.findViewById(R.id.palavra18);
                 palavra19 = (EditText) rootView.findViewById(R.id.palavra19);
                 palavra20 = (EditText) rootView.findViewById(R.id.palavra20);
-                this.linhasCompletar = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
+                this.totalDeRespostas = new EditText[] {palavra1, palavra2, palavra3, palavra4, palavra5,
                         palavra6, palavra7, palavra8, palavra9, palavra10,
                         palavra11, palavra12, palavra13, palavra14, palavra15,
                         palavra16, palavra17, palavra18, palavra19, palavra20};
@@ -957,13 +777,7 @@ public class Completar extends Fragment {
         }
     }
 
-    public int getPontuacao() {
-        return pontuacao;
-    }
 
-    public void setPontuacao(int pontuacao) {
-        this.pontuacao = pontuacao;
-    }
 
 
 }

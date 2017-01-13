@@ -43,33 +43,11 @@ public class QuestaoProva extends Questao {
         return questao;
     }
 
-    // MÉTODO ON CREATE DO FRAGMENTO
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-
-        this.setModuloAtual( getArguments().getInt("moduloAtual", 0) );
-        this.setEtapaAtual( getArguments().getInt("etapaAtual", 0) );
-        this.setQuestaoAtual( getArguments().getInt("questaoAtual", 0) );
-
-        this.rootView = inflater.inflate(R.layout.activity_questao, container, false);
-
-        this.instanciaObjetos();
-
-        //TRAZENDO AS VIEWS
-        this.accessViews(this.rootView);
-
-        // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
-        this.listeners();
-
-        return this.rootView;
+    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.rootView = inflater.inflate(R.layout.activity_questao_prova, container, false);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -85,35 +63,30 @@ public class QuestaoProva extends Questao {
     }
 
     @Override
-    protected void avancarQuestao() {
-        // SUMINDO COM O BOTÃO AVANÇAR
-        getBtnAvancarQuestao().setVisibility(View.GONE);
+    protected void changeUpperBarIcon(int passo, int drawableID) {
+        passo = 1;
+        super.changeUpperBarIcon(passo, drawableID);
+    }
 
-        // TRAZENDO O BOTÃO CHECAR NOVAMENTE
-        getBtnChecarResposta().setVisibility(View.VISIBLE);
+    @Override
+    protected void setUpperBarIconClickable(int passo) {
+        passo = 1;
+        super.setUpperBarIconClickable(passo);
+    }
 
-        // REABILITANDO OS RADIO BUTTONS
-        setAllButtonsClickable();
+    @Override
+    protected void updateUserProgress() {
+        final int VALOR_AUMENTO_PROGRESSO = 1;
+        final int PROGRESSO_ATUAL = view_pager.getCurrentItem();
+        final int NOVO_PROGRESSO = PROGRESSO_ATUAL + VALOR_AUMENTO_PROGRESSO;
+        final int PROGRESSO_BANCO = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
 
-        // TROCANDO O ICONE DO CADEADO
+        if(PROGRESSO_BANCO <= PROGRESSO_ATUAL) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
 
-        getTab_layout().getTabAt(getView_pager().getCurrentItem() + 1).setIcon(R.drawable.icon_pergunta);
-
-        //DESMARCANDO RADIO BUTTON
-        uncheckAllButtons();
-
-        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-        getImgRespostaCerta().setVisibility(View.GONE);
-        getImgRespostaErrada().setVisibility(View.GONE);
-
-        if(getDB_PROGRESSO().verificaProgressoLicao(getModuloAtual(), getEtapaAtual()) <= getView_pager().getCurrentItem()) {
-            // AVANÇAR O PROGRESSO EM DOIS
-            getDB_PROGRESSO().atualizaProgressoLicao(getModuloAtual(), getEtapaAtual(), (getView_pager().getCurrentItem() + 1) );
-            getDB_PROGRESSO().alterarPontuacao(getModuloAtual(), this.getPontuacao());
+            // AVANÇAR O PROGRESSO EM UM
+            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, NOVO_PROGRESSO);
         }
-
-        // TROCANDO O FRAGMENTO
-        moveNext(getView_pager());
     }
 
 
@@ -216,61 +189,71 @@ public class QuestaoProva extends Questao {
         contagemVidas -= 1;
 
         mCallback.onArticleSelected(contagemVidas);
-
-
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
     @Override
     protected void tentarNovamente() {
-
         super.tentarNovamente();
-        ContainerProva container = (ContainerProva) getActivity();
 
+        ContainerProva container = (ContainerProva) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
+    }
 
+    @Override
+    protected void avancarQuestao() {
+        final int ICONE_EXERCICIO = 1;
+
+        hideUnnecessaryView(btnAvancarQuestao);
+        unhideView(btnChecarResposta);
+
+        changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
+
+        setUpperBarIconClickable(ICONE_EXERCICIO);
+
+        hideUnnecessaryView(imgRespostaCerta);
+        hideUnnecessaryView(imgRespostaErrada);
+
+        updateUserProgress();
+
+        // TROCANDO O FRAGMENTO
+        moveNext(view_pager);
     }
 
     @Override
     protected void questaoFinal() {
-
         // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(getModuloAtual()), true);
+        final String COMPLETOU_PROVA = GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual);
+        preferencias.escreverFlagBoolean(COMPLETOU_PROVA, true);
 
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-
-        if (this.getDB_PROGRESSO().verificaProgressoModulo() <= getModuloAtual()) {
-            getDB_PROGRESSO().alterarPontuacao(getModuloAtual(), getPontuacao());
-            // AVANÇAR O PROGRESSO EM DOIS
-            this.getDB_PROGRESSO().atualizaProgressoModulo(getModuloAtual() + 1);
-            // atualizar progresso do módulo 2 para 1
-            this.getDB_PROGRESSO().atualizaProgressoEtapa(getModuloAtual() + 1, 1);
+        final int PROGRESSO_ATUAL = DB_PROGRESSO.verificaProgressoModulo();
+        final int PROXIMO_MODULO = moduloAtual + 1;
+        if (PROGRESSO_ATUAL <= moduloAtual) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, pontuacao);
+            DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
+            DB_PROGRESSO.atualizaProgressoEtapa(PROXIMO_MODULO, 1);
         }
 
-       /* // INICIANDO ATIVIDADE DOS MODULOS
-        startActivity(new Intent(getActivity(), AprenderActivity.class));*/
-
-        // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
     }
 
     @Override
     protected void accessViews(View rootView) {
+        super.view_pager = (( (ContainerProva)this.getActivity() ).getPager() );
+        super.tabStrip   = (( (ContainerProva)this.getActivity() ).getTabStrip());
+        super.tab_layout = (( (ContainerProva)this.getActivity() ).getmTabLayout() );
+        this.vida01 = ((ContainerProva)getActivity()).getVida01();
+        this.vida02 = ((ContainerProva)getActivity()).getVida02();
+        this.vida03 = ((ContainerProva)getActivity()).getVida03();
+        this.vida04 = ((ContainerProva)getActivity()).getVida04();
+        this.vida05 = ((ContainerProva)getActivity()).getVida05();
         super.accessViews(rootView);
-        super.setView_pager(( (ContainerProva)this.getActivity() ).getPager() );
-        super.setTabStrip  (( (ContainerProva)this.getActivity() ).getTabStrip());
-        super.setTab_layout(( (ContainerProva)this.getActivity() ).getmTabLayout() );
-
-        vida01 = ((ContainerProva)getActivity()).getVida01();
-        vida02 = ((ContainerProva)getActivity()).getVida02();
-        vida03 = ((ContainerProva)getActivity()).getVida03();
-        vida04 = ((ContainerProva)getActivity()).getVida04();
-        vida05 = ((ContainerProva)getActivity()).getVida05();
     }
 
     protected Class retornarTelaEtapas(int numeroModulo) {

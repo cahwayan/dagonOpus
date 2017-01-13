@@ -58,13 +58,17 @@ public class Questao extends Exercicio {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.getConstructorArgs();
         super.onCreateView(inflater, container, savedInstanceState);
-        this.rootView = inflater.inflate(R.layout.activity_questao, container, false);
+        this.setRootView(inflater, container, savedInstanceState);
         this.instanciaObjetos();
         this.accessViews(this.rootView);
         this.accessRadioButtons(this.rootView);
         this.fetchQuestionFromDatabase();
         this.listeners();
-        return rootView;
+        return this.rootView;
+    }
+
+    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.rootView = inflater.inflate(R.layout.activity_questao, container, false);
     }
 
     protected void instanciaObjetos() {
@@ -95,7 +99,7 @@ public class Questao extends Exercicio {
 
     }
 
-    private void accessRadioButtons(View rootView) {
+    protected void accessRadioButtons(View rootView) {
         radioGroupQuestao = (RadioGroup)  rootView.findViewById(R.id.radioGroupQuestao);
         alternativa1      = (RadioButton) rootView.findViewById(R.id.alternativa1);
         alternativa2      = (RadioButton) rootView.findViewById(R.id.alternativa2);
@@ -255,54 +259,6 @@ public class Questao extends Exercicio {
 
     public GerenciadorBanco getDB_PROGRESSO() {
         return DB_PROGRESSO;
-    }
-
-    public Button getBtnChecarResposta() {
-        return btnChecarResposta;
-    }
-
-    public Button getBtnAvancarQuestao() {
-        return btnAvancarQuestao;
-    }
-
-    public Button getBtnTentarNovamente() {
-        return btnTentarNovamente;
-    }
-
-    public LinearLayout getTabStrip() {
-        return tabStrip;
-    }
-
-    public TabLayout getTab_layout() {
-        return tab_layout;
-    }
-
-    public ViewPager getView_pager() {
-        return view_pager;
-    }
-
-    public ImageView getImgRespostaCerta() {
-        return imgRespostaCerta;
-    }
-
-    public ImageView getImgRespostaErrada() {
-        return imgRespostaErrada;
-    }
-
-    public void setView_pager(ViewPager view_pager) {
-        this.view_pager = view_pager;
-    }
-
-    public void setTabStrip(LinearLayout tabStrip) {
-        this.tabStrip = tabStrip;
-    }
-
-    public void setTab_layout(TabLayout tab_layout) {
-        this.tab_layout = tab_layout;
-    }
-
-    public int getPontuacao() {
-        return super.pontuacao;
     }
 
 

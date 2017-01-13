@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerEtapa
 import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerProva;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
@@ -21,7 +24,7 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 public class CompletarProva extends Completar {
 
-    protected ImageView vida01, vida02, vida03, vida04, vida05;
+    private ImageView vida01, vida02, vida03, vida04, vida05;
 
     public OnHeadlineSelectedListener mCallback;
 
@@ -35,7 +38,7 @@ public class CompletarProva extends Completar {
 
     public static CompletarProva newInstance(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         CompletarProva completar = new CompletarProva();
-        completar.setContentView(layoutID);
+        //completar.setLayoutID(layoutID);
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);
         args.putInt("etapaAtual", etapaAtual);
@@ -67,35 +70,33 @@ public class CompletarProva extends Completar {
         }
     }
 
+    @Override
+    protected void setRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.rootView = inflater.inflate(layoutID, container, false);
+    }
+
     /* libera apenas um exercício de cada vez, ao invés de dois, como no completar normal*/
     @Override
-    protected void avancarCompletar() {
+    protected void avancarQuestao() {
+        final int ICONE_EXERCICIO = 1;
 
-        limparEditTexts(listaEditTexts);
-        habilitarEditTexts(listaEditTexts);
+        hideUnnecessaryView(btnAvancarQuestao);
+        unhideView(btnChecarResposta);
 
-        // SUMINDO COM O BOTAO TENTAR NOVAMENTE
-        btnAvancar.setVisibility(View.GONE);
+        changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
 
-        // TRAZENDO O BOTAO CHECAR
-        btnChecar.setVisibility(View.VISIBLE);
+        setUpperBarIconClickable(ICONE_EXERCICIO);
 
-        // TROCANDO O ICONE DO CADEADO
-        tab_layout.getTabAt(view_pager.getCurrentItem() + 1).setIcon(R.drawable.icon_pergunta);
+        hideUnnecessaryView(imgRespostaCerta);
+        hideUnnecessaryView(imgRespostaErrada);
 
-        // SUMINDO COM AS IMAGENS DE CERTO OU ERRADO
-        imgRespostaCerta.setVisibility(View.GONE);
-        imgRespostaErrada.setVisibility(View.GONE);
+        limparEditTexts(listRespostasUsuario);
+        habilitarEditTexts(listRespostasUsuario);
 
-        if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
-            DB_PROGRESSO.alterarPontuacao(moduloAtual, getPontuacao());
-            // AVANÇAR O PROGRESSO EM DOIS
-            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
-        }
+        updateUserProgress();
 
         // TROCANDO O FRAGMENTO
         moveNext(view_pager);
-
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
@@ -126,37 +127,50 @@ public class CompletarProva extends Completar {
     }
 
     @Override
-    protected void completarFinal() {
+    protected void questaoFinal() {
+        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
+        final String COMPLETOU_PROVA = GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual);
+        preferencias.escreverFlagBoolean(COMPLETOU_PROVA, true);
+
         // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
         // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-
-        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        preferencias.escreverFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual), true);
-
-        if(this.DB_PROGRESSO.verificaProgressoModulo() <= moduloAtual) {
-            this.DB_PROGRESSO.alterarPontuacao(moduloAtual, getPontuacao());
-            // AVANÇAR O PROGRESSO EM DOIS
-            this.DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
-            // atualizar progresso do módulo 2 para 1
-            this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual + 1, 1);
+        final int PROGRESSO_ATUAL = DB_PROGRESSO.verificaProgressoModulo();
+        final int PROXIMO_MODULO = moduloAtual + 1;
+        if (PROGRESSO_ATUAL <= moduloAtual) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, pontuacao);
+            DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
+            DB_PROGRESSO.atualizaProgressoEtapa(PROXIMO_MODULO, 1);
         }
 
-        // TERMINANDO COM ESSA ATIVIDADE
         this.getActivity().finish();
     }
 
     @Override
-    protected void accessViews() {
-        super.accessViews();
-        view_pager = ((ContainerEtapa)getActivity()).getPager();
-        tabStrip   = ((ContainerEtapa)getActivity()).getTabStrip();
-        tab_layout = ((ContainerEtapa)getActivity()).getmTabLayout();
+    protected void accessViews(View rootView) {
+        super.view_pager = (( (ContainerProva)this.getActivity() ).getPager() );
+        super.tabStrip   = (( (ContainerProva)this.getActivity() ).getTabStrip());
+        super.tab_layout = (( (ContainerProva)this.getActivity() ).getmTabLayout() );
+        this.vida01 = ((ContainerProva)getActivity()).getVida01();
+        this.vida02 = ((ContainerProva)getActivity()).getVida02();
+        this.vida03 = ((ContainerProva)getActivity()).getVida03();
+        this.vida04 = ((ContainerProva)getActivity()).getVida04();
+        this.vida05 = ((ContainerProva)getActivity()).getVida05();
+        super.accessViews(rootView);
+    }
 
-        vida01 = ((ContainerProva)getActivity()).getVida01();
-        vida02 = ((ContainerProva)getActivity()).getVida02();
-        vida03 = ((ContainerProva)getActivity()).getVida03();
-        vida04 = ((ContainerProva)getActivity()).getVida04();
-        vida05 = ((ContainerProva)getActivity()).getVida05();
+    @Override
+    protected void updateUserProgress() {
+        final int VALOR_AUMENTO_PROGRESSO = 1;
+        final int PROGRESSO_ATUAL = view_pager.getCurrentItem();
+        final int NOVO_PROGRESSO = PROGRESSO_ATUAL + VALOR_AUMENTO_PROGRESSO;
+        final int PROGRESSO_BANCO = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
+
+        if(PROGRESSO_BANCO <= PROGRESSO_ATUAL) {
+            DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
+
+            // AVANÇAR O PROGRESSO EM UM
+            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, NOVO_PROGRESSO);
+        }
     }
 
 

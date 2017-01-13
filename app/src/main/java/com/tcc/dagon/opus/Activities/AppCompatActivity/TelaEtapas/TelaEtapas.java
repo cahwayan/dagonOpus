@@ -45,7 +45,6 @@ public class TelaEtapas extends AppCompatActivity {
 
     protected void instanciaObjetos() {
 
-
         // Instanciando o objeto banco
         DB_PROGRESSO = new GerenciadorBanco(this);
 

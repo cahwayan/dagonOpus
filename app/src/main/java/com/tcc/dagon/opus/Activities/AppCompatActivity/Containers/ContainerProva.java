@@ -25,7 +25,7 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 
 public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHeadlineSelectedListener, CompletarProva.OnHeadlineSelectedListener {
 
-    protected ImageView vida01, vida02, vida03, vida04, vida05;
+    private ImageView vida01, vida02, vida03, vida04, vida05;
 
     private int contagemVidas;
 
@@ -39,16 +39,13 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
         setContentView(R.layout.container_prova);
 
         this.tituloEtapa = getIntent().getStringExtra("tituloEtapa");
-
         this.moduloAtual = getIntent().getIntExtra("moduloAtual", 0);
         this.etapaAtual  = getIntent().getIntExtra("etapaAtual", 0);
-
 
         super.instanciaObjetos();
         this.accessViews();
         this.setContagemVidas(5);
         super.bloquearLicoes();
-        Log.i(TAG1, String.valueOf(moduloAtual)  + " " +  String.valueOf(etapaAtual) );
         this.desbloquearLicoes();
     }
 
@@ -130,23 +127,23 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
     }
 
     public ImageView getVida01() {
-        return vida01;
+        return this.vida01;
     }
 
     public ImageView getVida02() {
-        return vida02;
+        return this.vida02;
     }
 
     public ImageView getVida03() {
-        return vida03;
+        return this.vida03;
     }
 
     public ImageView getVida04() {
-        return vida04;
+        return this.vida04;
     }
 
     public ImageView getVida05() {
-        return vida05;
+        return this.vida05;
     }
 
     public int getContagemVidas() {
@@ -194,11 +191,11 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
 
     protected void accessViews() {
         super.accessViews();
-        vida01 = (ImageView) findViewById(R.id.vida01);
-        vida02 = (ImageView) findViewById(R.id.vida02);
-        vida03 = (ImageView) findViewById(R.id.vida03);
-        vida04 = (ImageView) findViewById(R.id.vida04);
-        vida05 = (ImageView) findViewById(R.id.vida05);
+        this.vida01 = (ImageView) findViewById(R.id.vida01);
+        this.vida02 = (ImageView) findViewById(R.id.vida02);
+        this.vida03 = (ImageView) findViewById(R.id.vida03);
+        this.vida04 = (ImageView) findViewById(R.id.vida04);
+        this.vida05 = (ImageView) findViewById(R.id.vida05);
     }
 
 

@@ -22,7 +22,7 @@ import com.tcc.dagon.opus.utils.PulseAnimation;
  */
 
 
-public class Exercicio extends Fragment {
+public abstract class Exercicio extends Fragment {
 
     /* OBJETOS */
     protected GerenciadorBanco             DB_PROGRESSO = null;
@@ -39,14 +39,12 @@ public class Exercicio extends Fragment {
     protected ViewPager view_pager;
     protected TabLayout tab_layout;
     protected LinearLayout tabStrip;
-    private TextView txtPontos;
+    protected TextView txtPontos;
 
     /* VARIÁVEIS */
-    private int qtdErros;
+    protected int qtdErros;
     protected int pontuacao;
     protected int moduloAtual, etapaAtual;
-
-
 
     @Override
     public void onPause() {
@@ -149,7 +147,6 @@ public class Exercicio extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 view_pager.setCurrentItem(tab.getPosition());
-
             }
 
             @Override
@@ -209,7 +206,7 @@ public class Exercicio extends Fragment {
 
         txtPontos.setText("Pontos: 0");
 
-        this.pontuacao = 0;
+        this.zerarPontuacao();
     }
 
     protected void concluirQuestao() {
@@ -247,10 +244,13 @@ public class Exercicio extends Fragment {
     }
 
     protected void questaoFinal() {
-        if(this.DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) <= etapaAtual) {
+        int PROGRESSO_ATUAL_ETAPA = DB_PROGRESSO.verificaProgressoEtapa(moduloAtual);
+
+        if(PROGRESSO_ATUAL_ETAPA <= etapaAtual) {
             this.DB_PROGRESSO.atualizaProgressoEtapa(moduloAtual, (etapaAtual + 1) );
             this.DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
         }
+
         this.getActivity().finish();
     }
 
@@ -304,21 +304,26 @@ public class Exercicio extends Fragment {
         }
     }
 
-    private void changeUpperBarIcon(int passo, int drawableID) {
+    protected void changeUpperBarIcon(int passo, int drawableID) {
         tab_layout.getTabAt(view_pager.getCurrentItem() + passo).setIcon(drawableID);
     }
 
-    private void setUpperBarIconClickable(int passo) {
+    protected void setUpperBarIconClickable(int passo) {
         this.tabStrip.getChildAt(view_pager.getCurrentItem() + passo).setClickable(true);
         this.tabStrip.getChildAt(view_pager.getCurrentItem() + passo).setEnabled(true);
     }
 
-    private void updateUserProgress() {
-        if(DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual) <= view_pager.getCurrentItem()) {
+    protected void updateUserProgress() {
+        final int VALOR_AUMENTO_PROGRESSO = 2;
+        final int PROGRESSO_ATUAL = view_pager.getCurrentItem();
+        final int NOVO_PROGRESSO = PROGRESSO_ATUAL + VALOR_AUMENTO_PROGRESSO;
+        final int PROGRESSO_BANCO = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
+
+        if(PROGRESSO_BANCO <= PROGRESSO_ATUAL) {
             DB_PROGRESSO.alterarPontuacao(moduloAtual, this.pontuacao);
 
             // AVANÇAR O PROGRESSO EM UM
-            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, (view_pager.getCurrentItem() + 1) );
+            DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, NOVO_PROGRESSO );
         }
     }
 
@@ -328,6 +333,14 @@ public class Exercicio extends Fragment {
 
     protected void movePrevious(View view) {
         view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
+    }
+
+    protected void setQtdErros(int qtdErros) {
+        this.qtdErros = qtdErros;
+    }
+
+    protected void zerarPontuacao() {
+        this.pontuacao = 0;
     }
 
 }

@@ -35,7 +35,7 @@ public class QuestaoMultipla extends Questao {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.getConstructorArgs();
-        this.rootView = inflater.inflate(R.layout.activity_questao_multipla_escolha, container, false);
+        this.setRootView(inflater, container, savedInstanceState);
         super.instanciaObjetos();
         this.accessCheckBoxes(this.rootView);
         super.accessViews(this.rootView);
@@ -44,7 +44,12 @@ public class QuestaoMultipla extends Questao {
         // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
         this.listeners();
 
-        return rootView;
+        return this.rootView;
+    }
+
+    @Override
+    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.rootView = inflater.inflate(R.layout.activity_questao_multipla_escolha, container, false);
     }
 
     private void accessCheckBoxes(View rootView) {
