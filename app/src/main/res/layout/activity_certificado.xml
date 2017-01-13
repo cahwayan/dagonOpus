@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context="com.tcc.dagon.opus.CertificadoActivity"
     android:padding="5dp"
-    android:background="#e1e1e1">
+    android:background="@color/fundoNeutro">
 
     <LinearLayout
         android:orientation="vertical"

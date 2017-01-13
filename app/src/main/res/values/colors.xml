@@ -47,4 +47,5 @@
 
     <!--CORES FUNDO-->
     <color name="corFundoNeutro">#e7e7e7</color>
+    <color name="fundoNeutro">#ececec</color>
 </resources>

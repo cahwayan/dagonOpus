@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="fill_vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="#fff">
+        android:background="@color/fundoNeutro">
 
         <LinearLayout
             android:orientation="vertical"

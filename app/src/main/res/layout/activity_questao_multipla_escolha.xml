@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#e7e7e7">
+    android:background="@color/fundoNeutro">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,54 +21,44 @@
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:typeface="normal"
-            android:fontFamily="@string/fonteQuestao" />
+            android:fontFamily="@string/fonteQuestao"
+            android:layout_marginBottom="15dp" />
 
         <CheckBox
             android:id="@+id/alternativa1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borda_alternativa"
-            android:padding="5dp"
+            android:padding="10dp"
             android:textSize="@dimen/textSizeAltenativa"
-            android:minHeight="60dp" />
+            android:minHeight="60dp"
+            android:background="@drawable/borda_checkbox" />
 
         <CheckBox
             android:id="@+id/alternativa2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borda_alternativa"
-            android:padding="5dp"
+            android:padding="10dp"
             android:textSize="@dimen/textSizeAltenativa"
-            android:minHeight="60dp" />
+            android:minHeight="60dp"
+            android:background="@drawable/borda_checkbox" />
 
         <CheckBox
             android:id="@+id/alternativa3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borda_alternativa"
-            android:padding="5dp"
+            android:padding="10dp"
             android:textSize="@dimen/textSizeAltenativa"
-            android:minHeight="60dp" />
+            android:minHeight="60dp"
+            android:background="@drawable/borda_checkbox" />
 
         <CheckBox
             android:id="@+id/alternativa4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borda_alternativa"
-            android:padding="5dp"
+            android:padding="10dp"
             android:textSize="@dimen/textSizeAltenativa"
-            android:minHeight="60dp" />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borda_container_licao"
-            android:layout_marginTop="40dp">
-
-
-
-        </LinearLayout>
+            android:minHeight="60dp"
+            android:background="@drawable/borda_checkbox" />
 
         <include layout="@layout/botoes_responder_questao"/>
 

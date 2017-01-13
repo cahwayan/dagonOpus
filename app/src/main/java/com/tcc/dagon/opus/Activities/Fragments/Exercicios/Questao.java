@@ -94,9 +94,7 @@ public class Questao extends Exercicio {
     @Override
     protected void accessViews(View rootView) {
         super.accessViews(rootView);
-
         pergunta = (TextView)    rootView.findViewById(R.id.pergunta);
-
     }
 
     protected void accessRadioButtons(View rootView) {

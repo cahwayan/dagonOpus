@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#e7e7e7">
+    android:background="@color/fundoNeutro">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="@color/corTituloLicao"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="normal|bold"
             android:typeface="normal"
             android:fontFamily="@string/fonteQuestao" />
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borda_container_licao"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="15dp">
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
