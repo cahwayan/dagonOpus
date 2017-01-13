@@ -22,7 +22,7 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
  * Created by cahwayan on 11/11/2016.
  */
 
-public class CompletarProva extends Completar {
+public final class CompletarProva extends Completar {
 
     private ImageView vida01, vida02, vida03, vida04, vida05;
 

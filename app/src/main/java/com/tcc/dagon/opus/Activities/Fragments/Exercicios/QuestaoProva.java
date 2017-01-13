@@ -21,7 +21,7 @@ import com.tcc.dagon.opus.utils.PulseAnimation;
  * Created by cahwayan on 11/11/2016.
  */
 
-public class QuestaoProva extends Questao {
+public final class QuestaoProva extends Questao {
 
     private ImageView vida01, vida02, vida03, vida04, vida05;
 

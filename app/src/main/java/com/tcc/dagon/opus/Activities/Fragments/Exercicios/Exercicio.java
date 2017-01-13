@@ -173,7 +173,7 @@ public abstract class Exercicio extends Fragment {
         });
     }
 
-    protected void validarRespostaUsuario() {}
+    protected abstract void validarRespostaUsuario();
 
     protected void respostaCerta() {
         // SETAR PONTUAÇÃO
