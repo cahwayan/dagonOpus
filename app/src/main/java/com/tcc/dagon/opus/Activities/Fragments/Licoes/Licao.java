@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tcc.dagon.opus.Activities.AppCompatActivity.Containers.ContainerEtapa;
 import com.tcc.dagon.opus.R;
+
+import org.w3c.dom.Text;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -26,7 +29,7 @@ public class Licao extends Fragment {
     protected PhotoViewAttacher photoView;
     private int layoutID = R.layout.id_resource;
 
-    public static Licao newInstance(int layoutID) {
+    public static Licao novaLicao(int layoutID) {
         Licao licao = new Licao();
         licao.setContentView(layoutID);
         return licao;

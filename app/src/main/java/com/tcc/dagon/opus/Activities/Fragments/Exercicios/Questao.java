@@ -42,7 +42,7 @@ public class Questao extends Exercicio {
     protected View rootView;
     private NovaJanelaAlerta alertaOpcaoVazia;
 
-    public static Questao newInstance(int moduloAtual, int etapaAtual, int questaoAtual) {
+    public static Questao novaQuestao(int moduloAtual, int etapaAtual, int questaoAtual) {
         Questao questao = new Questao();
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);

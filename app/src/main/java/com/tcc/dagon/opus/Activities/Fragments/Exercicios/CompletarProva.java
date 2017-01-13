@@ -38,7 +38,6 @@ public final class CompletarProva extends Completar {
 
     public static CompletarProva newInstance(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         CompletarProva completar = new CompletarProva();
-        //completar.setLayoutID(layoutID);
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);
         args.putInt("etapaAtual", etapaAtual);

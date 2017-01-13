@@ -20,7 +20,7 @@ public class QuestaoMultipla extends Questao {
     private CheckBox alternativa3;
     private CheckBox alternativa4;
 
-    public static QuestaoMultipla newInstance(int moduloAtual, int etapaAtual, int questaoAtual) {
+    public static QuestaoMultipla novaQuestaoMultipla(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoMultipla questao = new QuestaoMultipla();
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);

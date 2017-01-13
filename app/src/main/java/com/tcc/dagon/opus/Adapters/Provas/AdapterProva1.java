@@ -23,7 +23,7 @@ public class AdapterProva1 extends Adapter {
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO1);
+                return QuestaoProva.novaQuestaoProva(MODULO1, ETAPA9, QUESTAO1);
             case 1:
                 return CompletarProva.newInstance(R.layout.fragment_modulo1_prova_completar1,
                                                   MODULO1, ETAPA9, 8 /* PALAVRAS */,
@@ -32,9 +32,9 @@ public class AdapterProva1 extends Adapter {
                                                   respostasCertasAcentuadas = new String[] {"inteiro", "inteiro", "escreva", "leia",
                                                                                             "numero2", "resultado", "numero2", "resultado"});
             case 2:
-                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO3);
+                return QuestaoProva.novaQuestaoProva(MODULO1, ETAPA9, QUESTAO3);
             case 3:
-                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO4);
+                return QuestaoProva.novaQuestaoProva(MODULO1, ETAPA9, QUESTAO4);
             case 4:
                 return CompletarProva.newInstance(R.layout.fragment_modulo1_prova_completar1,
                         MODULO1, ETAPA9, 8 /* PALAVRAS */,
@@ -51,7 +51,7 @@ public class AdapterProva1 extends Adapter {
                         respostasCertas = new String[] {"inteiro", "inteiro", "escreva", "leia", "numero2", "resultado", "numero2", "resultado"},
                         respostasCertasAcentuadas = new String[] {"inteiro", "inteiro", "escreva", "leia", "numero2", "resultado", "numero2", "resultado"});
             case 7:
-                return QuestaoProva.newInstance(MODULO1, ETAPA9, QUESTAO8);
+                return QuestaoProva.novaQuestaoProva(MODULO1, ETAPA9, QUESTAO8);
             default:
                 return null;
         }

@@ -238,6 +238,8 @@ public class Completar extends Exercicio {
 
     }
 
+    protected void validarRespostaUsuario(){}
+
     // MÉTODO QUE CHECA RESPOSTAS DO COMPLETAR
     private void validarRespostaUsuario(String[] respostasCertas, String[] respostasCertasAcentuadas) {
 

@@ -32,9 +32,9 @@ public class AdapterEtapa1 extends Adapter {
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return Licao.newInstance(R.layout.fragment_modulo1_etapa1_licao2);
+                return Licao.novaLicao(R.layout.fragment_modulo1_etapa1_licao1);
             case 1:
-                return Questao.newInstance(MODULO1, ETAPA1, QUESTAO1);
+                return Questao.novaQuestao(MODULO1, ETAPA1, QUESTAO1);
             default:
                 return null;
         }

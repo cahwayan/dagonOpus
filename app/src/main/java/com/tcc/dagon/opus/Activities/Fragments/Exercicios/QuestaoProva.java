@@ -32,13 +32,12 @@ public final class QuestaoProva extends Questao {
         void onArticleSelected(int position);
     }
 
-    public static QuestaoProva newInstance(int moduloAtual, int etapaAtual, int questaoAtual) {
+    public static QuestaoProva novaQuestaoProva(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoProva questao = new QuestaoProva();
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);
         args.putInt("etapaAtual", etapaAtual);
         args.putInt("questaoAtual", questaoAtual);
-
         questao.setArguments(args);
         return questao;
     }
