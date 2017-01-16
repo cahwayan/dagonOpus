@@ -3,10 +3,10 @@ package com.tcc.dagon.opus.Adapters.Modulo1;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import com.tcc.dagon.opus.Activities.Fragments.Adapter.Adapter;
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.Completar;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CCompletar;
 import com.tcc.dagon.opus.Activities.Fragments.Licoes.Licao;
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.Questao;
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.QuestaoMultipla;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CQuestao;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CQuestaoMultipla;
 import com.tcc.dagon.opus.R;
 
 /**
@@ -26,22 +26,22 @@ public class AdapterEtapa7 extends Adapter {
             case 0:
                 return Licao.novaLicao(R.layout.fragment_modulo1_etapa7_licao1);
             case 1:
-                return QuestaoMultipla.novaQuestaoMultipla(MODULO1, ETAPA7, QUESTAO1);
+                return CQuestaoMultipla.novaQuestaoMultipla(MODULO1, ETAPA7, QUESTAO1);
             case 2:
                 return Licao.novaLicao(R.layout.fragment_modulo1_etapa7_licao3);
             case 3:
-                return Questao.novaQuestao(MODULO1, ETAPA7, QUESTAO2);
+                return CQuestao.novaQuestao(MODULO1, ETAPA7, QUESTAO2);
             case 4:
                 return Licao.novaLicao(R.layout.fragment_modulo1_etapa7_licao5);
             case 5:
-                return Completar.newInstance(R.layout.fragment_modulo1_etapa7_completar1,
+                return CCompletar.novoCompletar(R.layout.fragment_modulo1_etapa7_completar1,
                                              MODULO1, ETAPA7, 7 /* PALAVRAS */,
                                              respostasCertas = new String[] {"falso", "verdadeiro", "verdadeiro", "falso", "verdadeiro", "falso", "verdadeiro"},
                                              respostasCertasAcentuadas = new String[] {"falso", "verdadeiro", "verdadeiro", "falso", "verdadeiro", "falso", "verdadeiro"});
             case 6:
                 return Licao.novaLicao(R.layout.fragment_modulo1_etapa7_licao7);
             case 7:
-                return Completar.newInstance(R.layout.fragment_modulo1_etapa7_completar2,
+                return CCompletar.novoCompletar(R.layout.fragment_modulo1_etapa7_completar2,
                                              MODULO1, ETAPA7, 6 /* PALAVRAS */,
                                              respostasCertas = new String[] {"verdadeiro", "falso", "falso", "verdadeiro", "verdadeiro", "falso"},
                                              respostasCertasAcentuadas = new String[] {"verdadeiro", "falso", "falso", "verdadeiro", "verdadeiro", "falso"});

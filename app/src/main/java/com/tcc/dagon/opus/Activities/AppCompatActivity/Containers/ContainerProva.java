@@ -6,12 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CompletarProva;
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.QuestaoProva;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CCompletarProva;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CQuestaoProva;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
@@ -23,7 +22,7 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
  */
 
 
-public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHeadlineSelectedListener, CompletarProva.OnHeadlineSelectedListener {
+public class ContainerProva extends ContainerEtapa implements CQuestaoProva.OnHeadlineSelectedListener, CCompletarProva.OnHeadlineSelectedListener {
 
     private ImageView vida01, vida02, vida03, vida04, vida05;
 
@@ -100,8 +99,6 @@ public class ContainerProva extends ContainerEtapa implements QuestaoProva.OnHea
         builder.setMessage(mensagem).setPositiveButton("Sim", listenerOnClick)
                 .setNegativeButton("Não", listenerOnClick).show();
     }
-
-
 
     @Override
     protected void desbloquearLicoes() {

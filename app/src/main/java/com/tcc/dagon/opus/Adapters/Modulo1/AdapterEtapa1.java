@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import com.tcc.dagon.opus.Activities.Fragments.Adapter.Adapter;
 import com.tcc.dagon.opus.Activities.Fragments.Licoes.Licao;
-import com.tcc.dagon.opus.Activities.Fragments.Exercicios.Questao;
+import com.tcc.dagon.opus.Activities.Fragments.Exercicios.CQuestao;
 import com.tcc.dagon.opus.R;
 
 /**
@@ -34,7 +34,7 @@ public class AdapterEtapa1 extends Adapter {
             case 0:
                 return Licao.novaLicao(R.layout.fragment_modulo1_etapa1_licao1);
             case 1:
-                return Questao.novaQuestao(MODULO1, ETAPA1, QUESTAO1);
+                return CQuestao.novaQuestao(MODULO1, ETAPA1, QUESTAO1);
             default:
                 return null;
         }
