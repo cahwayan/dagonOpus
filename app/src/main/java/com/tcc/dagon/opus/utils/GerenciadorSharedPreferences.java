@@ -46,8 +46,9 @@ public class GerenciadorSharedPreferences extends Activity {
                 default: return "default";
 
             }
-
         }
+
+
 
 
         /*FLAGS DA TELA DE CONFIGURAÇÕES*/
@@ -103,5 +104,11 @@ public class GerenciadorSharedPreferences extends Activity {
         return sharedPreferences.getBoolean(nomeFlag, false);
     }
 
+    public boolean somEstaAtivado() {
+        return lerFlagBoolean(NomePreferencia.desativarSons);
+    }
+    public void escreverFlagProva(int moduloAtual) {
+        escreverFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual), true);
+    }
 
 }

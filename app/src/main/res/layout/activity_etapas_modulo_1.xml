@@ -4,7 +4,7 @@
     android:id="@+id/ScrollEtapas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tcc.dagon.opus.telasEtapas.EtapasModulo1Activity"
+    tools:context="com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity"
     android:padding="5dp"
     android:background="@color/fundoNeutro">
 

@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="@color/corTituloLicao"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:textStyle="normal|bold"
             android:typeface="normal"
             android:fontFamily="@string/fonteQuestao" />

@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.tcc.dagon.opus.Activities.AppCompatActivity.Aprender.AprenderActivity_;
+import com.tcc.dagon.opus.telas.login.LoginActivity_;
+import com.tcc.dagon.opus.telas.aprender.AprenderActivity_;
+import com.tcc.dagon.opus.telas.login.CadastroActivity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
@@ -69,7 +71,7 @@ public class LauncherActivity extends AppCompatActivity {
         cadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastra = new Intent(LauncherActivity.this, com.tcc.dagon.opus.CadastroActivity.class);
+                Intent cadastra = new Intent(LauncherActivity.this, CadastroActivity.class);
                 startActivity(cadastra);
             }
         });

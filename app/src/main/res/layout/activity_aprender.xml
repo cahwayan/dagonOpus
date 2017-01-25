@@ -39,20 +39,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="fill_vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/fundoNeutro">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:id="@+id/layoutModulos"
-
-            android:baselineAligned="false"
-            android:background="@color/corFundoNeutro">
+            android:baselineAligned="false">
 
             <RelativeLayout
-                android:background="@color/corFundoNeutro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
@@ -137,7 +133,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/corFundoNeutro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
@@ -288,7 +283,6 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:background="@color/corFundoNeutro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -368,7 +362,6 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:background="@color/corFundoNeutro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
@@ -519,7 +512,6 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:background="@color/corFundoNeutro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"

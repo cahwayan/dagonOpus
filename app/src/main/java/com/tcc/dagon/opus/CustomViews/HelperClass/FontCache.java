@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.CustomViews.HelperClass;
+package com.tcc.dagon.opus.customviews.HelperClass;
 
 import android.content.Context;
 import android.graphics.Typeface;

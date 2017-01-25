@@ -1,11 +1,10 @@
-package com.tcc.dagon.opus.CustomViews;
+package com.tcc.dagon.opus.customviews;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import com.tcc.dagon.opus.CustomViews.HelperClass.HelperButton;
-import com.tcc.dagon.opus.CustomViews.HelperClass.HelperEditText;
+import com.tcc.dagon.opus.customviews.HelperClass.HelperEditText;
 
 /**
  * Created by cahwayan on 14/12/2016.

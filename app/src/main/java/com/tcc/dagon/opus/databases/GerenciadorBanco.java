@@ -227,7 +227,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return pontuacao;
     }
 
-    public void alterarPontuacao(int moduloPertencente, int pontos) {
+    public void atualizarPontuacao(int moduloPertencente, int pontos) {
         int pontuacaoAtual = this.verificarPontuacao(moduloPertencente);
         String tabela = Progresso.TABELA_PONTOS;
         ContentValues values = new ContentValues();
@@ -268,11 +268,11 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
     // DAS ETAPAS DO USUÁRIO PARA AQUELE MÓDULO
     // EX: verificaProgressoEtapa(3) busca o progresso das etapas do módulo 3
-    public int verificaProgressoEtapa(int progressoEtapa) {
+    public int verificaProgressoEtapa(int moduloPertencente) {
         String tabela = Progresso.TABELA_PROGRESSO;
         String colunasEtapa[] = {""};
         String limit = "1";
-        switch (progressoEtapa) {
+        switch (moduloPertencente) {
             case 1:
                 colunasEtapa[0] = Progresso.COLUNA_ETAPA1;
                 break;
@@ -312,14 +312,14 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                 limit
         );
         cursor.moveToFirst();
-        progressoEtapa = cursor.getInt(
+        moduloPertencente = cursor.getInt(
                 cursor.getColumnIndexOrThrow(colunasEtapa[0])
         );
         fecharBanco();
         cursor.close();
 
         // RETORNA O VALOR REQUERIDO
-        return progressoEtapa;
+        return moduloPertencente;
     }
 
     // VERIFICA PROGRESSO DA LICAO

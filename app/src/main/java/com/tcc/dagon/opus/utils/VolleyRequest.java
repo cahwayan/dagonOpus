@@ -11,7 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.tcc.dagon.opus.StringsBanco;
+import com.tcc.dagon.opus.telas.login.StringsBanco;
 import java.util.HashMap;
 import java.util.Map;
 
