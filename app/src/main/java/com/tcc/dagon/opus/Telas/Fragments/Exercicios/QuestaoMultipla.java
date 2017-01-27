@@ -112,6 +112,32 @@ public class QuestaoMultipla extends Questao {
     }
 
     @Override
+    public void tentarNovamente() {
+        hideUnnecessaryView(btnTentarNovamente);
+        hideUnnecessaryView(imgRespostaCerta);
+        hideUnnecessaryView(imgRespostaErrada);
+        unhideView(btnChecarResposta);
+        txtPontos.setText("Pontos: 0");
+        setQtdErros(0);
+        zerarPontuacao();
+
+        this.uncheckAllButtons();
+        this.setAllButtonsClickable();
+    }
+
+    @Override
+    public void respostaErrada() {
+        this.qtdErros++;
+        this.playSound(somRespostaErrada);
+        this.initAnimationAnswer(imgRespostaErrada);
+        this.hideUnnecessaryView(btnChecarResposta);
+        this.unhideView(btnTentarNovamente);
+
+        setAllButtonsUnclickable();
+
+    }
+
+    @Override
     protected void fetchQuestionFromDatabase() {
         this.pergunta.setText(DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
 

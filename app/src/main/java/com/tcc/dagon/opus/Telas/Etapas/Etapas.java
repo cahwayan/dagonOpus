@@ -39,6 +39,7 @@ public class Etapas extends AppCompatActivity {
     protected Context context = this;
 
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -84,7 +85,7 @@ public class Etapas extends AppCompatActivity {
     }
 
     protected void desbloquearEtapas(List<LinearLayout> listaEtapas) {
-        for(int i = 0 ; i <= DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) - 1; i++) {
+        for(int i = 0 ; i < DB_PROGRESSO.verificaProgressoEtapa(moduloAtual); i++) {
 
 
             // ENCHENDO OS VETORES COM OS OBJETOS

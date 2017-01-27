@@ -182,7 +182,7 @@ public abstract class CExercicio extends Fragment{
         playSound(this.somRespostaCerta);
         setPontuacao();
         initAnimationAnswer(this.imgRespostaCerta);
-        btnAvancarQuestao.setVisibility(View.VISIBLE);
+        unhideView(btnAvancarQuestao);
     }
 
     public void respostaErrada() {
@@ -191,7 +191,6 @@ public abstract class CExercicio extends Fragment{
         this.initAnimationAnswer(imgRespostaErrada);
         this.hideUnnecessaryView(btnChecarResposta);
         this.unhideView(btnTentarNovamente);
-
     }
 
     public void tentarNovamente() {
@@ -287,12 +286,7 @@ public abstract class CExercicio extends Fragment{
     }
 
     protected void atualizarProgresso() {
-        //final int VALOR_AUMENTO_PROGRESSO = 2;
-        //final int PROGRESSO_ATUAL = view_pager.getCurrentItem();
-        //final int NOVO_PROGRESSO = PROGRESSO_ATUAL + VALOR_AUMENTO_PROGRESSO;
-       //final int PROGRESSO_BANCO = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
         if(!usuarioJaCompletouEssaLicaoAntes()) {
-
             atualizarProgressoLicao(/* AUMENTO EM */ 2);
             atualizarPontuacao();
         }

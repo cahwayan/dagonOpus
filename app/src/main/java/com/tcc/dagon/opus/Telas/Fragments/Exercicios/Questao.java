@@ -1,7 +1,10 @@
 package com.tcc.dagon.opus.telas.fragments.exercicios;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +59,7 @@ public class Questao extends CExercicio {
         this.accessViews(this.rootView);
         this.accessRadioButtons(this.rootView);
         this.fetchQuestionFromDatabase();
-        super.listeners();
+        this.listeners();
         return this.rootView;
     }
 
@@ -96,6 +99,28 @@ public class Questao extends CExercicio {
         alternativa2      = (RadioButton) rootView.findViewById(R.id.alternativa2);
         alternativa3      = (RadioButton) rootView.findViewById(R.id.alternativa3);
         alternativa4      = (RadioButton) rootView.findViewById(R.id.alternativa4);
+    }
+
+    private RadioButton getCheckedButton() {
+        for(int i = 0; i < radioGroupQuestao.getChildCount(); i++) {
+            RadioButton checkedButton = (RadioButton) radioGroupQuestao.getChildAt(i);
+
+            if(checkedButton.isChecked()) {
+                return checkedButton;
+            }
+        }
+        return null;
+    }
+
+    @Override protected void listeners() {
+        super.listeners();
+
+        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                concluirQuestao();
+            }
+        });
     }
 
     @Override
@@ -142,10 +167,35 @@ public class Questao extends CExercicio {
     @Override
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     public void respostaErrada() {
-        super.respostaErrada();
-
-        // DESABILITAR RADIO BUTTONS
         setAllButtonsUnclickable();
+        qtdErros++;
+        playSound(somRespostaErrada);
+        initAnimationAnswer(imgRespostaErrada);
+        hideUnnecessaryView(btnChecarResposta);
+        unhideView(btnAvancarQuestao);
+        setPontuacao();
+        showCorrectAnswer();
+    }
+
+    private void showCorrectAnswer() {
+
+        for(int i = 1; i <= 4; i++) {
+            RadioButton correctAnswerButton = (RadioButton) radioGroupQuestao.getChildAt(i - 1);
+            RadioButton checkedButton = getCheckedButton();
+            int alternativa = verificaResposta(i);
+            final int RESPOSTA_CERTA = 1;
+
+            if( alternativa == RESPOSTA_CERTA) {
+
+                correctAnswerButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+
+                if(checkedButton != null) {
+                    checkedButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
+                }
+
+                break;
+            }
+        }
     }
 
     @Override
@@ -153,6 +203,9 @@ public class Questao extends CExercicio {
     public void tentarNovamente() {
         super.tentarNovamente();
 
+        hideUnnecessaryView(btnAvancarQuestao);
+
+        resetButtonsStyle();
         // DESMARCANDO OS RADIO BUTTONS
         uncheckAllButtons();
 
@@ -181,14 +234,6 @@ public class Questao extends CExercicio {
         switch (qtdErros) {
             case 0: this.pontuacao += 500;
                 break;
-            case 1: this.pontuacao -= 100;
-                break;
-            case 2: this.pontuacao -= 200;
-                break;
-            case 3: this.pontuacao -= 300;
-                break;
-            case 4: this.pontuacao -= 400;
-                break;
             default: this.pontuacao = 0;
                 break;
         }
@@ -212,6 +257,13 @@ public class Questao extends CExercicio {
 
     protected void uncheckAllButtons() {
         radioGroupQuestao.clearCheck();
+    }
+
+    private void resetButtonsStyle() {
+        for(int i = 0; i < radioGroupQuestao.getChildCount(); i++ ) {
+            RadioButton button = (RadioButton) radioGroupQuestao.getChildAt(i);
+            button.setCompoundDrawables(null, null, null, null);
+        }
     }
 
     protected void fetchQuestionFromDatabase() {

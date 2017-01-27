@@ -166,18 +166,12 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     @Override
     public void questaoFinal() {
-        // ESCREVENDO A FLAG PARA O USUARIO NAO PRECISAR REFAZER AS PROVAS APÓS TERMINAR UMA VEZ
-        final String completouProva = GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual);
-        preferencias.escreverFlagBoolean(completouProva, true);
+        preferencias.escreverFlagProva(this.moduloAtual);
 
-        // ATUALIZANDO O PROGRESSO SE FOR A PRIMEIRA VEZ
-        // SE O PROGRESSO DA ETAPA 1 DO MÓDULO 1 FOR MENOR OU IGUAL A TRÊS, É A PRIMEIRA VEZ QUE O USUÁRIO ESTÁ FAZENDO
-        final int PROGRESSO_ATUAL = DB_PROGRESSO.verificaProgressoModulo();
-        final int PROXIMO_MODULO = moduloAtual + 1;
-        if (PROGRESSO_ATUAL <= moduloAtual) {
-            DB_PROGRESSO.atualizarPontuacao(moduloAtual, pontuacao);
-            DB_PROGRESSO.atualizaProgressoModulo(moduloAtual + 1);
-            DB_PROGRESSO.atualizaProgressoEtapa(PROXIMO_MODULO, 1);
+        if (!usuarioJaCompletouEsseModuloAntes()) {
+            atualizarPontuacao();
+            liberarProximoModulo();
+            liberarPrimeiraEtapaDoProximoModulo();
         }
 
         this.getActivity().finish();
