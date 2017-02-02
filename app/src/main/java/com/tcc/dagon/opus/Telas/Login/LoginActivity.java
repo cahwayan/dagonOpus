@@ -163,9 +163,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 if(volleyRequest.requestLogar(sEmail, sSenha)) {
                     startLogin();
                 }
-
             }
-
         } else {
             Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
         }
@@ -326,7 +324,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     // MÉTODO QUE LIDA COM O SUCESSO OU A FALHA NO LOGIN
-    protected void handleSignInResult(GoogleSignInResult result) {
+    private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess() + result);
         if (result.isSuccess()) {
             // O USUÁRIO SE CONECTOU COM SUCESSO,
@@ -340,6 +338,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             startLogin();
         } else {
             // SE NAO DEU TUDO CERTO, MOSTRAR UMA MENSAGEM DE ERRO
+            Log.d("ERRO GOOGLE: ",result.getStatus().toString() + " | " + result.toString() + " | ");
             Toast.makeText(context, "Ocorreu um erro", Toast.LENGTH_LONG).show();
             if(googleApiClient.isConnected()) {
                 googleApiClient.clearDefaultAccountAndReconnect();

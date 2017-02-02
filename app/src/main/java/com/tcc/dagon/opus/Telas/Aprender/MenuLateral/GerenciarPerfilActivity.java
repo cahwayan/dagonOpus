@@ -132,14 +132,11 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     }
 
     private void carregarProgresso() {
-        barraGeral.setProgress(Float.parseFloat(valueOf(DB_PROGRESSO.verificaProgressoEtapa(1) +
-                DB_PROGRESSO.verificaProgressoEtapa(2) +
-                DB_PROGRESSO.verificaProgressoEtapa(3) +
-                DB_PROGRESSO.verificaProgressoEtapa(4) +
-                DB_PROGRESSO.verificaProgressoEtapa(5) +
-                DB_PROGRESSO.verificaProgressoEtapa(6) +
-                DB_PROGRESSO.verificaProgressoEtapa(7) +
-                DB_PROGRESSO.verificaProgressoEtapa(8))) );
+        int progressoGeral = 0;
+        for(int i = 1; i <= 8; i++) {
+            progressoGeral += DB_PROGRESSO.verificaProgressoEtapa(i);
+        }
+        barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));
     }
 
     private void clickListeners() {
@@ -300,7 +297,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
                 i.putExtra("emailUsuario", preferencias.lerFlagString(NomePreferencia.emailUsuario));
                 startActivity(i);
-                finish();
             }
 
         }

@@ -7,6 +7,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.2.3'
         // replace with the current version of the android-apt plugin
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.google.gms:google-services:3.0.0'
+
     }
 }
 
@@ -17,6 +19,7 @@ repositories {
 
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'com.google.gms.google-services'
 def AAVersion = '4.2.0'
 
 dependencies {
@@ -40,14 +43,16 @@ apt {
 android {
     signingConfigs {
         config {
-            keyAlias 'pluslogin'
-            keyPassword 'sarrar'
-            storeFile file('chave/PlusLogin.jks')
-            storePassword 'sarrar'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('chave/debug.keystore')
+            storePassword 'android'
         }
     }
+
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
+
     defaultConfig {
         applicationId "com.tcc.dagon.opus"
         minSdkVersion 18
@@ -100,8 +105,9 @@ dependencies {
     compile 'com.github.thunderrise:android-TNRAnimationHelper:-SNAPSHOT'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.google.android.gms:play-services:9.8.0'
-    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
-    compile 'com.google.android.gms:play-services-auth:9.8.0'
+    compile 'com.google.android.gms:play-services:9.0.0'
+    compile 'com.google.android.gms:play-services-appindexing:9.0.0'
+    compile 'com.google.android.gms:play-services-auth:9.0.0'
+    compile 'com.google.firebase:firebase-messaging:9.0.0'
 
 }

@@ -232,6 +232,9 @@ public abstract class CExercicio extends Fragment{
         hideUnnecessaryView(imgRespostaCerta);
         hideUnnecessaryView(imgRespostaErrada);
 
+        zerarPontuacao();
+        this.setQtdErros(0);
+
         atualizarProgresso();
 
         // TROCANDO O FRAGMENTO

@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -125,29 +126,43 @@ public class Questao extends CExercicio {
 
     @Override
     public void validarRespostaUsuario() {
-        final int ALTERNATIVA1 = 0x7f0f0146;
-        final int ALTERNATIVA2 = 0x7f0f0147;
-        final int ALTERNATIVA3 = 0x7f0f0148;
-        final int ALTERNATIVA4 = 0x7f0f0149;
-        final int OPCAO_VAZIA = -1;
+
+        final int ALTERNATIVA1 = alternativa1.getId();
+        final int ALTERNATIVA2 = alternativa2.getId();
+        final int ALTERNATIVA3 = alternativa3.getId();
+        final int ALTERNATIVA4 = alternativa4.getId();
 
         int alternativaMarcada = radioGroupQuestao.getCheckedRadioButtonId();
-        int resposta = 0;
+        int resposta;
 
-        switch (alternativaMarcada) {
-            case ALTERNATIVA1: resposta = verificaResposta(this.ALTERNATIVA1);
-                break;
-            case ALTERNATIVA2: resposta = verificaResposta(this.ALTERNATIVA2);
-                break;
-            case ALTERNATIVA3: resposta = verificaResposta(this.ALTERNATIVA3);
-                break;
-            case ALTERNATIVA4: resposta = verificaResposta(this.ALTERNATIVA4);
-                break;
-            case OPCAO_VAZIA: alertaOpcaoVazia();
-                return;
+        if(alternativaMarcada == ALTERNATIVA1)
+        {
+            resposta = verificaResposta(this.ALTERNATIVA1);
+        }
+        else if(alternativaMarcada == ALTERNATIVA2)
+        {
+            resposta = verificaResposta(this.ALTERNATIVA2);
+        }
+        else if(alternativaMarcada == ALTERNATIVA3)
+        {
+            resposta = verificaResposta(this.ALTERNATIVA3);
+        }
+        else if(alternativaMarcada == ALTERNATIVA4)
+        {
+            resposta = verificaResposta(this.ALTERNATIVA4);
+        }
+        else
+        {
+            alertaOpcaoVazia();
+            return;
         }
 
+        Log.d("Retorno da alt:", String.valueOf(resposta));
+        Log.d("Retorno do BANCO: ", String.valueOf(this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 3)));
+
+
         final int RESPOSTA_CERTA  = 1;
+
         if(resposta == RESPOSTA_CERTA) {
             respostaCerta();
         } else {

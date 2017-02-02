@@ -2,6 +2,7 @@ package com.tcc.dagon.opus.telas.fragments.exercicios;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,6 @@ public class QuestaoMultipla extends Questao {
         hideUnnecessaryView(imgRespostaErrada);
         unhideView(btnChecarResposta);
         txtPontos.setText("Pontos: 0");
-        setQtdErros(0);
         zerarPontuacao();
 
         this.uncheckAllButtons();
@@ -127,7 +127,8 @@ public class QuestaoMultipla extends Questao {
 
     @Override
     public void respostaErrada() {
-        this.qtdErros++;
+        qtdErros += 1;
+        Log.d("ERROS: ", String.valueOf(this.qtdErros));
         this.playSound(somRespostaErrada);
         this.initAnimationAnswer(imgRespostaErrada);
         this.hideUnnecessaryView(btnChecarResposta);
@@ -135,6 +136,31 @@ public class QuestaoMultipla extends Questao {
 
         setAllButtonsUnclickable();
 
+    }
+
+    @Override
+    public void setPontuacao() {
+
+        pontuacao += 1000;
+
+        switch (qtdErros) {
+            case 0: this.pontuacao += 500;
+                break;
+            case 1: this.pontuacao -= 100;
+                break;
+            case 2: this.pontuacao -= 200;
+                break;
+            case 3: this.pontuacao -= 300;
+                break;
+            case 4: this.pontuacao -= 400;
+                break;
+            case 5: this.pontuacao -= 500;
+                break;
+            default: this.pontuacao = 0;
+                break;
+        }
+
+        txtPontos.setText("Pontos: " + String.valueOf(pontuacao));
     }
 
     @Override

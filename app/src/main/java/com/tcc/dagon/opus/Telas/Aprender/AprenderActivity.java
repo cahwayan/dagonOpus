@@ -239,7 +239,10 @@ public class AprenderActivity
     // MÉTODO QUE INSTANCIA O BANCO CASO ELE NÃO EXISTA
     protected void instanciaBanco() {
         // CRIANDO O OBJETO DO GERENCIADOR DO BANCO
-        DB_PROGRESSO = new GerenciadorBanco(this);
+        if(DB_PROGRESSO == null) {
+            DB_PROGRESSO = new GerenciadorBanco(this);
+        }
+
 
         // TENTANDO PEGAR O ARQUIVO DO BANCO PARA VER SE ELE EXISTE
         File banco = context.getApplicationContext().getDatabasePath(DB_PROGRESSO.getDbName());
