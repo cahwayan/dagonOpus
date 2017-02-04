@@ -33,6 +33,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
@@ -68,7 +69,6 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     final int MY_PERMISSIONS_REQUEST_GET_ACCOUNTS = 1;
 
     /* VARIÁVEIS GOOGLE */
-
     public String name;
 
     /*STRINGS DO EMAIL E SENHA*/
@@ -153,16 +153,15 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
     @Click
     protected void btnLogar() {
-
         sEmail    = textEmail.getText().toString().trim();
         sSenha = textSenha.getText().toString().trim();
 
         // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
         if(VerificarConexao.verificarConexao()) {
             if(verificarCredenciais(sEmail, sSenha)) {
-                if(volleyRequest.requestLogar(sEmail, sSenha)) {
-                    startLogin();
-                }
+                volleyRequest.requestLogar(this, sEmail, sSenha);
+                //w
+
             }
         } else {
             Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
@@ -255,7 +254,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         // CASO A PERMISSÃO ATUAL SEJA DIFERENTE DE PERMITIDA
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
             // PEDIR PERMISSÕES
-            pedirPermissaoGoogleLogin();
+            pedirPermissaoGoogleLogin(); //y
         } else {
             // SE AS PERMISSÕES JÁ FORAM GARANTIDAS, FAZER O SIGNIN
             signInGoogle();
@@ -358,7 +357,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
     public void startLogin() {
         startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
-        this.finish();
+        finish();
     }
 }
 

@@ -96,7 +96,7 @@ public class AprenderActivity
     @ViewById protected TextView txtProgresso4;
     @ViewById protected TextView txtProgresso5;
     @ViewById protected TextView txtProgresso6;
-
+//w
     /* BARRA DE PROGRESSO DOS MÓDULOS */
     @ViewById protected RoundCornerProgressBar barraModulo1;
     @ViewById protected RoundCornerProgressBar barraModulo2;

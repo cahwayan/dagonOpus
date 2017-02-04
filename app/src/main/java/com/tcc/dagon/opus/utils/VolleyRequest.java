@@ -1,6 +1,8 @@
 package com.tcc.dagon.opus.utils;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -11,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.tcc.dagon.opus.telas.aprender.AprenderActivity_;
 import com.tcc.dagon.opus.telas.login.StringsBanco;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +31,7 @@ public class VolleyRequest {
     private RequestQueue requestQueue;
     Activity activity;
     private boolean isLogin = false;
+    String resposta = "";
 
     public VolleyRequest(Activity activity) {
         /* OBJETO DE CONEXÃO */
@@ -36,14 +40,22 @@ public class VolleyRequest {
         preferencias = new GerenciadorSharedPreferences(activity);
     }
 
-    public void requestCadastrarDados(final String email, final String senha, final String nome) {
+    public String requestCadastrarDados(final String email, @Nullable final String senha, @Nullable final String nome) {
+
         /* REQUEST NO BANCO */
         StringRequest request = new StringRequest(Request.Method.POST, stringsBanco.getInsereUrl(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(activity, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                preferencias.escreverFlagString(GerenciadorSharedPreferences.NomePreferencia.nomeUsuario, nome);
-                activity.finish();
+                if(response.equals("certo")) {
+                    Toast.makeText(activity, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                    preferencias.escreverFlagString(GerenciadorSharedPreferences.NomePreferencia.nomeUsuario, nome);
+                    activity.finish();
+                } else if(response.equals("erroExiste")) {
+                    Toast.makeText(activity, "E-mail já cadastrado. Escolha outro", Toast.LENGTH_LONG).show();
+                }
+
+                Log.d("RESP REQUESTCADASTR: ", response );
+
             }
         }, new Response.ErrorListener() {
             public void onErrorResponse(VolleyError error) {
@@ -54,22 +66,37 @@ public class VolleyRequest {
             //INSERE DADOS EM BANCO DE DADOS, LEMBRANDO QUE DEVE SER PERFEITAMENTE IGUAL OS NOMES DAS TABELAS
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parameters = new HashMap<String, String>();
-                parameters.put("EMAIL_USUARIO", email);
-                parameters.put("SENHA_USUARIO", senha);
-                parameters.put("NOME_USUARIO", nome);
+
+                if(email != null) {
+                    parameters.put("EMAIL_USUARIO", email);
+                }
+
+                if(senha != null) {
+                    parameters.put("SENHA_USUARIO", senha);
+                }
+
+                if(nome != null) {
+                    parameters.put("NOME_USUARIO", nome);
+                }
+
                 return parameters;
             }
         };
 
         // Abre a tela de login após cadastro
         requestQueue.add(request);
+
+        return this.resposta;
     }
 
-    public boolean requestLogar(final String sEmail, final String sSenha) {
+    public void requestLogar(final Activity context, final String sEmail, final String sSenha) {
+
+        RequestQueue requestLogin = Volley.newRequestQueue(context);
+//w
         /* INÍCIO REQUEST*/
         StringRequest request = new StringRequest(Request.Method.POST,
-                /* ENDEREÇO QUE O REQUEST IRÁ BUSCAR */
-                stringsBanco.getLoginUrl(),
+                /* ENDEREÇO QUE O REQUEST IRÁ BUSCAR */ //y
+                StringsBanco.getLoginUrl(),
                 new Response.Listener<String>() {
                     @Override
                     /* LISTENER DA RESPOSTA DO SERVIDOR */
@@ -80,12 +107,15 @@ public class VolleyRequest {
                             preferencias.escreverFlagString(GerenciadorSharedPreferences.NomePreferencia.emailUsuario, sEmail);
                             //lerNomeInterno();
                             gravarNomeInterno(sEmail);
-                            isLogin = true;
+                            context.startActivity(new Intent(context, AprenderActivity_.class));
+                            context.finish();
                         }else{
                             Toast.makeText(activity,
                                     "Login ou textSenha inválidos",
                                     Toast.LENGTH_SHORT).show();
                         }
+
+                        Log.d("RESPOSTA LOGIN: ", response);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -102,15 +132,13 @@ public class VolleyRequest {
             }
 
         };
-        requestQueue.add(request);
-
-        return isLogin;
+        requestLogin.add(request);
     }
 
     /*MÉTODO QUE FAZ UM REQUEST NO BANCO COM O E-MAIL DO USUÁRIO QUANDO O USUÁRIO LOGA
     PARA PEGAR O NOME REFERENTE AO E-MAIL E GUARDA ESSE NOME EM UMA SHARED PREFERENCE
     PARA USAR O NOME DELE NO PERFIL*/
-    protected void gravarNomeInterno(final String sEmail) {
+    public void gravarNomeInterno(final String sEmail) {
         StringRequest requestNome = new StringRequest(Request.Method.POST,
                 stringsBanco.getNomeUrl(),
                 new Response.Listener<String>() {
@@ -160,5 +188,9 @@ public class VolleyRequest {
 
         // Abre a tela de login após cadastro
         requestQueue.add(request);
+    }
+
+    public void requestUsuarioExiste() {
+
     }
 }

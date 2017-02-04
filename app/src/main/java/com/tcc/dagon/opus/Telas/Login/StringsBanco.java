@@ -9,7 +9,7 @@ public class StringsBanco {
         return insereUrl;
     }
 
-    public String getLoginUrl() {
+    public static String getLoginUrl() {
         return loginUrl;
     }
 
@@ -18,23 +18,27 @@ public class StringsBanco {
     }
 
     public String getInsereGoogle() {
-        return insereGoogle;
+
+        return insereGoogle; //y //y
     }
 
     private final String insereUrl;
-    private final String loginUrl;
+    private static final String loginUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/ScriptLogin.php";;
     private final String insereGoogle;
     private final String nomeUrl;
     private final String mostrarUrl;
-    public  final String recuperarSenha;
+    public final String usuarioExiste;
+    public final String recuperarSenha;
     public final String certificadoUrl;
 
 
     public StringsBanco(){
         mostrarUrl = "http://dagonopus.esy.es/phpAndroid/mostrarEstudante.php";
-        insereUrl = "http://dagonopus.esy.es/phpAndroid/insere.php";
+        insereUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptCadastro.php";
+        usuarioExiste = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptVerificarUsuarioExiste";
+
         insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
-        loginUrl = "http://dagonopus.esy.es/phpAndroid/login.php";
+
         recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
         nomeUrl = "http://dagonopus.esy.es/phpAndroid/lerNome.php";
         certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
