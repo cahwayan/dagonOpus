@@ -27,7 +27,6 @@ public class CertificadoActivity extends AppCompatActivity {
     private Button btnCertificado;
     private StringRequest request;
     private RequestQueue requestQueue;
-    com.tcc.dagon.opus.telas.login.StringsBanco StringsBanco = new StringsBanco();
     GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
     String sEmail, sNome;
 
@@ -55,17 +54,17 @@ public class CertificadoActivity extends AppCompatActivity {
 
         btnCertificado.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sEmail = preferencias.lerFlagString(GerenciadorSharedPreferences.NomePreferencia.emailUsuario);
-                sNome = preferencias.lerFlagString(GerenciadorSharedPreferences.NomePreferencia.nomeUsuario);
+                sEmail = preferencias.lerFlagString(GerenciadorSharedPreferences.getEmailUsuario());
+                sNome = preferencias.lerFlagString(GerenciadorSharedPreferences.getNomeUsuario());
 
                 request = new StringRequest(Request.Method.POST,
-                        StringsBanco.certificadoUrl,
+                        StringsBanco.getCertificadoUrl(),
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 if(response.trim().equals("certo")){
                                     Toast.makeText(getApplicationContext(), "Seu pedido de certificado foi aberto. Aguarde a chegada no seu e-mail cadastrado!", Toast.LENGTH_LONG).show();
-                                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.flagCertificadoGerado, true);
+                                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagCertificadoGerado(), true);
                                     finish();
                                 }else{
                                     Toast.makeText(getApplicationContext(),

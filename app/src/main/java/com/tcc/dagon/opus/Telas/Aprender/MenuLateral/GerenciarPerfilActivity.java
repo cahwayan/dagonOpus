@@ -33,8 +33,6 @@ import com.tcc.dagon.opus.telas.login.AlterarSenhaActivity;
 import com.tcc.dagon.opus.telas.login.LoginActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
-
 
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -52,7 +50,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     private GerenciadorBanco DB_PROGRESSO;
 
-    private GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    private GerenciadorSharedPreferences preferencias;
 
     RequestQueue requestQueue;
 
@@ -69,6 +67,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        preferencias  = new GerenciadorSharedPreferences(this);
 
         // OBJETO BANCO PARA LER O PROGRESSO
         DB_PROGRESSO = new GerenciadorBanco(this);
@@ -99,10 +99,10 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private void accessViews() {
         txtNome = (TextView) findViewById(R.id.txtNome);
 
-        if(preferencias.lerFlagString(NomePreferencia.nomeUsuario).equals("default")) {
+        if(preferencias.lerFlagString(GerenciadorSharedPreferences.getNomeUsuario()).equals("default")) {
             txtNome.setText("Nome");
         } else {
-            txtNome.setText(preferencias.lerFlagString(NomePreferencia.nomeUsuario));
+            txtNome.setText(preferencias.lerFlagString(GerenciadorSharedPreferences.getNomeUsuario()));
         }
 
 
@@ -113,14 +113,14 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         foto = (ImageView) findViewById(R.id.fotoPerfil);
 
         /* DEBUG, PARA VERIFICAR O CAMINHO DA FOTO SALVA
-        Log.d(TAG, "SharedPref caminho: " + preferencias.lerFlagString(NomePreferencia.caminhoFoto));*/
+        Log.d(TAG, "SharedPref caminho: " + preferenceManager.lerFlagString(NomePreferencia.caminhoFoto));*/
 
         if(foto != null){
-            if(preferencias.lerFlagString(NomePreferencia.caminhoFoto).equals("default")) {
+            if(preferencias.lerFlagString(GerenciadorSharedPreferences.getCaminhoFoto()).equals("default")) {
                 foto.setImageResource(R.drawable.icon_foto);
             } else {
                 try {
-                    foto.setImageBitmap(BitmapFactory.decodeFile(preferencias.lerFlagString(NomePreferencia.caminhoFoto)));
+                    foto.setImageBitmap(BitmapFactory.decodeFile(preferencias.lerFlagString(GerenciadorSharedPreferences.getCaminhoFoto())));
                 } catch(NullPointerException e) {
                     foto.setImageResource(R.drawable.icon_foto);
                 }
@@ -235,7 +235,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
                 if(imageView != null ){
                     imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-                    preferencias.escreverFlagString(NomePreferencia.caminhoFoto, picturePath);
+                    preferencias.escreverFlagString(GerenciadorSharedPreferences.getCaminhoFoto(), picturePath);
                 }
             }
 
@@ -288,14 +288,14 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 Intent intent = new Intent(getApplicationContext(), LoginActivity_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                preferencias.escreverFlagBoolean(NomePreferencia.isLogin, false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getIsLogin(), false);
                 signOut();
                 finish();
             }
             else if( btnAlterarSenha.getId() == v.getId() )
             {
                 Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
-                i.putExtra("emailUsuario", preferencias.lerFlagString(NomePreferencia.emailUsuario));
+                i.putExtra("emailUsuario", preferencias.lerFlagString(GerenciadorSharedPreferences.getEmailUsuario()));
                 startActivity(i);
             }
 
@@ -309,9 +309,9 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             LoginActivity.googleApiClient.clearDefaultAccountAndReconnect();
             LoginActivity.googleApiClient.disconnect();
             LoginActivity.googleApiClient.connect();
-            preferencias.escreverFlagString(NomePreferencia.caminhoFoto, null);
-            preferencias.escreverFlagString(NomePreferencia.nomeUsuario, null);
-            preferencias.escreverFlagBoolean(NomePreferencia.isLogin, false);
+            preferencias.escreverFlagString(GerenciadorSharedPreferences.getCaminhoFoto(), null);
+            preferencias.escreverFlagString(GerenciadorSharedPreferences.getNomeUsuario(), null);
+            preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getIsLogin(), false);
         }
     }
 

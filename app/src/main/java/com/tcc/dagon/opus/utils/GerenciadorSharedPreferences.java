@@ -9,106 +9,147 @@ import android.preference.PreferenceManager;
  * Created by cahwayan on 07/12/2016.
  */
 
-public class GerenciadorSharedPreferences extends Activity {
+public class GerenciadorSharedPreferences {
 
-    Context context;
+    private final SharedPreferences sharedPreferences;
 
     public GerenciadorSharedPreferences(Context context) {
-        this.context = context;
-
+        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static abstract class NomePreferencia {
+    private abstract static class Preferencias {
+        /*
+        * FLAGS DA TELA DE CONFIGURAÇÕES
+        */
+        private static final String flagSwitchConfigSom = "botaoSonsChecked";
+        private static final String desativarSons = "desativarSons";
 
-        /*FLAGS QUE VERIFICAM SE O ALUNO JÁ COMPLETOU A PROVA AO MENOS UMA VEZ*/
-        public static final String flagProva1 = "completouTeste1";
-        public static final String flagProva2 = "completouTeste2";
-        public static final String flagProva3 = "completouTeste3";
-        public static final String flagProva4 = "completouTeste4";
-        public static final String flagProva5 = "completouTeste5";
-        public static final String flagProva6 = "completouTeste6";
-        public static final String flagCertificadoGerado = "flagCertificadoGerado";
+        /*
+        FLAG DE LOGIN
+        */
+        private static final String isLogin = "isLogin";
 
-        public static String lerFlagProva(int moduloProva) {
-            switch(moduloProva) {
-                case 1: return flagProva1;
+        /*
+        * FLAG NOME USER
+        */
+        private static final String nomeUsuario = "nomeUsuario";
 
-                case 2: return flagProva2;
+        /*
+        *FLAG CAMINHO FOTO
+        */
+        private static final String caminhoFoto = "caminhoFoto";
 
-                case 3: return flagProva3;
+        /*
+        *Flag que guarda o email do usuário
+        */
+        private static final String emailUsuario = "emailUsuario";
 
-                case 4: return flagProva4;
-
-                case 5: return flagProva5;
-
-                case 6: return flagProva6;
-
-                default: return "default";
-
-            }
-        }
-
-
-
-
-        /*FLAGS DA TELA DE CONFIGURAÇÕES*/
-        public static final String flagSwitchConfigSom = "botaoSonsChecked";
-        public static final String desativarSons = "desativarSons";
-
-        /*FLAG LOGIN*/
-        public static final String isLogin = "isLogin";
-
-        /*FLAG NOME USER*/
-        public static final String nomeUsuario = "nomeUsuario";
-
-        /*FLAG CAMINHO FOTO*/
-        public static final String caminhoFoto = "caminhoFoto";
-
-        public static final String emailUsuario = "emailUsuario";
-
+        /*
+        * FLAGS QUE VERIFICAM SE O ALUNO JÁ COMPLETOU A PROVA AO MENOS UMA VEZ
+        */
+        private static final String flagProva1 = "completouTeste1";
+        private static final String flagProva2 = "completouTeste2";
+        private static final String flagProva3 = "completouTeste3";
+        private static final String flagProva4 = "completouTeste4";
+        private static final String flagProva5 = "completouTeste5";
+        private static final String flagProva6 = "completouTeste6";
+        private static final String flagCertificadoGerado = "flagCertificadoGerado";
 
 
     }
 
+    /*MÉTODOS QUE LEEM FLAGS*/
+    public String lerFlagString(String nomeFlag) {
+        return sharedPreferences.getString(nomeFlag, "default");
+    }
 
+    public boolean lerFlagBoolean(String nomeFlag) {
+        return sharedPreferences.getBoolean(nomeFlag, false);
+    }
 
     /*MÉTODOS QUE ALTERAM FLAGS*/
-
-    public void escreverFlagString(String nomeFlag, String valorFlag ) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(context);
+    public void escreverFlagString(String nomeFlag, String valorFlag) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(nomeFlag, valorFlag);
         editor.apply();
     }
 
     public void escreverFlagBoolean(String nomeFlag, Boolean valorFlag ) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(nomeFlag, valorFlag);
         editor.apply();
     }
 
-    /*MÉTODOS QUE LEEM FLAGS*/
-
-    public String lerFlagString(String nomeFlag) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPreferences.getString(nomeFlag, "default");
+    public String lerFlagProva(int moduloProva) {
+        switch(moduloProva) {
+            case 1: return getFlagProva1();
+            case 2: return getFlagProva2();
+            case 3: return getFlagProva3();
+            case 4: return getFlagProva4();
+            case 5: return getFlagProva5();
+            case 6: return getFlagProva6();
+            default: return "default";
+        }
     }
 
-    public boolean lerFlagBoolean(String nomeFlag) {
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPreferences.getBoolean(nomeFlag, false);
+    public void escreverFlagProva(int moduloAtual) {
+        escreverFlagBoolean(lerFlagProva(moduloAtual), true);
     }
 
     public boolean somEstaAtivado() {
-        return lerFlagBoolean(NomePreferencia.desativarSons);
-    }
-    public void escreverFlagProva(int moduloAtual) {
-        escreverFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual), true);
+        return lerFlagBoolean(getDesativarSons());
     }
 
+
+    public static String getCaminhoFoto() {
+        return Preferencias.caminhoFoto;
+    }
+
+    public static String getDesativarSons() {
+        return Preferencias.desativarSons;
+    }
+
+    public static String getEmailUsuario() {
+        return Preferencias.emailUsuario;
+    }
+
+    public static String getFlagCertificadoGerado() {
+        return Preferencias.flagCertificadoGerado;
+    }
+
+    public static String getFlagProva1() {
+        return Preferencias.flagProva1;
+    }
+
+    public static String getFlagProva2() {
+        return Preferencias.flagProva2;
+    }
+
+    public static String getFlagProva3() {
+        return Preferencias.flagProva3;
+    }
+
+    public static String getFlagProva4() {
+        return Preferencias.flagProva4;
+    }
+
+    public static String getFlagProva5() {
+        return Preferencias.flagProva5;
+    }
+
+    public static String getFlagProva6() {
+        return Preferencias.flagProva6;
+    }
+
+    public static String getFlagSwitchConfigSom() {
+        return Preferencias.flagSwitchConfigSom;
+    }
+
+    public static String getIsLogin() {
+        return Preferencias.isLogin;
+    }
+
+    public static String getNomeUsuario() {
+        return Preferencias.nomeUsuario;
+    }
 }

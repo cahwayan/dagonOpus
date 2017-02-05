@@ -15,8 +15,6 @@ import com.tcc.dagon.opus.telas.fragments.exercicios.QuestaoProva;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
-
 
 /**
  * Created by cahwayan on 14/11/2016.
@@ -32,12 +30,16 @@ public class ContainerProva extends ContainerEtapa
 
     private int contagemVidas;
 
-    Context context = this;
+    Context context;
 
-    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    GerenciadorSharedPreferences preferenceManager;
 
+    public ContainerProva() {
+        context = this;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferenceManager = new GerenciadorSharedPreferences(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_prova);
 
@@ -50,6 +52,7 @@ public class ContainerProva extends ContainerEtapa
         this.setContagemVidas(5);
         super.bloquearLicoes();
         this.desbloquearLicoes();
+
     }
 
     public void onArticleSelected(int position) {
@@ -90,7 +93,7 @@ public class ContainerProva extends ContainerEtapa
 
     @Override
     protected void onDestroy() {
-        if(!preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.lerFlagProva(moduloAtual))) {
+        if(!preferenceManager.lerFlagBoolean(preferenceManager.lerFlagProva(moduloAtual))) {
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, 1);
         }
 
@@ -117,7 +120,8 @@ public class ContainerProva extends ContainerEtapa
                 break;
         }
 
-        if(preferencias.lerFlagBoolean(NomePreferencia.lerFlagProva(moduloAtual))) {
+        /* Desbloqueia a prova caso o aluno já tenha completado antes */
+        if(preferenceManager.lerFlagBoolean(preferenceManager.lerFlagProva(moduloAtual))) {
             for(int i = 0; i <= progresso - 1; i += 1) {
                 if(mTabLayout.getTabAt(i) != null) {
                     tabStrip.getChildAt(i).setClickable(true);

@@ -26,7 +26,6 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.aprender.AprenderActivity_;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.VerificarConexao;
 import com.tcc.dagon.opus.utils.VolleyRequest;
 import org.androidannotations.annotations.AfterViews;
@@ -60,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     @ViewById protected Button btnAlterarSenha;
     @ViewById protected TextView btnCriarConta;
 
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    protected GerenciadorSharedPreferences preferencias;
 
     /* Objeto que pega as infos do usuário*/
     GoogleSignInAccount acct;
@@ -76,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                      sSenha;
 
     /* Context */
-    protected Context context = this;
+    protected Context context;
 
     /* INSTANCIAÇÃO DE OBJETOS */
     protected VolleyRequest volleyRequest;
@@ -84,6 +83,11 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     /* FIM ATRIBUTOS */
 
     /*MÉTODOS DE CICLO DE VIDA DO APP*/
+
+    public LoginActivity() {
+        context = this;
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -143,6 +147,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         // CRIAÇÃO DO OBJETO DE CONEXÃO GOOGLE
         googleBuilder();
 
+        preferencias = new GerenciadorSharedPreferences(this);
         volleyRequest = new VolleyRequest(this);
 
     }
@@ -328,8 +333,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         if (result.isSuccess()) {
             // O USUÁRIO SE CONECTOU COM SUCESSO,
             acct = result.getSignInAccount();
-            preferencias.escreverFlagString(NomePreferencia.nomeUsuario, acct.getDisplayName());
-            preferencias.escreverFlagString(NomePreferencia.emailUsuario, acct.getEmail());
+            preferencias.escreverFlagString(GerenciadorSharedPreferences.getNomeUsuario(), acct.getDisplayName());
+            preferencias.escreverFlagString(GerenciadorSharedPreferences.getNomeUsuario(), acct.getEmail());
             /*PEGAR OS DADOS DO USUÁRIO E PREPARAR O REQUEST PRA GUARDAR NO BANCO AS INFOS DO USUÁRIO
             * QUE SE LOGOI PELA GOOGLE*/
             getDataProfile();

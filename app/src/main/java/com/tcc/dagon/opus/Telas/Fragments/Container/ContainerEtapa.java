@@ -19,7 +19,7 @@ public class ContainerEtapa extends AppCompatActivity {
 
     protected TabLayout mTabLayout;
     protected ViewPager mViewPager;
-    protected GerenciadorBanco DB_PROGRESSO = null;
+    protected GerenciadorBanco DB_PROGRESSO;
     protected LinearLayout tabStrip;
     protected String tituloEtapa;
 

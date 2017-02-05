@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,7 +30,6 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -124,10 +124,14 @@ public class AprenderActivity
     GerenciadorBanco DB_PROGRESSO;
 
     // OBJETOS
-    protected NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    protected NovaJanelaAlerta alerta;
+    protected GerenciadorSharedPreferences preferenceManager;
 
     /* MÉTODOS DE CICLO DE VIDA DO APP */
+
+    public AprenderActivity() {
+        alerta = new NovaJanelaAlerta(this);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -192,6 +196,8 @@ public class AprenderActivity
     @AfterViews
     protected void init() {
 
+        preferenceManager = new GerenciadorSharedPreferences(this);
+
         // BOTÃO SUPERIOR MENU PUXÁVEL
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             this.appBar.setElevation(0);
@@ -206,8 +212,8 @@ public class AprenderActivity
             mTitulo = getTitle().toString();
         }
 
-        if(!preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
-            preferencias.escreverFlagBoolean(NomePreferencia.isLogin, true);
+        if(!preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getIsLogin())) {
+            preferenceManager.escreverFlagBoolean(GerenciadorSharedPreferences.getIsLogin(), true);
         }
 
         fontes();
@@ -298,7 +304,7 @@ public class AprenderActivity
     // DESBLOQUEIA OS MÓDULOS
     protected void desbloquearModulo1() {
 
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva1) ) {
+        if(preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva1()) ) {
             imgModulo1.setImageResource(R.drawable.btnmodulo1completo);
             definirNota(1);
             txtNota1.setVisibility(View.VISIBLE);
@@ -313,7 +319,7 @@ public class AprenderActivity
     }
 
     protected void desbloquearModulo2() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva2) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva2()) ) {
             imgModulo2.setImageResource(R.drawable.btnmodulo2completo);
             txtNota2.setVisibility(View.VISIBLE);
         } else {
@@ -328,7 +334,7 @@ public class AprenderActivity
     }
 
     protected void desbloquearModulo3() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva3) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva3()) ) {
             imgModulo3.setImageResource(R.drawable.btnmodulo3completo);
             txtNota3.setVisibility(View.VISIBLE);
         } else {
@@ -343,7 +349,7 @@ public class AprenderActivity
     }
 
     protected void desbloquearModulo4() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva4) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva4()) ) {
             imgModulo4.setImageResource(R.drawable.btnmodulo4completo);
             txtNota4.setVisibility(View.VISIBLE);
         } else {
@@ -358,7 +364,7 @@ public class AprenderActivity
     }
 
     protected void desbloquearModulo5() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva5) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva5()) ) {
             imgModulo5.setImageResource(R.drawable.btnmodulo5completo);
             txtNota5.setVisibility(View.VISIBLE);
         } else {
@@ -373,7 +379,7 @@ public class AprenderActivity
     }
 
     protected void desbloquearModulo6() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva6) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva6()) ) {
             imgModulo6.setImageResource(R.drawable.btnmodulo6completo);
             txtNota6.setVisibility(View.VISIBLE);
         } else {
@@ -388,9 +394,9 @@ public class AprenderActivity
     }
 
     protected void desbloquearCertificado() {
-        if( preferencias.lerFlagBoolean(NomePreferencia.flagProva6) ) {
+        if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagProva6()) ) {
             imgCertificado.setImageResource(R.drawable.btncertificadocursando);
-        } else if( preferencias.lerFlagBoolean(NomePreferencia.flagCertificadoGerado) ) {
+        } else if( preferenceManager.lerFlagBoolean(GerenciadorSharedPreferences.getFlagCertificadoGerado()) ) {
             imgCertificado.setImageResource(R.drawable.btncertificadocompleto);
         }
 

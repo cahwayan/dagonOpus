@@ -1,7 +1,10 @@
 package com.tcc.dagon.opus.telas.login;
 
+import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,13 +12,18 @@ import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;
 import com.tcc.dagon.opus.utils.VolleyRequest;
 
+import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.BeforeTextChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.TextChange;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
@@ -29,14 +37,17 @@ public class CadastroActivity extends AppCompatActivity {
     @ViewById protected TextView textEmail;
 
     /* OBJETOS */
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
-    protected VolleyRequest volleyRequest;
+    protected GerenciadorSharedPreferences preferenceManager;
 
     /* VARIÁVEIS */
     protected String sNome,
                      sSenha,
                      sCsenha,
                      sEmail;
+
+    private boolean usuarioExiste;
+    private VolleyRequest volleyRequest;
+    private ToastManager toastManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,12 +56,13 @@ public class CadastroActivity extends AppCompatActivity {
 
     @AfterViews
     protected void init() {
+        volleyRequest = new VolleyRequest(this);
+        preferenceManager = new GerenciadorSharedPreferences(this);
+        toastManager = new ToastManager(this);
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-        volleyRequest = new VolleyRequest(this);
 
     }
 
@@ -73,6 +85,39 @@ public class CadastroActivity extends AppCompatActivity {
         cadastrar();
     }
 
+    @TextChange
+    protected void textEmail() {
+
+        sEmail = textEmail.getText().toString();
+
+        if(!ValidarEmail.validarEmail(sEmail)) {
+            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            return;
+        }
+
+        Log.d("USUARIO ANTES: ", String.valueOf(usuarioExiste));
+        usuarioExiste(); /* ? */
+        Log.d("USUARIO DEPOIS: ", String.valueOf(usuarioExiste));
+
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                if(usuarioExiste)
+                {
+                    textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
+                    toastManager.toastShort("Email já cadastrado");
+                } else
+                {
+                    textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+                }
+            }
+        }, 1000);
+
+
+    }
+
     protected void cadastrar() {
 
         /* TRABALHAR COM VARIÁVEIS É MELHOR DO QUE TRABALHAR COM OBJETOS DIRETAMENTE */
@@ -89,8 +134,7 @@ public class CadastroActivity extends AppCompatActivity {
             if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
 
                 /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
-                volleyRequest.requestCadastrarDados(sEmail, sSenha, sNome);
-
+                volleyRequest.requestCadastrarDados(this, sEmail, sSenha, sNome);
             }
 
         /* RESPOSTA CASO O USUÁRIO NÃO ESTEJA CONECTADO */
@@ -134,12 +178,19 @@ public class CadastroActivity extends AppCompatActivity {
 
         /* TENTATIVA DE GRAVAR OS DADOS NO BANCO */
         } else {
-
             return true;
-
         }
+    }
 
-
+    @UiThread
+    protected void usuarioExiste()  {
+        volleyRequest.requestUsuarioExiste(sEmail, new VolleyRequest.VolleyCallBack() {
+            @Override
+            public void respostaEmail(String resultado) {
+                usuarioExiste = resultado.equals("sim");
+                Log.d("RESULTADO: ", resultado);
+            }
+        });
     }
 
 }

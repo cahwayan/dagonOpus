@@ -55,9 +55,9 @@ public abstract class CExercicio extends Fragment{
 
     @Override
     public void onPause() {
-        this.btnChecarResposta.setVisibility(View.VISIBLE);
-        this.btnAvancarQuestao.setVisibility(View.GONE);
-        this.btnTentarNovamente.setVisibility(View.GONE);
+//        this.btnChecarResposta.setVisibility(View.VISIBLE);
+//        this.btnAvancarQuestao.setVisibility(View.GONE);
+//        this.btnTentarNovamente.setVisibility(View.GONE);
         super.onPause();
     }
 
@@ -179,7 +179,7 @@ public abstract class CExercicio extends Fragment{
     }
 
     public void respostaCerta() {
-        playSound(this.somRespostaCerta);
+        playSound(somRespostaCerta);
         setPontuacao();
         initAnimationAnswer(this.imgRespostaCerta);
         unhideView(btnAvancarQuestao);

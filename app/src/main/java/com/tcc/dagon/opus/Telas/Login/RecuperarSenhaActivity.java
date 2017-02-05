@@ -27,7 +27,6 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
     private Button btRecuperar;
     private EditText emailRec;
     private String sEmailRec;
-    private com.tcc.dagon.opus.telas.login.StringsBanco StringsBanco = new StringsBanco();
     RequestQueue requestQueue;
 
     @Override
@@ -68,7 +67,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                 } else if(!ValidarEmail.validarEmail(sEmailRec)) {
                     Toast.makeText(getApplicationContext(), "Por favor, digite um e-mail válido", Toast.LENGTH_SHORT).show();
                 } else {
-                    StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.recuperarSenha, new Response.Listener<String>() {
+                    StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getRecuperarSenha(), new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(getApplicationContext(), "Um link foi gerado e enviado ao seu textEmail !", Toast.LENGTH_LONG).show();

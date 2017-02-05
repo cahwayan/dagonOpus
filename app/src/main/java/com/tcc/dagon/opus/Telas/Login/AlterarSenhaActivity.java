@@ -26,7 +26,6 @@ public class AlterarSenhaActivity extends AppCompatActivity {
     private Button btAlterar;
     private EditText senhaAtual, edtNovaSenha, edtConfirmaSenha;
     private String emailAlterar, strSenha, strSenhaConfirma, strNovaSenha;
-    private StringsBanco StringsBanco = new StringsBanco();
     RequestQueue requestQueue;
 
     @Override

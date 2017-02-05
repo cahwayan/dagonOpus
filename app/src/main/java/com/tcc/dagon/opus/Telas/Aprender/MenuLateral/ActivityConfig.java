@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.telas.aprender.menulateral;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,8 +14,8 @@ import android.widget.Toast;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.ToastManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -31,7 +32,9 @@ public class ActivityConfig extends AppCompatActivity {
     /* OBJETOS */
     protected GerenciadorBanco DB_PROGRESSO;
     protected NovaJanelaAlerta alertaApagar;
-    protected GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    protected GerenciadorSharedPreferences preferencias;
+    protected boolean flagDesativarSom;
+    protected ToastManager toastManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,15 @@ public class ActivityConfig extends AppCompatActivity {
 
     @AfterViews
     protected void init() {
+        preferencias = new GerenciadorSharedPreferences(this);
+        toastManager = new ToastManager(this);
+        flagDesativarSom = preferencias.lerFlagBoolean(GerenciadorSharedPreferences.getDesativarSons());
+
+        if(flagDesativarSom) {
+            switchSons.setChecked(true);
+        } else {
+            switchSons.setChecked(false);
+        }
 
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
@@ -55,10 +67,6 @@ public class ActivityConfig extends AppCompatActivity {
             DB_PROGRESSO = new GerenciadorBanco(this);
         }
 
-        if(preferencias.lerFlagBoolean(GerenciadorSharedPreferences.NomePreferencia.flagSwitchConfigSom)) {
-            switchSons.setChecked(true);
-        }
-
         listeners();
 
     }
@@ -68,11 +76,9 @@ public class ActivityConfig extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(switchSons.isChecked()) {
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagSwitchConfigSom, true);
-                    preferencias.escreverFlagBoolean(NomePreferencia.desativarSons, true);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getDesativarSons(), true);
                 } else {
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagSwitchConfigSom, false);
-                    preferencias.escreverFlagBoolean(NomePreferencia.desativarSons, false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getDesativarSons(), false);
                 }
             }
         });
@@ -145,16 +151,14 @@ public class ActivityConfig extends AppCompatActivity {
 
 
 
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), false);
+                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), false);
 
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
-
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
-                    preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
-
-                    Toast.makeText(getApplicationContext(), "Progresso resetado!", Toast.LENGTH_LONG).show();
+                    toastManager.toastLong("Progresso resetado!");
                     break;
 
                 case DialogInterface.BUTTON_NEGATIVE:

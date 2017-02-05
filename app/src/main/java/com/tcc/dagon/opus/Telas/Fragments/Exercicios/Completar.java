@@ -64,7 +64,6 @@ public class Completar extends CExercicio {
     * COMO UM CONSTRUTOR*/
     public static Completar novoCompletar(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         Completar completar = new Completar();
-
         //completar.setLayoutID(layoutID);
         Bundle args = new Bundle();
         args.putInt("moduloAtual", moduloAtual);

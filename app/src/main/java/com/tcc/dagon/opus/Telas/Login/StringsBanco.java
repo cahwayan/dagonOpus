@@ -3,9 +3,25 @@ package com.tcc.dagon.opus.telas.login;
 /**
  * Created by charlinho on 04/09/2016.
  */
-public class StringsBanco {
+public abstract class StringsBanco {
 
-    public String getInsereUrl() {
+    private static final String insereUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptCadastro.php";
+    private static final String loginUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/ScriptLogin.php";
+    private static final String insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
+    private static final String nomeUrl = "http://dagonopus.esy.es/phpAndroid/lerNome.php";
+    private static final String usuarioExiste = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptVerificarUsuarioExiste.php";
+    private static final String recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
+    private static final String certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
+
+    public static String getUsuarioExiste() {
+        return usuarioExiste;
+    }
+
+    public static String getInsereGoogle() {
+        return insereGoogle;
+    }
+
+    public static String getInsereUrl() {
         return insereUrl;
     }
 
@@ -13,37 +29,15 @@ public class StringsBanco {
         return loginUrl;
     }
 
-    public String getNomeUrl() {
+    public static String getNomeUrl() {
         return nomeUrl;
     }
 
-    public String getInsereGoogle() {
-
-        return insereGoogle; //y //y
+    public static String getRecuperarSenha() {
+        return recuperarSenha;
     }
 
-    private final String insereUrl;
-    private static final String loginUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/ScriptLogin.php";;
-    private final String insereGoogle;
-    private final String nomeUrl;
-    private final String mostrarUrl;
-    public final String usuarioExiste;
-    public final String recuperarSenha;
-    public final String certificadoUrl;
-
-
-    public StringsBanco(){
-        mostrarUrl = "http://dagonopus.esy.es/phpAndroid/mostrarEstudante.php";
-        insereUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptCadastro.php";
-        usuarioExiste = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptVerificarUsuarioExiste";
-
-        insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";
-
-        recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
-        nomeUrl = "http://dagonopus.esy.es/phpAndroid/lerNome.php";
-        certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
-
+    public static String getCertificadoUrl() {
+        return certificadoUrl;
     }
-
-
 }

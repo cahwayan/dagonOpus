@@ -11,7 +11,6 @@ import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.telas.login.LoginActivity_;
 import com.tcc.dagon.opus.telas.aprender.AprenderActivity_;
 import com.tcc.dagon.opus.telas.login.CadastroActivity;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences.NomePreferencia;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 
@@ -28,11 +27,13 @@ public class LauncherActivity extends AppCompatActivity {
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
-    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    GerenciadorSharedPreferences preferencias;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(preferencias.lerFlagBoolean(NomePreferencia.isLogin)) {
+        preferencias = new GerenciadorSharedPreferences(this);
+        if(preferencias.lerFlagBoolean(GerenciadorSharedPreferences.getIsLogin())) {
             startActivity(new Intent(this, AprenderActivity_.class));
             //finish();
         } else {
@@ -88,26 +89,28 @@ public class LauncherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(1);
 
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagCertificadoGerado, false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagCertificadoGerado(), false);
             }
         });
 
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DB_PROGRESSO.atualizaProgressoModulo(7);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagCertificadoGerado, true);
+
+
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagCertificadoGerado(), true);
             }
         });
 
@@ -186,14 +189,12 @@ public class LauncherActivity extends AppCompatActivity {
 
                 DB_PROGRESSO.alterarPontuacaoTotal(1, 0);
 
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, false);
-
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, false);
-
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, false);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), false);
 
             }
         });
@@ -218,14 +219,12 @@ public class LauncherActivity extends AppCompatActivity {
                 DB_PROGRESSO.atualizaProgressoLicao(4,6,4);
 
 
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva1, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva2, true);
-
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva3, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva4, true);
-
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva5, true);
-                preferencias.escreverFlagBoolean(NomePreferencia.flagProva6, true);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), false);
+                preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), false);
 
             }
         });
