@@ -39,13 +39,15 @@ public class Questao extends CExercicio {
     protected View rootView;
     private NovaJanelaAlerta alertaOpcaoVazia;
 
+    public void setQuestaoAtual(int questaoAtual) {
+        this.questaoAtual = questaoAtual;
+    }
+
     public static Questao novaQuestao(int moduloAtual, int etapaAtual, int questaoAtual) {
         Questao questao = new Questao();
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("questaoAtual", questaoAtual);
-        questao.setArguments(args);
+        questao.setModuloAtual(moduloAtual);
+        questao.setEtapaAtual(etapaAtual);
+        questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
@@ -53,7 +55,6 @@ public class Questao extends CExercicio {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.getConstructorArgs();
         super.onCreateView(inflater, container, savedInstanceState);
         this.setRootView(inflater, container, savedInstanceState);
         this.instanciaObjetos();
@@ -74,12 +75,6 @@ public class Questao extends CExercicio {
         if(alertaOpcaoVazia == null) {
             alertaOpcaoVazia = new NovaJanelaAlerta(getActivity());
         }
-    }
-
-    @Override
-    protected void getConstructorArgs() {
-        super.getConstructorArgs();
-        this.questaoAtual = getArguments().getInt("questaoAtual", 0);
     }
 
     @Override
@@ -113,7 +108,8 @@ public class Questao extends CExercicio {
         return null;
     }
 
-    @Override protected void listeners() {
+    @Override
+    protected void listeners() {
         super.listeners();
 
         imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +121,7 @@ public class Questao extends CExercicio {
     }
 
     @Override
-    public void validarRespostaUsuario() {
+    protected void validarRespostaUsuario() {
 
         final int ALTERNATIVA1 = alternativa1.getId();
         final int ALTERNATIVA2 = alternativa2.getId();
@@ -172,7 +168,7 @@ public class Questao extends CExercicio {
 
     @Override
     // MÉTODO EXECUTADO QUANDO A RESPOSTA ESTÁ CORRETA
-    public void respostaCerta() {
+    protected void respostaCerta() {
         super.respostaCerta();
 
         // DESABILITAR RADIO BUTTONS
@@ -181,7 +177,7 @@ public class Questao extends CExercicio {
 
     @Override
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
-    public void respostaErrada() {
+    protected void respostaErrada() {
         setAllButtonsUnclickable();
         qtdErros++;
         playSound(somRespostaErrada);
@@ -215,7 +211,7 @@ public class Questao extends CExercicio {
 
     @Override
     // MÉTODO QUE CONFIGURA A TELA PARA O USUÁRIO RESPONDER NOVAMENTE
-    public void tentarNovamente() {
+    protected void tentarNovamente() {
         super.tentarNovamente();
 
         hideUnnecessaryView(btnAvancarQuestao);
@@ -230,7 +226,7 @@ public class Questao extends CExercicio {
 
     @Override
     // MÉTODO QUE AVANÇA A TELA
-    public void avancarQuestao() {
+    protected void avancarQuestao() {
 
         // REABILITANDO OS RADIO BUTTONS
         setAllButtonsClickable();
@@ -242,7 +238,7 @@ public class Questao extends CExercicio {
     }
 
     @Override
-    public void setPontuacao() {
+    protected void setPontuacao() {
 
         this.pontuacao += 1000;
 

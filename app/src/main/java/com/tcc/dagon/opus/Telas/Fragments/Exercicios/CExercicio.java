@@ -47,9 +47,17 @@ public abstract class CExercicio extends Fragment{
     protected int pontuacao;
     protected int moduloAtual, etapaAtual;
 
+    public void setModuloAtual(int moduloAtual) {
+        this.moduloAtual = moduloAtual;
+    }
+
+    public void setEtapaAtual(int etapaAtual) {
+        this.etapaAtual = etapaAtual;
+    }
+
     /* ABSTRATOS */
-    public abstract void validarRespostaUsuario();
-    public abstract void setPontuacao();
+    protected abstract void validarRespostaUsuario();
+    protected abstract void setPontuacao();
 
     /* CICLO DE VIDA */
 
@@ -178,14 +186,14 @@ public abstract class CExercicio extends Fragment{
         });
     }
 
-    public void respostaCerta() {
+    protected void respostaCerta() {
         playSound(somRespostaCerta);
         setPontuacao();
         initAnimationAnswer(this.imgRespostaCerta);
         unhideView(btnAvancarQuestao);
     }
 
-    public void respostaErrada() {
+    protected void respostaErrada() {
         this.qtdErros++;
         this.playSound(somRespostaErrada);
         this.initAnimationAnswer(imgRespostaErrada);
@@ -193,7 +201,7 @@ public abstract class CExercicio extends Fragment{
         this.unhideView(btnTentarNovamente);
     }
 
-    public void tentarNovamente() {
+    protected void tentarNovamente() {
         hideUnnecessaryView(btnTentarNovamente);
         hideUnnecessaryView(imgRespostaCerta);
         hideUnnecessaryView(imgRespostaErrada);
@@ -204,7 +212,7 @@ public abstract class CExercicio extends Fragment{
         zerarPontuacao();
     }
 
-    public void concluirQuestao() {
+    protected void concluirQuestao() {
         final int contagemTotalLicoes = tab_layout.getTabCount() - 1;
         final int licaoAtual = view_pager.getCurrentItem();
 
@@ -216,7 +224,7 @@ public abstract class CExercicio extends Fragment{
         }
     }
 
-    public void avancarQuestao() {
+    protected void avancarQuestao() {
         final int ICONE_LICAO = 1;
         final int ICONE_EXERCICIO = 2;
 
@@ -295,23 +303,23 @@ public abstract class CExercicio extends Fragment{
         }
     }
 
-    public void moveNext(View view) {
+    protected void moveNext(View view) {
         view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
     }
 
-    public void movePrevious(View view) {
+    protected void movePrevious(View view) {
         view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
     }
 
-    public void setQtdErros(int qtdErros) {
+    protected void setQtdErros(int qtdErros) {
         this.qtdErros = qtdErros;
     }
 
-    public void zerarPontuacao() {
+    protected void zerarPontuacao() {
         this.pontuacao = 0;
     }
 
-    public Class retornarTelaEtapas(int numeroModulo) {
+    protected Class retornarTelaEtapas(int numeroModulo) {
         switch(numeroModulo) {
             case 1: return EtapasModulo1Activity.class;
             /*case 2: return EtapasModulo2Activity.class;
