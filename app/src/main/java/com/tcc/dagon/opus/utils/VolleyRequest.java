@@ -26,18 +26,27 @@ import static android.content.ContentValues.TAG;
 public class VolleyRequest {
 
     public interface VolleyCallBack {
-        void respostaEmail(String resultado);
+        void respostaEmail(boolean resultado);
     }
 
     private final GerenciadorSharedPreferences preferencesManager;
     private RequestQueue requestQueue;
     private ToastManager toastManager;
-    private String resultadoEmail;
+    private VolleyCallBack volleyCallBack;
+
+    public VolleyRequest(Context context, VolleyCallBack volleyCallBack) {
+        this.volleyCallBack = volleyCallBack;
+        preferencesManager = new GerenciadorSharedPreferences(context);
+        requestQueue = Volley.newRequestQueue(context);
+        toastManager = new ToastManager(context);
+
+    }
 
     public VolleyRequest(Context context) {
         preferencesManager = new GerenciadorSharedPreferences(context);
         requestQueue = Volley.newRequestQueue(context);
         toastManager = new ToastManager(context);
+
     }
 
     public void requestCadastrarDados(final Activity activity, final String email, final String senha, final String nome)
@@ -185,15 +194,17 @@ public class VolleyRequest {
         requestQueue.add(request);
     }
 
-    public void requestUsuarioExiste(final String email, final VolleyCallBack callback) {
+    public void requestUsuarioExiste(final String email) {
         StringRequest request = new StringRequest(
                 Request.Method.POST, StringsBanco.getUsuarioExiste(), new Response.Listener<String>()
         {
             @Override
             public void onResponse(String response)
             {
-                resultadoEmail = response;
-                callback.respostaEmail(resultadoEmail);
+                boolean usuarioExiste = response.equals("sim");
+                if(volleyCallBack != null) {
+                    volleyCallBack.respostaEmail(usuarioExiste);
+                }
             }
         }, new Response.ErrorListener()
         {
@@ -205,7 +216,7 @@ public class VolleyRequest {
         {
             protected Map<String, String> getParams() throws AuthFailureError
             {
-                Map<String, String> parameters = new HashMap<String, String>();
+                Map<String, String> parameters = new HashMap<>();
                 parameters.put("EMAIL_USUARIO", email);
                 return parameters;
             }
