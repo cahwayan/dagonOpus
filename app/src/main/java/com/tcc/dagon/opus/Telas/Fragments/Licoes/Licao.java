@@ -17,7 +17,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * Created by cahwayan on 04/11/2016.
- */
+ */ /**/
 
 public class Licao extends Fragment {
     protected Button btnAvancar;

@@ -22,19 +22,35 @@ import java.util.List;
  * Created by cahwayan on 04/11/2016.
  * EXERCÍCIO DE COMPLETAR DO CURSO
  */
-
+/**/
 
 public class Completar extends CExercicio {
 
-    protected View rootView;
+    private View rootView;
+
+    public void setRootView(View rootView) {
+        this.rootView = rootView;
+    }
+
+    public void setQuantidadePalavras(int quantidadePalavras) {
+        this.quantidadePalavras = quantidadePalavras;
+    }
+
+    public void setRespostasCertas(String[] respostasCertas) {
+        this.respostasCertas = respostasCertas;
+    }
+
+    public void setRespostasCertasAcentuadas(String[] respostasCertasAcentuadas) {
+        this.respostasCertasAcentuadas = respostasCertasAcentuadas;
+    }
 
     /* VARIÁVEIS */
     // GUARDA O ID DO LAYOUT QUE SERÁ USADO NA INSTÂNCIA
-    protected int layoutID;
+    private int layoutID;
 
     /* LISTAS, COLEÇÕES */
     // GUARDA AS EDIT TEXTS EM UMA LISTA DE OBJETOS PARA PODER TRABALHAR COM ELAS DE MANEIRA DINÂMICA
-    protected List<EditText> listRespostasUsuario;
+    private List<EditText> listRespostasUsuario;
 
     private int quantidadePalavras;
 
@@ -64,64 +80,30 @@ public class Completar extends CExercicio {
     * COMO UM CONSTRUTOR*/
     public static Completar novoCompletar(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         Completar completar = new Completar();
-        //completar.setLayoutID(layoutID);
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("quantidadePalavras", quantidadePalavras);
-        args.putInt("layoutID", layoutID);
-        args.putStringArray("respostasCertas", respostasCertas);
-        args.putStringArray("respostasCertasAcentuadas", respostasCertasAcentuadas);
-
-        completar.setArguments(args);
+        completar.setModuloAtual(moduloAtual);
+        completar.setEtapaAtual(etapaAtual);
+        completar.setQuantidadePalavras(quantidadePalavras);
+        completar.setLayoutID(layoutID);
+        completar.setRespostasCertas(respostasCertas);
+        completar.setRespostasCertasAcentuadas(respostasCertasAcentuadas);
         return completar;
     }
 
     /* CICLO DE VIDA DO APP */
 
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        if(somRespostaCerta != null) {
-            somRespostaCerta.release();
-            somRespostaCerta = null;
-        }
-
-        if(somRespostaErrada != null) {
-            somRespostaErrada.release();
-            somRespostaErrada = null;
-        }
-
-        super.onDestroy();
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.getConstructorArgs();
         super.onCreateView(inflater, container, savedInstanceState);
-        this.setRootView(this.layoutID, inflater, container, savedInstanceState);
-        super.instanciaObjetos();
-        this.configurarVetoresListas();
-        this.accessViews(this.rootView);
-        this.listeners();
+        inflateRootView(this.layoutID, inflater, container, savedInstanceState);
+        instanciaObjetos();
+        configurarVetoresListas();
+        accessViews(this.rootView);
+        listeners();
         return this.rootView;
     }
 
-    @Override
-    public void getConstructorArgs() {
-        super.getConstructorArgs();
-        this.quantidadePalavras        = getArguments().getInt("quantidadePalavras", 0);
-        this.respostasCertas           = getArguments().getStringArray("respostasCertas");
-        this.respostasCertasAcentuadas = getArguments().getStringArray("respostasCertasAcentuadas");
-        this.layoutID                  = getArguments().getInt("layoutID", 0);
-    }
-
-    protected void setRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void inflateRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.rootView = inflater.inflate(layoutID, container, false);
     }
 
@@ -269,36 +251,39 @@ public class Completar extends CExercicio {
     }
 
     @Override
-    public void setPontuacao() {
-        this.pontuacao += 1000;
-        switch (qtdErros) {
-            case 0: this.pontuacao += 500;
+    public void calcularPontuacao() {
+        int pontos = getPontuacao();
+        pontos += 1000;
+        switch (getQtdErros()) {
+            case 0: pontos += 500;
                 break;
-            case 1: this.pontuacao -= 50;
+            case 1: pontos -= 50;
                 break;
-            case 2: this.pontuacao -= 100;
+            case 2: pontos -= 100;
                 break;
-            case 3: this.pontuacao -= 150;
+            case 3: pontos -= 150;
                 break;
-            case 4: this.pontuacao -= 200;
+            case 4: pontos -= 200;
                 break;
-            case 5: this.pontuacao -= 250;
+            case 5: pontos -= 250;
                 break;
-            case 6: this.pontuacao -= 300;
+            case 6: pontos -= 300;
                 break;
-            case 7: this.pontuacao -= 350;
+            case 7: pontos -= 350;
                 break;
-            case 8: this.pontuacao -= 400;
+            case 8: pontos -= 400;
                 break;
-            case 9: this.pontuacao -= 450;
+            case 9: pontos -= 450;
                 break;
-            case 10: this.pontuacao -= 500;
+            case 10: pontos -= 500;
                 break;
-            default: this.pontuacao = 0;
+            default: pontos = 0;
                 break;
         }
 
-        txtPontos.setText("Pontos: " + String.valueOf(this.pontuacao) );
+        setPontuacao(pontos);
+
+        getTxtPontos().setText("Pontos: " + String.valueOf(pontos) );
     }
 
     @Override

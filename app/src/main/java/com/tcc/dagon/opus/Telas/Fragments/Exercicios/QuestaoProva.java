@@ -15,7 +15,7 @@ import com.tcc.dagon.opus.utils.AnimacaoResposta;
 
 /**
  * Created by cahwayan on 11/11/2016.
- */
+ */ /**/
 
 public final class QuestaoProva extends Questao {
 
@@ -30,17 +30,15 @@ public final class QuestaoProva extends Questao {
 
     public static QuestaoProva novaQuestaoProva(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoProva questao = new QuestaoProva();
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("questaoAtual", questaoAtual);
-        questao.setArguments(args);
+        questao.setModuloAtual(moduloAtual);
+        questao.setEtapaAtual(etapaAtual);
+        questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
     @Override
-    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.activity_questao_prova, container, false);
+    protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRootView(inflater.inflate(R.layout.activity_questao_prova, container, false));
     }
 
 
@@ -121,7 +119,7 @@ public final class QuestaoProva extends Questao {
         ContainerProva container = (ContainerProva) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(moduloAtual)));
+            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
     }
@@ -130,25 +128,25 @@ public final class QuestaoProva extends Questao {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(btnAvancarQuestao);
-        unhideView(btnChecarResposta);
+        hideUnnecessaryView(getBtnAvancarQuestao());
+        unhideView(getBtnChecarResposta());
 
         changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
 
         setUpperBarIconClickable(ICONE_EXERCICIO);
 
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
+        hideUnnecessaryView(getImgRespostaCerta());
+        hideUnnecessaryView(getImgRespostaErrada());
 
         atualizarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
+        moveNext(getView_pager());
     }
 
     @Override
     public void questaoFinal() {
-        preferencias.escreverFlagProva(this.moduloAtual);
+        getPreferencias().escreverFlagProva(getModuloAtual());
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
@@ -161,9 +159,9 @@ public final class QuestaoProva extends Questao {
 
     @Override
     public void accessViews(View rootView) {
-        super.view_pager = (( (ContainerProva)this.getActivity() ).getPager() );
-        super.tabStrip   = (( (ContainerProva)this.getActivity() ).getTabStrip());
-        super.tab_layout = (( (ContainerProva)this.getActivity() ).getmTabLayout() );
+        super.setView_pager( (( (ContainerProva)this.getActivity() ).getPager() ) );
+        super.setTabStrip( (( (ContainerProva)this.getActivity() ).getTabStrip()) );
+        super.setTab_layout( (( (ContainerProva)this.getActivity() ).getmTabLayout() ) );
         this.vida01 = ((ContainerProva)getActivity()).getVida01();
         this.vida02 = ((ContainerProva)getActivity()).getVida02();
         this.vida03 = ((ContainerProva)getActivity()).getVida03();

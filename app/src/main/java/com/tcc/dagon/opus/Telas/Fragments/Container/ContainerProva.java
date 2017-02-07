@@ -19,7 +19,7 @@ import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 /**
  * Created by cahwayan on 14/11/2016.
  */
-
+/**/
 
 public class ContainerProva extends ContainerEtapa
         implements QuestaoProva.OnHeadlineSelectedListener,
@@ -75,7 +75,8 @@ public class ContainerProva extends ContainerEtapa
                 contagemVidas = 1;
                 break;
             case 0:
-                new Handler().postDelayed(new Runnable()
+                contagemVidas = 0;
+                /*new Handler().postDelayed(new Runnable()
                 {
                     @Override
                     public void run()
@@ -84,7 +85,7 @@ public class ContainerProva extends ContainerEtapa
                         startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
                         finish();
                     }
-                }, 1500);
+                }, 1500);*/
                 break;
             default:
                 break;

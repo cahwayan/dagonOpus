@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.databases.GerenciadorBanco;
 
 /**
  * Created by cahwayan on 10/01/2017.
- */
+ */ /**/
 
 public class QuestaoMultipla extends Questao {
 
@@ -22,11 +23,9 @@ public class QuestaoMultipla extends Questao {
 
     public static QuestaoMultipla novaQuestaoMultipla(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoMultipla questao = new QuestaoMultipla();
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("questaoAtual", questaoAtual);
-        questao.setArguments(args);
+        questao.setModuloAtual(moduloAtual);
+        questao.setEtapaAtual(etapaAtual);
+        questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
@@ -34,22 +33,18 @@ public class QuestaoMultipla extends Questao {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.getConstructorArgs();
-        this.setRootView(inflater, container, savedInstanceState);
-        super.instanciaObjetos();
-        this.accessCheckBoxes(this.rootView);
-        super.accessViews(this.rootView);
-        this.fetchQuestionFromDatabase();
-
-        // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
-        this.listeners();
-
-        return this.rootView;
+        inflateRootView(inflater, container, savedInstanceState);
+        instanciaObjetos();
+        accessCheckBoxes(getRootView());
+        accessViews(getRootView());
+        fetchQuestionFromDatabase();
+        listeners();
+        return getRootView();
     }
 
     @Override
-    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.activity_questao_multipla_escolha, container, false);
+    protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRootView(inflater.inflate(R.layout.activity_questao_multipla_escolha, container, false));
     }
 
     protected void accessCheckBoxes(View rootView) {
@@ -114,11 +109,11 @@ public class QuestaoMultipla extends Questao {
 
     @Override
     public void tentarNovamente() {
-        hideUnnecessaryView(btnTentarNovamente);
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
-        unhideView(btnChecarResposta);
-        txtPontos.setText("Pontos: 0");
+        hideUnnecessaryView(getBtnTentarNovamente());
+        hideUnnecessaryView(getImgRespostaCerta());
+        hideUnnecessaryView(getImgRespostaErrada());
+        unhideView(getBtnChecarResposta());
+        getTxtPontos().setText("Pontos: 0");
         zerarPontuacao();
 
         this.uncheckAllButtons();
@@ -127,50 +122,59 @@ public class QuestaoMultipla extends Questao {
 
     @Override
     public void respostaErrada() {
-        qtdErros += 1;
-        Log.d("ERROS: ", String.valueOf(this.qtdErros));
-        this.playSound(somRespostaErrada);
-        this.initAnimationAnswer(imgRespostaErrada);
-        this.hideUnnecessaryView(btnChecarResposta);
-        this.unhideView(btnTentarNovamente);
+        setQtdErros(getQtdErros() + 1);
+        Log.d("ERROS: ", String.valueOf(getQtdErros()));
+        this.playSound(getSomRespostaErrada());
+        this.initAnimationAnswer(getImgRespostaErrada());
+        this.hideUnnecessaryView(getBtnChecarResposta());
+        this.unhideView(getBtnTentarNovamente());
 
         setAllButtonsUnclickable();
 
     }
 
     @Override
-    public void setPontuacao() {
+    public void calcularPontuacao() {
 
-        pontuacao += 1000;
+        int pontos = getPontuacao();
+        pontos += 1000;
 
-        switch (qtdErros) {
-            case 0: this.pontuacao += 500;
+        switch (getQtdErros()) {
+            case 0: pontos += 500;
                 break;
-            case 1: this.pontuacao -= 100;
+            case 1: pontos -= 100;
                 break;
-            case 2: this.pontuacao -= 200;
+            case 2: pontos -= 200;
                 break;
-            case 3: this.pontuacao -= 300;
+            case 3: pontos -= 300;
                 break;
-            case 4: this.pontuacao -= 400;
+            case 4: pontos -= 400;
                 break;
-            case 5: this.pontuacao -= 500;
+            case 5: pontos -= 500;
                 break;
-            default: this.pontuacao = 0;
+            default: pontos = 0;
                 break;
         }
 
-        txtPontos.setText("Pontos: " + String.valueOf(pontuacao));
+        setPontuacao(pontos);
+
+        getTxtPontos().setText("Pontos: " + String.valueOf(pontos));
     }
 
     @Override
     protected void fetchQuestionFromDatabase() {
-        this.pergunta.setText(DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
 
-        this.alternativa1.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA1));
-        this.alternativa2.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA2));
-        this.alternativa3.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA3));
-        this.alternativa4.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA4));
+        GerenciadorBanco DB = getDB_PROGRESSO();
+        int moduloAtual = getModuloAtual();
+        int etapaAtual = getEtapaAtual();
+        int questaoAtual = getQuestaoAtual();
+
+        getPergunta().setText(DB.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
+
+        this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA1()));
+        this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA2()));
+        this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA3()));
+        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA4()));
     }
 
     @Override

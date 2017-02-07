@@ -1,11 +1,7 @@
 package com.tcc.dagon.opus.telas.fragments.exercicios;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +9,21 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
 /**
  * Created by cahwayan on 04/11/2016.
- */
+ */ /**/
 
 public class Questao extends CExercicio {
 
-    protected int questaoAtual;
+    private int questaoAtual;
 
-    protected final int ALTERNATIVA1 = 1;
-    protected final int ALTERNATIVA2 = 2;
-    protected final int ALTERNATIVA3 = 3;
-    protected final int ALTERNATIVA4 = 4;
+    private final int ALTERNATIVA1 = 1;
+    private final int ALTERNATIVA2 = 2;
+    private final int ALTERNATIVA3 = 3;
+    private final int ALTERNATIVA4 = 4;
 
     /* COMPONENTES VISUAIS */
     private RadioGroup radioGroupQuestao;
@@ -35,12 +32,48 @@ public class Questao extends CExercicio {
                         alternativa3,
                         alternativa4;
 
-    protected TextView pergunta;
-    protected View rootView;
+    private TextView pergunta;
+    private View rootView;
     private NovaJanelaAlerta alertaOpcaoVazia;
+
+    public int getALTERNATIVA1() {
+        return ALTERNATIVA1;
+    }
+
+    public int getALTERNATIVA2() {
+        return ALTERNATIVA2;
+    }
+
+    public int getALTERNATIVA3() {
+        return ALTERNATIVA3;
+    }
+
+    public int getALTERNATIVA4() {
+        return ALTERNATIVA4;
+    }
+
+    public TextView getPergunta() {
+        return pergunta;
+    }
+
+    public void setPergunta(TextView pergunta) {
+        this.pergunta = pergunta;
+    }
+
+    public int getQuestaoAtual() {
+        return questaoAtual;
+    }
 
     public void setQuestaoAtual(int questaoAtual) {
         this.questaoAtual = questaoAtual;
+    }
+
+    public View getRootView() {
+        return rootView;
+    }
+
+    public void setRootView(View rootView) {
+        this.rootView = rootView;
     }
 
     public static Questao novaQuestao(int moduloAtual, int etapaAtual, int questaoAtual) {
@@ -56,7 +89,7 @@ public class Questao extends CExercicio {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        this.setRootView(inflater, container, savedInstanceState);
+        this.inflateRootView(inflater, container, savedInstanceState);
         this.instanciaObjetos();
         this.accessViews(this.rootView);
         this.accessRadioButtons(this.rootView);
@@ -65,7 +98,7 @@ public class Questao extends CExercicio {
         return this.rootView;
     }
 
-    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.rootView = inflater.inflate(R.layout.activity_questao, container, false);
     }
 
@@ -112,7 +145,7 @@ public class Questao extends CExercicio {
     protected void listeners() {
         super.listeners();
 
-        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
+        getImgRespostaErrada().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 concluirQuestao();
@@ -153,10 +186,6 @@ public class Questao extends CExercicio {
             return;
         }
 
-        Log.d("Retorno da alt:", String.valueOf(resposta));
-        Log.d("Retorno do BANCO: ", String.valueOf(this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 3)));
-
-
         final int RESPOSTA_CERTA  = 1;
 
         if(resposta == RESPOSTA_CERTA) {
@@ -179,19 +208,19 @@ public class Questao extends CExercicio {
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     protected void respostaErrada() {
         setAllButtonsUnclickable();
-        qtdErros++;
-        playSound(somRespostaErrada);
-        initAnimationAnswer(imgRespostaErrada);
-        hideUnnecessaryView(btnChecarResposta);
-        unhideView(btnAvancarQuestao);
-        setPontuacao();
+        setQtdErros(getQtdErros() + 1);
+        playSound(getSomRespostaErrada());
+        initAnimationAnswer(getImgRespostaErrada());
+        hideUnnecessaryView(getBtnChecarResposta());
+        unhideView(getBtnAvancarQuestao());
+        calcularPontuacao();
         showCorrectAnswer();
     }
 
     private void showCorrectAnswer() {
 
         for(int i = 1; i <= 4; i++) {
-            RadioButton correctAnswerButton = (RadioButton) radioGroupQuestao.getChildAt(i - 1);
+            RadioButton correctAnswerButton = (RadioButton) this.radioGroupQuestao.getChildAt(i - 1);
             RadioButton checkedButton = getCheckedButton();
             int alternativa = verificaResposta(i);
             final int RESPOSTA_CERTA = 1;
@@ -214,7 +243,7 @@ public class Questao extends CExercicio {
     protected void tentarNovamente() {
         super.tentarNovamente();
 
-        hideUnnecessaryView(btnAvancarQuestao);
+        hideUnnecessaryView(getBtnAvancarQuestao());
 
         resetButtonsStyle();
         // DESMARCANDO OS RADIO BUTTONS
@@ -238,18 +267,22 @@ public class Questao extends CExercicio {
     }
 
     @Override
-    protected void setPontuacao() {
+    protected void calcularPontuacao() {
 
-        this.pontuacao += 1000;
+        int pontos = getPontuacao();
 
-        switch (qtdErros) {
-            case 0: this.pontuacao += 500;
+        pontos += 1000;
+
+        switch (getQtdErros()) {
+            case 0: setPontuacao(pontos + 500);
                 break;
-            default: this.pontuacao = 0;
+            default: pontos = 0;
                 break;
         }
 
-        txtPontos.setText("Pontos: " + String.valueOf(pontuacao));
+        setPontuacao(pontos);
+
+        getTxtPontos().setText("Pontos: " + String.valueOf(getPontuacao()));
     }
 
     protected void setAllButtonsUnclickable() {
@@ -278,27 +311,36 @@ public class Questao extends CExercicio {
     }
 
     protected void fetchQuestionFromDatabase() {
-        this.pergunta.setText(DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
+        GerenciadorBanco DB = getDB_PROGRESSO();
+        int moduloAtual = getModuloAtual();
+        int etapaAtual = getEtapaAtual();
 
-        this.alternativa1.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, this.ALTERNATIVA1));
-        this.alternativa2.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, this.ALTERNATIVA2));
-        this.alternativa3.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, this.ALTERNATIVA3));
-        this.alternativa4.setText(DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, this.ALTERNATIVA4));
+        this.pergunta.setText(DB.puxarPergunta(getModuloAtual(), getEtapaAtual(), questaoAtual));
+
+
+        this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA1));
+        this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA2));
+        this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA3));
+        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA4));
     }
 
     protected int verificaResposta(int alternativa) {
 
         final int RESPOSTA_ERRADA = 0;
 
+        GerenciadorBanco DB = getDB_PROGRESSO();
+        int moduloAtual = getModuloAtual();
+        int etapaAtual = getEtapaAtual();
+
         switch(alternativa) {
             case 1:
-                return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA1);
+                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA1);
             case 2:
-                return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA2);
+                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA2);
             case 3:
-                return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA3);
+                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA3);
             case 4:
-                return this.DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA4);
+                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA4);
             default:
                 return RESPOSTA_ERRADA;
         }
@@ -308,9 +350,4 @@ public class Questao extends CExercicio {
     protected void alertaOpcaoVazia() {
         alertaOpcaoVazia.alertDialogBloqueadoLicao("Selecione uma opção", "Selecione uma resposta!");
     }
-
-
-
-
-
 }

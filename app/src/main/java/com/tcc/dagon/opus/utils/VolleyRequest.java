@@ -21,7 +21,7 @@ import static android.content.ContentValues.TAG;
 
 /**
  * Created by cahwayan on 22/12/2016.
- */
+ */ /**/
 
 public class VolleyRequest {
 

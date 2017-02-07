@@ -22,7 +22,7 @@ public final class CompletarProva extends Completar {
 
     public OnHeadlineSelectedListener mCallback;
 
-
+    /**/
     /* MÉTODO ESTÁTICO DE INSTÂNCIA. COMO FRAGMENTOS NÃO POSSUEM SUPORTE DECENTE PARA O USO DE MÉTODOS CONSTRUTORES
     * (NA VERDADE NÃO É RECOMENDADO NEM SOBRESCREVER O CONSTRUTOR DE UM FRAGMENT)
     * CRIAMOS UM MÉTODO ESTÁTICO, QUE PODE SER ACESSADO DE QUALQUER LUGAR, QUE SERVE PARA INSTANCIAR A CLASSE COMO UM MÉTODO CONSTRUTOR.
@@ -32,14 +32,12 @@ public final class CompletarProva extends Completar {
 
     public static CompletarProva novoCompletarProva(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         CompletarProva completar = new CompletarProva();
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("quantidadePalavras", quantidadePalavras);
-        args.putInt("layoutID", layoutID);
-        args.putStringArray("respostasCertas", respostasCertas);
-        args.putStringArray("respostasCertasAcentuadas", respostasCertasAcentuadas);
-        completar.setArguments(args);
+        completar.setModuloAtual(moduloAtual);
+        completar.setEtapaAtual(etapaAtual);
+        completar.setQuantidadePalavras(quantidadePalavras);
+        completar.setLayoutID(layoutID);
+        completar.setRespostasCertas(respostasCertas);
+        completar.setRespostasCertasAcentuadas(respostasCertasAcentuadas);
         return completar;
     }
 
@@ -63,8 +61,8 @@ public final class CompletarProva extends Completar {
     }
 
     @Override
-    protected void setRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(layoutID, container, false);
+    protected void inflateRootView(int layoutID, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRootView(inflater.inflate(layoutID, container, false));
     }
 
     /* libera apenas um exercício de cada vez, ao invés de dois, como no completar normal*/
@@ -72,15 +70,15 @@ public final class CompletarProva extends Completar {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(btnAvancarQuestao);
-        unhideView(btnChecarResposta);
+        hideUnnecessaryView(getBtnAvancarQuestao());
+        unhideView(getBtnChecarResposta());
 
         changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
 
         setUpperBarIconClickable(ICONE_EXERCICIO);
 
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
+        hideUnnecessaryView(getImgRespostaCerta());
+        hideUnnecessaryView(getImgRespostaErrada());
 
         limparEditTexts();
         habilitarEditTexts();
@@ -88,7 +86,7 @@ public final class CompletarProva extends Completar {
         atualizarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
+        moveNext(getView_pager());
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
@@ -100,14 +98,14 @@ public final class CompletarProva extends Completar {
 
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(moduloAtual)));
+            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
     }
 
     @Override
     protected void questaoFinal() {
-        preferencias.escreverFlagProva(this.moduloAtual);
+        getPreferencias().escreverFlagProva(getModuloAtual());
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
@@ -120,9 +118,9 @@ public final class CompletarProva extends Completar {
 
     @Override
     protected void accessViews(View rootView) {
-        super.view_pager = (( (ContainerProva)this.getActivity() ).getPager() );
-        super.tabStrip   = (( (ContainerProva)this.getActivity() ).getTabStrip());
-        super.tab_layout = (( (ContainerProva)this.getActivity() ).getmTabLayout() );
+        super.setView_pager( (( (ContainerProva)this.getActivity() ).getPager()) );
+        super.setTabStrip (( (ContainerProva)this.getActivity() ).getTabStrip());
+        super.setTab_layout (( (ContainerProva)this.getActivity() ).getmTabLayout() );
         this.vida01 = ((ContainerProva)getActivity()).getVida01();
         this.vida02 = ((ContainerProva)getActivity()).getVida02();
         this.vida03 = ((ContainerProva)getActivity()).getVida03();

@@ -13,11 +13,10 @@ import android.widget.Toast;
 import com.tcc.dagon.opus.telas.fragments.container.ContainerProva;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.AnimacaoResposta;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 
 /**
  * Created by cahwayan on 16/01/2017.
- */
+ */ /**/
 
 public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
@@ -32,11 +31,9 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     public static QuestaoMultiplaProva novaQuestaoMultiplaProva(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoMultiplaProva questao = new QuestaoMultiplaProva();
-        Bundle args = new Bundle();
-        args.putInt("moduloAtual", moduloAtual);
-        args.putInt("etapaAtual", etapaAtual);
-        args.putInt("questaoAtual", questaoAtual);
-        questao.setArguments(args);
+        questao.setModuloAtual(moduloAtual);
+        questao.setEtapaAtual(etapaAtual);
+        questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
@@ -44,22 +41,21 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.getConstructorArgs();
-        this.setRootView(inflater, container, savedInstanceState);
+        inflateRootView(inflater, container, savedInstanceState);
         instanciaObjetos();
-        super.accessCheckBoxes(this.rootView);
-        this.accessViews(this.rootView);
+        accessCheckBoxes(getRootView());
+        accessViews(getRootView());
         fetchQuestionFromDatabase();
 
         // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
         super.listeners();
 
-        return this.rootView;
+        return getRootView();
     }
 
     @Override
-    protected void setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.activity_questao_multipla_escolha_prova, container, false);
+    protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRootView(inflater.inflate(R.layout.activity_questao_multipla_escolha_prova, container, false));
     }
 
     @Override
@@ -139,7 +135,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
         ContainerProva container = (ContainerProva) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(moduloAtual)));
+            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
     }
@@ -148,25 +144,25 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(btnAvancarQuestao);
-        unhideView(btnChecarResposta);
+        hideUnnecessaryView(getBtnAvancarQuestao());
+        unhideView(getBtnChecarResposta());
 
         changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
 
         setUpperBarIconClickable(ICONE_EXERCICIO);
 
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
+        hideUnnecessaryView(getImgRespostaCerta());
+        hideUnnecessaryView(getImgRespostaErrada());
 
         atualizarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
+        moveNext(getView_pager());
     }
 
     @Override
     public void questaoFinal() {
-        preferencias.escreverFlagProva(this.moduloAtual);
+        getPreferencias().escreverFlagProva(getModuloAtual());
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
@@ -179,9 +175,9 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     @Override
     public void accessViews(View rootView) {
-        super.view_pager = (( (ContainerProva)this.getActivity() ).getPager() );
-        super.tabStrip   = (( (ContainerProva)this.getActivity() ).getTabStrip());
-        super.tab_layout = (( (ContainerProva)this.getActivity() ).getmTabLayout() );
+        super.setView_pager( (( (ContainerProva)this.getActivity() ).getPager()) );
+        super.setTabStrip (( (ContainerProva)this.getActivity() ).getTabStrip());
+        super.setTab_layout( (( (ContainerProva)this.getActivity() ).getmTabLayout() ) );
         this.vida01 = ((ContainerProva)getActivity()).getVida01();
         this.vida02 = ((ContainerProva)getActivity()).getVida02();
         this.vida03 = ((ContainerProva)getActivity()).getVida03();

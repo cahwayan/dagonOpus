@@ -24,9 +24,9 @@ import org.androidannotations.annotations.TextChange;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
-public class CadastroActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity implements VolleyRequest.VolleyCallBack{
 
-    /* VIEWS */
+    /* VIEWS */ /**/
     @ViewById protected Button btnCadastra;
     @ViewById protected TextView textNome;
     @ViewById protected TextView textSenha;
@@ -42,14 +42,32 @@ public class CadastroActivity extends AppCompatActivity {
                      sCsenha,
                      sEmail;
 
-    private boolean usuarioExiste;
     private VolleyRequest volleyRequest;
     private ToastManager toastManager;
 
+    private boolean usuarioExiste;
     private int COR_MAIN;
     private int BORDA_PADRAO;
     private int COR_VERMELHO;
     private int COR_VERDE;
+
+    @Override
+    public void respostaEmail(boolean resultado) {
+        Log.d("ANTES: ", String.valueOf(usuarioExiste));
+        this.usuarioExiste = resultado;
+        Log.d("DEPOIS: ", String.valueOf(usuarioExiste));
+        onPostExecute();
+    }
+
+    private void onPostExecute() {
+        if(usuarioExiste)
+        {
+            configureEditTextUnavailable();
+        } else
+        {
+            configureEditTextAvailable();
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +76,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     @AfterViews
     protected void init() {
-        volleyRequest = new VolleyRequest(this);
+        volleyRequest = new VolleyRequest(this, this);
         preferenceManager = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
 
@@ -101,27 +119,7 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        Log.d("USUARIO ANTES: ", String.valueOf(usuarioExiste));
         usuarioExiste(); /* ? */
-        Log.d("USUARIO DEPOIS: ", String.valueOf(usuarioExiste));
-
-        new Handler().postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                if(usuarioExiste)
-                {
-                    configureEditTextUnavailable();
-
-                } else
-                {
-                    configureEditTextAvailable();
-                }
-            }
-        }, 1000);
-
-
     }
 
     protected void cadastrar() {
@@ -190,18 +188,11 @@ public class CadastroActivity extends AppCompatActivity {
 
     protected void usuarioExiste()  {
         if(VerificarConexao.verificarConexao()) {
-            volleyRequest.requestUsuarioExiste(sEmail, new VolleyRequest.VolleyCallBack() {
-                @Override
-                public void respostaEmail(String resultado) {
-                    usuarioExiste = resultado.equals("sim");
-                    Log.d("RESULTADO: ", resultado);
-                }
-            });
+            volleyRequest.requestUsuarioExiste(sEmail);
         } else {
             toastManager.toastShort("Sem conexão");
             configureEditTextReset();
         }
-
     }
 
     private void configureEditTextUnavailable() {

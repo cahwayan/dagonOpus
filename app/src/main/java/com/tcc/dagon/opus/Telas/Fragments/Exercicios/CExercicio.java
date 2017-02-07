@@ -20,72 +20,139 @@ import com.tcc.dagon.opus.utils.PulseAnimation;
 /**
  * Created by Felipe on 07/01/2017.
  * ESTA CLASSE É A RAÍZ DE TODOS AS CLASSES DE EXERCÍCIO DO APLICATIVO
- */
+ */ /**/
 
 
 public abstract class CExercicio extends Fragment{
 
     /* OBJETOS */
-    protected GerenciadorBanco             DB_PROGRESSO = null;
-    protected GerenciadorSharedPreferences preferencias = null;
-    protected MediaPlayer                  somRespostaCerta = null;
-    protected MediaPlayer                  somRespostaErrada = null;
+    private GerenciadorBanco             DB_PROGRESSO = null;
+    private GerenciadorSharedPreferences preferencias = null;
+    private MediaPlayer                  somRespostaCerta = null;
+    private MediaPlayer                  somRespostaErrada = null;
 
     /* VIEWS */
-    protected ImageView imgRespostaCerta;
-    protected ImageView imgRespostaErrada;
-    protected Button btnChecarResposta;
-    protected Button btnAvancarQuestao;
-    protected Button btnTentarNovamente;
-    protected ViewPager view_pager;
-    protected TabLayout tab_layout;
-    protected LinearLayout tabStrip;
-    protected TextView txtPontos;
+    private ImageView imgRespostaCerta;
+    private ImageView imgRespostaErrada;
+    private Button btnChecarResposta;
+    private Button btnAvancarQuestao;
+    private Button btnTentarNovamente;
+    private ViewPager view_pager;
+    private TabLayout tab_layout;
+    private LinearLayout tabStrip;
+    private TextView txtPontos;
 
     /* VARIÁVEIS */
-    protected int qtdErros;
-    protected int pontuacao;
-    protected int moduloAtual, etapaAtual;
+    private int qtdErros;
+    private int pontuacao;
+    private int moduloAtual, etapaAtual;
 
-    public void setModuloAtual(int moduloAtual) {
-        this.moduloAtual = moduloAtual;
+    public Button getBtnAvancarQuestao() {
+        return btnAvancarQuestao;
+    }
+
+    public Button getBtnChecarResposta() {
+        return btnChecarResposta;
+    }
+
+
+    public Button getBtnTentarNovamente() {
+        return btnTentarNovamente;
+    }
+
+    public GerenciadorBanco getDB_PROGRESSO() {
+        return DB_PROGRESSO;
+    }
+
+    public void setDB_PROGRESSO(GerenciadorBanco DB_PROGRESSO) {
+        this.DB_PROGRESSO = DB_PROGRESSO;
+    }
+
+    public int getEtapaAtual() {
+        return etapaAtual;
     }
 
     public void setEtapaAtual(int etapaAtual) {
         this.etapaAtual = etapaAtual;
     }
 
+    public ImageView getImgRespostaCerta() {
+        return imgRespostaCerta;
+    }
+
+    public ImageView getImgRespostaErrada() {
+        return imgRespostaErrada;
+    }
+
+    public int getModuloAtual() {
+        return moduloAtual;
+    }
+
+    public void setModuloAtual(int moduloAtual) {
+        this.moduloAtual = moduloAtual;
+    }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    public GerenciadorSharedPreferences getPreferencias() {
+        return preferencias;
+    }
+
+    public int getQtdErros() {
+        return qtdErros;
+    }
+
+    public MediaPlayer getSomRespostaErrada() {
+        return somRespostaErrada;
+    }
+
+    public void setTab_layout(TabLayout tab_layout) {
+        this.tab_layout = tab_layout;
+    }
+
+    public void setTabStrip(LinearLayout tabStrip) {
+        this.tabStrip = tabStrip;
+    }
+
+    public TextView getTxtPontos() {
+        return txtPontos;
+    }
+
+    public ViewPager getView_pager() {
+        return view_pager;
+    }
+
+    public void setView_pager(ViewPager view_pager) {
+        this.view_pager = view_pager;
+    }
+
     /* ABSTRATOS */
     protected abstract void validarRespostaUsuario();
-    protected abstract void setPontuacao();
+    protected abstract void calcularPontuacao();
 
     /* CICLO DE VIDA */
 
     @Override
     public void onPause() {
-//        this.btnChecarResposta.setVisibility(View.VISIBLE);
-//        this.btnAvancarQuestao.setVisibility(View.GONE);
-//        this.btnTentarNovamente.setVisibility(View.GONE);
+        releaseSons();
         super.onPause();
     }
 
     @Override
     public void onResume() {
+        instanciaSons();
         super.onResume();
     }
 
     @Override
     public void onDestroy() {
-        if(somRespostaCerta != null) {
-            somRespostaCerta.release();
-            somRespostaCerta = null;
-        }
-
-        if(somRespostaErrada != null) {
-            somRespostaErrada.release();
-            somRespostaErrada = null;
-        }
-
+        releaseSons();
         super.onDestroy();
     }
 
@@ -94,19 +161,31 @@ public abstract class CExercicio extends Fragment{
             this.DB_PROGRESSO = new GerenciadorBanco(getActivity());
         }
 
+        if(this.preferencias == null) {
+            this.preferencias = new GerenciadorSharedPreferences(getActivity());
+        }
+
+        instanciaSons();
+    }
+
+    private void instanciaSons() {
         if(this.somRespostaCerta == null || this.somRespostaErrada == null) {
             this.somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
             this.somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
         }
-
-        if(this.preferencias == null) {
-            this.preferencias = new GerenciadorSharedPreferences(getActivity());
-        }
     }
 
-    protected void getConstructorArgs() {
-        this.moduloAtual  = getArguments().getInt("moduloAtual", 0);
-        this.etapaAtual   = getArguments().getInt("etapaAtual", 0);
+    private void releaseSons() {
+        if(this.somRespostaCerta != null) {
+            this.somRespostaCerta.release();
+            this.somRespostaCerta = null;
+        }
+
+        if(this.somRespostaErrada != null) {
+            this.somRespostaErrada.release();
+            this.somRespostaErrada = null;
+        }
+
     }
 
     protected void accessViews(View rootView) {
@@ -188,7 +267,7 @@ public abstract class CExercicio extends Fragment{
 
     protected void respostaCerta() {
         playSound(somRespostaCerta);
-        setPontuacao();
+        calcularPontuacao();
         initAnimationAnswer(this.imgRespostaCerta);
         unhideView(btnAvancarQuestao);
     }
