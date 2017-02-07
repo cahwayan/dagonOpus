@@ -1,7 +1,7 @@
 package com.tcc.dagon.opus.telas.login;
 
-import android.graphics.Color;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,13 +17,10 @@ import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;
 import com.tcc.dagon.opus.utils.VolleyRequest;
 
-import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.BeforeTextChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.TextChange;
-import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
@@ -49,6 +46,11 @@ public class CadastroActivity extends AppCompatActivity {
     private VolleyRequest volleyRequest;
     private ToastManager toastManager;
 
+    private int COR_MAIN;
+    private int BORDA_PADRAO;
+    private int COR_VERMELHO;
+    private int COR_VERDE;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,10 @@ public class CadastroActivity extends AppCompatActivity {
         volleyRequest = new VolleyRequest(this);
         preferenceManager = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
+
+        COR_MAIN = ContextCompat.getColor(this, R.color.colorPrimary);
+        COR_VERMELHO = ContextCompat.getColor(this, R.color.corDicaVermelha);
+        COR_VERDE = ContextCompat.getColor(this, R.color.corDicaVerde);
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -91,7 +97,7 @@ public class CadastroActivity extends AppCompatActivity {
         sEmail = textEmail.getText().toString();
 
         if(!ValidarEmail.validarEmail(sEmail)) {
-            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            configureEditTextReset();
             return;
         }
 
@@ -106,11 +112,11 @@ public class CadastroActivity extends AppCompatActivity {
             {
                 if(usuarioExiste)
                 {
-                    textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
-                    toastManager.toastShort("Email já cadastrado");
+                    configureEditTextUnavailable();
+
                 } else
                 {
-                    textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+                    configureEditTextAvailable();
                 }
             }
         }, 1000);
@@ -182,15 +188,41 @@ public class CadastroActivity extends AppCompatActivity {
         }
     }
 
-    @UiThread
     protected void usuarioExiste()  {
-        volleyRequest.requestUsuarioExiste(sEmail, new VolleyRequest.VolleyCallBack() {
-            @Override
-            public void respostaEmail(String resultado) {
-                usuarioExiste = resultado.equals("sim");
-                Log.d("RESULTADO: ", resultado);
-            }
-        });
+        if(VerificarConexao.verificarConexao()) {
+            volleyRequest.requestUsuarioExiste(sEmail, new VolleyRequest.VolleyCallBack() {
+                @Override
+                public void respostaEmail(String resultado) {
+                    usuarioExiste = resultado.equals("sim");
+                    Log.d("RESULTADO: ", resultado);
+                }
+            });
+        } else {
+            toastManager.toastShort("Sem conexão");
+            configureEditTextReset();
+        }
+
+    }
+
+    private void configureEditTextUnavailable() {
+        if(VerificarConexao.verificarConexao()) {
+            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            textEmail.setTextColor(COR_VERMELHO);
+            toastManager.toastShort("Email já cadastrado");
+        }
+
+    }
+
+    private void configureEditTextAvailable() {
+        if(VerificarConexao.verificarConexao()) {
+            textEmail.setTextColor(COR_VERDE);
+            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
+        }
+    }
+
+    private void configureEditTextReset() {
+        textEmail.setTextColor(COR_MAIN);
+        textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 
 }
