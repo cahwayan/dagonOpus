@@ -3,7 +3,7 @@ package com.tcc.dagon.opus.instanciasfragmentos.Modulo1;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import com.tcc.dagon.opus.telas.fragments.adapter.Adapter;
-import com.tcc.dagon.opus.telas.fragments.licoes.Licao;
+import com.tcc.dagon.opus.ui.licao.LicaoFragment;
 import com.tcc.dagon.opus.telas.fragments.exercicios.Questao;
 import com.tcc.dagon.opus.R;
 
@@ -32,7 +32,7 @@ public class AdapterEtapa1 extends Adapter {
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return Licao.novaLicao(R.layout.fragment_modulo1_etapa1_licao1);
+                return LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1);
             case 1:
                 return Questao.novaQuestao(MODULO1, ETAPA1, QUESTAO1);
             default:

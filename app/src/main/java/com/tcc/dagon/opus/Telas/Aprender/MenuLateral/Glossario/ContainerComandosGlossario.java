@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.tcc.dagon.opus.telas.aprender.AprenderActivity;
+import com.tcc.dagon.opus.ui.aprender.AprenderActivity;
 import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
 import com.tcc.dagon.opus.R;
 

@@ -26,13 +26,14 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.tcc.dagon.opus.telas.aprender.AprenderActivity_;
 import com.tcc.dagon.opus.telas.login.LoginActivity_;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.login.AlterarSenhaActivity;
 import com.tcc.dagon.opus.telas.login.LoginActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+
+import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -134,7 +135,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private void carregarProgresso() {
         int progressoGeral = 0;
         for(int i = 1; i <= 8; i++) {
-            progressoGeral += DB_PROGRESSO.verificaProgressoEtapa(i);
+            progressoGeral += DB_PROGRESSO.getProgressoEtapa(i);
         }
         barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));
     }

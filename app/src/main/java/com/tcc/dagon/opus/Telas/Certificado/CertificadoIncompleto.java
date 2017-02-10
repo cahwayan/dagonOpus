@@ -75,12 +75,12 @@ public class CertificadoIncompleto extends AppCompatActivity {
 
     private void carregarProgresso() {
         barraGeralCertificado.setProgress(Float.parseFloat(valueOf(
-                                    DB_PROGRESSO.verificaProgressoEtapa(1) +
-                                    DB_PROGRESSO.verificaProgressoEtapa(2) +
-                                    DB_PROGRESSO.verificaProgressoEtapa(3) +
-                                    DB_PROGRESSO.verificaProgressoEtapa(4) +
-                                    DB_PROGRESSO.verificaProgressoEtapa(5) +
-                                    DB_PROGRESSO.verificaProgressoEtapa(6))));
+                                    DB_PROGRESSO.getProgressoEtapa(1) +
+                                    DB_PROGRESSO.getProgressoEtapa(2) +
+                                    DB_PROGRESSO.getProgressoEtapa(3) +
+                                    DB_PROGRESSO.getProgressoEtapa(4) +
+                                    DB_PROGRESSO.getProgressoEtapa(5) +
+                                    DB_PROGRESSO.getProgressoEtapa(6))));
     }
 
 }

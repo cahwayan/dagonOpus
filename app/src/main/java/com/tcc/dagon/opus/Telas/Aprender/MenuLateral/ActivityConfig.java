@@ -90,7 +90,7 @@ public class ActivityConfig extends AppCompatActivity {
                 listenerDialogClickProva);
     }
 
-    // método que constrói a janela de alerta ao apertar o botão de apagar dados
+    // método que constrói a janela de janelaAlerta ao apertar o botão de apagar dados
     public void alertaApagarProgresso(String mensagem, DialogInterface.OnClickListener listenerOnClick) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(mensagem).setPositiveButton("Sim", listenerOnClick)

@@ -6,14 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import com.tcc.dagon.opus.telas.fragments.licoes.Licao;
+import com.tcc.dagon.opus.ui.licao.LicaoFragment;
 import com.tcc.dagon.opus.R;
 
 /**
  * Created by cahwayan on 04/12/2016.
  */
 
-public class FragmentTelaInterfaceGlossario extends Licao {
+public class FragmentTelaInterfaceGlossario extends LicaoFragment {
 
     private Button btnVoltar2;
 

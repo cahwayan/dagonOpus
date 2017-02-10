@@ -127,7 +127,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 1) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 1) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -147,7 +147,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 2) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 2) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -163,7 +163,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 3) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 3) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -179,7 +179,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 4) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 4) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -195,7 +195,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 5) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 5) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -211,7 +211,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 6) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 6) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -227,7 +227,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 7) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 7) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -247,7 +247,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 8) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 8) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES
@@ -263,7 +263,7 @@ public class EtapasModulo1Activity extends Etapas {
         etapa9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DB_PROGRESSO.verificaProgressoEtapa(moduloAtual) >= 9) {
+                if(DB_PROGRESSO.getProgressoEtapa(moduloAtual) >= 9) {
                     // ANIMAÇÃO
                     v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
                     // ABRIR LICOES

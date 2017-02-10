@@ -85,7 +85,7 @@ public class Etapas extends AppCompatActivity {
     }
 
     protected void desbloquearEtapas(List<LinearLayout> listaEtapas) {
-        for(int i = 0 ; i < DB_PROGRESSO.verificaProgressoEtapa(moduloAtual); i++) {
+        for(int i = 0; i < DB_PROGRESSO.getProgressoEtapa(moduloAtual); i++) {
 
 
             // ENCHENDO OS VETORES COM OS OBJETOS

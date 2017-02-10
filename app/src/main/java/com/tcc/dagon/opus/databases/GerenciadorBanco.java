@@ -267,8 +267,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     // MÉTODO QUE VERIFICA O PROGRESSO DA ETAPA
     // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
     // DAS ETAPAS DO USUÁRIO PARA AQUELE MÓDULO
-    // EX: verificaProgressoEtapa(3) busca o progresso das etapas do módulo 3
-    public int verificaProgressoEtapa(int moduloPertencente) {
+    // EX: getProgressoEtapa(3) busca o progresso das etapas do módulo 3
+    public int getProgressoEtapa(int moduloPertencente) {
         String tabela = Progresso.TABELA_PROGRESSO;
         String colunasEtapa[] = {""};
         String limit = "1";

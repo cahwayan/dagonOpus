@@ -424,7 +424,7 @@ public abstract class CExercicio extends Fragment{
     }
 
     protected boolean usuarioJaCompletouEssaEtapaAntes() {
-        int progressoSalvo = this.DB_PROGRESSO.verificaProgressoEtapa(this.moduloAtual);
+        int progressoSalvo = this.DB_PROGRESSO.getProgressoEtapa(this.moduloAtual);
         return progressoSalvo > this.etapaAtual;
     }
 

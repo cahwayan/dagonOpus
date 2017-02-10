@@ -101,7 +101,7 @@ public class ContainerProva extends ContainerEtapa
         super.onDestroy();
     }
 
-    // método que constrói a janela de alerta ao apertar o back button
+    // método que constrói a janela de janelaAlerta ao apertar o back button
     public void alertDialogSairProva(String mensagem, DialogInterface.OnClickListener listenerOnClick) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(mensagem).setPositiveButton("Sim", listenerOnClick)

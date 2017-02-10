@@ -152,4 +152,8 @@ public class GerenciadorSharedPreferences {
     public static String getNomeUsuario() {
         return Preferencias.nomeUsuario;
     }
+
+    public boolean isUserLogged() {
+        return this.lerFlagBoolean(getIsLogin());
+    }
 }
