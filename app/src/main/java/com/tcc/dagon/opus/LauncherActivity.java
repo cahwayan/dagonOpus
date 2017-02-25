@@ -88,7 +88,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoBloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoModulo(1);
+                preferencias.escreverFlagInt(preferencias.getPrefProgressoModulo(), 1);
 
                 preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
                 preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
@@ -102,7 +102,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoDesbloquear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoModulo(7);
+                preferencias.escreverFlagInt(preferencias.getPrefProgressoModulo(), 7);
 
 
                 preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), true);

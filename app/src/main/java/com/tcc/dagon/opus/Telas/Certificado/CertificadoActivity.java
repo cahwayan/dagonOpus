@@ -27,14 +27,14 @@ public class CertificadoActivity extends AppCompatActivity {
     private Button btnCertificado;
     private StringRequest request;
     private RequestQueue requestQueue;
-    GerenciadorSharedPreferences preferencias = new GerenciadorSharedPreferences(this);
+    GerenciadorSharedPreferences preferencias;
     String sEmail, sNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certificado);
-
+        preferencias =  new GerenciadorSharedPreferences(this);
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
             // BOTÃO SUPERIOR MENU PUXÁVEL

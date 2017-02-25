@@ -13,11 +13,36 @@ public class GerenciadorSharedPreferences {
 
     private final SharedPreferences sharedPreferences;
 
+
+
+    public String getPrefNota(int numModulo) {
+
+        switch(numModulo) {
+
+            case 1: return "notaModulo1";
+
+            case 2: return "notaModulo2";
+
+            case 3: return "notaModulo3";
+
+            case 4: return "notaModulo4";
+
+            case 5: return "notaModulo5";
+
+            case 6: return "notaModulo6";
+
+            default: return "default";
+
+        }
+    }
+
     public GerenciadorSharedPreferences(Context context) {
         this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     private abstract static class Preferencias {
+
+        private static final String prefProgressoModulo = "progressoModulo";
         /*
         * FLAGS DA TELA DE CONFIGURAÇÕES
         */
@@ -56,6 +81,8 @@ public class GerenciadorSharedPreferences {
         private static final String flagCertificadoGerado = "flagCertificadoGerado";
 
 
+
+
     }
 
     /*MÉTODOS QUE LEEM FLAGS*/
@@ -65,6 +92,16 @@ public class GerenciadorSharedPreferences {
 
     public boolean lerFlagBoolean(String nomeFlag) {
         return sharedPreferences.getBoolean(nomeFlag, false);
+    }
+
+    public int lerFlagInt(String nomeFlag) {
+        return sharedPreferences.getInt(nomeFlag, 1);
+    }
+
+    public void escreverFlagInt(String nomeFlag, int valorFlag) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(nomeFlag, valorFlag);
+        editor.apply();
     }
 
     /*MÉTODOS QUE ALTERAM FLAGS*/
@@ -156,4 +193,10 @@ public class GerenciadorSharedPreferences {
     public boolean isUserLogged() {
         return this.lerFlagBoolean(getIsLogin());
     }
+
+    public String getPrefProgressoModulo() {
+        return Preferencias.prefProgressoModulo;
+    }
+
+
 }
