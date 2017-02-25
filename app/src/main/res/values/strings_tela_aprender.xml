@@ -3,14 +3,14 @@
     <!--STRINGS TELA APRENDER-->
     <!--STRINGS MODULOS-->
     <!-- PROGRESSO DOS MÓDULOS -->
-    <string name="txtProgressoModulo1">0/9 etapas concluídas</string>
-    <string name="txtProgressoModulo2">0/6 etapas concluídas</string>
-    <string name="txtProgressoModulo3">0/3 etapas concluídas</string>
-    <string name="txtProgressoModulo4">0/6 etapas concluídas</string>
-    <string name="txtProgressoModulo5">0/1 etapas concluídas</string>
-    <string name="txtProgressoModulo6">0/10 etapas concluídas</string>
-    <string name="txtProgressoModulo7">0/6 etapas concluídas</string>
-    <string name="txtProgressoModulo8">0/3 etapas concluídas</string>
+    <string name="txtProgressoModulo1">/9 etapas concluídas</string>
+    <string name="txtProgressoModulo2">/6 etapas concluídas</string>
+    <string name="txtProgressoModulo3">/3 etapas concluídas</string>
+    <string name="txtProgressoModulo4">/6 etapas concluídas</string>
+    <string name="txtProgressoModulo5">/1 etapas concluídas</string>
+    <string name="txtProgressoModulo6">/10 etapas concluídas</string>
+    <string name="txtProgressoModulo7">/6 etapas concluídas</string>
+    <string name="txtProgressoModulo8">/3 etapas concluídas</string>
 
     <!-- TITULOS DOS MÓDULOS -->
     <string name="txtTituloModulo1">Conceitos Básicos</string>
@@ -25,7 +25,7 @@
     <!--FIM STRINGS MODULOS-->
 
     <string name="moduloBloqueado">Módulo Bloqueado</string>
-
+    <string name="moduloCompleto">Módulo Completo</string>
     <!--MENU PUXAVEL-->
     <string name="mAbrir">Abrir navegação</string>
     <string name="mFechar">Fechar Navegação</string>

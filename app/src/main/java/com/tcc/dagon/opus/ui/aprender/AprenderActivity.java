@@ -71,6 +71,7 @@ public class AprenderActivity
     private List<TextView> listTxtProgressoModulos;
     private List<RoundCornerProgressBar> listBarrasProgresso;
 
+    private int[] idStringsTxtProgresso;
     private int[] idImagensCursando;
     private int[] idImagensBloqueado;
     private int[] idImagensCompleto;
@@ -258,6 +259,11 @@ public class AprenderActivity
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo6));
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo6 /*  7 */));
 
+        idStringsTxtProgresso = new int[] {R.string.txtProgressoModulo1, R.string.txtProgressoModulo2,
+                                           R.string.txtProgressoModulo3, R.string.txtProgressoModulo4,
+                                           R.string.txtProgressoModulo5, R.string.txtProgressoModulo6,
+                                           R.string.txtProgressoModulo7 /* 7 */};
+
         idImagensBloqueado = new int[] {R.drawable.btnmodulo1bloqueado, R.drawable.btnmodulo2bloqueado,
                                         R.drawable.btnmodulo3bloqueado, R.drawable.btnmodulo4bloqueado,
                                         R.drawable.btnmodulo5bloqueado, R.drawable.btnmodulo6bloqueado,
@@ -281,71 +287,76 @@ public class AprenderActivity
 
         configurarMenu();
 
-        progressoTextView();
-
         loadProgressBars();
 
         carregarProgresso();
     }
 
+    /*
+    * Esse método é responsável por carregar o progresso e ajustar a UI de acordo com ele.
+    * Os módulos são guardados em uma lista, e eles carregam informações a respeito do progresso atual.
+    * Então, esse método percorre essa lista, e decide para cada caso como configurar a UI do módulo
+    */
+
+    @UiThread
     private void carregarProgresso() {
 
         for(int i = 0; i < listModulos.size(); i++) {
 
-            String situacaoModulo = listModulos.get(i).getSituacao();
+            Modulo modulo = listModulos.get(i);
+            String situacaoModulo = modulo.getSituacao();
+            TextView nota = listTxtNotas.get(i);
+            ImageView iconeModulo = listImgModulos.get(i);
+            TextView txtProgressoModulo = listTxtProgressoModulos.get(i);
+            RoundCornerProgressBar barraProgressoModulo = listBarrasProgresso.get(i);
 
             switch(situacaoModulo) {
+                case Modulo.CURSANDO:
+                    /*
+                    * Um módulo que está na situação cursando deve mostrar o ícone do módulo em um azul mais claro,
+                    *  o título do módulo, a textView de progresso, e a barra de progresso. A nota deve ser escondida
+                    */
+                    int numProgresso = DB_PROGRESSO.getProgressoEtapa(i + 1);
+                    String stringTxtProgresso = String.valueOf(numProgresso) + idStringsTxtProgresso[i];
 
-                // CASO O MÓDULO ESTEJA NO STATUS CURSANDO
-                case "cursando":
-                    // ESCONDER A NOTA
-                    listTxtNotas.get(i).setVisibility(View.GONE);
+                    nota.setVisibility(View.GONE);
+                    iconeModulo.setImageResource(idImagensCursando[i]);
+                    txtProgressoModulo.setText(stringTxtProgresso);
+                    txtProgressoModulo.setVisibility(View.VISIBLE);
+                    float progresso = DB_PROGRESSO.getProgressoEtapa(i + 1);
+                    barraProgressoModulo.setProgress(progresso);
 
-                    // COLOCAR IMAGEM DE MÓDULO CURSANDO
-                    listImgModulos.get(i).setImageResource(idImagensCursando[i]);
 
-                    // MOSTRAR A TXT DE PROGRESSO
-                    listTxtProgressoModulos.get(i).setVisibility(View.VISIBLE);
 
-                    // MOSTRAR A BARRA DE PROGRESSO
-                    listBarrasProgresso.get(i).setVisibility(View.VISIBLE);
+                    barraProgressoModulo.setVisibility(View.VISIBLE);
                     break;
 
-                // SE ESTIVER COMPLETO
-                case "completo":
-                    // SETAR O VALOR DA NOTA
-                    listTxtNotas.get(i).setText(listModulos.get(i).getStringNota());
-
-                    // MOSTRAR A NOTA
-                    listTxtNotas.get(i).setVisibility(View.VISIBLE);
-
-                    // COLOCAR IMAGEM DE MÓDULO COMPLETO
-                    listImgModulos.get(i).setImageResource(idImagensCompleto[i]);
-
-                    // ESCONDER BARRA DE PROGRESSO
-                    listBarrasProgresso.get(i).setVisibility(View.GONE);
-
-                    // ESCONDER TXT PROGRESSO
-                    listTxtProgressoModulos.get(i).setVisibility(View.GONE);
+                case Modulo.COMPLETO:
+                    /*
+                    * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
+                    * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
+                    */
+                    nota.setText(modulo.getStringNota());
+                    nota.setVisibility(View.VISIBLE);
+                    iconeModulo.setImageResource(idImagensCompleto[i]);
+                    barraProgressoModulo.setVisibility(View.GONE);
+                    txtProgressoModulo.setText(R.string.moduloCompleto);
                     break;
 
-                case "bloqueado":
-                    // ESCONDER A NOTA
-                    listTxtNotas.get(i).setVisibility(View.GONE);
-
-                    // COLOCAR IMAGEM DE MÓDULO BLOQUEADO
-                    listImgModulos.get(i).setImageResource(idImagensBloqueado[i]);
-
-                    // ESCONDER A BARRA DE PROGRESSO
-                    listBarrasProgresso.get(i).setVisibility(View.GONE);
-
-                    // ESCONDER TXT PROGRESSO
-                    listTxtProgressoModulos.get(i).setVisibility(View.GONE);
+                case Modulo.BLOQUEADO:
+                    /*
+                    * Um módulo bloqueado deve mostrar somente o ícone do módulo, em cinza, e o
+                    * título daquele módulo. A barra de progresso, a textView de progresso e a nota
+                    * precisam ser escondidos
+                    */
+                    nota.setVisibility(View.GONE);
+                    iconeModulo.setImageResource(idImagensBloqueado[i]);
+                    barraProgressoModulo.setVisibility(View.GONE);
+                    txtProgressoModulo.setVisibility(View.GONE);
                     break;
                 default:
                     break;
             }
-
         }
 
     }
@@ -401,18 +412,6 @@ public class AprenderActivity
 
     }
 
-
-
-
-    // VERIFICA O PROGRESSO DO USUÁRIO REFERENTE AS ETAPAS DE CADA MÓDULO E ATRIBUI A TEXTVIEW
-    protected void progressoTextView() {
-        txtProgresso1.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(1)) + "/9 etapas concluídas");
-        txtProgresso2.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(2)) + "/6 etapas concluídas");
-        txtProgresso3.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(3)) + "/3 etapas concluídas");
-        txtProgresso4.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(4)) + "/6 etapas concluídas");
-        txtProgresso5.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(5)) + "/1 etapas concluídas");
-        txtProgresso6.setText(String.valueOf(DB_PROGRESSO.getProgressoEtapa(6)) + "/10 etapas concluídas");
-    }
 
     // CONFIGURA O PROGRESSO DAS PROGRESS BARS
     @UiThread
@@ -514,7 +513,6 @@ public class AprenderActivity
     @UiThread(delay = 100)
     protected void atualizaProgressoUI() {
         carregarProgresso();
-        progressoTextView();
         loadProgressBars();
     }
 
@@ -573,14 +571,16 @@ public class AprenderActivity
 
     }
 
-    private class Modulo {
+    class Modulo {
         private int numModulo;
         private String stringNota;
-
         private String situacao;
+        final static String CURSANDO = "cursando";
+        final static String COMPLETO = "completo";
+        final static String BLOQUEADO = "bloqueado";
 
 
-        public Modulo(int numModulo) {
+        Modulo(int numModulo) {
             this.numModulo = numModulo;
             this.stringNota = getNota();
             this.setSituacao();
@@ -594,23 +594,24 @@ public class AprenderActivity
             return this.stringNota;
         }
 
-        public int getNumModulo() {
+        int getNumModulo() {
             return this.numModulo;
-        }
-
-        private void setSituacao() {
-            if(this.numModulo == progressoAtual) {
-                this.situacao = "cursando";
-            } else if (this.numModulo < progressoAtual) {
-                this.situacao = "completo";
-            } else {
-                this.situacao = "bloqueado";
-            }
         }
 
         private String getSituacao() {
             return this.situacao;
         }
+
+        private void setSituacao() {
+            if(this.numModulo == progressoAtual) {
+                this.situacao = CURSANDO;
+            } else if (this.numModulo < progressoAtual) {
+                this.situacao = COMPLETO;
+            } else {
+                this.situacao = BLOQUEADO;
+            }
+        }
+
 
     }
 }
