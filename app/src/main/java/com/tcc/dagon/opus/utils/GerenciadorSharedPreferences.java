@@ -1,202 +1,312 @@
 package com.tcc.dagon.opus.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 /**
  * Created by cahwayan on 07/12/2016.
  */
 
-public class GerenciadorSharedPreferences {
+public final class GerenciadorSharedPreferences implements Preferencias {
 
     private final SharedPreferences sharedPreferences;
 
-
-
-    public String getPrefNota(int numModulo) {
-
-        switch(numModulo) {
-
-            case 0: return "notaModulo0";
-
-            case 1: return "notaModulo1";
-
-            case 2: return "notaModulo2";
-
-            case 3: return "notaModulo3";
-
-            case 4: return "notaModulo4";
-
-            case 5: return "notaModulo5";
-
-            default: return "default";
-
-        }
-    }
-
     public GerenciadorSharedPreferences(Context context) {
-        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
-    private abstract static class Preferencias {
-
-        private static final String prefProgressoModulo = "progressoModulo";
-        /*
-        * FLAGS DA TELA DE CONFIGURAÇÕES
-        */
-        private static final String flagSwitchConfigSom = "botaoSonsChecked";
-        private static final String desativarSons = "desativarSons";
-
-        /*
-        FLAG DE LOGIN
-        */
-        private static final String isLogin = "isLogin";
-
-        /*
-        * FLAG NOME USER
-        */
-        private static final String nomeUsuario = "nomeUsuario";
-
-        /*
-        *FLAG CAMINHO FOTO
-        */
-        private static final String caminhoFoto = "caminhoFoto";
-
-        /*
-        *Flag que guarda o email do usuário
-        */
-        private static final String emailUsuario = "emailUsuario";
-
-        /*
-        * FLAGS QUE VERIFICAM SE O ALUNO JÁ COMPLETOU A PROVA AO MENOS UMA VEZ
-        */
-        private static final String flagProva1 = "completouTeste1";
-        private static final String flagProva2 = "completouTeste2";
-        private static final String flagProva3 = "completouTeste3";
-        private static final String flagProva4 = "completouTeste4";
-        private static final String flagProva5 = "completouTeste5";
-        private static final String flagProva6 = "completouTeste6";
-        private static final String flagCertificadoGerado = "flagCertificadoGerado";
-
-
-
-
+        this.sharedPreferences = context.getSharedPreferences("Preferences", Context.MODE_PRIVATE);
     }
 
     /*MÉTODOS QUE LEEM FLAGS*/
+    @Override
     public String lerFlagString(String nomeFlag) {
         return sharedPreferences.getString(nomeFlag, "default");
     }
 
+    @Override
     public boolean lerFlagBoolean(String nomeFlag) {
         return sharedPreferences.getBoolean(nomeFlag, false);
     }
 
+    @Override
     public int lerFlagInt(String nomeFlag) {
         return sharedPreferences.getInt(nomeFlag, 0);
     }
 
-    public void escreverFlagInt(String nomeFlag, int valorFlag) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(nomeFlag, valorFlag);
-        editor.apply();
-    }
-
-    /*MÉTODOS QUE ALTERAM FLAGS*/
-    public void escreverFlagString(String nomeFlag, String valorFlag) {
+    @Override
+    public void modFlag(String nomeFlag, String valorFlag) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(nomeFlag, valorFlag);
         editor.apply();
     }
 
-    public void escreverFlagBoolean(String nomeFlag, Boolean valorFlag ) {
+    @Override
+    public void modFlag(String nomeFlag, boolean valorFlag) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(nomeFlag, valorFlag);
         editor.apply();
     }
 
-    public String lerFlagProva(int moduloProva) {
-        switch(moduloProva) {
-            case 1: return getFlagProva1();
-            case 2: return getFlagProva2();
-            case 3: return getFlagProva3();
-            case 4: return getFlagProva4();
-            case 5: return getFlagProva5();
-            case 6: return getFlagProva6();
-            default: return "default";
+    @Override
+    public void modFlag(String nomeFlag, int valorFlag) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(nomeFlag, valorFlag);
+        editor.apply();
+    }
+
+    @Override
+    public String getCaminhoFoto() {
+        return lerFlagString(caminhoFoto);
+    }
+
+    @Override
+    public int getProgressoModulo() {
+        return lerFlagInt(PROGRESSO_MODULO);
+    }
+
+    @Override
+    public int getProgressoEtapa(int numModuloReferente) {
+        switch(numModuloReferente) {
+            case 0:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO0);
+
+            case 1:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO1);
+
+            case 2:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO2);
+
+            case 3:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO3);
+
+            case 4:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO4);
+
+            case 5:
+                return lerFlagInt(PROGRESSO_ETAPAS_MODULO5);
+
+            default:
+                return 0;
         }
     }
 
-    public void escreverFlagProva(int moduloAtual) {
-        escreverFlagBoolean(lerFlagProva(moduloAtual), true);
+    @Override /* TODO */
+    public int getProgressoLicao(int numModuloReferente, int numEtapaReferente) {
+        return 0;
     }
 
-    public boolean somEstaAtivado() {
-        return lerFlagBoolean(getDesativarSons());
+    @Override
+    public boolean getCompletouProva(int numModuloReferente) {
+        switch(numModuloReferente) {
+            case 0:
+                return lerFlagBoolean(flagProva0);
+
+            case 1:
+                return lerFlagBoolean(flagProva1);
+
+            case 2:
+                return lerFlagBoolean(flagProva2);
+
+            case 3:
+                return lerFlagBoolean(flagProva3);
+
+            case 4:
+                return lerFlagBoolean(flagProva4);
+
+            case 5:
+                return lerFlagBoolean(flagProva5);
+
+            default:
+                return false;
+        }
     }
 
-
-    public static String getCaminhoFoto() {
-        return Preferencias.caminhoFoto;
+    @Override
+    public boolean getSwitchSons() {
+        return lerFlagBoolean(flagSwitchConfigSom);
     }
 
-    public static String getDesativarSons() {
-        return Preferencias.desativarSons;
+    @Override
+    public boolean getDesativarSons() {
+        return lerFlagBoolean(desativarSons);
     }
 
-    public static String getEmailUsuario() {
-        return Preferencias.emailUsuario;
+    @Override
+    public boolean getIsLogin() {
+        return lerFlagBoolean(isLogin);
     }
 
-    public static String getFlagCertificadoGerado() {
-        return Preferencias.flagCertificadoGerado;
+    @Override
+    public String getNomeUsuario() {
+        return lerFlagString(nomeUsuario);
     }
 
-    public static String getFlagProva1() {
-        return Preferencias.flagProva1;
+    @Override
+    public String getNota(int numModuloReferente) {
+        switch(numModuloReferente) {
+            case 0:
+                return lerFlagString(notaModulo0);
+            case 1:
+                return lerFlagString(notaModulo1);
+            case 2:
+                return lerFlagString(notaModulo2);
+            case 3:
+                return lerFlagString(notaModulo3);
+            case 4:
+                return lerFlagString(notaModulo4);
+            case 5:
+                return lerFlagString(notaModulo5);
+            default:
+                return "numModuloInvalido";
+        }
     }
 
-    public static String getFlagProva2() {
-        return Preferencias.flagProva2;
+    @Override
+    public String getEmailUsuario() {
+        return lerFlagString(emailUsuario);
     }
 
-    public static String getFlagProva3() {
-        return Preferencias.flagProva3;
+    @Override
+    public boolean getIsCertificadoGerado() {
+        return lerFlagBoolean(flagCertificadoGerado);
     }
 
-    public static String getFlagProva4() {
-        return Preferencias.flagProva4;
+    @Override
+    public void setProgressoModulo(int valor) {
+        modFlag(PROGRESSO_MODULO, valor);
     }
 
-    public static String getFlagProva5() {
-        return Preferencias.flagProva5;
+    @Override
+    public void setProgressoEtapa(int numModuloReferente, int valor) {
+
+        String flag;
+
+        switch(numModuloReferente) {
+            case 0:
+                flag = PROGRESSO_ETAPAS_MODULO0;
+                break;
+            case 1:
+                flag = PROGRESSO_ETAPAS_MODULO1;
+                break;
+            case 2:
+                flag = PROGRESSO_ETAPAS_MODULO2;
+                break;
+            case 3:
+                flag = PROGRESSO_ETAPAS_MODULO3;
+                break;
+            case 4:
+                flag = PROGRESSO_ETAPAS_MODULO4;
+                break;
+            case 5:
+                flag = PROGRESSO_ETAPAS_MODULO5;
+                break;
+            default:
+                flag = "defaultProgEtapa";
+                break;
+        }
+
+        modFlag(flag, valor);
     }
 
-    public static String getFlagProva6() {
-        return Preferencias.flagProva6;
+    @Override /* TODO */
+    public void setProgressoLicao(int numModuloReferente, int numEtapaReferente, int valor) {
+
     }
 
-    public static String getFlagSwitchConfigSom() {
-        return Preferencias.flagSwitchConfigSom;
+    @Override
+    public void setCompletouProva(int numModuloReferente, boolean valor) {
+
+        String flag;
+
+        switch(numModuloReferente) {
+            case 0:
+                flag = flagProva0;
+                break;
+            case 1:
+                flag = flagProva1;
+                break;
+            case 2:
+                flag = flagProva2;
+                break;
+            case 3:
+                flag = flagProva3;
+                break;
+            case 4:
+                flag = flagProva4;
+                break;
+            case 5:
+                flag = flagProva5;
+                break;
+            default:
+                flag = "defaultProva";
+                break;
+        }
+
+        modFlag(flag, valor);
     }
 
-    public static String getIsLogin() {
-        return Preferencias.isLogin;
+    @Override
+    public void setSwitchSons(boolean valor) {
+        modFlag(flagSwitchConfigSom, valor);
     }
 
-    public static String getNomeUsuario() {
-        return Preferencias.nomeUsuario;
+    @Override
+    public void setDesativarSons(boolean valor) {
+        modFlag(desativarSons, valor);
     }
 
-    public boolean isUserLogged() {
-        return this.lerFlagBoolean(getIsLogin());
+    @Override
+    public void setIsLogin(boolean valor) {
+        modFlag(isLogin, valor);
     }
 
-    public String getPrefProgressoModulo() {
-        return Preferencias.prefProgressoModulo;
+    @Override
+    public void setNomeUsuario(String nome) {
+        modFlag(nomeUsuario, nome);
     }
 
+    @Override
+    public void setNota(int numModuloReferente, String nota) {
 
+        String flag;
+
+        switch (numModuloReferente) {
+            case 0:
+                flag = notaModulo0;
+                break;
+            case 1:
+                flag = notaModulo1;
+                break;
+            case 2:
+                flag = notaModulo2;
+                break;
+            case 3:
+                flag = notaModulo3;
+                break;
+            case 4:
+                flag = notaModulo4;
+                break;
+            case 5:
+                flag = notaModulo5;
+                break;
+            default:
+                flag = "defaultNota";
+                break;
+        }
+
+        modFlag(flag, nota);
+    }
+
+    @Override
+    public void setCaminhoFoto(String caminho) {
+        modFlag(caminhoFoto, caminho);
+    }
+
+    @Override
+    public void setEmailUsuario(String email) {
+        modFlag(emailUsuario, email);
+    }
+
+    @Override
+    public void setIsCertificadoGerado(boolean isCertificadoGerado) {
+        modFlag(flagCertificadoGerado, isCertificadoGerado);
+    }
 }

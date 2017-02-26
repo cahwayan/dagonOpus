@@ -61,21 +61,21 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:gravity="center_vertical|center_horizontal"
-                    android:id="@+id/btnModulo1">
+                    android:id="@+id/btnModulo0">
 
                     <TextView
                         android:text="Nota"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtNota1"
+                        android:id="@+id/txtNota0"
                         android:gravity="center_horizontal"
                         android:textColor="@color/corAmareloDourado"
                         android:textSize="16sp" />
 
                     <ImageView
                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/imgModulo1"
-                            android:src="@drawable/btnmodulo1bloqueado"
+                            android:id="@+id/imgModulo0"
+                            android:src="@drawable/btnmodulo0bloqueado"
                             android:contentDescription="@+id/descricaoBotaoModulo1"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
@@ -89,7 +89,7 @@
 
                     <TextView
                         android:text="@string/txtTituloModulo1"
-                        android:id="@+id/txtTitulo1"
+                        android:id="@+id/txtTitulo0"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,8 +100,8 @@
                         android:maxLines="1" />
 
                     <TextView
-                        android:text="@string/txtProgressoModulo1"
-                        android:id="@+id/txtProgresso1"
+                        android:text="@string/txtProgressoModulo0"
+                        android:id="@+id/txtProgresso0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimary"
@@ -115,7 +115,7 @@
                         android:maxLines="1" />
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                        android:id="@+id/barraModulo1"
+                        android:id="@+id/barraModulo0"
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
@@ -150,7 +150,76 @@
                     android:layout_height="match_parent"
                     android:gravity="top|center_horizontal"
                     android:layout_weight="50"
-                    android:id="@+id/btnModulo2">
+                    android:id="@+id/btnModulo1">
+
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota1"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo1"
+                        android:src="@drawable/btnmodulo1bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:padding="0dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:text="@string/txtTituloModulo2"
+                        android:id="@+id/txtTitulo1"
+                        style="@style/customTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:text="@string/txtProgressoModulo1"
+                        android:id="@+id/txtProgresso1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="sans-serif"
+                        android:typeface="normal"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"/>
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/barraModulo1"
+                        android:layout_width="140dp"
+                        android:layout_height="8dp"
+                        app:rcSecondaryProgress="0"
+                        app:rcMax="6"
+                        app:rcRadius="0dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/colorAccent"
+                        app:rcSecondaryProgressColor="#ffffffff"
+                        app:rcBackgroundColor="#ffffff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnModulo2"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="top|center_horizontal"
+                    android:layout_weight="50">
 
                     <TextView
                         android:text="Nota"
@@ -168,12 +237,11 @@
                         android:contentDescription="@+id/descricaoBotaoModulo1"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:padding="0dp"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo2"
+                        android:text="@string/txtTituloModulo3"
                         android:id="@+id/txtTitulo2"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -203,23 +271,32 @@
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="6"
+                        app:rcMax="3"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
                         app:rcBackgroundColor="#ffffff" />
-
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="55dp">
+
+
+
                 <LinearLayout
-                    android:id="@+id/btnModulo3"
                     android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="top|center_horizontal"
-                    android:layout_weight="50">
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:id="@+id/btnModulo3">
 
                     <TextView
                         android:text="Nota"
@@ -238,10 +315,12 @@
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="false"
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo3"
+                        android:text="@string/txtTituloModulo4"
                         android:id="@+id/txtTitulo3"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -268,85 +347,6 @@
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo3"
-                        android:layout_width="140dp"
-                        android:layout_height="8dp"
-                        app:rcSecondaryProgress="0"
-                        app:rcMax="3"
-                        app:rcRadius="0dp"
-                        app:rcBackgroundPadding="2dp"
-                        app:rcReverse="false"
-                        app:rcProgressColor="@color/colorAccent"
-                        app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="55dp">
-
-
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:id="@+id/btnModulo4">
-
-                    <TextView
-                        android:text="Nota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtNota4"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/corAmareloDourado"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgModulo4"
-                        android:src="@drawable/btnmodulo4bloqueado"
-                        android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="false"
-                        android:layout_marginTop="10dp" />
-
-                    <TextView
-                        android:text="@string/txtTituloModulo4"
-                        android:id="@+id/txtTitulo4"
-                        style="@style/customTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:textColor="?attr/colorPrimary"
-                        android:maxLines="1" />
-
-                    <TextView
-                        android:text="@string/txtProgressoModulo4"
-                        android:id="@+id/txtProgresso4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:fontFamily="sans-serif"
-                        android:typeface="normal"
-                        android:textSize="12sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginStart="2dp"/>
-
-                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                        android:id="@+id/barraModulo4"
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
@@ -377,7 +377,75 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="top|center_horizontal"
+                    android:id="@+id/btnModulo4"
+                    android:layout_weight="50">
+
+                    <TextView
+                        android:text="Nota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNota4"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/corAmareloDourado"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgModulo4"
+                        android:src="@drawable/btnmodulo4bloqueado"
+                        android:contentDescription="@+id/descricaoBotaoModulo1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_vertical|center_horizontal|center"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:text="@string/txtTituloModulo5"
+                        android:id="@+id/txtTitulo4"
+                        style="@style/customTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:textColor="?attr/colorPrimary"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:text="@string/txtProgressoModulo4"
+                        android:id="@+id/txtProgresso4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="sans-serif"
+                        android:typeface="normal"
+                        android:textSize="12sp"
+                        android:gravity="top|center_horizontal"
+                        android:includeFontPadding="false"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"/>
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/barraModulo4"
+                        android:layout_width="140dp"
+                        android:layout_height="8dp"
+                        app:rcSecondaryProgress="0"
+                        app:rcMax="1"
+                        app:rcRadius="0dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/colorAccent"
+                        app:rcSecondaryProgressColor="#ffffffff"
+                        app:rcBackgroundColor="#ffffff" />
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:id="@+id/btnModulo5"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="top|center_horizontal"
                     android:layout_weight="50">
 
                     <TextView
@@ -396,11 +464,12 @@
                         android:contentDescription="@+id/descricaoBotaoModulo1"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
+                        android:padding="0dp"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo5"
+                        android:text="@string/txtTituloModulo6"
                         android:id="@+id/txtTitulo5"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -427,75 +496,6 @@
 
                     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                         android:id="@+id/barraModulo5"
-                        android:layout_width="140dp"
-                        android:layout_height="8dp"
-                        app:rcSecondaryProgress="0"
-                        app:rcMax="1"
-                        app:rcRadius="0dp"
-                        app:rcBackgroundPadding="2dp"
-                        app:rcReverse="false"
-                        app:rcProgressColor="@color/colorAccent"
-                        app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/btnModulo6"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="top|center_horizontal"
-                    android:layout_weight="50">
-
-                    <TextView
-                        android:text="Nota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtNota6"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/corAmareloDourado"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgModulo6"
-                        android:src="@drawable/btnmodulo6bloqueado"
-                        android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:padding="0dp"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:layout_marginTop="10dp" />
-
-                    <TextView
-                        android:text="@string/txtTituloModulo6"
-                        android:id="@+id/txtTitulo6"
-                        style="@style/customTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:textColor="?attr/colorPrimary"
-                        android:maxLines="1" />
-
-                    <TextView
-                        android:text="@string/txtProgressoModulo6"
-                        android:id="@+id/txtProgresso6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:fontFamily="sans-serif"
-                        android:typeface="normal"
-                        android:textSize="12sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginStart="2dp"/>
-
-                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                        android:id="@+id/barraModulo6"
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"

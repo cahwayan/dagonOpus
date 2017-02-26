@@ -3,12 +3,12 @@
     <!--STRINGS TELA APRENDER-->
     <!--STRINGS MODULOS-->
     <!-- PROGRESSO DOS MÓDULOS -->
-    <string name="txtProgressoModulo1">/9 etapas concluídas</string>
-    <string name="txtProgressoModulo2">/6 etapas concluídas</string>
-    <string name="txtProgressoModulo3">/3 etapas concluídas</string>
-    <string name="txtProgressoModulo4">/6 etapas concluídas</string>
-    <string name="txtProgressoModulo5">/1 etapas concluídas</string>
-    <string name="txtProgressoModulo6">/10 etapas concluídas</string>
+    <string name="txtProgressoModulo0">/9 etapas concluídas</string>
+    <string name="txtProgressoModulo1">/6 etapas concluídas</string>
+    <string name="txtProgressoModulo2">/3 etapas concluídas</string>
+    <string name="txtProgressoModulo3">/6 etapas concluídas</string>
+    <string name="txtProgressoModulo4">/1 etapas concluídas</string>
+    <string name="txtProgressoModulo5">/10 etapas concluídas</string>
     <string name="txtProgressoModulo7">/6 etapas concluídas</string>
     <string name="txtProgressoModulo8">/3 etapas concluídas</string>
 
