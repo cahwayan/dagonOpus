@@ -19,6 +19,8 @@ public class GerenciadorSharedPreferences {
 
         switch(numModulo) {
 
+            case 0: return "notaModulo0";
+
             case 1: return "notaModulo1";
 
             case 2: return "notaModulo2";
@@ -28,8 +30,6 @@ public class GerenciadorSharedPreferences {
             case 4: return "notaModulo4";
 
             case 5: return "notaModulo5";
-
-            case 6: return "notaModulo6";
 
             default: return "default";
 
@@ -95,7 +95,7 @@ public class GerenciadorSharedPreferences {
     }
 
     public int lerFlagInt(String nomeFlag) {
-        return sharedPreferences.getInt(nomeFlag, 1);
+        return sharedPreferences.getInt(nomeFlag, 0);
     }
 
     public void escreverFlagInt(String nomeFlag, int valorFlag) {

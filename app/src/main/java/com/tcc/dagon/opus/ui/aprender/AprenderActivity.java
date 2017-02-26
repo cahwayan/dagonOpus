@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -31,7 +32,7 @@ import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
@@ -56,13 +57,6 @@ import static java.lang.String.valueOf;
 public class AprenderActivity
         extends AppCompatActivity {
 
-    @ViewById protected TextView txtProgresso1;
-    @ViewById protected TextView txtProgresso2;
-    @ViewById protected TextView txtProgresso3;
-    @ViewById protected TextView txtProgresso4;
-    @ViewById protected TextView txtProgresso5;
-    @ViewById protected TextView txtProgresso6;
-
     private List<Modulo> listModulos;
     private List<LinearLayout> listBtnModulos;
     private List<TextView> listTxtNotas;
@@ -70,8 +64,9 @@ public class AprenderActivity
     private List<TextView> listTitulosModulos;
     private List<TextView> listTxtProgressoModulos;
     private List<RoundCornerProgressBar> listBarrasProgresso;
+    List<Class> listClassesEtapas;
 
-    private int[] idStringsTxtProgresso;
+    private String[] stringsTxtProgresso;
     private int[] idImagensCursando;
     private int[] idImagensBloqueado;
     private int[] idImagensCompleto;
@@ -92,14 +87,12 @@ public class AprenderActivity
     /*BANCO DE DADOS*/
     GerenciadorBanco DB_PROGRESSO;
 
-    private int contadorListeners;
-
     // OBJETOS
     protected NovaJanelaAlerta janelaAlerta;
     protected GerenciadorSharedPreferences preferenceManager;
     private GerenciadorProgressoModulos gerenciadorProgresso;
 
-    private int progressoAtual;
+    private static int progressoAtual;
 
     /* MÉTODOS DE CICLO DE VIDA DO APP */
 
@@ -183,7 +176,7 @@ public class AprenderActivity
         janelaAlerta = new NovaJanelaAlerta(this);
         preferenceManager = new GerenciadorSharedPreferences(this);
         gerenciadorProgresso = new GerenciadorProgressoModulos();
-        this.progressoAtual = preferenceManager.lerFlagInt(preferenceManager.getPrefProgressoModulo());
+        progressoAtual = preferenceManager.lerFlagInt(preferenceManager.getPrefProgressoModulo());
 
         if(DB_PROGRESSO == null) {
             DB_PROGRESSO = new GerenciadorBanco(this);
@@ -202,14 +195,15 @@ public class AprenderActivity
         listTitulosModulos = new ArrayList<>();
         listTxtProgressoModulos = new ArrayList<>();
         listBarrasProgresso = new ArrayList<>();
+        listClassesEtapas = new ArrayList<>();
 
-        listModulos.add(new Modulo(1));
-        listModulos.add(new Modulo(2));
-        listModulos.add(new Modulo(3));
-        listModulos.add(new Modulo(4));
-        listModulos.add(new Modulo(5));
-        listModulos.add(new Modulo(6));
-        listModulos.add(new Modulo(7));
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo1Activity.class);
 
         listTxtNotas.add((TextView) findViewById(R.id.txtNota1));
         listTxtNotas.add((TextView) findViewById(R.id.txtNota2));
@@ -217,7 +211,6 @@ public class AprenderActivity
         listTxtNotas.add((TextView) findViewById(R.id.txtNota4));
         listTxtNotas.add((TextView) findViewById(R.id.txtNota5));
         listTxtNotas.add((TextView) findViewById(R.id.txtNota6));
-        listTxtNotas.add((TextView) findViewById(R.id.txtNota6 /* 7 */));
 
         listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo1));
         listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo2));
@@ -249,7 +242,6 @@ public class AprenderActivity
         listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso4));
         listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso5));
         listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso6));
-        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso6 /* 7 */ ));
 
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo1));
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo2));
@@ -257,12 +249,13 @@ public class AprenderActivity
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo4));
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo5));
         listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo6));
-        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo6 /*  7 */));
 
-        idStringsTxtProgresso = new int[] {R.string.txtProgressoModulo1, R.string.txtProgressoModulo2,
-                                           R.string.txtProgressoModulo3, R.string.txtProgressoModulo4,
-                                           R.string.txtProgressoModulo5, R.string.txtProgressoModulo6,
-                                           R.string.txtProgressoModulo7 /* 7 */};
+        stringsTxtProgresso = new String[] {context.getString(R.string.txtProgressoModulo1),
+                                                context.getString(R.string.txtProgressoModulo2),
+                                                context.getString(R.string.txtProgressoModulo3),
+                                                context.getString(R.string.txtProgressoModulo4),
+                                                context.getString(R.string.txtProgressoModulo5),
+                                                context.getString(R.string.txtProgressoModulo6)};
 
         idImagensBloqueado = new int[] {R.drawable.btnmodulo1bloqueado, R.drawable.btnmodulo2bloqueado,
                                         R.drawable.btnmodulo3bloqueado, R.drawable.btnmodulo4bloqueado,
@@ -279,86 +272,30 @@ public class AprenderActivity
                                         R.drawable.btnmodulo5completo, R.drawable.btnmodulo6completo,
                                         R.drawable.btncertificadocompleto};
 
-        addClickListeners();
+        carregarModulos();
 
         fontes();
 
         adicionarItensMenu();
 
         configurarMenu();
-
-        loadProgressBars();
-
-        carregarProgresso();
     }
 
     /*
     * Esse método é responsável por carregar o progresso e ajustar a UI de acordo com ele.
     * Os módulos são guardados em uma lista, e eles carregam informações a respeito do progresso atual.
-    * Então, esse método percorre essa lista, e decide para cada caso como configurar a UI do módulo
+    * Então, esse método guarda os módulos que são conscientes de seu estado atual
     */
 
     @UiThread
-    private void carregarProgresso() {
-
-        for(int i = 0; i < listModulos.size(); i++) {
-
-            Modulo modulo = listModulos.get(i);
-            String situacaoModulo = modulo.getSituacao();
-            TextView nota = listTxtNotas.get(i);
-            ImageView iconeModulo = listImgModulos.get(i);
-            TextView txtProgressoModulo = listTxtProgressoModulos.get(i);
-            RoundCornerProgressBar barraProgressoModulo = listBarrasProgresso.get(i);
-
-            switch(situacaoModulo) {
-                case Modulo.CURSANDO:
-                    /*
-                    * Um módulo que está na situação cursando deve mostrar o ícone do módulo em um azul mais claro,
-                    *  o título do módulo, a textView de progresso, e a barra de progresso. A nota deve ser escondida
-                    */
-                    int numProgresso = DB_PROGRESSO.getProgressoEtapa(i + 1);
-                    String stringTxtProgresso = String.valueOf(numProgresso) + idStringsTxtProgresso[i];
-
-                    nota.setVisibility(View.GONE);
-                    iconeModulo.setImageResource(idImagensCursando[i]);
-                    txtProgressoModulo.setText(stringTxtProgresso);
-                    txtProgressoModulo.setVisibility(View.VISIBLE);
-                    float progresso = DB_PROGRESSO.getProgressoEtapa(i + 1);
-                    barraProgressoModulo.setProgress(progresso);
-
-
-
-                    barraProgressoModulo.setVisibility(View.VISIBLE);
-                    break;
-
-                case Modulo.COMPLETO:
-                    /*
-                    * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
-                    * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
-                    */
-                    nota.setText(modulo.getStringNota());
-                    nota.setVisibility(View.VISIBLE);
-                    iconeModulo.setImageResource(idImagensCompleto[i]);
-                    barraProgressoModulo.setVisibility(View.GONE);
-                    txtProgressoModulo.setText(R.string.moduloCompleto);
-                    break;
-
-                case Modulo.BLOQUEADO:
-                    /*
-                    * Um módulo bloqueado deve mostrar somente o ícone do módulo, em cinza, e o
-                    * título daquele módulo. A barra de progresso, a textView de progresso e a nota
-                    * precisam ser escondidos
-                    */
-                    nota.setVisibility(View.GONE);
-                    iconeModulo.setImageResource(idImagensBloqueado[i]);
-                    barraProgressoModulo.setVisibility(View.GONE);
-                    txtProgressoModulo.setVisibility(View.GONE);
-                    break;
-                default:
-                    break;
-            }
-        }
-
+    protected void carregarModulos() {
+        listModulos.add(addModulo(0));
+        listModulos.add(addModulo(1));
+        listModulos.add(addModulo(2));
+        listModulos.add(addModulo(3));
+        listModulos.add(addModulo(4));
+        listModulos.add(addModulo(5));
+        listModulos.add(addModulo(6));
     }
 
     // MÉTODO QUE INSTANCIA O BANCO CASO ELE NÃO EXISTA
@@ -412,78 +349,6 @@ public class AprenderActivity
 
     }
 
-
-    // CONFIGURA O PROGRESSO DAS PROGRESS BARS
-    @UiThread
-    protected void loadProgressBars() {
-        gerenciadorProgresso.loadProgressBars(listBarrasProgresso, DB_PROGRESSO);
-    }
-
-    /* LISTENERS */
-
-    private void addClickListeners() {
-
-        final List<Class> listClassesEtapas = new ArrayList<>();
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-
-        for(contadorListeners = 0; contadorListeners < listModulos.size() - 1; contadorListeners++) {
-
-            final int numModulo = listModulos.get(contadorListeners).getNumModulo();
-
-            if(numModulo == 7 /*NUMERO DO MÒDULO CERTIFICADO */) {
-
-                if(progressoAtual >= 7) {
-                    listBtnModulos.get(contadorListeners).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-                            listImgModulos.get(contadorListeners).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                            startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
-                        }
-                    });
-                } else {
-                    listBtnModulos.get(contadorListeners).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-                            listImgModulos.get(contadorListeners).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                            startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
-                        }
-                    });
-                }
-
-                continue;
-
-            }
-
-            /* LIBERADO */
-            if(progressoAtual >= numModulo) {
-                listBtnModulos.get(contadorListeners).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        listImgModulos.get(contadorListeners).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-                        startActivity(new Intent(getApplicationContext(), listClassesEtapas.get(contadorListeners)));
-                    }
-                });
-                /* BLOQUEADO */
-            } else if(progressoAtual < numModulo) {
-                listBtnModulos.get(contadorListeners).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        alertaModuloBloqueado();
-                    }
-                });
-            }
-
-        }
-    }
-
     @ItemClick
     protected void mListView(int position) {
         switch(position) {
@@ -510,12 +375,13 @@ public class AprenderActivity
 
     /* UI THREADS */
 
-    @UiThread(delay = 100)
+    @UiThread
     protected void atualizaProgressoUI() {
-        carregarProgresso();
-        loadProgressBars();
+        progressoAtual = preferenceManager.lerFlagInt(preferenceManager.getPrefProgressoModulo());
+        for(Modulo modulo : listModulos) {
+            modulo.configurarModulo();
+        }
     }
-
     /*FIM UI THREADS*/
 
     // MÉTODO QUE RECEBE OS ITENS QUE VÃO PRO MENU PUXÁVEL, ADAPTA, E OS COLOCA LÁ
@@ -568,51 +434,178 @@ public class AprenderActivity
         for(TextView txtProgresso : listTxtProgressoModulos) {
             txtProgresso.setTypeface(notosans);
         }
-
     }
 
-    class Modulo {
-        private int numModulo;
+    private Modulo addModulo(int numModulo) {
+
+        Modulo modulo;
+
+        // novo objeto modulo
+        if(numModulo == 6 /* CERTIFICADO */ ) {
+            modulo = new ModuloCertificado();
+        } else if(numModulo == progressoAtual) {
+            modulo  = new ModuloCursando();
+        } else if (numModulo < progressoAtual) {
+            modulo = new ModuloCompleto();
+        } else {
+            modulo = new ModuloBloqueado();
+        }
+
+        modulo.setStringNota(preferenceManager.getPrefNota(numModulo));
+        modulo.setNumModulo(numModulo);
+        modulo.setClickListener();
+        return modulo;
+    }
+
+    interface Modulo {
+        void setStringNota(String nota);
+        void setNumModulo(int numModulo);
+        void configurarModulo();
+        void setClickListener();
+    }
+
+    abstract class ModuloImp implements Modulo {
+
+        int numModulo;
         private String stringNota;
-        private String situacao;
-        final static String CURSANDO = "cursando";
-        final static String COMPLETO = "completo";
-        final static String BLOQUEADO = "bloqueado";
 
+        public abstract void configurarModulo();
 
-        Modulo(int numModulo) {
+        @Override
+        public void setNumModulo(int numModulo) {
             this.numModulo = numModulo;
-            this.stringNota = getNota();
-            this.setSituacao();
         }
 
-        String getNota() {
-            return preferenceManager.lerFlagString(preferenceManager.getPrefNota(this.numModulo));
+        @Override
+        public void setStringNota(String nota) {
+            this.stringNota = nota;
         }
 
-        String getStringNota() {
+        protected String getStringNota() {
             return this.stringNota;
         }
 
-        int getNumModulo() {
-            return this.numModulo;
+        @Override
+        public void setClickListener() {
+            listBtnModulos.get(numModulo).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(numModulo == 6) {
+                        if(progressoAtual == 6) {
+                            clickCertificadoLiberado();
+                        } else if (progressoAtual < 6){
+                            clickCertificadoBloqueado();
+                        } else if(progressoAtual > 6) {
+                            clickCertificadoGerado();
+                        }
+                        return;
+                    }
+
+                    if(numModulo <= progressoAtual) {
+                        clickLiberado();
+                    } else {
+                        clickBloqueado();
+                    }
+                }
+            });
         }
 
-        private String getSituacao() {
-            return this.situacao;
+        private void clickBloqueado() {
+            alertaModuloBloqueado();
         }
 
-        private void setSituacao() {
-            if(this.numModulo == progressoAtual) {
-                this.situacao = CURSANDO;
-            } else if (this.numModulo < progressoAtual) {
-                this.situacao = COMPLETO;
-            } else {
-                this.situacao = BLOQUEADO;
+        private void clickLiberado() {
+            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            startActivity(new Intent(getApplicationContext(), listClassesEtapas.get(numModulo)));
+        }
+
+        private void clickCertificadoBloqueado() {
+            // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
+        }
+
+        private void clickCertificadoLiberado() {
+            // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+            startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
+        }
+
+        private void clickCertificadoGerado() {
+
+        }
+
+    }
+
+    class ModuloCursando extends ModuloImp implements Modulo {
+
+        @Override
+        public void configurarModulo() {
+            /*
+             * Um módulo que está na situação cursando deve mostrar o ícone do módulo em um azul mais claro,
+             *  o título do módulo, a textView de progresso, e a barra de progresso. A nota deve ser escondida
+            */
+
+            int progresso = DB_PROGRESSO.getProgressoEtapa(numModulo + 1);
+            String stringTxtProgresso = String.valueOf(progresso) + stringsTxtProgresso[numModulo];
+            listTxtNotas.get(numModulo).setVisibility(View.GONE);
+            listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
+            listTxtProgressoModulos.get(numModulo).setText(stringTxtProgresso);
+            listTxtProgressoModulos.get(numModulo).setVisibility(View.VISIBLE);
+
+            listBarrasProgresso.get(numModulo).setProgress((float)progresso);
+            listBarrasProgresso.get(numModulo).setVisibility(View.VISIBLE);
+        }
+    }
+
+    class ModuloCompleto extends ModuloImp implements Modulo {
+
+        @Override
+        public void configurarModulo() {
+            /*
+             * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
+             * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
+            */
+
+            listTxtNotas.get(numModulo).setText(getStringNota());
+            listTxtNotas.get(numModulo).setVisibility(View.VISIBLE);
+            listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
+            listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
+            listTxtProgressoModulos.get(numModulo).setText(R.string.moduloCompleto);
+        }
+    }
+
+    class ModuloBloqueado extends ModuloImp implements Modulo{
+
+        @Override
+        public void configurarModulo() {
+            listTxtNotas.get(numModulo).setVisibility(View.GONE);
+            listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
+            listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
+            listTxtProgressoModulos.get(numModulo).setVisibility(View.GONE);
+        }
+    }
+
+    class ModuloCertificado extends ModuloImp implements Modulo {
+
+        @Override
+        public void configurarModulo() {
+            /*
+             * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
+             * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
+            */
+            if(progressoAtual < 6) {
+                listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
+            } else if(progressoAtual == 6) {
+                listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
+            } else if(progressoAtual > 6) {
+                listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
             }
         }
 
-
     }
+
 }
+
+
 
