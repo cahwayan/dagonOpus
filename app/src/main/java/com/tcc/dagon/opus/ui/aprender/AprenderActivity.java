@@ -490,6 +490,9 @@ public class AprenderActivity
             listBtnModulos.get(numModulo).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+
                     if(numModulo == 6) {
                         if(progressoAtual == 6) {
                             clickCertificadoLiberado();
@@ -515,19 +518,16 @@ public class AprenderActivity
         }
 
         private void clickLiberado() {
-            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), listClassesEtapas.get(numModulo)));
         }
 
         private void clickCertificadoBloqueado() {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
         }
 
         private void clickCertificadoLiberado() {
             // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-            listImgModulos.get(numModulo).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
             startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
         }
 
