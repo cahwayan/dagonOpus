@@ -17,7 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.login.StringsBanco;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,8 +54,8 @@ public class CertificadoActivity extends AppCompatActivity {
 
         btnCertificado.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sEmail = preferencias.lerFlagString(GerenciadorSharedPreferences.getEmailUsuario());
-                sNome = preferencias.lerFlagString(GerenciadorSharedPreferences.getNomeUsuario());
+                sEmail = preferencias.getEmailUsuario();
+                sNome = preferencias.getNomeUsuario();
 
                 request = new StringRequest(Request.Method.POST,
                         StringsBanco.getCertificadoUrl(),
@@ -64,7 +64,7 @@ public class CertificadoActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 if(response.trim().equals("certo")){
                                     Toast.makeText(getApplicationContext(), "Seu pedido de certificado foi aberto. Aguarde a chegada no seu e-mail cadastrado!", Toast.LENGTH_LONG).show();
-                                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagCertificadoGerado(), true);
+                                    preferencias.setIsCertificadoGerado(true);
                                     finish();
                                 }else{
                                     Toast.makeText(getApplicationContext(),

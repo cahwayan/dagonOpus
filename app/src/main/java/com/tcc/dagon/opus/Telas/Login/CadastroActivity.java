@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.telas.login;
 
-import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;

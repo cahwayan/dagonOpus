@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.telas.aprender.menulateral;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,11 +8,10 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.ToastManager;
 

@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.utils;
+package com.tcc.dagon.opus.utils.gerenciadorsharedpreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * Created by cahwayan on 07/12/2016.
  */
 
-public final class GerenciadorSharedPreferences implements Preferencias {
+public class GerenciadorSharedPreferences implements Preferencias {
 
     private final SharedPreferences sharedPreferences;
 
@@ -86,11 +86,6 @@ public final class GerenciadorSharedPreferences implements Preferencias {
             default:
                 return 0;
         }
-    }
-
-    @Override /* TODO */
-    public int getProgressoLicao(int numModuloReferente, int numEtapaReferente) {
-        return 0;
     }
 
     @Override
@@ -204,11 +199,6 @@ public final class GerenciadorSharedPreferences implements Preferencias {
         }
 
         modFlag(flag, valor);
-    }
-
-    @Override /* TODO */
-    public void setProgressoLicao(int numModuloReferente, int numEtapaReferente, int valor) {
-
     }
 
     @Override

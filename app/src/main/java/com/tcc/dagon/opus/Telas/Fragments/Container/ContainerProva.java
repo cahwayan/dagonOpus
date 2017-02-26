@@ -5,16 +5,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.tcc.dagon.opus.telas.fragments.exercicios.CompletarProva;
 import com.tcc.dagon.opus.telas.fragments.exercicios.QuestaoMultiplaProva;
 import com.tcc.dagon.opus.telas.fragments.exercicios.QuestaoProva;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 /**
  * Created by cahwayan on 14/11/2016.

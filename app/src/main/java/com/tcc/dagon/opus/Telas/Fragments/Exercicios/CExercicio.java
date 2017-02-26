@@ -14,7 +14,7 @@ import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
 /**

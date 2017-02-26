@@ -28,7 +28,7 @@ import com.tcc.dagon.opus.telas.aprender.menulateral.glossario.ContainerComandos
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -40,7 +40,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.tcc.dagon.opus.utils.Preferencias;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
 
 /******************************************************
  * Created by Andrade on 23/09/2016.

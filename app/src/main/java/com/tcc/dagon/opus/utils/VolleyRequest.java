@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import static android.content.ContentValues.TAG;
 

@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.utils;
+package com.tcc.dagon.opus.utils.gerenciadorsharedpreferences;
 
 /**
  * Created by cahwayan on 26/02/2017.
@@ -33,6 +33,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO0_ETAPA6 = "progressoLicoesModulo0Etapa6";
     String PROGRESSO_LICOES_MODULO0_ETAPA7 = "progressoLicoesModulo0Etapa7";
     String PROGRESSO_LICOES_MODULO0_ETAPA8 = "progressoLicoesModulo0Etapa8";
+    String PROGRESSO_LICOES_MODULO0_ETAPA9 = "progressoLicoesModulo0Etapa9";
 
         // Módulo 1
     String PROGRESSO_LICOES_MODULO1_ETAPA0 = "progressoLicoesModulo1Etapa0";
@@ -44,6 +45,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO1_ETAPA6 = "progressoLicoesModulo1Etapa6";
     String PROGRESSO_LICOES_MODULO1_ETAPA7 = "progressoLicoesModulo1Etapa7";
     String PROGRESSO_LICOES_MODULO1_ETAPA8 = "progressoLicoesModulo1Etapa8";
+    String PROGRESSO_LICOES_MODULO1_ETAPA9 = "progressoLicoesModulo1Etapa9";
 
         // Módulo 2
     String PROGRESSO_LICOES_MODULO2_ETAPA0 = "progressoLicoesModulo2Etapa0";
@@ -55,6 +57,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO2_ETAPA6 = "progressoLicoesModulo2Etapa6";
     String PROGRESSO_LICOES_MODULO2_ETAPA7 = "progressoLicoesModulo2Etapa7";
     String PROGRESSO_LICOES_MODULO2_ETAPA8 = "progressoLicoesModulo2Etapa8";
+    String PROGRESSO_LICOES_MODULO2_ETAPA9 = "progressoLicoesModulo2Etapa9";
 
         // Módulo 3
     String PROGRESSO_LICOES_MODULO3_ETAPA0 = "progressoLicoesModulo3Etapa0";
@@ -66,6 +69,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO3_ETAPA6 = "progressoLicoesModulo3Etapa6";
     String PROGRESSO_LICOES_MODULO3_ETAPA7 = "progressoLicoesModulo3Etapa7";
     String PROGRESSO_LICOES_MODULO3_ETAPA8 = "progressoLicoesModulo3Etapa8";
+    String PROGRESSO_LICOES_MODULO3_ETAPA9 = "progressoLicoesModulo3Etapa9";
 
         // Módulo 4
     String PROGRESSO_LICOES_MODULO4_ETAPA0 = "progressoLicoesModulo4Etapa0";
@@ -77,6 +81,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO4_ETAPA6 = "progressoLicoesModulo4Etapa6";
     String PROGRESSO_LICOES_MODULO4_ETAPA7 = "progressoLicoesModulo4Etapa7";
     String PROGRESSO_LICOES_MODULO4_ETAPA8 = "progressoLicoesModulo4Etapa8";
+    String PROGRESSO_LICOES_MODULO4_ETAPA9 = "progressoLicoesModulo4Etapa9";
 
         // Módulo 5
     String PROGRESSO_LICOES_MODULO5_ETAPA0 = "progressoLicoesModulo5Etapa0";
@@ -88,8 +93,7 @@ public interface Preferencias {
     String PROGRESSO_LICOES_MODULO5_ETAPA6 = "progressoLicoesModulo5Etapa6";
     String PROGRESSO_LICOES_MODULO5_ETAPA7 = "progressoLicoesModulo5Etapa7";
     String PROGRESSO_LICOES_MODULO5_ETAPA8 = "progressoLicoesModulo5Etapa8";
-
-
+    String PROGRESSO_LICOES_MODULO5_ETAPA9 = "progressoLicoesModulo5Etapa9";
 
     /*
       * Fim flags de controle de progresso.
@@ -161,7 +165,6 @@ public interface Preferencias {
 
     int getProgressoModulo();
     int getProgressoEtapa(int numModuloReferente);
-    int getProgressoLicao(int numModuloReferente, int numEtapaReferente);
     boolean getCompletouProva(int numModuloReferente);
     boolean getSwitchSons();
     boolean getDesativarSons();
@@ -174,7 +177,6 @@ public interface Preferencias {
 
     void setProgressoModulo(int valor);
     void setProgressoEtapa(int numModuloReferente, int valor);
-    void setProgressoLicao(int numModuloReferente, int numEtapaReferente, int valor);
     void setCompletouProva(int numModuloReferente, boolean valor);
     void setSwitchSons(boolean valor);
     void setDesativarSons(boolean valor);

@@ -31,7 +31,7 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.telas.login.AlterarSenhaActivity;
 import com.tcc.dagon.opus.telas.login.LoginActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 

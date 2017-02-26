@@ -11,10 +11,10 @@ import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.telas.login.LoginActivity_;
 import com.tcc.dagon.opus.telas.login.CadastroActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
-import com.tcc.dagon.opus.utils.Preferencias;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
 
 /**
  * Created by Otávio Paulino on 21/09/2016.
