@@ -27,7 +27,9 @@ import com.tcc.dagon.opus.telas.certificado.CertificadoIncompleto;
 import com.tcc.dagon.opus.telas.aprender.menulateral.glossario.ContainerComandosGlossario;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.ui.etapas.EtapasActivity;
+//import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
@@ -50,11 +52,11 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
  *
  * Cada módulo possui três estados: Completo, Cursando e Bloqueado. Dependendo do progresso atual do usuário,
  * os módulos são dispostos em configurações diferentes. Mais infos sobre o estado dos módulos na subclasse
- * ModuloImp no fim dessa classe.
+ * ModuloCursoImp no fim dessa classe.
  *
  * O último módulo sempre será o referente ao certificado. Ele possui uma configuração diferente dos demais.
  * Apesar disso, a classe módulo consegue reconhecer qual é o último módulo, e atribui a ele o comportamento e
- * configuração necessária. A classe reconhece através da constante MODULO_CERTIFICADO que está na interface Modulo.
+ * configuração necessária. A classe reconhece através da constante MODULO_CERTIFICADO que está na interface ModuloCurso.
  * Caso o número de módulos seja alterado (i.e um novo módulo seja adicionado, ou removido), é necessário alterar o
  * valor da constante para o número correspondente ao módulo na última posição da tela (começando a contar do 0).
  *
@@ -71,7 +73,7 @@ public class AprenderActivity
         extends AppCompatActivity {
 
     // Listas de views
-    private List<Modulo> listModulos;
+    private List<ModuloCurso> listModuloCurso;
     private List<LinearLayout> listBtnModulos;
     private List<TextView> listTxtNotas;
     private List<ImageView> listImgModulos;
@@ -125,19 +127,16 @@ public class AprenderActivity
 
     @Override
     protected void onResume() {
-
-        atualizaProgressoUI();
-
         if(drawer_layout.isDrawerVisible(mListView)) {
             drawer_layout.closeDrawers();
         }
 
         super.onResume();
-
     }
 
     @Override
     protected  void onStart() {
+        atualizaProgressoUI();
         super.onStart();
     }
 
@@ -213,6 +212,7 @@ public class AprenderActivity
         carregarFontes();
         adicionarItensMenuLateral();
         configurarMenuLateral();
+        autenticarUsuario();
     }
 
     protected void initSupportActionBar() {
@@ -232,6 +232,13 @@ public class AprenderActivity
         }
     }
 
+    @Background
+    protected void autenticarUsuario() {
+        if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
+            preferenceManager.modFlag(Preferencias.isLogin, true);
+        }
+    }
+
     protected void initObjetos() {
 
         janelaAlerta = new NovaJanelaAlerta(this);
@@ -241,10 +248,6 @@ public class AprenderActivity
         if(DB_PROGRESSO == null) {
             DB_PROGRESSO = new GerenciadorBanco(this);
             criarBancoCasoNaoExista();
-        }
-
-        if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
-            preferenceManager.modFlag(Preferencias.isLogin, true);
         }
     }
 
@@ -261,7 +264,7 @@ public class AprenderActivity
     @Background
     protected void carregarModulos() {
 
-        listModulos = new ArrayList<>();
+        listModuloCurso = new ArrayList<>();
         listTxtNotas = new ArrayList<>();
         listBtnModulos = new ArrayList<>();
         listImgModulos = new ArrayList<>();
@@ -270,13 +273,12 @@ public class AprenderActivity
         listBarrasProgresso = new ArrayList<>();
         listClassesEtapas = new ArrayList<>();
 
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
-        listClassesEtapas.add(EtapasModulo1Activity.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
 
         listTxtNotas.add((TextView) findViewById(R.id.txtNota0));
         listTxtNotas.add((TextView) findViewById(R.id.txtNota1));
@@ -345,13 +347,13 @@ public class AprenderActivity
                                         R.drawable.btnmodulo4completo, R.drawable.btnmodulo5completo,
                                         R.drawable.btncertificadocompleto};
 
-        listModulos.add(addModulo(0));
-        listModulos.add(addModulo(1));
-        listModulos.add(addModulo(2));
-        listModulos.add(addModulo(3));
-        listModulos.add(addModulo(4));
-        listModulos.add(addModulo(5));
-        listModulos.add(addModulo(6));
+        listModuloCurso.add(addModulo(0));
+        listModuloCurso.add(addModulo(1));
+        listModuloCurso.add(addModulo(2));
+        listModuloCurso.add(addModulo(3));
+        listModuloCurso.add(addModulo(4));
+        listModuloCurso.add(addModulo(5));
+        listModuloCurso.add(addModulo(6));
     }
 
     /* Instancia o banco daso ele não exista */
@@ -399,15 +401,14 @@ public class AprenderActivity
 
         progressoAtual = preferenceManager.getProgressoModulo();
 
-        for(Modulo modulo : listModulos) {
-            modulo.configurarModulo();
+        for(ModuloCurso moduloCurso : listModuloCurso) {
+            moduloCurso.configurarModulo();
         }
 
     }
     /* Fim Ui threads*/
 
     /* Configuração do menu lateral */
-
     protected void adicionarItensMenuLateral() {
         // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
         ArrayAdapter<String> mAdapter;
@@ -447,6 +448,7 @@ public class AprenderActivity
     }
 
     /* Carrega fontes customizadas */
+    @Background
     protected void carregarFontes() {
         Typeface notosans = Typeface.createFromAsset(getAssets(), "fonts/notosans/regular.ttf");
 
@@ -464,27 +466,21 @@ public class AprenderActivity
       * e o retorna para que possa ser colocado na lista de módulos.
       * @param numModulo: Representa o número do módulo de acordo com sua posição na tela, começando do 0.
     */
-    private Modulo addModulo(int numModulo) {
-        Modulo modulo = new ModuloImp();
-        modulo.setStringNota(preferenceManager.getNota(numModulo));
-        modulo.setNumModulo(numModulo);
-        modulo.setClickListener();
-        return modulo;
+    private ModuloCurso addModulo(int numModulo) {
+        ModuloCurso moduloCurso = new ModuloCursoImp();
+        moduloCurso.setStringNota(preferenceManager.getNota(numModulo));
+        moduloCurso.setNumModulo(numModulo);
+        int qtdEtapas = moduloCurso.getQtdEtapas(numModulo);
+        moduloCurso.setQtdEtapas(qtdEtapas);
+        moduloCurso.setClickListener();
+        return moduloCurso;
     }
 
-    /* Interface que representa um módulo */
-    interface Modulo {
-        int MODULO_CERTIFICADO = 6;
-        void setStringNota(String nota);
-        void setNumModulo(int numModulo);
-        void configurarModulo();
-        void setClickListener();
-    }
+    /* Subclasse que implementa a interface ModuloCurso, e permite a criação de objetos que representam módulos */
+    class ModuloCursoImp implements ModuloCurso {
 
-    /* Subclasse que implementa a interface Modulo, e permite a criação de objetos que representam módulos */
-    class ModuloImp implements Modulo {
-
-        int numModulo;
+        private int numModulo;
+        private int qtdEtapas;
         private String stringNota;
 
         @Override
@@ -570,7 +566,12 @@ public class AprenderActivity
         }
 
         private void clickLiberado() {
-            startActivity(new Intent(getApplicationContext(), listClassesEtapas.get(numModulo)));
+            String tituloModulo = listTitulosModulos.get(numModulo).getText().toString();
+            Intent i = new Intent(context, listClassesEtapas.get(numModulo));
+            i.putExtra("numModulo", numModulo);
+            i.putExtra("qtdEtapas", qtdEtapas);
+            i.putExtra("tituloModulo", tituloModulo);
+            startActivity(i);
         }
 
         private void clickCertificadoBloqueado() {
@@ -663,6 +664,34 @@ public class AprenderActivity
                 listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
             } else if(progressoAtual > 6) {
                 listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
+            }
+        }
+
+        /*
+          * Define a quantidade de etapas que um módulo terá ao ser aberto
+        */
+
+        @Override
+        public void setQtdEtapas(int qtdEtapas) {
+            this.qtdEtapas = qtdEtapas;
+        }
+
+        @Override
+        public int getQtdEtapas(int numModulo) {
+            switch(numModulo) {
+                case MODULO0:
+                    return QTD_ETAPAS_MODULO0;
+                case MODULO1:
+                    return QTD_ETAPAS_MODULO1;
+                case MODULO2:
+                    return QTD_ETAPAS_MODULO2;
+                case MODULO3:
+                    return QTD_ETAPAS_MODULO3;
+                case MODULO4:
+                    return QTD_ETAPAS_MODULO4;
+                case MODULO5:
+                    return QTD_ETAPAS_MODULO5;
+                default: return 0;
             }
         }
 

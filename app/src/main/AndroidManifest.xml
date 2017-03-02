@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".telas.login.LoginActivity_"
+            android:name=".ui.usuario.LoginActivity_"
             android:screenOrientation="portrait" />
 
         <activity
@@ -46,7 +46,7 @@
             />
 
         <activity
-            android:name=".telas.login.CadastroActivity_"
+            android:name=".ui.usuario.CadastroActivity_"
             android:screenOrientation="portrait" />
 
         <activity
@@ -54,7 +54,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".telas.login.RecuperarSenhaActivity"
+            android:name=".ui.usuario.RecuperarSenhaActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -64,7 +64,7 @@
 
         <!-- TELAS DE ETAPAS -->
         <activity
-            android:name=".telas.etapas.EtapasModulo1Activity"
+            android:name=".ui.etapas.subclasses.EtapasModulo0"
             android:screenOrientation="portrait" />
 
         <!--CONTAINER GLOSSARIO -->
@@ -91,7 +91,7 @@
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
 
-        <activity android:name=".telas.login.AlterarSenhaActivity" />
+        <activity android:name=".ui.usuario.AlterarSenhaActivity" />
         <activity android:name=".telas.certificado.CertificadoActivity" />
         <activity android:name=".telas.certificado.CertificadoIncompleto"/>
     </application>

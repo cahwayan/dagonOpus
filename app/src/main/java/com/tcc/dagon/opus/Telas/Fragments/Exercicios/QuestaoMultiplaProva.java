@@ -162,7 +162,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     @Override
     public void questaoFinal() {
-        getPreferencias().escreverFlagProva(getModuloAtual());
+        getPreferencias().setCompletouProva(getModuloAtual(), true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();

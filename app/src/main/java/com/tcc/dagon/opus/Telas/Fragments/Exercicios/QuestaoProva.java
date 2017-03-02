@@ -146,7 +146,7 @@ public final class QuestaoProva extends Questao {
 
     @Override
     public void questaoFinal() {
-        getPreferencias().escreverFlagProva(getModuloAtual());
+        getPreferencias().setCompletouProva(getModuloAtual(), true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();

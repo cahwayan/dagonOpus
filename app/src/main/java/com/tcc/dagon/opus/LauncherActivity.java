@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.tcc.dagon.opus.telas.login.LoginActivity_;
-import com.tcc.dagon.opus.telas.login.CadastroActivity;
+import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
+import com.tcc.dagon.opus.ui.usuario.CadastroActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
@@ -116,33 +116,19 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoDesbloquearPrimeiroModulo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoEtapa(1,9);
+                preferencias.setProgressoEtapa(0, 8);
             }
         });
 
         botaoDesbloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoEtapa(1,9);
-                DB_PROGRESSO.atualizaProgressoEtapa(2,6);
-                DB_PROGRESSO.atualizaProgressoEtapa(3,3);
-                DB_PROGRESSO.atualizaProgressoEtapa(4,6);
-                DB_PROGRESSO.atualizaProgressoEtapa(5,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,10);
-                //DB_PROGRESSO.atualizaProgressoEtapa(7,10);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,4);
+                preferencias.setProgressoEtapa(0, 9);
             }
         });
 
         botaoBloquearEtapas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoEtapa(1,1);
-                DB_PROGRESSO.atualizaProgressoEtapa(2,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(3,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(4,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(5,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(6,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(7,0);
-                DB_PROGRESSO.atualizaProgressoEtapa(8,0);
+                preferencias.setProgressoEtapa(0, 0);
             }
         });
 

@@ -12,7 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.tcc.dagon.opus.telas.login.StringsBanco;
+import com.tcc.dagon.opus.ui.usuario.StringsBanco;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +61,7 @@ public class VolleyRequest {
             {
                 if(response.equals("certo"))
                 {
-                    preferencesManager.escreverFlagString(GerenciadorSharedPreferences.getNomeUsuario(), nome);
+                    preferencesManager.setNomeUsuario(nome);
                     toastManager.toastShort("Você foi cadastrado com sucesso!");
                     activity.finish();
                 } else if(response.equals("erroExiste"))
@@ -103,7 +103,7 @@ public class VolleyRequest {
             public void onResponse(String response)
             {
                 if(response.trim().equals("certo")){
-                    preferencesManager.escreverFlagString(GerenciadorSharedPreferences.getEmailUsuario(), sEmail);
+                    preferencesManager.setEmailUsuario(sEmail);
                     gravarNomeInterno(sEmail);
                     activity.startActivity(new Intent(activity, AprenderActivity_.class));
                     activity.finish();
@@ -146,7 +146,7 @@ public class VolleyRequest {
         {
             public void onResponse(String response)
             {
-                preferencesManager.escreverFlagString(GerenciadorSharedPreferences.getNomeUsuario(), response);
+                preferencesManager.setNomeUsuario(response);
                 Log.d(TAG, "Nome gravado: " + response);
             }
         }, new Response.ErrorListener()

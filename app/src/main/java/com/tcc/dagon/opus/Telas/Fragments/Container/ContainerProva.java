@@ -11,7 +11,8 @@ import com.tcc.dagon.opus.telas.fragments.exercicios.CompletarProva;
 import com.tcc.dagon.opus.telas.fragments.exercicios.QuestaoMultiplaProva;
 import com.tcc.dagon.opus.telas.fragments.exercicios.QuestaoProva;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
+//import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 /**
@@ -92,7 +93,7 @@ public class ContainerProva extends ContainerEtapa
 
     @Override
     protected void onDestroy() {
-        if(!preferenceManager.lerFlagBoolean(preferenceManager.lerFlagProva(moduloAtual))) {
+        if(!preferenceManager.getCompletouProva(moduloAtual)) {
             DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, 1);
         }
 
@@ -120,7 +121,7 @@ public class ContainerProva extends ContainerEtapa
         }
 
         /* Desbloqueia a prova caso o aluno já tenha completado antes */
-        if(preferenceManager.lerFlagBoolean(preferenceManager.lerFlagProva(moduloAtual))) {
+        if(preferenceManager.getCompletouProva(moduloAtual)) {
             for(int i = 0; i <= progresso - 1; i += 1) {
                 if(mTabLayout.getTabAt(i) != null) {
                     tabStrip.getChildAt(i).setClickable(true);
@@ -183,7 +184,7 @@ public class ContainerProva extends ContainerEtapa
 
     protected Class retornarTelaEtapas(int numeroModulo) {
         switch(numeroModulo) {
-            case 1: return EtapasModulo1Activity.class;
+            case 1: return EtapasModulo0.class;
           /*  case 2: return EtapasModulo2Activity.class;
             case 3: return EtapasModulo3Activity.class;
             case 4: return EtapasModulo4Activity.class;

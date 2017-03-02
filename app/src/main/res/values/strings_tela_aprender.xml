@@ -13,7 +13,7 @@
     <string name="txtProgressoModulo8">/3 etapas concluídas</string>
 
     <!-- TITULOS DOS MÓDULOS -->
-    <string name="txtTituloModulo1">Conceitos Básicos</string>
+    <string name="txtTituloModulo0">Conceitos Básicos</string>
     <string name="txtTituloModulo2">Condições e Loops</string>
     <string name="txtTituloModulo3">Vetores</string>
     <string name="txtTituloModulo4">Rotinas</string>
@@ -30,4 +30,7 @@
     <string name="mAbrir">Abrir navegação</string>
     <string name="mFechar">Fechar Navegação</string>
     <!--FIM MENU PUXAVEL-->
+
+
+
 </resources>

@@ -88,7 +88,7 @@
 
 
                     <TextView
-                        android:text="@string/txtTituloModulo1"
+                        android:text="@string/txtTituloModulo0"
                         android:id="@+id/txtTitulo0"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"

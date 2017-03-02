@@ -43,7 +43,7 @@ public class ActivityConfig extends AppCompatActivity {
     protected void init() {
         preferencias = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
-        flagDesativarSom = preferencias.lerFlagBoolean(GerenciadorSharedPreferences.getDesativarSons());
+        flagDesativarSom = preferencias.getDesativarSons();
 
         if(flagDesativarSom) {
             switchSons.setChecked(true);
@@ -74,9 +74,9 @@ public class ActivityConfig extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(switchSons.isChecked()) {
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getDesativarSons(), true);
+                    preferencias.setDesativarSons(true);
                 } else {
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getDesativarSons(), false);
+                    preferencias.setDesativarSons(false);
                 }
             }
         });
@@ -149,12 +149,12 @@ public class ActivityConfig extends AppCompatActivity {
 
 
 
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva1(), false);
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva2(), false);
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva3(), false);
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva4(), false);
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva5(), false);
-                    preferencias.escreverFlagBoolean(GerenciadorSharedPreferences.getFlagProva6(), false);
+                    preferencias.setCompletouProva(0, false);
+                    preferencias.setCompletouProva(1, false);
+                    preferencias.setCompletouProva(2, false);
+                    preferencias.setCompletouProva(3, false);
+                    preferencias.setCompletouProva(4, false);
+                    preferencias.setCompletouProva(5, false);
 
                     toastManager.toastLong("Progresso resetado!");
                     break;

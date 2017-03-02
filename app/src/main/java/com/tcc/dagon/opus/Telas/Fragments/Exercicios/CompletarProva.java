@@ -105,7 +105,7 @@ public final class CompletarProva extends Completar {
 
     @Override
     protected void questaoFinal() {
-        getPreferencias().escreverFlagProva(getModuloAtual());
+        getPreferencias().setCompletouProva(getModuloAtual(), true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();

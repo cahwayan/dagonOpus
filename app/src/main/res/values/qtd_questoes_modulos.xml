@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="qtdQuestoesModulo0">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+    </string-array>
+
+    <string-array name="qtdQuestoesModulo1">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+    </string-array>
+
+    <string-array name="qtdQuestoesModulo2">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+    </string-array>
+
+    <string-array name="qtdQuestoesModulo3">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+    </string-array>
+
+    <string-array name="qtdQuestoesModulo4">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+    </string-array>
+
+    <string-array name="qtdQuestoesModulo5">
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+        <item>X Questões</item>
+        <item>X Questões</item>
+
+        <item>X Questões</item>
+    </string-array>
+
+
+</resources>

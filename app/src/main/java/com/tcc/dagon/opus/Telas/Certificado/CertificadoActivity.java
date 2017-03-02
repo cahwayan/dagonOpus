@@ -16,7 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.login.StringsBanco;
+import com.tcc.dagon.opus.ui.usuario.StringsBanco;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import java.util.HashMap;

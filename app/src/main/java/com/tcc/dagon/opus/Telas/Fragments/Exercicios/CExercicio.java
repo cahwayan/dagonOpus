@@ -13,7 +13,8 @@ import android.widget.TextView;
 import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telas.etapas.EtapasModulo1Activity;
+//import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
@@ -349,7 +350,7 @@ public abstract class CExercicio extends Fragment{
     }
 
     protected void playSound(MediaPlayer sound) {
-        if(!preferencias.somEstaAtivado()) {
+        if(!preferencias.getDesativarSons()) {
             sound.start();
         }
     }
@@ -400,7 +401,7 @@ public abstract class CExercicio extends Fragment{
 
     protected Class retornarTelaEtapas(int numeroModulo) {
         switch(numeroModulo) {
-            case 1: return EtapasModulo1Activity.class;
+            case 1: return EtapasModulo0.class;
             /*case 2: return EtapasModulo2Activity.class;
             case 3: return EtapasModulo3Activity.class;
             case 4: return EtapasModulo4Activity.class;
