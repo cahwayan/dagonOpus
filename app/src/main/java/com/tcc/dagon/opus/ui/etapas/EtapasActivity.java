@@ -184,6 +184,8 @@ public abstract class EtapasActivity extends AppCompatActivity {
             this.setClickListener();
         }
 
+
+
         private int getEstadoEtapa() {
             if(progressoAtual == numEtapa) {
                 return CURSANDO;
@@ -203,11 +205,11 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
                     listBtnEtapas.get(numEtapa).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
 
-                    int estado = getEstadoEtapa();
+                    estadoEtapa = getEstadoEtapa();
 
-                    if(estado == BLOQUEADA) {
+                    if(estadoEtapa == BLOQUEADA) {
                         clickBloqueado();
-                    } else if(estado == CURSANDO || estado == COMPLETA) {
+                    } else if(estadoEtapa == CURSANDO || estadoEtapa == COMPLETA) {
                         clickLiberado();
                     }
 
@@ -236,6 +238,9 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
         @Override
         public void atualizarUI() {
+
+            this.estadoEtapa = getEstadoEtapa();
+
             switch(estadoEtapa) {
                 case BLOQUEADA:
                     carregarUIBloqueada();

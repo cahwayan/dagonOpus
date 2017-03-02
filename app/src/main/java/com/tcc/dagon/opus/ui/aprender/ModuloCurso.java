@@ -7,6 +7,13 @@ package com.tcc.dagon.opus.ui.aprender;
 /* Interface que representa um módulo */
 public interface ModuloCurso {
 
+    int UNDEFINED = -1;
+    int IS_BLOQUEADO = 0;
+    int IS_CURSANDO = 1;
+    int IS_COMPLETO = 2;
+    int IS_CERTIFICADO = 3;
+
+
     int MODULO0 = 0;
     int MODULO1 = 1;
     int MODULO2 = 2;
@@ -22,11 +29,13 @@ public interface ModuloCurso {
     int QTD_ETAPAS_MODULO4 = 9;
     int QTD_ETAPAS_MODULO5 = 9;
 
-    void setStringNota(String nota);
-    void setNumModulo(int numModulo);
-    void configurarModulo();
-    void setClickListener();
-    int getQtdEtapas(int numModulo);
-    void setQtdEtapas(int qtdEtapas);
-
+    int getEstado();
+    void atualizarEstado();
+    public void atualizarProgresso(int progressoAtual);
+    int getNumModulo();
+    String getNota();
+    int getQtdEtapas();
+    boolean isCertificadoLiberado();
+    boolean isCertificadoBloqueado();
+    boolean isCertificadoGerado();
 }
