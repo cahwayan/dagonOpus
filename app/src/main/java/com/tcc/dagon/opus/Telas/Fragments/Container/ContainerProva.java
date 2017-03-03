@@ -20,7 +20,7 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
  */
 /**/
 
-public class ContainerProva extends ContainerEtapa
+public class ContainerProva extends ContainerLicoes
         implements QuestaoProva.OnHeadlineSelectedListener,
             CompletarProva.OnHeadlineSelectedListener,
                 QuestaoMultiplaProva.OnHeadlineSelectedListener {
@@ -47,7 +47,7 @@ public class ContainerProva extends ContainerEtapa
         this.etapaAtual  = getIntent().getIntExtra("etapaAtual", 0);
 
         super.instanciaObjetos();
-        this.accessViews();
+        this.init();
         this.setContagemVidas(5);
         super.bloquearLicoes();
         this.desbloquearLicoes();
@@ -113,8 +113,8 @@ public class ContainerProva extends ContainerEtapa
         switch(progresso) {
             default:
                 for(int i = 0; i <= progresso - 1; i += 1) {
-                    if(mTabLayout.getTabAt(i) != null) {
-                        mTabLayout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
+                    if(tab_layout.getTabAt(i) != null) {
+                        tab_layout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
                     }
                 }
                 break;
@@ -123,7 +123,7 @@ public class ContainerProva extends ContainerEtapa
         /* Desbloqueia a prova caso o aluno já tenha completado antes */
         if(preferenceManager.getCompletouProva(moduloAtual)) {
             for(int i = 0; i <= progresso - 1; i += 1) {
-                if(mTabLayout.getTabAt(i) != null) {
+                if(tab_layout.getTabAt(i) != null) {
                     tabStrip.getChildAt(i).setClickable(true);
                     tabStrip.getChildAt(i).setEnabled(true);
                 }
@@ -194,8 +194,8 @@ public class ContainerProva extends ContainerEtapa
         }
     }
 
-    protected void accessViews() {
-        super.accessViews();
+    protected void init() {
+        super.init();
         this.vida01 = (ImageView) findViewById(R.id.vida01);
         this.vida02 = (ImageView) findViewById(R.id.vida02);
         this.vida03 = (ImageView) findViewById(R.id.vida03);

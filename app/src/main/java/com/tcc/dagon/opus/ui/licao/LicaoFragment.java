@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.telas.fragments.exercicios.FragmentoConteudo;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -19,7 +20,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class LicaoFragment extends Fragment {
+public class LicaoFragment extends FragmentoConteudo {
     protected Button btnAvancar;
     protected ViewPager mViewPager;
     protected View viewRoot;
@@ -62,7 +63,7 @@ public class LicaoFragment extends Fragment {
     }
 
     private void accessViews() {
-        mViewPager = ((ContainerEtapa)getActivity()).getPager();
+        mViewPager = ((ContainerLicoes)getActivity()).getPager();
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
     }
 

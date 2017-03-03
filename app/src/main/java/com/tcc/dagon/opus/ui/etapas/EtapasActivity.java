@@ -13,7 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_;
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
@@ -40,9 +41,10 @@ public abstract class EtapasActivity extends AppCompatActivity {
     private String tituloModulo;
 
     // OBJETO QUE INVOCA JANELA DE ALERTAS
-    private NovaJanelaAlerta alerta;
 
     private GerenciadorSharedPreferences preferenceManager;
+    private NovaJanelaAlerta alerta;
+
 
     /*SUPER VARIÁVEL CONTEXT*/
     private final Context context = this;
@@ -59,10 +61,26 @@ public abstract class EtapasActivity extends AppCompatActivity {
     /* */
     protected abstract int getLayout();
 
+    private void setLayout() {
+        this.setContentView(getLayout());
+    }
+
+    private void getIntents() {
+        this.moduloAtual = getIntent().getIntExtra("numModulo", 0);
+        this.qtdEtapas = getIntent().getIntExtra("qtdEtapas", 0);
+        this.tituloModulo = getIntent().getStringExtra("tituloModulo");
+    }
+
+    @UiThread
+    protected void mainUIThread() {
+        this.configurarUIEtapas();
+    }
+
     /* CICLO DE VIDA */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         init();
     }
 
@@ -84,32 +102,36 @@ public abstract class EtapasActivity extends AppCompatActivity {
     }
 
     protected void init() {
-        this.setContentView(getLayout());
-        this.moduloAtual = getIntent().getIntExtra("numModulo", 0);
-        this.qtdEtapas = getIntent().getIntExtra("qtdEtapas", 0);
-        this.tituloModulo = getIntent().getStringExtra("tituloModulo");
-
+        setLayout();
+        getIntents();
         initActionBar();
-        initObjects();
-
-
-        this.progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
-
-        fillLists();
-    }
-
-    private void initObjects() {
 
         preferenceManager = new GerenciadorSharedPreferences(this);
-        alerta = new NovaJanelaAlerta(this);
+        stringQtdQuestoes = getStringQtdQuestoes();
+        this.progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
+
+        inicializarListasEtapas();
+
+        configurarUIEtapas();
+    }
+
+    private void inicializarListasEtapas() {
 
         listEtapas = new ArrayList<>();
 
         listBtnEtapas = new ArrayList<>();
+
         listTxtTituloEtapas = new ArrayList<>();
+
         listBarraInferiorEtapas = new ArrayList<>();
 
-        stringQtdQuestoes = getStringQtdQuestoes();
+        findViews();
+
+        // Criando os objetos etapa
+        for(int i = 0; i <= qtdEtapas; i++) {
+            listEtapas.add(new EtapaImp(i));
+        }
+
     }
 
     private void initActionBar() {
@@ -121,25 +143,15 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     }
 
-    private void fillLists() {
-
-        findViews();
-
-        // Criando os objetos etapa
-        for(int i = 0; i <= qtdEtapas; i++) {
-            listEtapas.add(new EtapaImp(i));
-        }
-
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
-        atualizarUI();
+
     }
 
     @Override
     protected void onRestart() {
+        mainUIThread();
         super.onRestart();
     }
 
@@ -162,8 +174,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
         }
     }
 
-    @UiThread
-    protected void atualizarUI() {
+    protected void configurarUIEtapas() {
 
         progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
 
@@ -171,6 +182,13 @@ public abstract class EtapasActivity extends AppCompatActivity {
             etapa.atualizarUI();
         }
 
+    }
+
+    private void alertaEtapaBloqueada() {
+        if(alerta == null) {
+            alerta = new NovaJanelaAlerta(this);
+        }
+        alerta.alertDialogBloqueado("Etapa bloqueada", "Complete as etapas anteriores para desbloquear esta");
     }
 
     class EtapaImp implements Etapa {
@@ -183,8 +201,6 @@ public abstract class EtapasActivity extends AppCompatActivity {
             this.estadoEtapa = getEstadoEtapa();
             this.setClickListener();
         }
-
-
 
         private int getEstadoEtapa() {
             if(progressoAtual == numEtapa) {
@@ -221,11 +237,11 @@ public abstract class EtapasActivity extends AppCompatActivity {
         }
 
         private void clickBloqueado() {
-            alerta.alertDialogBloqueado("Etapa bloqueada", "Complete as etapas anteriores para liberar esta");
+            alertaEtapaBloqueada();
         }
 
         private void clickLiberado() {
-            Intent i = new Intent(context, ContainerEtapa.class);
+            Intent i = new Intent(context, ContainerLicoes_.class);
             i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
             i.putExtra("moduloAtual", moduloAtual);
             i.putExtra("etapaAtual", numEtapa);
@@ -233,7 +249,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
         }
 
         private boolean isEtapaProva() {
-            return numEtapa == listEtapas.size();
+            return numEtapa == (listEtapas.size() - 1);
         }
 
         @Override

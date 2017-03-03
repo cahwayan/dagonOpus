@@ -38,7 +38,7 @@ public class FragmentTelaInterfaceGlossario extends LicaoFragment {
     protected void accessViews() {
         mViewPager = ((ContainerComandosGlossario)getActivity()).getPager();
         btnVoltar2 = (Button) viewRoot.findViewById(R.id.btnVoltar2);
-        //super.accessViews();
+        //super.init();
     }
 
 }

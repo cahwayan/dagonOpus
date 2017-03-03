@@ -9,16 +9,16 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
 import com.tcc.dagon.opus.R;
 
 /**
  * Created by cahwayan on 04/12/2016.
  */
 
-public class ContainerComandosGlossario extends ContainerEtapa {
+public class ContainerComandosGlossario extends ContainerLicoes {
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         // LAYOUT QUE O CONTAINER VAI PUXAR
         setContentView(R.layout.container_glossario);
@@ -35,20 +35,20 @@ public class ContainerComandosGlossario extends ContainerEtapa {
         super.instanciaObjetos();
         super.moduloAtual = 0;
         super.etapaAtual = 0;
-        accessViews();
+        init();
     }
 
-    protected void accessViews() {
+    protected void init() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarGlossario);
         setSupportActionBar(toolbar);
 
-        mTabLayout = (TabLayout)findViewById(R.id.tab_layout_glossario);
-        mViewPager = (ViewPager)findViewById(R.id.pager_glossario);
-        mViewPager.setAdapter(new AdapterGlossario(getSupportFragmentManager(),
+        tabLayout = (TabLayout)findViewById(R.id.tab_layout_glossario);
+        viewPager = (ViewPager)findViewById(R.id.pager_glossario);
+        viewPager.setAdapter(new AdapterGlossario(getSupportFragmentManager(),
                 getResources().getStringArray(R.array.tab_glossario)));
-        mTabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setupWithViewPager(viewPager);
 
-        tabStrip = ((LinearLayout)mTabLayout.getChildAt(0));
+        tabStrip = ((LinearLayout) tabLayout.getChildAt(0));
 
     }
 
@@ -63,5 +63,5 @@ public class ContainerComandosGlossario extends ContainerEtapa {
                 return super.onOptionsItemSelected(item);
         }
     }
-
+*/
 }

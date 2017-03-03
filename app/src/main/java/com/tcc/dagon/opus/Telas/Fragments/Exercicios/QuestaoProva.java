@@ -161,7 +161,7 @@ public final class QuestaoProva extends Questao {
     public void accessViews(View rootView) {
         super.setView_pager( (( (ContainerProva)this.getActivity() ).getPager() ) );
         super.setTabStrip( (( (ContainerProva)this.getActivity() ).getTabStrip()) );
-        super.setTab_layout( (( (ContainerProva)this.getActivity() ).getmTabLayout() ) );
+        super.setTab_layout( (( (ContainerProva)this.getActivity() ).getTab_layout() ) );
         this.vida01 = ((ContainerProva)getActivity()).getVida01();
         this.vida02 = ((ContainerProva)getActivity()).getVida02();
         this.vida03 = ((ContainerProva)getActivity()).getVida03();

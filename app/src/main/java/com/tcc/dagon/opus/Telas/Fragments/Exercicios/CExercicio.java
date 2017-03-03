@@ -2,7 +2,6 @@ package com.tcc.dagon.opus.telas.fragments.exercicios;
 
 import android.media.MediaPlayer;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tcc.dagon.opus.telas.fragments.container.ContainerEtapa;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
@@ -24,7 +24,7 @@ import com.tcc.dagon.opus.utils.PulseAnimation;
  */ /**/
 
 
-public abstract class CExercicio extends Fragment{
+public abstract class CExercicio extends FragmentoConteudo {
 
     /* OBJETOS */
     private GerenciadorBanco             DB_PROGRESSO = null;
@@ -190,9 +190,9 @@ public abstract class CExercicio extends Fragment{
     }
 
     protected void accessViews(View rootView) {
-        view_pager = ((ContainerEtapa)this.getActivity()).getPager();
-        tabStrip   = ((ContainerEtapa)this.getActivity()).getTabStrip();
-        tab_layout = ((ContainerEtapa)this.getActivity()).getmTabLayout();
+        view_pager = ((ContainerLicoes_)this.getActivity()).getPager();
+        tabStrip   = ((ContainerLicoes_)this.getActivity()).getTabStrip();
+        tab_layout = ((ContainerLicoes_)this.getActivity()).getTab_layout();
         txtPontos =          (TextView) rootView.findViewById(R.id.txtPontos);
         imgRespostaCerta  =  (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
         imgRespostaErrada =  (ImageView) rootView.findViewById(R.id.imgRespostaErrada);

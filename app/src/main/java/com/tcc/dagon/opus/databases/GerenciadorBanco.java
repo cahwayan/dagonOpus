@@ -336,34 +336,34 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         String selectArgs[] = {String.valueOf(moduloPertencente)};
 
         switch (etapaPertencente) {
-            case 1:
+            case 0:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA1;
                 break;
-            case 2:
+            case 1:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA2;
                 break;
-            case 3:
+            case 2:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA3;
                 break;
-            case 4:
+            case 3:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA4;
                 break;
-            case 5:
+            case 4:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA5;
                 break;
-            case 6:
+            case 5:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA6;
                 break;
-            case 7:
+            case 6:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA7;
                 break;
-            case 8:
+            case 7:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA8;
                 break;
-            case 9:
+            case 8:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA9;
                 break;
-            case 10:
+            case 9:
                 colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA10;
                 break;
         }
