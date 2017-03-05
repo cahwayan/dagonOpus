@@ -41,6 +41,8 @@
         android:layout_gravity="fill_vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -126,6 +128,7 @@
                         app:rcProgressColor="@color/colorAccent"
                         app:rcSecondaryProgressColor="#ffffffff"
                         app:rcBackgroundColor="#ffffff" />
+
                 </LinearLayout>
 
             </RelativeLayout>

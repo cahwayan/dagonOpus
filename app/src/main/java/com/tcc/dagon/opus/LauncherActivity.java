@@ -11,6 +11,7 @@ import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.ui.usuario.CadastroActivity;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
@@ -29,12 +30,12 @@ public class LauncherActivity extends AppCompatActivity {
     private TextView txtInicial;
     RequestQueue requesQueue;
     GerenciadorBanco DB_PROGRESSO;
-    Preferencias preferencias;
+    GerenciadorPreferencesComSuporteParaLicoes preferencias;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferencias = new GerenciadorSharedPreferences(this);
+        preferencias = new GerenciadorPreferencesComSuporteParaLicoes(this);
         if(preferencias.getIsLogin()) {
             startActivity(new Intent(this, AprenderActivity_.class));
             //finish();
@@ -134,53 +135,8 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoBloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,3,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,4,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,5,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,6,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,7,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,9,1);
-
-                DB_PROGRESSO.atualizaProgressoLicao(2,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(2,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(2,3,1);
-                DB_PROGRESSO.atualizaProgressoLicao(2,4,1);
-                DB_PROGRESSO.atualizaProgressoLicao(2,5,1);
-                DB_PROGRESSO.atualizaProgressoLicao(2,6,1);
-
-                DB_PROGRESSO.atualizaProgressoLicao(3,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(3,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(3,3,1);
-
-                DB_PROGRESSO.atualizaProgressoLicao(4,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,3,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,4,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,5,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,6,1);
-
-                DB_PROGRESSO.atualizaProgressoLicao(6,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,3,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,4,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,5,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,6,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,7,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,8,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,9,1);
-                DB_PROGRESSO.atualizaProgressoLicao(6,10,1);
-
-                DB_PROGRESSO.alterarPontuacaoTotal(1, 0);
-
-                preferencias.setCompletouProva(0, false);
-                preferencias.setCompletouProva(1, false);
-                preferencias.setCompletouProva(2, false);
-                preferencias.setCompletouProva(3, false);
-                preferencias.setCompletouProva(4, false);
-                preferencias.setCompletouProva(5, false);
+                preferencias.setProgressoLicao(0,0,1);
+                preferencias.setProgressoLicao(0,1,1);
 
             }
         });

@@ -2,7 +2,6 @@ package com.tcc.dagon.opus.ui.licao;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.ImageView;
 
 import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.exercicios.FragmentoConteudo;
+import com.tcc.dagon.opus.telas.fragments.exercicios.FragmentosConteudo;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -20,7 +19,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class LicaoFragment extends FragmentoConteudo {
+public class LicaoFragment extends FragmentosConteudo {
     protected Button btnAvancar;
     protected ViewPager mViewPager;
     protected View viewRoot;

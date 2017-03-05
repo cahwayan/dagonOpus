@@ -15,6 +15,11 @@ public class GerenciadorPreferencesComSuporteParaLicoes extends GerenciadorShare
         PROGRESSO_LICOES = inicializarVetorDeProgressoLicoes();
     }
 
+    @Override
+    public int lerFlagInt(String nomeFlag) {
+        return sharedPreferences.getInt(nomeFlag, 1);
+    }
+
     private String[][] inicializarVetorDeProgressoLicoes() {
 
         String[][] progressoLicoes = new String[9][9];

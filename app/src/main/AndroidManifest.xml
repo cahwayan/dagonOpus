@@ -69,11 +69,6 @@
 
         <!--CONTAINER GLOSSARIO -->
 
-        <activity
-            android:name=".telas.aprender.menulateral.glossario.ContainerComandosGlossario"
-            android:label="Glossario"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <!-- CONTAINERS MODULO 1-->
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 

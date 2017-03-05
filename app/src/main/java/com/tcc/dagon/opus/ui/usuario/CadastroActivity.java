@@ -206,7 +206,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
     private void configureEditTextAvailable() {
         if(VerificarConexao.verificarConexao()) {
             textEmail.setTextColor(COR_VERDE);
-            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
+            //textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
         }
     }
 

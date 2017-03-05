@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 
 public class GerenciadorSharedPreferences implements Preferencias {
 
-    private final SharedPreferences sharedPreferences;
+    protected final SharedPreferences sharedPreferences;
 
     public GerenciadorSharedPreferences(Context context) {
         this.sharedPreferences = context.getSharedPreferences("Preferences", Context.MODE_PRIVATE);

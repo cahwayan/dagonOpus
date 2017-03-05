@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -19,6 +20,7 @@ import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 
@@ -80,7 +82,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getIntents();
         init();
     }
 
@@ -103,7 +105,6 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     protected void init() {
         setLayout();
-        getIntents();
         initActionBar();
 
         preferenceManager = new GerenciadorSharedPreferences(this);
@@ -219,7 +220,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    listBtnEtapas.get(numEtapa).startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                    initAnimation(listBtnEtapas.get(numEtapa));
 
                     estadoEtapa = getEstadoEtapa();
 
@@ -245,6 +246,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
             i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
             i.putExtra("moduloAtual", moduloAtual);
             i.putExtra("etapaAtual", numEtapa);
+            Log.d("NUM ETAPA: ", String.valueOf(numEtapa));
             startActivity(i);
         }
 
@@ -304,6 +306,10 @@ public abstract class EtapasActivity extends AppCompatActivity {
             barraInferior.setText(getResources().getString(R.string.etapaCompleta));
 
             tituloEtapa.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+        }
+
+        protected void initAnimation(View view) {
+            view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
         }
     }
 }
