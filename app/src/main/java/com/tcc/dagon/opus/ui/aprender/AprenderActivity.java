@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
+//import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
 import com.tcc.dagon.opus.telas.aprender.menulateral.GerenciarPerfilActivity;
 import com.tcc.dagon.opus.telas.certificado.CertificadoActivity;
 import com.tcc.dagon.opus.telas.certificado.CertificadoIncompleto;
@@ -33,6 +33,7 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
@@ -71,8 +72,6 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
 public class AprenderActivity
         extends AppCompatActivity {
 
-
-
     // Listas de views
     private List<ModuloCurso> listModuloCurso;
     private List<LinearLayout> listBtnModulos;
@@ -106,32 +105,27 @@ public class AprenderActivity
     // Objeto capaz de ler e modificar Shared Preferences
     private Preferencias preferenceManager;
 
-    // Variável estática que guarda o progresso atual do usuário
+    // Variável que guarda o progresso atual do usuário
     private int progressoAtual;
 
     /*
-      * UI Thread principal
-    */
-    @UiThread
-    protected void modulosRefresh() {
-        carregarModulos();
-        atualizaProgressoUI();
-    }
-
-
-    /*
-      * Métodos de ciclo de vida do app
+      * Ciclo de vida
     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // DON'T DO THIS !! It will throw a NullPointerException, myTextView is not set yet.
         // myTextView.setText("Date: " + new Date());
+
+        preferenceManager = new GerenciadorSharedPreferences(this);
+        carregarModulos();
     }
 
     @Override
     protected void onResume() {
+
         if(drawer_layout.isDrawerVisible(mListView)) {
             drawer_layout.closeDrawers();
         }
@@ -142,11 +136,11 @@ public class AprenderActivity
     @Override
     protected  void onStart() {
         super.onStart();
+        atualizaProgressoUI();
     }
 
     @Override
     protected void onRestart() {
-        modulosRefresh();
         super.onRestart();
     }
 
@@ -194,11 +188,6 @@ public class AprenderActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // Activate the navigation drawer toggle
-        if (mAlterna.onOptionsItemSelected(item)) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -217,13 +206,8 @@ public class AprenderActivity
         adicionarItensMenuLateral();
         configurarMenuLateral();
 
-        preferenceManager = new GerenciadorSharedPreferences(this);
-
         progressoAtual = preferenceManager.getProgressoModulo();
 
-        // Carregando componentes da UI
-        carregarModulos();
-        atualizaProgressoUI();
         setClickListeners();
         carregarFontes();
 
@@ -388,7 +372,9 @@ public class AprenderActivity
 
             for(int i = 0; i < listBtnModulos.size(); i++) {
                 String nota = preferenceManager.getNota(i);
-                listModuloCurso.add(ModuloCursoImp.factoryModulo(i, progressoAtual, nota));
+                ModuloCurso modulo = new ModuloCursoImp(i, progressoAtual, nota);
+                modulo.atualizarEstado();
+                listModuloCurso.add(modulo);
             }
         }
     }
@@ -428,27 +414,25 @@ public class AprenderActivity
                 startActivity(new Intent(getApplicationContext(), ContainerComandosGlossario.class));
                 break;
             case 3: // CONFIGURAÇÕES
-                startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));
+                //startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));
                 break;
             case 4:
                 break;
         }
     }
 
-
-    /* Ui threads */
+    @UiThread
     protected void atualizaProgressoUI() {
 
         progressoAtual = preferenceManager.getProgressoModulo();
+        ModuloCursoImp.setProgressoAtual(progressoAtual);
 
         for(ModuloCurso moduloCurso : listModuloCurso) {
-            moduloCurso.atualizarProgresso(progressoAtual);
             moduloCurso.atualizarEstado();
             this.configurarModulo(moduloCurso);
         }
 
     }
-    /* Fim Ui threads*/
 
     /* Configuração do menu lateral */
 
@@ -494,6 +478,7 @@ public class AprenderActivity
 
     /* Carrega fontes customizadas */
     protected void carregarFontes() {
+
         Typeface notosans = Typeface.createFromAsset(getAssets(), "fonts/notosans/regular.ttf");
 
         for(TextView titulo : listTitulosModulos) {
@@ -549,14 +534,15 @@ public class AprenderActivity
     */
     protected void configurarModuloCursando(ModuloCurso modulo) {
         int numModulo = modulo.getNumModulo();
-        int progresso = preferenceManager.getProgressoEtapa(numModulo);
-        String stringTxtProgresso = String.valueOf(progresso) + stringsTxtProgresso[numModulo];
+        int progressoEtapasModulo = preferenceManager.getProgressoEtapa(numModulo);
+
+        String stringProgressoModulo = String.valueOf(progressoEtapasModulo) + stringsTxtProgresso[numModulo];
 
         listTxtNotas.get(numModulo).setText("");
         listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
-        listTxtProgressoModulos.get(numModulo).setText(stringTxtProgresso);
+        listTxtProgressoModulos.get(numModulo).setText(stringProgressoModulo);
         listTxtProgressoModulos.get(numModulo).setVisibility(View.VISIBLE);
-        listBarrasProgresso.get(numModulo).setProgress((float)progresso);
+        listBarrasProgresso.get(numModulo).setProgress((float)progressoEtapasModulo);
         listBarrasProgresso.get(numModulo).setVisibility(View.VISIBLE);
     }
 
@@ -589,7 +575,7 @@ public class AprenderActivity
     }
 
     /* CLICK LISTENER */
-    @UiThread
+    @Background
     protected void setClickListeners() {
 
         for(int i = 0; i < listBtnModulos.size(); i++) {

@@ -30,7 +30,7 @@
             android:clickable="true"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:layout_marginBottom="10dp" />
 
         <EditText
@@ -114,7 +114,6 @@
             android:textSize="@dimen/tamanhoTextoBotao"
             android:typeface="serif"
             android:fontFamily="@string/fonteBotao"
-            android:singleLine="false"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp" />
 

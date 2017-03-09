@@ -43,14 +43,14 @@ apt {
 
 
 android {
-    /*signingConfigs {
+    signingConfigs {
         config {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storeFile file('chave/debug.keystore')
             storePassword 'android'
         }
-    }*/
+    }
 
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
@@ -61,7 +61,7 @@ android {
         targetSdkVersion 25
         versionCode 3
         versionName "1.0"
-        //signingConfig signingConfigs.config
+        signingConfig signingConfigs.config
         multiDexEnabled true
     }
 
@@ -69,10 +69,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-           // signingConfig signingConfigs.config
+            signingConfig signingConfigs.config
         }
         debug {
-           // signingConfig signingConfigs.config
+            signingConfig signingConfigs.config
         }
 
         dexOptions {
@@ -80,6 +80,11 @@ android {
         }
     }
     productFlavors {
+    }
+
+    sourceSets {
+        main.res.srcDirs += 'src/main/res/layout_aprender'
+
     }
 }
 

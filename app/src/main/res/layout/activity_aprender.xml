@@ -9,7 +9,6 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -30,18 +29,17 @@
             android:weightSum="1"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
         </android.support.v7.widget.Toolbar>
+
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="fill_vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -50,89 +48,81 @@
             android:id="@+id/layoutModulos"
             android:baselineAligned="false">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/btnModulo0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="55dp"
+
                 android:layout_marginTop="25dp"
-                android:gravity="center_horizontal">
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:orientation="vertical"
+                <TextView
+                    android:id="@+id/txtNota0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/notaDefault"
+                    android:textColor="@color/corAmareloDourado"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imgModulo0"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:id="@+id/btnModulo0">
-
-                    <TextView
-                        android:text="Nota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtNota0"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/corAmareloDourado"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                            xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/imgModulo0"
-                            android:src="@drawable/btnmodulo0bloqueado"
-                            android:contentDescription="@+id/descricaoBotaoModulo1"
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:padding="0dp"
-                            android:layout_gravity="center_vertical|center_horizontal|center"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="false"
-                            android:layout_marginTop="10dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@+id/descricaoBotaoModulo1"
+                    android:padding="0dp"
+                    android:src="@drawable/btnmodulo0bloqueado" />
 
 
+                <TextView
+                    android:id="@+id/txtTitulo0"
+                    style="@style/customTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/txtTituloModulo0"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="15sp" />
 
-                    <TextView
-                        android:text="@string/txtTituloModulo0"
-                        android:id="@+id/txtTitulo0"
-                        style="@style/customTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:textColor="?attr/colorPrimary"
-                        android:maxLines="1" />
+                <TextView
+                    android:id="@+id/txtProgresso0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="top|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/txtProgressoModulo0"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:typeface="normal" />
 
-                    <TextView
-                        android:text="@string/txtProgressoModulo0"
-                        android:id="@+id/txtProgresso0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:fontFamily="sans-serif"
-                        android:typeface="normal"
-                        android:textSize="12sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginStart="2dp"
-                        android:maxLines="1" />
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/barraModulo0"
+                    android:layout_width="140dp"
+                    android:layout_height="8dp"
+                    app:rcBackgroundColor="#ffffff"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcMax="9"
+                    app:rcProgressColor="@color/colorAccent"
+                    app:rcRadius="0dp"
+                    app:rcReverse="false"
+                    app:rcSecondaryProgress="0"
+                    app:rcSecondaryProgressColor="#ffffffff">
 
-                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                        android:id="@+id/barraModulo0"
-                        android:layout_width="140dp"
-                        android:layout_height="8dp"
-                        app:rcSecondaryProgress="0"
-                        app:rcMax="9"
-                        app:rcRadius="0dp"
-                        app:rcBackgroundPadding="2dp"
-                        app:rcReverse="false"
-                        app:rcProgressColor="@color/colorAccent"
-                        app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff" />
+                </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
 
-                </LinearLayout>
-
-            </RelativeLayout>
-
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -143,9 +133,9 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingStart="15dp"
-                android:layout_weight="100"
                 android:gravity="center_horizontal"
-                android:layout_gravity="top">
+                android:layout_gravity="top"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -156,7 +146,7 @@
                     android:id="@+id/btnModulo1">
 
                     <TextView
-                        android:text="Nota"
+                        android:text="@string/notaDefault"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtNota1"
@@ -169,8 +159,8 @@
                         android:id="@+id/imgModulo1"
                         android:src="@drawable/btnmodulo1bloqueado"
                         android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:padding="0dp"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
@@ -225,7 +215,7 @@
                     android:layout_weight="50">
 
                     <TextView
-                        android:text="Nota"
+                        android:text="@string/notaDefault"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtNota2"
@@ -238,8 +228,8 @@
                         android:id="@+id/imgModulo2"
                         android:src="@drawable/btnmodulo2bloqueado"
                         android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
 
@@ -285,95 +275,84 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/btnModulo3"
                 android:layout_marginBottom="55dp">
 
+                <TextView
+                    android:text="@string/notaDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtNota3"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/corAmareloDourado"
+                    android:textSize="16sp" />
 
-
-                <LinearLayout
-                    android:orientation="vertical"
+                <ImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imgModulo3"
+                    android:src="@drawable/btnmodulo3bloqueado"
+                    android:contentDescription="@+id/descricaoBotaoModulo1"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:id="@+id/btnModulo3">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:layout_marginTop="10dp" />
 
-                    <TextView
-                        android:text="Nota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtNota3"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/corAmareloDourado"
-                        android:textSize="16sp" />
+                <TextView
+                    android:text="@string/txtTituloModulo4"
+                    android:id="@+id/txtTitulo3"
+                    style="@style/customTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:gravity="top|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textColor="?attr/colorPrimary"
+                    android:maxLines="1" />
 
-                    <ImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgModulo3"
-                        android:src="@drawable/btnmodulo3bloqueado"
-                        android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="false"
-                        android:layout_marginTop="10dp" />
+                <TextView
+                    android:text="@string/txtProgressoModulo3"
+                    android:id="@+id/txtProgresso3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="sans-serif"
+                    android:typeface="normal"
+                    android:textSize="12sp"
+                    android:gravity="top|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"/>
 
-                    <TextView
-                        android:text="@string/txtTituloModulo4"
-                        android:id="@+id/txtTitulo3"
-                        style="@style/customTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:textColor="?attr/colorPrimary"
-                        android:maxLines="1" />
-
-                    <TextView
-                        android:text="@string/txtProgressoModulo3"
-                        android:id="@+id/txtProgresso3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:fontFamily="sans-serif"
-                        android:typeface="normal"
-                        android:textSize="12sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginStart="2dp"/>
-
-                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                        android:id="@+id/barraModulo3"
-                        android:layout_width="140dp"
-                        android:layout_height="8dp"
-                        app:rcSecondaryProgress="0"
-                        app:rcMax="6"
-                        app:rcRadius="0dp"
-                        app:rcBackgroundPadding="2dp"
-                        app:rcReverse="false"
-                        app:rcProgressColor="@color/colorAccent"
-                        app:rcSecondaryProgressColor="#ffffffff"
-                        app:rcBackgroundColor="#ffffff" />
-                </LinearLayout>
-
-            </RelativeLayout>
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/barraModulo3"
+                    android:layout_width="140dp"
+                    android:layout_height="8dp"
+                    app:rcSecondaryProgress="0"
+                    app:rcMax="6"
+                    app:rcRadius="0dp"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcReverse="false"
+                    app:rcProgressColor="@color/colorAccent"
+                    app:rcSecondaryProgressColor="#ffffffff"
+                    app:rcBackgroundColor="#ffffff" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
                 android:gravity="center_horizontal"
-                android:layout_weight="100"
                 android:paddingEnd="15dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:paddingStart="15dp">
+                android:paddingStart="15dp"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -384,7 +363,7 @@
                     android:layout_weight="50">
 
                     <TextView
-                        android:text="Nota"
+                        android:text="@string/notaDefault"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtNota4"
@@ -397,8 +376,8 @@
                         android:id="@+id/imgModulo4"
                         android:src="@drawable/btnmodulo4bloqueado"
                         android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
 
@@ -452,7 +431,7 @@
                     android:layout_weight="50">
 
                     <TextView
-                        android:text="Nota"
+                        android:text="@string/notaDefault"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtNota5"
@@ -465,8 +444,8 @@
                         android:id="@+id/imgModulo5"
                         android:src="@drawable/btnmodulo5bloqueado"
                         android:contentDescription="@+id/descricaoBotaoModulo1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:padding="0dp"
                         android:layout_gravity="center_vertical|center_horizontal|center"
                         android:layout_marginTop="10dp" />
@@ -514,51 +493,41 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/btnCertificado"
+                android:layout_gravity="center_horizontal">
 
-                <LinearLayout
-                    android:orientation="vertical"
+                <ImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imgCertificado"
+                    android:src="@drawable/btncertificadobloqueado"
+                    android:contentDescription="@+id/descricaocertificado"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/btnCertificado">
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:layout_marginTop="10dp" />
 
-                    <ImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgCertificado"
-                        android:src="@drawable/btncertificadobloqueado"
-                        android:contentDescription="@+id/descricaocertificado"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:padding="0dp"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="false"
-                        android:layout_marginTop="10dp" />
+                <TextView
+                    android:text="@string/txtTituloCertificado"
+                    android:id="@+id/txtTituloCertificado"
+                    style="@style/customTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:gravity="top|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textColor="?attr/colorPrimary"
+                    android:maxLines="1" />
 
-                    <TextView
-                        android:text="@string/txtTituloCertificado"
-                        android:id="@+id/txtTituloCertificado"
-                        style="@style/customTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:gravity="top|center_horizontal"
-                        android:includeFontPadding="false"
-                        android:textColor="?attr/colorPrimary"
-                        android:maxLines="1" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 

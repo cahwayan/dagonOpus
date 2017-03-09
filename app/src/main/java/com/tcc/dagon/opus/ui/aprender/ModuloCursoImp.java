@@ -6,20 +6,21 @@ package com.tcc.dagon.opus.ui.aprender;
 
 class ModuloCursoImp implements ModuloCurso {
 
-    private int numModulo;
-    private int progressoAtual;
+    private static int m_progressoAtual;
+    private final int numModulo;
     private int estadoAtual;
     private int qtdEtapas;
     private String stringNota;
 
-    public static ModuloCursoImp factoryModulo(int numModulo, int progressoAtual, String stringNota) {
-        ModuloCursoImp modulo = new ModuloCursoImp();
-        modulo.numModulo = numModulo;
-        modulo.progressoAtual = progressoAtual;
-        modulo.qtdEtapas = modulo.getQtdEtapas(numModulo);
-        modulo.stringNota = stringNota;
-        modulo.atualizarEstado();
-        return modulo;
+    ModuloCursoImp(int numModulo, int progressoAtual, String stringNota) {
+        this.numModulo = numModulo;
+        this.stringNota = stringNota;
+        this.qtdEtapas = getQtdEtapas(numModulo);
+        m_progressoAtual = progressoAtual;
+    }
+
+    public static void setProgressoAtual(int progressoAtual) {
+        m_progressoAtual = progressoAtual;
     }
 
     public int getNumModulo() {
@@ -32,10 +33,6 @@ class ModuloCursoImp implements ModuloCurso {
 
     public int getQtdEtapas() {
         return this.qtdEtapas;
-    }
-
-    public void atualizarProgresso(int progressoAtual) {
-        this.progressoAtual = progressoAtual;
     }
 
     @Override
@@ -73,15 +70,15 @@ class ModuloCursoImp implements ModuloCurso {
     }
 
     private boolean isModuloCursando() {
-        return numModulo == progressoAtual;
+        return numModulo == m_progressoAtual;
     }
 
     private boolean isModuloCompleto() {
-        return progressoAtual > numModulo;
+        return m_progressoAtual > numModulo;
     }
 
     private boolean isModuloBloqueado() {
-        return progressoAtual < numModulo;
+        return m_progressoAtual < numModulo;
     }
 
     private boolean isModuloCertificado() {
@@ -89,15 +86,15 @@ class ModuloCursoImp implements ModuloCurso {
     }
 
     public boolean isCertificadoLiberado() {
-        return progressoAtual == MODULO_CERTIFICADO;
+        return m_progressoAtual == MODULO_CERTIFICADO;
     }
 
     public boolean isCertificadoBloqueado() {
-        return progressoAtual < MODULO_CERTIFICADO;
+        return m_progressoAtual < MODULO_CERTIFICADO;
     }
 
     public boolean isCertificadoGerado() {
-        return progressoAtual > MODULO_CERTIFICADO;
+        return m_progressoAtual > MODULO_CERTIFICADO;
     }
 
     private int getQtdEtapas(int numModulo) {

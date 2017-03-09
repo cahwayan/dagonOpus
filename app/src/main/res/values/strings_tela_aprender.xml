@@ -26,6 +26,7 @@
 
     <string name="moduloBloqueado">Módulo Bloqueado</string>
     <string name="moduloCompleto">Módulo Completo</string>
+    <string name="notaDefault">Nota</string>
     <!--MENU PUXAVEL-->
     <string name="mAbrir">Abrir navegação</string>
     <string name="mFechar">Fechar Navegação</string>
