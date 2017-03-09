@@ -29,12 +29,12 @@ public interface ModuloCurso {
     int QTD_ETAPAS_MODULO4 = 9;
     int QTD_ETAPAS_MODULO5 = 9;
 
-    int getEstado();
-    void atualizarEstado();
+    void atualizarEstadoConformeProgressoAtual(int progressoAtual);
     int getNumModulo();
     String getNota();
-    int getQtdEtapas();
-    boolean isCertificadoLiberado();
-    boolean isCertificadoBloqueado();
-    boolean isCertificadoGerado();
+    int getQtdEtapasModulo();
+    int getEstadoAtual();
+    boolean isCertificadoLiberado(int progressoAtual);
+    boolean isCertificadoBloqueado(int progressoAtual);
+    boolean isCertificadoGerado(int progressoAtual);
 }

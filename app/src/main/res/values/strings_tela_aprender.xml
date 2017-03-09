@@ -14,12 +14,12 @@
 
     <!-- TITULOS DOS MÓDULOS -->
     <string name="txtTituloModulo0">Conceitos Básicos</string>
-    <string name="txtTituloModulo2">Condições e Loops</string>
-    <string name="txtTituloModulo3">Vetores</string>
-    <string name="txtTituloModulo4">Rotinas</string>
-    <string name="txtTituloModulo5">Desafios</string>
-    <string name="txtTituloModulo6">Classes e Objetos</string>
-    <string name="txtTituloModulo7">Classes e Objetos 2</string>
+    <string name="txtTituloModulo1">Condições e Loops</string>
+    <string name="txtTituloModulo2">Vetores</string>
+    <string name="txtTituloModulo3">Rotinas</string>
+    <string name="txtTituloModulo4">Desafios</string>
+    <string name="txtTituloModulo5">Classes e Objetos</string>
+    <string name="txtTituloModulo6">Classes e Objetos 2</string>
     <string name="txtTituloCertificado">Certificado</string>
     <!--DESCRICAO IMAGEM MODULOS (ACESSIBILIDADE) -->
     <!--FIM STRINGS MODULOS-->

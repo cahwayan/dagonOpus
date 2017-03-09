@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <integer name="qtdEtapasModulo0">9</integer>
+    <integer name="qtdEtapasModulo1">0</integer>
+    <integer name="qtdEtapasModulo2">0</integer>
+    <integer name="qtdEtapasModulo3">0</integer>
+    <integer name="qtdEtapasModulo4">0</integer>
+    <integer name="qtdEtapasModulo5">0</integer>
+
+</resources>

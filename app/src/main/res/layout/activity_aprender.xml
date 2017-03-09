@@ -44,7 +44,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:id="@+id/layoutModulos"
             android:baselineAligned="false">
 
@@ -54,7 +54,6 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="55dp"
-
                 android:layout_marginTop="25dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:orientation="vertical">
@@ -113,7 +112,7 @@
                     android:layout_height="8dp"
                     app:rcBackgroundColor="#ffffff"
                     app:rcBackgroundPadding="2dp"
-                    app:rcMax="9"
+                    app:rcMax="@integer/qtdEtapasModulo0"
                     app:rcProgressColor="@color/colorAccent"
                     app:rcRadius="0dp"
                     app:rcReverse="false"
@@ -166,7 +165,7 @@
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo2"
+                        android:text="@string/txtTituloModulo1"
                         android:id="@+id/txtTitulo1"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -196,7 +195,7 @@
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="6"
+                        app:rcMax="@integer/qtdEtapasModulo1"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
@@ -234,7 +233,7 @@
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo3"
+                        android:text="@string/txtTituloModulo2"
                         android:id="@+id/txtTitulo2"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -264,7 +263,7 @@
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="3"
+                        app:rcMax="@integer/qtdEtapasModulo2"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
@@ -276,22 +275,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/btnModulo3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical|center_horizontal"
                 android:layout_gravity="center_horizontal"
-                android:id="@+id/btnModulo3"
-                android:layout_marginBottom="55dp">
+                android:layout_marginBottom="55dp"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtNota3"
                     android:text="@string/notaDefault"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtNota3"
                     android:gravity="center_horizontal"
                     android:textColor="@color/corAmareloDourado"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"/>
 
                 <ImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -304,36 +304,37 @@
                     android:layout_marginTop="10dp" />
 
                 <TextView
-                    android:text="@string/txtTituloModulo4"
-                    android:id="@+id/txtTitulo3"
                     style="@style/customTextView"
+                    android:id="@+id/txtTitulo3"
+                    android:text="@string/txtTituloModulo3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:gravity="top|center_horizontal"
                     android:includeFontPadding="false"
                     android:textColor="?attr/colorPrimary"
-                    android:maxLines="1" />
+                    android:maxLines="1"/>
 
                 <TextView
-                    android:text="@string/txtProgressoModulo3"
                     android:id="@+id/txtProgresso3"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
                     android:fontFamily="sans-serif"
-                    android:typeface="normal"
-                    android:textSize="12sp"
                     android:gravity="top|center_horizontal"
                     android:includeFontPadding="false"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginStart="2dp"/>
+                    android:maxLines="1"
+                    android:text="@string/txtProgressoModulo3"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:typeface="normal"/>
 
                 <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                     android:id="@+id/barraModulo3"
                     android:layout_width="140dp"
                     android:layout_height="8dp"
-                    app:rcSecondaryProgress="0"
+                    app:rcSecondaryProgress="@integer/qtdEtapasModulo3"
                     app:rcMax="6"
                     app:rcRadius="0dp"
                     app:rcBackgroundPadding="2dp"
@@ -382,7 +383,7 @@
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo5"
+                        android:text="@string/txtTituloModulo4"
                         android:id="@+id/txtTitulo4"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -412,7 +413,7 @@
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="1"
+                        app:rcMax="@integer/qtdEtapasModulo4"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"
@@ -451,7 +452,7 @@
                         android:layout_marginTop="10dp" />
 
                     <TextView
-                        android:text="@string/txtTituloModulo6"
+                        android:text="@string/txtTituloModulo5"
                         android:id="@+id/txtTitulo5"
                         style="@style/customTextView"
                         android:layout_width="wrap_content"
@@ -481,7 +482,7 @@
                         android:layout_width="140dp"
                         android:layout_height="8dp"
                         app:rcSecondaryProgress="0"
-                        app:rcMax="10"
+                        app:rcMax="@integer/qtdEtapasModulo5"
                         app:rcRadius="0dp"
                         app:rcBackgroundPadding="2dp"
                         app:rcReverse="false"

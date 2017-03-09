@@ -12,15 +12,12 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
 import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_;
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
-import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 
@@ -35,7 +32,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
     protected List<TextView> listTxtTituloEtapas;
     protected List<TextView> listBarraInferiorEtapas;
 
-    private String[] stringQtdQuestoes;
+    private String[] questoesPorEtapa;
 
     private int moduloAtual;
     private int qtdEtapas;
@@ -60,11 +57,20 @@ public abstract class EtapasActivity extends AppCompatActivity {
     */
     protected abstract void findViews();
 
-    /* */
+    /* Na implementação da classe filha precisa especificar qual layout retornar */
     protected abstract int getLayout();
 
-    private void setLayout() {
-        this.setContentView(getLayout());
+    /* CICLO DE VIDA */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getIntents();
+        setLayout();
+        initActionBar();
+        preferenceManager = new GerenciadorSharedPreferences(this);
+        questoesPorEtapa = getStringArrayQuantidadeQuestoesPorEtapa();
+        inicializarListasEtapas();
+        loadClickListeners();
     }
 
     private void getIntents() {
@@ -73,47 +79,35 @@ public abstract class EtapasActivity extends AppCompatActivity {
         this.tituloModulo = getIntent().getStringExtra("tituloModulo");
     }
 
-    @UiThread
-    protected void mainUIThread() {
-        this.configurarUIEtapas();
+    private void setLayout() {
+        this.setContentView(getLayout());
     }
 
-    /* CICLO DE VIDA */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getIntents();
-        init();
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        this.finish();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    private void initActionBar() {
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(tituloModulo);
         }
     }
 
-    protected void init() {
-        setLayout();
-        initActionBar();
-
-        preferenceManager = new GerenciadorSharedPreferences(this);
-        stringQtdQuestoes = getStringQtdQuestoes();
-        this.progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
-
-        inicializarListasEtapas();
-
-        configurarUIEtapas();
+    private String[] getStringArrayQuantidadeQuestoesPorEtapa() {
+        switch(moduloAtual) {
+            case ModuloCurso.MODULO0:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo0);
+            case ModuloCurso.MODULO1:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo1);
+            case ModuloCurso.MODULO2:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo2);
+            case ModuloCurso.MODULO3:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo3);
+            case ModuloCurso.MODULO4:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo4);
+            case ModuloCurso.MODULO5:
+                return getResources().getStringArray(R.array.qtdQuestoesModulo5);
+            default:
+                return null;
+        }
     }
 
     private void inicializarListasEtapas() {
@@ -135,54 +129,139 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     }
 
-    private void initActionBar() {
-        if(getSupportActionBar() != null) {
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(tituloModulo);
+    private void loadClickListeners() {
+
+        for(int i = 0; i < listEtapas.size(); i++) {
+
+            final LinearLayout btnEtapa = listBtnEtapas.get(i);
+            final Etapa etapa = listEtapas.get(i);
+            final int numEtapa = i;
+
+            btnEtapa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    initAnimation(btnEtapa);
+                    int estadoEtapa = etapa.getEstadoAtual();
+
+                    if(estadoEtapa == Etapa.BLOQUEADA) {
+                        alertaEtapaBloqueada();
+                    } else if(estadoEtapa == Etapa.CURSANDO || estadoEtapa == Etapa.COMPLETA) {
+                        clickLiberado(numEtapa);
+                    }
+
+                    if(isEtapaProva(numEtapa) && (estadoEtapa == Etapa.COMPLETA || estadoEtapa == Etapa.CURSANDO) ) {
+                        finish();
+                    }
+                }
+            });
         }
 
+    }
+
+    private void clickLiberado(int numEtapa) {
+        Intent i = new Intent(context, ContainerLicoes_.class);
+        i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
+        i.putExtra("moduloAtual", moduloAtual);
+        i.putExtra("etapaAtual", numEtapa);
+        Log.d("NUM ETAPA: ", String.valueOf(numEtapa));
+        startActivity(i);
+    }
+
+    private boolean isEtapaProva(int numEtapa) {
+        return numEtapa == (listEtapas.size() - 1);
+    }
+
+    @UiThread
+    public void carregarUIConformeProgressoAtual() {
+
+        atualizarProgressoAtual();
+
+        for(Etapa etapa : listEtapas) {
+            etapa.atualizarEstadoConformeProgressoAtual(progressoAtual);
+            int estadoAtual = etapa.getEstadoAtual();
+            int numEtapa = etapa.getNumEtapa();
+
+            switch (estadoAtual) {
+                case Etapa.BLOQUEADA:
+                    carregarUIBloqueada(numEtapa);
+                    break;
+                case Etapa.CURSANDO:
+                    carregarUICursando(numEtapa);
+                    break;
+                case Etapa.COMPLETA:
+                    carregarUICompleta(numEtapa);
+                    break;
+            }
+        }
+    }
+
+    private void carregarUIBloqueada(int numEtapa) {
+
+    }
+
+    private void carregarUICursando(int numEtapa) {
+
+        final LinearLayout botao = listBtnEtapas.get(numEtapa);
+        final TextView barraInferior = listBarraInferiorEtapas.get(numEtapa);
+        final TextView tituloEtapa = listTxtTituloEtapas.get(numEtapa);
+
+        botao.setBackgroundColor(Color.WHITE);
+        botao.setBackground(ContextCompat.getDrawable(context, R.drawable.borda_etapa_desbloqueada));
+
+        barraInferior.setCompoundDrawables(null, null, null, null);
+        barraInferior.setTextColor(Color.WHITE);
+        barraInferior.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
+        barraInferior.setText(questoesPorEtapa[numEtapa]);
+
+        tituloEtapa.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+    }
+
+    private void carregarUICompleta(int numEtapa) {
+
+        final LinearLayout botao = listBtnEtapas.get(numEtapa);
+        final TextView barraInferior = listBarraInferiorEtapas.get(numEtapa);
+        final TextView tituloEtapa = listTxtTituloEtapas.get(numEtapa);
+
+        botao.setBackground(ContextCompat.getDrawable(context, R.drawable.borda_etapa_desbloqueada));
+
+        barraInferior.setCompoundDrawables(null, null, null, null);
+        barraInferior.setTextColor(Color.WHITE);
+        barraInferior.setBackgroundColor(ContextCompat.getColor(context, R.color.corDicaAzul));
+        barraInferior.setText(getResources().getString(R.string.etapaCompleta));
+
+        tituloEtapa.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+    }
+
+    private void atualizarProgressoAtual() {
+        this.progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        carregarUIConformeProgressoAtual();
 
     }
 
     @Override
-    protected void onRestart() {
-        mainUIThread();
-        super.onRestart();
+    public void onBackPressed() {
+        this.finish();
     }
 
-    private String[] getStringQtdQuestoes() {
-        switch(moduloAtual) {
-            case ModuloCurso.MODULO0:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo0);
-            case ModuloCurso.MODULO1:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo1);
-            case ModuloCurso.MODULO2:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo2);
-            case ModuloCurso.MODULO3:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo3);
-            case ModuloCurso.MODULO4:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo4);
-            case ModuloCurso.MODULO5:
-                return getResources().getStringArray(R.array.qtdQuestoesModulo5);
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
             default:
-                return null;
+                return super.onOptionsItemSelected(item);
         }
     }
 
-    protected void configurarUIEtapas() {
-
-        progressoAtual = preferenceManager.getProgressoEtapa(moduloAtual);
-
-        for(Etapa etapa : listEtapas) {
-            etapa.atualizarUI();
-        }
-
+    protected void initAnimation(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
     }
 
     private void alertaEtapaBloqueada() {
@@ -192,124 +271,5 @@ public abstract class EtapasActivity extends AppCompatActivity {
         alerta.alertDialogBloqueado("Etapa bloqueada", "Complete as etapas anteriores para desbloquear esta");
     }
 
-    class EtapaImp implements Etapa {
 
-        private final int numEtapa;
-        private int estadoEtapa;
-
-        EtapaImp(int numEtapa) {
-            this.numEtapa = numEtapa;
-            this.estadoEtapa = getEstadoEtapa();
-            this.setClickListener();
-        }
-
-        private int getEstadoEtapa() {
-            if(progressoAtual == numEtapa) {
-                return CURSANDO;
-            } else if(progressoAtual < numEtapa) {
-                return BLOQUEADA;
-            } else if(progressoAtual > numEtapa) {
-                return COMPLETA;
-            }
-
-            return 0;
-        }
-
-        private void setClickListener() {
-            listBtnEtapas.get(numEtapa).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    initAnimation(listBtnEtapas.get(numEtapa));
-
-                    estadoEtapa = getEstadoEtapa();
-
-                    if(estadoEtapa == BLOQUEADA) {
-                        clickBloqueado();
-                    } else if(estadoEtapa == CURSANDO || estadoEtapa == COMPLETA) {
-                        clickLiberado();
-                    }
-
-                    if(isEtapaProva()) {
-                        finish();
-                    }
-                }
-            });
-        }
-
-        private void clickBloqueado() {
-            alertaEtapaBloqueada();
-        }
-
-        private void clickLiberado() {
-            Intent i = new Intent(context, ContainerLicoes_.class);
-            i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
-            i.putExtra("moduloAtual", moduloAtual);
-            i.putExtra("etapaAtual", numEtapa);
-            Log.d("NUM ETAPA: ", String.valueOf(numEtapa));
-            startActivity(i);
-        }
-
-        private boolean isEtapaProva() {
-            return numEtapa == (listEtapas.size() - 1);
-        }
-
-        @Override
-        public void atualizarUI() {
-
-            this.estadoEtapa = getEstadoEtapa();
-
-            switch(estadoEtapa) {
-                case BLOQUEADA:
-                    carregarUIBloqueada();
-                    break;
-                case CURSANDO:
-                    carregarUICursando();
-                    break;
-                case COMPLETA:
-                    carregarUICompleta();
-                    break;
-            }
-        }
-
-        private void carregarUIBloqueada() {
-
-        }
-
-        private void carregarUICursando() {
-            LinearLayout botao = listBtnEtapas.get(numEtapa);
-            TextView barraInferior = listBarraInferiorEtapas.get(numEtapa);
-            TextView tituloEtapa = listTxtTituloEtapas.get(numEtapa);
-
-            botao.setBackgroundColor(Color.WHITE);
-            botao.setBackground(ContextCompat.getDrawable(context, R.drawable.borda_etapa_desbloqueada));
-
-            barraInferior.setCompoundDrawables(null, null, null, null);
-            barraInferior.setTextColor(Color.WHITE);
-            barraInferior.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
-            barraInferior.setText(stringQtdQuestoes[numEtapa]);
-
-            tituloEtapa.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
-        }
-
-        private void carregarUICompleta() {
-
-            LinearLayout botao = listBtnEtapas.get(numEtapa);
-            TextView barraInferior = listBarraInferiorEtapas.get(numEtapa);
-            TextView tituloEtapa = listTxtTituloEtapas.get(numEtapa);
-
-            botao.setBackground(ContextCompat.getDrawable(context, R.drawable.borda_etapa_desbloqueada));
-
-            barraInferior.setCompoundDrawables(null, null, null, null);
-            barraInferior.setTextColor(Color.WHITE);
-            barraInferior.setBackgroundColor(ContextCompat.getColor(context, R.color.corDicaAzul));
-            barraInferior.setText(getResources().getString(R.string.etapaCompleta));
-
-            tituloEtapa.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
-        }
-
-        protected void initAnimation(View view) {
-            view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-        }
-    }
 }

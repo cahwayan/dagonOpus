@@ -10,5 +10,7 @@ interface Etapa {
     int CURSANDO = 1;
     int COMPLETA = 2;
 
-    void atualizarUI();
+    int getEstadoAtual();
+    int getNumEtapa();
+    void atualizarEstadoConformeProgressoAtual(int progressoAtual);
 }

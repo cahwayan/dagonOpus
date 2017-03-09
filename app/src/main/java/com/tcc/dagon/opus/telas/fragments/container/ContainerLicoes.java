@@ -186,6 +186,7 @@ public class ContainerLicoes extends AppCompatActivity implements CExercicio.Ref
 
     public void setProgressoEtapa(int aumento) {
         gerenciadorProgresso.setProgressoEtapa(getProgressoEtapa() + aumento);
+        Log.d("AUMENTO REALIZADO: ", String.valueOf(getProgressoEtapa() + aumento) );
     }
 
     public int getProgressoEtapa() {

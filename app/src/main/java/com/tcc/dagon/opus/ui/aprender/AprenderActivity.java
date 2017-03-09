@@ -33,7 +33,6 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
@@ -115,12 +114,8 @@ public class AprenderActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // DON'T DO THIS !! It will throw a NullPointerException, myTextView is not set yet.
         // myTextView.setText("Date: " + new Date());
-
-        preferenceManager = new GerenciadorSharedPreferences(this);
-        carregarModulos();
     }
 
     @Override
@@ -136,22 +131,7 @@ public class AprenderActivity
     @Override
     protected  void onStart() {
         super.onStart();
-        atualizaProgressoUI();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
+        atualizarUIGeralConformeProgressoAtual();
     }
 
     @Override
@@ -164,41 +144,6 @@ public class AprenderActivity
       * Fim ciclo de vida do app
     */
 
-    /*
-      * Ciclo de vida do menu lateral
-    */
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        mAlterna.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mAlterna.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    /*
-      * Fim ciclo de vida do menu lateral
-    */
-
-    /*
-      * Métodos inicializadores
-    */
-
     @AfterViews
     protected void init() {
 
@@ -206,51 +151,21 @@ public class AprenderActivity
         adicionarItensMenuLateral();
         configurarMenuLateral();
 
-        progressoAtual = preferenceManager.getProgressoModulo();
+        preferenceManager = new GerenciadorSharedPreferences(this);
+        carregarListasModulos();
 
-        setClickListeners();
-        carregarFontes();
+        loadClickListeners();
 
         // Feito no background
+        carregarFontes();
         autenticarUsuario();
         criarBancoCasoNaoExista();
     }
 
-    protected void initSupportActionBar() {
-
-        // Botão superior do menu lateral
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            this.appBar.setElevation(0);
-            this.toolbar.setElevation(0);
-        }
-
-        this.setSupportActionBar(toolbar);
-
-        if(getSupportActionBar() != null) {
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            mTitulo = getTitle().toString();
-        }
-    }
-
-    @Background
-    protected void autenticarUsuario() {
-        if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
-            preferenceManager.modFlag(Preferencias.isLogin, true);
-        }
-    }
-
     /*
-      * Fim métodos inicializadores
+    * Inicializa as listas que controlam os objetos módulos
     */
-
-    /*
-    * Esse método é responsável por carregar o progresso e ajustar a UI de acordo com ele.
-    * Os módulos são guardados em uma lista, e eles carregam o seu número de identificação.
-    * Então, esse método guarda os módulos, que sabem seu número, e respondem de acordo
-    * com o progresso atual, alterando a interface e o clique.
-    */
-    protected void carregarModulos() {
+    protected void carregarListasModulos() {
 
         if(listClassesEtapas == null) {
             listClassesEtapas = new ArrayList<>();
@@ -365,17 +280,34 @@ public class AprenderActivity
         if(listModuloCurso == null) {
             listModuloCurso = new ArrayList<>();
 
-            /*
-              * Cria uma instância de um módulo, o configura de acordo com o seu número de identificação,
-              * e o coloca na lista
-            */
-
             for(int i = 0; i < listBtnModulos.size(); i++) {
                 String nota = preferenceManager.getNota(i);
-                ModuloCurso modulo = new ModuloCursoImp(i, progressoAtual, nota);
-                modulo.atualizarEstado();
-                listModuloCurso.add(modulo);
+                listModuloCurso.add(new ModuloCursoImp(i, nota));
             }
+        }
+    }
+
+    protected void initSupportActionBar() {
+
+        // Botão superior do menu lateral
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.appBar.setElevation(0);
+            this.toolbar.setElevation(0);
+        }
+
+        this.setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            mTitulo = getTitle().toString();
+        }
+    }
+
+    @Background
+    protected void autenticarUsuario() {
+        if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
+            preferenceManager.modFlag(Preferencias.isLogin, true);
         }
     }
 
@@ -399,6 +331,230 @@ public class AprenderActivity
         }
     }
 
+    @UiThread
+    protected void atualizarUIGeralConformeProgressoAtual() {
+
+        progressoAtual = preferenceManager.getProgressoModulo();
+
+        for(ModuloCurso modulo : listModuloCurso) {
+            modulo.atualizarEstadoConformeProgressoAtual(progressoAtual);
+            this.configurarUIModuloConformeProgressoAtual(modulo);
+        }
+
+    }
+
+    /* Invoca a janela de alerta */
+    private  void alertaModuloBloqueado() {
+        NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
+        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
+    }
+
+    /* Carrega fontes customizadas */
+    @UiThread
+    protected void carregarFontes() {
+
+        Typeface notosans = Typeface.createFromAsset(getAssets(), "fonts/notosans/regular.ttf");
+
+        for(TextView titulo : listTitulosModulos) {
+            titulo.setTypeface(notosans);
+        }
+
+        for(TextView txtProgresso : listTxtProgressoModulos) {
+            txtProgresso.setTypeface(notosans);
+        }
+    }
+
+    /*
+      * Aqui começa as configurações referentes a UI dos módulos e Click Listeners
+    */
+
+    private void configurarUIModuloConformeProgressoAtual(ModuloCurso modulo) {
+
+        int estadoAtual = modulo.getEstadoAtual();
+        int numModulo = modulo.getNumModulo();
+
+        if(estadoAtual == ModuloCurso.IS_CERTIFICADO) {
+            configurarModuloCertificado(modulo);
+            return;
+        }
+
+        switch(estadoAtual) {
+            case ModuloCurso.IS_BLOQUEADO:
+                configurarModuloBloqueado(numModulo);
+                break;
+            case ModuloCurso.IS_CURSANDO:
+                configurarModuloCursando(numModulo);
+                break;
+            case ModuloCurso.IS_COMPLETO:
+                String nota = modulo.getNota();
+                configurarModuloCompleto(numModulo, nota);
+                break;
+        }
+
+    }
+
+    /*
+     * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
+     * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
+    */
+    protected void configurarModuloCompleto(int numModulo, String nota) {
+        listTxtNotas.get(numModulo).setText(nota);
+        listTxtNotas.get(numModulo).setVisibility(View.VISIBLE);
+        listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
+        listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
+        listTxtProgressoModulos.get(numModulo).setText(R.string.moduloCompleto);
+    }
+
+    /*
+     * Um módulo que está na situação cursando deve mostrar o ícone do módulo em um azul mais claro,
+     *  o título do módulo, a textView de progresso, e a barra de progresso. A nota deve ser escondida
+    */
+    protected void configurarModuloCursando(int numModulo) {
+        int progressoEtapasModulo = preferenceManager.getProgressoEtapa(numModulo);
+
+        String stringProgressoModulo = String.valueOf(progressoEtapasModulo) + stringsTxtProgresso[numModulo];
+
+        listTxtNotas.get(numModulo).setText("");
+        listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
+        listTxtProgressoModulos.get(numModulo).setText(stringProgressoModulo);
+        listTxtProgressoModulos.get(numModulo).setVisibility(View.VISIBLE);
+        listBarrasProgresso.get(numModulo).setProgress((float)progressoEtapasModulo);
+        listBarrasProgresso.get(numModulo).setVisibility(View.VISIBLE);
+    }
+
+    /*
+      * Um módulo bloqueado deve mostrar somente o ícone cinza, e o título do módulo
+    */
+    protected void configurarModuloBloqueado(int numModulo) {
+        listTxtNotas.get(numModulo).setText("");
+        listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
+        listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
+        listTxtProgressoModulos.get(numModulo).setVisibility(View.GONE);
+    }
+
+    /*
+      * O módulo certificado deve mostrar sempre somente o ícone e o título. Ele não possui
+      * barras nem TextView de progresso, nem nota. Basicamente, deve-se alterar somente o ícone.
+    */
+    protected void configurarModuloCertificado(ModuloCurso modulo) {
+
+        int numModulo = modulo.getNumModulo();
+
+        if(modulo.isCertificadoBloqueado(progressoAtual)) {
+            listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
+        } else if(modulo.isCertificadoLiberado(progressoAtual)) {
+            listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
+        } else if(modulo.isCertificadoGerado(progressoAtual)) {
+            listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
+        }
+
+    }
+
+    /* CLICK LISTENER */
+    protected void loadClickListeners() {
+
+        for(int i = 0; i < listBtnModulos.size(); i++) {
+
+            final ModuloCurso modulo = listModuloCurso.get(i);
+            final LinearLayout botaoModulo = listBtnModulos.get(i);
+
+            botaoModulo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    botaoModulo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+
+                    switch(modulo.getEstadoAtual()) {
+                        case ModuloCurso.IS_BLOQUEADO:
+                            clickBloqueado();
+                            break;
+                        case ModuloCurso.IS_CURSANDO:
+                            clickLiberado(modulo);
+                            break;
+                        case ModuloCurso.IS_COMPLETO:
+                            clickLiberado(modulo);
+                            break;
+                        case ModuloCurso.IS_CERTIFICADO:
+                            clickCertificado(modulo);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            });
+        }
+    }
+
+
+    private void clickBloqueado() {
+        alertaModuloBloqueado();
+    }
+
+    private void clickLiberado(ModuloCurso modulo) {
+        int numModulo = modulo.getNumModulo();
+        int qtdEtapas = modulo.getQtdEtapasModulo();
+        String tituloModulo = listTitulosModulos.get(numModulo).getText().toString();
+        Intent i = new Intent(context, listClassesEtapas.get(numModulo));
+        i.putExtra("numModulo", numModulo);
+        i.putExtra("qtdEtapas", qtdEtapas);
+        i.putExtra("tituloModulo", tituloModulo);
+        startActivity(i);
+    }
+
+    private void clickCertificado(ModuloCurso modulo) {
+        if(modulo.isCertificadoBloqueado(progressoAtual)) {
+            clickCertificadoBloqueado();
+        } else if (modulo.isCertificadoLiberado(progressoAtual)) {
+            clickCertificadoLiberado();
+        } else if(modulo.isCertificadoGerado(progressoAtual)) {
+            clickCertificadoGerado();
+        }
+    }
+
+    private void clickCertificadoBloqueado() {
+        // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+        startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
+    }
+
+    private void clickCertificadoLiberado() {
+        // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
+        startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
+    }
+
+    private void clickCertificadoGerado() {
+        // comportamento de tela que nao permite mais gerar novos certificados
+    }
+
+    /*
+      * Ciclo de vida do menu lateral
+    */
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mAlterna.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mAlterna.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        // Activate the navigation drawer toggle
+        return mAlterna.onOptionsItemSelected(item);
+
+
+    }
+
     @ItemClick
     protected void mListView(int position) {
         switch(position) {
@@ -419,19 +575,6 @@ public class AprenderActivity
             case 4:
                 break;
         }
-    }
-
-    @UiThread
-    protected void atualizaProgressoUI() {
-
-        progressoAtual = preferenceManager.getProgressoModulo();
-        ModuloCursoImp.setProgressoAtual(progressoAtual);
-
-        for(ModuloCurso moduloCurso : listModuloCurso) {
-            moduloCurso.atualizarEstado();
-            this.configurarModulo(moduloCurso);
-        }
-
     }
 
     /* Configuração do menu lateral */
@@ -470,188 +613,9 @@ public class AprenderActivity
 
     /* Fim configuração do menu lateral */
 
-    /* Invoca a janela de alerta */
-    private  void alertaModuloBloqueado() {
-        NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
-        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
-    }
-
-    /* Carrega fontes customizadas */
-    protected void carregarFontes() {
-
-        Typeface notosans = Typeface.createFromAsset(getAssets(), "fonts/notosans/regular.ttf");
-
-        for(TextView titulo : listTitulosModulos) {
-            titulo.setTypeface(notosans);
-        }
-
-        for(TextView txtProgresso : listTxtProgressoModulos) {
-            txtProgresso.setTypeface(notosans);
-        }
-    }
-
     /*
-      * Aqui começa as configurações referentes a UI dos módulos e Click Listeners
+      * Fim ciclo de vida do menu lateral
     */
-
-    private void configurarModulo(ModuloCurso modulo) {
-
-        if(modulo.getEstado() == ModuloCurso.IS_CERTIFICADO) {
-            configurarModuloCertificado(modulo);
-            return;
-        }
-
-        switch(modulo.getEstado()) {
-            case ModuloCurso.IS_BLOQUEADO:
-                configurarModuloBloqueado(modulo);
-                break;
-            case ModuloCurso.IS_CURSANDO:
-                configurarModuloCursando(modulo);
-                break;
-            case ModuloCurso.IS_COMPLETO:
-                configurarModuloCompleto(modulo);
-                break;
-        }
-
-    }
-
-    /*
-     * Um módulo completo deve mostrar somente o ícone do módulo, em azul normal,
-     * a nota, o título do módulo, e a textView de progresso, com um texto "completo"
-    */
-    protected void configurarModuloCompleto(ModuloCurso modulo) {
-        int numModulo = modulo.getNumModulo();
-        listTxtNotas.get(numModulo).setText(modulo.getNota());
-        listTxtNotas.get(numModulo).setVisibility(View.VISIBLE);
-        listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
-        listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
-        listTxtProgressoModulos.get(numModulo).setText(R.string.moduloCompleto);
-    }
-
-    /*
-     * Um módulo que está na situação cursando deve mostrar o ícone do módulo em um azul mais claro,
-     *  o título do módulo, a textView de progresso, e a barra de progresso. A nota deve ser escondida
-    */
-    protected void configurarModuloCursando(ModuloCurso modulo) {
-        int numModulo = modulo.getNumModulo();
-        int progressoEtapasModulo = preferenceManager.getProgressoEtapa(numModulo);
-
-        String stringProgressoModulo = String.valueOf(progressoEtapasModulo) + stringsTxtProgresso[numModulo];
-
-        listTxtNotas.get(numModulo).setText("");
-        listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
-        listTxtProgressoModulos.get(numModulo).setText(stringProgressoModulo);
-        listTxtProgressoModulos.get(numModulo).setVisibility(View.VISIBLE);
-        listBarrasProgresso.get(numModulo).setProgress((float)progressoEtapasModulo);
-        listBarrasProgresso.get(numModulo).setVisibility(View.VISIBLE);
-    }
-
-    /*
-      * Um módulo bloqueado deve mostrar somente o ícone cinza, e o título do módulo
-    */
-    protected void configurarModuloBloqueado(ModuloCurso modulo) {
-        int numModulo = modulo.getNumModulo();
-        listTxtNotas.get(numModulo).setText("");
-        listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
-        listBarrasProgresso.get(numModulo).setVisibility(View.GONE);
-        listTxtProgressoModulos.get(numModulo).setVisibility(View.GONE);
-    }
-
-    /*
-      * O módulo certificado deve mostrar sempre somente o ícone e o título. Ele não possui
-      * barras nem TextView de progresso, nem nota. Basicamente, deve-se alterar somente o ícone.
-    */
-    protected void configurarModuloCertificado(ModuloCurso modulo) {
-
-        int numModulo = modulo.getNumModulo();
-
-        if(modulo.isCertificadoBloqueado()) {
-            listImgModulos.get(numModulo).setImageResource(idImagensBloqueado[numModulo]);
-        } else if(modulo.isCertificadoLiberado()) {
-            listImgModulos.get(numModulo).setImageResource(idImagensCursando[numModulo]);
-        } else if(modulo.isCertificadoGerado()) {
-            listImgModulos.get(numModulo).setImageResource(idImagensCompleto[numModulo]);
-        }
-    }
-
-    /* CLICK LISTENER */
-    @Background
-    protected void setClickListeners() {
-
-        for(int i = 0; i < listBtnModulos.size(); i++) {
-
-            final int indexModulo = i;
-            final ModuloCurso modulo = listModuloCurso.get(i);
-            final LinearLayout botaoModulo = listBtnModulos.get(i);
-
-            botaoModulo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    int estado = listModuloCurso.get(indexModulo).getEstado();
-
-                    botaoModulo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-
-                    switch(estado) {
-                        case ModuloCurso.IS_BLOQUEADO:
-                            clickBloqueado();
-                            break;
-                        case ModuloCurso.IS_CURSANDO:
-                            clickLiberado(modulo);
-                            break;
-                        case ModuloCurso.IS_COMPLETO:
-                            clickLiberado(modulo);
-                            break;
-                        case ModuloCurso.IS_CERTIFICADO:
-                            clickCertificado(modulo);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            });
-        }
-    }
-
-
-    private void clickBloqueado() {
-        alertaModuloBloqueado();
-    }
-
-    private void clickLiberado(ModuloCurso modulo) {
-        int numModulo = modulo.getNumModulo();
-        int qtdEtapas = modulo.getQtdEtapas();
-        String tituloModulo = listTitulosModulos.get(numModulo).getText().toString();
-        Intent i = new Intent(context, listClassesEtapas.get(numModulo));
-        i.putExtra("numModulo", numModulo);
-        i.putExtra("qtdEtapas", qtdEtapas);
-        i.putExtra("tituloModulo", tituloModulo);
-        startActivity(i);
-    }
-
-    private void clickCertificado(ModuloCurso modulo) {
-        if(modulo.isCertificadoBloqueado()) {
-            clickCertificadoBloqueado();
-        } else if (modulo.isCertificadoLiberado()) {
-            clickCertificadoLiberado();
-        } else if(modulo.isCertificadoGerado()) {
-            clickCertificadoGerado();
-        }
-    }
-
-    private void clickCertificadoBloqueado() {
-        // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-        startActivity(new Intent(getApplicationContext(), CertificadoIncompleto.class));
-    }
-
-    private void clickCertificadoLiberado() {
-        // CARREGANDO A ANIMAÇÃO DO BOTÃO AO CLICAR
-        startActivity(new Intent(getApplicationContext(), CertificadoActivity.class));
-    }
-
-    private void clickCertificadoGerado() {
-        // comportamento de tela que nao permite mais gerar novos certificados
-    }
 
 
 }

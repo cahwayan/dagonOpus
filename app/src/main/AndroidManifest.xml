@@ -40,7 +40,6 @@
 
         <activity
             android:name="com.tcc.dagon.opus.ui.aprender.AprenderActivity_"
-            android:screenOrientation="portrait"
             android:label="Aprender"
             android:theme="@style/TemaSemActionBar"
             />
