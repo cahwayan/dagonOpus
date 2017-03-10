@@ -20,7 +20,7 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
  */
 /**/
 
-public class ContainerProva extends ContainerLicoes
+public class ContainerProvaActivity extends ContainerLicoesActivity
         implements QuestaoProva.OnHeadlineSelectedListener,
             CompletarProva.OnHeadlineSelectedListener,
                 QuestaoMultiplaProva.OnHeadlineSelectedListener {
@@ -33,7 +33,7 @@ public class ContainerProva extends ContainerLicoes
 
     GerenciadorSharedPreferences preferenceManager;
 
-    public ContainerProva() {
+    public ContainerProvaActivity() {
         context = this;
     }
     @Override

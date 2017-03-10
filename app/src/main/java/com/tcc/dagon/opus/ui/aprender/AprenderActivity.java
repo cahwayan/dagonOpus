@@ -22,9 +22,9 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
 import com.tcc.dagon.opus.telas.aprender.menulateral.GerenciarPerfilActivity;
+import com.tcc.dagon.opus.telas.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
 import com.tcc.dagon.opus.telas.certificado.CertificadoActivity;
 import com.tcc.dagon.opus.telas.certificado.CertificadoIncompleto;
-import com.tcc.dagon.opus.telas.aprender.menulateral.glossario.ContainerComandosGlossario;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
@@ -567,7 +567,7 @@ public class AprenderActivity
                 finish();
                 break;
             case 2: // GLOSSARIO
-                startActivity(new Intent(getApplicationContext(), ContainerComandosGlossario.class));
+                startActivity(new Intent(getApplicationContext(), ContainerComandosGlossarioActivity.class));
                 break;
             case 3: // CONFIGURAÇÕES
                 //startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));

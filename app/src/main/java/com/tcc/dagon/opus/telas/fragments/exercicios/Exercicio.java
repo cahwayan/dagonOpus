@@ -8,45 +8,33 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_Activity_;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
 /**
- * Created by Felipe on 07/01/2017.
+ * Created by Caíque on 07/01/2017.
  * ESTA CLASSE É A RAÍZ DE TODOS AS CLASSES DE EXERCÍCIO DO APLICATIVO
- */ /**/
+ */
 
 
-public abstract class CExercicio extends FragmentosConteudo {
+public abstract class Exercicio extends ConteudoWrapper {
 
-    public interface RefreshListener {
-
-        void refreshUI();
-        boolean isLastExercise();
-
-        void setProgressoLicao(int aumento);
-        int getProgressoLicao();
-
-        void setProgressoEtapa(int aumento);
-        int getProgressoEtapa();
-
-        int getEtapaAtual();
-    }
-
+    /*
+     * Através dessa interface, o fragmento pode se comunicar com o container para ler informações
+     * a respeito do progresso atual, mandar mensagens para o container atualizar a interface dele,
+     * também pode mandar mensagens para que o container altere o progresso atual de acordo com o desempenho
+     * do usuário através do aplicativo.
+    */
     private RefreshListener refreshListener;
 
     /* OBJETOS */
-    private GerenciadorBanco             DB_PROGRESSO = null;
-    private GerenciadorSharedPreferences preferencias = null;
-    private MediaPlayer                  somRespostaCerta = null;
-    private MediaPlayer                  somRespostaErrada = null;
+    private GerenciadorBanco DB_PROGRESSO;
+    private MediaPlayer somRespostaCerta;
+    private MediaPlayer somRespostaErrada;
 
     /* VIEWS */
     private ImageView imgRespostaCerta;
@@ -54,10 +42,9 @@ public abstract class CExercicio extends FragmentosConteudo {
     private Button btnChecarResposta;
     private Button btnAvancarQuestao;
     private Button btnTentarNovamente;
+    private TextView txtPontos;
     private ViewPager view_pager;
     private TabLayout tab_layout;
-    private LinearLayout tabStrip;
-    private TextView txtPontos;
 
     /* VARIÁVEIS */
     private int qtdErros;
@@ -66,13 +53,15 @@ public abstract class CExercicio extends FragmentosConteudo {
 
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
 
         try {
             refreshListener = (RefreshListener) context;
         } catch(ClassCastException e) {
-            throw new ClassCastException(context.toString() + "precisa implementar onRefreshListener");
+            throw new ClassCastException(context.toString() + " precisa implementar onRefreshListener");
         }
+
     }
 
     public Button getBtnAvancarQuestao() {
@@ -90,10 +79,6 @@ public abstract class CExercicio extends FragmentosConteudo {
 
     public GerenciadorBanco getDB_PROGRESSO() {
         return DB_PROGRESSO;
-    }
-
-    public void setDB_PROGRESSO(GerenciadorBanco DB_PROGRESSO) {
-        this.DB_PROGRESSO = DB_PROGRESSO;
     }
 
     public int getEtapaAtual() {
@@ -128,10 +113,6 @@ public abstract class CExercicio extends FragmentosConteudo {
         this.pontuacao = pontuacao;
     }
 
-    public GerenciadorSharedPreferences getPreferencias() {
-        return preferencias;
-    }
-
     public int getQtdErros() {
         return qtdErros;
     }
@@ -142,10 +123,6 @@ public abstract class CExercicio extends FragmentosConteudo {
 
     public void setTab_layout(TabLayout tab_layout) {
         this.tab_layout = tab_layout;
-    }
-
-    public void setTabStrip(LinearLayout tabStrip) {
-        this.tabStrip = tabStrip;
     }
 
     public TextView getTxtPontos() {
@@ -189,10 +166,6 @@ public abstract class CExercicio extends FragmentosConteudo {
             this.DB_PROGRESSO = new GerenciadorBanco(getActivity());
         }
 
-        if(this.preferencias == null) {
-            this.preferencias = new GerenciadorSharedPreferences(getActivity());
-        }
-
         instanciaSons();
     }
 
@@ -217,9 +190,8 @@ public abstract class CExercicio extends FragmentosConteudo {
     }
 
     protected void accessViews(View rootView) {
-        view_pager = ((ContainerLicoes_)this.getActivity()).getPager();
-        tabStrip   = ((ContainerLicoes_)this.getActivity()).getTabStrip();
-        tab_layout = ((ContainerLicoes_)this.getActivity()).getTab_layout();
+        view_pager = ((ContainerLicoes_Activity_)this.getActivity()).getPager();
+        tab_layout = ((ContainerLicoes_Activity_)this.getActivity()).getTab_layout();
         txtPontos =          (TextView) rootView.findViewById(R.id.txtPontos);
         imgRespostaCerta  =  (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
         imgRespostaErrada =  (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
@@ -375,8 +347,11 @@ public abstract class CExercicio extends FragmentosConteudo {
                 .start();
     }
 
+    // Método genérico que controla a função de tocar som
     protected void playSound(MediaPlayer sound) {
-        if(!preferencias.getDesativarSons()) {
+        // Se o som não estiver desativado
+        if(!refreshListener.isSomDesativado()) {
+            // Tocar som
             sound.start();
         }
     }
@@ -404,7 +379,7 @@ public abstract class CExercicio extends FragmentosConteudo {
 
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
-            refreshListener.setProgressoLicao(/* aumento em */2);
+            refreshListener.avancarProgressoLicao(/* aumento em */2);
             //atualizarPontuacao();
         }
 
@@ -464,17 +439,17 @@ public abstract class CExercicio extends FragmentosConteudo {
     }
 
     protected void atualizarProgressoEtapa() {
-        refreshListener.setProgressoEtapa(/*AUMENTO EM */ 1);
+        refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 1);
     }
 
     protected void liberarPrimeiraEtapaDoProximoModulo() {
-       // refreshListener.setProgressoEtapa(/*AUMENTO EM */ 2);
+       // refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 2);
     }
 
 
 
     protected void atualizarProgressoLicao(int aumento) {
-        refreshListener.setProgressoLicao(aumento);
+        refreshListener.avancarProgressoLicao(aumento);
     }
 
     protected void atualizarPontuacao() {

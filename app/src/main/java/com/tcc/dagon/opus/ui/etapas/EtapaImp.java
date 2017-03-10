@@ -1,17 +1,5 @@
 package com.tcc.dagon.opus.ui.etapas;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_;
-
 /**
  * Created by cahwayan on 09/03/2017.
  */

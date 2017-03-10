@@ -4,18 +4,18 @@ package com.tcc.dagon.opus.telas.fragments.container;
  * Created by Felipe on 04/03/2017.
  */
 
-public class FragmentoConteudo {
+class FragmentoLicao {
 
-    public static int BLOQUEADO = 0;
-    public static int LIBERADO = 1;
+    static int BLOQUEADO = 0;
+    static int LIBERADO = 1;
 
     private int indexFragmento;
 
-    FragmentoConteudo(int indexFragmento) {
+    FragmentoLicao(int indexFragmento) {
         this.indexFragmento = indexFragmento;
     }
 
-    public int getEstadoLicaoEmRelacaoAoProgresso(int progresso) {
+    int getEstadoLicaoEmRelacaoAoProgresso(int progresso) {
         return progresso >= indexFragmento ? LIBERADO : BLOQUEADO;
     }
 

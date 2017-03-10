@@ -2,6 +2,7 @@ package com.tcc.dagon.opus.telas.fragments.adapter;
 
 /**
  * Created by cahwayan on 03/03/2017.
+ * Essa classe guarda valores a respeito da identificação das áreas do aplicativo
  */
 
 abstract class ValoresExercicios {

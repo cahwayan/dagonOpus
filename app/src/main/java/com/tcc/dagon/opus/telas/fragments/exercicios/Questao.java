@@ -16,7 +16,7 @@ import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class Questao extends CExercicio {
+public class Questao extends Exercicio {
 
     private int questaoAtual;
 

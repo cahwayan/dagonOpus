@@ -72,12 +72,12 @@
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
         <activity
-            android:name=".telas.fragments.container.ContainerLicoes_"
+            android:name=".telas.fragments.container.ContainerLicoes_Activity_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".telas.fragments.container.ContainerProva"
+            android:name=".telas.fragments.container.ContainerProvaActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

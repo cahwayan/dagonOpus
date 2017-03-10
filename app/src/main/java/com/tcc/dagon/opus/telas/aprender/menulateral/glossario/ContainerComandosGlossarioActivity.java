@@ -1,12 +1,12 @@
 package com.tcc.dagon.opus.telas.aprender.menulateral.glossario;
 
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoesActivity;
 
 /**
  * Created by cahwayan on 04/12/2016.
  */
 
-public class ContainerComandosGlossario extends ContainerLicoes {
+public class ContainerComandosGlossarioActivity extends ContainerLicoesActivity {
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,7 +24,7 @@ import java.util.List;
  */
 /**/
 
-public class Completar extends CExercicio {
+public class Completar extends Exercicio {
 
     private View rootView;
 

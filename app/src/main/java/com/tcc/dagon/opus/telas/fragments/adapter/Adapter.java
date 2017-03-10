@@ -4,35 +4,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tcc.dagon.opus.telas.fragments.exercicios.FragmentosConteudo;
+import com.tcc.dagon.opus.telas.fragments.exercicios.ConteudoWrapper;
 
 import java.util.List;
 
-/**
- * Created by cahwayan on 09/10/2016.
- *
- * CLASSE ADAPTER
- * ESSA CLASSE É RESPONSÁVEL POR INSTANCIAR OS FRAGMENTOS DE ACORDO COM A NAVEGAÇÃO DO USUÁRIO.
- * HÁ CINCO TIPOS DE INSTÂNCIAS PARA O CONTEÚDO DO CURSO:
- * LIÇÃO: PRECISA RECEBER UM LAYOUT COMO PARÂMETRO
- * QUESTÃO DE ALTERNATIVA: PRECISA RECEBER O MÓDULO, ETAPA E O NÚMERO DA QUESTÃO COMO PARÂMETROS
- * EXERCÍCIO DE COMPLETAR: PRECISA RECEBER UM LAYOUT, O MÓDULO ATUAL, A ETAPA ATUAL, A QUANTIDADE DE PALAVRAS,
- *                         AS RESPOSTAS CERTAS SEM ACENTO, E AS RESPOSTAS CERTAS COM ACENTUAÇÃO.
- * QUESTÃO DE ALTERNATIVAS PROVA: MESMO DA QUESTÃO DE ALTERNATIVA
- * EXERCÍCIO COMPLETAR PROVA: MESMO DO COMPLETAR NORMAL
- *
- * ESTA CLASSE POSSUI CONSTANTES QUE FACILITAM A LEITURA DAS INSTÂNCIAS DAS CLASSES FILHAS*/
+/*
+* Created by Caíque on 10/03/2017
+ * Essa classe é um adapter que encontra de maneira automática os fragmentos com lições e questões
+ * que precisam ir em um viewpager para serem mostrados ao usuário. O adapter encontra os fragmentos através das variáveis
+ * moduloAtual e etapaAtual, buscando eles no GerenciadorListaExercicios no momento de sua construção.
+ * O valor das variáveis vem da classe ContainerLicoesActivity, que é uma activity que envelopa _todo o conteúdo dos fragmentos
+ * e viewpager juntos.
+*/
 
 public class Adapter extends FragmentPagerAdapter {
 
     private String[] tabTitulos;
-    private List<FragmentosConteudo> listaExercicios;
-
-    /* RESPOSTAS QUE IRÃO PARA A INSTÂNCIA DO EXERCÍCIO DE COMPLETAR
-    *  ELAS PRECISAM IR EM UM VETOR*/
-    protected String respostasCertas[];
-    protected String respostasCertasAcentuadas[];
-
+    private List<ConteudoWrapper> listaExercicios;
 
     public Adapter(FragmentManager fm, String[] tabTitulos, int moduloAtual, int etapaAtual) {
         super(fm);

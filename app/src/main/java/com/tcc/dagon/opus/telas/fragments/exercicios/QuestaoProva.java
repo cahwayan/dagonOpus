@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.tcc.dagon.opus.telas.fragments.container.ContainerProva;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerProvaActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.AnimacaoResposta;
 
@@ -81,7 +81,7 @@ public final class QuestaoProva extends Questao {
     public void respostaErrada() {
         super.respostaErrada();
 
-        ContainerProva container = (ContainerProva) getActivity();
+        ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
         int contagemVidas = container.getContagemVidas();
 
         switch(contagemVidas) {
@@ -116,7 +116,7 @@ public final class QuestaoProva extends Questao {
     public void tentarNovamente() {
         super.tentarNovamente();
 
-        ContainerProva container = (ContainerProva) getActivity();
+        ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
@@ -146,7 +146,7 @@ public final class QuestaoProva extends Questao {
 
     @Override
     public void questaoFinal() {
-        getPreferencias().setCompletouProva(getModuloAtual(), true);
+        //getPreferencias().setCompletouProva(getModuloAtual(), true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
@@ -159,14 +159,14 @@ public final class QuestaoProva extends Questao {
 
     @Override
     public void accessViews(View rootView) {
-        super.setView_pager( (( (ContainerProva)this.getActivity() ).getPager() ) );
-        super.setTabStrip( (( (ContainerProva)this.getActivity() ).getTabStrip()) );
-        super.setTab_layout( (( (ContainerProva)this.getActivity() ).getTab_layout() ) );
-        this.vida01 = ((ContainerProva)getActivity()).getVida01();
-        this.vida02 = ((ContainerProva)getActivity()).getVida02();
-        this.vida03 = ((ContainerProva)getActivity()).getVida03();
-        this.vida04 = ((ContainerProva)getActivity()).getVida04();
-        this.vida05 = ((ContainerProva)getActivity()).getVida05();
+        super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getPager() ) );
+        //super.setTabStrip( (( (ContainerProvaActivity)this.getActivity() ).getTabStrip()) );
+        super.setTab_layout( (( (ContainerProvaActivity)this.getActivity() ).getTab_layout() ) );
+        this.vida01 = ((ContainerProvaActivity)getActivity()).getVida01();
+        this.vida02 = ((ContainerProvaActivity)getActivity()).getVida02();
+        this.vida03 = ((ContainerProvaActivity)getActivity()).getVida03();
+        this.vida04 = ((ContainerProvaActivity)getActivity()).getVida04();
+        this.vida05 = ((ContainerProvaActivity)getActivity()).getVida05();
         super.accessViews(rootView);
     }
 }
