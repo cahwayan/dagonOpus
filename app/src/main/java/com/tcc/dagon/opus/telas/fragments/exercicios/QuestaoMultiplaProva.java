@@ -72,22 +72,10 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     }
 
     @Override
-    public void changeUpperBarIcon(int passo, int drawableID) {
-        passo = 1;
-        super.changeUpperBarIcon(passo, drawableID);
-    }
-
-    @Override
-    public void setUpperBarIconClickable(int passo) {
-        passo = 1;
-        super.setUpperBarIconClickable(passo);
-    }
-
-    @Override
     public void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            atualizarProgressoLicao(/* AUMENTO EM */ 1);
+            avancarProgressoLicao(/* AUMENTO EM */ 1);
         }
     }
 
@@ -147,17 +135,13 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
         hideUnnecessaryView(getBtnAvancarQuestao());
         unhideView(getBtnChecarResposta());
 
-        changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
-
-        setUpperBarIconClickable(ICONE_EXERCICIO);
-
         hideUnnecessaryView(getImgRespostaCerta());
         hideUnnecessaryView(getImgRespostaErrada());
 
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(getView_pager());
+        moveNext();
     }
 
     @Override
@@ -166,7 +150,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
-            liberarProximoModulo();
+            avancarProgressoModulo(1);
             liberarPrimeiraEtapaDoProximoModulo();
         }
 

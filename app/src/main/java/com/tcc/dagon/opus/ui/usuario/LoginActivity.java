@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.ui.usuario;
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -24,6 +26,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.VerificarConexao;
 import com.tcc.dagon.opus.utils.VolleyRequest;
@@ -76,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                      sSenha;
 
     /* Context */
-    protected Context context;
+    protected Context context = this;
 
     /* INSTANCIAÇÃO DE OBJETOS */
     protected VolleyRequest volleyRequest;
@@ -85,16 +88,16 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
     /*MÉTODOS DE CICLO DE VIDA DO APP*/
 
-    public LoginActivity() {
-        context = this;
-
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // DON'T DO THIS !! It will throw a NullPointerException, myTextView is not set yet.
         // myTextView.setText("Date: " + new Date());
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -151,56 +154,75 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         preferencias = new GerenciadorSharedPreferences(this);
         volleyRequest = new VolleyRequest(this);
 
+        loadClickListeners();
+
     }
 
     /*FIM INICIALIZAÇÃO COMPONENTES*/
 
     /* CLICK LISTENERS */
 
-    @Click
-    protected void btnLogar() {
-        sEmail    = textEmail.getText().toString().trim();
-        sSenha = textSenha.getText().toString().trim();
+    private void loadClickListeners() {
+        OnOffClickListener clickListenerLogin = new OnOffClickListener() {
+            @Override
+            public void onOneClick(View v) {
+                sEmail    = textEmail.getText().toString().trim();
+                sSenha = textSenha.getText().toString().trim();
 
-        // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
-        if(VerificarConexao.verificarConexao()) {
-            if(verificarCredenciais(sEmail, sSenha)) {
-                volleyRequest.requestLogar(this, sEmail, sSenha);
-                //w
+                // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
+                if(VerificarConexao.verificarConexao()) {
+                    if(verificarCredenciais(sEmail, sSenha)) {
+                        volleyRequest.requestLogar(getActivity(), sEmail, sSenha);
+                        //w
 
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
+                }
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
-        }
+        };
 
-    }
+        btnLogar.setOnClickListener(clickListenerLogin);
 
-
-
-    @Click
-    protected void btnLogarComGoogle() {
-        if(VerificarConexao.verificarConexao()) {
-            if(!googleApiClient.isConnecting()){
-                verificarPermissaoGoogleLogin();
+        OnOffClickListener clickListenerGoogle = new OnOffClickListener() {
+            @Override
+            public void onOneClick(View v) {
+                if(VerificarConexao.verificarConexao()) {
+                    if(!googleApiClient.isConnecting()){
+                        verificarPermissaoGoogleLogin();
+                    }
+                } else {
+                    Toast.makeText(context, "Por favor, verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
+                }
             }
-        } else {
-            Toast.makeText(context, "Por favor, verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
-        }
+        };
+
+        btnLogarComGoogle.setOnClickListener(clickListenerGoogle);
+
+        OnOffClickListener clickListenerAlterarSenha = new OnOffClickListener() {
+            @Override
+            public void onOneClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
+                startActivity(intent);
+            }
+        };
+
+        btnAlterarSenha.setOnClickListener(clickListenerAlterarSenha);
+
+        OnOffClickListener clickListenerCadastrar = new OnOffClickListener() {
+            @Override
+            public void onOneClick(View v) {
+                btnCriarConta.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
+                startActivity(new Intent(getApplicationContext(), CadastroActivity_.class));
+            }
+        };
+
+        btnCriarConta.setOnClickListener(clickListenerCadastrar);
     }
 
-    @Click
-    protected void btnAlterarSenha() {
-        Intent intent = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
-        startActivity(intent);
+    public Activity getActivity() {
+        return this;
     }
-
-    @Click
-    protected void btnCriarConta() {
-        btnCriarConta.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
-        startActivity(new Intent(getApplicationContext(), CadastroActivity_.class));
-    }
-
-    /* FIM CLICK LISTENERS */
 
     /* VERIFICAÇÃO CONSISTÊNCIA CREDENCIAIS */
     protected boolean verificarCredenciais(String sEmail, String sSenha) {

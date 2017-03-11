@@ -55,5 +55,7 @@
 
     <string name="etapaCompleta">Concluído</string>
 
+    <string name="pontuacaoDefault">Pontos: 0</string>
+
 
 </resources>

@@ -18,23 +18,27 @@ import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
 public class Questao extends Exercicio {
 
-    private int questaoAtual;
 
+
+    private final int ALTERNATIVA0 = 0;
     private final int ALTERNATIVA1 = 1;
     private final int ALTERNATIVA2 = 2;
     private final int ALTERNATIVA3 = 3;
-    private final int ALTERNATIVA4 = 4;
 
     /* COMPONENTES VISUAIS */
     private RadioGroup radioGroupQuestao;
-    private RadioButton alternativa1,
+    private RadioButton alternativa0,
+                        alternativa1,
                         alternativa2,
-                        alternativa3,
-                        alternativa4;
+                        alternativa3;
 
     private TextView pergunta;
     private View rootView;
     private NovaJanelaAlerta alertaOpcaoVazia;
+
+    public int getALTERNATIVA0() {
+        return ALTERNATIVA0;
+    }
 
     public int getALTERNATIVA1() {
         return ALTERNATIVA1;
@@ -46,10 +50,6 @@ public class Questao extends Exercicio {
 
     public int getALTERNATIVA3() {
         return ALTERNATIVA3;
-    }
-
-    public int getALTERNATIVA4() {
-        return ALTERNATIVA4;
     }
 
     public TextView getPergunta() {
@@ -93,7 +93,7 @@ public class Questao extends Exercicio {
         this.instanciaObjetos();
         this.accessViews(this.rootView);
         this.accessRadioButtons(this.rootView);
-        this.fetchQuestionFromDatabase();
+        this.setupQuestion();
         this.listeners();
         return this.rootView;
     }
@@ -112,7 +112,6 @@ public class Questao extends Exercicio {
 
     @Override
     public void onPause() {
-        uncheckAllButtons();
         super.onPause();
     }
 
@@ -124,10 +123,23 @@ public class Questao extends Exercicio {
 
     protected void accessRadioButtons(View rootView) {
         radioGroupQuestao = (RadioGroup)  rootView.findViewById(R.id.radioGroupQuestao);
-        alternativa1      = (RadioButton) rootView.findViewById(R.id.alternativa1);
-        alternativa2      = (RadioButton) rootView.findViewById(R.id.alternativa2);
-        alternativa3      = (RadioButton) rootView.findViewById(R.id.alternativa3);
-        alternativa4      = (RadioButton) rootView.findViewById(R.id.alternativa4);
+        alternativa0 = (RadioButton) rootView.findViewById(R.id.alternativa0);
+        alternativa1 = (RadioButton) rootView.findViewById(R.id.alternativa1);
+        alternativa2 = (RadioButton) rootView.findViewById(R.id.alternativa2);
+        alternativa3 = (RadioButton) rootView.findViewById(R.id.alternativa3);
+    }
+
+    protected void setupQuestion() {
+        String question = refreshListener.fetchQuestionFromDatabase(questaoAtual);
+        String[] alternatives = refreshListener.fetchAlternativesFromDatabase(questaoAtual);
+
+        pergunta.setText(question);
+
+        alternativa0.setText(alternatives[ALTERNATIVA0]);
+        alternativa1.setText(alternatives[ALTERNATIVA1]);
+        alternativa2.setText(alternatives[ALTERNATIVA2]);
+        alternativa3.setText(alternatives[ALTERNATIVA3]);
+
     }
 
     private RadioButton getCheckedButton() {
@@ -156,29 +168,29 @@ public class Questao extends Exercicio {
     @Override
     protected void validarRespostaUsuario() {
 
-        final int ALTERNATIVA1 = alternativa1.getId();
-        final int ALTERNATIVA2 = alternativa2.getId();
-        final int ALTERNATIVA3 = alternativa3.getId();
-        final int ALTERNATIVA4 = alternativa4.getId();
+        final int ALTERNATIVA1 = alternativa0.getId();
+        final int ALTERNATIVA2 = alternativa1.getId();
+        final int ALTERNATIVA3 = alternativa2.getId();
+        final int ALTERNATIVA4 = alternativa3.getId();
 
         int alternativaMarcada = radioGroupQuestao.getCheckedRadioButtonId();
         int resposta;
 
         if(alternativaMarcada == ALTERNATIVA1)
         {
-            resposta = verificaResposta(this.ALTERNATIVA1);
+            resposta = verificaResposta(this.ALTERNATIVA0);
         }
         else if(alternativaMarcada == ALTERNATIVA2)
         {
-            resposta = verificaResposta(this.ALTERNATIVA2);
+            resposta = verificaResposta(this.ALTERNATIVA1);
         }
         else if(alternativaMarcada == ALTERNATIVA3)
         {
-            resposta = verificaResposta(this.ALTERNATIVA3);
+            resposta = verificaResposta(this.ALTERNATIVA2);
         }
         else if(alternativaMarcada == ALTERNATIVA4)
         {
-            resposta = verificaResposta(this.ALTERNATIVA4);
+            resposta = verificaResposta(this.ALTERNATIVA3);
         }
         else
         {
@@ -209,7 +221,7 @@ public class Questao extends Exercicio {
     protected void respostaErrada() {
         setAllButtonsUnclickable();
         setQtdErros(getQtdErros() + 1);
-        playSound(getSomRespostaErrada());
+        refreshListener.playSoundWrongAnswer();
         initAnimationAnswer(getImgRespostaErrada());
         hideUnnecessaryView(getBtnChecarResposta());
         unhideView(getBtnAvancarQuestao());
@@ -227,10 +239,10 @@ public class Questao extends Exercicio {
 
             if( alternativa == RESPOSTA_CERTA) {
 
-                //correctAnswerButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+                correctAnswerButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
 
                 if(checkedButton != null) {
-                   // checkedButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
+                    checkedButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
                 }
 
                 break;
@@ -286,17 +298,17 @@ public class Questao extends Exercicio {
     }
 
     protected void setAllButtonsUnclickable() {
+        alternativa0.setClickable(false);
         alternativa1.setClickable(false);
         alternativa2.setClickable(false);
         alternativa3.setClickable(false);
-        alternativa4.setClickable(false);
     }
 
     protected void setAllButtonsClickable() {
+        alternativa0.setClickable(true);
         alternativa1.setClickable(true);
         alternativa2.setClickable(true);
         alternativa3.setClickable(true);
-        alternativa4.setClickable(true);
     }
 
     protected void uncheckAllButtons() {
@@ -310,20 +322,6 @@ public class Questao extends Exercicio {
         }
     }
 
-    protected void fetchQuestionFromDatabase() {
-        GerenciadorBanco DB = getDB_PROGRESSO();
-        int moduloAtual = getModuloAtual();
-        int etapaAtual = getEtapaAtual();
-
-        this.pergunta.setText(DB.puxarPergunta(getModuloAtual(), getEtapaAtual(), questaoAtual));
-
-
-        this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA1));
-        this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA2));
-        this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA3));
-        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, this.questaoAtual, this.ALTERNATIVA4));
-    }
-
     protected int verificaResposta(int alternativa) {
 
         final int RESPOSTA_ERRADA = 0;
@@ -334,13 +332,13 @@ public class Questao extends Exercicio {
 
         switch(alternativa) {
             case 1:
-                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA1);
+                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 1);
             case 2:
-                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA2);
+                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 2);
             case 3:
-                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA3);
+                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 3);
             case 4:
-                return DB.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, ALTERNATIVA4);
+                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 4);
             default:
                 return RESPOSTA_ERRADA;
         }

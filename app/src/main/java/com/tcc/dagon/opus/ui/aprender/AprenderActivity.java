@@ -29,6 +29,7 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
+import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
@@ -458,10 +459,9 @@ public class AprenderActivity
             final ModuloCurso modulo = listModuloCurso.get(i);
             final LinearLayout botaoModulo = listBtnModulos.get(i);
 
-            botaoModulo.setOnClickListener(new View.OnClickListener() {
+            OnOffClickListener clickListener = new OnOffClickListener() {
                 @Override
-                public void onClick(View v) {
-
+                public void onOneClick(View v) {
                     botaoModulo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
 
                     switch(modulo.getEstadoAtual()) {
@@ -481,7 +481,9 @@ public class AprenderActivity
                             break;
                     }
                 }
-            });
+            };
+
+            botaoModulo.setOnClickListener(clickListener);
         }
     }
 

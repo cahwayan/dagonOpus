@@ -14,11 +14,13 @@ public interface RefreshListener {
 
     void refreshUI();
     boolean isLastExercise();
+    boolean isSomDesativado();
 
     void avancarProgressoModulo(int aumento);
     int getProgressoModulo();
 
     void avancarProgressoEtapa(int aumento);
+    void avancarProgressoEtapa(int moduloReferente, int aumento);
     int getProgressoEtapa();
 
     void avancarProgressoLicao(int aumento);
@@ -27,5 +29,13 @@ public interface RefreshListener {
     int getEtapaAtual();
     int getModuloAtual();
 
-    boolean isSomDesativado();
+    String fetchQuestionFromDatabase(int questaoAtual);
+    String[] fetchAlternativesFromDatabase(int questaoAtual);
+
+    void playSoundRightAnswer();
+    void playSoundWrongAnswer();
+
+
+
+
 }

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_Activity_;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.PulseAnimation;
 
@@ -29,13 +29,10 @@ public abstract class Exercicio extends ConteudoWrapper {
      * também pode mandar mensagens para que o container altere o progresso atual de acordo com o desempenho
      * do usuário através do aplicativo.
     */
-    private RefreshListener refreshListener;
+    protected RefreshListener refreshListener;
 
     /* OBJETOS */
     private GerenciadorBanco DB_PROGRESSO;
-    private MediaPlayer somRespostaCerta;
-    private MediaPlayer somRespostaErrada;
-
     /* VIEWS */
     private ImageView imgRespostaCerta;
     private ImageView imgRespostaErrada;
@@ -50,19 +47,7 @@ public abstract class Exercicio extends ConteudoWrapper {
     private int qtdErros;
     private int pontuacao;
     private int moduloAtual, etapaAtual;
-
-    @Override
-    public void onAttach(Context context) {
-
-        super.onAttach(context);
-
-        try {
-            refreshListener = (RefreshListener) context;
-        } catch(ClassCastException e) {
-            throw new ClassCastException(context.toString() + " precisa implementar onRefreshListener");
-        }
-
-    }
+    protected int questaoAtual;
 
     public Button getBtnAvancarQuestao() {
         return btnAvancarQuestao;
@@ -72,14 +57,11 @@ public abstract class Exercicio extends ConteudoWrapper {
         return btnChecarResposta;
     }
 
-
     public Button getBtnTentarNovamente() {
         return btnTentarNovamente;
     }
 
-    public GerenciadorBanco getDB_PROGRESSO() {
-        return DB_PROGRESSO;
-    }
+    public GerenciadorBanco getDB_PROGRESSO() { return DB_PROGRESSO; }
 
     public int getEtapaAtual() {
         return etapaAtual;
@@ -117,10 +99,6 @@ public abstract class Exercicio extends ConteudoWrapper {
         return qtdErros;
     }
 
-    public MediaPlayer getSomRespostaErrada() {
-        return somRespostaErrada;
-    }
-
     public void setTab_layout(TabLayout tab_layout) {
         this.tab_layout = tab_layout;
     }
@@ -137,6 +115,18 @@ public abstract class Exercicio extends ConteudoWrapper {
         this.view_pager = view_pager;
     }
 
+    protected void moveNext() {
+        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
+    }
+
+    protected void movePrevious() {
+        view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
+    }
+
+    protected void setQtdErros(int qtdErros) {
+        this.qtdErros = qtdErros;
+    }
+
     /* ABSTRATOS */
     protected abstract void validarRespostaUsuario();
     protected abstract void calcularPontuacao();
@@ -144,54 +134,43 @@ public abstract class Exercicio extends ConteudoWrapper {
     /* CICLO DE VIDA */
 
     @Override
+    public void onAttach(Context context) {
+
+        super.onAttach(context);
+
+        try {
+            refreshListener = (RefreshListener) context;
+        } catch(ClassCastException e) {
+            throw new ClassCastException(context.toString() + " precisa implementar onRefreshListener");
+        }
+
+    }
+
+    @Override
     public void onPause() {
-        releaseSons();
         super.onPause();
     }
 
     @Override
     public void onResume() {
-        instanciaSons();
         super.onResume();
     }
 
     @Override
     public void onDestroy() {
-        releaseSons();
         super.onDestroy();
     }
 
     protected void instanciaObjetos() {
+
         if(this.DB_PROGRESSO == null) {
             this.DB_PROGRESSO = new GerenciadorBanco(getActivity());
         }
-
-        instanciaSons();
-    }
-
-    private void instanciaSons() {
-        if(this.somRespostaCerta == null || this.somRespostaErrada == null) {
-            this.somRespostaCerta = MediaPlayer.create(getActivity(), R.raw.resposta_certa);
-            this.somRespostaErrada = MediaPlayer.create(getActivity(), R.raw.resposta_errada);
-        }
-    }
-
-    private void releaseSons() {
-        if(this.somRespostaCerta != null) {
-            this.somRespostaCerta.release();
-            this.somRespostaCerta = null;
-        }
-
-        if(this.somRespostaErrada != null) {
-            this.somRespostaErrada.release();
-            this.somRespostaErrada = null;
-        }
-
     }
 
     protected void accessViews(View rootView) {
-        view_pager = ((ContainerLicoes_Activity_)this.getActivity()).getPager();
-        tab_layout = ((ContainerLicoes_Activity_)this.getActivity()).getTab_layout();
+        view_pager = ((ContainerLicoesActivity_)this.getActivity()).getPager();
+        tab_layout = ((ContainerLicoesActivity_)this.getActivity()).getTab_layout();
         txtPontos =          (TextView) rootView.findViewById(R.id.txtPontos);
         imgRespostaCerta  =  (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
         imgRespostaErrada =  (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
@@ -266,7 +245,7 @@ public abstract class Exercicio extends ConteudoWrapper {
     }
 
     protected void respostaCerta() {
-        playSound(somRespostaCerta);
+        refreshListener.playSoundRightAnswer();
         calcularPontuacao();
         initAnimationAnswer(this.imgRespostaCerta);
         unhideView(btnAvancarQuestao);
@@ -274,7 +253,7 @@ public abstract class Exercicio extends ConteudoWrapper {
 
     protected void respostaErrada() {
         this.qtdErros++;
-        this.playSound(somRespostaErrada);
+        refreshListener.playSoundWrongAnswer();
         this.initAnimationAnswer(imgRespostaErrada);
         this.hideUnnecessaryView(btnChecarResposta);
         this.unhideView(btnTentarNovamente);
@@ -285,8 +264,7 @@ public abstract class Exercicio extends ConteudoWrapper {
         hideUnnecessaryView(imgRespostaCerta);
         hideUnnecessaryView(imgRespostaErrada);
         unhideView(btnChecarResposta);
-
-        txtPontos.setText("Pontos: 0");
+        txtPontos.setText(getActivity().getResources().getString(R.string.pontuacaoDefault));
         setQtdErros(0);
         zerarPontuacao();
     }
@@ -304,17 +282,9 @@ public abstract class Exercicio extends ConteudoWrapper {
     }
 
     protected void avancarQuestao() {
-        final int ICONE_LICAO = 1;
-        final int ICONE_EXERCICIO = 2;
 
         hideUnnecessaryView(btnAvancarQuestao);
         unhideView(btnChecarResposta);
-
-        /*changeUpperBarIcon(ICONE_LICAO, R.drawable.icon_licao);
-        changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
-
-        setUpperBarIconClickable(ICONE_LICAO);
-        setUpperBarIconClickable(ICONE_EXERCICIO);*/
 
         hideUnnecessaryView(imgRespostaCerta);
         hideUnnecessaryView(imgRespostaErrada);
@@ -325,12 +295,12 @@ public abstract class Exercicio extends ConteudoWrapper {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(view_pager);
+        moveNext();
     }
 
     protected void questaoFinal() {
         if(!usuarioJaCompletouEssaEtapaAntes()) {
-            atualizarProgressoEtapa();
+            avancarProgressoEtapa();
             //atualizarPontuacao();
         }
 
@@ -368,15 +338,6 @@ public abstract class Exercicio extends ConteudoWrapper {
         }
     }
 
-    protected void changeUpperBarIcon(int passo, int drawableID) {
-        /*tab_layout.getTabAt(view_pager.getCurrentItem() + passo).setIcon(drawableID);*/
-    }
-
-    protected void setUpperBarIconClickable(int passo) {
-        /*this.tabStrip.getChildAt(view_pager.getCurrentItem() + passo).setClickable(true);
-        this.tabStrip.getChildAt(view_pager.getCurrentItem() + passo).setEnabled(true);*/
-    }
-
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             refreshListener.avancarProgressoLicao(/* aumento em */2);
@@ -384,18 +345,6 @@ public abstract class Exercicio extends ConteudoWrapper {
         }
 
         refreshListener.refreshUI();
-    }
-
-    protected void moveNext(View view) {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
-    }
-
-    protected void movePrevious(View view) {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
-    }
-
-    protected void setQtdErros(int qtdErros) {
-        this.qtdErros = qtdErros;
     }
 
     protected void zerarPontuacao() {
@@ -422,7 +371,7 @@ public abstract class Exercicio extends ConteudoWrapper {
     }
 
     protected boolean usuarioJaCompletouEsseModuloAntes() {
-        int progressoSalvo = this.DB_PROGRESSO.verificaProgressoModulo();
+        int progressoSalvo = refreshListener.getProgressoModulo();
 
         return progressoSalvo > this.moduloAtual;
     }
@@ -434,26 +383,24 @@ public abstract class Exercicio extends ConteudoWrapper {
         return progressoSalvo > refreshListener.getEtapaAtual();
     }
 
-    protected void liberarProximoModulo() {
-        this.DB_PROGRESSO.atualizaProgressoModulo(this.moduloAtual + 1);
-    }
-
-    protected void atualizarProgressoEtapa() {
-        refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 1);
+    protected void avancarProgressoModulo(int aumento) {
+        refreshListener.avancarProgressoModulo(/*AVANCAR EM */ aumento);
     }
 
     protected void liberarPrimeiraEtapaDoProximoModulo() {
-       // refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 2);
+        refreshListener.avancarProgressoEtapa(refreshListener.getModuloAtual() + 1, /*AUMENTO EM */ 1);
     }
 
+    protected void avancarProgressoEtapa() {
+        refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 1);
+    }
 
-
-    protected void atualizarProgressoLicao(int aumento) {
+    protected void avancarProgressoLicao(int aumento) {
         refreshListener.avancarProgressoLicao(aumento);
     }
 
     protected void atualizarPontuacao() {
-        DB_PROGRESSO.atualizarPontuacao(this.moduloAtual, this.pontuacao);
+        //DB_PROGRESSO.atualizarPontuacao(this.moduloAtual, this.pontuacao);
     }
 
 

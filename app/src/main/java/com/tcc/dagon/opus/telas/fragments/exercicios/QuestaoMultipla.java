@@ -48,10 +48,10 @@ public class QuestaoMultipla extends Questao {
     }
 
     protected void accessCheckBoxes(View rootView) {
-        this.alternativa1 = (CheckBox) rootView.findViewById(R.id.alternativa1);
-        this.alternativa2 = (CheckBox) rootView.findViewById(R.id.alternativa2);
-        this.alternativa3 = (CheckBox) rootView.findViewById(R.id.alternativa3);
-        this.alternativa4 = (CheckBox) rootView.findViewById(R.id.alternativa4);
+        this.alternativa1 = (CheckBox) rootView.findViewById(R.id.alternativa0);
+        this.alternativa2 = (CheckBox) rootView.findViewById(R.id.alternativa1);
+        this.alternativa3 = (CheckBox) rootView.findViewById(R.id.alternativa2);
+        this.alternativa4 = (CheckBox) rootView.findViewById(R.id.alternativa3);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class QuestaoMultipla extends Questao {
     public void respostaErrada() {
         setQtdErros(getQtdErros() + 1);
         Log.d("ERROS: ", String.valueOf(getQtdErros()));
-        this.playSound(getSomRespostaErrada());
+        refreshListener.playSoundWrongAnswer();
         this.initAnimationAnswer(getImgRespostaErrada());
         this.hideUnnecessaryView(getBtnChecarResposta());
         this.unhideView(getBtnTentarNovamente());
@@ -161,7 +161,6 @@ public class QuestaoMultipla extends Questao {
         getTxtPontos().setText("Pontos: " + String.valueOf(pontos));
     }
 
-    @Override
     protected void fetchQuestionFromDatabase() {
 
         GerenciadorBanco DB = getDB_PROGRESSO();
@@ -171,10 +170,10 @@ public class QuestaoMultipla extends Questao {
 
         getPergunta().setText(DB.puxarPergunta(moduloAtual, etapaAtual, questaoAtual));
 
-        this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA1()));
-        this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA2()));
-        this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA3()));
-        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA4()));
+        this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA0()));
+        this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA1()));
+        this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA2()));
+        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA3()));
     }
 
     @Override

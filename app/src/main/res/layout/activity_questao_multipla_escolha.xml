@@ -25,6 +25,15 @@
             android:layout_marginBottom="15dp" />
 
         <CheckBox
+            android:id="@+id/alternativa0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="@dimen/textSizeAltenativa"
+            android:minHeight="60dp"
+            android:background="@drawable/borda_checkbox" />
+
+        <CheckBox
             android:id="@+id/alternativa1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,15 +53,6 @@
 
         <CheckBox
             android:id="@+id/alternativa3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="@dimen/textSizeAltenativa"
-            android:minHeight="60dp"
-            android:background="@drawable/borda_checkbox" />
-
-        <CheckBox
-            android:id="@+id/alternativa4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"

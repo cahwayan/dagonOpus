@@ -71,7 +71,7 @@ public final class QuestaoProva extends Questao {
     public void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            atualizarProgressoLicao(/* AUMENTO EM */ 1);
+            avancarProgressoLicao(/* AUMENTO EM */ 1);
         }
     }
 
@@ -141,7 +141,7 @@ public final class QuestaoProva extends Questao {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(getView_pager());
+        moveNext();
     }
 
     @Override
@@ -150,7 +150,7 @@ public final class QuestaoProva extends Questao {
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
-            liberarProximoModulo();
+            refreshListener.avancarProgressoModulo(1);
             liberarPrimeiraEtapaDoProximoModulo();
         }
 

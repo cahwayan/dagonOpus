@@ -74,10 +74,6 @@ public final class CompletarProva extends Completar {
         hideUnnecessaryView(getBtnAvancarQuestao());
         unhideView(getBtnChecarResposta());
 
-        changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
-
-        setUpperBarIconClickable(ICONE_EXERCICIO);
-
         hideUnnecessaryView(getImgRespostaCerta());
         hideUnnecessaryView(getImgRespostaErrada());
 
@@ -87,7 +83,7 @@ public final class CompletarProva extends Completar {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext(getView_pager());
+        moveNext();
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
@@ -110,7 +106,7 @@ public final class CompletarProva extends Completar {
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
-            liberarProximoModulo();
+            avancarProgressoModulo(1);
             liberarPrimeiraEtapaDoProximoModulo();
         }
 
@@ -134,7 +130,7 @@ public final class CompletarProva extends Completar {
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            atualizarProgressoLicao(/* AUMENTO EM*/ 1);
+            avancarProgressoLicao(/* AUMENTO EM*/ 1);
         }
     }
 

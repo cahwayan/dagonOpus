@@ -13,11 +13,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoes_Activity_;
+import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 
@@ -131,16 +133,17 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     private void loadClickListeners() {
 
+
+
         for(int i = 0; i < listEtapas.size(); i++) {
 
             final LinearLayout btnEtapa = listBtnEtapas.get(i);
             final Etapa etapa = listEtapas.get(i);
             final int numEtapa = i;
 
-            btnEtapa.setOnClickListener(new View.OnClickListener() {
+            OnOffClickListener clickListener = new OnOffClickListener() {
                 @Override
-                public void onClick(View v) {
-
+                public void onOneClick(View v) {
                     initAnimation(btnEtapa);
                     int estadoEtapa = etapa.getEstadoAtual();
 
@@ -154,13 +157,15 @@ public abstract class EtapasActivity extends AppCompatActivity {
                         finish();
                     }
                 }
-            });
+            };
+
+            btnEtapa.setOnClickListener(clickListener);
         }
 
     }
 
     private void clickLiberado(int numEtapa) {
-        Intent i = new Intent(context, ContainerLicoes_Activity_.class);
+        Intent i = new Intent(context, ContainerLicoesActivity_.class);
         i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
         i.putExtra("moduloAtual", moduloAtual);
         i.putExtra("etapaAtual", numEtapa);

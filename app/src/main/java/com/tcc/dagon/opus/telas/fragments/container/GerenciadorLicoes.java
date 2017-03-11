@@ -3,6 +3,7 @@ package com.tcc.dagon.opus.telas.fragments.container;
 import android.content.Context;
 import android.util.Log;
 
+import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ class GerenciadorLicoes {
 
     private List<FragmentoLicao> listaLicoes;
     private GerenciadorPreferencesComSuporteParaLicoes preferenceManager;
+    private GerenciadorBanco DB_PROGRESSO;
     private int quantidadeLicoes;
     private int moduloAtual;
     private int etapaAtual;
@@ -33,6 +35,7 @@ class GerenciadorLicoes {
     */
     GerenciadorLicoes(Context context, int quantidadeLicoes, int moduloAtual, int etapaAtual) {
         preferenceManager = new GerenciadorPreferencesComSuporteParaLicoes(context);
+        this.DB_PROGRESSO = new GerenciadorBanco(context);
         this.quantidadeLicoes = quantidadeLicoes;
         this.moduloAtual = moduloAtual;
         this.etapaAtual = etapaAtual;
@@ -77,7 +80,15 @@ class GerenciadorLicoes {
     }
 
     void setProgressoEtapa(int aumento) {
-        preferenceManager.setProgressoEtapa(moduloAtual, aumento);
+        preferenceManager.setProgressoEtapa(moduloAtual, getProgressoEtapa() + aumento);
+    }
+
+    void setProgressoEtapa(int moduloReferente, int aumento) {
+        preferenceManager.setProgressoEtapa(moduloReferente, aumento);
+    }
+
+    void liberarPrimeiraEtapaDoProximoModulo() {
+        preferenceManager.setProgressoEtapa(moduloAtual + 1, /*Aumento em: */ 1);
     }
 
     int getProgressoLicao() {
@@ -85,7 +96,22 @@ class GerenciadorLicoes {
     }
 
     void setProgressoLicao(int progresso) {
-        preferenceManager.setProgressoLicao(moduloAtual, etapaAtual, progresso);
+        preferenceManager.setProgressoLicao(moduloAtual, etapaAtual, getProgressoLicao() + progresso);
+    }
+
+    String fetchQuestionFromDatabase(int questaoAtual) {
+        return DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual);
+
+    }
+
+    String[] fetchAlternativesFromDatabase(int questaoAtual) {
+        String[] alternativas = new String[4];
+        for(int i = 0; i < alternativas.length; i++) {
+            alternativas[i] = DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, (i + 1) );
+        }
+
+        return alternativas;
+
     }
 
 
