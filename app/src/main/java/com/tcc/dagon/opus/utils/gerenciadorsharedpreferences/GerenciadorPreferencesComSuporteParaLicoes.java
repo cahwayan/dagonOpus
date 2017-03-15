@@ -2,6 +2,8 @@ package com.tcc.dagon.opus.utils.gerenciadorsharedpreferences;
 
 import android.content.Context;
 
+import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
+
 /**
  * Created by cahwayan on 26/02/2017.
  */
@@ -49,4 +51,46 @@ public class GerenciadorPreferencesComSuporteParaLicoes extends GerenciadorShare
     public void setProgressoLicao(int numModuloReferente, int numEtapaReferente, int valor) {
         modFlag(PROGRESSO_LICOES[numModuloReferente][numEtapaReferente], valor);
     }
+
+    public void somarPontos(int moduloAtual, int pontos) {
+
+        String flag;
+
+        switch (moduloAtual) {
+            case ModuloCurso.MODULO0:
+                flag = PONTOS_MODULO0;
+                break;
+
+            case ModuloCurso.MODULO1:
+                flag = PONTOS_MODULO1;
+                break;
+
+            case ModuloCurso.MODULO2:
+                flag = PONTOS_MODULO2;
+                break;
+
+            case ModuloCurso.MODULO3:
+                flag = PONTOS_MODULO3;
+                break;
+
+            case ModuloCurso.MODULO4:
+                flag = PONTOS_MODULO4;
+                break;
+
+            case ModuloCurso.MODULO5:
+                flag = PONTOS_MODULO5;
+                break;
+
+            default:
+                flag = "defaultPontos";
+                break;
+        }
+
+        int pontuacaoAnterior = getPontos(moduloAtual);
+        modFlag(flag, (pontuacaoAnterior + pontos) );
+
+
+    }
+
+
 }

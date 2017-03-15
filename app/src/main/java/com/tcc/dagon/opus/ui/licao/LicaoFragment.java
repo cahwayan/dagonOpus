@@ -62,7 +62,7 @@ public class LicaoFragment extends ConteudoWrapper {
     }
 
     private void accessViews() {
-        mViewPager = ((ContainerLicoesActivity)getActivity()).getPager();
+        mViewPager = ((ContainerLicoesActivity)getActivity()).getViewPager();
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
     }
 

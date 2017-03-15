@@ -41,17 +41,17 @@ public class GerenciadorListaExercicios extends ValoresExercicios {
 
             case ETAPA0: return new ConteudoWrapper[]
                          {LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                          Questao.novaQuestao(MODULO0, ETAPA0, QUESTAO0)};
+                          Questao.novaQuestao(QUESTAO0)};
 
             case ETAPA1: return new ConteudoWrapper[]
                         {LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                            Questao.novaQuestao(MODULO0, ETAPA0, QUESTAO0),
+                            Questao.novaQuestao(QUESTAO0),
                                 LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                                Questao.novaQuestao(MODULO0, ETAPA0, QUESTAO0),
+                                Questao.novaQuestao(QUESTAO0),
                                 LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                                Questao.novaQuestao(MODULO0, ETAPA0, QUESTAO0),
+                                Questao.novaQuestao(QUESTAO0),
                                 LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                                Questao.novaQuestao(MODULO0, ETAPA0, QUESTAO0)};
+                                Questao.novaQuestao(QUESTAO0)};
 
 
         }

@@ -1,19 +1,19 @@
 package com.tcc.dagon.opus.telas.fragments.exercicios;
 
 import android.content.Context;
-import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
-import com.tcc.dagon.opus.utils.PulseAnimation;
+import com.tcc.dagon.opus.utils.OnOffClickListener;
+import com.tcc.dagon.opus.utils.ViewController;
 
 /**
  * Created by Caíque on 07/01/2017.
@@ -31,61 +31,18 @@ public abstract class Exercicio extends ConteudoWrapper {
     */
     protected RefreshListener refreshListener;
 
-    /* OBJETOS */
-    private GerenciadorBanco DB_PROGRESSO;
     /* VIEWS */
-    private ImageView imgRespostaCerta;
-    private ImageView imgRespostaErrada;
-    private Button btnChecarResposta;
-    private Button btnAvancarQuestao;
-    private Button btnTentarNovamente;
-    private TextView txtPontos;
-    private ViewPager view_pager;
-    private TabLayout tab_layout;
+    protected ImageView imgRespostaCerta;
+    protected ImageView imgRespostaErrada;
+    protected Button btnChecarResposta;
+    protected Button btnAvancarQuestao;
+    protected Button btnTentarNovamente;
+    protected TextView txtPontos;
 
     /* VARIÁVEIS */
     private int qtdErros;
     private int pontuacao;
-    private int moduloAtual, etapaAtual;
     protected int questaoAtual;
-
-    public Button getBtnAvancarQuestao() {
-        return btnAvancarQuestao;
-    }
-
-    public Button getBtnChecarResposta() {
-        return btnChecarResposta;
-    }
-
-    public Button getBtnTentarNovamente() {
-        return btnTentarNovamente;
-    }
-
-    public GerenciadorBanco getDB_PROGRESSO() { return DB_PROGRESSO; }
-
-    public int getEtapaAtual() {
-        return etapaAtual;
-    }
-
-    public void setEtapaAtual(int etapaAtual) {
-        this.etapaAtual = etapaAtual;
-    }
-
-    public ImageView getImgRespostaCerta() {
-        return imgRespostaCerta;
-    }
-
-    public ImageView getImgRespostaErrada() {
-        return imgRespostaErrada;
-    }
-
-    public int getModuloAtual() {
-        return moduloAtual;
-    }
-
-    public void setModuloAtual(int moduloAtual) {
-        this.moduloAtual = moduloAtual;
-    }
 
     public int getPontuacao() {
         return pontuacao;
@@ -97,30 +54,6 @@ public abstract class Exercicio extends ConteudoWrapper {
 
     public int getQtdErros() {
         return qtdErros;
-    }
-
-    public void setTab_layout(TabLayout tab_layout) {
-        this.tab_layout = tab_layout;
-    }
-
-    public TextView getTxtPontos() {
-        return txtPontos;
-    }
-
-    public ViewPager getView_pager() {
-        return view_pager;
-    }
-
-    public void setView_pager(ViewPager view_pager) {
-        this.view_pager = view_pager;
-    }
-
-    protected void moveNext() {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
-    }
-
-    protected void movePrevious() {
-        view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
     }
 
     protected void setQtdErros(int qtdErros) {
@@ -161,63 +94,64 @@ public abstract class Exercicio extends ConteudoWrapper {
         super.onDestroy();
     }
 
-    protected void instanciaObjetos() {
-
-        if(this.DB_PROGRESSO == null) {
-            this.DB_PROGRESSO = new GerenciadorBanco(getActivity());
-        }
-    }
-
     protected void accessViews(View rootView) {
-        view_pager = ((ContainerLicoesActivity_)this.getActivity()).getPager();
-        tab_layout = ((ContainerLicoesActivity_)this.getActivity()).getTab_layout();
         txtPontos =          (TextView) rootView.findViewById(R.id.txtPontos);
         imgRespostaCerta  =  (ImageView) rootView.findViewById(R.id.imgRespostaCerta);
         imgRespostaErrada =  (ImageView) rootView.findViewById(R.id.imgRespostaErrada);
         btnChecarResposta =  (Button) rootView.findViewById(R.id.btnChecar);
         btnAvancarQuestao =  (Button) rootView.findViewById(R.id.btnAvancar);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
-
-        hideUnnecessaryView(btnAvancarQuestao);
-        hideUnnecessaryView(btnTentarNovamente);
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
     }
 
-    protected void listeners() {
-        // LISTENER BOTÃO CHECAR RESPOSTA
-        btnChecarResposta.setOnClickListener(new View.OnClickListener() {
+    protected void setListeners() {
+
+        setOnClickListeners();
+        setTabListeners();
+
+    }
+
+    private void setOnClickListeners() {
+
+        OnOffClickListener listenerChecarResposta = new OnOffClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onOneClick(View v) {
                 validarRespostaUsuario();
             }
-        });
+        };
+        btnChecarResposta.setOnClickListener(listenerChecarResposta);
 
-        // BOTAO AVANÇAR LICAO
-        btnAvancarQuestao.setOnClickListener(new View.OnClickListener() {
+        OnOffClickListener listenerConcluirQuestao = new OnOffClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onOneClick(View v) {
                 concluirQuestao();
             }
-        });
+        };
+        btnAvancarQuestao.setOnClickListener(listenerConcluirQuestao);
+        imgRespostaCerta.setOnClickListener(listenerConcluirQuestao);
 
-        // BOTAO TENTAR NOVAMENTE
-        btnTentarNovamente.setOnClickListener(new View.OnClickListener() {
+        OnOffClickListener listenerTentarNovamente = new OnOffClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onOneClick(View v) {
                 tentarNovamente();
             }
-        });
+        };
+        btnTentarNovamente.setOnClickListener(listenerTentarNovamente);
+        imgRespostaErrada.setOnClickListener(listenerTentarNovamente);
 
+    }
+
+    private void setTabListeners() {
         // LISTENER QUE VERIFICA QUANDO A ABA SELECIONADA É MUDADA, SELECIONADA ou RE-SELECIONADA
-        // ELE É IMPORTANTE PARA ESVAZIAR OS RADIO BUTTONS AO SAIR DA ATIVIDADE ENQUANTO ESTÃO CHECADOS
-        view_pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
+        final ViewPager pager = refreshListener.getViewPager();
+        final TabLayout tabLayout = refreshListener.getTabLayout();
 
-        tab_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                view_pager.setCurrentItem(tab.getPosition());
+                pager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -227,54 +161,50 @@ public abstract class Exercicio extends ConteudoWrapper {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                tentarNovamente();
-            }
-        });
 
-        imgRespostaCerta.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                concluirQuestao();
-            }
-        });
-
-        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                tentarNovamente();
             }
         });
     }
 
     protected void respostaCerta() {
-        refreshListener.playSoundRightAnswer();
+        refreshListener.tocarSomRespostaCerta();
+        ViewController.setVisible(imgRespostaCerta);
+        ViewController.initPulseAnimation(imgRespostaCerta);
+        ViewController.setInvisible(btnChecarResposta);
+        ViewController.setVisible(btnAvancarQuestao);
         calcularPontuacao();
-        initAnimationAnswer(this.imgRespostaCerta);
-        unhideView(btnAvancarQuestao);
     }
 
+    /*
+      * Ao errar a resposta, o usuário recebe um som de resposta errada, o botão de verificar resposta
+       * é escondido, e o botão de tentar novamente é mostrado na tela para que ele possa fazer uma
+       * nova tentativa. Também é incrementada a quantidade de erros para medir a pontuação mais tarde.
+    */
     protected void respostaErrada() {
-        this.qtdErros++;
-        refreshListener.playSoundWrongAnswer();
-        this.initAnimationAnswer(imgRespostaErrada);
-        this.hideUnnecessaryView(btnChecarResposta);
-        this.unhideView(btnTentarNovamente);
+        qtdErros++;
+        refreshListener.tocarSomRespostaErrada();
+        ViewController.setVisible(imgRespostaErrada);
+        ViewController.initPulseAnimation(imgRespostaErrada);
+        ViewController.setInvisible(btnChecarResposta);
+        ViewController.setVisible(btnTentarNovamente);
     }
 
+    /*
+      * Ao clicar no botão tentar novamente, que aparece após uma resposta errada, o usuário volta
+      * ao estado inicial: o botão tentar novamente é escondido, as imagens são escondidas, e o
+      * botão de checar resposta é mostrado novamente. O texto de pontuação é resetado
+    */
     protected void tentarNovamente() {
-        hideUnnecessaryView(btnTentarNovamente);
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
-        unhideView(btnChecarResposta);
-        txtPontos.setText(getActivity().getResources().getString(R.string.pontuacaoDefault));
-        setQtdErros(0);
-        zerarPontuacao();
+
+        resetUIExercicio();
+
+        /*setQtdErros(0);
+        zerarPontuacao(); TODO: REMOVER*/
     }
 
     protected void concluirQuestao() {
-        final int contagemTotalLicoes = tab_layout.getTabCount() - 1;
-        final int licaoAtual = view_pager.getCurrentItem();
-
         // Se a lição atual for igual à contagem total de lições, o usuário está na lição final da etapa
-        if(licaoAtual ==  contagemTotalLicoes) {
+        if(refreshListener.isLastExercise()) {
             questaoFinal();
         } else {
             avancarQuestao();
@@ -283,64 +213,45 @@ public abstract class Exercicio extends ConteudoWrapper {
 
     protected void avancarQuestao() {
 
-        hideUnnecessaryView(btnAvancarQuestao);
-        unhideView(btnChecarResposta);
-
-        hideUnnecessaryView(imgRespostaCerta);
-        hideUnnecessaryView(imgRespostaErrada);
-
+        resetUIExercicio();
         zerarPontuacao();
-        this.setQtdErros(0);
-
+        zerarErros();
         avancarProgresso();
 
-        // TROCANDO O FRAGMENTO
-        moveNext();
+        // Ir para o próximo fragmento
+        refreshListener.moveNext();
     }
 
     protected void questaoFinal() {
         if(!usuarioJaCompletouEssaEtapaAntes()) {
             avancarProgressoEtapa();
-            //atualizarPontuacao();
+            atualizarPontuacao();
         }
 
         this.getActivity().finish();
     }
 
-    protected void initAnimationAnswer(ImageView image) {
-        // ANIMAÇÃO RESPOSTA CERTA
-        image.setVisibility(View.VISIBLE);
-        PulseAnimation.create().with(image)
-                .setDuration(310)
-                .setRepeatCount(PulseAnimation.INFINITE)
-                .setRepeatMode(PulseAnimation.REVERSE)
-                .start();
-    }
+    /*
+     * Cada exercício terá que sobrescrever esse método, chamar o super e adicionar as peculiaridades
+      * necessárias para resetar cada tipo de exercício
+    */
+    protected void resetUIExercicio() {
+        // Configurando a visibilidade dos botões
+        ViewController.setInvisible(btnTentarNovamente);
+        ViewController.setInvisible(btnAvancarQuestao);
+        ViewController.setVisible(btnChecarResposta);
 
-    // Método genérico que controla a função de tocar som
-    protected void playSound(MediaPlayer sound) {
-        // Se o som não estiver desativado
-        if(!refreshListener.isSomDesativado()) {
-            // Tocar som
-            sound.start();
-        }
-    }
+        // Escondendo as imagens de certo e errado
+        ViewController.setInvisible(imgRespostaCerta);
+        ViewController.setInvisible(imgRespostaErrada);
 
-    protected void hideUnnecessaryView(View view) {
-        if(view != null) {
-            view.setVisibility(View.GONE);
-        }
-    }
-
-    protected void unhideView(View view) {
-        if(view != null) {
-            view.setVisibility(View.VISIBLE);
-        }
+        // Resetando a TextView que mostra a pontuação
+        txtPontos.setText(getActivity().getResources().getString(R.string.pontuacaoDefault));
     }
 
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
-            refreshListener.avancarProgressoLicao(/* aumento em */2);
+            refreshListener.setProgressoLicao(/* aumento em */2);
             //atualizarPontuacao();
         }
 
@@ -349,6 +260,45 @@ public abstract class Exercicio extends ConteudoWrapper {
 
     protected void zerarPontuacao() {
         this.pontuacao = 0;
+    }
+
+    protected void zerarErros() {
+        this.qtdErros = 0;
+    }
+
+    protected boolean usuarioJaCompletouEssaLicaoAntes() {
+        int licaoAtual = refreshListener.getViewPager().getCurrentItem();
+        int progressoSalvo = refreshListener.getProgressoLicao();
+
+        return progressoSalvo > licaoAtual;
+    }
+
+    protected boolean usuarioJaCompletouEsseModuloAntes() {
+        int progressoSalvo = refreshListener.getProgressoModulo();
+
+        return progressoSalvo > refreshListener.getModuloAtual();
+    }
+
+    protected boolean usuarioJaCompletouEssaEtapaAntes() {
+        int progressoSalvo = refreshListener.getProgressoEtapa();
+
+        return progressoSalvo > refreshListener.getEtapaAtual();
+    }
+
+    protected void avancarProgressoModulo() {
+        refreshListener.avancarProgressoModulo(/*AVANCAR EM */ 1);
+    }
+
+    protected void avancarProgressoEtapa() {
+        refreshListener.setProgressoEtapa(/*AUMENTO EM */ 1);
+    }
+
+    protected void liberarPrimeiraEtapaDoProximoModulo() {
+        refreshListener.setProgressoEtapa(refreshListener.getModuloAtual() + 1, /*AUMENTO EM */ 1);
+    }
+
+    protected void atualizarPontuacao() {
+        refreshListener.somarPontos(this.pontuacao);
     }
 
     protected Class retornarTelaEtapas(int numeroModulo) {
@@ -362,47 +312,5 @@ public abstract class Exercicio extends ConteudoWrapper {
             default: return null;
         }
     }
-
-    protected boolean usuarioJaCompletouEssaLicaoAntes() {
-        int licaoAtual = view_pager.getCurrentItem();
-        int progressoSalvo = refreshListener.getProgressoLicao();
-
-        return progressoSalvo > licaoAtual;
-    }
-
-    protected boolean usuarioJaCompletouEsseModuloAntes() {
-        int progressoSalvo = refreshListener.getProgressoModulo();
-
-        return progressoSalvo > this.moduloAtual;
-    }
-
-    protected boolean usuarioJaCompletouEssaEtapaAntes() {
-        int progressoSalvo = refreshListener.getProgressoEtapa();
-        Log.d("PROG ETAPA:^", String.valueOf(progressoSalvo));
-        Log.d("NUM ETAPA ATUAL:^", String.valueOf(etapaAtual));
-        return progressoSalvo > refreshListener.getEtapaAtual();
-    }
-
-    protected void avancarProgressoModulo(int aumento) {
-        refreshListener.avancarProgressoModulo(/*AVANCAR EM */ aumento);
-    }
-
-    protected void liberarPrimeiraEtapaDoProximoModulo() {
-        refreshListener.avancarProgressoEtapa(refreshListener.getModuloAtual() + 1, /*AUMENTO EM */ 1);
-    }
-
-    protected void avancarProgressoEtapa() {
-        refreshListener.avancarProgressoEtapa(/*AUMENTO EM */ 1);
-    }
-
-    protected void avancarProgressoLicao(int aumento) {
-        refreshListener.avancarProgressoLicao(aumento);
-    }
-
-    protected void atualizarPontuacao() {
-        //DB_PROGRESSO.atualizarPontuacao(this.moduloAtual, this.pontuacao);
-    }
-
-
 
 }

@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.telas.fragments.container;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -10,10 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.telas.fragments.adapter.Adapter;
 import com.tcc.dagon.opus.telas.fragments.adapter.GerenciadorListaExercicios;
 import com.tcc.dagon.opus.telas.fragments.exercicios.RefreshListener;
+import com.tcc.dagon.opus.telas.fragments.exercicios.som.GerenciadorSons;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -32,6 +32,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @ViewById Toolbar toolbar;
 
     private GerenciadorLicoes gerenciadorLicoes;
+    private GerenciadorSons sons;
 
     protected LinearLayout tabStrip;
     protected String tituloEtapa;
@@ -39,10 +40,6 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     protected int moduloAtual, etapaAtual;
 
     private int qtdFragmentos;
-
-    private MediaPlayer somRespostaCerta;
-    private MediaPlayer somRespostaErrada;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +51,6 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         super.onStart();
         refreshUI();
     }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
     /* Início ciclo de vida */
 
     /* Fim ciclo de vida*/
@@ -77,6 +68,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
 
     @AfterViews
     protected void init() {
+
         getIntents();
 
         // Corta o layout em blocos para podermos trabalhar com eles
@@ -87,9 +79,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         initActionBar();
         setupAdapter();
 
-        somRespostaCerta = MediaPlayer.create(this, R.raw.resposta_certa);
-        somRespostaErrada = MediaPlayer.create(this, R.raw.resposta_errada);
-
+        sons = new GerenciadorSons(this);
         gerenciadorLicoes = new GerenciadorLicoes(/* Context */ this, qtdFragmentos, moduloAtual, etapaAtual);
 
     }
@@ -168,10 +158,8 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         // Senao é um exercício
         // Esse modo de diferenciar limita um pouco a flexibilidade, seria ideal melhorar isso no futuro
         if(indexLicao % 2 == 0) {
-            Log.d("INDEX TAB: ", String.valueOf(indexLicao));
             tab_layout.getTabAt(indexLicao).setIcon(R.drawable.icon_licao);
         } else {
-            Log.d("INDEX TAB: ", String.valueOf(indexLicao));
             tab_layout.getTabAt(indexLicao).setIcon(R.drawable.icon_pergunta);
         }
 
@@ -217,13 +205,12 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     }
 
     @Override
-    public void avancarProgressoEtapa(int aumento) {
+    public void setProgressoEtapa(int aumento) {
         gerenciadorLicoes.setProgressoEtapa(aumento);
-        Log.d("AUMENTO REALIZADO: ", String.valueOf(getProgressoEtapa() + aumento) );
     }
 
     @Override
-    public void avancarProgressoEtapa(int moduloReferente, int aumento) {
+    public void setProgressoEtapa(int moduloReferente, int aumento) {
         gerenciadorLicoes.setProgressoEtapa(moduloReferente, aumento);
     }
 
@@ -233,7 +220,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     }
 
     @Override
-    public void avancarProgressoLicao(int aumento) {
+    public void setProgressoLicao(int aumento) {
         gerenciadorLicoes.setProgressoLicao(aumento);
     }
 
@@ -258,28 +245,42 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     }
 
     @Override
-    public void playSoundRightAnswer() {
-        somRespostaCerta.start();
+    public void tocarSomRespostaCerta() {
+        sons.playSomRespostaCerta();
     }
 
     @Override
-    public void playSoundWrongAnswer() {
-        somRespostaErrada.start();
+    public void tocarSomRespostaErrada() {
+        sons.playSomRespostaErrada();
     }
 
-    public ViewPager getPager(){
+    @Override
+    public void somarPontos(int pontos) {
+        gerenciadorLicoes.somarPontos(moduloAtual, pontos);
+    }
+
+    @Override
+    public GerenciadorLicoes getManager() {
+        return this.gerenciadorLicoes;
+    }
+
+    @Override
+    public ViewPager getViewPager(){
         return view_pager;
     }
 
-    public LinearLayout getTabStrip() {
-        return tabStrip;
-    }
-
-    public TabLayout getTab_layout() {
+    @Override
+    public TabLayout getTabLayout() {
         return tab_layout;
     }
 
-    protected void movePrevious() {
+    @Override
+    public void moveNext() {
+        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
+    }
+
+    @Override
+    public void movePrevious() {
         view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
     }
 

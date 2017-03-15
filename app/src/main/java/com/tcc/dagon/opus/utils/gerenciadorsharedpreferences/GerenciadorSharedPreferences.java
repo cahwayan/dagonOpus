@@ -3,13 +3,15 @@ package com.tcc.dagon.opus.utils.gerenciadorsharedpreferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
+
 /**
  * Created by cahwayan on 07/12/2016.
  */
 
 public class GerenciadorSharedPreferences implements Preferencias {
 
-    protected final SharedPreferences sharedPreferences;
+    final SharedPreferences sharedPreferences;
 
     public GerenciadorSharedPreferences(Context context) {
         this.sharedPreferences = context.getSharedPreferences("Preferences", Context.MODE_PRIVATE);
@@ -65,22 +67,22 @@ public class GerenciadorSharedPreferences implements Preferencias {
     @Override
     public int getProgressoEtapa(int numModuloReferente) {
         switch(numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO0);
 
-            case 1:
+            case ModuloCurso.MODULO1:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO1);
 
-            case 2:
+            case ModuloCurso.MODULO2:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO2);
 
-            case 3:
+            case ModuloCurso.MODULO3:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO3);
 
-            case 4:
+            case ModuloCurso.MODULO4:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO4);
 
-            case 5:
+            case ModuloCurso.MODULO5:
                 return lerFlagInt(PROGRESSO_ETAPAS_MODULO5);
 
             default:
@@ -91,22 +93,22 @@ public class GerenciadorSharedPreferences implements Preferencias {
     @Override
     public boolean getCompletouProva(int numModuloReferente) {
         switch(numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 return lerFlagBoolean(flagProva0);
 
-            case 1:
+            case ModuloCurso.MODULO1:
                 return lerFlagBoolean(flagProva1);
 
-            case 2:
+            case ModuloCurso.MODULO2:
                 return lerFlagBoolean(flagProva2);
 
-            case 3:
+            case ModuloCurso.MODULO3:
                 return lerFlagBoolean(flagProva3);
 
-            case 4:
+            case ModuloCurso.MODULO4:
                 return lerFlagBoolean(flagProva4);
 
-            case 5:
+            case ModuloCurso.MODULO5:
                 return lerFlagBoolean(flagProva5);
 
             default:
@@ -137,17 +139,17 @@ public class GerenciadorSharedPreferences implements Preferencias {
     @Override
     public String getNota(int numModuloReferente) {
         switch(numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 return lerFlagString(notaModulo0);
-            case 1:
+            case ModuloCurso.MODULO1:
                 return lerFlagString(notaModulo1);
-            case 2:
+            case ModuloCurso.MODULO2:
                 return lerFlagString(notaModulo2);
-            case 3:
+            case ModuloCurso.MODULO3:
                 return lerFlagString(notaModulo3);
-            case 4:
+            case ModuloCurso.MODULO4:
                 return lerFlagString(notaModulo4);
-            case 5:
+            case ModuloCurso.MODULO5:
                 return lerFlagString(notaModulo5);
             default:
                 return "numModuloInvalido";
@@ -175,22 +177,22 @@ public class GerenciadorSharedPreferences implements Preferencias {
         String flag;
 
         switch(numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 flag = PROGRESSO_ETAPAS_MODULO0;
                 break;
-            case 1:
+            case ModuloCurso.MODULO1:
                 flag = PROGRESSO_ETAPAS_MODULO1;
                 break;
-            case 2:
+            case ModuloCurso.MODULO2:
                 flag = PROGRESSO_ETAPAS_MODULO2;
                 break;
-            case 3:
+            case ModuloCurso.MODULO3:
                 flag = PROGRESSO_ETAPAS_MODULO3;
                 break;
-            case 4:
+            case ModuloCurso.MODULO4:
                 flag = PROGRESSO_ETAPAS_MODULO4;
                 break;
-            case 5:
+            case ModuloCurso.MODULO5:
                 flag = PROGRESSO_ETAPAS_MODULO5;
                 break;
             default:
@@ -207,22 +209,22 @@ public class GerenciadorSharedPreferences implements Preferencias {
         String flag;
 
         switch(numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 flag = flagProva0;
                 break;
-            case 1:
+            case ModuloCurso.MODULO1:
                 flag = flagProva1;
                 break;
-            case 2:
+            case ModuloCurso.MODULO2:
                 flag = flagProva2;
                 break;
-            case 3:
+            case ModuloCurso.MODULO3:
                 flag = flagProva3;
                 break;
-            case 4:
+            case ModuloCurso.MODULO4:
                 flag = flagProva4;
                 break;
-            case 5:
+            case ModuloCurso.MODULO5:
                 flag = flagProva5;
                 break;
             default:
@@ -259,22 +261,22 @@ public class GerenciadorSharedPreferences implements Preferencias {
         String flag;
 
         switch (numModuloReferente) {
-            case 0:
+            case ModuloCurso.MODULO0:
                 flag = notaModulo0;
                 break;
-            case 1:
+            case ModuloCurso.MODULO1:
                 flag = notaModulo1;
                 break;
-            case 2:
+            case ModuloCurso.MODULO2:
                 flag = notaModulo2;
                 break;
-            case 3:
+            case ModuloCurso.MODULO3:
                 flag = notaModulo3;
                 break;
-            case 4:
+            case ModuloCurso.MODULO4:
                 flag = notaModulo4;
                 break;
-            case 5:
+            case ModuloCurso.MODULO5:
                 flag = notaModulo5;
                 break;
             default:
@@ -283,6 +285,36 @@ public class GerenciadorSharedPreferences implements Preferencias {
         }
 
         modFlag(flag, nota);
+    }
+
+    public int getPontos(int moduloReferente) {
+
+        String flag;
+
+        switch (moduloReferente) {
+            case ModuloCurso.MODULO0:
+                flag = PONTOS_MODULO0;
+                break;
+            case ModuloCurso.MODULO1:
+                flag = PONTOS_MODULO1;
+                break;
+            case ModuloCurso.MODULO2:
+                flag = PONTOS_MODULO2;
+                break;
+            case ModuloCurso.MODULO3:
+                flag = PONTOS_MODULO3;
+                break;
+            case ModuloCurso.MODULO4:
+                flag = PONTOS_MODULO4;
+                break;
+            case ModuloCurso.MODULO5:
+                flag = PONTOS_MODULO5;
+                break;
+
+            default: flag = "defaultPontos";
+        }
+
+        return lerFlagInt(flag);
     }
 
     @Override

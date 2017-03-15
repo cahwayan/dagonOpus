@@ -22,6 +22,15 @@ public interface Preferencias {
     String PROGRESSO_ETAPAS_MODULO4 = "progressoEtapasModulo4";
     String PROGRESSO_ETAPAS_MODULO5 = "progressoEtapasModulo5";
 
+    // Flags pontuação
+    String PONTOS_MODULO0 = "pontuacaoModulo0";
+    String PONTOS_MODULO1 = "pontuacaoModulo1";
+    String PONTOS_MODULO2 = "pontuacaoModulo2";
+    String PONTOS_MODULO3 = "pontuacaoModulo3";
+    String PONTOS_MODULO4 = "pontuacaoModulo4";
+    String PONTOS_MODULO5 = "pontuacaoModulo5";
+    String PONTOS_MODULO6 = "pontuacaoModulo6";
+
     /*
       * Flags da tela de configurações
       * TIPO: boolean

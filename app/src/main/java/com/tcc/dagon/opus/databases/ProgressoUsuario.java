@@ -69,15 +69,15 @@ final class ProgressoUsuario {
 
         // COLUNAS DA TABELA DAS RESPOSTAS DAS PERGUNTAS
         // SERVE TANTO PARA AS RESPOSTAS QUANDO PARA O TEXTO
-        static final String ALTERNATIVA1   = "ALTERNATIVA1";
-        static final String ALTERNATIVA2   = "ALTERNATIVA2";
-        static final String ALTERNATIVA3   = "ALTERNATIVA3";
-        static final String ALTERNATIVA4   = "ALTERNATIVA4";
+        static final String TEXTO_ALTERNATIVA0 = "ALTERNATIVA0";
+        static final String TEXTO_ALTERNATIVA1 = "ALTERNATIVA1";
+        static final String TEXTO_ALTERNATIVA2 = "ALTERNATIVA2";
+        static final String TEXTO_ALTERNATIVA3 = "ALTERNATIVA3";
 
-        static final String RESPOSTA_ALTERNATIVA1   = "RESPOSTA_ALTERNATIVA1";
-        static final String RESPOSTA_ALTERNATIVA2   = "RESPOSTA_ALTERNATIVA2";
-        static final String RESPOSTA_ALTERNATIVA3   = "RESPOSTA_ALTERNATIVA3";
-        static final String RESPOSTA_ALTERNATIVA4   = "RESPOSTA_ALTERNATIVA4";
+        static final String RESPOSTA_ALTERNATIVA0 = "RESPOSTA_ALTERNATIVA0";
+        static final String RESPOSTA_ALTERNATIVA1 = "RESPOSTA_ALTERNATIVA1";
+        static final String RESPOSTA_ALTERNATIVA2 = "RESPOSTA_ALTERNATIVA2";
+        static final String RESPOSTA_ALTERNATIVA3 = "RESPOSTA_ALTERNATIVA3";
 
 
     }

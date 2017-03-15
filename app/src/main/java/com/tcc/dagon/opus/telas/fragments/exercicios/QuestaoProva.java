@@ -30,8 +30,6 @@ public final class QuestaoProva extends Questao {
 
     public static QuestaoProva novaQuestaoProva(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoProva questao = new QuestaoProva();
-        questao.setModuloAtual(moduloAtual);
-        questao.setEtapaAtual(etapaAtual);
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
@@ -71,7 +69,7 @@ public final class QuestaoProva extends Questao {
     public void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            avancarProgressoLicao(/* AUMENTO EM */ 1);
+            //avancarProgressoLicao(/* AUMENTO EM */ 1);
         }
     }
 
@@ -119,7 +117,7 @@ public final class QuestaoProva extends Questao {
         ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
+            //startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
     }
@@ -128,7 +126,7 @@ public final class QuestaoProva extends Questao {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(getBtnAvancarQuestao());
+        /*hideUnnecessaryView(getBtnAvancarQuestao());
         unhideView(getBtnChecarResposta());
 
         changeUpperBarIcon(ICONE_EXERCICIO, R.drawable.icon_pergunta);
@@ -141,7 +139,7 @@ public final class QuestaoProva extends Questao {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext();
+        moveNext();*/
     }
 
     @Override
@@ -159,9 +157,9 @@ public final class QuestaoProva extends Questao {
 
     @Override
     public void accessViews(View rootView) {
-        super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getPager() ) );
+    /*    super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getViewPager() ) );
         //super.setTabStrip( (( (ContainerProvaActivity)this.getActivity() ).getTabStrip()) );
-        super.setTab_layout( (( (ContainerProvaActivity)this.getActivity() ).getTab_layout() ) );
+        super.setTab_layout( (( (ContainerProvaActivity)this.getActivity() ).getTabLayout() ) );*/
         this.vida01 = ((ContainerProvaActivity)getActivity()).getVida01();
         this.vida02 = ((ContainerProvaActivity)getActivity()).getVida02();
         this.vida03 = ((ContainerProvaActivity)getActivity()).getVida03();

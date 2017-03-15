@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.telas.fragments.container.ContainerProvaActivity;
-import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.AnimacaoResposta;
 
 /**
@@ -33,8 +32,6 @@ public final class CompletarProva extends Completar {
 
     public static CompletarProva novoCompletarProva(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         CompletarProva completar = new CompletarProva();
-        completar.setModuloAtual(moduloAtual);
-        completar.setEtapaAtual(etapaAtual);
         completar.setQuantidadePalavras(quantidadePalavras);
         completar.setLayoutID(layoutID);
         completar.setRespostasCertas(respostasCertas);
@@ -71,7 +68,7 @@ public final class CompletarProva extends Completar {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(getBtnAvancarQuestao());
+       /* hideUnnecessaryView(getBtnAvancarQuestao());
         unhideView(getBtnChecarResposta());
 
         hideUnnecessaryView(getImgRespostaCerta());
@@ -83,7 +80,7 @@ public final class CompletarProva extends Completar {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext();
+        moveNext();*/
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
@@ -95,7 +92,7 @@ public final class CompletarProva extends Completar {
 
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
+            startActivity(new Intent(getActivity(), retornarTelaEtapas(refreshListener.getModuloAtual())));
             this.getActivity().finish();
         }
     }
@@ -106,7 +103,7 @@ public final class CompletarProva extends Completar {
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
-            avancarProgressoModulo(1);
+            refreshListener.avancarProgressoModulo(1);
             liberarPrimeiraEtapaDoProximoModulo();
         }
 
@@ -115,9 +112,9 @@ public final class CompletarProva extends Completar {
 
     @Override
     protected void accessViews(View rootView) {
-        super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getPager()) );
+        //super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getViewPager()) );
         //super.setTabStrip (( (ContainerProvaActivity)this.getActivity() ).getTabStrip());
-        super.setTab_layout (( (ContainerProvaActivity)this.getActivity() ).getTab_layout() );
+        //super.setTab_layout (( (ContainerProvaActivity)this.getActivity() ).getTabLayout() );
         this.vida01 = ((ContainerProvaActivity)getActivity()).getVida01();
         this.vida02 = ((ContainerProvaActivity)getActivity()).getVida02();
         this.vida03 = ((ContainerProvaActivity)getActivity()).getVida03();
@@ -130,7 +127,7 @@ public final class CompletarProva extends Completar {
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            avancarProgressoLicao(/* AUMENTO EM*/ 1);
+            refreshListener.setProgressoLicao(/* AUMENTO EM*/ 1);
         }
     }
 

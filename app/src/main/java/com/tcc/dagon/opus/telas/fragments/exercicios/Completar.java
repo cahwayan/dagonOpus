@@ -80,8 +80,6 @@ public class Completar extends Exercicio {
     * COMO UM CONSTRUTOR*/
     public static Completar novoCompletar(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         Completar completar = new Completar();
-        completar.setModuloAtual(moduloAtual);
-        completar.setEtapaAtual(etapaAtual);
         completar.setQuantidadePalavras(quantidadePalavras);
         completar.setLayoutID(layoutID);
         completar.setRespostasCertas(respostasCertas);
@@ -96,10 +94,9 @@ public class Completar extends Exercicio {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         inflateRootView(this.layoutID, inflater, container, savedInstanceState);
-        instanciaObjetos();
         configurarVetoresListas();
         accessViews(this.rootView);
-        listeners();
+        setListeners();
         return this.rootView;
     }
 
@@ -138,9 +135,9 @@ public class Completar extends Exercicio {
     }
 
     @Override
-    public void listeners() {
+    public void setListeners() {
 
-        super.listeners();
+        super.setListeners();
 
         /*LISTENERS DAS EDIT TEXTS PARA AVANÇAREM QUANDO FOR PREENCHIDA A PALAVRA*/
         // de 0 até o tamanho do vetor que guarda o tamanho de cada palavra
@@ -283,7 +280,7 @@ public class Completar extends Exercicio {
 
         setPontuacao(pontos);
 
-        getTxtPontos().setText("Pontos: " + String.valueOf(pontos) );
+        txtPontos.setText("Pontos: " + String.valueOf(pontos) );
     }
 
     @Override

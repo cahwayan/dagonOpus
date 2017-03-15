@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.tcc.dagon.opus.databases.ProgressoUsuario.Progresso;
@@ -39,7 +38,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     // OBJETO BANCO
     private SQLiteDatabase DB_PROGRESSO;
 
-    private static final String TAG = "Atualização: ";
+    private static final String TAG = "VALOR RESPOSTA BANCO: ";
 
     // MÉTODO CONSTRUTOR DO BANCO
     public GerenciadorBanco(Context context) {
@@ -393,7 +392,9 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // VERIFICA SE A PERGUNTA ESTÁ CERTA
     public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
+
         String tabela = Progresso.QUESTOES;
+
         String colunaAlternativa[] = {""};
 
         String limit = "1";
@@ -405,18 +406,21 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
         String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
 
+        Log.d("ALTERNATIVA VERIFICAD: ", String.valueOf(alternativa) );
         switch (alternativa) {
+
+            case 0:
+                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA0;
+                break;
             case 1:
                 colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA1;
                 break;
             case 2:
+
                 colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA2;
                 break;
             case 3:
                 colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA3;
-                break;
-            case 4:
-                colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA4;
                 break;
         }
 
@@ -441,7 +445,8 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         fecharBanco();
 
         // RETORNA O VALOR REQUERIDO
-        Log.i(TAG, String.valueOf(respostaPergunta));
+        Log.i(TAG,String.valueOf(respostaPergunta));
+
         return respostaPergunta;
     }
 
@@ -585,8 +590,12 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
                         Progresso.ETAPA + " LIKE ? AND " +
                         Progresso.NUM_QUESTAO + " LIKE ? " ;
 
+
+
         // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
         String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
+
+        Log.d("Mód:Etapa:NumQuestao: ", String.valueOf(moduloPertencente) + " " + String.valueOf(etapaPertencente) + " " + String.valueOf(numQuestao));
 
         abrirBanco();
         Cursor cursor = DB_PROGRESSO.query(
@@ -620,16 +629,16 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         switch(alternativa) {
             case 1:
-                coluna[0] = Progresso.ALTERNATIVA1;
+                coluna[0] = Progresso.TEXTO_ALTERNATIVA0;
                 break;
             case 2:
-                coluna[0] = Progresso.ALTERNATIVA2;
+                coluna[0] = Progresso.TEXTO_ALTERNATIVA1;
                 break;
             case 3:
-                coluna[0] = Progresso.ALTERNATIVA3;
+                coluna[0] = Progresso.TEXTO_ALTERNATIVA2;
                 break;
             case 4:
-                coluna[0] = Progresso.ALTERNATIVA4;
+                coluna[0] = Progresso.TEXTO_ALTERNATIVA3;
                 break;
         }
 

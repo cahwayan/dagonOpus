@@ -23,8 +23,6 @@ public class QuestaoMultipla extends Questao {
 
     public static QuestaoMultipla novaQuestaoMultipla(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoMultipla questao = new QuestaoMultipla();
-        questao.setModuloAtual(moduloAtual);
-        questao.setEtapaAtual(etapaAtual);
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
@@ -38,7 +36,7 @@ public class QuestaoMultipla extends Questao {
         accessCheckBoxes(getRootView());
         accessViews(getRootView());
         fetchQuestionFromDatabase();
-        listeners();
+        setListeners();
         return getRootView();
     }
 
@@ -109,11 +107,11 @@ public class QuestaoMultipla extends Questao {
 
     @Override
     public void tentarNovamente() {
-        hideUnnecessaryView(getBtnTentarNovamente());
+/*        hideUnnecessaryView(getBtnTentarNovamente());
         hideUnnecessaryView(getImgRespostaCerta());
         hideUnnecessaryView(getImgRespostaErrada());
         unhideView(getBtnChecarResposta());
-        getTxtPontos().setText("Pontos: 0");
+        getTxtPontos().setText("Pontos: 0");*/
         zerarPontuacao();
 
         this.uncheckAllButtons();
@@ -124,10 +122,12 @@ public class QuestaoMultipla extends Questao {
     public void respostaErrada() {
         setQtdErros(getQtdErros() + 1);
         Log.d("ERROS: ", String.valueOf(getQtdErros()));
-        refreshListener.playSoundWrongAnswer();
+        refreshListener.tocarSomRespostaErrada();
+/*
         this.initAnimationAnswer(getImgRespostaErrada());
         this.hideUnnecessaryView(getBtnChecarResposta());
         this.unhideView(getBtnTentarNovamente());
+*/
 
         setAllButtonsUnclickable();
 
@@ -158,12 +158,12 @@ public class QuestaoMultipla extends Questao {
 
         setPontuacao(pontos);
 
-        getTxtPontos().setText("Pontos: " + String.valueOf(pontos));
+   /*     getTxtPontos().setText("Pontos: " + String.valueOf(pontos));*/
     }
 
     protected void fetchQuestionFromDatabase() {
 
-        GerenciadorBanco DB = getDB_PROGRESSO();
+ /*       GerenciadorBanco DB = getDB_PROGRESSO();
         int moduloAtual = getModuloAtual();
         int etapaAtual = getEtapaAtual();
         int questaoAtual = getQuestaoAtual();
@@ -173,7 +173,7 @@ public class QuestaoMultipla extends Questao {
         this.alternativa1.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA0()));
         this.alternativa2.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA1()));
         this.alternativa3.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA2()));
-        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA3()));
+        this.alternativa4.setText(DB.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, getALTERNATIVA3()));*/
     }
 
     @Override

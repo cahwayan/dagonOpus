@@ -2,6 +2,7 @@ package com.tcc.dagon.opus.telas.fragments.exercicios;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.utils.ViewController;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -18,12 +20,10 @@ import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 
 public class Questao extends Exercicio {
 
-
-
-    private final int ALTERNATIVA0 = 0;
-    private final int ALTERNATIVA1 = 1;
-    private final int ALTERNATIVA2 = 2;
-    private final int ALTERNATIVA3 = 3;
+    protected final int ALTERNATIVA0 = 0;
+    protected final int ALTERNATIVA1 = 1;
+    protected final int ALTERNATIVA2 = 2;
+    protected final int ALTERNATIVA3 = 3;
 
     /* COMPONENTES VISUAIS */
     private RadioGroup radioGroupQuestao;
@@ -35,22 +35,6 @@ public class Questao extends Exercicio {
     private TextView pergunta;
     private View rootView;
     private NovaJanelaAlerta alertaOpcaoVazia;
-
-    public int getALTERNATIVA0() {
-        return ALTERNATIVA0;
-    }
-
-    public int getALTERNATIVA1() {
-        return ALTERNATIVA1;
-    }
-
-    public int getALTERNATIVA2() {
-        return ALTERNATIVA2;
-    }
-
-    public int getALTERNATIVA3() {
-        return ALTERNATIVA3;
-    }
 
     public TextView getPergunta() {
         return pergunta;
@@ -76,10 +60,8 @@ public class Questao extends Exercicio {
         this.rootView = rootView;
     }
 
-    public static Questao novaQuestao(int moduloAtual, int etapaAtual, int questaoAtual) {
+    public static Questao novaQuestao(int questaoAtual) {
         Questao questao = new Questao();
-        questao.setModuloAtual(moduloAtual);
-        questao.setEtapaAtual(etapaAtual);
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
@@ -94,7 +76,13 @@ public class Questao extends Exercicio {
         this.accessViews(this.rootView);
         this.accessRadioButtons(this.rootView);
         this.setupQuestion();
-        this.listeners();
+        this.setListeners();
+
+
+        resetUIExercicio();
+
+
+
         return this.rootView;
     }
 
@@ -103,7 +91,6 @@ public class Questao extends Exercicio {
     }
 
     protected void instanciaObjetos() {
-        super.instanciaObjetos();
         // OBJETO JANELA DE ALERTA
         if(alertaOpcaoVazia == null) {
             alertaOpcaoVazia = new NovaJanelaAlerta(getActivity());
@@ -154,10 +141,10 @@ public class Questao extends Exercicio {
     }
 
     @Override
-    protected void listeners() {
-        super.listeners();
+    protected void setListeners() {
+        super.setListeners();
 
-        getImgRespostaErrada().setOnClickListener(new View.OnClickListener() {
+        imgRespostaErrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 concluirQuestao();
@@ -200,6 +187,8 @@ public class Questao extends Exercicio {
 
         final int RESPOSTA_CERTA  = 1;
 
+        Log.d("VAR resposta: ", String.valueOf(resposta));
+
         if(resposta == RESPOSTA_CERTA) {
             respostaCerta();
         } else {
@@ -221,10 +210,12 @@ public class Questao extends Exercicio {
     protected void respostaErrada() {
         setAllButtonsUnclickable();
         setQtdErros(getQtdErros() + 1);
-        refreshListener.playSoundWrongAnswer();
-        initAnimationAnswer(getImgRespostaErrada());
-        hideUnnecessaryView(getBtnChecarResposta());
-        unhideView(getBtnAvancarQuestao());
+        refreshListener.tocarSomRespostaErrada();
+
+        ViewController.initPulseAnimation(imgRespostaErrada);
+        ViewController.setInvisible(btnChecarResposta);
+        ViewController.setVisible(btnAvancarQuestao);
+
         calcularPontuacao();
         showCorrectAnswer();
     }
@@ -255,7 +246,7 @@ public class Questao extends Exercicio {
     protected void tentarNovamente() {
         super.tentarNovamente();
 
-        hideUnnecessaryView(getBtnAvancarQuestao());
+        ViewController.setInvisible(btnAvancarQuestao);
 
         resetButtonsStyle();
         // DESMARCANDO OS RADIO BUTTONS
@@ -294,7 +285,7 @@ public class Questao extends Exercicio {
 
         setPontuacao(pontos);
 
-        getTxtPontos().setText("Pontos: " + String.valueOf(getPontuacao()));
+        txtPontos.setText("Pontos: " + String.valueOf(getPontuacao()));
     }
 
     protected void setAllButtonsUnclickable() {
@@ -324,24 +315,8 @@ public class Questao extends Exercicio {
 
     protected int verificaResposta(int alternativa) {
 
-        final int RESPOSTA_ERRADA = 0;
+        return refreshListener.getManager().verificaAlternativa(questaoAtual, alternativa);
 
-        GerenciadorBanco DB = getDB_PROGRESSO();
-        int moduloAtual = getModuloAtual();
-        int etapaAtual = getEtapaAtual();
-
-        switch(alternativa) {
-            case 1:
-                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 1);
-            case 2:
-                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 2);
-            case 3:
-                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 3);
-            case 4:
-                return DB.verificaPergunta(refreshListener.getModuloAtual(), refreshListener.getEtapaAtual(), questaoAtual, 4);
-            default:
-                return RESPOSTA_ERRADA;
-        }
     }
 
 

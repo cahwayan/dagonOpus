@@ -31,8 +31,6 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     public static QuestaoMultiplaProva novaQuestaoMultiplaProva(int moduloAtual, int etapaAtual, int questaoAtual) {
         QuestaoMultiplaProva questao = new QuestaoMultiplaProva();
-        questao.setModuloAtual(moduloAtual);
-        questao.setEtapaAtual(etapaAtual);
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
@@ -48,7 +46,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
         fetchQuestionFromDatabase();
 
         // CARREGANDO A LÓGICA DOS LISTENERS DA CLASSE PAI
-        super.listeners();
+        super.setListeners();
 
         return getRootView();
     }
@@ -75,7 +73,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     public void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
             atualizarPontuacao();
-            avancarProgressoLicao(/* AUMENTO EM */ 1);
+            //avancarProgressoLicao(/* AUMENTO EM */ 1);
         }
     }
 
@@ -123,7 +121,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
         ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
         if(container.getContagemVidas() == 0) {
             Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
+            //startActivity(new Intent(getActivity(), retornarTelaEtapas(getModuloAtual())));
             this.getActivity().finish();
         }
     }
@@ -132,7 +130,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     public void avancarQuestao() {
         final int ICONE_EXERCICIO = 1;
 
-        hideUnnecessaryView(getBtnAvancarQuestao());
+      /*  hideUnnecessaryView(getBtnAvancarQuestao());
         unhideView(getBtnChecarResposta());
 
         hideUnnecessaryView(getImgRespostaCerta());
@@ -141,7 +139,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
         avancarProgresso();
 
         // TROCANDO O FRAGMENTO
-        moveNext();
+        moveNext();*/
     }
 
     @Override
@@ -150,7 +148,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
             atualizarPontuacao();
-            avancarProgressoModulo(1);
+            //avancarProgressoModulo(1);
             liberarPrimeiraEtapaDoProximoModulo();
         }
 
@@ -159,9 +157,9 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
 
     @Override
     public void accessViews(View rootView) {
-        super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getPager()) );
+/*        super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getViewPager()) );
         //super.setTabStrip (( (ContainerProvaActivity)this.getActivity() ).getTabStrip());
-        super.setTab_layout( (( (ContainerProvaActivity)this.getActivity() ).getTab_layout() ) );
+        super.setTab_layout( (( (ContainerProvaActivity)this.getActivity() ).getTabLayout() ) );*/
         this.vida01 = ((ContainerProvaActivity)getActivity()).getVida01();
         this.vida02 = ((ContainerProvaActivity)getActivity()).getVida02();
         this.vida03 = ((ContainerProvaActivity)getActivity()).getVida03();

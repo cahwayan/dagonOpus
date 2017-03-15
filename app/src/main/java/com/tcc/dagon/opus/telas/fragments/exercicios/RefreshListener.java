@@ -1,5 +1,11 @@
 package com.tcc.dagon.opus.telas.fragments.exercicios;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+
+import com.tcc.dagon.opus.telas.fragments.container.GerenciadorLicoes;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+
 /**
  * Created by cahwayan on 10/03/2017.
  */
@@ -12,6 +18,8 @@ package com.tcc.dagon.opus.telas.fragments.exercicios;
     */
 public interface RefreshListener {
 
+    GerenciadorLicoes getManager();
+
     void refreshUI();
     boolean isLastExercise();
     boolean isSomDesativado();
@@ -19,11 +27,11 @@ public interface RefreshListener {
     void avancarProgressoModulo(int aumento);
     int getProgressoModulo();
 
-    void avancarProgressoEtapa(int aumento);
-    void avancarProgressoEtapa(int moduloReferente, int aumento);
+    void setProgressoEtapa(int aumento);
+    void setProgressoEtapa(int moduloReferente, int aumento);
     int getProgressoEtapa();
 
-    void avancarProgressoLicao(int aumento);
+    void setProgressoLicao(int aumento);
     int getProgressoLicao();
 
     int getEtapaAtual();
@@ -32,8 +40,17 @@ public interface RefreshListener {
     String fetchQuestionFromDatabase(int questaoAtual);
     String[] fetchAlternativesFromDatabase(int questaoAtual);
 
-    void playSoundRightAnswer();
-    void playSoundWrongAnswer();
+
+    void tocarSomRespostaCerta();
+    void tocarSomRespostaErrada();
+
+    void moveNext();
+    void movePrevious();
+
+    ViewPager getViewPager();
+    TabLayout getTabLayout();
+
+    void somarPontos(int pontos);
 
 
 

@@ -36,19 +36,19 @@ abstract class ValoresExercicios {
     static final int ETAPA13 = 13;
     static final int ETAPA14 = 14;
 
-    static final int QUESTAO0 = 1;
-    static final int QUESTAO1  = 2;
-    static final int QUESTAO2  = 3;
-    static final int QUESTAO3  = 4;
-    static final int QUESTAO4  = 5;
-    static final int QUESTAO5  = 6;
-    static final int QUESTAO6  = 7;
-    static final int QUESTAO7  = 8;
-    static final int QUESTAO8  = 9;
-    static final int QUESTAO9 = 10;
-    static final int QUESTAO10 = 11;
-    static final int QUESTAO11 = 12;
-    static final int QUESTAO12 = 13;
-    static final int QUESTAO13 = 14;
-    static final int QUESTAO14 = 15;
+    static final int QUESTAO0 = 0;
+    static final int QUESTAO1  = 1;
+    static final int QUESTAO2  = 2;
+    static final int QUESTAO3  = 3;
+    static final int QUESTAO4  = 4;
+    static final int QUESTAO5  = 5;
+    static final int QUESTAO6  = 6;
+    static final int QUESTAO7  = 7;
+    static final int QUESTAO8  = 8;
+    static final int QUESTAO9 = 9;
+    static final int QUESTAO10 = 10;
+    static final int QUESTAO11 = 11;
+    static final int QUESTAO12 = 12;
+    static final int QUESTAO13 = 13;
+    static final int QUESTAO14 = 14;
 }
