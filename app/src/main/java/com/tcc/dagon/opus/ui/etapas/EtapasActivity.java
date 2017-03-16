@@ -44,8 +44,6 @@ public abstract class EtapasActivity extends AppCompatActivity {
     // OBJETO QUE INVOCA JANELA DE ALERTAS
 
     private GerenciadorSharedPreferences preferenceManager;
-    private NovaJanelaAlerta alerta;
-
 
     /*SUPER VARIÁVEL CONTEXT*/
     private final Context context = this;
@@ -270,10 +268,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
     }
 
     private void alertaEtapaBloqueada() {
-        if(alerta == null) {
-            alerta = new NovaJanelaAlerta(this);
-        }
-        alerta.alertDialogBloqueado("Etapa bloqueada", "Complete as etapas anteriores para desbloquear esta");
+        NovaJanelaAlerta.alertDialogBloqueado(this, "Etapa bloqueada", "Complete as etapas anteriores para desbloquear esta");
     }
 
 

@@ -28,6 +28,11 @@ public class Completar extends Exercicio {
 
     private View rootView;
 
+    @Override
+    protected void findViewsExclusivas(View rootView) {
+
+    }
+
     public void setRootView(View rootView) {
         this.rootView = rootView;
     }
@@ -78,9 +83,10 @@ public class Completar extends Exercicio {
     * ESSE MÉTODO RECEBE OS PARÂMETROS, E PASSA PARA O ONCREATE ATRAVÉS DE UM BUNDLE. LÁ ENTÃO, PODEMOS PEGAR ESSES VALORES E TRABALHAR COM ELES.
     * É IMPORTANTE SABER QUE AS MODIFICAÇÕES FEITAS NESSE MÉTODO, SÃO REALIZADAS ANTES DO MÉTODO ONCREATE SER EXECUTADO, POR ISSO, SERVE PERFEITAMENTE
     * COMO UM CONSTRUTOR*/
-    public static Completar novoCompletar(int layoutID, int moduloAtual, int etapaAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
+    public static Completar novoCompletar(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
         Completar completar = new Completar();
         completar.setQuantidadePalavras(quantidadePalavras);
+        completar.setQuestaoAtual(questaoAtual);
         completar.setLayoutID(layoutID);
         completar.setRespostasCertas(respostasCertas);
         completar.setRespostasCertasAcentuadas(respostasCertasAcentuadas);
@@ -301,10 +307,10 @@ public class Completar extends Exercicio {
     }
 
     @Override
-    public void avancarQuestao() {
+    public void avancarLicao() {
         limparEditTexts();
         habilitarEditTexts();
-        super.avancarQuestao();
+        super.avancarLicao();
     }
 
     // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE

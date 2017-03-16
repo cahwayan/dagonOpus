@@ -124,6 +124,9 @@ public class GerenciadorLicoes {
 
     }
 
+    /*
+     * Método que busca a resposta para uma alternativa, para o exercício de Questão
+    */
     public int verificaAlternativa(int questaoAtual, int alternativa) {
 
         final int RESPOSTA_ERRADA = 0;

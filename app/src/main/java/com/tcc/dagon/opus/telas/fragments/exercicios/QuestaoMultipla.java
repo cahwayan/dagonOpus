@@ -21,7 +21,7 @@ public class QuestaoMultipla extends Questao {
     private CheckBox alternativa3;
     private CheckBox alternativa4;
 
-    public static QuestaoMultipla novaQuestaoMultipla(int moduloAtual, int etapaAtual, int questaoAtual) {
+    public static QuestaoMultipla novaQuestaoMultipla(int questaoAtual) {
         QuestaoMultipla questao = new QuestaoMultipla();
         questao.setQuestaoAtual(questaoAtual);
         return questao;
@@ -32,7 +32,6 @@ public class QuestaoMultipla extends Questao {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         inflateRootView(inflater, container, savedInstanceState);
-        instanciaObjetos();
         accessCheckBoxes(getRootView());
         accessViews(getRootView());
         fetchQuestionFromDatabase();
@@ -70,7 +69,7 @@ public class QuestaoMultipla extends Questao {
         int contadorAlternativa = 1;
 
         // de 0 até o tamanho do vetor que guarda o estado das checkboxes
-        for(int i = 0; i <= 3; i++) {
+        for(int i = 0; i < isAlternativaChecked.length; i++) {
 
             // se a alternativa estiver marcada ...
             if(isAlternativaChecked[i]) {

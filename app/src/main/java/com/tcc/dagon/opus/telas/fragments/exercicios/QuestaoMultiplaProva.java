@@ -40,7 +40,6 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         inflateRootView(inflater, container, savedInstanceState);
-        instanciaObjetos();
         accessCheckBoxes(getRootView());
         accessViews(getRootView());
         fetchQuestionFromDatabase();
@@ -127,7 +126,7 @@ public final class QuestaoMultiplaProva extends QuestaoMultipla {
     }
 
     @Override
-    public void avancarQuestao() {
+    public void avancarLicao() {
         final int ICONE_EXERCICIO = 1;
 
       /*  hideUnnecessaryView(getBtnAvancarQuestao());

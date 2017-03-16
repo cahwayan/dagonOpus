@@ -97,7 +97,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         // VARIÁVEL QUE GUARDA O RETORNO DO MÉTODO QUE CHECA SE O BANCO EXISTE
         // SE RETORNAR TRUE, O BANCO EXISTE, E ELE NÃO FAZ NADA.
         // SE RETORNAR FALSE, O BANCO NÃO EXISTE, E É EXECUTADO O MÉTODO DE COPIAR O BANCO
-        boolean bancoExiste = checarBanco();
+        boolean bancoExiste = checarSeBancoExiste();
         if (bancoExiste) {
             // BANCO EXISTE
         } else {
@@ -114,7 +114,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
     // CHECA SE O BANCO EXISTE. CASO NÃO EXISTA, ELE CRIA UM NOVO (GERA UMA EXCEÇÃO QUE É TRATADA NA PRIMEIRA VEZ)
 
-    private boolean checarBanco() {
+    private boolean checarSeBancoExiste() {
         SQLiteDatabase checarBanco = null;
 
         try {
@@ -156,112 +156,6 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         System.out.println("Banco Criado!");
     }
 
-    // MÉTODO QUE VERIFICA O PROGRESSO DOS MÓDULOS
-    public int verificaProgressoModulo() throws SQLException {
-        // A COLUNA QUE O MÉTODO VAI VERIFICAR
-        String tabela = Progresso.TABELA_PROGRESSO;
-        // VETOR COM O NOME DA COLUNA (PRECISA SER UM VETOR ATÉ PARA PESQUIZAR UMA ÚNICA COLUNA)
-        String colunas[] = {
-                Progresso.COLUNA_MODULO
-        };
-        // LIMITE DE LINHAS QUE O BANCO VAI TRAZER
-        String limit = "1";
-        // ABRE A CONEXÃO COM O BANCO
-        abrirBanco();
-        // OBJETO CURSOR QUE VAI EFETIVAMENTE GUARDAR A QUERY
-        Cursor cursor = DB_PROGRESSO.query(
-                tabela,
-                colunas,        // Coluna a retornar
-                null,           // coluna para a clausula WHERE
-                null,           // valores para a clausula WHERE
-                null,           // não agrupar as tabelas
-                null,           // não filtrar as tabelas
-                null,           // não ordenar as tabelas
-                limit           // limitar os resultados para 1
-        );
-        // MOVENDO O CURSOR PARA O PRIMEIRO RESULTADO ENCONTRADO
-        cursor.moveToFirst();
-        // TRANSFERINDO O RESULTADO DO CURSOR PARA UMA VARIÁVEL
-        int progressoModulo = cursor.getInt(
-                cursor.getColumnIndexOrThrow(Progresso.COLUNA_MODULO)
-        );
-        // FECHANDO A CONEXÃO COM O BANCO
-        fecharBanco();
-        // FECHANDO O CURSOR
-        cursor.close();
-        // RETORNANDO O DADO BUSCADO NO BANCO
-        return progressoModulo;
-    }
-
-    public int verificarPontuacao(int moduloPertencente) {
-        String tabela = Progresso.TABELA_PONTOS;
-        String colunas[] = {
-            Progresso.COLUNA_PONTOS
-        };
-
-        String select = Progresso.MODULO + " LIKE ? ";
-        String selectArgs[] = {String.valueOf(moduloPertencente)};
-
-        String limit = "1";
-
-        abrirBanco();
-        Cursor cursor = DB_PROGRESSO.query(
-                tabela,
-                colunas,
-                select,
-                selectArgs,
-                null,
-                null,
-                limit
-        );
-
-        cursor.moveToFirst();
-
-        int pontuacao = cursor.getInt(
-                cursor.getColumnIndexOrThrow(Progresso.COLUNA_PONTOS)
-        );
-
-        fecharBanco();
-        cursor.close();
-        return pontuacao;
-    }
-
-    public void atualizarPontuacao(int moduloPertencente, int pontos) {
-        int pontuacaoAtual = this.verificarPontuacao(moduloPertencente);
-        String tabela = Progresso.TABELA_PONTOS;
-        ContentValues values = new ContentValues();
-        values.put(Progresso.COLUNA_PONTOS, pontuacaoAtual + pontos);
-
-        String select = Progresso.MODULO + " LIKE ? ";
-        String[] selectArgs = {String.valueOf(moduloPertencente)};
-
-        abrirBanco();
-        DB_PROGRESSO.update(
-                tabela,
-                values,
-                select,
-                selectArgs
-        );
-        fecharBanco();
-    }
-
-    public void alterarPontuacaoTotal(int moduloPertencente, int pontos) {
-        String tabela = Progresso.TABELA_PONTOS;
-        ContentValues values = new ContentValues();
-        values.put(Progresso.COLUNA_PONTOS, pontos);
-
-        String select = Progresso.MODULO + " LIKE ? ";
-        String[] selectArgs = {String.valueOf(moduloPertencente)};
-
-        abrirBanco();
-        DB_PROGRESSO.update(
-                tabela,
-                values,
-                select,
-                selectArgs
-        );
-        fecharBanco();
-    }
 
     // MÉTODO QUE VERIFICA O PROGRESSO DA ETAPA
     // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
@@ -319,75 +213,6 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
 
         // RETORNA O VALOR REQUERIDO
         return moduloPertencente;
-    }
-
-    // VERIFICA PROGRESSO DA LICAO
-    public int verificaProgressoLicao(int moduloPertencente, int etapaPertencente) {
-        String tabela  = Progresso.TABELA_PROGRESSO_LICOES;
-        String colunaEtapa[] = {""};
-        String limit = "1";
-        int progressoLicao = 0;
-
-        // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
-        String select       = Progresso.COLUNA_PROG_LICOES_MODULO + " LIKE ? ";
-
-        // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
-        String selectArgs[] = {String.valueOf(moduloPertencente)};
-
-        switch (etapaPertencente) {
-            case 0:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA1;
-                break;
-            case 1:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA2;
-                break;
-            case 2:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA3;
-                break;
-            case 3:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA4;
-                break;
-            case 4:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA5;
-                break;
-            case 5:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA6;
-                break;
-            case 6:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA7;
-                break;
-            case 7:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA8;
-                break;
-            case 8:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA9;
-                break;
-            case 9:
-                colunaEtapa[0] = Progresso.COLUNA_PROG_LICOES_ETAPA10;
-                break;
-        }
-
-
-        abrirBanco();
-        Cursor cursor = DB_PROGRESSO.query(
-                tabela,
-                colunaEtapa,
-                select,
-                selectArgs,
-                null,
-                null,
-                null
-        );
-
-        cursor.moveToFirst();
-        progressoLicao = cursor.getInt(
-                cursor.getColumnIndexOrThrow(colunaEtapa[0])
-        );
-        fecharBanco();
-        cursor.close();
-
-        // RETORNA O VALOR REQUERIDO
-        return progressoLicao;
     }
 
     // VERIFICA SE A PERGUNTA ESTÁ CERTA

@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.ViewController;
 
@@ -32,25 +31,7 @@ public class Questao extends Exercicio {
                         alternativa2,
                         alternativa3;
 
-    private TextView pergunta;
     private View rootView;
-    private NovaJanelaAlerta alertaOpcaoVazia;
-
-    public TextView getPergunta() {
-        return pergunta;
-    }
-
-    public void setPergunta(TextView pergunta) {
-        this.pergunta = pergunta;
-    }
-
-    public int getQuestaoAtual() {
-        return questaoAtual;
-    }
-
-    public void setQuestaoAtual(int questaoAtual) {
-        this.questaoAtual = questaoAtual;
-    }
 
     public View getRootView() {
         return rootView;
@@ -66,35 +47,24 @@ public class Questao extends Exercicio {
         return questao;
     }
 
-    // MÉTODO ON CREATE DO FRAGMENTO
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        this.inflateRootView(inflater, container, savedInstanceState);
-        this.instanciaObjetos();
-        this.accessViews(this.rootView);
-        this.accessRadioButtons(this.rootView);
-        this.setupQuestion();
-        this.setListeners();
-
+        inflateRootView(inflater, container, savedInstanceState);
+        accessViews(this.rootView);
+        findViewsExclusivas(this.rootView);
+        carregarTextoQuestao();
+        setListeners();
 
         resetUIExercicio();
-
-
 
         return this.rootView;
     }
 
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.activity_questao, container, false);
-    }
-
-    protected void instanciaObjetos() {
-        // OBJETO JANELA DE ALERTA
-        if(alertaOpcaoVazia == null) {
-            alertaOpcaoVazia = new NovaJanelaAlerta(getActivity());
-        }
+        // Todas as questões desse tipo usam o mesmo layout
+        rootView = inflater.inflate(R.layout.activity_questao, container, false);
     }
 
     @Override
@@ -103,12 +73,8 @@ public class Questao extends Exercicio {
     }
 
     @Override
-    protected void accessViews(View rootView) {
-        super.accessViews(rootView);
-        pergunta = (TextView)    rootView.findViewById(R.id.pergunta);
-    }
-
-    protected void accessRadioButtons(View rootView) {
+    // Essas views são exclusivas desse tipo de exercício
+    protected void findViewsExclusivas(View rootView) {
         radioGroupQuestao = (RadioGroup)  rootView.findViewById(R.id.radioGroupQuestao);
         alternativa0 = (RadioButton) rootView.findViewById(R.id.alternativa0);
         alternativa1 = (RadioButton) rootView.findViewById(R.id.alternativa1);
@@ -116,28 +82,18 @@ public class Questao extends Exercicio {
         alternativa3 = (RadioButton) rootView.findViewById(R.id.alternativa3);
     }
 
-    protected void setupQuestion() {
-        String question = refreshListener.fetchQuestionFromDatabase(questaoAtual);
-        String[] alternatives = refreshListener.fetchAlternativesFromDatabase(questaoAtual);
+    protected void carregarTextoQuestao() {
 
-        pergunta.setText(question);
+        String questao = refreshListener.fetchQuestionFromDatabase(questaoAtual);
+        String[] alternativas = refreshListener.fetchAlternativesFromDatabase(questaoAtual);
 
-        alternativa0.setText(alternatives[ALTERNATIVA0]);
-        alternativa1.setText(alternatives[ALTERNATIVA1]);
-        alternativa2.setText(alternatives[ALTERNATIVA2]);
-        alternativa3.setText(alternatives[ALTERNATIVA3]);
+        pergunta.setText(questao);
 
-    }
+        alternativa0.setText(alternativas[ALTERNATIVA0]);
+        alternativa1.setText(alternativas[ALTERNATIVA1]);
+        alternativa2.setText(alternativas[ALTERNATIVA2]);
+        alternativa3.setText(alternativas[ALTERNATIVA3]);
 
-    private RadioButton getCheckedButton() {
-        for(int i = 0; i < radioGroupQuestao.getChildCount(); i++) {
-            RadioButton checkedButton = (RadioButton) radioGroupQuestao.getChildAt(i);
-
-            if(checkedButton.isChecked()) {
-                return checkedButton;
-            }
-        }
-        return null;
     }
 
     @Override
@@ -212,6 +168,7 @@ public class Questao extends Exercicio {
         setQtdErros(getQtdErros() + 1);
         refreshListener.tocarSomRespostaErrada();
 
+        ViewController.setVisible(imgRespostaErrada);
         ViewController.initPulseAnimation(imgRespostaErrada);
         ViewController.setInvisible(btnChecarResposta);
         ViewController.setVisible(btnAvancarQuestao);
@@ -222,31 +179,46 @@ public class Questao extends Exercicio {
 
     private void showCorrectAnswer() {
 
-        for(int i = 1; i <= 4; i++) {
-            RadioButton correctAnswerButton = (RadioButton) this.radioGroupQuestao.getChildAt(i - 1);
-            RadioButton checkedButton = getCheckedButton();
+        RadioButton correctAnswerButton = getRightAnswerButton();
+        RadioButton checkedButton = getCheckedButton();
+
+        if(correctAnswerButton != null && checkedButton != null) {
+            correctAnswerButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+            checkedButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
+        }
+
+    }
+
+    private RadioButton getCheckedButton() {
+        int buttonId = radioGroupQuestao.getCheckedRadioButtonId();
+
+        return (RadioButton) rootView.findViewById(buttonId);
+    }
+
+    private RadioButton getRightAnswerButton() {
+
+        final int RESPOSTA_CERTA = 1;
+
+        for(int i = 0; i < radioGroupQuestao.getChildCount(); i++) {
+
             int alternativa = verificaResposta(i);
-            final int RESPOSTA_CERTA = 1;
 
             if( alternativa == RESPOSTA_CERTA) {
 
-                correctAnswerButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_correta, 0);
+                return (RadioButton) this.radioGroupQuestao.getChildAt(i);
 
-                if(checkedButton != null) {
-                    checkedButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_alternativa_errada, 0);
-                }
-
-                break;
             }
         }
+
+        return null;
+
     }
 
     @Override
     // MÉTODO QUE CONFIGURA A TELA PARA O USUÁRIO RESPONDER NOVAMENTE
     protected void tentarNovamente() {
-        super.tentarNovamente();
 
-        ViewController.setInvisible(btnAvancarQuestao);
+        super.tentarNovamente();
 
         resetButtonsStyle();
         // DESMARCANDO OS RADIO BUTTONS
@@ -257,35 +229,24 @@ public class Questao extends Exercicio {
     }
 
     @Override
-    // MÉTODO QUE AVANÇA A TELA
-    protected void avancarQuestao() {
-
-        // REABILITANDO OS RADIO BUTTONS
+    protected void avancarLicao() {
         setAllButtonsClickable();
-
-        //DESMARCANDO RADIO BUTTON
         uncheckAllButtons();
-
-        super.avancarQuestao();
+        super.avancarLicao();
     }
 
     @Override
     protected void calcularPontuacao() {
 
-        int pontos = getPontuacao();
-
-        pontos += 1000;
-
-        switch (getQtdErros()) {
-            case 0: setPontuacao(pontos + 500);
-                break;
-            default: pontos = 0;
-                break;
+        if(getQtdErros() <= 0) {
+            setPontuacao(1500);
+        } else {
+            setPontuacao(0);
         }
 
-        setPontuacao(pontos);
+        String pontuacao = "Pontos: " + String.valueOf(getPontuacao());
 
-        txtPontos.setText("Pontos: " + String.valueOf(getPontuacao()));
+        txtPontos.setText(pontuacao);
     }
 
     protected void setAllButtonsUnclickable() {
@@ -319,8 +280,9 @@ public class Questao extends Exercicio {
 
     }
 
-
     protected void alertaOpcaoVazia() {
-        alertaOpcaoVazia.alertDialogBloqueadoLicao("Selecione uma opção", "Selecione uma resposta!");
+
+        NovaJanelaAlerta.alertDialogBloqueado(getActivity(), "Selecione uma opção", "Selecione uma resposta!");
+
     }
 }

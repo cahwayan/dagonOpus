@@ -15,14 +15,16 @@ import com.tcc.dagon.opus.R;
 
 
 public class NovaJanelaAlerta extends AppCompatActivity {
-    private Context context;
+
     Activity activity;
+
     public NovaJanelaAlerta(Activity activity) {
         this.activity = activity;
     }
-    /*JANELA DE ALERTA*/
-    public void alertDialogBloqueado(String titulo, String mensagem) {
-        AlertDialog.Builder alerta = new AlertDialog.Builder(activity);
+
+    /* Janela alerta que pode ser invocada de maneira estática, passando um context */
+    public static void alertDialogBloqueado(Context context, String titulo, String mensagem) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(context);
         alerta.setTitle(titulo);
         alerta.setMessage(mensagem);
         alerta.setPositiveButton("OK", null);
@@ -31,13 +33,11 @@ public class NovaJanelaAlerta extends AppCompatActivity {
         alerta.create().show();
     }
 
-    public void alertDialogBloqueadoLicao(String titulo, String mensagem) {
-        AlertDialog.Builder alerta = new AlertDialog.Builder(activity);
-        alerta.setTitle(titulo);
-        alerta.setMessage(mensagem);
-        alerta.setPositiveButton("OK", null);
-        // Icone
-        alerta.create().show();
+    /* Para invocar essa janela de alerta, é necessário instanciar um objeto do tipo NovaJanelaAlerta, e passar uma Activity por parâmetro no construtor */
+    public void alertDialogSair(String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)
+                .setNegativeButton("Não", listenerDialogClick).show();
     }
 
     DialogInterface.OnClickListener listenerDialogClick = new DialogInterface.OnClickListener() {
@@ -55,32 +55,7 @@ public class NovaJanelaAlerta extends AppCompatActivity {
         }
     };
 
-    public void alertDialogSairProva(String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)
-                .setNegativeButton("Não", listenerDialogClick).show();
-    }
 
-    DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch(which) {
-                case DialogInterface.BUTTON_POSITIVE:
-                    activity.finish();
-                    break;
-
-                case DialogInterface.BUTTON_NEGATIVE:
-                    dialog.dismiss();
-                    break;
-            }
-        }
-    };
-
-    public void alertDialogSair(String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setMessage(mensagem).setPositiveButton("Sim", listenerDialogClick)
-                .setNegativeButton("Não", listenerDialogClick).show();
-    }
 
 
 }

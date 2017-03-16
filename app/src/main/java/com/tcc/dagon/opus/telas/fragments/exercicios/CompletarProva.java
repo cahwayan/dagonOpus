@@ -65,7 +65,7 @@ public final class CompletarProva extends Completar {
 
     /* libera apenas um exercício de cada vez, ao invés de dois, como no completar normal*/
     @Override
-    public void avancarQuestao() {
+    public void avancarLicao() {
         final int ICONE_EXERCICIO = 1;
 
        /* hideUnnecessaryView(getBtnAvancarQuestao());

@@ -346,8 +346,7 @@ public class AprenderActivity
 
     /* Invoca a janela de alerta */
     private  void alertaModuloBloqueado() {
-        NovaJanelaAlerta alerta = new NovaJanelaAlerta(this);
-        alerta.alertDialogBloqueado("Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
+        NovaJanelaAlerta.alertDialogBloqueado(this, "Módulo Bloqueado", "Complete os módulos anteriores para desbloquear este.");
     }
 
     /* Carrega fontes customizadas */

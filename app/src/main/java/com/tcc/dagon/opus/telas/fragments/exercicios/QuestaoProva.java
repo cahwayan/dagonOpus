@@ -34,7 +34,6 @@ public final class QuestaoProva extends Questao {
         return questao;
     }
 
-    @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRootView(inflater.inflate(R.layout.activity_questao_prova, container, false));
     }
@@ -123,7 +122,7 @@ public final class QuestaoProva extends Questao {
     }
 
     @Override
-    public void avancarQuestao() {
+    public void avancarLicao() {
         final int ICONE_EXERCICIO = 1;
 
         /*hideUnnecessaryView(getBtnAvancarQuestao());

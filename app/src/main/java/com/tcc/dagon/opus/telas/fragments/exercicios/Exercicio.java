@@ -1,12 +1,9 @@
 package com.tcc.dagon.opus.telas.fragments.exercicios;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +29,7 @@ public abstract class Exercicio extends ConteudoWrapper {
     protected RefreshListener refreshListener;
 
     /* VIEWS */
+    protected TextView pergunta;
     protected ImageView imgRespostaCerta;
     protected ImageView imgRespostaErrada;
     protected Button btnChecarResposta;
@@ -44,12 +42,21 @@ public abstract class Exercicio extends ConteudoWrapper {
     private int pontuacao;
     protected int questaoAtual;
 
+
     public int getPontuacao() {
-        return pontuacao;
+        return this.pontuacao;
     }
 
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
+    }
+
+    public int getQuestaoAtual() {
+        return questaoAtual;
+    }
+
+    public void setQuestaoAtual(int questaoAtual) {
+        this.questaoAtual = questaoAtual;
     }
 
     public int getQtdErros() {
@@ -61,6 +68,7 @@ public abstract class Exercicio extends ConteudoWrapper {
     }
 
     /* ABSTRATOS */
+    protected abstract void findViewsExclusivas(View rootView);
     protected abstract void validarRespostaUsuario();
     protected abstract void calcularPontuacao();
 
@@ -101,6 +109,7 @@ public abstract class Exercicio extends ConteudoWrapper {
         btnChecarResposta =  (Button) rootView.findViewById(R.id.btnChecar);
         btnAvancarQuestao =  (Button) rootView.findViewById(R.id.btnAvancar);
         btnTentarNovamente = (Button)rootView.findViewById(R.id.btnTentarNovamente);
+        pergunta = (TextView)    rootView.findViewById(R.id.pergunta);
     }
 
     protected void setListeners() {
@@ -207,22 +216,27 @@ public abstract class Exercicio extends ConteudoWrapper {
         if(refreshListener.isLastExercise()) {
             questaoFinal();
         } else {
-            avancarQuestao();
+            avancarLicao();
         }
     }
 
-    protected void avancarQuestao() {
+    protected void avancarLicao() {
 
         resetUIExercicio();
         zerarPontuacao();
         zerarErros();
-        avancarProgresso();
+
+        if(!usuarioJaCompletouEssaLicaoAntes()) {
+            avancarProgresso();
+            atualizarPontuacao();
+        }
 
         // Ir para o próximo fragmento
         refreshListener.moveNext();
     }
 
     protected void questaoFinal() {
+
         if(!usuarioJaCompletouEssaEtapaAntes()) {
             avancarProgressoEtapa();
             atualizarPontuacao();
