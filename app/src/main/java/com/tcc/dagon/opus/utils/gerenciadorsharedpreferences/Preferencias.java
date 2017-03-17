@@ -31,6 +31,9 @@ public interface Preferencias {
     String PONTOS_MODULO5 = "pontuacaoModulo5";
     String PONTOS_MODULO6 = "pontuacaoModulo6";
 
+    // Flag que verifica se as flags foram inicializadas
+    String isFlagsSetup = "isFlagsSetup";
+
     /*
       * Flags da tela de configurações
       * TIPO: boolean

@@ -21,10 +21,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
-import com.tcc.dagon.opus.telas.aprender.menulateral.GerenciarPerfilActivity;
-import com.tcc.dagon.opus.telas.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
-import com.tcc.dagon.opus.telas.certificado.CertificadoActivity;
-import com.tcc.dagon.opus.telas.certificado.CertificadoIncompleto;
+import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity;
+import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
+import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoActivity;
+import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoIncompleto;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.databases.GerenciadorBanco;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
@@ -103,7 +103,7 @@ public class AprenderActivity
     private Context context = this;
 
     // Objeto capaz de ler e modificar Shared Preferences
-    private Preferencias preferenceManager;
+    private GerenciadorSharedPreferences preferenceManager;
 
     // Variável que guarda o progresso atual do usuário
     private int progressoAtual;
@@ -309,6 +309,13 @@ public class AprenderActivity
     protected void autenticarUsuario() {
         if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
             preferenceManager.modFlag(Preferencias.isLogin, true);
+
+        }
+
+        if(!preferenceManager.isFlagsSetup()) {
+            preferenceManager.setProgressoModulo(0);
+            preferenceManager.setProgressoEtapa(0, 0);
+            preferenceManager.setFlagsSetup(true);
         }
     }
 

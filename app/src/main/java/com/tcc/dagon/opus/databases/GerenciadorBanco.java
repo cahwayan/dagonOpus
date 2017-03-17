@@ -436,8 +436,12 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         if( cursor != null && cursor.moveToFirst() ){
             pergunta = cursor.getString(
                     cursor.getColumnIndexOrThrow(coluna[0])
+
             );
+
             cursor.close();
+        } else {
+            Log.d("QUERY FAILED: ", "CURSOR IS PROBABLY NULL!!");
         }
 
 

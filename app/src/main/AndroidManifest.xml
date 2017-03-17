@@ -49,7 +49,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".telas.aprender.menulateral.ActivityConfig_"
+            android:name=".ui.telasatransferir.aprender.menulateral.ActivityConfig_"
             android:screenOrientation="portrait" />
 
         <activity
@@ -57,7 +57,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".telas.aprender.menulateral.GerenciarPerfilActivity"
+            android:name=".ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity"
             android:label="@string/title_activity_gerenciar_perfil"
             android:screenOrientation="portrait" />
 
@@ -72,12 +72,12 @@
         <!-- ESSA ATIVIDADE QUE INICIA A PORRA TODA DOS FRAGMENTOS-->
 
         <activity
-            android:name=".telas.fragments.container.ContainerLicoesActivity_"
+            android:name=".ui.curso.container.ContainerLicoesActivity_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".telas.fragments.container.ContainerProvaActivity"
+            android:name=".ui.curso.container.ContainerProvaActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -86,8 +86,8 @@
 
 
         <activity android:name=".ui.usuario.AlterarSenhaActivity" />
-        <activity android:name=".telas.certificado.CertificadoActivity" />
-        <activity android:name=".telas.certificado.CertificadoIncompleto"/>
+        <activity android:name=".ui.telasatransferir.certificado.CertificadoActivity" />
+        <activity android:name=".ui.telasatransferir.certificado.CertificadoIncompleto"/>
     </application>
 
 </manifest>

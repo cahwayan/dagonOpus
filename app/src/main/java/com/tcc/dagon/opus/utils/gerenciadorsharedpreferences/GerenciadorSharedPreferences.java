@@ -331,4 +331,12 @@ public class GerenciadorSharedPreferences implements Preferencias {
     public void setIsCertificadoGerado(boolean isCertificadoGerado) {
         modFlag(flagCertificadoGerado, isCertificadoGerado);
     }
+
+    public boolean isFlagsSetup() {
+        return lerFlagBoolean(Preferencias.isFlagsSetup);
+    }
+
+    public void setFlagsSetup(boolean value) {
+        modFlag(isFlagsSetup, value);
+    }
 }

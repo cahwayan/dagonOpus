@@ -13,13 +13,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.telas.fragments.container.ContainerLicoesActivity_;
+import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
-import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 
