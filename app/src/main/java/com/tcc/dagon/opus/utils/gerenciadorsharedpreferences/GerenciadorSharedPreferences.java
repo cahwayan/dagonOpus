@@ -156,6 +156,8 @@ public class GerenciadorSharedPreferences implements Preferencias {
         }
     }
 
+
+
     @Override
     public String getEmailUsuario() {
         return lerFlagString(emailUsuario);

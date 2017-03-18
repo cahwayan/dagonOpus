@@ -31,6 +31,7 @@ public interface ModuloCurso {
 
     void atualizarEstadoConformeProgressoAtual(int progressoAtual);
     int getNumModulo();
+    void setNota(String nota);
     String getNota();
     int getQtdEtapasModulo();
     int getEstadoAtual();

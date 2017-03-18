@@ -62,7 +62,6 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     // (É MELHOR NAO PRECISARMOS ALTERAR ESSA ESTRUTURA.... HEHHEHE
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        DB_PROGRESSO.execSQL("DROP TABLE IF EXISTS" + Progresso.TABELA_PROGRESSO);
         try {
             Log.i(TAG, "Estrutura alterada, recriando banco!!!");
             criarBanco();
@@ -113,7 +112,6 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     }
 
     // CHECA SE O BANCO EXISTE. CASO NÃO EXISTA, ELE CRIA UM NOVO (GERA UMA EXCEÇÃO QUE É TRATADA NA PRIMEIRA VEZ)
-
     private boolean checarSeBancoExiste() {
         SQLiteDatabase checarBanco = null;
 
@@ -130,7 +128,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return checarBanco != null;
     }
 
-    // TRANSFERE O BANCO DA PASTA ASSETS PARA O DIRETÓRIO NO CELULAR
+    // Transfere o arquivo do banco da pasta Assets para o armazenamento do celular
     private void copiarBanco() throws IOException {
 
         // ABRE O BANCO COMO INPUT STREAM
@@ -157,83 +155,26 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
     }
 
 
-    // MÉTODO QUE VERIFICA O PROGRESSO DA ETAPA
-    // AO CHAMAR O MÉTODO COM O PARÂMETRO REFERENTE AO MÓDULO, O MÉTODO BUSCA O PROGRESSO ATUAL
-    // DAS ETAPAS DO USUÁRIO PARA AQUELE MÓDULO
-    // EX: getProgressoEtapa(3) busca o progresso das etapas do módulo 3
-    public int getProgressoEtapa(int moduloPertencente) {
-        String tabela = Progresso.TABELA_PROGRESSO;
-        String colunasEtapa[] = {""};
-        String limit = "1";
-        switch (moduloPertencente) {
-            case 1:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA1;
-                break;
-            case 2:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA2;
-                break;
-            case 3:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA3;
-                break;
-            case 4:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA4;
-                break;
-            case 5:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA5;
-                break;
-            case 6:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA6;
-                break;
-            case 7:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA7;
-                break;
-            case 8:
-                colunasEtapa[0] = Progresso.COLUNA_ETAPA8;
-                break;
-        }
-
-        abrirBanco();
-
-        Cursor cursor = DB_PROGRESSO.query(
-                tabela,
-                colunasEtapa,
-                null,
-                null,
-                null,
-                null,
-                null,
-                limit
-        );
-        cursor.moveToFirst();
-        moduloPertencente = cursor.getInt(
-                cursor.getColumnIndexOrThrow(colunasEtapa[0])
-        );
-        fecharBanco();
-        cursor.close();
-
-        // RETORNA O VALOR REQUERIDO
-        return moduloPertencente;
-    }
-
-    // VERIFICA SE A PERGUNTA ESTÁ CERTA
-    public int verificaPergunta(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
+    public int verificarResposta(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
 
         String tabela = Progresso.QUESTOES;
 
         String colunaAlternativa[] = {""};
 
         String limit = "1";
-        int respostaPergunta = 10;
+        int respostaPergunta = 0;
 
         // SELECIONAR A COLUNA BASEADO NO MODULO A QUAL A ETAPA PERTENCE
-        String select       = Progresso.MODULO + " lIKE ? AND " + Progresso.ETAPA + " LIKE ? AND " + Progresso.NUM_QUESTAO + " LIKE ? " ;
+        String select = Progresso.MODULO + " lIKE ? AND " +
+                        Progresso.ETAPA + " LIKE ? AND " +
+                        Progresso.NUM_QUESTAO + " LIKE ? " ;
 
         // FAZER O SELECT BASEADO NO MODULO PERTENCENTE
-        String selectArgs[] = {String.valueOf(moduloPertencente), String.valueOf(etapaPertencente), String.valueOf(numQuestao)};
+        String selectArgs[] = {String.valueOf(moduloPertencente),
+                                String.valueOf(etapaPertencente),
+                                String.valueOf(numQuestao)};
 
-        Log.d("ALTERNATIVA VERIFICAD: ", String.valueOf(alternativa) );
         switch (alternativa) {
-
             case 0:
                 colunaAlternativa[0] = Progresso.RESPOSTA_ALTERNATIVA0;
                 break;
@@ -270,140 +211,12 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         fecharBanco();
 
         // RETORNA O VALOR REQUERIDO
-        Log.i(TAG,String.valueOf(respostaPergunta));
+        Log.i(TAG, String.valueOf(respostaPergunta));
 
         return respostaPergunta;
     }
 
-    // ATUALIZA PROGRESSO MÓDULO
-    public void atualizaProgressoModulo(int progresso) {
-
-        String tabela = Progresso.TABELA_PROGRESSO;
-
-        // OBJETO QUE GUARDARÁ OS VALORES
-        ContentValues valor = new ContentValues();
-        // Coluna da tabela e o valor
-        valor.put(Progresso.COLUNA_MODULO, progresso);
-
-        // Qual coluna fazer o update baseado no id
-        String select       = Progresso.COLUNA_ID + " LIKE ?";
-        // qual linha atualizar baseado no ID
-        String[] selectArgs = {String.valueOf(1)};
-        abrirBanco();
-        DB_PROGRESSO.update(
-                tabela,
-                valor,
-                select,
-                selectArgs
-        );
-        fecharBanco();
-    }
-
-
-    // ATUALIZA PROGRESSO DA ETAPA
-    public void atualizaProgressoEtapa(int moduloPertencente, int progressoEtapa) {
-        // TABELA QUE IRÁ SER PESQUISADA
-        String tabela = Progresso.TABELA_PROGRESSO;
-        String coluna[] = {""};
-        // SELECIONANDO O MÓDULO DA ETAPA A ATUALIZAR
-        switch(moduloPertencente) {
-            case 1: coluna[0] = Progresso.COLUNA_ETAPA1;
-                break;
-            case 2: coluna[0] = Progresso.COLUNA_ETAPA2;
-                break;
-            case 3: coluna[0] = Progresso.COLUNA_ETAPA3;
-                break;
-            case 4: coluna[0] = Progresso.COLUNA_ETAPA4;
-                break;
-            case 5: coluna[0] = Progresso.COLUNA_ETAPA5;
-                break;
-            case 6: coluna[0] = Progresso.COLUNA_ETAPA6;
-                break;
-            case 7: coluna[0] = Progresso.COLUNA_ETAPA7;
-                break;
-            case 8: coluna[0] = Progresso.COLUNA_ETAPA8;
-                break;
-        }
-        // OBJETO QUE GUARDARÁ OS DADOS A SEREM COLOCADOS
-        ContentValues valor = new ContentValues();
-        // NOME DA TABELA E OS VALORES QUE SERÃO COLOCADOS
-        valor.put(coluna[0], progressoEtapa);
-        // SELECIONAR A COLUNA BASEADO NO ID
-        String select       = Progresso.COLUNA_ID + " LIKE ? ";
-        // QUAL LINHA QUE POSSUUI O ID FAZER O UPDATE
-        String selectArgs[] = {String.valueOf(1)};
-        abrirBanco();
-        DB_PROGRESSO.update(
-                tabela,
-                valor,
-                select,
-                selectArgs
-        );
-        fecharBanco();
-    }
-
-    // ATUALIZA O PROGRESSO DA LIÇÃO
-    public void atualizaProgressoLicao(int moduloPertencente, int etapaPertencente, int progressoLicao) {
-        // TABELA QUE IRÁ SER PESQUISADA
-        String tabela = Progresso.TABELA_PROGRESSO_LICOES;
-        String coluna[] = {""};
-
-        // SELECIONANDO O MÓDULO DA LICAO A ATUALIZAR
-        switch (etapaPertencente) {
-            case 1:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA1;
-                break;
-            case 2:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA2;
-                break;
-            case 3:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA3;
-                break;
-            case 4:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA4;
-                break;
-            case 5:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA5;
-                break;
-            case 6:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA6;
-                break;
-            case 7:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA7;
-                break;
-            case 8:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA8;
-                break;
-            case 9:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA9;
-                break;
-            case 10:
-                coluna[0] = Progresso.COLUNA_PROG_LICOES_ETAPA10;
-                break;
-        }
-
-        // OBJETO QUE GUARDARÁ OS DADOS A SEREM COLOCADOS
-        ContentValues valor = new ContentValues();
-
-        // NOME DA TABELA E OS VALORES QUE SERÃO COLOCADOS
-        valor.put(coluna[0], progressoLicao);
-
-        // SELECIONAR A COLUNA BASEADO NO ID
-        String select       = Progresso.COLUNA_PROG_LICOES_MODULO + " LIKE ? ";
-
-        // QUAL LINHA QUE POSSUUI O ID FAZER O UPDATE
-        String selectArgs[] = {String.valueOf(moduloPertencente)};
-        abrirBanco();
-        DB_PROGRESSO.update(
-                tabela,
-                valor,
-                select,
-                selectArgs
-        );
-        fecharBanco();
-    }
-
-    public String puxarPergunta(int moduloPertencente, int etapaPertencente, int numQuestao) {
+    public String buscarPergunta(int moduloPertencente, int etapaPertencente, int numQuestao) {
 
         String tabela = Progresso.QUESTOES;
         String coluna[] = {Progresso.TEXTO_QUESTAO};
@@ -450,7 +263,7 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         return pergunta;
     }
 
-    public String puxarAlternativa(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
+    public String lerAlternativa(int moduloPertencente, int etapaPertencente, int numQuestao, int alternativa) {
 
         String tabela = Progresso.QUESTOES;
         String coluna[] = {""};

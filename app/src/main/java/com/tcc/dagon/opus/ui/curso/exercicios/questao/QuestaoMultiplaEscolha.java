@@ -1,13 +1,11 @@
 package com.tcc.dagon.opus.ui.curso.exercicios.questao;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.ViewController;
@@ -31,7 +29,7 @@ public class QuestaoMultiplaEscolha extends QuestaoUnicaEscolha {
 
     @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setRootView(inflater.inflate(R.layout.activity_questao_multipla_escolha, container, false));
+        setRootView(inflater.inflate(R.layout.fragment_questao_multipla_escolha, container, false));
     }
 
     @Override

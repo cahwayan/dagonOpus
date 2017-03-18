@@ -7,4 +7,11 @@
     <integer name="qtdEtapasModulo4">0</integer>
     <integer name="qtdEtapasModulo5">0</integer>
 
+    <integer name="qtdPerguntasModulo0">9</integer>
+    <integer name="qtdPerguntasModulo1">2</integer>
+    <integer name="qtdPerguntasModulo2">3</integer>
+    <integer name="qtdPerguntasModulo3">14</integer>
+    <integer name="qtdPerguntasModulo4">2</integer>
+    <integer name="qtdPerguntasModulo5">7</integer>
+
 </resources>

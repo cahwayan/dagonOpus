@@ -35,6 +35,10 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+
+@EActivity(R.layout.activity_gerenciar_perfil)
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
@@ -49,8 +53,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     private RoundCornerProgressBar barraGeral;
 
-    private GerenciadorBanco DB_PROGRESSO;
-
     private GerenciadorSharedPreferences preferencias;
 
     RequestQueue requestQueue;
@@ -60,8 +62,13 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gerenciar_perfil);
 
+
+
+    }
+
+    @AfterViews
+    protected void init() {
         // SETA VOLTAR NA BARRA DE MENU
         if(getSupportActionBar() != null) {
             // BOTÃO SUPERIOR MENU PUXÁVEL
@@ -70,9 +77,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         }
 
         preferencias  = new GerenciadorSharedPreferences(this);
-
-        // OBJETO BANCO PARA LER O PROGRESSO
-        DB_PROGRESSO = new GerenciadorBanco(this);
 
         // OBJETO DE CONEXÃO COM API GOOGLE
         googleBuilder();
@@ -88,7 +92,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
         // CONTEXT PARA CHAMADA VOLLEY
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-
     }
 
     @Override
@@ -133,11 +136,11 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     }
 
     private void carregarProgresso() {
-        int progressoGeral = 0;
+     /*   int progressoGeral = 0;
         for(int i = 1; i <= 8; i++) {
-            progressoGeral += DB_PROGRESSO.getProgressoEtapa(i);
+
         }
-        barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));
+        barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));*/
     }
 
     private void clickListeners() {

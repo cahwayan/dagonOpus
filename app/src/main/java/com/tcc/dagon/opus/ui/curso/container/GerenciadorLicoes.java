@@ -110,14 +110,14 @@ public class GerenciadorLicoes {
     }
 
     String fetchQuestionFromDatabase(int questaoAtual) {
-        return DB_PROGRESSO.puxarPergunta(moduloAtual, etapaAtual, questaoAtual);
+        return DB_PROGRESSO.buscarPergunta(moduloAtual, etapaAtual, questaoAtual);
     }
 
     String[] fetchAlternativesFromDatabase(int questaoAtual) {
 
         String[] alternativas = new String[4];
         for(int i = 0; i < alternativas.length; i++) {
-            alternativas[i] = DB_PROGRESSO.puxarAlternativa(moduloAtual, etapaAtual, questaoAtual, (i + 1) );
+            alternativas[i] = DB_PROGRESSO.lerAlternativa(moduloAtual, etapaAtual, questaoAtual, (i + 1) );
         }
 
         return alternativas;
@@ -133,13 +133,13 @@ public class GerenciadorLicoes {
 
         switch(alternativa) {
             case 0:
-                return DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 0);
+                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 0);
             case 1:
-                return DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 1);
+                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 1);
             case 2:
-                return DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 2);
+                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 2);
             case 3:
-                return DB_PROGRESSO.verificaPergunta(moduloAtual, etapaAtual, questaoAtual, 3);
+                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 3);
             default:
                 return RESPOSTA_ERRADA;
         }

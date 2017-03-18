@@ -20,7 +20,7 @@ public class FragmentTelaInterfaceGlossario extends LicaoFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.viewRoot = inflater.inflate(R.layout.fragment_glossario_interface,container,false);
+        /*super.viewRoot = inflater.inflate(R.layout.fragment_glossario_interface,container,false);
 
         this.accessViews();
 
@@ -32,12 +32,13 @@ public class FragmentTelaInterfaceGlossario extends LicaoFragment {
         });
 
 
-        return this.viewRoot;
+        return this.viewRoot;*/
+        return null;
     }
 
     protected void accessViews() {
        // mViewPager = ((ContainerComandosGlossario)getActivity()).getPager();
-        btnVoltar2 = (Button) viewRoot.findViewById(R.id.btnVoltar2);
+        //btnVoltar2 = (Button) viewRoot.findViewById(R.id.btnVoltar2);
         //super.init();
     }
 

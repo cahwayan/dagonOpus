@@ -25,6 +25,10 @@ class ModuloCursoImp implements ModuloCurso {
         return this.stringNota;
     }
 
+    public void setNota(String stringNota) {
+        this.stringNota = stringNota;
+    }
+
     public int getQtdEtapasModulo() {
         return this.qtdEtapasModulo;
     }

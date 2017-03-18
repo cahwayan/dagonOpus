@@ -286,12 +286,14 @@ public abstract class Exercicio extends ConteudoWrapper {
     }
 
     protected void avancarProgresso() {
+
         if(!usuarioJaCompletouEssaLicaoAntes()) {
-            refreshListener.setProgressoLicao(/* aumento em */2);
-            //atualizarPontuacao();
+            refreshListener.setProgressoLicao(/* aumento em */ 2);
+            atualizarPontuacao();
         }
 
         refreshListener.refreshUI();
+
     }
 
     protected void zerarPontuacao() {
@@ -341,7 +343,7 @@ public abstract class Exercicio extends ConteudoWrapper {
 
     protected Class retornarTelaEtapas(int numeroModulo) {
         switch(numeroModulo) {
-            case 1: return EtapasModulo0.class;
+            case 0: return EtapasModulo0.class;
             /*case 2: return EtapasModulo2Activity.class;
             case 3: return EtapasModulo3Activity.class;
             case 4: return EtapasModulo4Activity.class;
@@ -350,5 +352,7 @@ public abstract class Exercicio extends ConteudoWrapper {
             default: return null;
         }
     }
+
+
 
 }

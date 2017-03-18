@@ -25,13 +25,13 @@
         <!-- LOGIN -->
 
         <ImageView
-            android:layout_width="290dp"
-            android:layout_height="235dp"
             android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/logo_opus" />
 
-        <include layout="@layout/activity_login_fragment"
+        <include layout="@layout/fragment_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

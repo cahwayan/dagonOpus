@@ -143,22 +143,6 @@ public class LauncherActivity extends AppCompatActivity {
 
         botaoDesbloqLicoes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DB_PROGRESSO.atualizaProgressoLicao(1,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,2,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,3,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,4,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,5,3);
-                DB_PROGRESSO.atualizaProgressoLicao(1,6,4);
-                DB_PROGRESSO.atualizaProgressoLicao(1,7,7);
-                DB_PROGRESSO.atualizaProgressoLicao(1,8,1);
-                DB_PROGRESSO.atualizaProgressoLicao(1,9,8);
-
-                DB_PROGRESSO.atualizaProgressoLicao(4,1,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,2,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,3,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,4,1);
-                DB_PROGRESSO.atualizaProgressoLicao(4,5,5);
-                DB_PROGRESSO.atualizaProgressoLicao(4,6,4);
 
 
                 preferencias.setCompletouProva(0, true);

@@ -49,6 +49,9 @@ public interface RefreshListener {
 
     void somarPontos(int pontos);
 
+    void setNota(String nota);
+    String calcularNota();
+
 
 
 

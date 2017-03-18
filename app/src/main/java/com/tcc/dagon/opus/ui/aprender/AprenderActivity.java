@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity;
+import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoIncompleto;
@@ -309,12 +310,17 @@ public class AprenderActivity
     protected void autenticarUsuario() {
         if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
             preferenceManager.modFlag(Preferencias.isLogin, true);
-
         }
 
         if(!preferenceManager.isFlagsSetup()) {
+
             preferenceManager.setProgressoModulo(0);
-            preferenceManager.setProgressoEtapa(0, 0);
+
+            for(int i = 0; i < listModuloCurso.size(); i++) {
+                preferenceManager.setProgressoEtapa(i, 0);
+            }
+
+
             preferenceManager.setFlagsSetup(true);
         }
     }
@@ -343,6 +349,11 @@ public class AprenderActivity
     protected void atualizarUIGeralConformeProgressoAtual() {
 
         progressoAtual = preferenceManager.getProgressoModulo();
+
+        for(int i = 0; i < listModuloCurso.size(); i++) {
+            String nota = preferenceManager.getNota(i);
+            listModuloCurso.get(i).setNota(nota);
+        }
 
         for(ModuloCurso modulo : listModuloCurso) {
             modulo.atualizarEstadoConformeProgressoAtual(progressoAtual);
@@ -570,7 +581,7 @@ public class AprenderActivity
                 drawer_layout.closeDrawers();
                 break;
             case 1: // PERFIL
-                Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity.class);
+                Intent i = new Intent(AprenderActivity.this, GerenciarPerfilActivity_.class);
                 startActivity(i);
                 finish();
                 break;

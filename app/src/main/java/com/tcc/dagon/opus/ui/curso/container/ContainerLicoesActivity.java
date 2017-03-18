@@ -36,7 +36,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
 
     protected int moduloAtual, etapaAtual;
 
-    private int qtdFragmentos;
+    protected int qtdFragmentos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +130,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
      * esteja liberada, ele chama o método de configuração da lição liberada, e vice-versa. Isso é
      * feito até que não tenha mais lições para avaliar
     */
-
-    private void configurarEstadoLicoes() {
+    protected void configurarEstadoLicoes() {
 
         int[] estadoLicoes = gerenciadorLicoes.getEstadoLicoes();
 
@@ -149,7 +148,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
       * @param indexLicao: o método precisa saber qual o index da lição para que ele possa saber qual
       * index alterar a funcionalidade
     */
-    private void configurarLicaoLiberada(int indexLicao) {
+    protected void configurarLicaoLiberada(int indexLicao) {
 
         // Se o index em questão for par, é uma lição
         // Senao é um exercício
@@ -281,5 +280,13 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         view_pager.setCurrentItem(view_pager.getCurrentItem() - 1);
     }
 
+    @Override
+    public String calcularNota() {
+        return "";
+    }
 
+    @Override
+    public void setNota(String nota) {
+
+    }
 }

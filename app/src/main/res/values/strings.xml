@@ -23,7 +23,9 @@
     <string name="txtSons">Desativar sons</string>
     <string name="apagarProgresso">Resetar Progresso</string>
 
-
+    <string name="labelPontos">PONTOS</string>
+    <string name="labelConquistas">CONQUISTAS</string>
+    <string name="labelTempo">VOCÊ ESTUDOU</string>
 
     <!-- MÓDULO 7 -->
     <string name="TituloEtapa1Modulo7">1. Estrutura de classes e objetos</string>

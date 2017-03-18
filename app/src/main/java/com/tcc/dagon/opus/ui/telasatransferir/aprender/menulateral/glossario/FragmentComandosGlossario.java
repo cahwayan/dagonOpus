@@ -20,7 +20,9 @@ public class FragmentComandosGlossario extends LicaoFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.viewRoot = inflater.inflate(R.layout.fragment_glossario_comandos,container,false);
+        return null;
+
+        /*super.viewRoot = inflater.inflate(R.layout.fragment_glossario_comandos,container,false);
 
         this.accessViews();
 
@@ -31,12 +33,12 @@ public class FragmentComandosGlossario extends LicaoFragment {
             }
         });
 
-        return this.viewRoot;
+        return this.viewRoot;*/
     }
 
     protected void accessViews() {
         //mViewPager = ((ContainerComandosGlossario)getActivity()).getPager();
-        btnVoltar = (Button) viewRoot.findViewById(R.id.btnVoltar);
+        //btnVoltar = (Button) viewRoot.findViewById(R.id.btnVoltar);
         //super.init();
     }
 }

@@ -5,7 +5,7 @@
     <color name="colorPrimary">#011f4b</color>
     <color name="colorPrimaryDark">#171c40</color>
     <color name="colorAccent">#40e0d0</color>
-    <color name="colorAccentDark">#fff</color>
+    <color name="colorAccentDark">#ffffff</color>
     <color name="colorBackground">#212857</color>
 
     <color name="corBotaoVerde">#8ec127</color>
@@ -49,4 +49,5 @@
     <!--CORES FUNDO-->
     <color name="corFundoNeutro">#e7e7e7</color>
     <color name="fundoNeutro">#ededed</color>
+    <color name="colorNiceBlue">#bb33b5e5</color>
 </resources>

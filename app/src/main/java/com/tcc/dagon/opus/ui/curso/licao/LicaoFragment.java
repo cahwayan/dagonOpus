@@ -7,13 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.exercicios.ConteudoWrapper;
-
-import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -21,11 +18,10 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class LicaoFragment extends ConteudoWrapper {
 
-    protected Button btnAvancar;
-    protected ViewPager mViewPager;
-    protected View viewRoot;
-    protected PhotoViewAttacher photoView;
-    private int layoutID = R.layout.id_resource;
+    private Button btnAvancar;
+    private ViewPager mViewPager;
+    private View viewRoot;
+    private int layoutID;
 
     public static LicaoFragment novaLicao(int layoutID) {
         LicaoFragment licao = new LicaoFragment();
@@ -36,11 +32,10 @@ public class LicaoFragment extends ConteudoWrapper {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         super.onCreateView(inflater, container, savedInstanceState);
         this.viewRoot = inflater.inflate( setContentView(this.layoutID), container, false);
         this.accessViews();
-        this.listeners();
+        this.setListeners();
         return this.viewRoot;
     }
 
@@ -49,29 +44,24 @@ public class LicaoFragment extends ConteudoWrapper {
         return this.layoutID;
     }
 
-    private void listeners() {
-        btnAvancar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                moveNext(mViewPager);
-            }
-        });
-    }
-
-    private void adicionarZoomImagem(ImageView imagem) {
-        photoView = new PhotoViewAttacher(imagem);
-        photoView.update();
-    }
-
     private void accessViews() {
         mViewPager = ((ContainerLicoesActivity)getActivity()).getViewPager();
         btnAvancar = (Button) viewRoot.findViewById(R.id.btnAvancarLicao);
     }
 
-    private void moveNext(View view) {
+    private void setListeners() {
+        btnAvancar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                moveNext();
+            }
+        });
+    }
+
+    private void moveNext() {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
     }
 
-    private void movePrevious(View view) {
+    private void movePrevious() {
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
     }
 

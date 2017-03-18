@@ -74,13 +74,7 @@ public class CertificadoIncompleto extends AppCompatActivity {
     }
 
     private void carregarProgresso() {
-        barraGeralCertificado.setProgress(Float.parseFloat(valueOf(
-                                    DB_PROGRESSO.getProgressoEtapa(1) +
-                                    DB_PROGRESSO.getProgressoEtapa(2) +
-                                    DB_PROGRESSO.getProgressoEtapa(3) +
-                                    DB_PROGRESSO.getProgressoEtapa(4) +
-                                    DB_PROGRESSO.getProgressoEtapa(5) +
-                                    DB_PROGRESSO.getProgressoEtapa(6))));
+
     }
 
 }

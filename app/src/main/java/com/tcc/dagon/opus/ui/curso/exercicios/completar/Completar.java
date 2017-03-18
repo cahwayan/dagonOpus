@@ -89,7 +89,7 @@ public class Completar extends Exercicio {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         inflateRootView(this.layoutID, inflater, container, savedInstanceState);
-        super.accessViews(this.rootView);
+        accessViews(this.rootView);
         findViewsExclusivas(this.rootView);
         initListasRespostasUsuario();
         setListeners();

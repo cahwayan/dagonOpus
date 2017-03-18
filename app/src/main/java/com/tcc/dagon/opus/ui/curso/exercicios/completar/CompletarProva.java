@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tcc.dagon.opus.ui.curso.container.ContagemDeVidasListener;
 import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity;
-import com.tcc.dagon.opus.utils.AnimacaoResposta;
+import com.tcc.dagon.opus.utils.AnimacaoVida;
 
 /**
  * Created by cahwayan on 11/11/2016.
@@ -18,10 +19,7 @@ import com.tcc.dagon.opus.utils.AnimacaoResposta;
 
 public final class CompletarProva extends Completar {
 
-    private ImageView vida01, vida02, vida03, vida04, vida05;
-
-    public OnHeadlineSelectedListener mCallback;
-
+    ContagemDeVidasListener gerenciadorProva;
     /**/
     /* MÉTODO ESTÁTICO DE INSTÂNCIA. COMO FRAGMENTOS NÃO POSSUEM SUPORTE DECENTE PARA O USO DE MÉTODOS CONSTRUTORES
     * (NA VERDADE NÃO É RECOMENDADO NEM SOBRESCREVER O CONSTRUTOR DE UM FRAGMENT)
@@ -40,22 +38,18 @@ public final class CompletarProva extends Completar {
         return completar;
     }
 
-    // Container Activity must implement this interface
-    public interface OnHeadlineSelectedListener {
-        void onArticleSelected(int position);
-    }
-
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
 
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception
         try {
-            mCallback = (OnHeadlineSelectedListener) context;
+            gerenciadorProva = (ContagemDeVidasListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement ContagemDeVidasListener");
         }
     }
 
@@ -64,107 +58,36 @@ public final class CompletarProva extends Completar {
         setRootView(inflater.inflate(layoutID, container, false));
     }
 
-    /* libera apenas um exercício de cada vez, ao invés de dois, como no completar normal*/
-    @Override
-    public void avancarLicao() {
-        final int ICONE_EXERCICIO = 1;
-
-       /* hideUnnecessaryView(getBtnAvancarQuestao());
-        unhideView(getBtnChecarResposta());
-
-        hideUnnecessaryView(getImgRespostaCerta());
-        hideUnnecessaryView(getImgRespostaErrada());
-
-        limparEditTexts();
-        habilitarEditTexts();
-
-        avancarProgresso();
-
-        // TROCANDO O FRAGMENTO
-        moveNext();*/
-    }
-
-    // MÉTODO DISPARADO NO BOTÃO TENTAR NOVAMENTE
-    @Override
-    public void tentarNovamente() {
-        super.tentarNovamente();
-
-        ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
-
-        if(container.getContagemVidas() == 0) {
-            Toast.makeText(getActivity(), "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getActivity(), retornarTelaEtapas(refreshListener.getModuloAtual())));
-            this.getActivity().finish();
-        }
-    }
-
     @Override
     protected void questaoFinal() {
-        //getPreferencias().setCompletouProva(getModuloAtual(), true);
+
+        gerenciadorProva.setCompletouProva(true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
-            atualizarPontuacao();
             refreshListener.avancarProgressoModulo(1);
-            liberarPrimeiraEtapaDoProximoModulo();
+            avancarProgressoEtapa();
+            atualizarPontuacao();
+            refreshListener.setNota(refreshListener.calcularNota());
         }
 
         this.getActivity().finish();
     }
 
     @Override
-    protected void accessViews(View rootView) {
-        //super.setView_pager( (( (ContainerProvaActivity)this.getActivity() ).getViewPager()) );
-        //super.setTabStrip (( (ContainerProvaActivity)this.getActivity() ).getTabStrip());
-        //super.setTab_layout (( (ContainerProvaActivity)this.getActivity() ).getTabLayout() );
-        this.vida01 = ((ContainerProvaActivity)getActivity()).getVida01();
-        this.vida02 = ((ContainerProvaActivity)getActivity()).getVida02();
-        this.vida03 = ((ContainerProvaActivity)getActivity()).getVida03();
-        this.vida04 = ((ContainerProvaActivity)getActivity()).getVida04();
-        this.vida05 = ((ContainerProvaActivity)getActivity()).getVida05();
-        super.accessViews(rootView);
-    }
-
-    @Override
     protected void avancarProgresso() {
         if(!usuarioJaCompletouEssaLicaoAntes()) {
+            refreshListener.setProgressoLicao(/* AUMENTO EM */ 1);
             atualizarPontuacao();
-            refreshListener.setProgressoLicao(/* AUMENTO EM*/ 1);
         }
+
+        refreshListener.refreshUI();
     }
 
 
     @Override
     public void respostaErrada() {
         super.respostaErrada();
-
-        ContainerProvaActivity container = (ContainerProvaActivity) getActivity();
-        int contagemVidas = container.getContagemVidas();
-
-        switch(contagemVidas) {
-            case 5:
-                AnimacaoResposta.criarAnimacaoCom(vida05);
-                break;
-            case 4:
-                AnimacaoResposta.criarAnimacaoCom(vida04);
-                break;
-            case 3:
-                AnimacaoResposta.criarAnimacaoCom(vida03);
-                break;
-            case 2:
-                AnimacaoResposta.criarAnimacaoCom(vida02);
-                break;
-            case 1:
-                AnimacaoResposta.criarAnimacaoCom(vida01);
-                break;
-            case 0:
-                break;
-            default:
-                break;
-        }
-
-        contagemVidas -= 1;
-
-        mCallback.onArticleSelected(contagemVidas);
+        gerenciadorProva.removerVida();
     }
 
 }

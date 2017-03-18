@@ -5,99 +5,178 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarProva;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProva;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProva;
 import com.tcc.dagon.opus.R;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
+import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
+import com.tcc.dagon.opus.utils.AnimacaoVida;
+import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
 
 /**
  * Created by cahwayan on 14/11/2016.
  */
 /**/
 
+@EActivity(R.layout.container_prova)
 public class ContainerProvaActivity extends ContainerLicoesActivity
-        implements QuestaoUnicaEscolhaProva.OnHeadlineSelectedListener,
-            CompletarProva.OnHeadlineSelectedListener,
-                QuestaoMultiplaEscolhaProva.OnHeadlineSelectedListener {
+        implements ContagemDeVidasListener{
 
-    private ImageView vida01, vida02, vida03, vida04, vida05;
+    private String tituloModulo;
+    private int qtdEtapas;
+
+    private ImageView[] vidas;
+
+    private static final int VIDA05 = 4;
+    private static final int VIDA04 = 3;
+    private static final int VIDA03 = 2;
+    private static final int VIDA02 = 1;
+    private static final int VIDA01 = 0;
 
     private int contagemVidas;
 
-    Context context;
+    Context context = this;
 
-    GerenciadorSharedPreferences preferenceManager;
+    GerenciadorPreferencesComSuporteParaLicoes preferenceManager;
 
-    public ContainerProvaActivity() {
-        context = this;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferenceManager = new GerenciadorSharedPreferences(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.container_prova);
-
-        this.tituloEtapa = getIntent().getStringExtra("tituloEtapa");
-        this.moduloAtual = getIntent().getIntExtra("moduloAtual", 0);
-        this.etapaAtual  = getIntent().getIntExtra("etapaAtual", 0);
-/*
-        super.initBanco();
-        this.init();
-        this.setContagemVidas(5);
-        super.bloquearLicoes();
-        this.desbloquearLicoes();*/
-
+        tituloModulo = getIntent().getStringExtra("tituloModulo");
+        qtdEtapas = getIntent().getIntExtra("qtdEtapas", 0);
     }
 
-    public void onArticleSelected(int position) {
-        // The user selected the headline of an article from the HeadlinesFragment
-        // Do something here to display that article
-        switch(position) {
-            case 5:
-                contagemVidas = 5;
-                break;
+    @Override
+    @AfterViews
+    protected void init() {
+        super.init();
+
+        preferenceManager = new GerenciadorPreferencesComSuporteParaLicoes(this);
+        this.contagemVidas = 4 /* A contagem termina no 0, então são 5 vidas*/;
+
+        vidas = new ImageView[5];
+
+        this.vidas[0] = (ImageView) findViewById(R.id.vida00);
+        this.vidas[1] = (ImageView) findViewById(R.id.vida01);
+        this.vidas[2] = (ImageView) findViewById(R.id.vida02);
+        this.vidas[3] = (ImageView) findViewById(R.id.vida03);
+        this.vidas[4] = (ImageView) findViewById(R.id.vida04);
+    }
+
+    @Override
+    public void setCompletouProva(boolean valor) {
+        preferenceManager.setCompletouProva(moduloAtual, true);
+    }
+
+    @Override
+    public void removerVida() {
+
+        switch (contagemVidas) {
             case 4:
-                contagemVidas = 4;
+                AnimacaoVida.criarAnimacaoRetirarVida(vidas[VIDA05]);
                 break;
             case 3:
-                contagemVidas = 3;
+                AnimacaoVida.criarAnimacaoRetirarVida(vidas[VIDA04]);
                 break;
             case 2:
-                contagemVidas = 2;
+                AnimacaoVida.criarAnimacaoRetirarVida(vidas[VIDA03]);
                 break;
             case 1:
-                contagemVidas = 1;
+                AnimacaoVida.criarAnimacaoRetirarVida(vidas[VIDA02]);
                 break;
             case 0:
-                contagemVidas = 0;
-                /*new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        Toast.makeText(context, "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
-                        finish();
-                    }
-                }, 1500);*/
+                AnimacaoVida.criarAnimacaoRetirarVida(vidas[VIDA01]);
                 break;
             default:
                 break;
         }
+
+        contagemVidas -= 1;
+
+        if(contagemVidas < 0) {
+            gameOver();
+        }
+
+    }
+
+    @Override
+    public void adicionarVida() {
+
     }
 
     @Override
     protected void onDestroy() {
-        if(!preferenceManager.getCompletouProva(moduloAtual)) {
-            //DB_PROGRESSO.atualizaProgressoLicao(moduloAtual, etapaAtual, 1);
+        if(!usuarioJaCompletouAProva()) {
+            preferenceManager.setProgressoLicao(moduloAtual, etapaAtual, 0);
         }
 
         super.onDestroy();
+    }
+
+
+    @Override
+    protected void configurarEstadoLicoes() {
+
+        if(usuarioJaCompletouAProva()) {
+            // Liberar todas as lições
+            for(int i = 0; i <= qtdFragmentos; i++ ) {
+                configurarLicaoLiberada(i);
+            }
+
+            return;
+        }
+
+        super.configurarEstadoLicoes();
+    }
+
+    @Override
+    protected void configurarLicaoLiberada(int indexLicao) {
+        tab_layout.getTabAt(indexLicao).setIcon(R.drawable.icon_pergunta);
+        tabStrip.getChildAt(indexLicao).setClickable(true);
+        tabStrip.getChildAt(indexLicao).setEnabled(true);
+    }
+
+    public ImageView[] getVidas() {
+        return this.vidas;
+    }
+
+    public int getContagemVidas() {
+        return this.contagemVidas;
+    }
+
+    protected boolean usuarioJaCompletouAProva() {
+        return preferenceManager.getCompletouProva(moduloAtual);
+    }
+
+    private void gameOver() {
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                Toast.makeText(context, "Você perdeu todas as vidas! Tente de novo.", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual));
+                i.putExtra("tituloModulo", tituloModulo);
+                i.putExtra("qtdEtapas", qtdEtapas);
+                i.putExtra("numModulo", moduloAtual);
+                startActivity(i);
+                finish();
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void onBackPressed() {
+        alertDialogSairProva("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
+                listenerDialogClickProva);
     }
 
     // método que constrói a janela de janelaAlerta ao apertar o back button
@@ -107,70 +186,17 @@ public class ContainerProvaActivity extends ContainerLicoesActivity
                 .setNegativeButton("Não", listenerOnClick).show();
     }
 
-    protected void desbloquearLicoes() {
-       /* //int progresso = DB_PROGRESSO.verificaProgressoLicao(moduloAtual, etapaAtual);
-        switch(progresso) {
-            default:
-                for(int i = 0; i <= progresso - 1; i += 1) {
-                    if(tab_layout.getTabAt(i) != null) {
-                        tab_layout.getTabAt(i).setIcon(R.drawable.icon_pergunta);
-                    }
-                }
-                break;
-        }
-
-        *//* Desbloqueia a prova caso o aluno já tenha completado antes *//*
-        if(preferenceManager.getCompletouProva(moduloAtual)) {
-            for(int i = 0; i <= progresso - 1; i += 1) {
-                if(tab_layout.getTabAt(i) != null) {
-                    tabStrip.getChildAt(i).setClickable(true);
-                    tabStrip.getChildAt(i).setEnabled(true);
-                }
-            }
-        }*/
-    }
-
-    public ImageView getVida01() {
-        return this.vida01;
-    }
-
-    public ImageView getVida02() {
-        return this.vida02;
-    }
-
-    public ImageView getVida03() {
-        return this.vida03;
-    }
-
-    public ImageView getVida04() {
-        return this.vida04;
-    }
-
-    public ImageView getVida05() {
-        return this.vida05;
-    }
-
-    public int getContagemVidas() {
-        return this.contagemVidas;
-    }
-
-    public void setContagemVidas(int contagemVidas) {
-        this.contagemVidas = contagemVidas;
-    }
-
-    @Override
-    public void onBackPressed() {
-        alertDialogSairProva("Deseja mesmo sair da prova? Se não tiver completado ela ainda, seu progresso será reiniciado!",
-                listenerDialogClickProva);
-    }
-
     // MENSAGEM DE ALERTA AO CLICAR NO BACK BUTTON
     DialogInterface.OnClickListener listenerDialogClickProva = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             switch(which) {
                 case DialogInterface.BUTTON_POSITIVE:
-                    startActivity(new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual)));
+                    Intent i = new Intent(getApplicationContext(), retornarTelaEtapas(moduloAtual));
+                    i.putExtra("tituloModulo", tituloModulo);
+                    i.putExtra("qtdEtapas", qtdEtapas);
+                    i.putExtra("numModulo", moduloAtual);
+                    startActivity(i);
                     finish();
                     break;
 
@@ -183,7 +209,7 @@ public class ContainerProvaActivity extends ContainerLicoesActivity
 
     protected Class retornarTelaEtapas(int numeroModulo) {
         switch(numeroModulo) {
-            case 1: return EtapasModulo0.class;
+            case 0: return EtapasModulo0.class;
           /*  case 2: return EtapasModulo2Activity.class;
             case 3: return EtapasModulo3Activity.class;
             case 4: return EtapasModulo4Activity.class;
@@ -193,15 +219,84 @@ public class ContainerProvaActivity extends ContainerLicoesActivity
         }
     }
 
-    protected void init() {
-        super.init();
-        this.vida01 = (ImageView) findViewById(R.id.vida01);
-        this.vida02 = (ImageView) findViewById(R.id.vida02);
-        this.vida03 = (ImageView) findViewById(R.id.vida03);
-        this.vida04 = (ImageView) findViewById(R.id.vida04);
-        this.vida05 = (ImageView) findViewById(R.id.vida05);
+    @Override
+    public void setNota(String nota) {
+        preferenceManager.setNota(moduloAtual, nota);
     }
 
+    public int getPontuacao() {
+        return preferenceManager.getPontos(moduloAtual);
+    }
 
+    @Override
+    public String calcularNota() {
+        int pontuacaoTotal = getPontuacao();
+        int qtdPerguntas = getQtdPerguntasModulo();
+        Log.d("Pontuacao Total: ", String.valueOf(pontuacaoTotal));
+        Log.d("qtdPerguntas: ", String.valueOf(qtdPerguntas));
+        String nota;
+        double mediaTotal = pontuacaoTotal / qtdPerguntas;
+        Log.d("Media total: ", String.valueOf(mediaTotal));
 
+        if(mediaTotal == 1500) {
+            nota = "S";
+        } else if(mediaTotal >= 1400) {
+            nota = "A++";
+        } else if(mediaTotal >= 1300) {
+            nota = "A+";
+        } else if(mediaTotal >= 1200) {
+            nota = "A";
+        } else if(mediaTotal >= 1100) {
+            nota = "B+";
+        } else if(mediaTotal >= 1000) {
+            nota = "B";
+        } else if(mediaTotal >= 900) {
+            nota = "C+";
+        } else if(mediaTotal >= 800) {
+            nota = "C";
+        } else if(mediaTotal >= 750) {
+            nota = "C-";
+        } else if(mediaTotal >= 600) {
+            nota = "D";
+        } else if(mediaTotal >= 500) {
+            nota = "D-";
+        } else if(mediaTotal >= 250) {
+            nota = "E";
+        } else {
+            nota = "F";
+        }
+
+        Log.d("NOTA: ", nota);
+
+        return nota;
+    }
+
+    private int getQtdPerguntasModulo() {
+        int qtd = 0;
+        switch (moduloAtual) {
+            case ModuloCurso.MODULO0:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo0);
+                break;
+            case ModuloCurso.MODULO1:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo1);
+                break;
+            case ModuloCurso.MODULO2:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo2);
+                break;
+            case ModuloCurso.MODULO3:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo3);
+                break;
+            case ModuloCurso.MODULO4:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo3);
+                break;
+            case ModuloCurso.MODULO5:
+                qtd = getResources().getInteger(R.integer.qtdPerguntasModulo4);
+                break;
+            default:
+                qtd = 0;
+                break;
+        }
+
+        return qtd;
+    }
 }

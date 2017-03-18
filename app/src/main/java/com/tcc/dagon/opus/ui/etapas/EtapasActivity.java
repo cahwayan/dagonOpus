@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
+import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity;
+import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity_;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
@@ -70,6 +72,7 @@ public abstract class EtapasActivity extends AppCompatActivity {
         questoesPorEtapa = getStringArrayQuantidadeQuestoesPorEtapa();
         inicializarListasEtapas();
         loadClickListeners();
+        Log.d("OnCREATE: ", "Executado");
     }
 
     private void getIntents() {
@@ -130,8 +133,6 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     private void loadClickListeners() {
 
-
-
         for(int i = 0; i < listEtapas.size(); i++) {
 
             final LinearLayout btnEtapa = listBtnEtapas.get(i);
@@ -162,12 +163,28 @@ public abstract class EtapasActivity extends AppCompatActivity {
     }
 
     private void clickLiberado(int numEtapa) {
-        Intent i = new Intent(context, ContainerLicoesActivity_.class);
+
+        Intent i;
+        boolean isProva = false;
+        if(numEtapa == 2 /*(listEtapas.size() - 1)*/ ) { // É uma prova
+            i = new Intent(context, ContainerProvaActivity_.class);
+            isProva = true;
+        } else {
+            i = new Intent(context, ContainerLicoesActivity_.class);
+        }
+
         i.putExtra("tituloEtapa", listTxtTituloEtapas.get(numEtapa).getText().toString());
+        i.putExtra("tituloModulo", tituloModulo);
+        i.putExtra("qtdEtapas", qtdEtapas);
         i.putExtra("moduloAtual", moduloAtual);
         i.putExtra("etapaAtual", numEtapa);
+
         Log.d("NUM ETAPA: ", String.valueOf(numEtapa));
         startActivity(i);
+
+        if(isProva) {
+            finish();
+        }
     }
 
     private boolean isEtapaProva(int numEtapa) {
@@ -243,7 +260,14 @@ public abstract class EtapasActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         carregarUIConformeProgressoAtual();
+        Log.d("OnStart: ", "Executado");
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        carregarUIConformeProgressoAtual();
+        Log.d("OnREStart: ", "Executado");
     }
 
     @Override

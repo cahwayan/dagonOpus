@@ -65,7 +65,7 @@ public class QuestaoUnicaEscolha extends Exercicio {
 
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Todas as questões desse tipo usam o mesmo layout
-        rootView = inflater.inflate(R.layout.activity_questao, container, false);
+        rootView = inflater.inflate(R.layout.fragment_questao, container, false);
     }
 
     @Override

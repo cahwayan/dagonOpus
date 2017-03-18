@@ -1,8 +1,6 @@
 package com.tcc.dagon.opus.ui.etapas.subclasses;
 
 
-import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,7 +15,7 @@ public final class EtapasModulo0 extends EtapasActivity {
 
     @Override
     protected final int getLayout() {
-        return R.layout.activity_etapas_modulo1;
+        return R.layout.activity_etapas_modulo0;
     }
 
     @Override

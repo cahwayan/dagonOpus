@@ -13,18 +13,19 @@
         android:padding="40dp"
         android:layout_marginTop="30dp"
         >
+
         <TextView
+            android:id="@+id/txtDigitarSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Digite sua senha"
-            android:id="@+id/txtDigitarSenha"
-            android:focusableInTouchMode="false"
-            android:clickable="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
             android:layout_gravity="start"
-            android:fontFamily="sans-serif-condensed" />
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Digite sua senha"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -34,17 +35,17 @@
             android:id="@+id/edtSenhaAtual" />
 
         <TextView
+            android:id="@+id/txtNovaSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/txtNovaSenha"
-            android:focusableInTouchMode="false"
-            android:clickable="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:text="Digite sua nova senha"
             android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed" />
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Digite sua nova senha"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -54,17 +55,17 @@
             android:id="@+id/edtNovaSenha" />
 
         <TextView
+            android:id="@+id/txtConfirmarSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/txtConfirmarSenha"
-            android:focusableInTouchMode="false"
+            android:layout_marginTop="10dp"
             android:clickable="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-condensed"
             android:text="Confirme sua senha"
-            android:layout_marginTop="15dp"
-            android:fontFamily="sans-serif-condensed" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
 
         <EditText
             android:layout_width="match_parent"

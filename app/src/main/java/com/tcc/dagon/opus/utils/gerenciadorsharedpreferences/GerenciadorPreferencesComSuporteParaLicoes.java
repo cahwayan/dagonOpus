@@ -22,7 +22,7 @@ public class GerenciadorPreferencesComSuporteParaLicoes extends GerenciadorShare
         return sharedPreferences.getInt(nomeFlag, 1);
     }
 
-    private String[][] inicializarVetorDeProgressoLicoes() {
+    public String[][] inicializarVetorDeProgressoLicoes() {
 
         String[][] progressoLicoes = new String[9][9];
 

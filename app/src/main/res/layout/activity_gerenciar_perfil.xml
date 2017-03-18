@@ -12,164 +12,257 @@
         android:id="@+id/ContainerGeral"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:background="@drawable/borda_container_licao"
-        android:layout_margin="5dp"
-        android:padding="10dp">
+        android:orientation="vertical">
 
+
+        <FrameLayout
+            android:id="@+id/containerFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fotoPerfil"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icon_foto"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="1dp" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNome"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="35dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:maxLength="30"
+                android:padding="5dp"
+                android:text="Nome Sample"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorAccentDark"
+                android:textSize="18sp" />
+
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal"
-            android:id="@+id/containerFoto"
-            android:layout_weight="100"
-            android:paddingTop="10dp"
-            android:gravity="center_vertical|fill_vertical|center">
+            android:paddingEnd="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingStart="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/fotoPerfilLinear"
-                android:layout_weight="50"
-                android:paddingTop="10dp"
-                android:gravity="center">
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
 
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/fotoPerfil"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/icon_foto"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="@color/colorPrimary"
-                    android:layout_gravity="left" />
-
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:id="@+id/containerNome"
-                android:layout_weight="50"
-                android:paddingTop="10dp"
-                android:gravity="center_vertical|center"
-                android:background="@drawable/borda_esquerda">
+                <ImageView
+                    android:id="@+id/imagemPontos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/icon_pontos" />
 
                 <TextView
+                    android:id="@+id/labelPontos"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/txtNome"
-                    android:textSize="18sp"
-                    android:gravity="left|center_horizontal|center"
-                    android:text="Texto Sample"
-                    android:textColor="@color/colorPrimary"
-                    android:fontFamily="sans-serif-condensed"
-                    android:maxLength="30"
-                    android:padding="5dp"
-                    android:layout_marginLeft="2dp" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/labelPontos"
+                    android:textSize="12sp" />
 
+                <TextView
+                    android:id="@+id/textPontos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="6980"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imagemConquistas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/icon_conquistas" />
+
+                <TextView
+                    android:id="@+id/labelConquistas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/labelConquistas"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textConquistas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="4"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imagemTempo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/icon_relogio" />
+
+                <TextView
+                    android:id="@+id/labelTempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/labelTempo"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textTempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="159 min."
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
 
-        <TextView
-            android:text="Progresso Geral:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtLabelProgresso"
-            android:textSize="14sp"
-            android:gravity="center_horizontal"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/borda_topo"
-            android:paddingTop="20dp"
-            android:layout_marginTop="10dp" />
-
         <LinearLayout
+            android:id="@+id/barraProgresso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:id="@+id/barraProgresso"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelProgresso"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/borda_topo"
+                android:gravity="center_horizontal"
+                android:paddingTop="15dp"
+                android:text="Progresso Geral:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:id="@+id/barraGeral"
                 android:layout_width="fill_parent"
-                android:layout_height="10dp"
-                app:rcSecondaryProgress="0"
-                app:rcMax="32"
-                app:rcRadius="0dp"
-                app:rcBackgroundPadding="2dp"
-                app:rcReverse="false"
-                app:rcProgressColor="@color/corBtnModulo1"
-                app:rcSecondaryProgressColor="#ffffffff"
+                android:layout_height="8dp"
                 app:rcBackgroundColor="#ffffff"
-                android:id="@+id/barraGeral" />
+                app:rcBackgroundPadding="2dp"
+                app:rcMax="32"
+                app:rcProgressColor="@color/corBtnModulo1"
+                app:rcRadius="0dp"
+                app:rcReverse="false"
+                app:rcSecondaryProgress="0"
+                app:rcSecondaryProgressColor="#ffffffff" />
 
         </LinearLayout>
 
 
-
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/containerBotoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
             android:gravity="center"
-            android:orientation="vertical"
-            android:id="@+id/perfilLinear"
-            android:layout_weight="0.5"
-            android:layout_marginTop="50dp">
-
+            android:orientation="vertical">
 
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Módulos"
                 android:id="@+id/btnAprender"
-                android:layout_gravity="left"
-                android:layout_marginLeft="5dp"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:layout_marginBottom="5dp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Alterar Senha"
-                android:id="@+id/btnAlterar"
-                android:layout_gravity="left"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:layout_marginBottom="5dp" />
-
-            <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                android:id="@+id/btnLogout"
                 android:layout_gravity="left"
-                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorNiceBlue"
+                android:text="Aprender"
+                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+            <Button
+                android:id="@+id/btnAlterar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/colorNiceBlue"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:text="Alterar Senha"
+                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/colorNiceBlue"
+                android:text="Logout"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>

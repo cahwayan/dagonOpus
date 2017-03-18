@@ -3,8 +3,11 @@ package com.tcc.dagon.opus.ui.curso.adapter;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.exercicios.ConteudoWrapper;
 import com.tcc.dagon.opus.ui.curso.exercicios.completar.Completar;
+import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarProva;
 import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolha;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProva;
 import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolha;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProva;
 import com.tcc.dagon.opus.ui.curso.licao.LicaoFragment;
 
 import java.util.ArrayList;
@@ -53,11 +56,21 @@ public class GerenciadorListaExercicios extends ValoresExercicios {
                                         QuestaoMultiplaEscolha.novaQuestaoMultipla(QUESTAO0),
 
                                         LicaoFragment.novaLicao(R.layout.fragment_modulo1_etapa1_licao1),
-                                        Completar.novoCompletar(R.layout.fragment_modulo1_etapa2_completar1,
-                                        QUESTAO1, 6 /* palavras */,
-                                        new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"},
-                                        new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"})
+                                                                Completar.novoCompletar(R.layout.fragment_modulo1_etapa2_completar1,
+                                                                QUESTAO1, 6 /* palavras */,
+                                                                new String[]{"olhar", "para", "direita", "atravesse", "nao", "atravesse"},
+                                                                new String[]{"olhar", "para", "direita", "atravesse", "não", "atravesse"})
                                         };
+            case ETAPA2:
+                return new ConteudoWrapper[]
+                        {CompletarProva.novoCompletarProva(R.layout.fragment_modulo1_prova_completar1,
+                                                      QUESTAO0, 8 /* palavras*/,
+                                                      new String[] {"inteiro", "inteiro", "escreva", "leia", "numero2", "resultado", "numero2", "resultado"},
+                                                      new String[] {"inteiro", "inteiro", "escreva", "leia", "numero2", "resultado", "numero2", "resultado"}),
+                        QuestaoUnicaEscolhaProva.novaQuestaoProva(QUESTAO1),
+                        QuestaoMultiplaEscolhaProva.novaQuestaoMultiplaProva(QUESTAO2)
+
+                        };
 
         }
 

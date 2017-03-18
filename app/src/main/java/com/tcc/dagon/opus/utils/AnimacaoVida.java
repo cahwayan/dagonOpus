@@ -9,9 +9,9 @@ import com.tcc.dagon.opus.R;
  * Created by cahwayan on 16/01/2017.
  */
 
-public class AnimacaoResposta {
+public class AnimacaoVida {
 
-    public static void criarAnimacaoCom(final ImageView imagem) {
+    public static void criarAnimacaoRetirarVida(final ImageView imagem) {
         PulseAnimation.create().with(imagem)
                 .setDuration(310)
                 .setRepeatCount(3)
