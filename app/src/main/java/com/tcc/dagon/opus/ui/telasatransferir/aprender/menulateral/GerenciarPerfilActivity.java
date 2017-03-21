@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -26,45 +27,61 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.usuario.AlterarSenhaActivity;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_gerenciar_perfil)
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = GerenciarPerfilActivity.class.getSimpleName();
 
-    private static int RESULT_LOAD_IMAGE = 1;
+    @ViewById Button btnAprender;
+    @ViewById Button btnAlterar;
+    @ViewById Button btnLogout;
+    @ViewById RoundCornerProgressBar barraGeral;
+    @ViewById TextView txtNome;
+    @ViewById ImageView fotoPerfil;
 
-    static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
+    @ViewById TextView textPontos;
+    @ViewById TextView textConquistas;
+    @ViewById TextView textTempo;
 
-    private Button btnAprender,btnAlterarSenha,btnLogout;
-
-    private TextView txtNome;
-
-    private RoundCornerProgressBar barraGeral;
 
     private GerenciadorSharedPreferences preferencias;
+    private RequestQueue requestQueue;
+    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
 
-    RequestQueue requestQueue;
 
-    ImageView foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    protected void onStart() {
+        if(!LoginActivity.googleApiClient.isConnected()) {
+            LoginActivity.googleApiClient.connect();
+        }
 
+        super.onStart();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @AfterViews
@@ -81,16 +98,12 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         // OBJETO DE CONEXÃO COM API GOOGLE
         googleBuilder();
 
-        // VIEWS DA CLASSE
-        accessViews();
+        getNomeUsuario();
+        loadFotoPerfil();
+        loadOnClickListeners();
+        loadProgressBar();
+        loadPontuacaoUsuario();
 
-        // CARREGANDO CLICK LISTENERS
-        clickListeners();
-
-        // CARREGA PROGRESSO DA BARRA
-        carregarProgresso();
-
-        // CONTEXT PARA CHAMADA VOLLEY
         requestQueue = Volley.newRequestQueue(getApplicationContext());
     }
 
@@ -100,55 +113,88 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         finish();
     }
 
-    private void accessViews() {
-        txtNome = (TextView) findViewById(R.id.txtNome);
-
+    private void getNomeUsuario() {
         if(preferencias.getNomeUsuario().equals("default")) {
             txtNome.setText("Nome");
         } else {
             txtNome.setText(preferencias.getNomeUsuario());
         }
+    }
 
+    private void loadPontuacaoUsuario() {
 
-        btnAprender = (Button) findViewById(R.id.btnAprender);
-        btnAlterarSenha = (Button) findViewById(R.id.btnAlterar);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
-        barraGeral = (RoundCornerProgressBar) findViewById(R.id.barraGeral);
-        foto = (ImageView) findViewById(R.id.fotoPerfil);
+        int pontos = 0;
 
+        for(int i = 0; i < ModuloCurso.QTD_MODULOS; i++) {
+            pontos += preferencias.getPontos(i);
+        }
+
+        if(pontos > 0) {
+            textPontos.setText(String.valueOf(pontos));
+        } else {
+            textPontos.setText("0");
+        }
+    }
+
+    private void loadFotoPerfil() {
         /* DEBUG, PARA VERIFICAR O CAMINHO DA FOTO SALVA
         Log.d(TAG, "SharedPref caminho: " + preferenceManager.lerFlagString(NomePreferencia.caminhoFoto));*/
 
-        if(foto != null){
-            if(preferencias.getCaminhoFoto().equals("default")) {
-                foto.setImageResource(R.drawable.icon_foto);
-            } else {
-                try {
-                    foto.setImageBitmap(BitmapFactory.decodeFile(preferencias.getCaminhoFoto()));
-                } catch(NullPointerException e) {
-                    foto.setImageResource(R.drawable.icon_foto);
-                }
-
+        if(preferencias.getCaminhoFoto().equals("default")) {
+            fotoPerfil.setImageResource(R.drawable.icon_foto);
+        } else {
+            try {
+                fotoPerfil.setImageBitmap(BitmapFactory.decodeFile(preferencias.getCaminhoFoto()));
+            } catch(NullPointerException e) {
+                fotoPerfil.setImageResource(R.drawable.icon_foto);
             }
         }
-
-
     }
 
-    private void carregarProgresso() {
-     /*   int progressoGeral = 0;
-        for(int i = 1; i <= 8; i++) {
-
+    private void loadProgressBar() {
+        int progressoGeral = 0;
+        for(int i = 0; i < ModuloCurso.QTD_MODULOS; i++) {
+            progressoGeral += preferencias.getProgressoEtapa(i);
         }
-        barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));*/
+
+        barraGeral.setProgress(Float.parseFloat(valueOf(progressoGeral) ));
     }
 
-    private void clickListeners() {
-        btnAprender.setOnClickListener(btnClickListner);
-        btnAlterarSenha.setOnClickListener(btnClickListner);
-        btnLogout.setOnClickListener(btnClickListner);
+    private void loadOnClickListeners() {
 
-        foto.setOnClickListener(new View.OnClickListener() {
+        OnOffClickListener btnClickListener = new OnOffClickListener() {
+            @Override
+            public void onOneClick(View v) {
+                if( btnAprender.getId() == v.getId() )
+                {
+                    Intent i = new Intent(getApplicationContext(), AprenderActivity_.class);
+                    startActivity(i);
+                    finish();
+
+                }
+                else if( btnLogout.getId() == v.getId() )
+                {
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity_.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    preferencias.setIsLogin(false);
+                    signOut();
+                    finish();
+                }
+                else if( btnAlterar.getId() == v.getId() )
+                {
+                    Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
+                    i.putExtra("emailUsuario", preferencias.getEmailUsuario());
+                    startActivity(i);
+                }
+            }
+        };
+
+        btnAprender.setOnClickListener(btnClickListener);
+        btnAlterar.setOnClickListener(btnClickListener);
+        btnLogout.setOnClickListener(btnClickListener);
+
+        fotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -173,7 +219,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
             Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(i, RESULT_LOAD_IMAGE);
         }
-
     }
 
     // MÉTODO QUE PEGA A PERMISSÃO DO USUÁRIO
@@ -199,25 +244,20 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     // SE ELE CONCEDEU OU NÃO
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_READ_STORAGE: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
                     // PERMISSAO GARANTIDA
-                    Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(i, RESULT_LOAD_IMAGE);
-
                 } else {
                     // PERMISSAO NEGADA
                     Toast.makeText(getApplicationContext(), "Você precisa conceder autorização para utilizar esse recurso", Toast.LENGTH_LONG).show();
-
                 }
-
             }
-
         }
     }
 
@@ -260,53 +300,6 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 .build();
     }
 
-    @Override
-    protected void onStart() {
-        if(!LoginActivity.googleApiClient.isConnected()) {
-            LoginActivity.googleApiClient.connect();
-        }
-
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-
-    View.OnClickListener btnClickListner = new View.OnClickListener()
-    {
-        @Override
-        public void onClick( View v )
-        {
-            if( btnAprender.getId() == v.getId() )
-            {
-                Intent i = new Intent(getApplicationContext(), AprenderActivity_.class);
-                startActivity(i);
-                finish();
-
-            }
-            else if( btnLogout.getId() == v.getId() )
-            {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity_.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                preferencias.setIsLogin(false);
-                signOut();
-                finish();
-            }
-            else if( btnAlterarSenha.getId() == v.getId() )
-            {
-                Intent i = new Intent(GerenciarPerfilActivity.this, AlterarSenhaActivity.class);
-                i.putExtra("emailUsuario", preferencias.getEmailUsuario());
-                startActivity(i);
-            }
-
-        }
-
-    };
-
     // SIGN OUT GOOGLE
     private void signOut() {
         if(LoginActivity.googleApiClient.isConnected()) {
@@ -319,9 +312,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         }
     }
 
-
     @Override
-    public void onConnectionFailed(ConnectionResult result) {
+    public void onConnectionFailed(@NonNull ConnectionResult result) {
 
     }
 
@@ -336,7 +328,4 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
 }

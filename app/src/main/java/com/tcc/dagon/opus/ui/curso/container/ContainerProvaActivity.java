@@ -272,7 +272,9 @@ public class ContainerProvaActivity extends ContainerLicoesActivity
     }
 
     private int getQtdPerguntasModulo() {
+
         int qtd = 0;
+        
         switch (moduloAtual) {
             case ModuloCurso.MODULO0:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo0);

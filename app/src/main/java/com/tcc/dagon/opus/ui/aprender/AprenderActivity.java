@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
+import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.ActivityConfig_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
@@ -589,7 +590,7 @@ public class AprenderActivity
                 startActivity(new Intent(getApplicationContext(), ContainerComandosGlossarioActivity.class));
                 break;
             case 3: // CONFIGURAÇÕES
-                //startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));
+                startActivity(new Intent(getApplicationContext(), ActivityConfig_.class));
                 break;
             case 4:
                 break;

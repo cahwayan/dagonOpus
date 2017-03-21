@@ -12,6 +12,7 @@ public interface ModuloCurso {
     int IS_CURSANDO = 1;
     int IS_COMPLETO = 2;
     int IS_CERTIFICADO = 3;
+    int QTD_MODULOS = 7;
 
 
     int MODULO0 = 0;
