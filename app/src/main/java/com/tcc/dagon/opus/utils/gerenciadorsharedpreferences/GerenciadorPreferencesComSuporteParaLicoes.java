@@ -24,7 +24,7 @@ public class GerenciadorPreferencesComSuporteParaLicoes extends GerenciadorShare
 
     public String[][] inicializarVetorDeProgressoLicoes() {
 
-        String[][] progressoLicoes = new String[9][9];
+        String[][] progressoLicoes = new String[6][10];
 
         String[] flagsLicoes = new String[]
                 {PROGRESSO_LICOES_MODULO0_ETAPA0, PROGRESSO_LICOES_MODULO0_ETAPA1, PROGRESSO_LICOES_MODULO0_ETAPA2, PROGRESSO_LICOES_MODULO0_ETAPA3, PROGRESSO_LICOES_MODULO0_ETAPA4, PROGRESSO_LICOES_MODULO0_ETAPA5, PROGRESSO_LICOES_MODULO0_ETAPA6, PROGRESSO_LICOES_MODULO0_ETAPA7, PROGRESSO_LICOES_MODULO0_ETAPA8, PROGRESSO_LICOES_MODULO0_ETAPA9,

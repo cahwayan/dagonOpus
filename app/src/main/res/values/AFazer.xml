@@ -4,13 +4,17 @@
     <string name="AFazer">
 
         - Banco de dados na nuvem:
+            - Criar uma shared preference que guarda o tipo de sessão do usuário
             - Salvar caminho da foto do usuário no cartão SD (string)
             - Salvar valor da flag progresso módulo (int)
             - Salvar valor das flags progresso etapas (int)
             - Salvar valor das flags progresso lições (int)
-            - Salvar valor da flag pontuação (String)
+            DONE - Salvar valor da flag pontuação (String)
             - Salvar valor das flags conquistas (boolean)
             - Salvar o tempo de estudo (tempo)
+
+        DONE - Diferenciar a sessão do usuário: uma para interna e outra para google
+        DONE - De acordo com o tipo de login, procurar em tabelas diferentes
 
         SALVAR O PROGRESSO DO USUÁRIO DE TEMPOS EM TEMPOS
         SALVAR O CAMINHO DA FOTO NA TROCA

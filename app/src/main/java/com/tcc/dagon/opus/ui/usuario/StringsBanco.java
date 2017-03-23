@@ -5,6 +5,9 @@ package com.tcc.dagon.opus.ui.usuario;
  */
 public abstract class StringsBanco {
 
+    public static final String SESSAO_INTERNO = "0";
+    public static final String SESSAO_GOOGLE = "1";
+
     private static final String insereUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/scriptCadastro.php";
     private static final String loginUrl = "http://dagonopus.esy.es/phpAndroid/phpTeste/ScriptLogin.php";
     private static final String insereGoogle = "http://dagonopus.esy.es/phpAndroid/insereGoogle.php";

@@ -11,7 +11,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.tcc.dagon.opus.ui.usuario.StringsBanco;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +27,7 @@ import static android.content.ContentValues.TAG;
 public class VolleyRequest {
 
     public interface VolleyCallBack {
-        void respostaEmail(boolean resultado);
+        void callbackEmailExiste(boolean resultado);
     }
 
     private final GerenciadorSharedPreferences preferencesManager;
@@ -51,7 +50,7 @@ public class VolleyRequest {
 
     }
 
-    public void requestCadastrarDados(final Activity activity, final String email, final String senha, final String nome)
+    public void requestCadastrarDados(final Activity activity, final String tipoUsuario, final String email, final String senha, final String nome)
     {
 
         StringRequest request = new StringRequest(
@@ -61,12 +60,21 @@ public class VolleyRequest {
             {
                 if(response.equals("certo"))
                 {
+                    Log.d("Status cadastro: ", "Usuário cadastrado com sucesso!");
                     preferencesManager.setNomeUsuario(nome);
-                    toastManager.toastShort("Você foi cadastrado com sucesso!");
-                    activity.finish();
+
+                    if(tipoUsuario.equals(StringsBanco.SESSAO_INTERNO)) {
+                        toastManager.toastShort("Você foi cadastrado com sucesso!");
+                        activity.finish();
+                    }
+
                 } else if(response.equals("erroExiste"))
                 {
-                    toastManager.toastLong("Email já cadastrado");
+                    if(tipoUsuario.equals(StringsBanco.SESSAO_INTERNO)) {
+                        toastManager.toastShort("Email já cadastrado");
+                    } else if(tipoUsuario.equals(StringsBanco.SESSAO_GOOGLE)){
+                        toastManager.toastShort("Bem-vindo de volta!");
+                    }
                 }
 
                 Log.d("RESP REQUESTCADASTR: ", response);
@@ -82,6 +90,7 @@ public class VolleyRequest {
             protected Map<String, String> getParams() throws AuthFailureError
             {
                 Map<String, String> parameters = new HashMap<>();
+                parameters.put("TIPO_USUARIO", tipoUsuario);
                 parameters.put("EMAIL_USUARIO", email);
                 parameters.put("SENHA_USUARIO", senha);
                 parameters.put("NOME_USUARIO", nome);
@@ -167,36 +176,7 @@ public class VolleyRequest {
         requestQueue.add(requestNome);
     }
 
-    public void requestCadastrarDadosGoogle(final GoogleSignInAccount acct)
-    {
-        StringRequest request = new StringRequest(
-                Request.Method.POST, StringsBanco.getInsereGoogle(), new Response.Listener<String>()
-        {
-            public void onResponse(String response)
-            {
-                Log.d("DADOS GOOGL CADASTRAD: ", response);
-            }
-        }, new Response.ErrorListener()
-        {
-            public void onErrorResponse(VolleyError error)
-            {
-
-            }
-        })
-        {
-            protected Map<String, String> getParams() throws AuthFailureError
-            {
-                Map<String, String> parameters = new HashMap<String, String>();
-                parameters.put("EMAIL_GOOGLE", acct.getEmail());
-                parameters.put("NOME_GOOGLE", acct.getDisplayName());
-                return parameters;
-            }
-        };
-
-        requestQueue.add(request);
-    }
-
-    public void requestUsuarioExiste(final String email) {
+    public void requestUsuarioExiste(final String tipoUsuario, final String email) {
         StringRequest request = new StringRequest(
                 Request.Method.POST, StringsBanco.getUsuarioExiste(), new Response.Listener<String>()
         {
@@ -204,8 +184,9 @@ public class VolleyRequest {
             public void onResponse(String response)
             {
                 boolean usuarioExiste = response.equals("sim");
+                Log.d("USUARIO EXISTE: ", response);
                 if(volleyCallBack != null) {
-                    volleyCallBack.respostaEmail(usuarioExiste);
+                    volleyCallBack.callbackEmailExiste(usuarioExiste);
                 }
             }
         }, new Response.ErrorListener()
@@ -219,6 +200,7 @@ public class VolleyRequest {
             protected Map<String, String> getParams() throws AuthFailureError
             {
                 Map<String, String> parameters = new HashMap<>();
+                parameters.put("TIPO_USUARIO", tipoUsuario);
                 parameters.put("EMAIL_USUARIO", email);
                 return parameters;
             }

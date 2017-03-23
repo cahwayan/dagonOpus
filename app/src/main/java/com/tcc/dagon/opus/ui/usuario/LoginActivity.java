@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -40,7 +42,15 @@ import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
-public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener {
+public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, VolleyRequest.VolleyCallBack {
+    @Override
+    public void callbackEmailExiste(boolean resultado) {
+        if(!resultado) {
+            volleyRequest.requestCadastrarDados(this, StringsBanco.SESSAO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
+        } else {
+            Toast.makeText(this, "Bem-vindo de volta!", Toast.LENGTH_LONG).show();
+        }
+    }
 
     /* INÍCIO ATRIBUTOS */
 
@@ -152,7 +162,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         googleBuilder();
 
         preferencias = new GerenciadorSharedPreferences(this);
-        volleyRequest = new VolleyRequest(this);
+        volleyRequest = new VolleyRequest(this, this);
 
         loadClickListeners();
 
@@ -379,7 +389,10 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     /* PEGA OS DADOS DO GOOGLE E GUARDA NO NOSSO BANCO*/
     protected void getDataProfile(){
             if(acct != null){
-                volleyRequest.requestCadastrarDadosGoogle(acct);
+                String nome = acct.getDisplayName();
+                String email = acct.getEmail();
+                preferencias.setNomeUsuario(nome);
+                volleyRequest.requestUsuarioExiste(StringsBanco.SESSAO_GOOGLE, email);
             }
     }
 

@@ -51,7 +51,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
     private int COR_VERDE;
 
     @Override
-    public void respostaEmail(boolean resultado) {
+    public void callbackEmailExiste(boolean resultado) {
         Log.d("ANTES: ", String.valueOf(usuarioExiste));
         this.usuarioExiste = resultado;
         Log.d("DEPOIS: ", String.valueOf(usuarioExiste));
@@ -137,7 +137,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
             if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
 
                 /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
-                volleyRequest.requestCadastrarDados(this, sEmail, sSenha, sNome);
+                volleyRequest.requestCadastrarDados(this, StringsBanco.SESSAO_INTERNO, sEmail, sSenha, sNome);
             }
 
         /* RESPOSTA CASO O USUÁRIO NÃO ESTEJA CONECTADO */
@@ -187,7 +187,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
 
     protected void usuarioExiste()  {
         if(VerificarConexao.verificarConexao()) {
-            volleyRequest.requestUsuarioExiste(sEmail);
+            volleyRequest.requestUsuarioExiste(StringsBanco.SESSAO_INTERNO, sEmail);
         } else {
             toastManager.toastShort("Sem conexão");
             configureEditTextReset();
