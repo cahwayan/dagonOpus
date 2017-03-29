@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.utils.volley;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -32,7 +31,7 @@ public class CadastroRequestHandler extends VolleyRequest {
     public void cadastrarUsuario(final String tipoUsuario, final String email, final String senha, final String nome)
     {
 
-        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getInsereUrl(), new Response.Listener<String>()
+        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getScriptCadastro(), new Response.Listener<String>()
         {
             public void onResponse(String response)
             {
@@ -63,7 +62,7 @@ public class CadastroRequestHandler extends VolleyRequest {
 
     public void usuarioExiste(final String tipoUsuario, final String email) {
 
-        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getUsuarioExiste(), new Response.Listener<String>()
+        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getScriptUsuarioExiste(), new Response.Listener<String>()
 
         {
             @Override

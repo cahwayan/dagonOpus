@@ -1,8 +1,6 @@
 package com.tcc.dagon.opus.utils.volley;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -10,7 +8,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 import com.tcc.dagon.opus.ui.usuario.StringsBanco;
 
 import java.util.HashMap;
@@ -31,11 +28,11 @@ public class LoginRequestHandler extends VolleyRequest {
         this.callbackLogin = (CallbackLogin) context;
     }
 
-    public void requestLogar(final Activity activity, final String sEmail, final String sSenha) {
+    public void requestLogar(final String sEmail, final String sSenha) {
 
         /* INÍCIO REQUEST*/
         StringRequest request = new StringRequest(
-                Request.Method.POST, StringsBanco.getLoginUrl(), new Response.Listener<String>()
+                Request.Method.POST, StringsBanco.getScriptLogin(), new Response.Listener<String>()
         {
 
             public void onResponse(String response)
@@ -75,12 +72,11 @@ public class LoginRequestHandler extends VolleyRequest {
     public void getNomeUsuario(final String sEmail)
     {
         StringRequest requestNome = new StringRequest(
-                Request.Method.POST, StringsBanco.getNomeUrl(), new Response.Listener<String>()
+                Request.Method.POST, StringsBanco.getScriptGetNome(), new Response.Listener<String>()
         {
             public void onResponse(String response)
             {
-                preferencesManager.setNomeUsuario(response);
-
+                callbackLogin.callbackNome(response);
             }
         }, new Response.ErrorListener()
         {
@@ -91,13 +87,50 @@ public class LoginRequestHandler extends VolleyRequest {
         }){
             protected Map<String, String> getParams() throws AuthFailureError
             {
-                HashMap<String,String> hashMap = new HashMap<String, String>();
+                HashMap<String,String> hashMap = new HashMap<>();
                 hashMap.put("EMAIL_USUARIO", sEmail);
                 return hashMap;
             }
         };
 
         requestQueue.add(requestNome);
+    }
+
+    public void getID(final String tipoUsuario, final String email) {
+
+        /* INÍCIO REQUEST*/
+        StringRequest request = new StringRequest(
+                Request.Method.POST, StringsBanco.getScriptGetId(), new Response.Listener<String>()
+        {
+
+            public void onResponse(String response)
+            {
+
+                callbackLogin.callbackId(response);
+
+                Log.d(TAG, "RESPOSTA FIND ID: " + response);
+            }
+
+        }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError
+            {
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put("TIPO_USUARIO", tipoUsuario);
+                hashMap.put("EMAIL_USUARIO", email);
+                return hashMap;
+            }
+
+        };
+
+        requestQueue.add(request);
     }
 
 }

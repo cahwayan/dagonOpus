@@ -65,6 +65,16 @@ public class GerenciadorSharedPreferences implements Preferencias {
     }
 
     @Override
+    public void setTipoUsuario(String tipoUsuario) {
+        modFlag(TIPO_USUARIO, tipoUsuario);
+    }
+
+    @Override
+    public String getTipoUsuario() {
+        return lerFlagString(TIPO_USUARIO);
+    }
+
+    @Override
     public String getCaminhoFoto() {
         return lerFlagString(caminhoFoto);
     }

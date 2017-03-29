@@ -12,6 +12,7 @@ public interface Preferencias {
     */
 
     String ID_USUARIO = "idUsuario";
+    String TIPO_USUARIO = "tipoUsuario";
 
     // Módulos
     String PROGRESSO_MODULO = "progressoModulo";
@@ -111,6 +112,9 @@ public interface Preferencias {
     String getCaminhoFoto();
     String getEmailUsuario();
     boolean getIsCertificadoGerado();
+
+    void setTipoUsuario(String tipoUsuario);
+    String getTipoUsuario();
 
     String getIdUsuario();
     void setIdUsuario(String id);

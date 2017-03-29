@@ -41,24 +41,59 @@ import org.androidannotations.annotations.ViewById;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
+import java.sql.Time;
+
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
 public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin {
 
+
+
     /* CALLBACKS */
 
+    @Override
+    public void callbackTempoEstudo(Time tempoEstudo) {
+
+    }
+
+    @Override
+    public void callbackEnderecoFoto(String endereco) {
+        preferencias.setCaminhoFoto(endereco);
+    }
+
+    @Override
+    public void callbackEstadoCertificado(String estadoCertificado) {
+
+        if(estadoCertificado.equals("1")) {
+            preferencias.setIsCertificadoGerado(true);
+        } else {
+            preferencias.setIsCertificadoGerado(false);
+        }
+
+    }
+
+    @Override
+    public void callbackNome(String nome) {
+        preferencias.setNomeUsuario(nome);
+    }
+
+    @Override
+    public void callbackId(String id) {
+        preferencias.setIdUsuario(id);
+    }
+
     /*
-        @param resultado: Se True, o usuário existe. Se False, o usuário não existe
+            @param resultado: Se True, o usuário existe. Se False, o usuário não existe
 
-        Esse callback é para o login com o google. Ele verifica se o usuário que está logando já existe no banco de dados.
-         Caso ele não exista, é preciso fazer um request para cadastrar o usuário.
-         Caso já exista, é preciso fazer requests para restaurar o progresso do usuario.
-        O resultado desse request vem sempre depois que o login
-        com o google recebe o status sucesso. Como o login com o google funciona ao mesmo tempo como um login e
-        um cadastro, é preciso verificar se o resultado deu sucesso antes de prosseguir.
+            Esse callback é para o login com o google. Ele verifica se o usuário que está logando já existe no banco de dados.
+             Caso ele não exista, é preciso fazer um request para cadastrar o usuário.
+             Caso já exista, é preciso fazer requests para restaurar o progresso do usuario.
+            O resultado desse request vem sempre depois que o login
+            com o google recebe o status sucesso. Como o login com o google funciona ao mesmo tempo como um login e
+            um cadastro, é preciso verificar se o resultado deu sucesso antes de prosseguir.
 
-     */
+         */
     @Override
     public void callbackEmailExiste(boolean resultado) {
 
@@ -67,13 +102,15 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
             // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
             // Salvar o ID dele
-            // preferencias.setIdUsuario(Id);
+            loginRequestHandler.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
             Toast.makeText(this, "Bem-vindo de volta!", Toast.LENGTH_LONG).show();
 
             //startLogin();
         } else {
             cadastroRequestHandler.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
         }
+
+        preferencias.setTipoUsuario(StringsBanco.USUARIO_GOOGLE);
 
     }
 
@@ -92,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     public void callbackCadastro(String resultado) {
         if(resultado.equals("certo")) {
             // TODO: Salvar o ID do usuário antes de dar startLogin
-            // preferencias.setId(PegarId);
+            loginRequestHandler.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
             startLogin();
         } else {
             Log.d(TAG, resultado);
@@ -106,7 +143,11 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             // TODO: Aqui é onde será feito os requests de restaurar o progresso do usuário interno.
             // Colocar para abrir a activity de login no callback do último request
             preferencias.setEmailUsuario(sEmail);
+            // Mandando request, resposta vai chegar por callback e ser gravado na preference
+            loginRequestHandler.getID(StringsBanco.USUARIO_INTERNO, sEmail);
             loginRequestHandler.getNomeUsuario(sEmail);
+            preferencias.setTipoUsuario(StringsBanco.USUARIO_INTERNO);
+
 
             //startLogin();
         } else {
@@ -241,13 +282,14 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         OnOffClickListener clickListenerLogin = new OnOffClickListener() {
             @Override
             public void onOneClick(View v) {
+
                 sEmail    = textEmail.getText().toString().trim();
                 sSenha = textSenha.getText().toString().trim();
 
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
                 if(VerificarConexao.verificarConexao()) {
                     if(verificarCredenciais(sEmail, sSenha)) {
-                        loginRequestHandler.requestLogar(getActivity(), sEmail, sSenha);
+                        loginRequestHandler.requestLogar(sEmail, sSenha);
                         //w
 
                     }
