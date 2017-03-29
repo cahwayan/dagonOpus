@@ -55,6 +55,16 @@ public class GerenciadorSharedPreferences implements Preferencias {
     }
 
     @Override
+    public String getIdUsuario() {
+        return lerFlagString(ID_USUARIO);
+    }
+
+    @Override
+    public void setIdUsuario(String id) {
+        modFlag(ID_USUARIO, id);
+    }
+
+    @Override
     public String getCaminhoFoto() {
         return lerFlagString(caminhoFoto);
     }

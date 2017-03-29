@@ -11,6 +11,8 @@ public interface Preferencias {
       * TIPO: int
     */
 
+    String ID_USUARIO = "idUsuario";
+
     // Módulos
     String PROGRESSO_MODULO = "progressoModulo";
 
@@ -109,6 +111,9 @@ public interface Preferencias {
     String getCaminhoFoto();
     String getEmailUsuario();
     boolean getIsCertificadoGerado();
+
+    String getIdUsuario();
+    void setIdUsuario(String id);
 
     void setProgressoModulo(int valor);
     void setProgressoEtapa(int numModuloReferente, int valor);

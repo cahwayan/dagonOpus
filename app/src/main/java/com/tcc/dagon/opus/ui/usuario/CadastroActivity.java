@@ -14,7 +14,8 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;
-import com.tcc.dagon.opus.utils.VolleyRequest;
+import com.tcc.dagon.opus.utils.volley.CadastroRequestHandler;
+import com.tcc.dagon.opus.utils.volley.CallbackCadastro;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -23,8 +24,9 @@ import org.androidannotations.annotations.TextChange;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
-public class CadastroActivity extends AppCompatActivity implements VolleyRequest.VolleyCallBack{
+public class CadastroActivity extends AppCompatActivity implements CallbackCadastro{
 
+    private final String TAG = this.getClass().getSimpleName();
     /* VIEWS */ /**/
     @ViewById protected Button btnCadastra;
     @ViewById protected TextView textNome;
@@ -35,38 +37,47 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
     /* OBJETOS */
     protected GerenciadorSharedPreferences preferenceManager;
 
+
     /* VARIÁVEIS */
     protected String sNome,
                      sSenha,
                      sCsenha,
                      sEmail;
 
-    private VolleyRequest volleyRequest;
+    private CadastroRequestHandler volleyRequest;
     private ToastManager toastManager;
 
-    private boolean usuarioExiste;
     private int COR_MAIN;
-    private int BORDA_PADRAO;
     private int COR_VERMELHO;
     private int COR_VERDE;
 
     @Override
     public void callbackEmailExiste(boolean resultado) {
-        Log.d("ANTES: ", String.valueOf(usuarioExiste));
-        this.usuarioExiste = resultado;
-        Log.d("DEPOIS: ", String.valueOf(usuarioExiste));
-        onPostExecute();
-    }
 
-    private void onPostExecute() {
-        if(usuarioExiste)
-        {
+        Log.d(TAG, "Callback Email Existe: " + resultado);
+
+        // Se usuário existe
+        if(resultado) {
             configureEditTextUnavailable();
-        } else
-        {
+        } else {
             configureEditTextAvailable();
         }
+
     }
+
+    @Override
+    public void callbackCadastro(String resultado) {
+        if(resultado.equals("certo")) {
+            Log.d(TAG, "Usuário cadastrado com sucesso!");
+            toastManager.toastShort("Você foi cadastrado com sucesso!");
+            this.finish();
+        } else if(resultado.equals("erroExiste")) {
+            toastManager.toastShort("Email já cadastrado");
+        } else {
+            toastManager.toastLong("Erro desconhecido. Tente novamente.");
+        }
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +86,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
 
     @AfterViews
     protected void init() {
-        volleyRequest = new VolleyRequest(this, this);
+        volleyRequest = new CadastroRequestHandler(this);
         preferenceManager = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
 
@@ -118,26 +129,23 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
             return;
         }
 
-        usuarioExiste(); /* ? */
+        verificarUsuarioExiste();
     }
 
     protected void cadastrar() {
-
-        /* TRABALHAR COM VARIÁVEIS É MELHOR DO QUE TRABALHAR COM OBJETOS DIRETAMENTE */
-        /* PEGANDO OS DADOS DO USUÁRIO */
-        sNome   = textNome.getText().toString().trim();
-        sSenha  = textSenha.getText().toString().trim();
-        sCsenha = textCSenha.getText().toString().trim();
-        sEmail  = textEmail.getText().toString().trim();
-
         /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
         if(VerificarConexao.verificarConexao()) {
+
+            sNome   = textNome.getText().toString().trim();
+            sSenha  = textSenha.getText().toString().trim();
+            sCsenha = textCSenha.getText().toString().trim();
+            sEmail  = textEmail.getText().toString().trim();
 
             /* SE OS DADOS ESTIVEREM OK E A FUNÇÃO RETORNAR VERDADEIRO... */
             if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
 
                 /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
-                volleyRequest.requestCadastrarDados(this, StringsBanco.SESSAO_INTERNO, sEmail, sSenha, sNome);
+                volleyRequest.cadastrarUsuario(StringsBanco.USUARIO_INTERNO, sEmail, sSenha, sNome);
             }
 
         /* RESPOSTA CASO O USUÁRIO NÃO ESTEJA CONECTADO */
@@ -185,13 +193,10 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
         }
     }
 
-    protected void usuarioExiste()  {
-        if(VerificarConexao.verificarConexao()) {
-            volleyRequest.requestUsuarioExiste(StringsBanco.SESSAO_INTERNO, sEmail);
-        } else {
-            toastManager.toastShort("Sem conexão");
-            configureEditTextReset();
-        }
+    protected void verificarUsuarioExiste()  {
+
+        volleyRequest.usuarioExiste(StringsBanco.USUARIO_INTERNO, sEmail);
+
     }
 
     private void configureEditTextUnavailable() {
@@ -206,7 +211,7 @@ public class CadastroActivity extends AppCompatActivity implements VolleyRequest
     private void configureEditTextAvailable() {
         if(VerificarConexao.verificarConexao()) {
             textEmail.setTextColor(COR_VERDE);
-            //textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
+            textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
         }
     }
 

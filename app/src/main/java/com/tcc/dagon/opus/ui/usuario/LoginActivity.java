@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -31,9 +30,12 @@ import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.VerificarConexao;
-import com.tcc.dagon.opus.utils.VolleyRequest;
+import com.tcc.dagon.opus.utils.volley.CadastroRequestHandler;
+import com.tcc.dagon.opus.utils.volley.CallbackCadastro;
+import com.tcc.dagon.opus.utils.volley.CallbackLogin;
+import com.tcc.dagon.opus.utils.volley.LoginRequestHandler;
+import com.tcc.dagon.opus.utils.volley.VolleyRequest;
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -42,17 +44,79 @@ import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
-public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, VolleyRequest.VolleyCallBack {
+public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin {
+
+    /* CALLBACKS */
+
+    /*
+        @param resultado: Se True, o usuário existe. Se False, o usuário não existe
+
+        Esse callback é para o login com o google. Ele verifica se o usuário que está logando já existe no banco de dados.
+         Caso ele não exista, é preciso fazer um request para cadastrar o usuário.
+         Caso já exista, é preciso fazer requests para restaurar o progresso do usuario.
+        O resultado desse request vem sempre depois que o login
+        com o google recebe o status sucesso. Como o login com o google funciona ao mesmo tempo como um login e
+        um cadastro, é preciso verificar se o resultado deu sucesso antes de prosseguir.
+
+     */
     @Override
     public void callbackEmailExiste(boolean resultado) {
-        if(!resultado) {
-            volleyRequest.requestCadastrarDados(this, StringsBanco.SESSAO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
-        } else {
+
+        // Se o usuário já existe
+        if(resultado) {
+
+            // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
+            // Salvar o ID dele
+            // preferencias.setIdUsuario(Id);
             Toast.makeText(this, "Bem-vindo de volta!", Toast.LENGTH_LONG).show();
+
+            //startLogin();
+        } else {
+            cadastroRequestHandler.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
+        }
+
+    }
+
+
+    /*
+        @param resultado: Se 'certo', as informações do usuário, e as tabelas relacionadas a ele foram gravadas
+         na base de dados via php.
+                          Se 'erroExiste', o usuário já existe.
+         Esse callback é a resposta da tentativa de gravar os dados do usuário na base de dados remota via VolleyRequest e PHP.
+         Esse método é chamado após o resultado do Google ter dado success, e depois do app verificar se o usuário existe ou não.
+         Caso o usuário não exista, o request de cadastro será chamado, e esse callback será executado para lidar com o resultado.
+         O próximo passo depois de cadastrar o usuário, é salvar as informações dele em sharedpreferences:
+         ID
+     */
+    @Override
+    public void callbackCadastro(String resultado) {
+        if(resultado.equals("certo")) {
+            // TODO: Salvar o ID do usuário antes de dar startLogin
+            // preferencias.setId(PegarId);
+            startLogin();
+        } else {
+            Log.d(TAG, resultado);
+        }
+    }
+
+    @Override
+    public void callbackLogin(String response) {
+
+        if(response.trim().equals("certo")){
+            // TODO: Aqui é onde será feito os requests de restaurar o progresso do usuário interno.
+            // Colocar para abrir a activity de login no callback do último request
+            preferencias.setEmailUsuario(sEmail);
+            loginRequestHandler.getNomeUsuario(sEmail);
+
+            //startLogin();
+        } else {
+            Toast.makeText(this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
     }
 
     /* INÍCIO ATRIBUTOS */
+
+
 
     /*TOKEN GOOGLE*/
     protected static final int SIGN_IN_CODE = 56465;
@@ -92,7 +156,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     protected Context context = this;
 
     /* INSTANCIAÇÃO DE OBJETOS */
-    protected VolleyRequest volleyRequest;
+    protected LoginRequestHandler loginRequestHandler;
+    protected CadastroRequestHandler cadastroRequestHandler;
 
     /* FIM ATRIBUTOS */
 
@@ -162,7 +227,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         googleBuilder();
 
         preferencias = new GerenciadorSharedPreferences(this);
-        volleyRequest = new VolleyRequest(this, this);
+        loginRequestHandler = new LoginRequestHandler(this);
 
         loadClickListeners();
 
@@ -182,7 +247,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
                 if(VerificarConexao.verificarConexao()) {
                     if(verificarCredenciais(sEmail, sSenha)) {
-                        volleyRequest.requestLogar(getActivity(), sEmail, sSenha);
+                        loginRequestHandler.requestLogar(getActivity(), sEmail, sSenha);
                         //w
 
                     }
@@ -366,13 +431,11 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         if (result.isSuccess()) {
             // O USUÁRIO SE CONECTOU COM SUCESSO,
             acct = result.getSignInAccount();
-            preferencias.setNomeUsuario(acct.getDisplayName());
-            preferencias.setEmailUsuario(acct.getEmail());
-            /*PEGAR OS DADOS DO USUÁRIO E PREPARAR O REQUEST PRA GUARDAR NO BANCO AS INFOS DO USUÁRIO
-            * QUE SE LOGOI PELA GOOGLE*/
-            getDataProfile();
-            // FECHAR ATIVIDADE
-            startLogin();
+
+            if(acct != null) {
+                getDataProfile();
+            }
+
         } else {
             // SE NAO DEU TUDO CERTO, MOSTRAR UMA MENSAGEM DE ERRO
             Log.d("ERRO GOOGLE: ",result.getStatus().toString() + " | " + result.toString() + " | ");
@@ -388,12 +451,12 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     /* PEGA OS DADOS DO GOOGLE E GUARDA NO NOSSO BANCO*/
     protected void getDataProfile(){
-            if(acct != null){
-                String nome = acct.getDisplayName();
-                String email = acct.getEmail();
-                preferencias.setNomeUsuario(nome);
-                volleyRequest.requestUsuarioExiste(StringsBanco.SESSAO_GOOGLE, email);
-            }
+
+        preferencias.setNomeUsuario(acct.getDisplayName());
+        preferencias.setEmailUsuario(acct.getEmail());
+        preferencias.setCaminhoFoto("default");
+        cadastroRequestHandler.usuarioExiste(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+
     }
 
     public void startLogin() {
