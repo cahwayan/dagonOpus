@@ -1,10 +1,12 @@
 package com.tcc.dagon.opus.ui.usuario;
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +30,8 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
+import com.tcc.dagon.opus.utils.ProgressDialogHelper;
+import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.VerificarConexao;
 import com.tcc.dagon.opus.utils.volley.CadastroRequestHandler;
@@ -149,10 +153,14 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             preferencias.setTipoUsuario(StringsBanco.USUARIO_INTERNO);
 
 
-            //startLogin();
-        } else {
+            startLogin();
+        } else if(response.trim().equals("erroCredenciais")) {
             Toast.makeText(this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Erro desconhecido. Tente novamente.", Toast.LENGTH_SHORT).show();
         }
+
+        hideProgressDialog();
     }
 
     /* INÍCIO ATRIBUTOS */
@@ -177,6 +185,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     @ViewById protected SignInButton btnLogarComGoogle;
     @ViewById protected Button btnAlterarSenha;
     @ViewById protected TextView btnCriarConta;
+    private ProgressDialog progressDialog;
 
     protected GerenciadorSharedPreferences preferencias;
 
@@ -241,7 +250,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     @Override
-    public void onConnectionFailed(ConnectionResult result) {
+    public void onConnectionFailed(@NonNull  ConnectionResult result) {
         if(!result.hasResolution()){
             return;
         }
@@ -282,13 +291,13 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         OnOffClickListener clickListenerLogin = new OnOffClickListener() {
             @Override
             public void onOneClick(View v) {
-
                 sEmail    = textEmail.getText().toString().trim();
                 sSenha = textSenha.getText().toString().trim();
 
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
                 if(VerificarConexao.verificarConexao()) {
                     if(verificarCredenciais(sEmail, sSenha)) {
+                        showProgressDialog(R.string.progressLogin);
                         loginRequestHandler.requestLogar(sEmail, sSenha);
                         //w
 
@@ -369,6 +378,10 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             return false;
 
         /* VERIFICAR CREDENCIAIS NO BANCO*/
+        } else if(!ValidarEmail.validarEmail(sEmail)) {
+            Toast.makeText(this, "E-mail inválido", Toast.LENGTH_SHORT).show();
+            return false;
+
         } else {
 
             return true;
@@ -504,6 +517,21 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     public void startLogin() {
         startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
         finish();
+    }
+
+    public void showProgressDialog(int resId) {
+        showProgressDialog(getString(resId));
+    }
+
+    public void showProgressDialog(String msg) {
+        this.progressDialog = ProgressDialogHelper.buildDialog(this, msg);
+        this.progressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if(this.progressDialog != null) {
+            this.progressDialog.dismiss();
+        }
     }
 }
 

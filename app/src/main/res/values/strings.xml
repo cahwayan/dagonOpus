@@ -60,4 +60,9 @@
     <string name="pontuacaoDefault">Pontos: 0</string>
 
 
+    <!--Strings Progress Bars-->
+
+    <string name="progressLogin">Verificando credenciais</string>
+
+
 </resources>
