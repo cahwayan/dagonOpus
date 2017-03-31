@@ -62,7 +62,9 @@
 
     <!--Strings Progress Bars-->
 
-    <string name="progressLogin">Verificando credenciais</string>
+    <string name="progressLogin">Verificando</string>
+    <string name="carregando">Carregando</string>
+    <string name="cadastrando">Cadastrando</string>
 
 
 </resources>

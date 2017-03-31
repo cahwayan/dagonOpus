@@ -6,6 +6,6 @@ package com.tcc.dagon.opus.utils.volley;
 
 public interface CallbackCadastro {
     void callbackCadastro(String resultado);
-    void callbackEmailExiste(boolean resultado);
+    void callbackUsuarioExiste(String resultado);
 
 }

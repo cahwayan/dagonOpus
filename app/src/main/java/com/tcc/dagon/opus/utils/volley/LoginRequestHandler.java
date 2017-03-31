@@ -1,9 +1,7 @@
 package com.tcc.dagon.opus.utils.volley;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -43,7 +41,7 @@ public class LoginRequestHandler {
             public void onResponse(String response)
             {
 
-                callbackLogin.callbackLogin(response);
+                callbackLogin.callbackLoginInterno(response);
 
                 Log.d(TAG, "RESPOSTA LOGIN INTERNO: " + response);
             }
@@ -53,13 +51,13 @@ public class LoginRequestHandler {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                callbackLogin.callbackLogin(error.toString());
+                callbackLogin.callbackLoginInterno(error.toString());
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError
             {
-                HashMap<String,String> hashMap = new HashMap<String, String>();
+                HashMap<String,String> hashMap = new HashMap<>();
                 hashMap.put("EMAIL_USUARIO", sEmail);
                 hashMap.put("SENHA_USUARIO", sSenha);
                 return hashMap;
@@ -73,28 +71,31 @@ public class LoginRequestHandler {
     /*MÉTODO QUE FAZ UM REQUEST NO BANCO COM O E-MAIL DO USUÁRIO QUANDO O USUÁRIO LOGA
     PARA PEGAR O NOME REFERENTE AO E-MAIL E GUARDA ESSE NOME EM UMA SHARED PREFERENCE
     PARA USAR O NOME DELE NO PERFIL*/
-    public void getNomeUsuario(final String sEmail)
+    public void getNomeUsuario(final String id)
     {
         String tag_get_nome = "Request getNome: ";
 
         StringRequest requestNome = new StringRequest(
                 Request.Method.POST, StringsBanco.getScriptGetNome(), new Response.Listener<String>()
         {
+            @Override
             public void onResponse(String response)
             {
-                callbackLogin.callbackNome(response);
+                callbackLogin.callbackGetNome(response);
             }
         }, new Response.ErrorListener()
         {
+            @Override
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
             }
         }){
+            @Override
             protected Map<String, String> getParams() throws AuthFailureError
             {
                 HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put("EMAIL_USUARIO", sEmail);
+                hashMap.put("ID_USUARIO", id);
                 return hashMap;
             }
         };
@@ -110,11 +111,11 @@ public class LoginRequestHandler {
         StringRequest request = new StringRequest(
                 Request.Method.POST, StringsBanco.getScriptGetId(), new Response.Listener<String>()
         {
-
+            @Override
             public void onResponse(String response)
             {
 
-                callbackLogin.callbackId(response);
+                callbackLogin.callbackGetId(tipoUsuario, response);
 
                 Log.d(TAG, "RESPOSTA FIND ID: " + response);
             }
@@ -139,6 +140,34 @@ public class LoginRequestHandler {
         };
 
         AppController.getInstance().addToRequestQueue(request, tag_get_id);
+    }
+
+    public void getTempoEstudo(String tipoUsuario, String id) {
+
+    }
+
+    public void getEnderecoFoto(String tipoUsuario, String id) {
+
+    }
+
+    public void getEstadoCertificado(String tipoUsuario, String id) {
+
+    }
+
+
+
+    /* JSON REQUESTS*/
+
+    public void getProgressoUsuario(String tipoUsuario, String id) {
+
+    }
+
+    public void getPontuacaoUsuario(String tipoUsuario, String id) {
+
+    }
+
+    public void getConquistasUsuario(String tipoUsuario, String id) {
+
     }
 
 }

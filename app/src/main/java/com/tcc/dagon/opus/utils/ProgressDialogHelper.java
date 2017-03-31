@@ -38,12 +38,14 @@ public class ProgressDialogHelper {
 
     public static ProgressDialog buildDialog(Activity activity, String message) {
 
-        ProgressDialog dialog;
+        ProgressDialog dialog = new ProgressDialog(activity);
 
+        /*
         if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.HONEYCOMB)
             dialog = new ProgressDialog(new ContextThemeWrapper(activity, android.R.style.Theme_Holo_Dialog));
          else
              dialog = new ProgressDialog(activity);
+        */
 
         dialog.setMessage(message);
         dialog.setCancelable(false);

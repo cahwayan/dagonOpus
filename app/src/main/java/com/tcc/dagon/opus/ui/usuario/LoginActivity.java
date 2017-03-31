@@ -38,80 +38,95 @@ import com.tcc.dagon.opus.utils.volley.CadastroRequestHandler;
 import com.tcc.dagon.opus.utils.volley.CallbackCadastro;
 import com.tcc.dagon.opus.utils.volley.CallbackLogin;
 import com.tcc.dagon.opus.utils.volley.LoginRequestHandler;
-import com.tcc.dagon.opus.utils.volley.VolleyRequest;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.json.JSONObject;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
-
-import java.sql.Time;
 
 import static android.content.ContentValues.TAG;
 
 @EActivity(R.layout.activity_login)
 public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin {
 
-
-
     /* CALLBACKS */
-
     @Override
-    public void callbackTempoEstudo(Time tempoEstudo) {
+    public void callbackGetId(String tipoUsuario, String id) {
+        preferencias.setIdUsuario(id);
 
+        restaurarUsuario(tipoUsuario);
     }
 
     @Override
-    public void callbackEnderecoFoto(String endereco) {
+    public void callbackGetNome(String nome) {
+        preferencias.setNomeUsuario(nome);
+    }
+
+    @Override
+    public void callbackGetEnderecoFoto(String endereco) {
         preferencias.setCaminhoFoto(endereco);
     }
 
     @Override
-    public void callbackEstadoCertificado(String estadoCertificado) {
+    public void callbackGetTempoEstudo(String tempoEstudo) {
+        //preferencias.setTempoEstudo(tempoEstudo);
+    }
+
+    @Override
+    public void callbackGetEstadoCertificado(String estadoCertificado) {
 
         if(estadoCertificado.equals("1")) {
             preferencias.setIsCertificadoGerado(true);
-        } else {
+        } else if(estadoCertificado.equals("0")) {
             preferencias.setIsCertificadoGerado(false);
         }
 
     }
 
     @Override
-    public void callbackNome(String nome) {
-        preferencias.setNomeUsuario(nome);
+    public void callbackGetProgresso(JSONObject progresso) {
+
     }
 
     @Override
-    public void callbackId(String id) {
-        preferencias.setIdUsuario(id);
+    public void callbackGetPontuacao(JSONObject endereco) {
+
     }
 
-    /*
-            @param resultado: Se True, o usuário existe. Se False, o usuário não existe
-
-            Esse callback é para o login com o google. Ele verifica se o usuário que está logando já existe no banco de dados.
-             Caso ele não exista, é preciso fazer um request para cadastrar o usuário.
-             Caso já exista, é preciso fazer requests para restaurar o progresso do usuario.
-            O resultado desse request vem sempre depois que o login
-            com o google recebe o status sucesso. Como o login com o google funciona ao mesmo tempo como um login e
-            um cadastro, é preciso verificar se o resultado deu sucesso antes de prosseguir.
-
-         */
     @Override
-    public void callbackEmailExiste(boolean resultado) {
+    public void callbackGetConquistas(JSONObject estadoCertificado) {
 
-        // Se o usuário já existe
-        if(resultado) {
+    }
+
+    /**
+     * Callback de um request que verifica se o email do usuário já existe na base de dados (cadastro google).
+     *
+     * O resultado desse request vem sempre depois que o login com o google recebe o status sucesso.
+     * Como o login com o google funciona ao mesmo tempo como um login e
+     * um cadastro, é preciso verificar se o usuário está se logando novamente ou se é a primeira vez.
+     *
+     * Se o usuário existir, é preciso apenas restaurar o progresso dele.
+     * Caso não exista, é necessário cadastrar o usuário.
+     *
+     * @param resultado: Se 'sim', o usuário existe. Se 'nao', o usuário não existe.
+     */
+
+    @Override
+    public void callbackUsuarioExiste(String resultado) {
+
+        if(resultado.equals("sim")) {
 
             // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
             // Salvar o ID dele
+            hideProgressDialog();
             loginRequestHandler.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
-            Toast.makeText(this, "Bem-vindo de volta!", Toast.LENGTH_LONG).show();
-
-            //startLogin();
-        } else {
+        } else if(resultado.equals("nao")) {
             cadastroRequestHandler.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
+        } else {
+            Toast.makeText(this, "Ocorreu um pequeno problema. Você está conectado?", Toast.LENGTH_LONG).show();
+            return;
         }
 
         preferencias.setTipoUsuario(StringsBanco.USUARIO_GOOGLE);
@@ -119,41 +134,37 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
 
-    /*
-        @param resultado: Se 'certo', as informações do usuário, e as tabelas relacionadas a ele foram gravadas
-         na base de dados via php.
-                          Se 'erroExiste', o usuário já existe.
-         Esse callback é a resposta da tentativa de gravar os dados do usuário na base de dados remota via VolleyRequest e PHP.
-         Esse método é chamado após o resultado do Google ter dado success, e depois do app verificar se o usuário existe ou não.
-         Caso o usuário não exista, o request de cadastro será chamado, e esse callback será executado para lidar com o resultado.
-         O próximo passo depois de cadastrar o usuário, é salvar as informações dele em sharedpreferences:
-         ID
+    /**
+     *Esse callback é a resposta da tentativa de gravar os dados do usuário na base de dados remota via VolleyRequest e PHP.
+     *Esse método é chamado após o resultado do Google ter dado success, e depois do app verificar se o usuário existe ou não.
+     Caso o usuário não exista, o request de cadastro será chamado, e esse callback será executado para lidar com o resultado.
+     O próximo passo depois de cadastrar o usuário, é salvar as informações dele em sharedpreferences:
+     ID
+
+     @param resultado: Se 'certo', as informações do usuário, e as tabelas relacionadas a ele foram gravadas
+     na base de dados via php.
+     Se 'erroExiste', o usuário já existe.
      */
     @Override
     public void callbackCadastro(String resultado) {
+
         if(resultado.equals("certo")) {
-            // TODO: Salvar o ID do usuário antes de dar startLogin
+            // TODO: Salvar o ID do usuário antes de dar startAprenderActivity
             loginRequestHandler.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
-            startLogin();
         } else {
+            Toast.makeText(this, "Ocorreu um erro ao cadastrar. Você está conectado?", Toast.LENGTH_LONG).show();
             Log.d(TAG, resultado);
         }
     }
 
     @Override
-    public void callbackLogin(String response) {
+    public void callbackLoginInterno(String response) {
 
         if(response.trim().equals("certo")){
             // TODO: Aqui é onde será feito os requests de restaurar o progresso do usuário interno.
-            // Colocar para abrir a activity de login no callback do último request
-            preferencias.setEmailUsuario(sEmail);
-            // Mandando request, resposta vai chegar por callback e ser gravado na preference
+
             loginRequestHandler.getID(StringsBanco.USUARIO_INTERNO, sEmail);
-            loginRequestHandler.getNomeUsuario(sEmail);
-            preferencias.setTipoUsuario(StringsBanco.USUARIO_INTERNO);
 
-
-            startLogin();
         } else if(response.trim().equals("erroCredenciais")) {
             Toast.makeText(this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         } else {
@@ -163,9 +174,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         hideProgressDialog();
     }
 
+
     /* INÍCIO ATRIBUTOS */
-
-
 
     /*TOKEN GOOGLE*/
     protected static final int SIGN_IN_CODE = 56465;
@@ -278,6 +288,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
         preferencias = new GerenciadorSharedPreferences(this);
         loginRequestHandler = new LoginRequestHandler(this);
+        cadastroRequestHandler = new CadastroRequestHandler(this);
 
         loadClickListeners();
 
@@ -299,8 +310,6 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                     if(verificarCredenciais(sEmail, sSenha)) {
                         showProgressDialog(R.string.progressLogin);
                         loginRequestHandler.requestLogar(sEmail, sSenha);
-                        //w
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
@@ -438,7 +447,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
     /*LIDA COM O RESULTADO DA PERMISSÃO DO USUÁRIO, SE ELE CONCEDEU OU NÃO*/
     @Override
-    public void onRequestPermissionsResult(int requestCode, String  permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String  permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_GET_ACCOUNTS: {
                 // If request is cancelled, the result arrays are empty.
@@ -506,15 +515,15 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     //FUNÇÃO QUE RETORNA TODOS OS DADOS DE PERFIL DO GOOGLE
     /* PEGA OS DADOS DO GOOGLE E GUARDA NO NOSSO BANCO*/
     protected void getDataProfile(){
-
+        showProgressDialog(R.string.carregando);
         preferencias.setNomeUsuario(acct.getDisplayName());
         preferencias.setEmailUsuario(acct.getEmail());
         preferencias.setCaminhoFoto("default");
         cadastroRequestHandler.usuarioExiste(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
-
     }
 
-    public void startLogin() {
+    public void startAprenderActivity() {
+        hideProgressDialog();
         startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
         finish();
     }
@@ -532,6 +541,49 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         if(this.progressDialog != null) {
             this.progressDialog.dismiss();
         }
+    }
+
+
+    /**
+     * Restaura o progresso do usuário ao logar.
+     *
+     *
+     */
+    private void restaurarUsuario(String tipoUsuario) {
+
+        showProgressDialog(R.string.carregando);
+
+        String id = preferencias.getIdUsuario();
+
+        switch(tipoUsuario) {
+            case StringsBanco.USUARIO_INTERNO:
+
+                preferencias.setEmailUsuario(sEmail);
+
+                loginRequestHandler.getNomeUsuario(id);
+                loginRequestHandler.getEnderecoFoto(StringsBanco.USUARIO_INTERNO, id);
+                loginRequestHandler.getTempoEstudo(StringsBanco.USUARIO_INTERNO, id);
+                loginRequestHandler.getEstadoCertificado(StringsBanco.USUARIO_INTERNO, id);
+
+                // Colocar para abrir a activity de login no callback do último request
+
+                preferencias.setTipoUsuario(StringsBanco.USUARIO_INTERNO);
+
+                startAprenderActivity();
+
+                break;
+
+            case StringsBanco.USUARIO_GOOGLE:
+                //Toast.makeText(this, "Bem-vindo de volta!", Toast.LENGTH_LONG).show();
+
+                startAprenderActivity();
+                break;
+
+            default:
+                hideProgressDialog();
+                break;
+        }
+
     }
 }
 

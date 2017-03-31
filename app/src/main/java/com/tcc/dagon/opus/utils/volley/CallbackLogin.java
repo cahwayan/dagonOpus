@@ -1,5 +1,8 @@
 package com.tcc.dagon.opus.utils.volley;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.sql.Time;
 
 /**
@@ -8,11 +11,15 @@ import java.sql.Time;
 
 public interface CallbackLogin {
 
-    void callbackLogin(String response);
-    void callbackNome(String nome);
-    void callbackId(String id);
-    void callbackTempoEstudo(Time tempoEstudo);
-    void callbackEnderecoFoto(String endereco);
-    void callbackEstadoCertificado(String estadoCertificado);
+    void callbackLoginInterno(String response);
+    void callbackGetNome(String nome);
+    void callbackGetId(String tipoUsuario, String id);
+    void callbackGetTempoEstudo(String tempoEstudo);
+    void callbackGetEnderecoFoto(String endereco);
+    void callbackGetEstadoCertificado(String estadoCertificado);
+
+    void callbackGetProgresso(JSONObject progresso);
+    void callbackGetPontuacao(JSONObject endereco);
+    void callbackGetConquistas(JSONObject estadoCertificado);
 
 }

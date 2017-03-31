@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.ui.usuario;
 
+import android.app.ProgressDialog;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.utils.ProgressDialogHelper;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
@@ -24,7 +26,7 @@ import org.androidannotations.annotations.TextChange;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
-public class CadastroActivity extends AppCompatActivity implements CallbackCadastro{
+public class CadastroActivity extends AppCompatActivity implements CallbackCadastro {
 
     private final String TAG = this.getClass().getSimpleName();
     /* VIEWS */ /**/
@@ -33,6 +35,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     @ViewById protected TextView textSenha;
     @ViewById protected TextView textCSenha;
     @ViewById protected TextView textEmail;
+    ProgressDialog progressDialog;
 
     /* OBJETOS */
     protected GerenciadorSharedPreferences preferenceManager;
@@ -52,14 +55,14 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     private int COR_VERDE;
 
     @Override
-    public void callbackEmailExiste(boolean resultado) {
+    public void callbackUsuarioExiste(String resultado) {
 
         Log.d(TAG, "Callback Email Existe: " + resultado);
 
         // Se usuário existe
-        if(resultado) {
+        if(resultado.equals("sim")) {
             configureEditTextUnavailable();
-        } else {
+        } else if(resultado.equals("nao")) {
             configureEditTextAvailable();
         }
 
@@ -67,6 +70,9 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @Override
     public void callbackCadastro(String resultado) {
+
+        hideProgressDialog();
+
         if(resultado.equals("certo")) {
             Log.d(TAG, "Usuário cadastrado com sucesso!");
             toastManager.toastShort("Você foi cadastrado com sucesso!");
@@ -76,6 +82,8 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
         } else {
             toastManager.toastLong("Erro desconhecido. Tente novamente.");
         }
+
+
     }
 
 
@@ -116,7 +124,12 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @Click
     protected void btnCadastra() {
-        cadastrar();
+        /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
+        if(VerificarConexao.verificarConexao()) {
+            cadastrar();
+        } else {
+            Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_LONG).show();
+        }
     }
 
     @TextChange
@@ -133,8 +146,6 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     }
 
     protected void cadastrar() {
-        /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
-        if(VerificarConexao.verificarConexao()) {
 
             sNome   = textNome.getText().toString().trim();
             sSenha  = textSenha.getText().toString().trim();
@@ -143,15 +154,11 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
             /* SE OS DADOS ESTIVEREM OK E A FUNÇÃO RETORNAR VERDADEIRO... */
             if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
-
                 /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
+                showProgressDialog(R.string.cadastrando);
                 volleyRequest.cadastrarUsuario(StringsBanco.USUARIO_INTERNO, sEmail, sSenha, sNome);
             }
 
-        /* RESPOSTA CASO O USUÁRIO NÃO ESTEJA CONECTADO */
-        } else {
-            Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_LONG).show();
-        }
     }
 
     protected boolean verificarDados(String sNome, String sSenha, String sCsenha, String sEmail) {
@@ -218,6 +225,21 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     private void configureEditTextReset() {
         textEmail.setTextColor(COR_MAIN);
         textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+    }
+
+    public void showProgressDialog(int resId) {
+        showProgressDialog(getString(resId));
+    }
+
+    public void showProgressDialog(String msg) {
+        this.progressDialog = ProgressDialogHelper.buildDialog(this, msg);
+        this.progressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if(this.progressDialog != null) {
+            this.progressDialog.dismiss();
+        }
     }
 
 }
