@@ -4,14 +4,18 @@ package com.tcc.dagon.opus.ui.aprender;
  * Created by cahwayan on 02/03/2017.
  */
 
-class ModuloCursoImp implements ModuloCurso {
+public class ModuloCursoImp implements ModuloCurso {
 
     private final int numModulo;
     private int estadoAtual;
     private int qtdEtapasModulo;
     private String stringNota;
 
-    ModuloCursoImp(int numModulo, String stringNota) {
+    public ModuloCursoImp(int numModulo, String stringNota) {
+
+        if(numModulo < 0)
+            throw new IllegalArgumentException("Módulo menor que 0!");
+
         this.numModulo = numModulo;
         this.stringNota = stringNota;
         this.qtdEtapasModulo = getQtdEtapasModulo(numModulo);

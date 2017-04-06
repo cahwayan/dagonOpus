@@ -18,13 +18,13 @@ import java.util.Map;
  * Created by cahwayan on 29/03/2017.
  */
 
-public class CadastroRequestHandler {
+public class CadastroRequests {
 
     private final String TAG = this.getClass().getSimpleName();
 
     private CallbackCadastro callbackCadastro;
 
-    public CadastroRequestHandler(Context context) {
+    public CadastroRequests(Context context) {
         this.callbackCadastro = (CallbackCadastro) context;
     }
 

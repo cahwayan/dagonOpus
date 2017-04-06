@@ -13,6 +13,7 @@ public interface Preferencias {
 
     String ID_USUARIO = "idUsuario";
     String TIPO_USUARIO = "tipoUsuario";
+    String TEMPO_ESTUDO = "tempoEstudo";
 
     // Módulos
     String PROGRESSO_MODULO = "progressoModulo";
@@ -115,6 +116,9 @@ public interface Preferencias {
 
     void setTipoUsuario(String tipoUsuario);
     String getTipoUsuario();
+
+    void setTempoEstudo(String tempoEstudo);
+    String getTempoEstudo();
 
     String getIdUsuario();
     void setIdUsuario(String id);

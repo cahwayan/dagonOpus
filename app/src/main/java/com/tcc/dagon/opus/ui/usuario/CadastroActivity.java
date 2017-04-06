@@ -16,7 +16,7 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;
-import com.tcc.dagon.opus.utils.volley.CadastroRequestHandler;
+import com.tcc.dagon.opus.utils.volley.CadastroRequests;
 import com.tcc.dagon.opus.utils.volley.CallbackCadastro;
 
 import org.androidannotations.annotations.AfterViews;
@@ -47,7 +47,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
                      sCsenha,
                      sEmail;
 
-    private CadastroRequestHandler volleyRequest;
+    private CadastroRequests volleyRequest;
     private ToastManager toastManager;
 
     private int COR_MAIN;
@@ -94,7 +94,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @AfterViews
     protected void init() {
-        volleyRequest = new CadastroRequestHandler(this);
+        volleyRequest = new CadastroRequests(this);
         preferenceManager = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
 

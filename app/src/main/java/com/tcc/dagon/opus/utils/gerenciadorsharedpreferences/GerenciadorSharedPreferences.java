@@ -2,6 +2,7 @@ package com.tcc.dagon.opus.utils.gerenciadorsharedpreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 
@@ -10,6 +11,8 @@ import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
  */
 
 public class GerenciadorSharedPreferences implements Preferencias {
+
+    private final String TAG = this.getClass().getSimpleName();
 
     final SharedPreferences sharedPreferences;
 
@@ -20,17 +23,23 @@ public class GerenciadorSharedPreferences implements Preferencias {
     /*MÉTODOS QUE LEEM FLAGS*/
     @Override
     public String lerFlagString(String nomeFlag) {
-        return sharedPreferences.getString(nomeFlag, "default");
+        String valorFlag = sharedPreferences.getString(nomeFlag, "default");
+        Log.d(TAG, " Flag lida: " + nomeFlag + " Valor: " + valorFlag);
+        return valorFlag;
     }
 
     @Override
     public boolean lerFlagBoolean(String nomeFlag) {
-        return sharedPreferences.getBoolean(nomeFlag, false);
+        boolean valorFlag = sharedPreferences.getBoolean(nomeFlag, false);
+        Log.d(TAG, " Flag lida: " + nomeFlag + " Valor: " + String.valueOf(valorFlag));
+        return valorFlag;
     }
 
     @Override
     public int lerFlagInt(String nomeFlag) {
-        return sharedPreferences.getInt(nomeFlag, 0);
+        int valorFlag = sharedPreferences.getInt(nomeFlag, 0);
+        Log.d(TAG, " Flag lida: " + nomeFlag +  " Valor: " + String.valueOf(valorFlag));
+        return valorFlag;
     }
 
     @Override
@@ -38,6 +47,7 @@ public class GerenciadorSharedPreferences implements Preferencias {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(nomeFlag, valorFlag);
         editor.apply();
+        Log.d(TAG, nomeFlag + " Modificada. Valor: " + valorFlag);
     }
 
     @Override
@@ -45,6 +55,7 @@ public class GerenciadorSharedPreferences implements Preferencias {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(nomeFlag, valorFlag);
         editor.apply();
+        Log.d(TAG, nomeFlag + " Modificada. Valor: " + valorFlag);
     }
 
     @Override
@@ -52,6 +63,7 @@ public class GerenciadorSharedPreferences implements Preferencias {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(nomeFlag, valorFlag);
         editor.apply();
+        Log.d(TAG, nomeFlag + " Modificada. Valor: " + valorFlag);
     }
 
     @Override
@@ -62,6 +74,16 @@ public class GerenciadorSharedPreferences implements Preferencias {
     @Override
     public void setIdUsuario(String id) {
         modFlag(ID_USUARIO, id);
+    }
+
+    @Override
+    public void setTempoEstudo(String tempoEstudo) {
+        this.modFlag(TEMPO_ESTUDO, tempoEstudo);
+    }
+
+    @Override
+    public String getTempoEstudo() {
+        return lerFlagString(TEMPO_ESTUDO);
     }
 
     @Override

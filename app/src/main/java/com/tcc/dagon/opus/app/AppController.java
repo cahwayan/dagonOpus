@@ -2,11 +2,15 @@ package com.tcc.dagon.opus.app;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.utils.LruBitmapCache;
+
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by cahwayan on 30/03/2017.
@@ -14,10 +18,11 @@ import com.tcc.dagon.opus.utils.LruBitmapCache;
 
 public class AppController extends Application {
 
-    public final String TAG = AppController.class.getSimpleName();
-
+    private static CountDownLatch countdownRestaurarUsuario;
+    public static final String TAG = AppController.class.getSimpleName();
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
+    private static int requestCount;
 
     private static AppController mInstance;
 
@@ -25,6 +30,30 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+    }
+
+    public static CountDownLatch getRestaurarUsuarioCountdown() {
+        return countdownRestaurarUsuario;
+    }
+
+    public static void setCountdownRestaurarUsuario(int count) {
+        Log.d(TAG, "COUNTDOWN INICIADA COM " + String.valueOf(count) + " requests");
+        countdownRestaurarUsuario = new CountDownLatch(count);
+    }
+
+    public static int getRequestCount() {
+        return requestCount;
+    }
+
+    public static void countdownRestaurarUsuario() {
+        countdownRestaurarUsuario.countDown();
+        requestCount--;
+
+        Log.d(TAG, "REQUEST COUNTDOWN ABAIXANDO . . . " + String.valueOf(countdownRestaurarUsuario.getCount()));
+    }
+
+    public static void upRequestCount() {
+        requestCount++;
     }
 
     // Método que retorna a única instância da classe

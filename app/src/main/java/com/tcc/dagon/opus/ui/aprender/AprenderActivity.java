@@ -161,7 +161,6 @@ public class AprenderActivity
 
         // Feito no background
         carregarFontes();
-        autenticarUsuario();
         criarBancoCasoNaoExista();
     }
 
@@ -307,24 +306,7 @@ public class AprenderActivity
         }
     }
 
-    @Background
-    protected void autenticarUsuario() {
-        if(!preferenceManager.lerFlagBoolean(Preferencias.isLogin)) {
-            preferenceManager.modFlag(Preferencias.isLogin, true);
-        }
 
-        if(!preferenceManager.isFlagsSetup()) {
-
-            preferenceManager.setProgressoModulo(0);
-
-            for(int i = 0; i < listModuloCurso.size(); i++) {
-                preferenceManager.setProgressoEtapa(i, 0);
-            }
-
-
-            preferenceManager.setFlagsSetup(true);
-        }
-    }
 
     /* Instancia o banco caso ele não exista */
     @Background
