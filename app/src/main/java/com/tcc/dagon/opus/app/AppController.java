@@ -90,6 +90,8 @@ public class AppController extends Application {
         if(this.requestQueue != null) {
             requestQueue.cancelAll(tag);
             Log.d(TAG, tag + " teve um erro e cancelou todos os requests." );
+            countdown = null;
+            requestCount = 0;
         }
     }
 

@@ -5,7 +5,7 @@ package com.tcc.dagon.opus.network.volleyrequests.cadastro;
  */
 
 public interface CallbackCadastro {
-    void callbackCadastro(String resultado);
-    void callbackUsuarioExiste(String resultado);
+    void onCadastro(String resultado);
+    void onUsuarioExiste(String resultado);
 
 }

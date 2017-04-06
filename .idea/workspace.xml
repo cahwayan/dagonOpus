@@ -25,27 +25,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14eae26d-857c-4565-b1e6-f75475874e6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/CountdownHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackUsuario.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CallbackLogin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/LoginRequests.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CadastroRequests.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CallbackCadastro.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CustomJSONRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/CustomJSONRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackUsuario.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/UsuarioListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/tcc/dagon/opus/LoginRequestsTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/tcc/dagon/opus/LoginRequestsTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/GerenciarPerfilActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/GerenciarPerfilActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/StringsBanco.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/StringsBanco.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorSharedPreferences.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorSharedPreferences.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/Preferencias.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/Preferencias.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <list id="e8a2c908-057d-4e51-9281-1ab0df6cdaaf" name="Revert: Mudanças drásticas (confia no pai)" comment="" />
     <ignored path="dagonOpus.iws" />
@@ -82,31 +72,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="680" column="0" selection-start-line="680" selection-start-column="0" selection-end-line="680" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="278">
+              <caret line="662" column="15" selection-start-line="662" selection-start-column="15" selection-end-line="662" selection-end-column="15" />
+              <folding>
+                <element signature="method#onGetId#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetNome#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetTempoEstudo#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetEnderecoFoto#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetEstadoCertificado#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetProgresso#0;class#18405:24423" expanded="false" />
+                <element signature="method#onGetConquistas#0;class#18405:24423" expanded="false" />
+                <element signature="method#verificarCredenciais#0;class#LoginActivity#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GerenciadorSharedPreferences.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorSharedPreferences.java">
+      <file leaf-file-name="CadastroRequests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2974">
-              <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
+            <state relative-caret-position="184">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringsBanco.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LauncherActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequestsUsuario.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringsBanco.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/StringsBanco.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="133" selection-start-line="20" selection-start-column="133" selection-end-line="20" selection-end-column="133" />
+            <state relative-caret-position="85">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginRequests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsuarioListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/UsuarioListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CallbackLogin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -2981,18 +3040,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/container_licoes.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/botoes_responder_questao.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/curso/exercicios/questao/QuestaoUnicaEscolhaProva.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/curso/exercicios/questao/QuestaoMultiplaEscolhaProva.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_alterar_senha.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_config.xml" />
-        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_gerenciar_perfil.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/glossario/FragmentTelaInterfaceGlossario.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/glossario/FragmentComandosGlossario.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/aprender/ModuloCurso.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_gerenciar_perfil.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorPreferencesComSuporteParaLicoes.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/AFazer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/VolleyRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/VolleyRequestImp.java" />
@@ -3004,7 +3051,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CallbackCadastro.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/VolleyRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/CadastroRequestHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/LoginRequestHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/aprender/ModuloCursoImp.java" />
@@ -3020,18 +3066,31 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/aprender/AprenderActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volleyrequests/RequestsRestaurarUsuario.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/LoginRequests.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackRestaurarUsuario.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsRestaurarUsuario.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackUsuario.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/Preferencias.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorSharedPreferences.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/StringsBanco.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/models/LoginUsuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/model/LoginUsuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/RecuperarSenhaActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/databaseinfo/StringsBanco.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/databaseinfo/PhpScriptsManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginUsuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginUsuarioImp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginModelImp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/presenters/LoginPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackUsuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/UsuarioListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -3066,12 +3125,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3172,32 +3225,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gerenciadorsharedpreferences" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3225,92 +3252,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="curso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="curso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exercicios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dagonOpus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="curso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="container" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3406,11 +3347,43 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="volleyrequests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cadastro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dagonOpus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="opus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -3966,13 +3939,6 @@
       <option name="presentableId" value="Default" />
       <updated>1481601117847</updated>
     </task>
-    <task id="LOCAL-00005" summary="Mudanças drásticas (confia no pai)">
-      <created>1482884687450</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1482884687450</updated>
-    </task>
     <task id="LOCAL-00006" summary="Mudanças drásticas (confia no pai)">
       <created>1482885446142</created>
       <option name="number" value="00006" />
@@ -4309,7 +4275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491438620976</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Mudanças drásticas (confia no pai)">
+      <created>1491451260829</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1491451260831</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -4371,9 +4344,10 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.17114915" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24572127" sideWeight="0.937788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2983871" sideWeight="0.46577018" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0036674817" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0030562347" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30184332" sideWeight="0.7811736" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19720101" sideWeight="0.12805589" order="7" side_tool="true" content_ui="tabs" />
@@ -4388,7 +4362,6 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2983871" sideWeight="0.46577018" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4450,138 +4423,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/container_prova.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/curso/container/ContainerProvaActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/curso/licao/LicaoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/curso/exercicios/questao/QuestaoUnicaEscolhaProva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_alterar_senha.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_certificado.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_certificado_incompleto.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/ActivityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-818">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_config.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_gerenciar_perfil.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/glossario/FragmentTelaInterfaceGlossario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/telasatransferir/aprender/menulateral/glossario/FragmentComandosGlossario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_aprender.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gerenciar_perfil.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/volley/VolleyCallback.java" />
@@ -4625,13 +4479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="157" column="57" selection-start-line="157" selection-start-column="57" selection-end-line="157" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/tcc/dagon/opus/ExampleUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -4661,7 +4508,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/tcc/dagon/opus/ui/usuario/LoginActivity_.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/tcc/dagon/opus/ui/login/LoginActivity_.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
@@ -4707,43 +4554,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/widget/Toast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4865">
           <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="58" column="85" selection-start-line="58" selection-start-column="85" selection-end-line="58" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4751,7 +4565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4759,7 +4572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="49" column="14" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4767,7 +4579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="253" column="21" selection-start-line="253" selection-start-column="16" selection-end-line="253" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4787,30 +4598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/CallbackUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="275" column="48" selection-start-line="275" selection-start-column="48" selection-end-line="275" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/Preferencias.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -4819,27 +4606,212 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginUsuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/model/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/utils/gerenciadorsharedpreferences/GerenciadorSharedPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2974">
+        <state relative-caret-position="17">
           <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/Base.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="680" column="0" selection-start-line="680" selection-start-column="0" selection-end-line="680" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/AlterarSenhaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/CadastroActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/databaseinfo/PhpScriptsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/RecuperarSenhaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/models/LoginModelImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/ui/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="420" column="16" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/login/presenters/LoginPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/AlterarSenhaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CallbackCadastro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/CallbackLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/UsuarioListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/net/URLEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/StringsBanco.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="133" selection-start-line="20" selection-start-column="133" selection-end-line="20" selection-end-column="133" />
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/LauncherActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/CadastroActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3568">
+          <caret line="229" column="13" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/usuario/RequestsUsuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/login/LoginRequests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/network/volleyrequests/cadastro/CadastroRequests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/app/AppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tcc/dagon/opus/ui/usuario/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="662" column="15" selection-start-line="662" selection-start-column="15" selection-end-line="662" selection-end-column="15" />
+          <folding>
+            <element signature="method#onGetId#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetNome#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetTempoEstudo#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetEnderecoFoto#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetEstadoCertificado#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetProgresso#0;class#18405:24423" expanded="false" />
+            <element signature="method#onGetConquistas#0;class#18405:24423" expanded="false" />
+            <element signature="method#verificarCredenciais#0;class#LoginActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

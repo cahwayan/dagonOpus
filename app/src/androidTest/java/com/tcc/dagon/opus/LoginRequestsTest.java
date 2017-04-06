@@ -2,8 +2,6 @@ package com.tcc.dagon.opus;
 
 import android.support.test.runner.AndroidJUnit4;
 
-import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.network.volleyrequests.login;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -9,10 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tcc.dagon.opus.app.AppController;
-import com.tcc.dagon.opus.network.volleyrequests.CustomJSONRequest;
 import com.tcc.dagon.opus.ui.usuario.StringsBanco;
-
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,8 +25,8 @@ public class LoginRequests {
 
     private CallbackLogin callbackLogin;
 
-    public LoginRequests(Context context) {
-        this.callbackLogin = (CallbackLogin) context;
+    public LoginRequests(CallbackLogin activity) {
+        this.callbackLogin = activity;
     }
 
     public void requestLogar(final String sEmail, final String sSenha) {
@@ -45,9 +41,9 @@ public class LoginRequests {
             @Override
             public void onResponse(String response)
             {
-                callbackLogin.callbackLoginInterno(response);
-                resposta = response;
                 Log.d(TAG, "RESPOSTA LOGIN INTERNO: " + response);
+                callbackLogin.onLogin(response);
+                resposta = response;
             }
 
         }, new Response.ErrorListener()
@@ -55,7 +51,7 @@ public class LoginRequests {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                callbackLogin.callbackLoginInterno(error.toString());
+                callbackLogin.onLogin(error.toString());
             }
         }){
             @Override
@@ -71,5 +67,7 @@ public class LoginRequests {
 
         AppController.getInstance().addToRequestQueue(request, tag_login);
     }
+
+
 
 }

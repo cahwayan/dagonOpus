@@ -20,9 +20,11 @@ import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.TextChange;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_cadastro)
@@ -55,7 +57,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     private int COR_VERDE;
 
     @Override
-    public void callbackUsuarioExiste(String resultado) {
+    public void onUsuarioExiste(String resultado) {
 
         Log.d(TAG, "Callback Email Existe: " + resultado);
 
@@ -69,7 +71,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     }
 
     @Override
-    public void callbackCadastro(String resultado) {
+    public void onCadastro(String resultado) {
 
         hideProgressDialog();
 
@@ -206,7 +208,8 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     }
 
-    private void configureEditTextUnavailable() {
+    @UiThread
+    protected void configureEditTextUnavailable() {
         if(VerificarConexao.verificarConexao()) {
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             textEmail.setTextColor(COR_VERMELHO);
@@ -215,14 +218,16 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     }
 
-    private void configureEditTextAvailable() {
+    @UiThread
+    protected void configureEditTextAvailable() {
         if(VerificarConexao.verificarConexao()) {
             textEmail.setTextColor(COR_VERDE);
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
         }
     }
 
-    private void configureEditTextReset() {
+    @UiThread
+    protected void configureEditTextReset() {
         textEmail.setTextColor(COR_MAIN);
         textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }

@@ -37,14 +37,14 @@ public class CadastroRequests {
         {
             public void onResponse(String response)
             {
-                callbackCadastro.callbackCadastro(response);
+                callbackCadastro.onCadastro(response);
                 Log.d(TAG, "Response Cadastro: " + response);
             }
         }, new Response.ErrorListener()
         {
             public void onErrorResponse(VolleyError error)
             {
-                callbackCadastro.callbackCadastro(error.getMessage());
+                callbackCadastro.onCadastro(error.getMessage());
                 Log.d(TAG, error.getMessage());
             }
         }) {
@@ -73,7 +73,7 @@ public class CadastroRequests {
             @Override
             public void onResponse(String response)
             {
-                callbackCadastro.callbackUsuarioExiste(response);
+                callbackCadastro.onUsuarioExiste(response);
 
             }
         }, new Response.ErrorListener()
@@ -81,7 +81,7 @@ public class CadastroRequests {
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
-                callbackCadastro.callbackUsuarioExiste(error.getMessage());
+                callbackCadastro.onUsuarioExiste(error.getMessage());
             }
         })
         {

@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.ui.usuario;
 import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +31,7 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.app.AppController;
-import com.tcc.dagon.opus.network.volleyrequests.usuario.CallbackUsuario;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.ProgressDialogHelper;
@@ -46,18 +45,16 @@ import com.tcc.dagon.opus.network.volleyrequests.login.LoginRequests;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
-import static com.tcc.dagon.opus.app.AppController.getCountdownLatch;
-
 @EActivity(R.layout.activity_login)
-public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin, CallbackUsuario {
+public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin {
 
     /* INÍCIO ATRIBUTOS */
+
+    private boolean houveramErrosAoRestaurarUsuario = false;
 
     /*TOKEN GOOGLE*/
     protected static final int SIGN_IN_CODE = 56465;
@@ -100,9 +97,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     protected Context context = this;
 
     /* INSTANCIAÇÃO DE OBJETOS */
-    protected LoginRequests loginRequestHandler;
-    protected CadastroRequests cadastroRequestHandler;
-    private RequestsUsuario usuario;
+    protected LoginRequests login;
+    protected CadastroRequests cadastro;
 
     /* FIM ATRIBUTOS */
 
@@ -141,9 +137,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         googleBuilder();
 
         preferencias = new GerenciadorSharedPreferences(this);
-        loginRequestHandler = new LoginRequests(this);
-        cadastroRequestHandler = new CadastroRequests(this);
-        usuario = new RequestsUsuario(this);
+        login = new LoginRequests(this);
+        cadastro = new CadastroRequests(this);
 
         loadClickListeners();
 
@@ -159,6 +154,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         OnOffClickListener clickListenerLogin = new OnOffClickListener() {
             @Override
             public void onOneClick(View v) {
+
                 sEmail    = textEmail.getText().toString().trim();
                 sSenha = textSenha.getText().toString().trim();
 
@@ -166,7 +162,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 if(VerificarConexao.verificarConexao()) {
                     if(verificarCredenciais(sEmail, sSenha)) {
                         showProgressDialog(R.string.carregando);
-                        loginRequestHandler.requestLogar(sEmail, sSenha);
+                        login.requestLogar(sEmail, sSenha);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
@@ -341,7 +337,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
             if(acct != null) {
                 showProgressDialog(R.string.carregando);
-                cadastroRequestHandler.usuarioExiste(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+                cadastro.usuarioExiste(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
             }
 
         } else {
@@ -370,15 +366,15 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
      */
 
     @Override
-    public void callbackUsuarioExiste(String resultado) {
+    public void onUsuarioExiste(String resultado) {
 
         if(resultado.equals("sim")) {
 
             // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
             // Salvar o ID dele
-            usuario.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+            restaurarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
         } else if(resultado.equals("nao")) {
-            cadastroRequestHandler.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
+            cadastro.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
         } else {
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um pequeno problema. Você está conectado?", Toast.LENGTH_LONG).show();
@@ -399,11 +395,10 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
      *Se 'erroExiste', o usuário já existe.
      */
     @Override
-    public void callbackCadastro(String resultado) {
+    public void onCadastro(String resultado) {
 
         if(resultado.equals("certo")) {
-            // TODO: Salvar o ID do usuário antes de dar esperarFilaRequestsTerminarEConcluirLogin
-            usuario.getID(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+            restaurarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
         } else {
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um erro ao cadastrar. Você está conectado?", Toast.LENGTH_LONG).show();
@@ -413,12 +408,11 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     @Override
-    public void callbackLoginInterno(String response) {
+    public void onLogin(String response) {
 
         if(response.trim().equals("certo")){
-            // TODO: Aqui é onde será feito os requests de restaurar o progresso do usuário interno.
 
-            usuario.getID(StringsBanco.USUARIO_INTERNO, sEmail);
+            restaurarUsuario(StringsBanco.USUARIO_INTERNO, sEmail);
 
         } else if(response.trim().equals("erroCredenciais")) {
             Toast.makeText(this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
@@ -427,194 +421,6 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             Toast.makeText(this, "Erro desconhecido. Tente novamente.", Toast.LENGTH_SHORT).show();
             hideProgressDialog();
         }
-
-    }
-
-
-    /* CALLBACKS */
-    @Override
-    public void callbackGetId(String tipoUsuario, String id) {
-        if(!id.equals("erroid")) {
-            preferencias.setIdUsuario(id);
-            restaurarUsuario(tipoUsuario, id);
-        } else {
-            hideProgressDialog();
-            Toast.makeText(this, "Ocorreu um erro conectar com a base de dados. Você está conectado?", Toast.LENGTH_LONG).show();
-            return;
-        } // TODO: tratar caso
-
-    }
-
-    @Override
-    public void callbackGetNome(String nome) {
-        preferencias.setNomeUsuario(nome);
-        AppController.decreaseRequestCount();
-    }
-
-    @Override
-    public void callbackGetEnderecoFoto(String endereco) {
-        if(!endereco.equals("erroCaminhoFoto")) {
-            preferencias.setCaminhoFoto(endereco);
-        } else { // TODO: Tratar
-
-        }
-
-        AppController.decreaseRequestCount();
-
-    }
-
-    @Override
-    public void callbackGetTempoEstudo(String tempoEstudo) {
-        if(!tempoEstudo.equals("erroTempoEstudo")) {
-            preferencias.setTempoEstudo(tempoEstudo);
-        } else { // TODO: Tratar
-
-        }
-
-        AppController.decreaseRequestCount();
-    }
-
-    @Override
-    public void callbackGetEstadoCertificado(String estadoCertificado) {
-
-        if(estadoCertificado.equals("1")) {
-            preferencias.setIsCertificadoGerado(true);
-        } else if(estadoCertificado.equals("0")) {
-            preferencias.setIsCertificadoGerado(false);
-        }
-
-        /* Como esse é o último request feito para restaurar o usuário, essa é a hora de chamar o método de concluir o login */
-        // TODO: renomear esse método para esperarFilaRequestsTerminarEConcluirLogin();
-
-        AppController.decreaseRequestCount();
-    }
-
-
-
-    @Override
-    public void callbackGetProgresso(JSONObject progresso) {
-        int progressoModulo = progresso.optInt("PROGRESSO_MODULO");
-        int prog_etapas_modulo0 = progresso.optInt("PROGRESSO_ETAPAS_MODULO0");
-        int prog_etapas_modulo1 = progresso.optInt("PROGRESSO_ETAPAS_MODULO1");
-        int prog_etapas_modulo2 = progresso.optInt("PROGRESSO_ETAPAS_MODULO2");
-        int prog_etapas_modulo3 = progresso.optInt("PROGRESSO_ETAPAS_MODULO3");
-        int prog_etapas_modulo4 = progresso.optInt("PROGRESSO_ETAPAS_MODULO4");
-        int prog_etapas_modulo5 = progresso.optInt("PROGRESSO_ETAPAS_MODULO5");
-
-        preferencias.setProgressoModulo(progressoModulo);
-        preferencias.setProgressoEtapa(0, prog_etapas_modulo0);
-        preferencias.setProgressoEtapa(1, prog_etapas_modulo1);
-        preferencias.setProgressoEtapa(2, prog_etapas_modulo2);
-        preferencias.setProgressoEtapa(3, prog_etapas_modulo3);
-        preferencias.setProgressoEtapa(4, prog_etapas_modulo4);
-        preferencias.setProgressoEtapa(5, prog_etapas_modulo5);
-
-        AppController.decreaseRequestCount();
-    }
-
-    @Override
-    public void callbackGetPontuacao(JSONObject pontuacaoGeral) {
-
-        if(pontuacaoGeral != null) {
-
-            int[] pontuacao = new int[]
-                    {
-                            pontuacaoGeral.optInt("PONTOS_MODULO0"),
-                            pontuacaoGeral.optInt("PONTOS_MODULO1"),
-                            pontuacaoGeral.optInt("PONTOS_MODULO2"),
-                            pontuacaoGeral.optInt("PONTOS_MODULO3"),
-                            pontuacaoGeral.optInt("PONTOS_MODULO4"),
-                            pontuacaoGeral.optInt("PONTOS_MODULO5")
-
-                    };
-
-            for(int i = 0; i < pontuacao.length; i++) {
-                preferencias.setPontos(i, pontuacao[i]);
-            }
-        }
-
-        AppController.decreaseRequestCount();
-    }
-
-    @Override
-    public void callbackGetConquistas(JSONObject conquistas) {
-
-        String[] idConquistas = new String[]
-                {
-                        "CONQ0",
-                        "CONQ1",
-                        "CONQ2",
-                        "CONQ3",
-                        "CONQ4",
-                        "CONQ5",
-                        "CONQ6",
-                        "CONQ7",
-                        "CONQ8",
-                        "CONQ9",
-                        "CONQ10",
-                        "CONQ11",
-                        "CONQ12",
-                        "CONQ13",
-                        "CONQ14",
-                };
-
-        int[] valores = new int[]
-                {
-                    conquistas.optInt("CONQ0"),
-                    conquistas.optInt("CONQ1"),
-                    conquistas.optInt("CONQ2"),
-                    conquistas.optInt("CONQ3"),
-                    conquistas.optInt("CONQ4"),
-                    conquistas.optInt("CONQ5"),
-                    conquistas.optInt("CONQ6"),
-                    conquistas.optInt("CONQ7"),
-                    conquistas.optInt("CONQ8"),
-                    conquistas.optInt("CONQ9"),
-                    conquistas.optInt("CONQ10"),
-                    conquistas.optInt("CONQ11"),
-                    conquistas.optInt("CONQ12"),
-                    conquistas.optInt("CONQ13"),
-                    conquistas.optInt("CONQ14")
-                };
-
-
-        for(int i = 0; i < valores.length; i++) {
-            preferencias.setConquista(idConquistas[i], valores[i]);
-        }
-
-
-        AppController.decreaseRequestCount();
-    }
-
-    public void esperarFilaRequestsTerminarEConcluirLogin() {
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    getCountdownLatch().await();
-                    Log.d(TAG, "COUNTDOWN TERMINADA . . . PROSSEGUINDO");
-
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.d(TAG, "CONCLUINDO LOGIN");
-                            startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
-                            preferencias.setIsLogin(true);
-                            hideProgressDialog();
-                            finish();
-                        }
-                    });
-
-                } catch(InterruptedException e ) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        }).start();
-
 
     }
 
@@ -633,25 +439,15 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         }
     }
 
-
-    /**
-     * Restaura o progresso do usuário ao logar.
-     *
-     *
-     */
-    private void restaurarUsuario(String tipoUsuario, String id) {
-
-        preferencias.setTipoUsuario(tipoUsuario);
+    private void restaurarUsuario(String tipoUsuario, String email) {
 
         switch(tipoUsuario) {
 
             case StringsBanco.USUARIO_INTERNO:
-                preferencias.setEmailUsuario(sEmail);
-                usuario.getNome(tipoUsuario, id);
+                preferencias.setEmailUsuario(email);
                 break;
 
             case StringsBanco.USUARIO_GOOGLE:
-                preferencias.setNomeUsuario(acct.getDisplayName());
                 preferencias.setEmailUsuario(acct.getEmail());
                 break;
 
@@ -661,19 +457,223 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 return;
         }
 
-        usuario.getEnderecoFoto(tipoUsuario, id);
-        usuario.getTempoEstudo(tipoUsuario, id);
-        usuario.getEstadoCertificado(tipoUsuario, id);
-        usuario.getProgresso(tipoUsuario, id);
-        usuario.getPontuacao(tipoUsuario, id);
-        usuario.getConquistas(tipoUsuario, id);
+        preferencias.setTipoUsuario(tipoUsuario);
+
+        final RequestsUsuario requests = getRequestsUsuario(tipoUsuario, email);
+
+        requests.getID();
 
         AppController.setRequestCountdown(AppController.getRequestCount());
-        esperarFilaRequestsTerminarEConcluirLogin();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Log.i(TAG, "Iniciando espera pelo request de ID");
+                    AppController.getCountdownLatch().await();
+                    Log.i(TAG, "Espera pelo request de ID terminada... prosseguindo");
+
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            requests.getNome();
+                            requests.getEnderecoFoto();
+                            requests.getTempoEstudo();
+                            requests.getEstadoCertificado();
+                            requests.getProgresso();
+                            requests.getPontuacao();
+                            requests.getConquistas();
+                            AppController.setRequestCountdown(AppController.getRequestCount());
+                            esperarFilaRequestsTerminarEConcluirLogin();
+
+                        }
+                    });
+
+                } catch(InterruptedException e ) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 
-    private void cancelarRequests() {
+    private RequestsUsuario getRequestsUsuario(String tipoUsuario, String email) {
 
+        return new RequestsUsuario(tipoUsuario, email, new UsuarioListener() {
+
+            @Override
+            public void onGetId(String id) {
+                preferencias.setIdUsuario(id);
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetNome(String nome) {
+                preferencias.setNomeUsuario(nome);
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetTempoEstudo(String tempoEstudo) {
+                preferencias.setTempoEstudo(tempoEstudo);
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetEnderecoFoto(String endereco) {
+                preferencias.setCaminhoFoto(endereco);
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetEstadoCertificado(String estadoCertificado) {
+                if(estadoCertificado.equals("1")) {
+                    preferencias.setIsCertificadoGerado(true);
+                } else if(estadoCertificado.equals("0")) {
+                    preferencias.setIsCertificadoGerado(false);
+                }
+
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetProgresso(JSONObject progresso) {
+                int progressoModulo = progresso.optInt("PROGRESSO_MODULO");
+                int prog_etapas_modulo0 = progresso.optInt("PROGRESSO_ETAPAS_MODULO0");
+                int prog_etapas_modulo1 = progresso.optInt("PROGRESSO_ETAPAS_MODULO1");
+                int prog_etapas_modulo2 = progresso.optInt("PROGRESSO_ETAPAS_MODULO2");
+                int prog_etapas_modulo3 = progresso.optInt("PROGRESSO_ETAPAS_MODULO3");
+                int prog_etapas_modulo4 = progresso.optInt("PROGRESSO_ETAPAS_MODULO4");
+                int prog_etapas_modulo5 = progresso.optInt("PROGRESSO_ETAPAS_MODULO5");
+
+                preferencias.setProgressoModulo(progressoModulo);
+                preferencias.setProgressoEtapa(0, prog_etapas_modulo0);
+                preferencias.setProgressoEtapa(1, prog_etapas_modulo1);
+                preferencias.setProgressoEtapa(2, prog_etapas_modulo2);
+                preferencias.setProgressoEtapa(3, prog_etapas_modulo3);
+                preferencias.setProgressoEtapa(4, prog_etapas_modulo4);
+                preferencias.setProgressoEtapa(5, prog_etapas_modulo5);
+
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetPontuacao(JSONObject pontuacaoGeral) {
+
+                int[] pontuacao = new int[]
+                        {
+                                pontuacaoGeral.optInt("PONTOS_MODULO0"),
+                                pontuacaoGeral.optInt("PONTOS_MODULO1"),
+                                pontuacaoGeral.optInt("PONTOS_MODULO2"),
+                                pontuacaoGeral.optInt("PONTOS_MODULO3"),
+                                pontuacaoGeral.optInt("PONTOS_MODULO4"),
+                                pontuacaoGeral.optInt("PONTOS_MODULO5")
+                        };
+
+                for(int i = 0; i < pontuacao.length; i++) {
+                    preferencias.setPontos(i, pontuacao[i]);
+                }
+
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onGetConquistas(JSONObject conquistas) {
+                String[] idConquistas = new String[]
+                        {
+                                "CONQ0",
+                                "CONQ1",
+                                "CONQ2",
+                                "CONQ3",
+                                "CONQ4",
+                                "CONQ5",
+                                "CONQ6",
+                                "CONQ7",
+                                "CONQ8",
+                                "CONQ9",
+                                "CONQ10",
+                                "CONQ11",
+                                "CONQ12",
+                                "CONQ13",
+                                "CONQ14",
+                        };
+
+                int[] valores = new int[]
+                        {
+                                conquistas.optInt("CONQ0"),
+                                conquistas.optInt("CONQ1"),
+                                conquistas.optInt("CONQ2"),
+                                conquistas.optInt("CONQ3"),
+                                conquistas.optInt("CONQ4"),
+                                conquistas.optInt("CONQ5"),
+                                conquistas.optInt("CONQ6"),
+                                conquistas.optInt("CONQ7"),
+                                conquistas.optInt("CONQ8"),
+                                conquistas.optInt("CONQ9"),
+                                conquistas.optInt("CONQ10"),
+                                conquistas.optInt("CONQ11"),
+                                conquistas.optInt("CONQ12"),
+                                conquistas.optInt("CONQ13"),
+                                conquistas.optInt("CONQ14")
+                        };
+
+
+                for(int i = 0; i < valores.length; i++) {
+                    preferencias.setConquista(idConquistas[i], valores[i]);
+                }
+
+
+                AppController.decreaseRequestCount();
+            }
+
+            @Override
+            public void onErrorResponse(String tag, String response) {
+                Log.d(TAG, "Erro no request " + tag + "Cancelando requests . . . resposta: " + response);
+                AppController.getInstance().cancelPendingRequests("Erro de resposta servidor");
+
+                if(!houveramErrosAoRestaurarUsuario) {
+                    houveramErrosAoRestaurarUsuario = true;
+                }
+
+                hideProgressDialog();
+                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao se conectar com a base de dados. Você está conectado?", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void esperarFilaRequestsTerminarEConcluirLogin() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    AppController.getCountdownLatch().await();
+                    Log.d(TAG, "COUNTDOWN TERMINADA . . . PROSSEGUINDO");
+
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(!houveramErrosAoRestaurarUsuario) {
+                                Log.d(TAG, "CONCLUINDO LOGIN");
+                                startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
+                                preferencias.setIsLogin(true);
+                                hideProgressDialog();
+                                finish();
+                            } else {
+                                houveramErrosAoRestaurarUsuario = false;
+                            }
+
+                        }
+                    });
+
+                } catch(InterruptedException e ) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }).start();
     }
 
     /* VERIFICAÇÃO CONSISTÊNCIA CREDENCIAIS */
@@ -713,10 +713,6 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             return true;
 
         }
-    }
-
-    public Activity getActivity() {
-        return this;
     }
 }
 

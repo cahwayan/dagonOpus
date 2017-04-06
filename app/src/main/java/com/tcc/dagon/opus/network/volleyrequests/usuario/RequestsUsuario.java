@@ -1,6 +1,5 @@
 package com.tcc.dagon.opus.network.volleyrequests.usuario;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -25,15 +24,24 @@ public class RequestsUsuario {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private CallbackUsuario callbackUsuario;
+    private UsuarioListener usuarioListener;
+    private String tipoUsuario;
+    private String id;
+    private String email;
 
-    public RequestsUsuario(Context context) {
-        this.callbackUsuario = (CallbackUsuario) context;
+    public RequestsUsuario(String tipoUsuario, String email, UsuarioListener activity) {
+        this.tipoUsuario = tipoUsuario;
+        this.email = email;
+        this.usuarioListener = activity;
     }
 
-    public void getID(final String tipoUsuario, final String email) {
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        String tag_get_id = "Request get ID: ";
+    public void getID() {
+
+        final String tag_get_id = "Request get ID: ";
 
         /* INÍCIO REQUEST*/
         StringRequest request = new StringRequest(
@@ -43,7 +51,14 @@ public class RequestsUsuario {
             public void onResponse(String response)
             {
                 Log.d(TAG, "RESPOSTA FIND ID: " + response);
-                callbackUsuario.callbackGetId(tipoUsuario, response);
+
+                if(response.equals("erroid")) {
+                    usuarioListener.onErrorResponse(tag_get_id, response);
+                } else {
+                    id = response;
+                    usuarioListener.onGetId(response);
+                }
+
             }
 
         }, new Response.ErrorListener()
@@ -52,6 +67,8 @@ public class RequestsUsuario {
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
+
+                usuarioListener.onErrorResponse(tag_get_id, error.toString());
             }
         }){
             @Override
@@ -65,6 +82,7 @@ public class RequestsUsuario {
 
         };
 
+        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag_get_id);
     }
 
@@ -73,7 +91,7 @@ public class RequestsUsuario {
     /*MÉTODO QUE FAZ UM REQUEST NO BANCO COM O E-MAIL DO USUÁRIO QUANDO O USUÁRIO LOGA
     PARA PEGAR O NOME REFERENTE AO E-MAIL E GUARDA ESSE NOME EM UMA SHARED PREFERENCE
     PARA USAR O NOME DELE NO PERFIL*/
-    public void getNome(final String tipoUsuario, final String id)
+    public void getNome()
     {
         final String tag_get_nome = "Request getNome: ";
 
@@ -84,7 +102,13 @@ public class RequestsUsuario {
             public void onResponse(String response)
             {
                 Log.d(TAG, tag_get_nome + " " + response);
-                callbackUsuario.callbackGetNome(response);
+
+                if(response.equals("erroNome")) {
+                    usuarioListener.onErrorResponse(tag_get_nome, response);
+                } else {
+                    usuarioListener.onGetNome(response);
+                }
+
             }
         }, new Response.ErrorListener()
         {
@@ -92,6 +116,7 @@ public class RequestsUsuario {
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
+                usuarioListener.onErrorResponse(tag_get_nome, error.toString());
             }
         }){
             @Override
@@ -108,7 +133,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(requestNome, tag_get_nome);
     }
 
-    public void getTempoEstudo(final String tipoUsuario, final String id) {
+    public void getTempoEstudo() {
 
         final String tag = "get_tempo_estudo: ";
 
@@ -116,7 +141,13 @@ public class RequestsUsuario {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, tag + " " + response);
-                callbackUsuario.callbackGetTempoEstudo(response);
+
+                if(response.equals("erroTempoEstudo")) {
+                    usuarioListener.onErrorResponse(tag, response);
+                } else {
+                    usuarioListener.onGetTempoEstudo(response);
+                }
+
             }
 
         }, new Response.ErrorListener()
@@ -125,6 +156,7 @@ public class RequestsUsuario {
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
+                usuarioListener.onErrorResponse(tag, error.toString());
             }
         }){
 
@@ -141,7 +173,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
-    public void getEnderecoFoto(final String tipoUsuario, final String id) {
+    public void getEnderecoFoto() {
 
         final String tag = "tag_get_endereco_foto: ";
 
@@ -151,13 +183,20 @@ public class RequestsUsuario {
             public void onResponse(String response)
             {
                 Log.d(TAG, tag + " " + response);
-                callbackUsuario.callbackGetEnderecoFoto(response);
+
+                if(response.equals("erroCaminhoFoto")) {
+                    usuarioListener.onErrorResponse(tag, response);
+                } else {
+                    usuarioListener.onGetEnderecoFoto(response);
+                }
+
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error)
             {
                 Log.d(TAG, error.getMessage());
+                usuarioListener.onErrorResponse(tag, error.toString());
             }
         }) {
             @Override
@@ -174,7 +213,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
-    public void getEstadoCertificado(final String tipoUsuario, final String id) {
+    public void getEstadoCertificado() {
 
         final String tag = "request_get_estado_certificado: ";
 
@@ -182,12 +221,17 @@ public class RequestsUsuario {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, tag + " " + response);
-                callbackUsuario.callbackGetEstadoCertificado(response);
+                if(response.equals("erroCertificado")) {
+                    usuarioListener.onErrorResponse(tag, response);
+                } else {
+                    usuarioListener.onGetEstadoCertificado(response);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d(TAG, error.getMessage());
+                usuarioListener.onErrorResponse(tag, error.toString());
             }
         }) {
             @Override
@@ -206,7 +250,7 @@ public class RequestsUsuario {
 
     /* JSON REQUESTS*/
 
-    public void getProgresso(final String tipoUsuario, final String id) {
+    public void getProgresso() {
 
         Map<String, String> params = new HashMap<>();
         params.put("TIPO_USUARIO", tipoUsuario);
@@ -221,7 +265,11 @@ public class RequestsUsuario {
                             @Override
                             public void onResponse(JSONObject response) {
                                 Log.d(TAG, tag + " SUCESSO:" + response.toString());
-                                callbackUsuario.callbackGetProgresso(response);
+                                if(response.toString().equals("erroProgresso")) {
+                                    usuarioListener.onErrorResponse(tag, response.toString());
+                                } else {
+                                    usuarioListener.onGetProgresso(response);
+                                }
                             }
                         },
 
@@ -229,8 +277,7 @@ public class RequestsUsuario {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Log.d(TAG, tag + " " + error.toString());
-                                error.getCause();
-                                error.printStackTrace();
+                                usuarioListener.onErrorResponse(tag, error.toString());
                             }
                         });
 
@@ -239,7 +286,7 @@ public class RequestsUsuario {
 
     }
 
-    public void getPontuacao(final String tipoUsuario, final String id) {
+    public void getPontuacao() {
 
         final String tag = "request_get_pontuacao: ";
 
@@ -253,14 +300,20 @@ public class RequestsUsuario {
                             @Override
                             public void onResponse(JSONObject response) {
                                 Log.d(TAG, tag + " Sucesso: " + response.toString());
-                                callbackUsuario.callbackGetPontuacao(response);
+
+                                if(response.toString().equals("erroPontuacao")) {
+                                    usuarioListener.onErrorResponse(tag, response.toString());
+                                } else {
+                                    usuarioListener.onGetPontuacao(response);
+                                }
                             }
                         },
 
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                error.printStackTrace();
+                                Log.d(TAG, tag + " " + error.toString());
+                                usuarioListener.onErrorResponse(tag, error.toString());
                             }
                         });
 
@@ -268,7 +321,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
-    public void getConquistas(String tipoUsuario, String id) {
+    public void getConquistas() {
 
         final String tag = "request_get_conquistas: ";
 
@@ -282,13 +335,19 @@ public class RequestsUsuario {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d(TAG, tag + " SUCESSO: " + response.toString());
-                        callbackUsuario.callbackGetConquistas(response);
+
+                        if(response.toString().equals("erroConquistas")) {
+                            usuarioListener.onErrorResponse(tag, response.toString());
+                        } else {
+                            usuarioListener.onGetConquistas(response);
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 });
 

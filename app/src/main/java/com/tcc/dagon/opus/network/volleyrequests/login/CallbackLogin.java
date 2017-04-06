@@ -8,6 +8,6 @@ import org.json.JSONObject;
 
 public interface CallbackLogin {
 
-    void callbackLoginInterno(String response);
+    void onLogin(String response);
 
 }
