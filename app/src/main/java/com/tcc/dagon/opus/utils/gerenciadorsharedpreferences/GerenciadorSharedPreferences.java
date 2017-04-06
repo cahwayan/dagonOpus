@@ -86,6 +86,8 @@ public class GerenciadorSharedPreferences implements Preferencias {
         return lerFlagString(TEMPO_ESTUDO);
     }
 
+
+
     @Override
     public void setTipoUsuario(String tipoUsuario) {
         modFlag(TIPO_USUARIO, tipoUsuario);
@@ -213,6 +215,26 @@ public class GerenciadorSharedPreferences implements Preferencias {
     @Override
     public void setProgressoModulo(int valor) {
         modFlag(PROGRESSO_MODULO, valor);
+    }
+
+    @Override
+    public String getEstadoConquista(String idConquista) {
+        return lerFlagString(idConquista);
+    }
+
+    @Override
+    public void liberarConquista(String idConquista) {
+        modFlag(idConquista, 1);
+    }
+
+    @Override
+    public void bloquearConquista(String idConquista) {
+        modFlag(idConquista, 0);
+    }
+
+    @Override
+    public void setConquista(String idConquista, int valor) {
+        modFlag(idConquista, valor);
     }
 
     @Override
@@ -359,6 +381,36 @@ public class GerenciadorSharedPreferences implements Preferencias {
         }
 
         return lerFlagInt(flag);
+    }
+
+    public void setPontos(int moduloReferente, int pontos) {
+
+        String flag;
+
+        switch (moduloReferente) {
+            case ModuloCurso.MODULO0:
+                flag = PONTOS_MODULO0;
+                break;
+            case ModuloCurso.MODULO1:
+                flag = PONTOS_MODULO1;
+                break;
+            case ModuloCurso.MODULO2:
+                flag = PONTOS_MODULO2;
+                break;
+            case ModuloCurso.MODULO3:
+                flag = PONTOS_MODULO3;
+                break;
+            case ModuloCurso.MODULO4:
+                flag = PONTOS_MODULO4;
+                break;
+            case ModuloCurso.MODULO5:
+                flag = PONTOS_MODULO5;
+                break;
+
+            default: flag = "defaultPontos";
+        }
+
+        modFlag(flag, pontos);
     }
 
     @Override

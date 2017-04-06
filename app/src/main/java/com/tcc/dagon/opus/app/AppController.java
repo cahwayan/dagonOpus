@@ -18,11 +18,14 @@ import java.util.concurrent.CountDownLatch;
 
 public class AppController extends Application {
 
-    private static CountDownLatch countdownRestaurarUsuario;
+    /* Countdown for multiple requests */
+    private static CountDownLatch countdown;
+    private static int requestCount;
+
     public static final String TAG = AppController.class.getSimpleName();
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
-    private static int requestCount;
+
 
     private static AppController mInstance;
 
@@ -32,36 +35,34 @@ public class AppController extends Application {
         mInstance = this;
     }
 
-    public static CountDownLatch getRestaurarUsuarioCountdown() {
-        return countdownRestaurarUsuario;
-    }
-
-    public static void setCountdownRestaurarUsuario(int count) {
-        Log.d(TAG, "COUNTDOWN INICIADA COM " + String.valueOf(count) + " requests");
-        countdownRestaurarUsuario = new CountDownLatch(count);
+    public static CountDownLatch getCountdownLatch() {
+        return countdown;
     }
 
     public static int getRequestCount() {
         return requestCount;
     }
 
-    public static void countdownRestaurarUsuario() {
-        countdownRestaurarUsuario.countDown();
-        requestCount--;
-
-        Log.d(TAG, "REQUEST COUNTDOWN ABAIXANDO . . . " + String.valueOf(countdownRestaurarUsuario.getCount()));
+    public static void setRequestCountdown(int count) {
+        Log.d(TAG, "COUNTDOWN INICIADA COM " + String.valueOf(count) + " requests");
+        countdown = new CountDownLatch(count);
     }
 
-    public static void upRequestCount() {
+    public static void increaseRequestCount() {
         requestCount++;
+        Log.d(TAG, "REQUEST COUNTDOWN AUMENTANDO . . . " + String.valueOf(requestCount));
     }
 
-    // Método que retorna a única instância da classe
+    public static void decreaseRequestCount() {
+        countdown.countDown();
+        requestCount--;
+        Log.d(TAG, "REQUEST COUNTDOWN ABAIXANDO . . . " + String.valueOf(requestCount));
+    }
+
     public static synchronized AppController getInstance() {
         return mInstance;
     }
 
-    // Método que vai retornar a RequestQueue
     public RequestQueue getRequestQueue() {
         if(this.requestQueue == null) {
             this.requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -70,7 +71,6 @@ public class AppController extends Application {
         return this.requestQueue;
     }
 
-    // Método que vai retornar o ImageLoader
     public ImageLoader getImageLoader() {
         getRequestQueue();
         if(this.imageLoader == null) {
@@ -80,7 +80,6 @@ public class AppController extends Application {
         return this.imageLoader;
     }
 
-    // Método que vai adicionar um request na fila de requests
     public <T> void addToRequestQueue(Request<T> request, String tag) {
         // A tag está vazia? Se sim, usar a tag padrão desta classe
         request.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
@@ -90,6 +89,7 @@ public class AppController extends Application {
     public void cancelPendingRequests(Object tag) {
         if(this.requestQueue != null) {
             requestQueue.cancelAll(tag);
+            Log.d(TAG, tag + " teve um erro e cancelou todos os requests." );
         }
     }
 

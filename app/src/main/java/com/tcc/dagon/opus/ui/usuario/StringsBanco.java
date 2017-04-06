@@ -16,14 +16,23 @@ public abstract class StringsBanco {
     private static final String scriptGetTempoEstudo       = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindTempoEstudo.php";
     private static final String scriptGetCaminhoFoto       = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindEnderecoFoto.php";
     private static final String scriptGetEstadoCertificado = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindEstadoCertificado.php";
-
     private static final String scriptGetProgresso = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindProgresso.php";
+    private static final String scriptGetPontuacao = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindPontuacao.php";
+    private static final String scriptGetConquistas = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptFindConquistas.php";
 
     private static final String certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
     private static final String recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
 
     public static String getScriptGetCaminhoFoto() {
         return scriptGetCaminhoFoto;
+    }
+
+    public static String getScriptGetPontuacao() {
+        return scriptGetPontuacao;
+    }
+
+    public static String getScriptGetConquistas() {
+        return scriptGetConquistas;
     }
 
     public static String getScriptGetProgresso() {

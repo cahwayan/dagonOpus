@@ -26,6 +26,24 @@ public interface Preferencias {
     String PROGRESSO_ETAPAS_MODULO4 = "progressoEtapasModulo4";
     String PROGRESSO_ETAPAS_MODULO5 = "progressoEtapasModulo5";
 
+    String CONQ0 = "conq0";
+    String CONQ1 = "conq1";
+    String CONQ2 = "conq2";
+    String CONQ3 = "conq3";
+    String CONQ4 = "conq4";
+    String CONQ5 = "conq5";
+    String CONQ6 = "conq6";
+    String CONQ7 = "conq7";
+    String CONQ8 = "conq8";
+    String CONQ9 = "conq9";
+    String CONQ10 = "conq10";
+    String CONQ11 = "conq11";
+    String CONQ12 = "conq12";
+    String CONQ13 = "conq13";
+    String CONQ14 = "conq14";
+    String CONQ15 = "conq15";
+
+
     // Flags pontuação
     String PONTOS_MODULO0 = "pontuacaoModulo0";
     String PONTOS_MODULO1 = "pontuacaoModulo1";
@@ -113,6 +131,7 @@ public interface Preferencias {
     String getCaminhoFoto();
     String getEmailUsuario();
     boolean getIsCertificadoGerado();
+    String getEstadoConquista(String nomeConquista);
 
     void setTipoUsuario(String tipoUsuario);
     String getTipoUsuario();
@@ -134,4 +153,8 @@ public interface Preferencias {
     void setCaminhoFoto(String caminho);
     void setEmailUsuario(String email);
     void setIsCertificadoGerado(boolean isCertificadoGerado);
+
+    void setConquista(String idConquista, int valor);
+    void liberarConquista(String idConquista);
+    void bloquearConquista(String idConquista);
 }

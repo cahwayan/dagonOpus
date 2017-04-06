@@ -36,19 +36,10 @@ import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
-import com.tcc.dagon.opus.utils.volley.LoginRequests;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 @EActivity(R.layout.activity_gerenciar_perfil)
 public class GerenciarPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {

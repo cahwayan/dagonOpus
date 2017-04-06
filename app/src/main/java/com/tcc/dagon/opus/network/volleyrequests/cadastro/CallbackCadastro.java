@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.utils.volley;
+package com.tcc.dagon.opus.network.volleyrequests.cadastro;
 
 /**
  * Created by cahwayan on 29/03/2017.

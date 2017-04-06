@@ -16,8 +16,8 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import com.tcc.dagon.opus.utils.ToastManager;
 import com.tcc.dagon.opus.utils.ValidarEmail;
 import com.tcc.dagon.opus.utils.VerificarConexao;
-import com.tcc.dagon.opus.utils.volley.CadastroRequests;
-import com.tcc.dagon.opus.utils.volley.CallbackCadastro;
+import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
+import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
