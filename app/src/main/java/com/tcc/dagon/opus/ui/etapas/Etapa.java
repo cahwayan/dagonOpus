@@ -5,11 +5,6 @@ package com.tcc.dagon.opus.ui.etapas;
  */
 
 interface Etapa {
-
-    int BLOQUEADA = 0;
-    int CURSANDO = 1;
-    int COMPLETA = 2;
-
     int getEstadoAtual();
     int getNumEtapa();
     void atualizarEstadoConformeProgressoAtual(int progressoAtual);

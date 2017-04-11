@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
+
 
 /**
  * Created by cahwayan on 04/04/2017.
@@ -23,16 +25,16 @@ public class ModuloCursoImpTest {
 
     @Test
     public void moduloCompletoEReconhecidoCorretamente() {
-        ModuloCursoImp modulo = new ModuloCursoImp(ModuloCurso.MODULO1, "A++");
+        ModuloCursoImp modulo = new ModuloCursoImp(MODULO1, "A++");
         modulo.atualizarEstadoConformeProgressoAtual( /* Prog Módulo */2);
 
-        Assert.assertEquals(modulo.getEstadoAtual(), ModuloCurso.IS_COMPLETO);
+        Assert.assertEquals(modulo.getEstadoAtual(), IS_COMPLETO);
     }
 
     @Test
     public void moduloCertificadoEReconhecidoCorretamente() {
-        ModuloCursoImp modulo = new ModuloCursoImp(ModuloCurso.MODULO_CERTIFICADO, "A++");
+        ModuloCursoImp modulo = new ModuloCursoImp(MODULO_CERTIFICADO, "A++");
         modulo.atualizarEstadoConformeProgressoAtual(6);
-        Assert.assertEquals(modulo.getEstadoAtual(), ModuloCurso.IS_CERTIFICADO);
+        Assert.assertEquals(modulo.getEstadoAtual(), IS_CERTIFICADO);
     }
 }

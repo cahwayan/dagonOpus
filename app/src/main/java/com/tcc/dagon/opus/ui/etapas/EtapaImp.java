@@ -1,5 +1,9 @@
 package com.tcc.dagon.opus.ui.etapas;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.BLOQUEADA;
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.COMPLETA;
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.CURSANDO;
+
 /**
  * Created by cahwayan on 09/03/2017.
  */

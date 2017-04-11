@@ -21,6 +21,8 @@ import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPr
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
+
 /**
  * Created by cahwayan on 14/11/2016.
  */
@@ -276,22 +278,22 @@ public class ContainerProvaActivity extends ContainerLicoesActivity
         int qtd = 0;
         
         switch (moduloAtual) {
-            case ModuloCurso.MODULO0:
+            case MODULO0:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo0);
                 break;
-            case ModuloCurso.MODULO1:
+            case MODULO1:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo1);
                 break;
-            case ModuloCurso.MODULO2:
+            case MODULO2:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo2);
                 break;
-            case ModuloCurso.MODULO3:
+            case MODULO3:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo3);
                 break;
-            case ModuloCurso.MODULO4:
+            case MODULO4:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo3);
                 break;
-            case ModuloCurso.MODULO5:
+            case MODULO5:
                 qtd = getResources().getInteger(R.integer.qtdPerguntasModulo4);
                 break;
             default:

@@ -27,6 +27,9 @@ import org.androidannotations.annotations.UiThread;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.*;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
+
 @EActivity
 public abstract class EtapasActivity extends AppCompatActivity {
 
@@ -95,17 +98,17 @@ public abstract class EtapasActivity extends AppCompatActivity {
 
     private String[] getStringArrayQuantidadeQuestoesPorEtapa() {
         switch(moduloAtual) {
-            case ModuloCurso.MODULO0:
+            case MODULO0:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo0);
-            case ModuloCurso.MODULO1:
+            case MODULO1:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo1);
-            case ModuloCurso.MODULO2:
+            case MODULO2:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo2);
-            case ModuloCurso.MODULO3:
+            case MODULO3:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo3);
-            case ModuloCurso.MODULO4:
+            case MODULO4:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo4);
-            case ModuloCurso.MODULO5:
+            case MODULO5:
                 return getResources().getStringArray(R.array.qtdQuestoesModulo5);
             default:
                 return null;
@@ -145,13 +148,13 @@ public abstract class EtapasActivity extends AppCompatActivity {
                     initAnimation(btnEtapa);
                     int estadoEtapa = etapa.getEstadoAtual();
 
-                    if(estadoEtapa == Etapa.BLOQUEADA) {
+                    if(estadoEtapa == BLOQUEADA) {
                         alertaEtapaBloqueada();
-                    } else if(estadoEtapa == Etapa.CURSANDO || estadoEtapa == Etapa.COMPLETA) {
+                    } else if(estadoEtapa == CURSANDO || estadoEtapa == COMPLETA) {
                         clickLiberado(numEtapa);
                     }
 
-                    if(isEtapaProva(numEtapa) && (estadoEtapa == Etapa.COMPLETA || estadoEtapa == Etapa.CURSANDO) ) {
+                    if(isEtapaProva(numEtapa) && (estadoEtapa == COMPLETA || estadoEtapa == CURSANDO) ) {
                         finish();
                     }
                 }
@@ -202,13 +205,13 @@ public abstract class EtapasActivity extends AppCompatActivity {
             int numEtapa = etapa.getNumEtapa();
 
             switch (estadoAtual) {
-                case Etapa.BLOQUEADA:
+                case BLOQUEADA:
                     carregarUIBloqueada(numEtapa);
                     break;
-                case Etapa.CURSANDO:
+                case CURSANDO:
                     carregarUICursando(numEtapa);
                     break;
-                case Etapa.COMPLETA:
+                case COMPLETA:
                     carregarUICompleta(numEtapa);
                     break;
             }

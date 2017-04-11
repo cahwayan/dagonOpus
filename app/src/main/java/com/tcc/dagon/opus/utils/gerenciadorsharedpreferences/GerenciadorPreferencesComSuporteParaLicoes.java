@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
+
 /**
  * Created by cahwayan on 26/02/2017.
  */
@@ -57,27 +59,27 @@ public class GerenciadorPreferencesComSuporteParaLicoes extends GerenciadorShare
         String flag;
 
         switch (moduloAtual) {
-            case ModuloCurso.MODULO0:
+            case MODULO0:
                 flag = PONTOS_MODULO0;
                 break;
 
-            case ModuloCurso.MODULO1:
+            case MODULO1:
                 flag = PONTOS_MODULO1;
                 break;
 
-            case ModuloCurso.MODULO2:
+            case MODULO2:
                 flag = PONTOS_MODULO2;
                 break;
 
-            case ModuloCurso.MODULO3:
+            case MODULO3:
                 flag = PONTOS_MODULO3;
                 break;
 
-            case ModuloCurso.MODULO4:
+            case MODULO4:
                 flag = PONTOS_MODULO4;
                 break;
 
-            case ModuloCurso.MODULO5:
+            case MODULO5:
                 flag = PONTOS_MODULO5;
                 break;
 

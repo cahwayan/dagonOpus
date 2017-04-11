@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tcc.dagon.opus.ui.curso.exercicios.ConteudoWrapper;
-
 import java.util.List;
 
 /*
@@ -19,8 +17,8 @@ import java.util.List;
 
 public class Adapter extends FragmentPagerAdapter {
 
-    private String[] tabTitulos;
-    private List<ConteudoWrapper> listaExercicios;
+    private final String[] tabTitulos;
+    private final List<Fragment> listaExercicios;
 
     public Adapter(FragmentManager fm, String[] tabTitulos, int moduloAtual, int etapaAtual) {
         super(fm);

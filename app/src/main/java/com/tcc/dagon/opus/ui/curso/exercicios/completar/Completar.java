@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.ui.curso.exercicios.Exercicio;
+import com.tcc.dagon.opus.ui.curso.exercicios.ExercicioFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 /**/
 
-public class Completar extends Exercicio {
+public class Completar extends ExercicioFragment {
 
     /* VARIÁVEIS */
     // GUARDA O ID DO LAYOUT QUE SERÁ USADO NA INSTÂNCIA
@@ -42,29 +42,12 @@ public class Completar extends Exercicio {
 
     /* VETORES QUE GUARDAM AS RESPOSTAS CERTAS PARA DETERMINADO EXERCÍCIO */
     private String   respostasCertas[];
-    private String   respostasCertasAcentuadas[];
 
     /* VETOR QUE GUARDA O TAMANHO DAS PALAVRAS DAS RESPOSTAS CERTAS
     *  ESSE VETOR SERVE PARA ADICIONAR LISTENERS DE MANEIRA PROGRAMÁTICA DE ACORDO COM O
     *  TAMANHO DA RESPOSTA. O LISTENER EM QUESTÃO É O TEXT WATCHER, E FAZ PULAR DE UMA
     *  EDIT TEXT PARA OUTRA ASSIM QUE O TAMANHO DA PALAVRA CORRETA FOR ATINGIDO*/
     private int lengthRespostas[];
-
-    /* MÉTODO ESTÁTICO DE INSTÂNCIA. COMO FRAGMENTOS NÃO POSSUEM SUPORTE DECENTE PARA O USO DE MÉTODOS CONSTRUTORES
-    * (NA VERDADE NÃO É RECOMENDADO NEM SOBRESCREVER O CONSTRUTOR DE UM FRAGMENT)
-    * CRIAMOS UM MÉTODO ESTÁTICO, QUE PODE SER ACESSADO DE QUALQUER LUGAR, QUE SERVE PARA INSTANCIAR A CLASSE COMO UM MÉTODO CONSTRUTOR.
-    * ESSE MÉTODO RECEBE OS PARÂMETROS, E PASSA PARA O ONCREATE ATRAVÉS DE UM BUNDLE. LÁ ENTÃO, PODEMOS PEGAR ESSES VALORES E TRABALHAR COM ELES.
-    * É IMPORTANTE SABER QUE AS MODIFICAÇÕES FEITAS NESSE MÉTODO, SÃO REALIZADAS ANTES DO MÉTODO ONCREATE SER EXECUTADO, POR ISSO, SERVE PERFEITAMENTE
-    * COMO UM CONSTRUTOR*/
-    public static Completar novoCompletar(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas, String[] respostasCertasAcentuadas) {
-        Completar completar = new Completar();
-        completar.setLayoutID(layoutID);
-        completar.setQuestaoAtual(questaoAtual);
-        completar.setQuantidadePalavras(quantidadePalavras);
-        completar.setRespostasCertas(respostasCertas);
-        completar.setRespostasCertasAcentuadas(respostasCertasAcentuadas);
-        return completar;
-    }
 
     public void setRootView(View rootView) {
         this.rootView = rootView;
@@ -76,10 +59,6 @@ public class Completar extends Exercicio {
 
     public void setRespostasCertas(String[] respostasCertas) {
         this.respostasCertas = respostasCertas;
-    }
-
-    public void setRespostasCertasAcentuadas(String[] respostasCertasAcentuadas) {
-        this.respostasCertasAcentuadas = respostasCertasAcentuadas;
     }
 
     /* CICLO DE VIDA DO APP */
@@ -101,7 +80,7 @@ public class Completar extends Exercicio {
         this.rootView = inflater.inflate(layoutID, container, false);
     }
 
-    protected void setLayoutID(int layoutID) {
+    public void setLayoutID(int layoutID) {
         this.layoutID = layoutID;
     }
 
@@ -210,10 +189,8 @@ public class Completar extends Exercicio {
             // INCREMENTAR 1 NA QUANTIDADE DE RESPOSTAS CORRETAS
             String respostaUsuario = respostasUsuario[i];
             String respostaCerta   = respostasCertas[i];
-            String respostaCertaAcentuada = respostasCertasAcentuadas[i];
 
-            if(respostaUsuario.equalsIgnoreCase(respostaCerta)
-                    || respostaUsuario.equalsIgnoreCase(respostaCertaAcentuada)) {
+            if(respostaUsuario.equalsIgnoreCase(respostaCerta)) {
                 qtdRespostasCorretas++;
             }
         }
@@ -261,10 +238,7 @@ public class Completar extends Exercicio {
 
             respostasUsuario[i] = listEditTexts.get(i).getText().toString();
 
-            if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i])
-                    &&
-                    !respostasUsuario[i].equalsIgnoreCase(respostasCertasAcentuadas[i]) ){
-
+            if(!respostasUsuario[i].equalsIgnoreCase(respostasCertas[i])){
                 listEditTexts.get(i).setText("");
             }
         }
@@ -364,10 +338,8 @@ public class Completar extends Exercicio {
 
             String respostaUsuario = respostasUsuario[i];
             String respostaCerta = respostasCertas[i];
-            String respostaCertaAcentuada = respostasCertasAcentuadas[i];
 
-            if(!respostaUsuario.equalsIgnoreCase(respostaCerta)
-                    && !respostaUsuario.equalsIgnoreCase(respostaCertaAcentuada) ){
+            if(!respostaUsuario.equalsIgnoreCase(respostaCerta) ){
                 listEditTexts.get(i).setTextColor(cor);
             }
         }

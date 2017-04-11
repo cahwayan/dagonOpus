@@ -3,6 +3,7 @@ package com.tcc.dagon.opus.ui.curso.exercicios;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.container.RefreshListener;
+import com.tcc.dagon.opus.ui.curso.exercicios.completar.Completar;
+import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarProva;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolha;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProva;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolha;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProva;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.utils.OnOffClickListener;
 import com.tcc.dagon.opus.utils.ViewController;
@@ -21,7 +28,7 @@ import com.tcc.dagon.opus.utils.ViewController;
  */
 
 
-public abstract class Exercicio extends ConteudoWrapper {
+public abstract class ExercicioFragment extends Fragment {
 
     /*
      * Através dessa interface, o fragmento pode se comunicar com o container para ler informações
@@ -45,6 +52,48 @@ public abstract class Exercicio extends ConteudoWrapper {
     private int qtdErros;
     private int pontuacao;
     protected int questaoAtual;
+
+    public static ExercicioFragment novoCompletar(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas) {
+        Completar completar = new Completar();
+        completar.setLayoutID(layoutID);
+        completar.setQuestaoAtual(questaoAtual);
+        completar.setQuantidadePalavras(quantidadePalavras);
+        completar.setRespostasCertas(respostasCertas);
+        return completar;
+    }
+
+    public static ExercicioFragment novoCompletarProva(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas) {
+        CompletarProva completar = new CompletarProva();
+        completar.setLayoutID(layoutID);
+        completar.setQuestaoAtual(questaoAtual);
+        completar.setQuantidadePalavras(quantidadePalavras);
+        completar.setRespostasCertas(respostasCertas);
+        return completar;
+    }
+
+    public static ExercicioFragment novaQuestaoMultipla(int questaoAtual) {
+        ExercicioFragment questao = new QuestaoMultiplaEscolha();
+        questao.setQuestaoAtual(questaoAtual);
+        return questao;
+    }
+
+    public static ExercicioFragment novaQuestaoMultiplaProva(int questaoAtual) {
+        ExercicioFragment questao = new QuestaoMultiplaEscolhaProva();
+        questao.setQuestaoAtual(questaoAtual);
+        return questao;
+    }
+
+    public static ExercicioFragment novaQuestaoUnicaEscolha(int questaoAtual) {
+        QuestaoUnicaEscolha questaoUnicaEscolha = new QuestaoUnicaEscolha();
+        questaoUnicaEscolha.setQuestaoAtual(questaoAtual);
+        return questaoUnicaEscolha;
+    }
+
+    public static ExercicioFragment novaQuestaoUnicaEscolhaProva(int questaoAtual) {
+        QuestaoUnicaEscolhaProva questao = new QuestaoUnicaEscolhaProva();
+        questao.setQuestaoAtual(questaoAtual);
+        return questao;
+    }
 
 
     public int getPontuacao() {

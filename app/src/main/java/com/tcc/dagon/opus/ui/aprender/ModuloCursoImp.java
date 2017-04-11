@@ -1,5 +1,8 @@
 package com.tcc.dagon.opus.ui.aprender;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.*;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
+
 /**
  * Created by cahwayan on 02/03/2017.
  */

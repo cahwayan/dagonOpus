@@ -21,8 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
+import com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.ActivityConfig_;
-import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.glossario.ContainerComandosGlossarioActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoActivity;
@@ -44,7 +44,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
+
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
 
 /******************************************************
  * Created by Andrade on 23/09/2016.
@@ -169,124 +170,93 @@ public class AprenderActivity
     */
     protected void carregarListasModulos() {
 
-        if(listClassesEtapas == null) {
-            listClassesEtapas = new ArrayList<>();
+        listClassesEtapas = new ArrayList<>();
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
+        listClassesEtapas.add(EtapasModulo0.class);
 
-            listClassesEtapas.add(EtapasModulo0.class);
-            listClassesEtapas.add(EtapasModulo0.class);
-            listClassesEtapas.add(EtapasModulo0.class);
-            listClassesEtapas.add(EtapasModulo0.class);
-            listClassesEtapas.add(EtapasModulo0.class);
-            listClassesEtapas.add(EtapasModulo0.class);
+        listTxtNotas = new ArrayList<>();
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota0));
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota1));
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota2));
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota3));
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota4));
+        listTxtNotas.add((TextView) findViewById(R.id.txtNota5));
+
+        listBtnModulos = new ArrayList<>();
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo0));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo1));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo2));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo3));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo4));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo5));
+        listBtnModulos.add((LinearLayout) findViewById(R.id.btnCertificado));
+
+        listImgModulos = new ArrayList<>();
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo0));
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo1));
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo2));
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo3));
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo4));
+        listImgModulos.add((ImageView) findViewById(R.id.imgModulo5));
+        listImgModulos.add((ImageView) findViewById(R.id.imgCertificado));
+
+        listTitulosModulos = new ArrayList<>();
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo0));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo1));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo2));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo3));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo4));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo5));
+        listTitulosModulos.add((TextView) findViewById(R.id.txtTituloCertificado));
+
+        listTxtProgressoModulos = new ArrayList<>();
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso0));
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso1));
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso2));
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso3));
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso4));
+        listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso5));
+
+        listBarrasProgresso = new ArrayList<>();
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo0));
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo1));
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo2));
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo3));
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo4));
+        listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo5));
+
+        stringsTxtProgresso = new String[] {context.getString(R.string.txtProgressoModulo0),
+                                            context.getString(R.string.txtProgressoModulo1),
+                                            context.getString(R.string.txtProgressoModulo2),
+                                            context.getString(R.string.txtProgressoModulo3),
+                                            context.getString(R.string.txtProgressoModulo4),
+                                            context.getString(R.string.txtProgressoModulo5)};
+
+        idImagensBloqueado = new int[] {R.drawable.btnmodulo0bloqueado, R.drawable.btnmodulo1bloqueado,
+                                        R.drawable.btnmodulo2bloqueado, R.drawable.btnmodulo3bloqueado,
+                                        R.drawable.btnmodulo4bloqueado, R.drawable.btnmodulo5bloqueado,
+                                        R.drawable.btncertificadobloqueado};
+
+        idImagensCursando = new int[] {R.drawable.btnmodulo0cursando, R.drawable.btnmodulo1cursando,
+                                        R.drawable.btnmodulo2cursando, R.drawable.btnmodulo3cursando,
+                                        R.drawable.btnmodulo4cursando, R.drawable.btnmodulo5cursando,
+                                        R.drawable.btncertificadocursando};
+
+        idImagensCompleto = new int[] {R.drawable.btnmodulo0completo, R.drawable.btnmodulo1completo,
+                                        R.drawable.btnmodulo2completo, R.drawable.btnmodulo3completo,
+                                        R.drawable.btnmodulo4completo, R.drawable.btnmodulo5completo,
+                                        R.drawable.btncertificadocompleto};
+
+        listModuloCurso = new ArrayList<>();
+        for(int i = 0; i < listBtnModulos.size(); i++) {
+            String nota = preferenceManager.getNota(i);
+            listModuloCurso.add(new ModuloCursoImp(i, nota));
         }
 
-        if(listTxtNotas == null) {
-            listTxtNotas = new ArrayList<>();
-
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota0));
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota1));
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota2));
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota3));
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota4));
-            listTxtNotas.add((TextView) findViewById(R.id.txtNota5));
-        }
-
-        if(listBtnModulos == null) {
-            listBtnModulos = new ArrayList<>();
-
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo0));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo1));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo2));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo3));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo4));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnModulo5));
-            listBtnModulos.add((LinearLayout) findViewById(R.id.btnCertificado));
-        }
-
-        if(listImgModulos == null) {
-            listImgModulos = new ArrayList<>();
-
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo0));
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo1));
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo2));
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo3));
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo4));
-            listImgModulos.add((ImageView) findViewById(R.id.imgModulo5));
-            listImgModulos.add((ImageView) findViewById(R.id.imgCertificado));
-        }
-
-        if(listTitulosModulos == null) {
-            listTitulosModulos = new ArrayList<>();
-
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo0));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo1));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo2));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo3));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo4));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTitulo5));
-            listTitulosModulos.add((TextView) findViewById(R.id.txtTituloCertificado));
-        }
-
-        if(listTxtProgressoModulos == null) {
-            listTxtProgressoModulos = new ArrayList<>();
-
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso0));
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso1));
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso2));
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso3));
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso4));
-            listTxtProgressoModulos.add((TextView) findViewById(R.id.txtProgresso5));
-        }
-
-        if(listBarrasProgresso == null) {
-            listBarrasProgresso = new ArrayList<>();
-
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo0));
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo1));
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo2));
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo3));
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo4));
-            listBarrasProgresso.add((RoundCornerProgressBar) findViewById(R.id.barraModulo5));
-        }
-
-        if(stringsTxtProgresso == null) {
-            stringsTxtProgresso = new String[] {context.getString(R.string.txtProgressoModulo0),
-                    context.getString(R.string.txtProgressoModulo1),
-                    context.getString(R.string.txtProgressoModulo2),
-                    context.getString(R.string.txtProgressoModulo3),
-                    context.getString(R.string.txtProgressoModulo4),
-                    context.getString(R.string.txtProgressoModulo5)};
-        }
-
-        if(idImagensBloqueado == null) {
-            idImagensBloqueado = new int[] {R.drawable.btnmodulo0bloqueado, R.drawable.btnmodulo1bloqueado,
-                    R.drawable.btnmodulo2bloqueado, R.drawable.btnmodulo3bloqueado,
-                    R.drawable.btnmodulo4bloqueado, R.drawable.btnmodulo5bloqueado,
-                    R.drawable.btncertificadobloqueado};
-        }
-
-        if(idImagensCursando == null) {
-            idImagensCursando = new int[] {R.drawable.btnmodulo0cursando, R.drawable.btnmodulo1cursando,
-                    R.drawable.btnmodulo2cursando, R.drawable.btnmodulo3cursando,
-                    R.drawable.btnmodulo4cursando, R.drawable.btnmodulo5cursando,
-                    R.drawable.btncertificadocursando};
-        }
-
-        if(idImagensCompleto == null) {
-            idImagensCompleto = new int[] {R.drawable.btnmodulo0completo, R.drawable.btnmodulo1completo,
-                    R.drawable.btnmodulo2completo, R.drawable.btnmodulo3completo,
-                    R.drawable.btnmodulo4completo, R.drawable.btnmodulo5completo,
-                    R.drawable.btncertificadocompleto};
-        }
-
-        if(listModuloCurso == null) {
-            listModuloCurso = new ArrayList<>();
-
-            for(int i = 0; i < listBtnModulos.size(); i++) {
-                String nota = preferenceManager.getNota(i);
-                listModuloCurso.add(new ModuloCursoImp(i, nota));
-            }
-        }
     }
 
     protected void initSupportActionBar() {
@@ -374,19 +344,19 @@ public class AprenderActivity
         int estadoAtual = modulo.getEstadoAtual();
         int numModulo = modulo.getNumModulo();
 
-        if(estadoAtual == ModuloCurso.IS_CERTIFICADO) {
+        if(estadoAtual == ModuloConstants.IS_CERTIFICADO) {
             configurarModuloCertificado(modulo);
             return;
         }
 
         switch(estadoAtual) {
-            case ModuloCurso.IS_BLOQUEADO:
+            case ModuloConstants.IS_BLOQUEADO:
                 configurarModuloBloqueado(numModulo);
                 break;
-            case ModuloCurso.IS_CURSANDO:
+            case ModuloConstants.IS_CURSANDO:
                 configurarModuloCursando(numModulo);
                 break;
-            case ModuloCurso.IS_COMPLETO:
+            case IS_COMPLETO:
                 String nota = modulo.getNota();
                 configurarModuloCompleto(numModulo, nota);
                 break;
@@ -465,16 +435,16 @@ public class AprenderActivity
                     botaoModulo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_botaoimageview));
 
                     switch(modulo.getEstadoAtual()) {
-                        case ModuloCurso.IS_BLOQUEADO:
+                        case IS_BLOQUEADO:
                             clickBloqueado();
                             break;
-                        case ModuloCurso.IS_CURSANDO:
+                        case IS_CURSANDO:
                             clickLiberado(modulo);
                             break;
-                        case ModuloCurso.IS_COMPLETO:
+                        case IS_COMPLETO:
                             clickLiberado(modulo);
                             break;
-                        case ModuloCurso.IS_CERTIFICADO:
+                        case IS_CERTIFICADO:
                             clickCertificado(modulo);
                             break;
                         default:

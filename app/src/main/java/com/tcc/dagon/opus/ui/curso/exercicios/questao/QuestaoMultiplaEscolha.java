@@ -21,12 +21,6 @@ public class QuestaoMultiplaEscolha extends QuestaoUnicaEscolha {
     private CheckBox alternativa2;
     private CheckBox alternativa3;
 
-    public static QuestaoMultiplaEscolha novaQuestaoMultipla(int questaoAtual) {
-        QuestaoMultiplaEscolha questao = new QuestaoMultiplaEscolha();
-        questao.setQuestaoAtual(questaoAtual);
-        return questao;
-    }
-
     @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRootView(inflater.inflate(R.layout.fragment_questao_multipla_escolha, container, false));

@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.ui.curso.exercicios.Exercicio;
+import com.tcc.dagon.opus.ui.curso.exercicios.ExercicioFragment;
 import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
 import com.tcc.dagon.opus.utils.ViewController;
 
@@ -18,7 +18,7 @@ import com.tcc.dagon.opus.utils.ViewController;
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class QuestaoUnicaEscolha extends Exercicio {
+public class QuestaoUnicaEscolha extends ExercicioFragment {
 
     protected final int ALTERNATIVA0 = 0;
     protected final int ALTERNATIVA1 = 1;
@@ -40,12 +40,6 @@ public class QuestaoUnicaEscolha extends Exercicio {
 
     public void setRootView(View rootView) {
         this.rootView = rootView;
-    }
-
-    public static QuestaoUnicaEscolha novaQuestao(int questaoAtual) {
-        QuestaoUnicaEscolha questaoUnicaEscolha = new QuestaoUnicaEscolha();
-        questaoUnicaEscolha.setQuestaoAtual(questaoAtual);
-        return questaoUnicaEscolha;
     }
 
     @Nullable

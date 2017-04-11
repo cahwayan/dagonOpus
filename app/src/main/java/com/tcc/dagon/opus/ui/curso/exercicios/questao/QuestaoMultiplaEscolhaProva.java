@@ -22,12 +22,6 @@ public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
 
     public ContagemDeVidasListener gerenciadorProva;
 
-    public static QuestaoMultiplaEscolhaProva novaQuestaoMultiplaProva(int questaoAtual) {
-        QuestaoMultiplaEscolhaProva questao = new QuestaoMultiplaEscolhaProva();
-        questao.setQuestaoAtual(questaoAtual);
-        return questao;
-    }
-
     @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRootView(inflater.inflate(R.layout.fragment_questao_multipla_escolha, container, false));

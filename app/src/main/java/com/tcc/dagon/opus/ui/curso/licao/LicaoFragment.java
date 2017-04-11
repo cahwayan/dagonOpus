@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.ui.curso.licao;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -7,23 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.ui.curso.exercicios.ConteudoWrapper;
 
 /**
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class LicaoFragment extends ConteudoWrapper {
+public class LicaoFragment extends Fragment {
 
     private Button btnAvancar;
     private ViewPager mViewPager;
     private View viewRoot;
     private int layoutID;
 
-    public static LicaoFragment novaLicao(int layoutID) {
+    public static LicaoFragment newInstance(int layoutID) {
         LicaoFragment licao = new LicaoFragment();
         licao.setContentView(layoutID);
         return licao;
@@ -51,6 +50,7 @@ public class LicaoFragment extends ConteudoWrapper {
 
     private void setListeners() {
         btnAvancar.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 moveNext();
             }

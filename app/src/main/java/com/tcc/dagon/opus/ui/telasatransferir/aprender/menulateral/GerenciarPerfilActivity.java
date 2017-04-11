@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.QTD_MODULOS;
 import static java.lang.String.valueOf;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.android.volley.RequestQueue;
@@ -135,7 +136,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
         int pontos = 0;
 
-        for(int i = 0; i < ModuloCurso.QTD_MODULOS; i++) {
+        for(int i = 0; i < QTD_MODULOS; i++) {
             pontos += preferencias.getPontos(i);
         }
 
@@ -163,7 +164,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
     private void loadProgressBar() {
         int progressoGeral = 0;
-        for(int i = 0; i < ModuloCurso.QTD_MODULOS; i++) {
+        for(int i = 0; i < QTD_MODULOS; i++) {
             progressoGeral += preferencias.getProgressoEtapa(i);
         }
 
