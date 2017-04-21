@@ -11,8 +11,8 @@ import android.widget.RadioGroup;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.exercicios.ExercicioFragment;
-import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
-import com.tcc.dagon.opus.utils.ViewController;
+import com.tcc.dagon.opus.common.NovaJanelaAlerta;
+import com.tcc.dagon.opus.common.ViewController;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -31,8 +31,6 @@ public class QuestaoUnicaEscolha extends ExercicioFragment {
                         alternativa1,
                         alternativa2,
                         alternativa3;
-
-
 
     public View getRootView() {
         return rootView;
@@ -103,29 +101,29 @@ public class QuestaoUnicaEscolha extends ExercicioFragment {
     @Override
     protected void validarRespostaUsuario() {
 
-        final int ALTERNATIVA1 = alternativa0.getId();
-        final int ALTERNATIVA2 = alternativa1.getId();
-        final int ALTERNATIVA3 = alternativa2.getId();
-        final int ALTERNATIVA4 = alternativa3.getId();
+        final int ALTERNATIVA0 = alternativa0.getId();
+        final int ALTERNATIVA1 = alternativa1.getId();
+        final int ALTERNATIVA2 = alternativa2.getId();
+        final int ALTERNATIVA3 = alternativa3.getId();
 
         int alternativaMarcada = radioGroupQuestao.getCheckedRadioButtonId();
         int resposta;
 
-        if(alternativaMarcada == ALTERNATIVA1)
+        if(alternativaMarcada == ALTERNATIVA0)
         {
-            resposta = verificaResposta(this.ALTERNATIVA0);
+            resposta = verificarResposta(this.ALTERNATIVA0);
+        }
+        else if(alternativaMarcada == ALTERNATIVA1)
+        {
+            resposta = verificarResposta(this.ALTERNATIVA1);
         }
         else if(alternativaMarcada == ALTERNATIVA2)
         {
-            resposta = verificaResposta(this.ALTERNATIVA1);
+            resposta = verificarResposta(this.ALTERNATIVA2);
         }
         else if(alternativaMarcada == ALTERNATIVA3)
         {
-            resposta = verificaResposta(this.ALTERNATIVA2);
-        }
-        else if(alternativaMarcada == ALTERNATIVA4)
-        {
-            resposta = verificaResposta(this.ALTERNATIVA3);
+            resposta = verificarResposta(this.ALTERNATIVA3);
         }
         else
         {
@@ -193,7 +191,7 @@ public class QuestaoUnicaEscolha extends ExercicioFragment {
 
         for(int i = 0; i < radioGroupQuestao.getChildCount(); i++) {
 
-            int alternativa = verificaResposta(i);
+            int alternativa = verificarResposta(i);
 
             if( alternativa == RESPOSTA_CERTA) {
 
@@ -266,7 +264,7 @@ public class QuestaoUnicaEscolha extends ExercicioFragment {
         }
     }
 
-    protected int verificaResposta(int alternativa) {
+    protected int verificarResposta(int alternativa) {
 
         return refreshListener.getManager().verificaAlternativa(questaoAtual, alternativa);
 

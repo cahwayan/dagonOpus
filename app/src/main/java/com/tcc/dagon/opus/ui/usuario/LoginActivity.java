@@ -30,14 +30,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.app.AppController;
+import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
-import com.tcc.dagon.opus.utils.OnOffClickListener;
-import com.tcc.dagon.opus.utils.ProgressDialogHelper;
-import com.tcc.dagon.opus.utils.ValidarEmail;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.VerificarConexao;
+import com.tcc.dagon.opus.common.OnOffClickListener;
+import com.tcc.dagon.opus.common.ProgressDialogHelper;
+import com.tcc.dagon.opus.common.ValidarEmail;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.common.VerificarConexao;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
 import com.tcc.dagon.opus.network.volleyrequests.login.CallbackLogin;
@@ -47,19 +48,21 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 import org.json.JSONObject;
 
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
 @EActivity(R.layout.activity_login)
 public class LoginActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, CallbackCadastro, CallbackLogin {
 
-    /* INÍCIO ATRIBUTOS */
 
-    private boolean houveramErrosAoRestaurarUsuario = false;
 
     /*TOKEN GOOGLE*/
     protected static final int SIGN_IN_CODE = 56465;
 
     private final String TAG = this.getClass().getSimpleName();
+
+    private RequestsUsuario requests;
+    private UsuarioListenerImp usuarioListener;
 
     /*API*/
     public static GoogleApiClient googleApiClient;
@@ -337,7 +340,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
             if(acct != null) {
                 showProgressDialog(R.string.carregando);
-                cadastro.usuarioExiste(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+                cadastro.usuarioExiste(BancoRemoto.USUARIO_GOOGLE, acct.getEmail());
             }
 
         } else {
@@ -372,9 +375,9 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
             // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
             // Salvar o ID dele
-            restaurarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+            restaurarUsuario(BancoRemoto.USUARIO_GOOGLE, acct.getEmail());
         } else if(resultado.equals("nao")) {
-            cadastro.cadastrarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
+            cadastro.cadastrarUsuario(BancoRemoto.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
         } else {
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um pequeno problema. Você está conectado?", Toast.LENGTH_LONG).show();
@@ -398,7 +401,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     public void onCadastro(String resultado) {
 
         if(resultado.equals("certo")) {
-            restaurarUsuario(StringsBanco.USUARIO_GOOGLE, acct.getEmail());
+            restaurarUsuario(BancoRemoto.USUARIO_GOOGLE, acct.getEmail());
         } else {
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um erro ao cadastrar. Você está conectado?", Toast.LENGTH_LONG).show();
@@ -412,7 +415,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
         if(response.trim().equals("certo")){
 
-            restaurarUsuario(StringsBanco.USUARIO_INTERNO, sEmail);
+            restaurarUsuario(BancoRemoto.USUARIO_INTERNO, sEmail);
 
         } else if(response.trim().equals("erroCredenciais")) {
             Toast.makeText(this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
@@ -443,11 +446,11 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
         switch(tipoUsuario) {
 
-            case StringsBanco.USUARIO_INTERNO:
+            case BancoRemoto.USUARIO_INTERNO:
                 preferencias.setEmailUsuario(email);
                 break;
 
-            case StringsBanco.USUARIO_GOOGLE:
+            case BancoRemoto.USUARIO_GOOGLE:
                 preferencias.setEmailUsuario(acct.getEmail());
                 break;
 
@@ -459,7 +462,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
 
         preferencias.setTipoUsuario(tipoUsuario);
 
-        final RequestsUsuario requests = getRequestsUsuario(tipoUsuario, email);
+        requests = getRequestsUsuario(tipoUsuario, email);
 
         requests.getID();
 
@@ -477,12 +480,12 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                         @Override
                         public void run() {
                             requests.getNome();
-                            requests.getEnderecoFoto();
-                            requests.getTempoEstudo();
-                            requests.getEstadoCertificado();
-                            requests.getProgresso();
-                            requests.getPontuacao();
-                            requests.getConquistas();
+                            requests.selectEnderecoFoto();
+                            requests.selectTempoEstudo();
+                            requests.selectEstadoCertificado();
+                            requests.selectProgresso();
+                            requests.selectPontuacao();
+                            requests.selectConquistas();
                             AppController.setRequestCountdown(AppController.getRequestCount());
                             esperarFilaRequestsTerminarEConcluirLogin();
 
@@ -498,147 +501,13 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     private RequestsUsuario getRequestsUsuario(String tipoUsuario, String email) {
+        return new RequestsUsuario(tipoUsuario, getUsuarioListener(), email);
 
-        return new RequestsUsuario(tipoUsuario, email, new UsuarioListener() {
+    }
 
-            @Override
-            public void onGetId(String id) {
-                preferencias.setIdUsuario(id);
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetNome(String nome) {
-                preferencias.setNomeUsuario(nome);
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetTempoEstudo(String tempoEstudo) {
-                preferencias.setTempoEstudo(tempoEstudo);
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetEnderecoFoto(String endereco) {
-                preferencias.setCaminhoFoto(endereco);
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetEstadoCertificado(String estadoCertificado) {
-                if(estadoCertificado.equals("1")) {
-                    preferencias.setIsCertificadoGerado(true);
-                } else if(estadoCertificado.equals("0")) {
-                    preferencias.setIsCertificadoGerado(false);
-                }
-
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetProgresso(JSONObject progresso) {
-                int progressoModulo = progresso.optInt("PROGRESSO_MODULO");
-                int prog_etapas_modulo0 = progresso.optInt("PROGRESSO_ETAPAS_MODULO0");
-                int prog_etapas_modulo1 = progresso.optInt("PROGRESSO_ETAPAS_MODULO1");
-                int prog_etapas_modulo2 = progresso.optInt("PROGRESSO_ETAPAS_MODULO2");
-                int prog_etapas_modulo3 = progresso.optInt("PROGRESSO_ETAPAS_MODULO3");
-                int prog_etapas_modulo4 = progresso.optInt("PROGRESSO_ETAPAS_MODULO4");
-                int prog_etapas_modulo5 = progresso.optInt("PROGRESSO_ETAPAS_MODULO5");
-
-                preferencias.setProgressoModulo(progressoModulo);
-                preferencias.setProgressoEtapa(0, prog_etapas_modulo0);
-                preferencias.setProgressoEtapa(1, prog_etapas_modulo1);
-                preferencias.setProgressoEtapa(2, prog_etapas_modulo2);
-                preferencias.setProgressoEtapa(3, prog_etapas_modulo3);
-                preferencias.setProgressoEtapa(4, prog_etapas_modulo4);
-                preferencias.setProgressoEtapa(5, prog_etapas_modulo5);
-
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetPontuacao(JSONObject pontuacaoGeral) {
-
-                int[] pontuacao = new int[]
-                        {
-                                pontuacaoGeral.optInt("PONTOS_MODULO0"),
-                                pontuacaoGeral.optInt("PONTOS_MODULO1"),
-                                pontuacaoGeral.optInt("PONTOS_MODULO2"),
-                                pontuacaoGeral.optInt("PONTOS_MODULO3"),
-                                pontuacaoGeral.optInt("PONTOS_MODULO4"),
-                                pontuacaoGeral.optInt("PONTOS_MODULO5")
-                        };
-
-                for(int i = 0; i < pontuacao.length; i++) {
-                    preferencias.setPontos(i, pontuacao[i]);
-                }
-
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onGetConquistas(JSONObject conquistas) {
-                String[] idConquistas = new String[]
-                        {
-                                "CONQ0",
-                                "CONQ1",
-                                "CONQ2",
-                                "CONQ3",
-                                "CONQ4",
-                                "CONQ5",
-                                "CONQ6",
-                                "CONQ7",
-                                "CONQ8",
-                                "CONQ9",
-                                "CONQ10",
-                                "CONQ11",
-                                "CONQ12",
-                                "CONQ13",
-                                "CONQ14",
-                        };
-
-                int[] valores = new int[]
-                        {
-                                conquistas.optInt("CONQ0"),
-                                conquistas.optInt("CONQ1"),
-                                conquistas.optInt("CONQ2"),
-                                conquistas.optInt("CONQ3"),
-                                conquistas.optInt("CONQ4"),
-                                conquistas.optInt("CONQ5"),
-                                conquistas.optInt("CONQ6"),
-                                conquistas.optInt("CONQ7"),
-                                conquistas.optInt("CONQ8"),
-                                conquistas.optInt("CONQ9"),
-                                conquistas.optInt("CONQ10"),
-                                conquistas.optInt("CONQ11"),
-                                conquistas.optInt("CONQ12"),
-                                conquistas.optInt("CONQ13"),
-                                conquistas.optInt("CONQ14")
-                        };
-
-
-                for(int i = 0; i < valores.length; i++) {
-                    preferencias.setConquista(idConquistas[i], valores[i]);
-                }
-
-
-                AppController.decreaseRequestCount();
-            }
-
-            @Override
-            public void onErrorResponse(String tag, String response) {
-                Log.d(TAG, "Erro no request " + tag + "Cancelando requests . . . resposta: " + response);
-                AppController.getInstance().cancelPendingRequests("Erro de resposta servidor");
-
-                if(!houveramErrosAoRestaurarUsuario) {
-                    houveramErrosAoRestaurarUsuario = true;
-                }
-
-                hideProgressDialog();
-                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao se conectar com a base de dados. Você está conectado?", Toast.LENGTH_LONG).show();
-            }
-        });
+    public UsuarioListenerImp getUsuarioListener() {
+        usuarioListener = new UsuarioListenerImp(this, progressDialog);
+        return usuarioListener;
     }
 
     public void esperarFilaRequestsTerminarEConcluirLogin() {
@@ -654,14 +523,14 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
-                            if(!houveramErrosAoRestaurarUsuario) {
+                            if(!usuarioListener.getHouveramErrosAoRestaurarUsuario()) {
                                 Log.d(TAG, "CONCLUINDO LOGIN");
                                 startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
                                 preferencias.setIsLogin(true);
                                 hideProgressDialog();
                                 finish();
                             } else {
-                                houveramErrosAoRestaurarUsuario = false;
+                                usuarioListener.setHouveramErrosAoRestaurarUsuario(false);
                             }
 
                         }

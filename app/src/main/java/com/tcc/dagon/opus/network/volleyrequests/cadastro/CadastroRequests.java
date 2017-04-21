@@ -8,8 +8,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.tcc.dagon.opus.app.AppController;
-import com.tcc.dagon.opus.ui.usuario.StringsBanco;
+import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +33,7 @@ public class CadastroRequests {
 
         String tag_cadastro_usuario = "request_cadastrar_usuario " + tipoUsuario;
 
-        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getScriptCadastro(), new Response.Listener<String>()
+        StringRequest request = new StringRequest(Request.Method.POST, BancoRemoto.getScriptCadastro(), new Response.Listener<String>()
         {
             public void onResponse(String response)
             {
@@ -67,7 +67,7 @@ public class CadastroRequests {
 
         String tag_usuario_existe = "request_usuario_existe";
 
-        StringRequest request = new StringRequest(Request.Method.POST, StringsBanco.getScriptUsuarioExiste(), new Response.Listener<String>()
+        StringRequest request = new StringRequest(Request.Method.POST, BancoRemoto.getScriptUsuarioExiste(), new Response.Listener<String>()
 
         {
             @Override

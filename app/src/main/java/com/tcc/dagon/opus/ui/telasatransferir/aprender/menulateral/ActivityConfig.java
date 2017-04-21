@@ -10,10 +10,10 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
-import com.tcc.dagon.opus.utils.ToastManager;
+import com.tcc.dagon.opus.data.DB;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.common.NovaJanelaAlerta;
+import com.tcc.dagon.opus.common.ToastManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -28,7 +28,7 @@ public class ActivityConfig extends AppCompatActivity {
     @ViewById protected Button btnResetarProgresso;
 
     /* OBJETOS */
-    protected GerenciadorBanco DB_PROGRESSO;
+    protected DB DB_PROGRESSO;
     protected NovaJanelaAlerta alertaApagar;
     protected GerenciadorSharedPreferences preferencias;
     protected boolean flagDesativarSom;
@@ -62,7 +62,7 @@ public class ActivityConfig extends AppCompatActivity {
         }
 
         if(DB_PROGRESSO == null) {
-            DB_PROGRESSO = new GerenciadorBanco(this);
+            DB_PROGRESSO = new DB(this);
         }
 
         listeners();

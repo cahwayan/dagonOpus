@@ -11,16 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.utils.ProgressDialogHelper;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.ToastManager;
-import com.tcc.dagon.opus.utils.ValidarEmail;
-import com.tcc.dagon.opus.utils.VerificarConexao;
+import com.tcc.dagon.opus.common.ProgressDialogHelper;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.common.ToastManager;
+import com.tcc.dagon.opus.common.ValidarEmail;
+import com.tcc.dagon.opus.common.VerificarConexao;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.TextChange;
@@ -158,7 +158,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
             if(verificarDados(sNome, sSenha, sCsenha, sEmail)) {
                 /* MÉTODO QUE FAZ O REQUEST PARA GRAVAR OS DADOS NO BANCO */
                 showProgressDialog(R.string.cadastrando);
-                volleyRequest.cadastrarUsuario(StringsBanco.USUARIO_INTERNO, sEmail, sSenha, sNome);
+                volleyRequest.cadastrarUsuario(BancoRemoto.USUARIO_INTERNO, sEmail, sSenha, sNome);
             }
 
     }
@@ -204,7 +204,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     protected void verificarUsuarioExiste()  {
 
-        volleyRequest.usuarioExiste(StringsBanco.USUARIO_INTERNO, sEmail);
+        volleyRequest.usuarioExiste(BancoRemoto.USUARIO_INTERNO, sEmail);
 
     }
 

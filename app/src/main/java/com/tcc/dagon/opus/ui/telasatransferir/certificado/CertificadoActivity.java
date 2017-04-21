@@ -16,8 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.ui.usuario.StringsBanco;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +58,7 @@ public class CertificadoActivity extends AppCompatActivity {
                 sNome = preferencias.getNomeUsuario();
 
                 request = new StringRequest(Request.Method.POST,
-                        StringsBanco.getCertificadoUrl(),
+                        BancoRemoto.getCertificadoUrl(),
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {

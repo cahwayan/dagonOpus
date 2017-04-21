@@ -7,8 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.tcc.dagon.opus.app.AppController;
-import com.tcc.dagon.opus.ui.usuario.StringsBanco;
+import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class LoginRequests {
 
         /* INÍCIO REQUEST*/
         StringRequest request = new StringRequest(
-                Request.Method.POST, StringsBanco.getScriptLogin(), new Response.Listener<String>()
+                Request.Method.POST, BancoRemoto.getScriptLogin(), new Response.Listener<String>()
         {
 
             @Override

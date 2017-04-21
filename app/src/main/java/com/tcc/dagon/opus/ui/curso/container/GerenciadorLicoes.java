@@ -3,8 +3,9 @@ package com.tcc.dagon.opus.ui.curso.container;
 import android.content.Context;
 import android.util.Log;
 
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+import com.tcc.dagon.opus.data.DB;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+import com.tcc.dagon.opus.data.DBQuestoes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class GerenciadorLicoes {
 
     private List<FragmentoLicao> listaLicoes;
     private GerenciadorPreferencesComSuporteParaLicoes preferenceManager;
-    private GerenciadorBanco DB_PROGRESSO;
+    private DBQuestoes DB_QUESTOES;
     private int quantidadeLicoes;
     private int moduloAtual;
     private int etapaAtual;
@@ -69,7 +70,7 @@ public class GerenciadorLicoes {
 
     GerenciadorLicoes(Context context, int quantidadeLicoes, int moduloAtual, int etapaAtual) {
         preferenceManager = new GerenciadorPreferencesComSuporteParaLicoes(context);
-        this.DB_PROGRESSO = new GerenciadorBanco(context);
+        this.DB_QUESTOES = new DBQuestoes(moduloAtual, etapaAtual, context);
         this.quantidadeLicoes = quantidadeLicoes;
         this.moduloAtual = moduloAtual;
         this.etapaAtual = etapaAtual;
@@ -110,18 +111,18 @@ public class GerenciadorLicoes {
     }
 
     String fetchQuestionFromDatabase(int questaoAtual) {
-        return DB_PROGRESSO.buscarPergunta(moduloAtual, etapaAtual, questaoAtual);
+        return DB_QUESTOES.buscarPergunta(questaoAtual);
     }
 
     String[] fetchAlternativesFromDatabase(int questaoAtual) {
 
         String[] alternativas = new String[4];
+
         for(int i = 0; i < alternativas.length; i++) {
-            alternativas[i] = DB_PROGRESSO.lerAlternativa(moduloAtual, etapaAtual, questaoAtual, (i + 1) );
+            alternativas[i] = DB_QUESTOES.lerAlternativa(questaoAtual, i);
         }
 
         return alternativas;
-
     }
 
     /*
@@ -133,13 +134,13 @@ public class GerenciadorLicoes {
 
         switch(alternativa) {
             case 0:
-                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 0);
+                return DB_QUESTOES.verificarResposta(questaoAtual, 0);
             case 1:
-                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 1);
+                return DB_QUESTOES.verificarResposta(questaoAtual, 1);
             case 2:
-                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 2);
+                return DB_QUESTOES.verificarResposta(questaoAtual, 2);
             case 3:
-                return DB_PROGRESSO.verificarResposta(moduloAtual, etapaAtual, questaoAtual, 3);
+                return DB_QUESTOES.verificarResposta(questaoAtual, 3);
             default:
                 return RESPOSTA_ERRADA;
         }

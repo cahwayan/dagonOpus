@@ -4,14 +4,14 @@
     <string name="AFazer">
 
         - Banco de dados na nuvem:
-            - Criar uma shared preference que guarda o tipo de sessão do usuário
-            - Salvar caminho da foto do usuário no cartão SD (string)
-            - Salvar valor da flag progresso módulo (int)
-            - Salvar valor das flags progresso etapas (int)
-            - Salvar valor das flags progresso lições (int)
+            DONE - Criar uma shared preference que guarda o tipo de sessão do usuário
+            DONE - Salvar caminho da foto do usuário no cartão SD (string)
+            DONE - Salvar valor da flag progresso módulo (int)
+            DONE - Salvar valor das flags progresso etapas (int)
+            ARCHIVED - Salvar valor das flags progresso lições (int)
             DONE - Salvar valor da flag pontuação (String)
-            - Salvar valor das flags conquistas (boolean)
-            - Salvar o tempo de estudo (tempo)
+            DONE - Salvar valor das flags conquistas (boolean)
+            DONE - Salvar o tempo de estudo (tempo)
 
         DONE - Diferenciar a sessão do usuário: uma para interna e outra para google
         DONE - De acordo com o tipo de login, procurar em tabelas diferentes
@@ -35,17 +35,17 @@
         LOCAL e NO BANCO DA NUVEM
 
         - Ao logar:
-            - Resgatar o perfil do usuário, que vai estar guardado no banco de dados da nuvem em SharedPreferences.
+
+            DONE - Resgatar o perfil do usuário, que vai estar guardado no banco de dados da nuvem em SharedPreferences.
             Inclui:
-                (Se progresso maior que 0)
-                - Resgatar progresso módulo
-                - Resgatar progresso etapa
-                - Resgatar progresso lição
-                - Resgatar pontuação
-                - Resgatar caminho da foto no cartão SD
-                - Resgatar conquistas
-                - Resgatar tempo de estudo
-                - Resgatar o estado do certificado (Gerado ou não)
+                DONE - Resgatar progresso módulo
+                DONE - Resgatar progresso etapa
+                ARCHIVED - Resgatar progresso lição
+                DONE- Resgatar pontuação
+                DONE - Resgatar caminho da foto no cartão SD
+                DONE - Resgatar conquistas
+                DONE - Resgatar tempo de estudo
+                DONE - Resgatar o estado do certificado (Gerado ou não)
 
         - Ao logout:
             - SetIsLogin to false
@@ -71,9 +71,6 @@
         - Bloquear UI ao fazer certos requests (cadastro, login)
 
         - Fazer o material
-
-
-
 
     </string>
 </resources>

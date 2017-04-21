@@ -18,4 +18,5 @@ public interface UsuarioListener {
     void onGetConquistas(JSONObject conquistas);
 
     void onErrorResponse(String tag, String error);
+    void onUpdate(String response);
 }

@@ -9,7 +9,7 @@
     tools:showIn="@layout/container_glossario"
     android:orientation="vertical"
    >
-    <com.tcc.dagon.opus.utils.ViewPagerSemSwipe
+    <com.tcc.dagon.opus.common.ViewPagerSemSwipe
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/pager_glossario"

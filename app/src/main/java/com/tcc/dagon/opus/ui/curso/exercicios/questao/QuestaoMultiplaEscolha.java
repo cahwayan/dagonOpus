@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.utils.ViewController;
+import com.tcc.dagon.opus.common.ViewController;
 
 /**
  * Created by cahwayan on 10/01/2017.
@@ -56,7 +56,7 @@ public class QuestaoMultiplaEscolha extends QuestaoUnicaEscolha {
             // se a alternativa estiver marcada ...
             if(estadoAlternativas[i]) {
                 // guardar o retorno da busca no banco de dados em um vetor int
-                respostas[i] = verificaResposta(i);
+                respostas[i] = verificarResposta(i);
                 //Log.i("ALTERNATIVA " + String.valueOf(i), String.valueOf(respostas[contadorAlternativa]));
                 // se a resposta retornar algum 0, o usuário errou alguma alternativa
                 if(respostas[i] == 0) {
@@ -67,7 +67,7 @@ public class QuestaoMultiplaEscolha extends QuestaoUnicaEscolha {
                     break;
                 }
             } else { // Se o usuário não marcou alguma alternativa que por acaso esteja correta, ele também cometeu um erro
-                respostas[i] = verificaResposta(i);
+                respostas[i] = verificarResposta(i);
                 if(respostas[i] == 1) {
                     algumErro = true;
                     respostaErrada();

@@ -1,17 +1,11 @@
 package com.tcc.dagon.opus.ui.curso.exercicios.completar;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.tcc.dagon.opus.ui.curso.container.ContagemDeVidasListener;
-import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity;
-import com.tcc.dagon.opus.utils.AnimacaoVida;
 
 /**
  * Created by cahwayan on 11/11/2016.

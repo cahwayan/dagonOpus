@@ -28,12 +28,12 @@ import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.glossario.Con
 import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoActivity;
 import com.tcc.dagon.opus.ui.telasatransferir.certificado.CertificadoIncompleto;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.data.DB;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
-import com.tcc.dagon.opus.utils.OnOffClickListener;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
+import com.tcc.dagon.opus.common.OnOffClickListener;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.common.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
@@ -252,9 +252,10 @@ public class AprenderActivity
                                         R.drawable.btncertificadocompleto};
 
         listModuloCurso = new ArrayList<>();
-        for(int i = 0; i < listBtnModulos.size(); i++) {
-            String nota = preferenceManager.getNota(i);
-            listModuloCurso.add(new ModuloCursoImp(i, nota));
+
+        for(int numModulo = 0; numModulo < listBtnModulos.size(); numModulo++) {
+            String nota = preferenceManager.getNota(numModulo);
+            listModuloCurso.add(new ModuloCursoImp(numModulo, nota));
         }
 
     }
@@ -282,7 +283,7 @@ public class AprenderActivity
     @Background
     protected void criarBancoCasoNaoExista() {
 
-        GerenciadorBanco DB_PROGRESSO = new GerenciadorBanco(this);
+        DB DB_PROGRESSO = new DB(this);
 
         // TENTANDO PEGAR O ARQUIVO DO BANCO PARA VER SE ELE EXISTE
         File banco = context.getApplicationContext().getDatabasePath(DB_PROGRESSO.getDbName());
@@ -523,8 +524,6 @@ public class AprenderActivity
 
         // Activate the navigation drawer toggle
         return mAlterna.onOptionsItemSelected(item);
-
-
     }
 
     @ItemClick
@@ -550,7 +549,6 @@ public class AprenderActivity
     }
 
     /* Configuração do menu lateral */
-
     protected void adicionarItensMenuLateral() {
         // Adapter String <mais em https://teamtreehouse.com/library/android-lists-and-adapters>
         ArrayAdapter<String> mAdapter;

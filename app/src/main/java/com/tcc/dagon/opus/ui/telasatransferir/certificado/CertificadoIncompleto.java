@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
+import com.tcc.dagon.opus.data.DB;
 
 import static java.lang.String.valueOf;
 
@@ -18,7 +18,7 @@ public class CertificadoIncompleto extends AppCompatActivity {
 
     private Button btnCertificadoIncompleto;
     private TextView txtTituloCertificado;
-    private GerenciadorBanco DB_PROGRESSO;
+    private DB DB_PROGRESSO;
     private RoundCornerProgressBar barraGeralCertificado;
 
     @Override
@@ -27,7 +27,7 @@ public class CertificadoIncompleto extends AppCompatActivity {
         setContentView(R.layout.activity_certificado_incompleto);
 
 
-            DB_PROGRESSO = new GerenciadorBanco(this);
+            DB_PROGRESSO = new DB(this);
 
 
 

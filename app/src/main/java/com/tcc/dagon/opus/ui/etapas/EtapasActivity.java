@@ -14,12 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity_;
-import com.tcc.dagon.opus.ui.aprender.ModuloCurso;
-import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity;
 import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity_;
-import com.tcc.dagon.opus.utils.NovaJanelaAlerta;
-import com.tcc.dagon.opus.utils.OnOffClickListener;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.common.NovaJanelaAlerta;
+import com.tcc.dagon.opus.common.OnOffClickListener;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;

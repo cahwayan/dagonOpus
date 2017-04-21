@@ -10,12 +10,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.ui.usuario.CadastroActivity;
-import com.tcc.dagon.opus.databases.GerenciadorBanco;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.DB;
+import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
-import com.tcc.dagon.opus.utils.gerenciadorsharedpreferences.Preferencias;
 
 /**
  * Created by Otávio Paulino on 21/09/2016.
@@ -29,7 +27,7 @@ public class LauncherActivity extends AppCompatActivity {
 
     private TextView txtInicial;
     RequestQueue requesQueue;
-    GerenciadorBanco DB_PROGRESSO;
+    DB DB_PROGRESSO;
     GerenciadorPreferencesComSuporteParaLicoes preferencias;
 
 
@@ -48,7 +46,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_launcher);
 
-        DB_PROGRESSO = new GerenciadorBanco(this);
+        DB_PROGRESSO = new DB(this);
 
         txtInicial              = (TextView)findViewById(R.id.txtInicial);
         login                   = (Button) findViewById(R.id.btn_Login);

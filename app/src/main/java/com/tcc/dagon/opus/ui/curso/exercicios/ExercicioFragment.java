@@ -19,8 +19,8 @@ import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProv
 import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolha;
 import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProva;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
-import com.tcc.dagon.opus.utils.OnOffClickListener;
-import com.tcc.dagon.opus.utils.ViewController;
+import com.tcc.dagon.opus.common.OnOffClickListener;
+import com.tcc.dagon.opus.common.ViewController;
 
 /**
  * Created by Caíque on 07/01/2017.

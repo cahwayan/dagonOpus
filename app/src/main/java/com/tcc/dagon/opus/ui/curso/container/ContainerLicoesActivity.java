@@ -124,7 +124,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         configurarEstadoLicoes();
     }
 
-    /*
+    /**
      * Esse método busca o estado atual das lições no gerenciador de progresso, e as avalia.
      * A verificação é feita uma por vez, de forma sequencial, através de um vetor. Caso a lição
      * esteja liberada, ele chama o método de configuração da lição liberada, e vice-versa. Isso é
@@ -143,7 +143,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         }
     }
 
-    /*
+    /**
      * Esse método configura uma lição dada com o estado Liberado.
       * @param indexLicao: o método precisa saber qual o index da lição para que ele possa saber qual
       * index alterar a funcionalidade
