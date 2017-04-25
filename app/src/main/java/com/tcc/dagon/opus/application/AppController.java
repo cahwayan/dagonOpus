@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.application;
 
 import android.app.Application;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -8,8 +9,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.fitness.data.Goal;
 import com.tcc.dagon.opus.common.LruBitmapCache;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -26,7 +31,6 @@ public class AppController extends Application {
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
 
-
     private static AppController mInstance;
 
     @Override
@@ -34,6 +38,8 @@ public class AppController extends Application {
         super.onCreate();
         mInstance = this;
     }
+
+
 
     public static CountDownLatch getCountdownLatch() {
         return countdown;
@@ -94,8 +100,5 @@ public class AppController extends Application {
             requestCount = 0;
         }
     }
-
-
-
 
 }

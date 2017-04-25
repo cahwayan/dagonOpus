@@ -17,6 +17,11 @@ public interface RefreshListener {
 
     GerenciadorLicoes getManager();
 
+    void atualizarPontosNoBancoRemoto();
+    void atualizarProgressoModuloNoBancoRemoto();
+    void atualizarProgressoEtapaNoBancoRemoto();
+    void atualizarTempoEstudoNoBancoRemoto();
+
     void refreshUI();
     boolean isLastExercise();
     boolean isSomDesativado();

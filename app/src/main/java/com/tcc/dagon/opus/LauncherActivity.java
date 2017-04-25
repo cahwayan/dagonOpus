@@ -11,7 +11,7 @@ import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.ui.usuario.CadastroActivity;
 import com.tcc.dagon.opus.data.DB;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 

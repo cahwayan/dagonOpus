@@ -9,18 +9,17 @@ import com.tcc.dagon.opus.ui.curso.container.ContagemDeVidasListener;
 import com.tcc.dagon.opus.R;
 
 /**
- * Created by cahwayan on 11/11/2016.
+ * Created by cahwayan on 16/01/2017.
  */ /**/
 
-public final class QuestaoUnicaEscolhaProva extends QuestaoUnicaEscolha {
+public final class QuestaoMultiplaEscolhaProvaFragment extends QuestaoMultiplaEscolhaFragment {
 
     public ContagemDeVidasListener gerenciadorProva;
 
     @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setRootView(inflater.inflate(R.layout.fragment_questao, container, false));
+        setRootView(inflater.inflate(R.layout.fragment_questao_multipla_escolha, container, false));
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -31,7 +30,7 @@ public final class QuestaoUnicaEscolhaProva extends QuestaoUnicaEscolha {
             gerenciadorProva = (ContagemDeVidasListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement ContagemDeVidasListener");
+                    + " must implement contagemDeVidasListener");
         }
     }
 
@@ -44,6 +43,7 @@ public final class QuestaoUnicaEscolhaProva extends QuestaoUnicaEscolha {
 
         refreshListener.refreshUI();
     }
+
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     @Override
@@ -58,7 +58,7 @@ public final class QuestaoUnicaEscolhaProva extends QuestaoUnicaEscolha {
         gerenciadorProva.setCompletouProva(true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
-            refreshListener.avancarProgressoModulo(1);
+            refreshListener.avancarProgressoModulo(/*em */1);
             avancarProgressoEtapa();
             atualizarPontuacao();
             refreshListener.setNota(refreshListener.calcularNota());
@@ -66,5 +66,4 @@ public final class QuestaoUnicaEscolhaProva extends QuestaoUnicaEscolha {
 
         this.getActivity().finish();
     }
-
 }

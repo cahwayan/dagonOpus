@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,22 +19,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.QTD_MODULOS;
 import static java.lang.String.valueOf;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.usuario.AlterarSenhaActivity;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity;
 import com.tcc.dagon.opus.common.OnOffClickListener;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
 
@@ -57,13 +58,13 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     @ViewById TextView textConquistas;
     @ViewById TextView textTempo;
 
-
     private GerenciadorSharedPreferences preferencias;
-    private RequestQueue requestQueue;
+
+    private RequestsUsuario requestsUsuario;
+    private UsuarioListener callbacksRequestsUsuario;
+
     private static int RESULT_LOAD_IMAGE = 1;
     private static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,26 +96,21 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
         preferencias  = new GerenciadorSharedPreferences(this);
 
+        String tipoUsuario = preferencias.getTipoUsuario();
+        String idUsuario = preferencias.getIdUsuario();
+
+        callbacksRequestsUsuario = new UsuarioListenerImp(this);
+        requestsUsuario = new RequestsUsuario(tipoUsuario, idUsuario, callbacksRequestsUsuario);
+
         // OBJETO DE CONEXÃO COM API GOOGLE
         googleBuilder();
 
-        getNomeUsuario();
+        txtNome.setText(preferencias.getNomeUsuario());
         loadFotoPerfil();
         loadOnClickListeners();
         loadProgressBar();
         loadPontuacaoUsuario();
-
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        Long tempoEstudo = Long.valueOf(preferencias.getTempoEstudo());
-
-        if(tempoEstudo > 0) {
-             tempoEstudo /= 60000;
-        }
-
-        String stringTempoEstudo = String.valueOf(tempoEstudo) + " min.";
-
-        textTempo.setText(stringTempoEstudo);
+        loadTempoEstudo();
     }
 
     @Override
@@ -123,23 +119,30 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         finish();
     }
 
-    private void getNomeUsuario() {
-        if(preferencias.getNomeUsuario().equals("default")) {
-            txtNome.setText("Nome");
-        } else {
-            txtNome.setText(preferencias.getNomeUsuario());
+    // Carrega o tempo total que o usuário passou no aplicativo e mostra na tela
+    // A medida é em milisegundos. Ao dividir por 60.000, temos os minutos
+    private void loadTempoEstudo() {
+
+        Long tempoEstudo = Long.valueOf(preferencias.getTempoEstudo());
+        if(tempoEstudo > 0) {
+            tempoEstudo /= 60000;
         }
+
+        String stringTempoEstudo = String.valueOf(tempoEstudo) + " min.";
+
+        textTempo.setText(stringTempoEstudo);
     }
 
     private void loadPontuacaoUsuario() {
 
         int pontos = 0;
 
+        // Uma iteração a menos pois o último módulo é certificado e não possui pontuação
         for(int i = 0; i < QTD_MODULOS; i++) {
             pontos += preferencias.getPontos(i);
         }
 
-        if(pontos > 0) {
+        if(pontos >= 0) {
             textPontos.setText(String.valueOf(pontos));
         } else {
             textPontos.setText("0");
@@ -151,16 +154,22 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         Log.d(TAG, "SharedPref caminho: " + preferenceManager.lerFlagString(NomePreferencia.caminhoFoto));*/
 
         if(preferencias.getCaminhoFoto().equals("default")) {
-            fotoPerfil.setImageResource(R.drawable.icon_foto);
+            fotoPerfil.setImageResource(R.drawable.icon_foto_default);
         } else {
             try {
-                fotoPerfil.setImageBitmap(BitmapFactory.decodeFile(preferencias.getCaminhoFoto()));
+                String caminhoFoto = preferencias.getCaminhoFoto();
+                Bitmap fotoUsuario = BitmapFactory.decodeFile(caminhoFoto);
+                fotoPerfil.setImageBitmap(fotoUsuario);
             } catch(NullPointerException e) {
-                fotoPerfil.setImageResource(R.drawable.icon_foto);
+                // Caso a foto não exista no armazenamento
+                fotoPerfil.setImageResource(R.drawable.icon_foto_default);
             }
         }
     }
 
+    /**
+     * Carrega o progresso geral do curso e mostra em uma progress bar
+     */
     private void loadProgressBar() {
         int progressoGeral = 0;
         for(int i = 0; i < QTD_MODULOS; i++) {
@@ -271,7 +280,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         }
     }
 
-    // MÉTODO QUE LIDA COM A FOTO ESCOLHIDA PELO USUARIO
+    // Callback para quando o usuário seleciona uma foto de perfil
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -290,6 +299,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 if(imageView != null ){
                     imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                     preferencias.setCaminhoFoto(picturePath);
+                    // TODO: Fazer request aqui
                 }
             }
 

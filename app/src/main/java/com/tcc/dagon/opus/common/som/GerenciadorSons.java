@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.ui.curso.exercicios.som;
+package com.tcc.dagon.opus.common.som;
 
 import android.content.Context;
 import android.media.MediaPlayer;

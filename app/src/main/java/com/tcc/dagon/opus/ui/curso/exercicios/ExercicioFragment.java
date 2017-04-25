@@ -12,13 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.ui.curso.container.RefreshListener;
-import com.tcc.dagon.opus.ui.curso.exercicios.completar.Completar;
-import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarProva;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolha;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProva;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolha;
-import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProva;
-import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
+import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarFragment;
+import com.tcc.dagon.opus.ui.curso.exercicios.completar.CompletarProvaFragment;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaFragment;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoMultiplaEscolhaProvaFragment;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaFragment;
+import com.tcc.dagon.opus.ui.curso.exercicios.questao.QuestaoUnicaEscolhaProvaFragment;
 import com.tcc.dagon.opus.common.OnOffClickListener;
 import com.tcc.dagon.opus.common.ViewController;
 
@@ -54,7 +53,7 @@ public abstract class ExercicioFragment extends Fragment {
     protected int questaoAtual;
 
     public static ExercicioFragment novoCompletar(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas) {
-        Completar completar = new Completar();
+        CompletarFragment completar = new CompletarFragment();
         completar.setLayoutID(layoutID);
         completar.setQuestaoAtual(questaoAtual);
         completar.setQuantidadePalavras(quantidadePalavras);
@@ -63,7 +62,7 @@ public abstract class ExercicioFragment extends Fragment {
     }
 
     public static ExercicioFragment novoCompletarProva(int layoutID, int questaoAtual, int quantidadePalavras, String[] respostasCertas) {
-        CompletarProva completar = new CompletarProva();
+        CompletarProvaFragment completar = new CompletarProvaFragment();
         completar.setLayoutID(layoutID);
         completar.setQuestaoAtual(questaoAtual);
         completar.setQuantidadePalavras(quantidadePalavras);
@@ -72,25 +71,25 @@ public abstract class ExercicioFragment extends Fragment {
     }
 
     public static ExercicioFragment novaQuestaoMultipla(int questaoAtual) {
-        ExercicioFragment questao = new QuestaoMultiplaEscolha();
+        ExercicioFragment questao = new QuestaoMultiplaEscolhaFragment();
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
     public static ExercicioFragment novaQuestaoMultiplaProva(int questaoAtual) {
-        ExercicioFragment questao = new QuestaoMultiplaEscolhaProva();
+        ExercicioFragment questao = new QuestaoMultiplaEscolhaProvaFragment();
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
 
     public static ExercicioFragment novaQuestaoUnicaEscolha(int questaoAtual) {
-        QuestaoUnicaEscolha questaoUnicaEscolha = new QuestaoUnicaEscolha();
+        QuestaoUnicaEscolhaFragment questaoUnicaEscolha = new QuestaoUnicaEscolhaFragment();
         questaoUnicaEscolha.setQuestaoAtual(questaoAtual);
         return questaoUnicaEscolha;
     }
 
     public static ExercicioFragment novaQuestaoUnicaEscolhaProva(int questaoAtual) {
-        QuestaoUnicaEscolhaProva questao = new QuestaoUnicaEscolhaProva();
+        QuestaoUnicaEscolhaProvaFragment questao = new QuestaoUnicaEscolhaProvaFragment();
         questao.setQuestaoAtual(questaoAtual);
         return questao;
     }
@@ -278,8 +277,6 @@ public abstract class ExercicioFragment extends Fragment {
 
         resetUIExercicio();
 
-        /*setQtdErros(0);
-        zerarPontuacao(); TODO: REMOVER*/
     }
 
     protected void concluirQuestao() {
@@ -313,6 +310,7 @@ public abstract class ExercicioFragment extends Fragment {
             atualizarPontuacao();
         }
 
+        refreshListener.atualizarTempoEstudoNoBancoRemoto();
         this.getActivity().finish();
     }
 
@@ -377,9 +375,7 @@ public abstract class ExercicioFragment extends Fragment {
     }
 
     protected void avancarProgressoEtapa() {
-        Log.d("PROG ANTES: ", String.valueOf(refreshListener.getProgressoEtapa()));
         refreshListener.setProgressoEtapa(/*AUMENTO EM */ 1);
-        Log.d("PROG DEPOIS: ", String.valueOf(refreshListener.getProgressoEtapa()));
     }
 
     protected void liberarPrimeiraEtapaDoProximoModulo() {
@@ -389,19 +385,5 @@ public abstract class ExercicioFragment extends Fragment {
     protected void atualizarPontuacao() {
         refreshListener.somarPontos(this.pontuacao);
     }
-
-    protected Class retornarTelaEtapas(int numeroModulo) {
-        switch(numeroModulo) {
-            case 0: return EtapasModulo0.class;
-            /*case 2: return EtapasModulo2Activity.class;
-            case 3: return EtapasModulo3Activity.class;
-            case 4: return EtapasModulo4Activity.class;
-            case 5: return EtapasModulo5Activity.class;
-            case 6: return EtapasModulo6Activity.class;*/
-            default: return null;
-        }
-    }
-
-
 
 }

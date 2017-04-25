@@ -32,12 +32,11 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
-import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
 import com.tcc.dagon.opus.common.OnOffClickListener;
 import com.tcc.dagon.opus.common.ProgressDialogHelper;
 import com.tcc.dagon.opus.common.ValidarEmail;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.VerificarConexao;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
@@ -46,7 +45,6 @@ import com.tcc.dagon.opus.network.volleyrequests.login.LoginRequests;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import org.json.JSONObject;
 
 import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 import com.tcc.dagon.opus.ui.aprender.AprenderActivity_;
@@ -372,18 +370,13 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     public void onUsuarioExiste(String resultado) {
 
         if(resultado.equals("sim")) {
-
-            // TODO: Aqui é onde será restaurado o progresso do usuário que já existe e está logando com o google
-            // Salvar o ID dele
             restaurarUsuario(BancoRemoto.USUARIO_GOOGLE, acct.getEmail());
         } else if(resultado.equals("nao")) {
             cadastro.cadastrarUsuario(BancoRemoto.USUARIO_GOOGLE, acct.getEmail(), "", acct.getDisplayName());
         } else {
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um pequeno problema. Você está conectado?", Toast.LENGTH_LONG).show();
-            return;
         }
-
     }
 
     /**

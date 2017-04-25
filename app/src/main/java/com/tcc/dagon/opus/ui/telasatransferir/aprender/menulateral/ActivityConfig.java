@@ -1,24 +1,40 @@
 package com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.tcc.dagon.opus.R;
-import com.tcc.dagon.opus.data.DB;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.common.ProgressDialogHelper;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.NovaJanelaAlerta;
 import com.tcc.dagon.opus.common.ToastManager;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import static com.tcc.dagon.opus.ui.curso.constantes.EtapaConstants.ETAPA0;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO0;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO1;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO2;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO3;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO4;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO5;
 
 @EActivity(R.layout.activity_config)
 public class ActivityConfig extends AppCompatActivity {
@@ -27,12 +43,14 @@ public class ActivityConfig extends AppCompatActivity {
     @ViewById protected Switch switchSons;
     @ViewById protected Button btnResetarProgresso;
 
-    /* OBJETOS */
-    protected DB DB_PROGRESSO;
     protected NovaJanelaAlerta alertaApagar;
     protected GerenciadorSharedPreferences preferencias;
     protected boolean flagDesativarSom;
     protected ToastManager toastManager;
+
+    private RequestsUsuario bancoRemoto;
+    private UsuarioListener callbacksRequestsUsuario;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +62,13 @@ public class ActivityConfig extends AppCompatActivity {
         preferencias = new GerenciadorSharedPreferences(this);
         toastManager = new ToastManager(this);
         flagDesativarSom = preferencias.getDesativarSons();
+
+        progress = ProgressDialogHelper.buildDialog(this, "Resetando progresso...");
+        callbacksRequestsUsuario = new UsuarioListenerImp(this, progress);
+
+        String tipoUsuario = preferencias.getTipoUsuario();
+        String idUsuario = preferencias.getIdUsuario();
+        bancoRemoto = new RequestsUsuario(tipoUsuario, idUsuario, callbacksRequestsUsuario);
 
         if(flagDesativarSom) {
             switchSons.setChecked(true);
@@ -59,10 +84,6 @@ public class ActivityConfig extends AppCompatActivity {
 
         if(alertaApagar == null) {
             alertaApagar = new NovaJanelaAlerta(this);
-        }
-
-        if(DB_PROGRESSO == null) {
-            DB_PROGRESSO = new DB(this);
         }
 
         listeners();
@@ -101,17 +122,9 @@ public class ActivityConfig extends AppCompatActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch(which) {
                 case DialogInterface.BUTTON_POSITIVE:
-
-
-
-                    preferencias.setCompletouProva(0, false);
-                    preferencias.setCompletouProva(1, false);
-                    preferencias.setCompletouProva(2, false);
-                    preferencias.setCompletouProva(3, false);
-                    preferencias.setCompletouProva(4, false);
-                    preferencias.setCompletouProva(5, false);
-
-                    toastManager.toastLong("Progresso resetado!");
+                    showProgressDialog("Resetando progresso...");
+                    resetarProgressoLocal();
+                    resetarProgressoRemoto();
                     break;
 
                 case DialogInterface.BUTTON_NEGATIVE:
@@ -120,6 +133,76 @@ public class ActivityConfig extends AppCompatActivity {
             }
         }
     };
+
+    // Reseta todo o progresso do usuário no banco local e no remoto
+    public void resetarProgressoLocal() {
+        // Reset progresso módulos
+        preferencias.setProgressoModulo(MODULO0);
+
+        // Reset progresso etapas dos módulos
+        preferencias.setProgressoEtapa(MODULO0, ETAPA0);
+        preferencias.setProgressoEtapa(MODULO1, ETAPA0);
+        preferencias.setProgressoEtapa(MODULO2, ETAPA0);
+        preferencias.setProgressoEtapa(MODULO3, ETAPA0);
+        preferencias.setProgressoEtapa(MODULO4, ETAPA0);
+        preferencias.setProgressoEtapa(MODULO5, ETAPA0);
+
+        // Reset tempo estudo
+        preferencias.setTempoEstudo("0");
+
+        // Reset pontuação
+        preferencias.setPontos(MODULO0, 0);
+        preferencias.setPontos(MODULO1, 0);
+        preferencias.setPontos(MODULO2, 0);
+        preferencias.setPontos(MODULO3, 0);
+        preferencias.setPontos(MODULO4, 0);
+        preferencias.setPontos(MODULO5, 0);
+
+        // Reset das flags das provas
+        preferencias.setCompletouProva(0, false);
+        preferencias.setCompletouProva(1, false);
+        preferencias.setCompletouProva(2, false);
+        preferencias.setCompletouProva(3, false);
+        preferencias.setCompletouProva(4, false);
+        preferencias.setCompletouProva(5, false);
+    }
+
+    public void resetarProgressoRemoto() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        // TODO: fazer request para zerar os dados no banco remoto
+                        AppController.setRequestCountdown(AppController.getRequestCount());
+                        esperarFilaTerminarEConcluir();
+
+                    }
+                });
+
+
+            }
+        }).start();
+
+    }
+
+    private void esperarFilaTerminarEConcluir() {
+        try {
+
+            AppController.getCountdownLatch().await();
+            hideProgressDialog();
+            toastManager.toastLong("Progresso resetado!");
+
+        } catch(InterruptedException e) {
+            Log.d(getClass().getSimpleName(), e.toString());
+        }
+
+
+    }
 
 
     // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
@@ -130,6 +213,17 @@ public class ActivityConfig extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void showProgressDialog(String msg) {
+        this.progress = ProgressDialogHelper.buildDialog(this, msg);
+        this.progress.show();
+    }
+
+    public void hideProgressDialog() {
+        if(this.progress != null) {
+            this.progress.dismiss();
         }
     }
 

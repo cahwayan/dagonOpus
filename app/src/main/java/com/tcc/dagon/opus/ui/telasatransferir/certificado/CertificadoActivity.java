@@ -17,7 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -2,12 +2,11 @@ package com.tcc.dagon.opus.network.volleyrequests.usuario;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.application.AppController;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
 import org.json.JSONObject;
 
@@ -80,21 +79,24 @@ public class UsuarioListenerImp implements UsuarioListener {
 
     @Override
     public void onGetProgresso(JSONObject progresso) {
+
         int progressoModulo = progresso.optInt("PROGRESSO_MODULO");
-        int prog_etapas_modulo0 = progresso.optInt("PROGRESSO_ETAPAS_MODULO0");
-        int prog_etapas_modulo1 = progresso.optInt("PROGRESSO_ETAPAS_MODULO1");
-        int prog_etapas_modulo2 = progresso.optInt("PROGRESSO_ETAPAS_MODULO2");
-        int prog_etapas_modulo3 = progresso.optInt("PROGRESSO_ETAPAS_MODULO3");
-        int prog_etapas_modulo4 = progresso.optInt("PROGRESSO_ETAPAS_MODULO4");
-        int prog_etapas_modulo5 = progresso.optInt("PROGRESSO_ETAPAS_MODULO5");
+
+
+        int[] progressoEtapas = new int[] {
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO0"),
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO1"),
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO2"),
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO3"),
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO4"),
+                progresso.optInt("PROGRESSO_ETAPAS_MODULO5")
+        };
+
+        for(int i = 0; i < progressoEtapas.length; i++) {
+            preferencias.setProgressoEtapa(i, progressoEtapas[i]);
+        }
 
         preferencias.setProgressoModulo(progressoModulo);
-        preferencias.setProgressoEtapa(0, prog_etapas_modulo0);
-        preferencias.setProgressoEtapa(1, prog_etapas_modulo1);
-        preferencias.setProgressoEtapa(2, prog_etapas_modulo2);
-        preferencias.setProgressoEtapa(3, prog_etapas_modulo3);
-        preferencias.setProgressoEtapa(4, prog_etapas_modulo4);
-        preferencias.setProgressoEtapa(5, prog_etapas_modulo5);
 
         AppController.decreaseRequestCount();
     }

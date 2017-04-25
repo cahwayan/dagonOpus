@@ -25,7 +25,7 @@ import java.util.List;
  */
 /**/
 
-public class Completar extends ExercicioFragment {
+public class CompletarFragment extends ExercicioFragment {
 
     /* VARIÁVEIS */
     // GUARDA O ID DO LAYOUT QUE SERÁ USADO NA INSTÂNCIA

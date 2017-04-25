@@ -3,23 +3,7 @@
 
     <string name="AFazer">
 
-        - Banco de dados na nuvem:
-            DONE - Criar uma shared preference que guarda o tipo de sessão do usuário
-            DONE - Salvar caminho da foto do usuário no cartão SD (string)
-            DONE - Salvar valor da flag progresso módulo (int)
-            DONE - Salvar valor das flags progresso etapas (int)
-            ARCHIVED - Salvar valor das flags progresso lições (int)
-            DONE - Salvar valor da flag pontuação (String)
-            DONE - Salvar valor das flags conquistas (boolean)
-            DONE - Salvar o tempo de estudo (tempo)
-
-        DONE - Diferenciar a sessão do usuário: uma para interna e outra para google
-        DONE - De acordo com o tipo de login, procurar em tabelas diferentes
-
-        SALVAR O PROGRESSO DO USUÁRIO DE TEMPOS EM TEMPOS
-        SALVAR O CAMINHO DA FOTO NA TROCA
-        SALVAR AS CONQUISTAS AO LIBERAR UMA NOVA
-        SALVAR O TEMPO DE ESTUDO AO ONDESTROY DE UM CONTAINER
+        PENSANDO - SALVAR AS CONQUISTAS AO LIBERAR UMA NOVA
         SALVAR A PONTUAÇÃO A CADA RESPOSTA QUE TENHA DADO PONTOS
 
         - Resetar progresso:
@@ -34,26 +18,12 @@
                 - Flags de certificado continuam ativas
         LOCAL e NO BANCO DA NUVEM
 
-        - Ao logar:
-
-            DONE - Resgatar o perfil do usuário, que vai estar guardado no banco de dados da nuvem em SharedPreferences.
-            Inclui:
-                DONE - Resgatar progresso módulo
-                DONE - Resgatar progresso etapa
-                ARCHIVED - Resgatar progresso lição
-                DONE- Resgatar pontuação
-                DONE - Resgatar caminho da foto no cartão SD
-                DONE - Resgatar conquistas
-                DONE - Resgatar tempo de estudo
-                DONE - Resgatar o estado do certificado (Gerado ou não)
-
         - Ao logout:
             - SetIsLogin to false
             - signOutGoogle
 
         - Implementar:
-            - Sistema de conquistas
-            - Sistema de tempo de estudo
+            PENSANDO - Sistema de conquistas
             - Glossarinho
 
         - Arrumar tela configurações

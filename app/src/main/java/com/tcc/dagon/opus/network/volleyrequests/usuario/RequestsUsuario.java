@@ -7,45 +7,61 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.auth.api.Auth;
 import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.network.volleyrequests.CustomJSONRequest;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
-import com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants;
-
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by cahwayan on 05/04/2017.
+ * Lida com os requests no banco remoto através da biblioteca volley
  */
 
 public class RequestsUsuario {
 
     private final String TAG = this.getClass().getSimpleName();
 
+    // Listener que lida com os callbacks dos requests. Precisa ser implementado na classe cliente.
     private UsuarioListener usuarioListener;
+
+    // Informações do usuário
     private String tipoUsuario;
     private String id;
     private String email;
 
-    public RequestsUsuario(String tipoUsuario, UsuarioListener activity, String email) {
+    /**
+     * Construtor para login
+     * @param tipoUsuario: Definido na constante da classe BancoRemoto, define o tipo de login
+     * @param usuarioCallbacks: Uma implementação da interface UsuarioListener, para lidar com os callbacks
+     * @param email: o email do usuário. No momento do login, é o único recurso que a classe tem para encontrar o ID do usuário
+     */
+    public RequestsUsuario(String tipoUsuario, UsuarioListener usuarioCallbacks, String email) {
         this.tipoUsuario = tipoUsuario;
         this.email = email;
-        this.usuarioListener = activity;
+        this.usuarioListener = usuarioCallbacks;
     }
 
-    public RequestsUsuario(String tipoUsuario, String id, UsuarioListener activity) {
+    /**
+     * Construtor para requests gerais ao longo do app.
+     * @param tipoUsuario: Definido na constante da classe BancoRemoto, define o tipo de login
+     * @param usuarioCallbacks: Uma implementação da interface UsuarioListener, para lidar com os callbacks
+     * @param id: o ID do usuário
+     */
+    public RequestsUsuario(String tipoUsuario, String id, UsuarioListener usuarioCallbacks) {
         this.tipoUsuario = tipoUsuario;
-        this.usuarioListener = activity;
+        this.usuarioListener = usuarioCallbacks;
         this.id = id;
     }
 
     public void setId(String id) {
         this.id = id;
     }
+
+    /**
+     * STRING REQUESTS
+     * Esses requests retornam strings como resposta do banco remoto */
 
     public void getID() {
 
@@ -94,13 +110,8 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag_get_id);
     }
 
-    /* METODOS QUE RESTAURAM O USUÁRIO DE ACORDO COM A CONTA*/
-
-    /*MÉTODO QUE FAZ UM REQUEST NO BANCO COM O E-MAIL DO USUÁRIO QUANDO O USUÁRIO LOGA
-    PARA PEGAR O NOME REFERENTE AO E-MAIL E GUARDA ESSE NOME EM UMA SHARED PREFERENCE
-    PARA USAR O NOME DELE NO PERFIL*/
-    public void getNome()
-    {
+    // Busca o nome do usuário no banco remoto
+    public void getNome() {
         final String tag_get_nome = "Request getNome: ";
 
         StringRequest requestNome = new StringRequest(
@@ -141,6 +152,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(requestNome, tag_get_nome);
     }
 
+    // Busca o tempo de estudo no banco remoto
     public void selectTempoEstudo() {
 
         final String tag = "get_tempo_estudo: ";
@@ -183,6 +195,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Atualiza o tempo de estudo no banco remoto
     public void updateTempoEstudo(final String novoTempo) {
 
         final String tag = "request_update_tempo_estudo";
@@ -224,6 +237,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Busca o endereço da foto do usuário no cartão SD no banco remoto
     public void selectEnderecoFoto() {
 
         final String tag = "tag_get_endereco_foto: ";
@@ -265,6 +279,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Atualiza o endereço da foto no banco remoto
     public void updateEnderecoFoto(final String novoEndereco) {
 
         final String tag = "request_endereco_foto";
@@ -304,7 +319,7 @@ public class RequestsUsuario {
 
     }
 
-
+    // Busca o estado do certificado do usuário no banco remoto
     public void selectEstadoCertificado() {
 
         final String tag = "request_get_estado_certificado: ";
@@ -342,6 +357,7 @@ public class RequestsUsuario {
 
     }
 
+    // Atualiza o estado do certificado do usuário no banco remoto
     public void updateEstadoCertificado(final int novoEstado) {
 
         final String tag = "request_endereco_foto";
@@ -380,8 +396,15 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
-    /* JSON REQUESTS*/
+    /**
+     * SELECT COM JSON REQUESTS
+     * Esses requests retornam um objeto JSON do banco remoto com os dados, para poder pegar todos
+     * os dados em um request só.
+     *
+     * Os updates são realizados com string requests pois as colunas são atualizadas uma a uma
+     * ao longo do uso do app. */
 
+    // Busca o progresso do usuário no banco de dados remoto
     public void selectProgresso() {
 
         Map<String, String> params = new HashMap<>();
@@ -419,9 +442,50 @@ public class RequestsUsuario {
 
     }
 
-    public void updateProgresso(final int numModulo, final int valorProgresso) {
+    // Atualiza o progresso do usuário (String request)
+    public void updateProgressoModulo(final int numModulo, final int valorProgresso) {
 
-        final String tag = "request_json_update_progresso: ";
+        final String tag = "request_update_progresso_modulo: ";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST, BancoRemoto.getScriptProgresso(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(tag, response);
+                        usuarioListener.onUpdate(response);
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d(tag, error.toString());
+                        usuarioListener.onErrorResponse(tag, error.toString());
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("TIPO_USUARIO", tipoUsuario);
+                params.put("ID_USUARIO", id);
+                params.put("ACTION", BancoRemoto.Action.UPDATE);
+                params.put("COLUNA", BancoRemoto.Tabelas.Progresso.COL_PROGRESSO_MODULOS);
+                params.put("VALOR", String.valueOf(valorProgresso));
+
+                return params;
+            }
+        };
+
+        AppController.increaseRequestCount();
+        AppController.getInstance().addToRequestQueue(request, tag);
+    }
+
+    // Atualiza o progresso do usuário (String request)
+    public void updateProgressoEtapa(final int numModulo, final int valorProgresso) {
+
+        final String tag = "request_update_progresso_etapa: ";
 
         StringRequest request = new StringRequest(
                 Request.Method.POST, BancoRemoto.getScriptProgresso(),
@@ -458,6 +522,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Busca a pontuação dos módulos do usuário no banco remoto
     public void selectPontuacao() {
 
         final String tag = "request_get_pontuacao: ";
@@ -494,6 +559,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Atualiza a pontuação do usuário em determinado módulo no banco remoto (String request)
     public void updatePontuacao(final int numModulo, final int pontos) {
 
         final String tag = "request_json_update_pontuacao: ";
@@ -533,7 +599,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
-
+    // Busca as conquistas do usuário no banco remoto
     public void selectConquistas() {
 
         final String tag = "request_get_conquistas: ";
@@ -570,6 +636,7 @@ public class RequestsUsuario {
         AppController.getInstance().addToRequestQueue(request, tag);
     }
 
+    // Atualiza as conquistas do usuário no banco remoto
     public void updateConquistas(final int idConquista, final int valorConquista) {
 
         final String tag = "request_json_update_conquista: ";

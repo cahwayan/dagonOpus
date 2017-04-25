@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.common.gerenciadorsharedpreferences;
+package com.tcc.dagon.opus.data.sharedpreferences;
 
 /**
  * Created by cahwayan on 26/02/2017.
@@ -137,6 +137,7 @@ public interface Preferencias {
     String getTipoUsuario();
 
     void setTempoEstudo(String tempoEstudo);
+    void addTempoEstudo(String tempoEstudo);
     String getTempoEstudo();
 
     String getIdUsuario();

@@ -1,6 +1,7 @@
 package com.tcc.dagon.opus.ui.curso.container;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -8,14 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 import com.tcc.dagon.opus.ui.curso.adapter.Adapter;
 import com.tcc.dagon.opus.ui.curso.adapter.GerenciadorListaExercicios;
-import com.tcc.dagon.opus.ui.curso.exercicios.som.GerenciadorSons;
+import com.tcc.dagon.opus.common.som.GerenciadorSons;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by cahwayan on 04/11/2016.
@@ -30,6 +37,8 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
 
     private GerenciadorLicoes gerenciadorLicoes;
     private GerenciadorSons sons;
+    private RequestsUsuario bancoRemoto;
+    private UsuarioListener callbackRequestsUsuario;
 
     protected LinearLayout tabStrip;
     protected String tituloEtapa;
@@ -37,6 +46,8 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     protected int moduloAtual, etapaAtual;
 
     protected int qtdFragmentos;
+
+    private final Date STARTING_TIME = Calendar.getInstance().getTime();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +62,30 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     /* Início ciclo de vida */
 
     /* Fim ciclo de vida*/
+
+    // Inicia um thread que vai rodar a cada 10 segundos salvando o tempo do usuário na sharedPreference
+    public void startSalvarTempo() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                gerenciadorLicoes.getPreferences().addTempoEstudo(String.valueOf(getTempoQueUsuarioEstaLogado()));
+                handler.postDelayed(this, 10000);
+            }
+
+        }, 10000);
+    }
+
+    public long getTempoQueUsuarioEstaLogado() {
+        final Date ENDING_TIME = Calendar.getInstance().getTime();
+        return ENDING_TIME.getTime() - STARTING_TIME.getTime();
+    }
+
+    @Override
+    public void atualizarTempoEstudoNoBancoRemoto() {
+        String tempoEstudo = gerenciadorLicoes.getPreferences().getTempoEstudo();
+        bancoRemoto.updateTempoEstudo(tempoEstudo);
+    }
 
     @Override
     public void onBackPressed() {
@@ -78,6 +113,13 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
 
         sons = new GerenciadorSons(this);
         gerenciadorLicoes = new GerenciadorLicoes(/* Context */ this, qtdFragmentos, moduloAtual, etapaAtual);
+
+        callbackRequestsUsuario = new UsuarioListenerImp(this);
+        String tipoUsuario = gerenciadorLicoes.getPreferences().getTipoUsuario();
+        String idUsuario = gerenciadorLicoes.getPreferences().getIdUsuario();
+        bancoRemoto = new RequestsUsuario(tipoUsuario, idUsuario, callbackRequestsUsuario);
+
+        startSalvarTempo();
 
     }
 
@@ -135,7 +177,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         int[] estadoLicoes = gerenciadorLicoes.getEstadoLicoes();
 
         for(int i = 0; i < estadoLicoes.length; i++) {
-            if(estadoLicoes[i] == FragmentoLicao.LIBERADO) {
+            if(estadoLicoes[i] == FragmentoConteudo.LIBERADO) {
                 configurarLicaoLiberada(i);
             } else {
                 configurarLicaoBloqueada(i);
@@ -193,6 +235,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @Override
     public void avancarProgressoModulo(int aumento) {
         gerenciadorLicoes.setProgressoModulo(aumento);
+        atualizarProgressoModuloNoBancoRemoto();
     }
 
     @Override
@@ -203,6 +246,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @Override
     public void setProgressoEtapa(int aumento) {
         gerenciadorLicoes.setProgressoEtapa(aumento);
+        atualizarProgressoEtapaNoBancoRemoto();
     }
 
     @Override
@@ -218,6 +262,18 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @Override
     public void setProgressoLicao(int aumento) {
         gerenciadorLicoes.setProgressoLicao(aumento);
+    }
+
+    @Override
+    public void atualizarProgressoModuloNoBancoRemoto() {
+        final int progressoAtual = gerenciadorLicoes.getProgressoModulo();
+        bancoRemoto.updateProgressoModulo(moduloAtual, progressoAtual);
+    }
+
+    @Override
+    public void atualizarProgressoEtapaNoBancoRemoto() {
+        final int progressoAtual = gerenciadorLicoes.getProgressoEtapa();
+        bancoRemoto.updateProgressoEtapa(moduloAtual, progressoAtual);
     }
 
     @Override
@@ -253,6 +309,13 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @Override
     public void somarPontos(int pontos) {
         gerenciadorLicoes.somarPontos(moduloAtual, pontos);
+        atualizarPontosNoBancoRemoto();
+    }
+
+    @Override
+    public void atualizarPontosNoBancoRemoto() {
+        int pontos = gerenciadorLicoes.getPreferences().getPontos(moduloAtual);
+        bancoRemoto.updatePontuacao(moduloAtual, pontos);
     }
 
     @Override

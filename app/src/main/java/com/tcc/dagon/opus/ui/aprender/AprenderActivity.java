@@ -32,7 +32,7 @@ import com.tcc.dagon.opus.data.DB;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.common.OnOffClickListener;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.NovaJanelaAlerta;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;

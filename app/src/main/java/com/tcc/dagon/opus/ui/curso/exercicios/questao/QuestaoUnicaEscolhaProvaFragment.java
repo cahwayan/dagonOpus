@@ -9,17 +9,18 @@ import com.tcc.dagon.opus.ui.curso.container.ContagemDeVidasListener;
 import com.tcc.dagon.opus.R;
 
 /**
- * Created by cahwayan on 16/01/2017.
+ * Created by cahwayan on 11/11/2016.
  */ /**/
 
-public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
+public final class QuestaoUnicaEscolhaProvaFragment extends QuestaoUnicaEscolhaFragment {
 
     public ContagemDeVidasListener gerenciadorProva;
 
     @Override
     protected void inflateRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setRootView(inflater.inflate(R.layout.fragment_questao_multipla_escolha, container, false));
+        setRootView(inflater.inflate(R.layout.fragment_questao, container, false));
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -30,7 +31,7 @@ public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
             gerenciadorProva = (ContagemDeVidasListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement contagemDeVidasListener");
+                    + " must implement ContagemDeVidasListener");
         }
     }
 
@@ -43,7 +44,6 @@ public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
 
         refreshListener.refreshUI();
     }
-
 
     //MÉTODO DISPARADO QUANDO A RESPOSTA ESTÁ ERRADA
     @Override
@@ -58,7 +58,7 @@ public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
         gerenciadorProva.setCompletouProva(true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
-            refreshListener.avancarProgressoModulo(1);
+            refreshListener.avancarProgressoModulo(/* em */1);
             avancarProgressoEtapa();
             atualizarPontuacao();
             refreshListener.setNota(refreshListener.calcularNota());
@@ -66,4 +66,5 @@ public final class QuestaoMultiplaEscolhaProva extends QuestaoMultiplaEscolha {
 
         this.getActivity().finish();
     }
+
 }

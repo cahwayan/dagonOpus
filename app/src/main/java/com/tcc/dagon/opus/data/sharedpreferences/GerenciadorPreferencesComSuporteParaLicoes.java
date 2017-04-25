@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.common.gerenciadorsharedpreferences;
+package com.tcc.dagon.opus.data.sharedpreferences;
 
 import android.content.Context;
 

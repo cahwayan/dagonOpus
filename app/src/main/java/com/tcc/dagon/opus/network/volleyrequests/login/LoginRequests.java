@@ -9,7 +9,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
-
 import java.util.HashMap;
 import java.util.Map;
 

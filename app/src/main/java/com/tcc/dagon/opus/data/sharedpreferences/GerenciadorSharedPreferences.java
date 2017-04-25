@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.common.gerenciadorsharedpreferences;
+package com.tcc.dagon.opus.data.sharedpreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -77,8 +77,14 @@ public class GerenciadorSharedPreferences implements Preferencias {
     }
 
     @Override
-    public void setTempoEstudo(String tempoEstudo) {
-        this.modFlag(TEMPO_ESTUDO, tempoEstudo);
+    public void addTempoEstudo(String tempo) {
+        long novoTempo = Long.valueOf(getTempoEstudo()) + Long.valueOf(tempo);
+        this.modFlag(TEMPO_ESTUDO, String.valueOf(novoTempo));
+    }
+
+    @Override
+    public void setTempoEstudo(String tempo) {
+        this.modFlag(TEMPO_ESTUDO, tempo);
     }
 
     @Override

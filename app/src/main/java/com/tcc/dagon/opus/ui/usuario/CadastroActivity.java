@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.common.ProgressDialogHelper;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.ToastManager;
 import com.tcc.dagon.opus.common.ValidarEmail;
 import com.tcc.dagon.opus.common.VerificarConexao;

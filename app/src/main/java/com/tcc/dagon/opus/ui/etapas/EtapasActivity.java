@@ -17,7 +17,7 @@ import com.tcc.dagon.opus.ui.curso.container.ContainerLicoesActivity_;
 import com.tcc.dagon.opus.ui.curso.container.ContainerProvaActivity_;
 import com.tcc.dagon.opus.common.NovaJanelaAlerta;
 import com.tcc.dagon.opus.common.OnOffClickListener;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorSharedPreferences;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;

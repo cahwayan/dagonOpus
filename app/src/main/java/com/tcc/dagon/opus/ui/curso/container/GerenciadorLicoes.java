@@ -3,8 +3,7 @@ package com.tcc.dagon.opus.ui.curso.container;
 import android.content.Context;
 import android.util.Log;
 
-import com.tcc.dagon.opus.data.DB;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 import com.tcc.dagon.opus.data.DBQuestoes;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.List;
 
 public class GerenciadorLicoes {
 
-    private List<FragmentoLicao> listaLicoes;
+    private List<FragmentoConteudo> listaLicoes;
     private GerenciadorPreferencesComSuporteParaLicoes preferenceManager;
     private DBQuestoes DB_QUESTOES;
     private int quantidadeLicoes;
@@ -82,7 +81,7 @@ public class GerenciadorLicoes {
 
         // Loop que instancia as lições e guarda na lista
         for(int i = 0; i <= quantidadeLicoes; i++) {
-            listaLicoes.add(new FragmentoLicao(/* Informar para o fragmento o índice que ele ocupa na lista para comparar com o progresso */ i));
+            listaLicoes.add(new FragmentoConteudo(/* Informar para o fragmento o índice que ele ocupa na lista para comparar com o progresso */ i));
         }
     }
 

@@ -11,7 +11,7 @@ import com.tcc.dagon.opus.ui.curso.container.ContagemDeVidasListener;
  * Created by cahwayan on 11/11/2016.
  */
 
-public final class CompletarProva extends Completar {
+public final class CompletarProvaFragment extends CompletarFragment {
 
     ContagemDeVidasListener gerenciadorProva;
 
@@ -41,7 +41,7 @@ public final class CompletarProva extends Completar {
         gerenciadorProva.setCompletouProva(true);
 
         if (!usuarioJaCompletouEsseModuloAntes()) {
-            refreshListener.avancarProgressoModulo(1);
+            refreshListener.avancarProgressoModulo(/* em */1);
             avancarProgressoEtapa();
             atualizarPontuacao();
             refreshListener.setNota(refreshListener.calcularNota());

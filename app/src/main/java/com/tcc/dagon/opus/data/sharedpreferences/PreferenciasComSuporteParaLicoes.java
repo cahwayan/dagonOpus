@@ -1,4 +1,4 @@
-package com.tcc.dagon.opus.common.gerenciadorsharedpreferences;
+package com.tcc.dagon.opus.data.sharedpreferences;
 
 /**
  * Created by cahwayan on 01/03/2017.

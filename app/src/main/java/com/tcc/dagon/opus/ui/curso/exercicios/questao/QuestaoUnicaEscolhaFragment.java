@@ -18,7 +18,7 @@ import com.tcc.dagon.opus.common.ViewController;
  * Created by cahwayan on 04/11/2016.
  */ /**/
 
-public class QuestaoUnicaEscolha extends ExercicioFragment {
+public class QuestaoUnicaEscolhaFragment extends ExercicioFragment {
 
     protected final int ALTERNATIVA0 = 0;
     protected final int ALTERNATIVA1 = 1;

@@ -14,7 +14,7 @@ import com.tcc.dagon.opus.common.ViewController;
  * Created by cahwayan on 10/01/2017.
  */ /**/
 
-public class QuestaoMultiplaEscolha extends QuestaoUnicaEscolha {
+public class QuestaoMultiplaEscolhaFragment extends QuestaoUnicaEscolhaFragment {
 
     private CheckBox alternativa0;
     private CheckBox alternativa1;

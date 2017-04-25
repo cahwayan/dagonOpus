@@ -14,7 +14,7 @@ import com.tcc.dagon.opus.R;
 //import com.tcc.dagon.opus.ui.etapas.EtapasModulo1Activity;
 import com.tcc.dagon.opus.ui.etapas.subclasses.EtapasModulo0;
 import com.tcc.dagon.opus.common.AnimacaoVida;
-import com.tcc.dagon.opus.common.gerenciadorsharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
+import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorPreferencesComSuporteParaLicoes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
