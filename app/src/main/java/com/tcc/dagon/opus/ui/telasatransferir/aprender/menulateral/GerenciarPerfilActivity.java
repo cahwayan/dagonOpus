@@ -1,6 +1,8 @@
 package com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -8,17 +10,27 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO0;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO1;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO2;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO3;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO4;
+import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.MODULO5;
 import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.QTD_MODULOS;
 import static java.lang.String.valueOf;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -26,6 +38,10 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.common.ProgressDialogHelper;
+import com.tcc.dagon.opus.common.VerificarConexao;
+import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
@@ -61,7 +77,8 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     private GerenciadorSharedPreferences preferencias;
 
     private RequestsUsuario requestsUsuario;
-    private UsuarioListener callbacksRequestsUsuario;
+    private UsuarioListenerImp callbacksRequestsUsuario;
+    private ProgressDialog progressDialog;
 
     private static int RESULT_LOAD_IMAGE = 1;
     private static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 1;
@@ -99,7 +116,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
         String tipoUsuario = preferencias.getTipoUsuario();
         String idUsuario = preferencias.getIdUsuario();
 
-        callbacksRequestsUsuario = new UsuarioListenerImp(this);
+        callbacksRequestsUsuario = new UsuarioListenerImp(this, progressDialog);
         requestsUsuario = new RequestsUsuario(tipoUsuario, idUsuario, callbacksRequestsUsuario);
 
         // OBJETO DE CONEXÃO COM API GOOGLE
@@ -193,12 +210,14 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 }
                 else if( btnLogout.getId() == v.getId() )
                 {
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity_.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    preferencias.setIsLogin(false);
-                    signOut();
-                    finish();
+
+                    if(VerificarConexao.verificarConexao(getActivity())) {
+                        showProgressDialog("Logout");
+                        salvarEstadoUsuarioNoBancoRemoto();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 else if( btnAlterar.getId() == v.getId() )
                 {
@@ -221,6 +240,84 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
 
             }
         });
+
+    }
+
+    private void salvarEstadoUsuarioNoBancoRemoto() {
+
+        requestsUsuario.updateEnderecoFoto(preferencias.getCaminhoFoto());
+        requestsUsuario.updateTempoEstudo(preferencias.getTempoEstudo());
+
+        if(preferencias.getIsCertificadoGerado()){
+            requestsUsuario.updateEstadoCertificado(1 /* GERADO */);
+        } else if(!preferencias.getIsCertificadoGerado()) {
+            requestsUsuario.updateEstadoCertificado(0 /* NAO GERADO */);
+        }
+
+        requestsUsuario.updateProgressoModulo(preferencias.getProgressoEtapa(MODULO0));
+
+        requestsUsuario.updateProgressoEtapa(MODULO0, preferencias.getProgressoEtapa(MODULO0));
+        requestsUsuario.updateProgressoEtapa(MODULO1, preferencias.getProgressoEtapa(MODULO1));
+        requestsUsuario.updateProgressoEtapa(MODULO2, preferencias.getProgressoEtapa(MODULO2));
+        requestsUsuario.updateProgressoEtapa(MODULO3, preferencias.getProgressoEtapa(MODULO3));
+        requestsUsuario.updateProgressoEtapa(MODULO4, preferencias.getProgressoEtapa(MODULO4));
+        requestsUsuario.updateProgressoEtapa(MODULO5, preferencias.getProgressoEtapa(MODULO5));
+
+        requestsUsuario.updatePontuacao(MODULO0, preferencias.getPontos(MODULO0));
+        requestsUsuario.updatePontuacao(MODULO1, preferencias.getPontos(MODULO1));
+        requestsUsuario.updatePontuacao(MODULO2, preferencias.getPontos(MODULO2));
+        requestsUsuario.updatePontuacao(MODULO3, preferencias.getPontos(MODULO3));
+        requestsUsuario.updatePontuacao(MODULO4, preferencias.getPontos(MODULO4));
+        requestsUsuario.updatePontuacao(MODULO5, preferencias.getPontos(MODULO5));
+
+        AppController.setRequestCountdown(AppController.getRequestCount());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    AppController.getCountdownLatch().await();
+                    aguardarFilaTerminarEConcluirLogout();
+                } catch (InterruptedException e) {
+                    Log.d(TAG, e.toString());
+                }
+
+
+            }
+        }).start();
+    }
+
+    private void aguardarFilaTerminarEConcluirLogout() {
+
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+
+                if(!callbacksRequestsUsuario.getHouveramErrosAoRestaurarUsuario()) {
+                    String tipoUsuario = preferencias.getTipoUsuario();
+
+                    if(tipoUsuario.equals(BancoRemoto.USUARIO_GOOGLE)) {
+                        signOutGoogle();
+                    }
+
+                    preferencias.setIsLogin(false);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity_.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    hideProgressDialog();
+                    startActivity(intent);
+                    finish();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Ocorreu um erro. Você está conectado?", Toast.LENGTH_LONG).show();
+                    hideProgressDialog();
+                    callbacksRequestsUsuario.setHouveramErrosAoRestaurarUsuario(false);
+                }
+
+
+            }
+        });
+
 
     }
 
@@ -299,7 +396,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 if(imageView != null ){
                     imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                     preferencias.setCaminhoFoto(picturePath);
-                    // TODO: Fazer request aqui
+                    requestsUsuario.updateEnderecoFoto(picturePath);
                 }
             }
 
@@ -321,14 +418,10 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
     }
 
     // SIGN OUT GOOGLE
-    private void signOut() {
+    private void signOutGoogle() {
         if(LoginActivity.googleApiClient.isConnected()) {
             LoginActivity.googleApiClient.clearDefaultAccountAndReconnect();
             LoginActivity.googleApiClient.disconnect();
-            LoginActivity.googleApiClient.connect();
-            preferencias.setCaminhoFoto(null);
-            preferencias.setNomeUsuario(null);
-            preferencias.setIsLogin(false);
         }
     }
 
@@ -346,6 +439,23 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private Activity getActivity() {
+        return this;
+    }
+
+    public void showProgressDialog(String msg) {
+        this.progressDialog = ProgressDialogHelper.buildDialog(this, msg);
+        if(!this.progressDialog.isShowing() && this.progressDialog != null) {
+            this.progressDialog.show();
+        }
+    }
+
+    public void hideProgressDialog() {
+        if(this.progressDialog != null && this.progressDialog.isShowing()) {
+            this.progressDialog.dismiss();
         }
     }
 }

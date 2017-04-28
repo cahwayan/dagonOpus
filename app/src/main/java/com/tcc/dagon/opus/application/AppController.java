@@ -39,8 +39,6 @@ public class AppController extends Application {
         mInstance = this;
     }
 
-
-
     public static CountDownLatch getCountdownLatch() {
         return countdown;
     }
@@ -60,9 +58,13 @@ public class AppController extends Application {
     }
 
     public static void decreaseRequestCount() {
-        countdown.countDown();
+        if(countdown != null) {
+            countdown.countDown();
+        }
+
         requestCount--;
         Log.d(TAG, "REQUEST COUNTDOWN ABAIXANDO . . . " + String.valueOf(requestCount));
+
     }
 
     public static synchronized AppController getInstance() {
@@ -88,6 +90,7 @@ public class AppController extends Application {
 
     public <T> void addToRequestQueue(Request<T> request, String tag) {
         // A tag está vazia? Se sim, usar a tag padrão desta classe
+        increaseRequestCount();
         request.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
         getRequestQueue().add(request);
     }

@@ -90,8 +90,6 @@ public class RequestsUsuario {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Log.d(TAG, error.getMessage());
-
                 usuarioListener.onErrorResponse(tag_get_id, error.toString());
             }
         }){
@@ -106,8 +104,8 @@ public class RequestsUsuario {
 
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag_get_id);
+
     }
 
     // Busca o nome do usuário no banco remoto
@@ -134,7 +132,6 @@ public class RequestsUsuario {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Log.d(TAG, error.getMessage());
                 usuarioListener.onErrorResponse(tag_get_nome, error.toString());
             }
         }){
@@ -148,8 +145,8 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(requestNome, tag_get_nome);
+
     }
 
     // Busca o tempo de estudo no banco remoto
@@ -175,7 +172,6 @@ public class RequestsUsuario {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Log.d(TAG, error.getMessage());
                 usuarioListener.onErrorResponse(tag, error.toString());
             }
         }){
@@ -191,8 +187,8 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Atualiza o tempo de estudo no banco remoto
@@ -233,8 +229,8 @@ public class RequestsUsuario {
                     }
                 };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Busca o endereço da foto do usuário no cartão SD no banco remoto
@@ -260,7 +256,6 @@ public class RequestsUsuario {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Log.d(TAG, error.getMessage());
                 usuarioListener.onErrorResponse(tag, error.toString());
             }
         }) {
@@ -275,14 +270,14 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Atualiza o endereço da foto no banco remoto
     public void updateEnderecoFoto(final String novoEndereco) {
 
-        final String tag = "request_endereco_foto";
+        final String tag = "request_update_endereco_foto";
 
         StringRequest request = new StringRequest(
                 Request.Method.POST, BancoRemoto.getScriptCaminhoFoto(),
@@ -296,7 +291,6 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, error.getMessage());
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 })
@@ -314,7 +308,6 @@ public class RequestsUsuario {
                     }
                 };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
 
     }
@@ -337,7 +330,6 @@ public class RequestsUsuario {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, error.getMessage());
                 usuarioListener.onErrorResponse(tag, error.toString());
             }
         }) {
@@ -352,7 +344,6 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
 
     }
@@ -363,7 +354,7 @@ public class RequestsUsuario {
         final String tag = "request_endereco_foto";
 
         StringRequest request = new StringRequest(
-                Request.Method.POST, BancoRemoto.getScriptCaminhoFoto(),
+                Request.Method.POST, BancoRemoto.getScriptEstadoCertificado(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -392,8 +383,8 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     /**
@@ -432,18 +423,16 @@ public class RequestsUsuario {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Log.d(TAG, tag + " " + error.toString());
                                 usuarioListener.onErrorResponse(tag, error.toString());
                             }
                         });
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
 
     }
 
     // Atualiza o progresso do usuário (String request)
-    public void updateProgressoModulo(final int numModulo, final int valorProgresso) {
+    public void updateProgressoModulo(final int valorProgresso) {
 
         final String tag = "request_update_progresso_modulo: ";
 
@@ -460,7 +449,6 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d(tag, error.toString());
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 })
@@ -478,8 +466,8 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Atualiza o progresso do usuário (String request)
@@ -500,7 +488,6 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d(tag, error.toString());
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 })
@@ -518,8 +505,8 @@ public class RequestsUsuario {
                     }
                 };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Busca a pontuação dos módulos do usuário no banco remoto
@@ -550,22 +537,21 @@ public class RequestsUsuario {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Log.d(TAG, tag + " " + error.toString());
                                 usuarioListener.onErrorResponse(tag, error.toString());
                             }
                         });
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Atualiza a pontuação do usuário em determinado módulo no banco remoto (String request)
     public void updatePontuacao(final int numModulo, final int pontos) {
 
-        final String tag = "request_json_update_pontuacao: ";
+        final String tag = "request_update_pontuacao: ";
 
         StringRequest request = new StringRequest(
-                Request.Method.POST, BancoRemoto.getScriptProgresso(),
+                Request.Method.POST, BancoRemoto.getScriptPontuacao(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -577,7 +563,6 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d(tag, error.toString());
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 })
@@ -595,8 +580,8 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Busca as conquistas do usuário no banco remoto
@@ -626,14 +611,12 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 });
 
-
-        AppController.increaseRequestCount();
         AppController.getInstance().addToRequestQueue(request, tag);
+
     }
 
     // Atualiza as conquistas do usuário no banco remoto
@@ -642,7 +625,7 @@ public class RequestsUsuario {
         final String tag = "request_json_update_conquista: ";
 
         StringRequest request = new StringRequest(
-                Request.Method.POST, BancoRemoto.getScriptProgresso(),
+                Request.Method.POST, BancoRemoto.getScriptConquistas(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -654,7 +637,6 @@ public class RequestsUsuario {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d(tag, error.toString());
                         usuarioListener.onErrorResponse(tag, error.toString());
                     }
                 })
@@ -672,7 +654,41 @@ public class RequestsUsuario {
             }
         };
 
-        AppController.increaseRequestCount();
+        AppController.getInstance().addToRequestQueue(request, tag);
+
+    }
+
+    // Reseta o progresso atual do usuário
+    public void resetDadosUsuario() {
+
+        final String tag = "request_resetar_progresso: ";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST, BancoRemoto.getScriptDeleteDadosUsuario(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, tag + " " + response);
+                        usuarioListener.onReset(response);
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        usuarioListener.onErrorResponse(tag, error.toString());
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("ID_USUARIO", id);
+                        params.put("TIPO_USUARIO", tipoUsuario);
+                        params.put("ACTION", BancoRemoto.Action.RESET);
+                        return params;
+                    }
+                };
+
         AppController.getInstance().addToRequestQueue(request, tag);
 
     }

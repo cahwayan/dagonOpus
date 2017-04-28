@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
+import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.common.ProgressDialogHelper;
 import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.ToastManager;
@@ -68,6 +69,8 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
             configureEditTextAvailable();
         }
 
+        AppController.decreaseRequestCount();
+
     }
 
     @Override
@@ -85,7 +88,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
             toastManager.toastLong("Erro desconhecido. Tente novamente.");
         }
 
-
+        AppController.decreaseRequestCount();
     }
 
 
@@ -127,7 +130,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     @Click
     protected void btnCadastra() {
         /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
-        if(VerificarConexao.verificarConexao()) {
+        if(VerificarConexao.verificarConexao(this)) {
             cadastrar();
         } else {
             Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_LONG).show();
@@ -210,7 +213,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @UiThread
     protected void configureEditTextUnavailable() {
-        if(VerificarConexao.verificarConexao()) {
+        if(VerificarConexao.verificarConexao(this)) {
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             textEmail.setTextColor(COR_VERMELHO);
             toastManager.toastShort("Email já cadastrado");
@@ -220,7 +223,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @UiThread
     protected void configureEditTextAvailable() {
-        if(VerificarConexao.verificarConexao()) {
+        if(VerificarConexao.verificarConexao(this)) {
             textEmail.setTextColor(COR_VERDE);
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
         }

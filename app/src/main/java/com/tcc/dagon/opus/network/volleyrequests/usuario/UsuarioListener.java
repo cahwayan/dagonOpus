@@ -1,5 +1,7 @@
 package com.tcc.dagon.opus.network.volleyrequests.usuario;
 
+import com.android.volley.Request;
+
 import org.json.JSONObject;
 
 /**
@@ -19,4 +21,5 @@ public interface UsuarioListener {
 
     void onErrorResponse(String tag, String error);
     void onUpdate(String response);
+    void onReset(String response);
 }

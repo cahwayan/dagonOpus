@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.ui.usuario;
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -126,6 +127,10 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         }
     }
 
+    private Activity getActivity() {
+        return this;
+    }
+
     /*MÉTODO DE INICIALIZAÇÃO DE COMPONENTES*/
 
     @AfterViews
@@ -160,7 +165,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 sSenha = textSenha.getText().toString().trim();
 
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
-                if(VerificarConexao.verificarConexao()) {
+                if(VerificarConexao.verificarConexao(getActivity())) {
                     if(verificarCredenciais(sEmail, sSenha)) {
                         showProgressDialog(R.string.carregando);
                         login.requestLogar(sEmail, sSenha);
@@ -176,7 +181,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         OnOffClickListener clickListenerGoogle = new OnOffClickListener() {
             @Override
             public void onOneClick(View v) {
-                if(VerificarConexao.verificarConexao()) {
+                if(VerificarConexao.verificarConexao(getActivity())) {
                     if(!googleApiClient.isConnecting()){
                         verificarPermissaoGoogleLogin();
                     }
@@ -377,6 +382,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             hideProgressDialog();
             Toast.makeText(this, "Ocorreu um pequeno problema. Você está conectado?", Toast.LENGTH_LONG).show();
         }
+
+        AppController.decreaseRequestCount();
     }
 
     /**
@@ -401,6 +408,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             Log.d(TAG, resultado);
         }
 
+        AppController.decreaseRequestCount();
+
     }
 
     @Override
@@ -418,6 +427,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
             hideProgressDialog();
         }
 
+        AppController.decreaseRequestCount();
+
     }
 
     public void showProgressDialog(int resId) {
@@ -425,12 +436,17 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
     }
 
     public void showProgressDialog(String msg) {
+
         this.progressDialog = ProgressDialogHelper.buildDialog(this, msg);
-        this.progressDialog.show();
+
+        if(!this.progressDialog.isShowing() && this.progressDialog != null) {
+
+            this.progressDialog.show();
+        }
     }
 
     public void hideProgressDialog() {
-        if(this.progressDialog != null) {
+        if(this.progressDialog != null && this.progressDialog.isShowing()) {
             this.progressDialog.dismiss();
         }
     }
@@ -516,6 +532,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
+
                             if(!usuarioListener.getHouveramErrosAoRestaurarUsuario()) {
                                 Log.d(TAG, "CONCLUINDO LOGIN");
                                 startActivity(new Intent(getApplicationContext(), AprenderActivity_.class));
@@ -523,6 +540,8 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                                 hideProgressDialog();
                                 finish();
                             } else {
+                                Toast.makeText(getApplicationContext(), "Ocorreu um erro. Você está conectado?", Toast.LENGTH_LONG).show();
+                                hideProgressDialog();
                                 usuarioListener.setHouveramErrosAoRestaurarUsuario(false);
                             }
 

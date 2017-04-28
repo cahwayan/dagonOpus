@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.application.AppController;
@@ -49,8 +50,8 @@ public class ActivityConfig extends AppCompatActivity {
     protected ToastManager toastManager;
 
     private RequestsUsuario bancoRemoto;
-    private UsuarioListener callbacksRequestsUsuario;
-    private ProgressDialog progress;
+    private UsuarioListenerImp callbacksRequestsUsuario;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,8 @@ public class ActivityConfig extends AppCompatActivity {
         toastManager = new ToastManager(this);
         flagDesativarSom = preferencias.getDesativarSons();
 
-        progress = ProgressDialogHelper.buildDialog(this, "Resetando progresso...");
-        callbacksRequestsUsuario = new UsuarioListenerImp(this, progress);
+        progressDialog = ProgressDialogHelper.buildDialog(this, "Resetando progresso...");
+        callbacksRequestsUsuario = new UsuarioListenerImp(this, progressDialog);
 
         String tipoUsuario = preferencias.getTipoUsuario();
         String idUsuario = preferencias.getIdUsuario();
@@ -123,7 +124,6 @@ public class ActivityConfig extends AppCompatActivity {
             switch(which) {
                 case DialogInterface.BUTTON_POSITIVE:
                     showProgressDialog("Resetando progresso...");
-                    resetarProgressoLocal();
                     resetarProgressoRemoto();
                     break;
 
@@ -169,41 +169,44 @@ public class ActivityConfig extends AppCompatActivity {
 
     public void resetarProgressoRemoto() {
 
+        bancoRemoto.resetDadosUsuario();
+
+        AppController.setRequestCountdown(AppController.getRequestCount());
+
+
         new Thread(new Runnable() {
             @Override
             public void run() {
+                try {
 
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
+                    AppController.getCountdownLatch().await();
 
-                        // TODO: fazer request para zerar os dados no banco remoto
-                        AppController.setRequestCountdown(AppController.getRequestCount());
-                        esperarFilaTerminarEConcluir();
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
 
-                    }
-                });
+                            if(!callbacksRequestsUsuario.getHouveramErrosAoRestaurarUsuario()) {
+                                resetarProgressoLocal();
+                                hideProgressDialog();
+                                toastManager.toastLong("Progresso resetado!");
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Ocorreu um erro. Você está conectado?", Toast.LENGTH_LONG).show();
+                                hideProgressDialog();
+                                callbacksRequestsUsuario.setHouveramErrosAoRestaurarUsuario(false);
+                            }
 
+
+                        }
+                    });
+
+                } catch(InterruptedException e) {
+                    Log.d(getClass().getSimpleName(), e.toString());
+                }
 
             }
         }).start();
 
     }
-
-    private void esperarFilaTerminarEConcluir() {
-        try {
-
-            AppController.getCountdownLatch().await();
-            hideProgressDialog();
-            toastManager.toastLong("Progresso resetado!");
-
-        } catch(InterruptedException e) {
-            Log.d(getClass().getSimpleName(), e.toString());
-        }
-
-
-    }
-
 
     // MÉTODO QUE VOLTA PRA TELA APRENDER QUANDO CLICAR NA SETA LA EM CIMA
     public boolean onOptionsItemSelected (MenuItem item) {
@@ -217,13 +220,13 @@ public class ActivityConfig extends AppCompatActivity {
     }
 
     public void showProgressDialog(String msg) {
-        this.progress = ProgressDialogHelper.buildDialog(this, msg);
-        this.progress.show();
+        this.progressDialog = ProgressDialogHelper.buildDialog(this, msg);
+        this.progressDialog.show();
     }
 
     public void hideProgressDialog() {
-        if(this.progress != null) {
-            this.progress.dismiss();
+        if(this.progressDialog != null) {
+            this.progressDialog.dismiss();
         }
     }
 

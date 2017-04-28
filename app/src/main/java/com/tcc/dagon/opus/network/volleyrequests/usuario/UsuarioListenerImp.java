@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 
@@ -180,16 +181,21 @@ public class UsuarioListenerImp implements UsuarioListener {
         }
 
         hideProgressDialog();
-        Toast.makeText(activity, "Ocorreu um erro ao se conectar com a base de dados. Você está conectado?", Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public void onUpdate(String response) {
+        AppController.decreaseRequestCount();
+    }
 
+    @Override
+    public void onReset(String response) {
+        AppController.decreaseRequestCount();
     }
 
     public void hideProgressDialog() {
-        if(this.progressDialog != null) {
+        if(this.progressDialog != null && this.progressDialog.isShowing()) {
             this.progressDialog.dismiss();
         }
     }

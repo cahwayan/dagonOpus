@@ -24,9 +24,9 @@ final class Colunas {
         /**
          * Informações de seleção de questões
          */
-        static final String COL_MODULO_QUESTAO = "COL_MODULO_QUESTAO";
-        static final String COL_ETAPA_QUESTAO = "COL_ETAPA_QUESTAO";
-        static final String COL_NUM_QUESTAO = "COL_NUM_QUESTAO";
+        static final String COL_MODULO_QUESTAO = "MODULO";
+        static final String COL_ETAPA_QUESTAO = "ETAPA";
+        static final String COL_NUM_QUESTAO = "NUM_QUESTAO";
 
         /**
          * Coluna que guarda o texto da questão
@@ -44,9 +44,9 @@ final class Colunas {
         /**
          * Colunas das respostas das questões
          */
-        static final String COL_RESPOSTA_ALTERNATIVA0 = "COL_RESPOSTA_ALTERNATIVA0";
-        static final String COL_RESPOSTA_ALTERNATIVA1 = "COL_RESPOSTA_ALTERNATIVA1";
-        static final String COL_RESPOSTA_ALTERNATIVA2 = "COL_RESPOSTA_ALTERNATIVA2";
-        static final String COL_RESPOSTA_ALTERNATIVA3 = "COL_RESPOSTA_ALTERNATIVA3";
+        static final String COL_RESPOSTA_ALTERNATIVA0 = "RESPOSTA_ALTERNATIVA0";
+        static final String COL_RESPOSTA_ALTERNATIVA1 = "RESPOSTA_ALTERNATIVA1";
+        static final String COL_RESPOSTA_ALTERNATIVA2 = "RESPOSTA_ALTERNATIVA2";
+        static final String COL_RESPOSTA_ALTERNATIVA3 = "RESPOSTA_ALTERNATIVA3";
     }
 }

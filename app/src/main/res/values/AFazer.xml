@@ -6,22 +6,6 @@
         PENSANDO - SALVAR AS CONQUISTAS AO LIBERAR UMA NOVA
         SALVAR A PONTUAÇÃO A CADA RESPOSTA QUE TENHA DADO PONTOS
 
-        - Resetar progresso:
-            Precisa zerar todas as flags de SharedPreferences referentes a progresso, incluindo:
-                - Progresso Módulo
-                - Progresso Etapa
-                - Progresso Lição
-                - Pontuação
-                - Conquistas
-                - Tempo de estudo
-                - Flags de provas
-                - Flags de certificado continuam ativas
-        LOCAL e NO BANCO DA NUVEM
-
-        - Ao logout:
-            - SetIsLogin to false
-            - signOutGoogle
-
         - Implementar:
             PENSANDO - Sistema de conquistas
             - Glossarinho

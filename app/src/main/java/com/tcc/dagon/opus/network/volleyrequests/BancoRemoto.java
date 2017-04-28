@@ -22,12 +22,17 @@ public abstract class BancoRemoto {
     private static final String scriptProgresso = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptProgresso.php";
     private static final String scriptPontuacao = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptPontuacao.php";
     private static final String scriptConquistas = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptConquistas.php";
+    private static final String scriptDeleteDadosUsuario = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptDeleteDadosUsuario.php";
 
     private static final String certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
     private static final String recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
 
     public static String getScriptCaminhoFoto() {
         return scriptCaminhoFoto;
+    }
+
+    public static String getScriptDeleteDadosUsuario() {
+        return scriptDeleteDadosUsuario;
     }
 
     public static String getScriptPontuacao() {
@@ -88,6 +93,8 @@ public abstract class BancoRemoto {
 
         public static final String DELETE    = "DELETE";
         public static final String DELETEALL = "DELETEALL";
+
+        public static final String RESET = "RESET";
 
     }
 

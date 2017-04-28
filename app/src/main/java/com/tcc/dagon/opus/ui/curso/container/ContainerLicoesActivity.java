@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.LinearLayout;
 import com.tcc.dagon.opus.R;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
@@ -40,6 +41,8 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     private RequestsUsuario bancoRemoto;
     private UsuarioListener callbackRequestsUsuario;
 
+    private Date STARTING_TIME = Calendar.getInstance().getTime();
+
     protected LinearLayout tabStrip;
     protected String tituloEtapa;
 
@@ -47,7 +50,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
 
     protected int qtdFragmentos;
 
-    private final Date STARTING_TIME = Calendar.getInstance().getTime();
+    private volatile boolean running = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,24 +62,46 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
         super.onStart();
         refreshUI();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        terminateTempoThread();
+    }
     /* Início ciclo de vida */
 
     /* Fim ciclo de vida*/
 
+    private void terminateTempoThread() {
+        this.running = false;
+    }
+
     // Inicia um thread que vai rodar a cada 10 segundos salvando o tempo do usuário na sharedPreference
     public void startSalvarTempo() {
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                gerenciadorLicoes.getPreferences().addTempoEstudo(String.valueOf(getTempoQueUsuarioEstaLogado()));
-                handler.postDelayed(this, 10000);
+                while(running) {
+                    gerenciadorLicoes.getPreferences().addTempoEstudo(String.valueOf(getTempoQueUsuarioEstaLogado()));
+                    STARTING_TIME = Calendar.getInstance().getTime();
+
+                    try {
+                        Thread.sleep(10000);
+                    } catch(InterruptedException e) {
+                        Log.d(getClass().getSimpleName(), e.toString());
+                    }
+
+
+                }
+
             }
 
-        }, 10000);
+        }).start();
+
     }
 
     public long getTempoQueUsuarioEstaLogado() {
+
         final Date ENDING_TIME = Calendar.getInstance().getTime();
         return ENDING_TIME.getTime() - STARTING_TIME.getTime();
     }
@@ -267,7 +292,7 @@ public class ContainerLicoesActivity extends AppCompatActivity implements Refres
     @Override
     public void atualizarProgressoModuloNoBancoRemoto() {
         final int progressoAtual = gerenciadorLicoes.getProgressoModulo();
-        bancoRemoto.updateProgressoModulo(moduloAtual, progressoAtual);
+        bancoRemoto.updateProgressoModulo(progressoAtual);
     }
 
     @Override
