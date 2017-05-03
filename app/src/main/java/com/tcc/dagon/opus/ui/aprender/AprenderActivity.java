@@ -115,6 +115,8 @@ public class AprenderActivity
     // Variável que guarda o progresso atual do usuário
     private int progressoAtual;
 
+    private Intent serviceSync = new Intent(getApplicationContext(), SyncUser.class);
+
     /*
       * Ciclo de vida
     */
@@ -124,10 +126,14 @@ public class AprenderActivity
         super.onCreate(savedInstanceState);
         // DON'T DO THIS !! It will throw a NullPointerException, myTextView is not set yet.
         // myTextView.setText("Date: " + new Date());
-
         Log.d(TAG, "INICIANDO SERVIÇO SYNC USUARIO . . .");
         startSyncUserService();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(serviceSync);
     }
 
     @Override
@@ -144,7 +150,6 @@ public class AprenderActivity
     protected  void onStart() {
         super.onStart();
         atualizarUIGeralConformeProgressoAtual();
-
     }
 
     private void startSyncUserService() {
@@ -153,8 +158,7 @@ public class AprenderActivity
             public void run() {
                 while (true) {
                     try {
-                        Intent i = new Intent(getApplicationContext(), SyncUser.class);
-                        startService(i);
+                        startService(serviceSync);
                         Log.d(TAG, "SERVIÇO DE SINCRONIZACAO INICIADO!");
                         final int TRES_MINUTOS = 180000;
                         Log.d(TAG, "Thread indo dormir por 3 minutos! . . .");
