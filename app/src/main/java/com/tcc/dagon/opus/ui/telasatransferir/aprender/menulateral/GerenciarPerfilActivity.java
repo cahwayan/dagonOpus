@@ -40,10 +40,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.tcc.dagon.opus.application.AppController;
 import com.tcc.dagon.opus.common.ProgressDialogHelper;
-import com.tcc.dagon.opus.common.VerificarConexao;
+import com.tcc.dagon.opus.common.ConexaoChecker;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.RequestsUsuario;
-import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListener;
 import com.tcc.dagon.opus.network.volleyrequests.usuario.UsuarioListenerImp;
 import com.tcc.dagon.opus.ui.usuario.LoginActivity_;
 import com.tcc.dagon.opus.R;
@@ -211,7 +210,7 @@ public class GerenciarPerfilActivity extends AppCompatActivity implements Google
                 else if( btnLogout.getId() == v.getId() )
                 {
 
-                    if(VerificarConexao.verificarConexao(getActivity())) {
+                    if(ConexaoChecker.verificarSeHaConexaoDisponivel(getActivity())) {
                         showProgressDialog("Logout");
                         salvarEstadoUsuarioNoBancoRemoto();
                     } else {

@@ -10,26 +10,29 @@ import android.net.NetworkInfo;
  * Created by cahwayan on 14/12/2016.
  */
 
-public class VerificarConexao {
+public class ConexaoChecker {
 
     public static final String WIFI = "WIFI";
     public static final String MOBILE = "MOBILE";
 
-    public static Boolean verificarConexao(Activity activity) {
+    public static Boolean verificarSeHaConexaoDisponivel(Context context) {
 
         boolean haveMobileConnection = false;
         boolean haveWifiConnection = false;
 
-        ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 
-        if(networkInfo.getTypeName().equals("WIFI"))
-            if(networkInfo.isConnected())
-                haveWifiConnection = true;
+        if(networkInfo != null) {
+            if(networkInfo.getTypeName().equals("WIFI"))
+                if(networkInfo.isConnected())
+                    haveWifiConnection = true;
 
-        if(networkInfo.getTypeName().equals("MOBILE"))
-            if(networkInfo.isConnected())
-                haveMobileConnection = true;
+            if(networkInfo.getTypeName().equals("MOBILE"))
+                if(networkInfo.isConnected())
+                    haveMobileConnection = true;
+        }
+
 
         return haveWifiConnection || haveMobileConnection;
 

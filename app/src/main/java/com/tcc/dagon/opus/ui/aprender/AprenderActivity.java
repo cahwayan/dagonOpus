@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -21,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 //import com.tcc.dagon.opus.telas.aprender.menulateral.ActivityConfig_;
+import com.tcc.dagon.opus.network.volleyrequests.usuario.SyncUser;
 import com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.ActivityConfig_;
 import com.tcc.dagon.opus.ui.telasatransferir.aprender.menulateral.GerenciarPerfilActivity_;
@@ -75,6 +77,8 @@ import static com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants.*;
 public class AprenderActivity
         extends AppCompatActivity {
 
+    private final String TAG = this.getClass().getSimpleName();
+
     // Listas de views
     private List<ModuloCurso> listModuloCurso;
     private List<LinearLayout> listBtnModulos;
@@ -120,6 +124,10 @@ public class AprenderActivity
         super.onCreate(savedInstanceState);
         // DON'T DO THIS !! It will throw a NullPointerException, myTextView is not set yet.
         // myTextView.setText("Date: " + new Date());
+
+        Log.d(TAG, "INICIANDO SERVIÇO SYNC USUARIO . . .");
+        startSyncUserService();
+
     }
 
     @Override
@@ -136,6 +144,33 @@ public class AprenderActivity
     protected  void onStart() {
         super.onStart();
         atualizarUIGeralConformeProgressoAtual();
+
+    }
+
+    private void startSyncUserService() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Intent i = new Intent(getApplicationContext(), SyncUser.class);
+                        startService(i);
+                        Log.d(TAG, "SERVIÇO DE SINCRONIZACAO INICIADO!");
+                        final int TRES_MINUTOS = 180000;
+                        Log.d(TAG, "Thread indo dormir por 3 minutos! . . .");
+                        Thread.sleep(TRES_MINUTOS);
+                    } catch(InterruptedException e) {
+                        Log.d(TAG, e.toString());
+                    }
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
     }
 
     @Override

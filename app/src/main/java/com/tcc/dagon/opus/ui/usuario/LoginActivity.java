@@ -38,7 +38,7 @@ import com.tcc.dagon.opus.common.OnOffClickListener;
 import com.tcc.dagon.opus.common.ProgressDialogHelper;
 import com.tcc.dagon.opus.common.ValidarEmail;
 import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
-import com.tcc.dagon.opus.common.VerificarConexao;
+import com.tcc.dagon.opus.common.ConexaoChecker;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
 import com.tcc.dagon.opus.network.volleyrequests.login.CallbackLogin;
@@ -165,7 +165,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
                 sSenha = textSenha.getText().toString().trim();
 
                 // VERIFICA SE OS CAMPOS ESTÃO VAZIOS E INVOCA O TECLADO + FOCO CASO ESTEJAM
-                if(VerificarConexao.verificarConexao(getActivity())) {
+                if(ConexaoChecker.verificarSeHaConexaoDisponivel(getActivity())) {
                     if(verificarCredenciais(sEmail, sSenha)) {
                         showProgressDialog(R.string.carregando);
                         login.requestLogar(sEmail, sSenha);
@@ -181,7 +181,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectionCallba
         OnOffClickListener clickListenerGoogle = new OnOffClickListener() {
             @Override
             public void onOneClick(View v) {
-                if(VerificarConexao.verificarConexao(getActivity())) {
+                if(ConexaoChecker.verificarSeHaConexaoDisponivel(getActivity())) {
                     if(!googleApiClient.isConnecting()){
                         verificarPermissaoGoogleLogin();
                     }

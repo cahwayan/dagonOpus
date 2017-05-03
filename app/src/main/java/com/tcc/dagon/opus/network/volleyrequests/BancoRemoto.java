@@ -7,6 +7,8 @@ import com.tcc.dagon.opus.ui.curso.constantes.ModuloConstants;
  */
 public abstract class BancoRemoto {
 
+    public static final String ERRO_RESPOSTA = "ERRO_RESPOSTA";
+
     public static final String USUARIO_INTERNO = "0";
     public static final String USUARIO_GOOGLE = "1";
 
@@ -22,10 +24,13 @@ public abstract class BancoRemoto {
     private static final String scriptProgresso = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptProgresso.php";
     private static final String scriptPontuacao = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptPontuacao.php";
     private static final String scriptConquistas = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptConquistas.php";
+
     private static final String scriptDeleteDadosUsuario = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptDeleteDadosUsuario.php";
+    private static final String scriptSyncUser = "http://dagonopus.esy.es/phpAndroid/phpTeste/scripts/scriptSincronizarUsuario.php";
 
     private static final String certificadoUrl = "http://dagonopus.esy.es/phpAndroid/certificado.php";
     private static final String recuperarSenha = "http://dagonopus.esy.es/phpAndroid/recupera1.php";
+
 
     public static String getScriptCaminhoFoto() {
         return scriptCaminhoFoto;
@@ -33,6 +38,10 @@ public abstract class BancoRemoto {
 
     public static String getScriptDeleteDadosUsuario() {
         return scriptDeleteDadosUsuario;
+    }
+
+    public static String getScriptSyncUser() {
+        return scriptSyncUser;
     }
 
     public static String getScriptPontuacao() {

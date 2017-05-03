@@ -1,5 +1,6 @@
 package com.tcc.dagon.opus.network.volleyrequests.usuario;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -8,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tcc.dagon.opus.application.AppController;
+import com.tcc.dagon.opus.common.ConexaoChecker;
 import com.tcc.dagon.opus.network.volleyrequests.CustomJSONRequest;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import org.json.JSONObject;
@@ -26,10 +28,15 @@ public class RequestsUsuario {
     // Listener que lida com os callbacks dos requests. Precisa ser implementado na classe cliente.
     private UsuarioListener usuarioListener;
 
+    // Listener que responde ao método de sincronizar
+    private SyncUserListener syncUserListener;
+
     // Informações do usuário
     private String tipoUsuario;
     private String id;
     private String email;
+
+    private Context context;
 
     /**
      * Construtor para login
@@ -55,8 +62,18 @@ public class RequestsUsuario {
         this.id = id;
     }
 
+    public RequestsUsuario(Context context, String tipoUsuario, String id) {
+        this.tipoUsuario = tipoUsuario;
+        this.id = id;
+        this.context = context;
+    }
+
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setSyncUserListener(SyncUserListener syncUserListener) {
+        this.syncUserListener = syncUserListener;
     }
 
     /**
@@ -690,6 +707,38 @@ public class RequestsUsuario {
                 };
 
         AppController.getInstance().addToRequestQueue(request, tag);
+
+    }
+
+    public void syncUser() {
+
+        if(ConexaoChecker.verificarSeHaConexaoDisponivel(this)) {
+
+        final String tag = "request_sync_user: ";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST, BancoRemoto.getScriptSyncUser(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        syncUserListener.onSyncSuccess(response);
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        syncUserListener.onSyncError(tag, error.toString());
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return new UserInfoMap(context).getUserInfoMap();
+            }
+        };
+
+        AppController.getInstance().addToRequestQueue(request, tag);
+
 
     }
 

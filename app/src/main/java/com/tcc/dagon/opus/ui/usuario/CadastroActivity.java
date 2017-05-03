@@ -16,7 +16,7 @@ import com.tcc.dagon.opus.common.ProgressDialogHelper;
 import com.tcc.dagon.opus.data.sharedpreferences.GerenciadorSharedPreferences;
 import com.tcc.dagon.opus.common.ToastManager;
 import com.tcc.dagon.opus.common.ValidarEmail;
-import com.tcc.dagon.opus.common.VerificarConexao;
+import com.tcc.dagon.opus.common.ConexaoChecker;
 import com.tcc.dagon.opus.network.volleyrequests.BancoRemoto;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CadastroRequests;
 import com.tcc.dagon.opus.network.volleyrequests.cadastro.CallbackCadastro;
@@ -130,7 +130,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
     @Click
     protected void btnCadastra() {
         /* VERIFICAÇÃO DE SE O USUÁRIO ESTÁ CONECTADO */
-        if(VerificarConexao.verificarConexao(this)) {
+        if(ConexaoChecker.verificarSeHaConexaoDisponivel(this)) {
             cadastrar();
         } else {
             Toast.makeText(getApplicationContext(), "Sem conexão", Toast.LENGTH_LONG).show();
@@ -213,7 +213,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @UiThread
     protected void configureEditTextUnavailable() {
-        if(VerificarConexao.verificarConexao(this)) {
+        if(ConexaoChecker.verificarSeHaConexaoDisponivel(this)) {
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             textEmail.setTextColor(COR_VERMELHO);
             toastManager.toastShort("Email já cadastrado");
@@ -223,7 +223,7 @@ public class CadastroActivity extends AppCompatActivity implements CallbackCadas
 
     @UiThread
     protected void configureEditTextAvailable() {
-        if(VerificarConexao.verificarConexao(this)) {
+        if(ConexaoChecker.verificarSeHaConexaoDisponivel(this)) {
             textEmail.setTextColor(COR_VERDE);
             textEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_email_valido, 0);
         }
